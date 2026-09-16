@@ -79,6 +79,14 @@ function main() {
 		console.log(`extra ${extra.length} class(es) — allowed, but check each is intended:`);
 		for (const c of extra.slice(0, 40)) console.log(`  + ${c}`);
 		if (extra.length > 40) console.log(`  … ${extra.length - 40} more`);
+		console.log('');
+		console.log('Note: bare utility names (block, flex, grid, inline, relative, shadow,');
+		console.log('table, fixed, invisible) are expected. Tailwind extracts class candidates');
+		console.log('from raw text, and @source now covers heavily-commented PHP — so English');
+		console.log('prose like "flex and grid rows" or "inline SVG" becomes a candidate. The');
+		console.log('reference avoided this because its @source pointed at markup files. Cost');
+		console.log('is ~430 bytes raw, ~267 gzipped, against a 25 KB budget: real but');
+		console.log('negligible, and a false economy to fight by rewording documentation.');
 	}
 
 	if (!missing.length && !extra.length) console.log('Class inventory identical to the reference.');

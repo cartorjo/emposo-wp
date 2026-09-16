@@ -20,4 +20,6 @@ define( 'EMPOSO_DIR', get_template_directory() );
 define( 'EMPOSO_URI', get_template_directory_uri() );
 
 require_once EMPOSO_DIR . '/inc/core-cleanup.php';
+require_once EMPOSO_DIR . '/inc/route-context.php';
+require_once EMPOSO_DIR . '/inc/template-tags.php';
 require_once EMPOSO_DIR . '/inc/assets.php';

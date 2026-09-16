@@ -15,7 +15,7 @@
  */
 
 /** Attributes WordPress adds to its own <link>/<script> tags, carrying no meaning. */
-const INERT_ATTRS = new Set(['id', 'media', 'type']);
+const INERT_ATTRS = new Set(['id', 'media', 'type', 'data-wp-strategy']);
 
 const INERT_ATTR_VALUES = {
 	media: new Set(['all']),
@@ -78,8 +78,11 @@ export function parseAttributes(source) {
 }
 
 function serialiseAttributes(attrs) {
+	// Always double quotes. WordPress single-quotes the attributes on
+	// stylesheets it enqueues; the delimiter is not meaningful, so normalising
+	// it removes a difference that would otherwise appear on every page.
 	return attrs
-		.map(({ name, value, quote }) => (value === null ? name : `${name}=${quote}${value}${quote}`))
+		.map(({ name, value }) => (value === null ? name : `${name}="${value}"`))
 		.join(' ');
 }
 
@@ -96,6 +99,9 @@ function stripInertAttributes(tagName, attrs) {
 	return attrs.filter(({ name, value }) => {
 		if (!INERT_ATTRS.has(name)) return true;
 		if (name === 'id') return !/-(css|js)$/.test(value ?? '');
+		// data-wp-strategy mirrors the `defer` attribute WordPress already
+		// printed; it carries no behaviour of its own.
+		if (name === 'data-wp-strategy') return false;
 		return !INERT_ATTR_VALUES[name]?.has(value ?? '');
 	});
 }
@@ -106,10 +112,22 @@ function stripInertAttributes(tagName, attrs) {
  * Done on the whole document rather than per-attribute so it also covers
  * srcset candidate lists and url() inside inline style attributes.
  */
-export function rewriteAssetPaths(html, themeBase = '/wp-content/themes/emposo') {
+export function rewriteAssetPaths(html, themeBase = '/wp-content/themes/emposo', siteOrigin = '') {
 	const base = themeBase.replace(/\/$/, '');
 
-	return html
+	let out = html;
+
+	/*
+	 * WordPress emits absolute URLs (wp_enqueue_* and esc_url of a
+	 * get_template_directory_uri() path both do), while the static build emits
+	 * site-relative ones. Stripping the origin makes them comparable without
+	 * hiding a genuinely different path.
+	 */
+	if (siteOrigin) {
+		out = out.split(siteOrigin).join('');
+	}
+
+	return out
 		.split(`${base}/assets/css/`).join('/css/')
 		.split(`${base}/assets/js/`).join('/js/')
 		.split(`${base}/assets/`).join('/assets/')
@@ -212,14 +230,65 @@ export function canonicaliseTags(html) {
  * already-rewritten URLs, and attribute sorting operates on final values.
  *
  * @param {string} html
- * @param {{themeBase?: string}} [options]
+ * @param {{themeBase?: string, siteOrigin?: string}} [options]
  */
 export function normalise(html, options = {}) {
 	let out = html;
-	out = rewriteAssetPaths(out, options.themeBase ?? '/wp-content/themes/emposo');
+	out = rewriteAssetPaths(
+		out,
+		options.themeBase ?? '/wp-content/themes/emposo',
+		options.siteOrigin ?? ''
+	);
 	out = stripVersionQuery(out);
 	out = canonicaliseTags(out);
+	out = normaliseWhitespace(out);
 	return out;
+}
+
+/**
+ * Normalise inter-node whitespace to a single space, without removing it.
+ *
+ * The distinction this draws is the one that matters for layout. HTML renders
+ * any run of whitespace between two nodes identically — one space, four spaces,
+ * a tab, a newline, a blank line are all the same single space — but whether
+ * whitespace is PRESENT is significant: it becomes a text node, and between two
+ * inline-block or flex children that text node affects layout. So this
+ * normaliser makes the FORM of whitespace irrelevant while keeping its
+ * PRESENCE meaningful. Removing it is what `collapseWhitespace` does, and that
+ * is used only to classify a diff, never to compare.
+ *
+ * This is what lets the same harness accept three unavoidable differences —
+ * phpcbf retabbing HTML inside a PHP template part, wp_head() printing a
+ * leading newline, and WordPress's own indentation of enqueued tags — while
+ * still failing on a missing or added element, attribute or text.
+ *
+ * <pre> and <textarea> are excluded, where whitespace is significant. The site
+ * has neither, but a future one would otherwise be silently mangled.
+ *
+ * @param {string} html
+ */
+export function normaliseWhitespace(html) {
+	const protect = /<(pre|textarea)\b[\s\S]*?<\/\1>/gi;
+	const stash = [];
+	const masked = html.replace(protect, (match) => {
+		stash.push(match);
+		return `\u0000PROTECTED${stash.length - 1}\u0000`;
+	});
+
+	const normalised = masked
+		/*
+		 * Inside a comment, whitespace is entirely inert — comments render
+		 * nothing — so its form there is never meaningful. This matters because
+		 * the ported partials keep the static build's multi-line explanatory
+		 * comments, whose continuation lines phpcbf retabs.
+		 */
+		.replace(/<!--([\s\S]*?)-->/g, (_, body) => `<!--${body.replace(/\s+/g, ' ')}-->`)
+		// Between two tags: keep exactly one space.
+		.replace(/>\s+</g, '> <')
+		// Leading and trailing whitespace on the document as a whole.
+		.trim();
+
+	return normalised.replace(/\u0000PROTECTED(\d+)\u0000/g, (_, i) => stash[Number(i)]);
 }
 
 /** Collapse runs of whitespace — used only to classify a diff as whitespace-only. */

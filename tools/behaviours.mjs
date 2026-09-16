@@ -17,7 +17,7 @@
  */
 import path from 'node:path';
 import { chromium } from 'playwright';
-import { STATIC_ROOT, REPO_ROOT } from './routes.mjs';
+import { STATIC_ROOT } from './routes.mjs';
 import { serveStatic } from './static-server.mjs';
 
 const args = process.argv.slice(2);

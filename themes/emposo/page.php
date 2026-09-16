@@ -1,6 +1,6 @@
 <?php
 /**
- * Index template.
+ * Page template.
  *
  * A shim, like every root template: the route contract says which body belongs
  * to this URL, so all of them dispatch through emposo_the_body() rather than

@@ -44,12 +44,30 @@
 /* Scan the AUTHORING sources, not the generated output: every shipped page is
    assembled from sections/ + pages/ + partials/ (see assemble.mjs), so their
    class union covers all generated documents, including future page dirs. */
-@source "../sections";
-@source "../pages";
-@source "../pages.mjs";
-@source "../partials";
-@source "../content";
-@source "../js";
+/* WordPress port: the authoring sources are now PHP templates, template parts,
+   block patterns and the plugin's render helpers. Class names live in PHP
+   string literals as they previously lived in .mjs template literals — the
+   extractor is regex-based and language-agnostic, so this works unchanged.
+
+   Root-level theme templates are deliberately absent from this list: they are
+   markup-free get_template_part() shims, which is what keeps the list a short
+   closed set. tools/check-sources.mjs fails the build if one gains a class
+   attribute, or if any path here stops existing. */
+@source "../../parts";
+@source "../../patterns";
+@source "../../page-templates";
+@source "../../inc";
+@source "../../assets/js";
+@source "../../../../client-mu-plugins/emposo-core";
+
+/* Tailwind does NOT scan the database, so any utility class that exists only
+   inside imported post_content would be missing from the build with no error
+   anywhere. That is why hand-authored page bodies are registered as block
+   patterns in patterns/ — a scanned directory — and the importer inserts
+   pattern references rather than expanded HTML.
+   tools/class-inventory.mjs is the backstop: it fails on any class the
+   reference emits that this build does not. */
+@source not "../../../../client-mu-plugins/emposo-core/data";
 
 /* ---- design tokens --------------------------------------------------------
    The token system is calibrated for the user-relative 16px root (the old

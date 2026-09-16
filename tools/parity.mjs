@@ -57,20 +57,29 @@ async function fetchWp(route) {
 	return { status: res.status, html: await res.text() };
 }
 
-/** First differing line, with a little context — enough to locate the cause. */
+/**
+ * First divergence, as a character window.
+ *
+ * Normalisation collapses inter-node whitespace, so the normalised form is
+ * effectively one long line and a line number carries no information. A
+ * character offset plus surrounding context does.
+ */
 function firstDiff(a, b) {
-	const la = a.split('\n');
-	const lb = b.split('\n');
-	const max = Math.max(la.length, lb.length);
+	const max = Math.max(a.length, b.length);
+
 	for (let i = 0; i < max; i += 1) {
-		if (la[i] !== lb[i]) {
+		if (a[i] !== b[i]) {
+			// Back up to the start of the enclosing tag so the window begins
+			// somewhere meaningful rather than mid-attribute.
+			const from = Math.max(0, a.lastIndexOf('<', i) === -1 ? i - 40 : Math.min(a.lastIndexOf('<', i), i - 10 < 0 ? 0 : i - 10));
 			return {
-				line: i + 1,
-				expected: la[i] ?? '(end of document)',
-				actual: lb[i] ?? '(end of document)',
+				offset: i,
+				expected: a.slice(from, from + 170) || '(end of document)',
+				actual: b.slice(from, from + 170) || '(end of document)',
 			};
 		}
 	}
+
 	return null;
 }
 
@@ -126,8 +135,13 @@ async function main() {
 			}
 		}
 
+		const normaliseOptions = {
+			themeBase: config.themeBase,
+			// Only strip the origin on the WordPress side; the reference has none.
+			siteOrigin: SELF_TEST || AGAINST_STATIC ? '' : WP_BASE,
+		};
 		const expected = normalise(staticHtml, { themeBase: config.themeBase });
-		const got = normalise(actualHtml, { themeBase: config.themeBase });
+		const got = normalise(actualHtml, normaliseOptions);
 		const state = classify(expected, got);
 
 		const assetRoot = AGAINST_STATIC ? STATIC_ROOT : THEME_DIR;
@@ -195,9 +209,9 @@ async function main() {
 		for (const p of problems.slice(0, 8)) console.log(`              - ${p}`);
 		if (problems.length > 8) console.log(`              … ${problems.length - 8} more`);
 		if (r.diff) {
-			console.log(`              first diff at line ${r.diff.line}`);
-			console.log(`                expected: ${truncate(r.diff.expected)}`);
-			console.log(`                actual:   ${truncate(r.diff.actual)}`);
+			console.log(`              first diff at char ${r.diff.offset}`);
+			console.log(`                expected: ${truncate(r.diff.expected, 170)}`);
+			console.log(`                actual:   ${truncate(r.diff.actual, 170)}`);
 		}
 	}
 

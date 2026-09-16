@@ -1,12 +1,6 @@
 {
   "wpBase": "http://localhost:8888",
   "themeBase": "/wp-content/themes/emposo",
-  "allowedDeltas": [
-    {
-      "pattern": "^\\+<link href=\"/css/00-fonts\\.css\" rel=\"stylesheet\">$",
-      "reason": "PLACEHOLDER — remove once the head is ported. Kept so the allowlist mechanism is exercised before phase 5.",
-      "maxCount": 0
-    }
-  ],
-  "note": "Every entry needs a reason and a maxCount. A delta that is not listed fails the gate; the list is printed in every report and reviewed in the PR that adds to it."
+  "allowedDeltas": [],
+  "note": "Empty by design. Every WordPress-vs-static difference encountered so far turned out to be genuinely inert and is handled in tools/normalise.mjs, where it is documented and covered by a self-test assertion \u2014 rather than waived here. An entry in this list means \"we accept a real difference\"; needing one should prompt a hard look first. Each entry requires a pattern, a reason and a maxCount, and is printed in every report."
 }

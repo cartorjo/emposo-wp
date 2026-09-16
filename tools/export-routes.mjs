@@ -40,6 +40,48 @@ function slug(route) {
 	return trimmed.split('/').pop();
 }
 
+/**
+ * Resolve a route's body to a template kind the PHP side can act on.
+ *
+ * Kept here rather than in PHP so the mapping lives next to the manifest it is
+ * derived from, and so a manifest shape the exporter does not understand fails
+ * loudly at export time instead of rendering an empty page.
+ */
+function bodyFor(route) {
+	const content = route.content;
+
+	if (Array.isArray(content)) {
+		/*
+		 * An array may MIX directories: /portfolio/ is
+		 * ['pages/portfolio.html', 'sections/07aa-faq.html'] — the FAQ belongs
+		 * to the portfolio page, not the homepage. So emit each entry as a
+		 * parts/-relative path rather than a bare name, or the consumer cannot
+		 * tell which directory to look in.
+		 */
+		return {
+			kind: 'parts',
+			// Manifest order, not filename order: 03-models renders sixth.
+			parts: content.map((file) => file.replace(/\.html$/, '')),
+		};
+	}
+
+	if (typeof content !== 'string') {
+		throw new Error(`Unrecognised content for ${route.out}: ${JSON.stringify(content)}`);
+	}
+
+	for (const prefix of ['project', 'industry', 'discipline']) {
+		if (content.startsWith(`${prefix}:`)) {
+			return { kind: prefix, slug: content.slice(prefix.length + 1) };
+		}
+	}
+
+	if (content.startsWith('pages/')) {
+		return { kind: 'parts', parts: [content.replace(/\.html$/, '')] };
+	}
+
+	throw new Error(`Unrecognised content for ${route.out}: ${content}`);
+}
+
 function hashOf(file) {
 	return createHash('sha256').update(readFileSync(file)).digest('hex').slice(0, 16);
 }
@@ -67,6 +109,18 @@ const contract = {
 		nav: route.nav,
 		navGroup: route.navGroup,
 		navExact: route.navExact,
+
+		/*
+		 * How the static build produced this route's <main> content. Carried so
+		 * the WordPress templates can dispatch from the same source of truth:
+		 *   'pages/x.html'    -> parts/pages/x.php
+		 *   [ 'sections/..' ] -> an ordered list of parts/sections/*.php
+		 *   'project:slug'    -> the case-study renderer
+		 *   'industry:slug'   -> the industry renderer
+		 *   'discipline:slug' -> the discipline renderer
+		 */
+		content: route.content,
+		body: bodyFor(route),
 	})),
 };
 

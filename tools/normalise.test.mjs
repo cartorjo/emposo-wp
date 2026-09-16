@@ -13,6 +13,7 @@ import {
 	rewriteAssetPaths,
 	stripVersionQuery,
 	collapseWhitespace,
+	normaliseWhitespace,
 } from './normalise.mjs';
 
 let pass = 0;
@@ -131,13 +132,25 @@ t('changed text content still fails', () => {
 	assert.notEqual(normalise('<p>Über 70 %</p>'), normalise('<p>70 %</p>'));
 });
 
-t('whitespace is NOT collapsed by normalise', () => {
+t('whitespace PRESENCE is still significant', () => {
+	// The critical property: a flex/grid row with an inter-element text node
+	// lays out differently from one without, so this must still fail.
 	assert.notEqual(normalise('<span>a</span> <span>b</span>'), normalise('<span>a</span><span>b</span>'));
-	// ...but is detectable as whitespace-only via the separate helper.
+	// ...but it is detectable as whitespace-only via the separate helper.
 	assert.equal(
 		collapseWhitespace(normalise('<span>a</span> <span>b</span>')),
 		collapseWhitespace(normalise('<span>a</span><span>b</span>'))
 	);
+});
+
+t('whitespace FORM is irrelevant: tabs, spaces, newlines, blank lines all agree', () => {
+	const variants = [
+		'<div>\n\t<p>a</p>\n</div>',
+		'<div>\n  <p>a</p>\n</div>',
+		'<div> <p>a</p> </div>',
+		'<div>\n\n\n<p>a</p>\n\n</div>',
+	].map((h) => normalise(h));
+	assert.equal(new Set(variants).size, 1, `expected one normal form, got ${new Set(variants).size}`);
 });
 
 t('comments pass through unchanged', () => {
@@ -152,6 +165,72 @@ t('doctype passes through unchanged', () => {
 t('idempotent', () => {
 	const html = '<link href="/css/site.css?ver=9" id="x-css" media="all" rel="stylesheet">';
 	assert.equal(normalise(normalise(html)), normalise(html));
+});
+
+
+// --- WordPress-specific inert deltas (added during the template port) -----
+t('inter-node whitespace is normalised to one space, not removed', () => {
+	assert.ok(normalise('<div>\n\t\t<p>a</p>\n</div>').includes('> <p>'));
+	assert.ok(!normalise('<div>\n\t\t<p>a</p>\n</div>').includes('><p>'));
+});
+
+t('a blank line from wp_head() is inert', () => {
+	assert.equal(
+		normaliseWhitespace('<meta charset="utf-8">\n\n<link rel="stylesheet">'),
+		normaliseWhitespace('<meta charset="utf-8">\n<link rel="stylesheet">')
+	);
+});
+
+t('whitespace inside <pre> is left alone', () => {
+	const html = '<pre>\n\tkeep\tthis\n</pre>';
+	assert.ok(normalise(html).includes('\tkeep\tthis'));
+});
+
+t('single-quoted attributes match double-quoted ones', () => {
+	assert.equal(
+		normalise(`<link rel='stylesheet' href='/css/site.css'>`),
+		normalise('<link rel="stylesheet" href="/css/site.css">')
+	);
+});
+
+t('data-wp-strategy is stripped (it mirrors defer)', () => {
+	assert.equal(
+		normalise('<script defer data-wp-strategy="defer" src="/js/00-core.js"></script>'),
+		normalise('<script defer src="/js/00-core.js"></script>')
+	);
+});
+
+t('a genuinely different quote VALUE still fails', () => {
+	assert.notEqual(normalise(`<a href='/a/'>`), normalise('<a href="/b/">'));
+});
+
+
+t('the site origin is stripped from absolute URLs', () => {
+	assert.equal(
+		normalise('<link href="http://localhost:8888/css/site.css" rel="stylesheet">', {
+			siteOrigin: 'http://localhost:8888',
+		}),
+		normalise('<link href="/css/site.css" rel="stylesheet">')
+	);
+});
+
+t('a different host is NOT silently stripped', () => {
+	const out = normalise('<img src="https://cdn.example.com/a.jpg">', {
+		siteOrigin: 'http://localhost:8888',
+	});
+	assert.ok(out.includes('https://cdn.example.com/a.jpg'), 'off-host URLs must stay visible');
+});
+
+
+t('whitespace inside a comment is inert', () => {
+	assert.equal(
+		normalise('<!-- a\n       b -->'),
+		normalise('<!-- a\n  b -->')
+	);
+});
+
+t('comment TEXT still matters', () => {
+	assert.notEqual(normalise('<!-- preview build -->'), normalise('<!-- production build -->'));
 });
 
 console.log(`normaliser: ${pass} assertions passed`);

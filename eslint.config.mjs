@@ -36,7 +36,10 @@ export default [
 		languageOptions: {
 			ecmaVersion: 2024,
 			sourceType: 'module',
-			globals: { ...globals.node },
+			// Node AND browser: the harness runs in Node but page.evaluate()
+			// callbacks are serialised and executed in the browser, so window
+			// and document are legitimately in scope inside them.
+			globals: { ...globals.node, ...globals.browser },
 		},
 		rules: {
 			'no-undef': 'error',

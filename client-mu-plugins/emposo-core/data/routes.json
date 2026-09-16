@@ -23,7 +23,28 @@
 			],
 			"nav": "home",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": [
+				"sections/02-hero.html",
+				"sections/02b-expertise.html",
+				"sections/04-about.html",
+				"sections/05-industries.html",
+				"sections/06-work.html",
+				"sections/03-models.html",
+				"sections/07b-sales-cta.html"
+			],
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"sections/02-hero",
+					"sections/02b-expertise",
+					"sections/04-about",
+					"sections/05-industries",
+					"sections/06-work",
+					"sections/03-models",
+					"sections/07b-sales-cta"
+				]
+			}
 		},
 		{
 			"url": "/expertise/",
@@ -39,7 +60,14 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/expertise.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/expertise"
+				]
+			}
 		},
 		{
 			"url": "/portfolio/",
@@ -55,7 +83,18 @@
 			],
 			"nav": "portfolio",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": [
+				"pages/portfolio.html",
+				"sections/07aa-faq.html"
+			],
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/portfolio",
+					"sections/07aa-faq"
+				]
+			}
 		},
 		{
 			"url": "/case-studies/",
@@ -72,7 +111,14 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/case-studies.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/case-studies"
+				]
+			}
 		},
 		{
 			"url": "/case-studies/data2ai-platform/",
@@ -88,7 +134,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:data2ai-platform",
+			"body": {
+				"kind": "project",
+				"slug": "data2ai-platform"
+			}
 		},
 		{
 			"url": "/about-us/",
@@ -104,7 +155,14 @@
 			],
 			"nav": "about",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/about-us.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/about-us"
+				]
+			}
 		},
 		{
 			"url": "/branchen/",
@@ -121,7 +179,14 @@
 			],
 			"nav": "branchen",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/branchen.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/branchen"
+				]
+			}
 		},
 		{
 			"url": "/karriere/",
@@ -137,7 +202,14 @@
 			],
 			"nav": "karriere",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/karriere.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/karriere"
+				]
+			}
 		},
 		{
 			"url": "/kontakt/",
@@ -155,7 +227,14 @@
 			],
 			"nav": "kontakt",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/kontakt.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/kontakt"
+				]
+			}
 		},
 		{
 			"url": "/expertise/engineering/",
@@ -171,7 +250,14 @@
 			],
 			"nav": "expertise-engineering",
 			"navGroup": "expertise",
-			"navExact": true
+			"navExact": true,
+			"content": "pages/expertise-engineering.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/expertise-engineering"
+				]
+			}
 		},
 		{
 			"url": "/expertise/technology/",
@@ -187,7 +273,14 @@
 			],
 			"nav": "expertise-technology",
 			"navGroup": "expertise",
-			"navExact": true
+			"navExact": true,
+			"content": "pages/expertise-technology.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/expertise-technology"
+				]
+			}
 		},
 		{
 			"url": "/expertise/ai-daten/",
@@ -203,7 +296,14 @@
 			],
 			"nav": "expertise-ai-daten",
 			"navGroup": "expertise",
-			"navExact": true
+			"navExact": true,
+			"content": "pages/expertise-ai-daten.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/expertise-ai-daten"
+				]
+			}
 		},
 		{
 			"url": "/portfolio/optimieren/",
@@ -219,7 +319,14 @@
 			],
 			"nav": "portfolio-optimieren",
 			"navGroup": "portfolio",
-			"navExact": true
+			"navExact": true,
+			"content": "pages/portfolio-optimieren.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/portfolio-optimieren"
+				]
+			}
 		},
 		{
 			"url": "/portfolio/transformieren/",
@@ -235,7 +342,14 @@
 			],
 			"nav": "portfolio-transformieren",
 			"navGroup": "portfolio",
-			"navExact": true
+			"navExact": true,
+			"content": "pages/portfolio-transformieren.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/portfolio-transformieren"
+				]
+			}
 		},
 		{
 			"url": "/portfolio/skalieren/",
@@ -251,7 +365,14 @@
 			],
 			"nav": "portfolio-skalieren",
 			"navGroup": "portfolio",
-			"navExact": true
+			"navExact": true,
+			"content": "pages/portfolio-skalieren.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/portfolio-skalieren"
+				]
+			}
 		},
 		{
 			"url": "/__parity-404__/",
@@ -267,7 +388,14 @@
 			],
 			"nav": "none",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/404.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/404"
+				]
+			}
 		},
 		{
 			"url": "/portfolio/verzahnen/",
@@ -283,7 +411,14 @@
 			],
 			"nav": "portfolio-verzahnen",
 			"navGroup": "portfolio",
-			"navExact": true
+			"navExact": true,
+			"content": "pages/portfolio-verzahnen.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/portfolio-verzahnen"
+				]
+			}
 		},
 		{
 			"url": "/case-studies/engineering-wissensbasis/",
@@ -299,7 +434,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:engineering-wissensbasis",
+			"body": {
+				"kind": "project",
+				"slug": "engineering-wissensbasis"
+			}
 		},
 		{
 			"url": "/case-studies/rechenzentrums-umzug/",
@@ -315,7 +455,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:rechenzentrums-umzug",
+			"body": {
+				"kind": "project",
+				"slug": "rechenzentrums-umzug"
+			}
 		},
 		{
 			"url": "/case-studies/mlops-medizinprodukte/",
@@ -331,7 +476,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:mlops-medizinprodukte",
+			"body": {
+				"kind": "project",
+				"slug": "mlops-medizinprodukte"
+			}
 		},
 		{
 			"url": "/case-studies/wissens-assistent/",
@@ -347,7 +497,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:wissens-assistent",
+			"body": {
+				"kind": "project",
+				"slug": "wissens-assistent"
+			}
 		},
 		{
 			"url": "/case-studies/multi-site-transition/",
@@ -363,7 +518,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:multi-site-transition",
+			"body": {
+				"kind": "project",
+				"slug": "multi-site-transition"
+			}
 		},
 		{
 			"url": "/case-studies/homologationstests/",
@@ -379,7 +539,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:homologationstests",
+			"body": {
+				"kind": "project",
+				"slug": "homologationstests"
+			}
 		},
 		{
 			"url": "/case-studies/managed-service/",
@@ -395,7 +560,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:managed-service",
+			"body": {
+				"kind": "project",
+				"slug": "managed-service"
+			}
 		},
 		{
 			"url": "/case-studies/fahrzeugfunktionen/",
@@ -411,7 +581,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:fahrzeugfunktionen",
+			"body": {
+				"kind": "project",
+				"slug": "fahrzeugfunktionen"
+			}
 		},
 		{
 			"url": "/case-studies/technische-dokumentation/",
@@ -427,7 +602,12 @@
 			],
 			"nav": "case-studies",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "project:technische-dokumentation",
+			"body": {
+				"kind": "project",
+				"slug": "technische-dokumentation"
+			}
 		},
 		{
 			"url": "/expertise/system-engineering/",
@@ -443,7 +623,12 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "discipline:system-engineering",
+			"body": {
+				"kind": "discipline",
+				"slug": "system-engineering"
+			}
 		},
 		{
 			"url": "/expertise/produktion-industrialisierung/",
@@ -459,7 +644,12 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "discipline:produktion-industrialisierung",
+			"body": {
+				"kind": "discipline",
+				"slug": "produktion-industrialisierung"
+			}
 		},
 		{
 			"url": "/expertise/test-validierung/",
@@ -475,7 +665,12 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "discipline:test-validierung",
+			"body": {
+				"kind": "discipline",
+				"slug": "test-validierung"
+			}
 		},
 		{
 			"url": "/expertise/engineering-services/",
@@ -491,7 +686,12 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "discipline:engineering-services",
+			"body": {
+				"kind": "discipline",
+				"slug": "engineering-services"
+			}
 		},
 		{
 			"url": "/expertise/software-cloud/",
@@ -507,7 +707,12 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "discipline:software-cloud",
+			"body": {
+				"kind": "discipline",
+				"slug": "software-cloud"
+			}
 		},
 		{
 			"url": "/expertise/cyber-compliance/",
@@ -523,7 +728,12 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "discipline:cyber-compliance",
+			"body": {
+				"kind": "discipline",
+				"slug": "cyber-compliance"
+			}
 		},
 		{
 			"url": "/expertise/enterprise-services/",
@@ -539,7 +749,12 @@
 			],
 			"nav": "expertise",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "discipline:enterprise-services",
+			"body": {
+				"kind": "discipline",
+				"slug": "enterprise-services"
+			}
 		},
 		{
 			"url": "/branchen/aerospace-defense/",
@@ -555,7 +770,12 @@
 			],
 			"nav": "branchen",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "industry:aerospace-defense",
+			"body": {
+				"kind": "industry",
+				"slug": "aerospace-defense"
+			}
 		},
 		{
 			"url": "/branchen/energy-resources/",
@@ -571,7 +791,12 @@
 			],
 			"nav": "branchen",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "industry:energy-resources",
+			"body": {
+				"kind": "industry",
+				"slug": "energy-resources"
+			}
 		},
 		{
 			"url": "/branchen/health-pharma/",
@@ -587,7 +812,12 @@
 			],
 			"nav": "branchen",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "industry:health-pharma",
+			"body": {
+				"kind": "industry",
+				"slug": "health-pharma"
+			}
 		},
 		{
 			"url": "/branchen/industrials-manufacturing/",
@@ -603,7 +833,12 @@
 			],
 			"nav": "branchen",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "industry:industrials-manufacturing",
+			"body": {
+				"kind": "industry",
+				"slug": "industrials-manufacturing"
+			}
 		},
 		{
 			"url": "/branchen/technology-telecoms-media/",
@@ -619,7 +854,12 @@
 			],
 			"nav": "branchen",
 			"navGroup": null,
-			"navExact": false
+			"navExact": false,
+			"content": "industry:technology-telecoms-media",
+			"body": {
+				"kind": "industry",
+				"slug": "technology-telecoms-media"
+			}
 		},
 		{
 			"url": "/cookies/",
@@ -635,7 +875,14 @@
 			],
 			"nav": "none",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/cookies.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/cookies"
+				]
+			}
 		},
 		{
 			"url": "/barrierefreiheit/",
@@ -651,7 +898,14 @@
 			],
 			"nav": "none",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/barrierefreiheit.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/barrierefreiheit"
+				]
+			}
 		},
 		{
 			"url": "/sitemap/",
@@ -667,7 +921,14 @@
 			],
 			"nav": "none",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/sitemap.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/sitemap"
+				]
+			}
 		},
 		{
 			"url": "/zertifizierungen/",
@@ -683,7 +944,14 @@
 			],
 			"nav": "none",
 			"navGroup": null,
-			"navExact": true
+			"navExact": true,
+			"content": "pages/zertifizierungen.html",
+			"body": {
+				"kind": "parts",
+				"parts": [
+					"pages/zertifizierungen"
+				]
+			}
 		}
 	]
 }
