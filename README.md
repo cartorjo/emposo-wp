@@ -1,0 +1,61 @@
+# Emposo WordPress
+
+WordPress theme + site plugin for Emposo. A port of the `weave-clone` static
+site, built to WordPress VIP standards on self-hosted WordPress.
+
+## Run locally
+
+```bash
+colima start --cpu 4 --memory 8   # Docker daemon; nothing works without it
+npm ci
+npm run composer:install          # runs inside php:8.3-cli — there is no host PHP
+npm run wp:start                  # http://localhost:8888
+npm run wp:seed                   # wp emposo import all (idempotent)
+```
+
+`npm run wp -- <args>` runs WP-CLI in the container, e.g.
+`npm run wp -- emposo verify --routes`.
+
+## Gates
+
+| Command | Asserts |
+|---|---|
+| `npm run check` | lint, CSS build, class inventory, DOM parity on all 41 routes, no drift |
+| `npm run parity -- --strict` | Every route matches `reference/static/` after normalisation |
+| `npm run class-inventory` | The built CSS emits a superset of the reference's 239 classes |
+| `npm run behaviours` | Interaction, filter, deep-link, count-up and no-JS contracts |
+| `npm run audit` | Layout/header probes, axe, budgets, HTTP 200 not 301 |
+| `npm run phpcs` / `npm run phpstan` | WordPress + VIP standards; static analysis at level 8 |
+| `npm run audit:deps` | Clean production tree; no high dev advisories |
+
+## Layout
+
+Presentation lives in `themes/emposo/`. Everything stateful — content types,
+taxonomies, meta, blocks, image helpers, settings, the dashboard and the CLI
+commands — lives in `client-mu-plugins/emposo-core/`, so content survives a
+theme change. `reference/static/` is the audited static build, pinned to
+`c471ef0`; treat it as read-only.
+
+## Things that look optional and are not
+
+- **No `theme.json`.** Core's global-styles output is inline and *unlayered*,
+  and unlayered CSS beats every layered rule regardless of order — it would
+  outrank the theme's whole `@layer` cascade. It is emitted even without a
+  `theme.json`, so it is dequeued explicitly too.
+- **`wp_head()` prints last**, where the static build's `{{SCRIPTS}}` token sat.
+  Anything that must come earlier is literal in `parts/head.php`. This is why
+  `add_theme_support( 'title-tag' )` is not used and the font preloads are not
+  emitted through `wp_preload_resources`: both print at `wp_head` priority 1,
+  which here lands *after* the render-blocking CSS.
+- **Every script needs `'strategy' => 'defer'`.** `WP_Scripts` intersects a
+  script's strategy with its dependents', so one omission silently makes Lenis
+  and `00-core.js` render-blocking on every page.
+- **`has_archive => false`** on `emposo_case_study`. `true` emits a
+  `case-studies/?$` rule above the page rules and 404s the hub page.
+- **`html { font-size: 100% }`** is an accessibility fix, not a default. Never
+  reintroduce a `vw`-scaled root.
+- **Zero third-party requests** from a visitor. A hard GDPR rule, which is also
+  what makes a `default-src 'self'` CSP achievable.
+
+The measured performance bars are only reachable behind a full-page cache,
+measured logged out. See the plan for the numbers and their provenance.
