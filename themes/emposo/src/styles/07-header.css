@@ -1,0 +1,284 @@
+/* Site header, megamenu and mobile menu.
+   Layout rules the old header violated (and this file guarantees):
+   - header content sits inside .gutter > .container, on the same grid as
+     every section below it;
+   - the flex row has an explicit gap, so the CTA can never touch KARRIERE;
+   - every top-bar item is flex:none + nowrap, and below --breakpoint-nav
+     (1280px, mirrored in js/01-header.js) the desktop items disappear
+     entirely — there is no width at which the bar can overflow or overlap;
+   - the mega panels are positioned off the sticky header itself (top: 100%),
+     so they stay glued when .is-scrolled shrinks the bar. */
+
+.skip-link {
+  background: #fff;
+  color: var(--color-ink);
+  left: 0.75rem;
+  padding: 0.8rem 1rem;
+  position: fixed;
+  text-decoration: none;
+  top: 0.75rem;
+  transform: translateY(-180%);
+  transition: transform var(--duration-fast) ease;
+  z-index: 100;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--color-line);
+  backdrop-filter: blur(14px);
+  transition: box-shadow var(--duration-fast) ease;
+}
+.site-header.is-scrolled { box-shadow: var(--shadow-raised); }
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-height: var(--header-h);
+  transition: min-height var(--duration-fast) var(--ease-em);
+}
+.site-header.is-scrolled .site-header__inner { min-height: var(--header-h-scrolled); }
+
+.site-logo { display: flex; align-items: center; flex: none; min-height: 2.75rem; width: 9.675rem; max-width: 50%; text-decoration: none; }
+.site-logo img { width: 100%; height: auto; }
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: clamp(1.125rem, 0.5rem + 1vw, 1.75rem);
+  min-width: 0;
+}
+
+.site-nav > a,
+.site-nav__group > summary,
+.header-careers {
+  align-items: center;
+  color: var(--color-ink);
+  display: flex;
+  flex: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-decoration: none;
+  text-transform: none;
+  transition: color var(--duration-fast) ease;
+  white-space: nowrap;
+}
+.site-nav > a:hover,
+.site-nav__group > summary:hover,
+.header-careers:hover { color: var(--color-accent-text); }
+.site-nav a[aria-current],
+.header-careers[aria-current],
+.site-nav__group.is-current > summary,
+.site-nav__group[open] > summary { color: var(--color-ink); }
+
+.header-contact {
+  align-items: center;
+  background: var(--color-lemon);
+  color: var(--color-ink);
+  display: inline-flex;
+  flex: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  gap: 0.6rem;
+  letter-spacing: var(--tracking-caps);
+  padding: 0.875rem 1.375rem;
+  text-decoration: none;
+  text-transform: none;
+  transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
+  white-space: nowrap;
+}
+.header-contact:hover { background: var(--color-ink); color: #fff; }
+
+/* Megamenu ------------------------------------------------------------------
+   Native <details>: opens on click, fully usable without JS. The panel is a
+   full-width sheet under the header, its inner grid re-aligned to .container. */
+.site-nav__group > summary {
+  cursor: pointer;
+  gap: 0.45rem;
+  list-style: none;
+}
+.site-nav__group > summary::-webkit-details-marker { display: none; }
+.site-nav__group > summary::after {
+  border-bottom: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  content: "";
+  height: 0.38rem;
+  margin-top: -0.18rem;
+  transform: rotate(45deg);
+  transition: transform var(--duration-fast) ease;
+  width: 0.38rem;
+}
+.site-nav__group[open] > summary::after { transform: rotate(225deg) translate(-0.12rem, -0.12rem); }
+
+.mega-panel {
+  background: #fff;
+  border-bottom: 1px solid var(--color-line);
+  box-shadow: var(--shadow-overlay);
+  left: 0;
+  padding-block: var(--spacing-lg);
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 60;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav__group[open] .mega-panel { animation: mega-panel-in var(--duration-fast) var(--ease-em); }
+}
+@keyframes mega-panel-in {
+  from { opacity: 0; transform: translateY(-0.5rem); }
+}
+.mega-panel__grid {
+  align-items: start;
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: 1.15fr 1fr 1fr 1fr 1.2fr;
+}
+.mega-panel__eyebrow {
+  color: var(--color-accent-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps-wide);
+  text-transform: none;
+}
+.mega-panel__intro > p:last-child {
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 0.9rem;
+  max-width: 16rem;
+}
+.mega-panel__all {
+  align-items: center;
+  color: var(--color-ink);
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  gap: 0.6rem;
+  letter-spacing: var(--tracking-caps);
+  margin-top: 0.9rem;
+  min-height: 2.75rem;
+  text-decoration: none;
+  text-transform: none;
+}
+.mega-panel__all span[aria-hidden] { font-size: 1.2em; transition: transform var(--duration-fast) var(--ease-em); }
+.mega-panel__all:hover span[aria-hidden] { transform: translateX(0.25rem); }
+.mega-panel__item {
+  border-top: 1px solid var(--color-line);
+  color: var(--color-ink);
+  display: grid;
+  gap: 0.45rem;
+  padding-top: var(--spacing-rule);
+  text-decoration: none;
+}
+.mega-panel__item strong {
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  transition: color var(--duration-fast) ease;
+}
+.mega-panel__item > span:last-child {
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.mega-panel__num {
+  color: var(--color-accent-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps-wide);
+}
+.mega-panel__item:hover strong,
+.mega-panel__item:focus-visible strong,
+.mega-panel__item[aria-current] strong { color: var(--color-ink); font-weight: 700; }
+.mega-panel__featured {
+  border-left: 1px solid var(--color-line);
+  display: grid;
+  gap: 0.6rem;
+  padding-left: var(--spacing-md);
+}
+.mega-panel__featured a {
+  color: var(--color-ink);
+  display: grid;
+  gap: 0.45rem;
+  text-decoration: none;
+}
+.mega-panel__featured strong {
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  transition: color var(--duration-fast) ease;
+}
+.mega-panel__featured a:hover strong { color: var(--color-ink); font-weight: 700; }
+.mega-panel__featured span {
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+/* Mobile menu ---------------------------------------------------------------
+   One grouped list with every destination (the old flat menu hid all
+   sub-pages). Native <details>; 44px targets; scrolls inside 100dvh. */
+.mobile-menu { flex: none; margin-left: auto; position: relative; }
+.mobile-menu summary {
+  align-items: center;
+  color: var(--color-ink);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  gap: 0.75rem;
+  letter-spacing: var(--tracking-caps);
+  list-style: none;
+  padding: 1.125rem 0 1.125rem 1.35rem;
+  text-transform: none;
+  white-space: nowrap;
+}
+.mobile-menu summary::-webkit-details-marker { display: none; }
+.mobile-menu summary span:last-child { font-size: 1.3em; line-height: 1; transition: transform var(--duration-fast) var(--ease-em); }
+.mobile-menu[open] summary span:last-child { transform: rotate(45deg); }
+.mobile-menu__panel {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-overlay);
+  display: grid;
+  max-height: calc(100dvh - var(--header-h) - 1.5rem);
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  width: var(--spacing-menu);
+  z-index: 60;
+}
+.mobile-menu__label {
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-accent-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps-wide);
+  padding: 1.1rem 1.35rem 0.5rem;
+  text-transform: none;
+}
+.mobile-menu__panel a {
+  align-items: center;
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-ink);
+  display: flex;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  min-height: 2.75rem;
+  padding: 0.7rem 1.35rem;
+  text-decoration: none;
+  text-transform: none;
+}
+.mobile-menu__panel a[aria-current] { font-weight: 700; }
+.mobile-menu__panel a:last-child { border-bottom: 0; }
+.mobile-menu__cta { background: var(--color-lemon); }

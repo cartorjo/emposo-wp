@@ -1,0 +1,60 @@
+/* ============================================================================
+   00-base-remainder.css — leftover hand-written CSS with no utility-class
+   equivalent and no override conflict to worry about (nothing currently adds
+   a competing utility class alongside `.skip-link`, `.u-hide-mobile`, etc.).
+   Stays unlayered plain CSS; see main.css for the element-defaults (@layer
+   base) and shared-component (@layer components) content that used to live
+   in this file.
+   ========================================================================= */
+
+/* main is the skip target; no ring on programmatic focus */
+main:focus {
+  outline: none;
+}
+
+/* ---- Focus visibility -------------------------------------------------- */
+/* Two-tone ring: the white box-shadow fills the offset gap, the ink outline
+   sits outside it — visible on any ground. (The previous currentColor-only
+   ring vanished when the offset ring landed on a matching parent ground,
+   e.g. the white-on-black sales CTA focused against the white section.) */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Legacy Safari renders its own disclosure marker regardless of the
+   `list-none`/`marker:content-none` utilities used on FAQ summaries. */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ---- Lenis integration (tokens §7.2) ----------------------------------- */
+
+html.lenis,
+html.lenis body,
+body.lenis {
+  height: auto !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* ---- Reduced motion (motion.md §12) ------------------------------------ */
+/* JS skips Lenis + entrance fades under reduce; this kills leftover CSS motion.
+   Hover COLOR changes survive (duration ~0 = instant state), transforms don't. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

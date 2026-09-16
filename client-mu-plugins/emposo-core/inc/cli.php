@@ -22,6 +22,7 @@ if ( ! ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 
 require_once EMPOSO_CORE_DIR . '/cli/class-verify-command.php';
 require_once EMPOSO_CORE_DIR . '/cli/class-scaffold-command.php';
+require_once EMPOSO_CORE_DIR . '/cli/class-import-command.php';
 
 \WP_CLI::add_command(
 	'emposo verify',
@@ -36,5 +37,13 @@ require_once EMPOSO_CORE_DIR . '/cli/class-scaffold-command.php';
 	__NAMESPACE__ . '\\Scaffold_Command',
 	array(
 		'shortdesc' => 'Create the empty route skeleton from the frozen route contract.',
+	)
+);
+
+\WP_CLI::add_command(
+	'emposo import',
+	__NAMESPACE__ . '\\Import_Command',
+	array(
+		'shortdesc' => 'Seed content from the frozen export. Subcommands run in dependency order.',
 	)
 );

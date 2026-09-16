@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264.3 71.49" aria-hidden="true" focusable="false">
+  <defs>
+    <style>
+      .emlogo-ls1 { letter-spacing: .09em; }
+      .emlogo-ls2 { letter-spacing: .11em; }
+      .emlogo-ls3 { letter-spacing: .1em; }
+      .emlogo-text { font-family: "Roboto", system-ui, sans-serif; font-size: 17.43px; font-weight: 700; }
+      .emlogo-text, .emlogo-ink { fill: currentColor; }
+      .emlogo-accent { fill: #f7911e; }
+      .emlogo-ls4 { letter-spacing: .08em; }
+      .emlogo-rule { fill: none; stroke: currentColor; stroke-miterlimit: 10; }
+    </style>
+  </defs>
+  <g>
+    <g>
+      <path class="emlogo-ink" d="M59.73,36.27V3.76h23.23v5.74h-17.22v7.29h14.74v5.68h-14.74v8.11h17.22v5.68h-23.23Z"/>
+      <path class="emlogo-ink" d="M116.64,36.27v-15.29l.28-5.91-2.48,4.91-5.57,9.11h-3.26l-5.63-9.11-2.48-4.97.28,5.96v15.29h-6.24V3.76h5.35l10.32,17.49,10.32-17.49h5.3v32.51h-6.18Z"/>
+      <path class="emlogo-ink" d="M145.45,24.79h-7.23v11.48h-6.02V3.76h13.69c6.68,0,10.49,3.48,10.49,9.22v1.82c0,6.35-3.7,9.99-10.93,9.99ZM150.36,13.48c0-3.09-.94-3.97-4.41-3.97h-7.73v9.55h7.01c4.19,0,5.13-.99,5.13-4.03v-1.54Z"/>
+      <path class="emlogo-ink" d="M180.22,36.66h-4.47c-6.79,0-11.64-4.47-11.64-11.2v-10.87c0-6.73,4.86-11.2,11.59-11.2h4.47c6.79,0,11.64,4.47,11.64,11.2v10.87c0,6.73-4.86,11.2-11.59,11.2ZM185.74,14.58c0-3.53-1.93-5.57-5.57-5.57h-4.36c-3.7,0-5.63,2.04-5.63,5.57v10.87c0,3.59,1.93,5.57,5.57,5.57h4.36c3.7,0,5.63-1.99,5.63-5.57v-10.87Z"/>
+      <path class="emlogo-ink" d="M211.47,36.71c-3.64,0-7.73-.61-11.2-1.66v-5.91c3.59,1.1,7.39,1.93,11.15,1.93,5.46,0,6.62-1.16,6.62-4.31,0-6.51-18.49-1.27-18.49-14.02,0-5.74,4.19-9.38,12.14-9.38,3.37,0,6.9.5,10.1,1.49v5.85c-2.93-.88-7.01-1.66-10.04-1.66-5.02,0-6.18,1.05-6.18,3.7,0,6.84,18.49.94,18.49,14.02,0,6.4-3.7,9.93-12.58,9.93Z"/>
+      <path class="emlogo-ink" d="M246.24,36.66h-4.47c-6.79,0-11.64-4.47-11.64-11.2v-10.87c0-6.73,4.86-11.2,11.59-11.2h4.47c6.79,0,11.64,4.47,11.64,11.2v10.87c0,6.73-4.86,11.2-11.59,11.2ZM251.76,14.58c0-3.53-1.93-5.57-5.57-5.57h-4.36c-3.7,0-5.63,2.04-5.63,5.57v10.87c0,3.59,1.93,5.57,5.57,5.57h4.36c3.7,0,5.63-1.99,5.63-5.57v-10.87Z"/>
+    </g>
+    <g>
+      <rect class="emlogo-accent" x="20.25" y="3.97" width="14.69" height="5.78"/>
+      <polygon class="emlogo-ink" points="34.94 30.23 47.4 19.42 34.94 9.75 34.94 3.97 36.03 3.97 55.22 19.42 36.03 36.01 34.94 36.01 34.94 30.23"/>
+      <path class="emlogo-ink" d="M20.24,16.68V3.97h-4.51c-.75,0-1.35.6-1.35,1.35v11.36s-11.72,0-11.72,0v5.77h11.72v12.21c0,.75.6,1.35,1.35,1.35h4.51v-13.56h11.8v-5.77s-11.8,0-11.8,0Z"/>
+      <rect class="emlogo-accent" x="20.25" y="30.23" width="14.69" height="5.78"/>
+    </g>
+    <line class="emlogo-rule" x1="2.63" y1="43.48" x2="257.92" y2="43.17"/>
+  </g>
+  <text class="emlogo-text" transform="translate(31.98 63.77)"><tspan class="emlogo-ls3" x="0" y="0">The Outcome </tspan><tspan class="emlogo-ls4" x="130.7" y="0">F</tspan><tspan class="emlogo-ls3" x="141.7" y="0">ac</tspan><tspan class="emlogo-ls1" x="163.62" y="0">t</tspan><tspan class="emlogo-ls3" x="171" y="0">o</tspan><tspan class="emlogo-ls2" x="182.6" y="0">r</tspan><tspan class="emlogo-ls3" x="190.85" y="0">y</tspan></text>
+</svg>

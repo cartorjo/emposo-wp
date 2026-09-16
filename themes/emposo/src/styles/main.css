@@ -1,0 +1,311 @@
+/* ============================================================================
+   styles/main.css — Tailwind v4 entry point.
+
+   Modular import: theme + utilities only, Preflight excluded. 00-base.css's
+   hand-rolled reset (button cursor:pointer, -webkit-font-smoothing) diverges
+   from Preflight's defaults, so importing Preflight would introduce a real
+   sitewide pixel/cursor regression. `source(none)` disables the utilities
+   layer's default whole-project auto-scan (nothing is scanned unless named by
+   an explicit @source below) — this also means Tailwind's own `.container`
+   utility is never generated, so it can't collide with the hand-written
+   `.container`/--container-max rule in 00-base.css.
+
+   LAYER ORDER (explicit, this is load-bearing): `base` and `components` sit
+   BELOW `utilities`. Our reset lives in `base` so every utility class can
+   still override it — found empirically: a first pass left the reset
+   unlayered, and its blanket `* { margin:0; padding:0 }` then beat EVERY
+   layered padding/margin utility sitewide (unlayered CSS always wins over
+   layered, regardless of order), so e.g. `pt-[8rem]` silently computed to 0.
+
+   `components` holds the editorial component classes (08-editorial.css and
+   09-page-templates.css, imported at the bottom) so explicit utilities in
+   markup can override them. `.container`/`.gutter` stay unlayered on purpose
+   (see the dedicated block below) since Tailwind's own scanner generates a
+   competing `.container` utility in the `utilities` layer that must NOT win. */
+@layer theme, base, components, utilities;
+
+/* DELIBERATE BEHAVIOR CHANGE: Tailwind's `hover:` variant compiles to
+   `@media (hover:hover) { &:hover }`, not a bare `:hover` — so on touch
+   devices (hover:none) it never matches, whereas the original hand-written
+   `:hover` rules could trigger a "sticky hover" flash on tap until the next
+   tap elsewhere. This affects every `hover:` utility in the migrated
+   sections (nav links, tool chips, slider card titles, buttons). Kept as
+   Tailwind's default rather than restored via a custom variant: it's the
+   framework's own recommended fix for exactly the mobile quirk the original
+   CSS was silently subject to, matching this migration's "just Tailwind,
+   best practice" brief. Nothing here is JS-redundant either — every
+   hover-only affordance is a supplementary color transition, never the sole
+   trigger for a state change (chips' real choreography is JS mouseenter/
+   focus/click-driven; this only adds the resting CSS color swap). */
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+/* Scan the AUTHORING sources, not the generated output: every shipped page is
+   assembled from sections/ + pages/ + partials/ (see assemble.mjs), so their
+   class union covers all generated documents, including future page dirs. */
+@source "../sections";
+@source "../pages";
+@source "../pages.mjs";
+@source "../partials";
+@source "../content";
+@source "../js";
+
+/* ---- design tokens --------------------------------------------------------
+   The token system is calibrated for the user-relative 16px root (the old
+   1vw-scaled root rendered 1rem = 14.4px at ≥1440px; every value below is
+   re-pinned so the DESIGNED pixel geometry survives the accessibility fix).
+   @theme names emit utilities: --text-N → text-N, --spacing-N → padding,
+   margin and gap utilities, --color-N → text/bg/border color utilities,
+   --shadow-N → shadow-N, --ease-N → ease-N. */
+@theme {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  /* Desktop-nav switch — mirrored in js/01-header.js. */
+  --breakpoint-nav: 1280px;
+  /* Overrides Tailwind's default xl (1280px): ≥1440 is the site's recurring
+     wide-desktop boundary. */
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1536px;
+  --container-content: 56rem;
+
+  /* Brand color system: orange decoration; midnight blue text and numbers.
+     --color-accent-text remains an alias for existing utility classes. */
+  --color-lemon: #f7911e;
+  --color-accent-text: #0a0532;
+  --color-ink: #0a0532;
+  --color-bg: #ffffff;
+  --color-bg-dark: #0a0532;
+  --color-bg-dark-2: #0a0532;
+  --color-paper: #f5f0eb;
+  --color-line: rgba(10, 5, 50, 0.18);
+  --color-line-light: rgba(255, 255, 255, 0.22);
+
+  /* Fluid editorial type scale (correct for the 16px root: floors equal the
+     vw term at 320px so type stays fluid on phones; caps restore the designed
+     ≥1440px sizes). Sub-tokens ride along in the emitted text-* utilities. */
+  --text-display-1: clamp(2.5rem, 8.8vw, 9.18rem);
+  --text-display-1--line-height: 1.08;
+  --text-display-1--letter-spacing: -0.025em;
+  --text-display-1--font-weight: 300;
+  --text-display-2: clamp(2.125rem, 7.5vw, 7.56rem);
+  --text-display-2--line-height: 1.08;
+  --text-display-2--letter-spacing: -0.025em;
+  --text-display-2--font-weight: 300;
+  --text-title: clamp(1.35rem, 2.6vw, 2.6rem);
+  --text-title--line-height: 1.08;
+  --text-title--letter-spacing: -0.025em;
+  --text-title--font-weight: 300;
+  --text-subtitle: clamp(1.2rem, 2.25vw, 2.3rem);
+  --text-subtitle--line-height: 1;
+  --text-subtitle--letter-spacing: -0.045em;
+  --text-subtitle--font-weight: 300;
+  --text-lede: clamp(1.1rem, 1.4vw, 1.35rem);
+  --text-lede--line-height: 1.4;
+  --text-body: 1rem;
+  --text-body--line-height: 1.5;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 600;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.12em;
+  --text-eyebrow--font-weight: 600;
+
+  --tracking-display: -0.025em;
+  --tracking-caps: 0.01em;
+  --tracking-caps-wide: 0.02em;
+  --leading-body: 1.5;
+
+  /* Spacing scale. --spacing-section is the shared vertical rhythm token
+     (≈36px at 320px → 130px at 1440px); cell/rule pads pair with the 1px
+     hairline grids. */
+  --spacing-section: clamp(2rem, 10vw, 9.45rem);
+  --spacing-3xs: 0.25rem;
+  --spacing-2xs: 0.5rem;
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: clamp(1.8rem, 4vw, 3.6rem);
+  --spacing-xl: clamp(2.25rem, 8vw, 7.2rem);
+  --spacing-2xl: clamp(2.9rem, 9vw, 9rem);
+  --spacing-cell: 1.45rem;
+  --spacing-rule: 1.2rem;
+  --spacing-menu: min(20rem, 90vw);
+
+  /* Exactly two elevations. */
+  --shadow-raised: 0 8px 24px rgba(10, 5, 50, 0.08);
+  --shadow-overlay: 0 20px 48px rgba(10, 5, 50, 0.16);
+
+  /* One house easing. */
+  --ease-em: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Roboto is the shipped brand face (self-hosted, css/00-fonts.css). */
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+:root {
+  /* Composite/geometry tokens with no fitting @theme namespace. */
+  --gutter: 4.5vw;
+  --container-max: 84rem; /* 1344px — the designed ~1348px content measure */
+  --header-h: 4.875rem; /* 78px */
+  --header-h-scrolled: 4.25rem; /* 68px */
+  --duration-fast: 180ms;
+  --duration-slow: 650ms; /* image zooms only */
+  /* Hairline color for the numbered fact grids; dark sections flip it to
+     --color-line-light (see .page-section--dark/--deep). */
+  --line-hairline: var(--color-line);
+  /* Accent used AS TEXT: the AA-safe shade on light surfaces; dark sections
+     flip it to the brand orange (which passes on navy). */
+  --accent-ink: var(--color-accent-text);
+}
+
+/* ---- reset (verbatim from css/00-base.css §1) -----------------------------
+   Tailwind's own reset (Preflight) is not imported (see header comment), so
+   this hand-rolled one is untouched and still the only reset in effect.
+   Wrapped in @layer base (see the layer-order note above) so utility classes
+   can override it — this is the whole reason Tailwind has a base layer. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* <picture> is layout-transparent: its <img> participates directly in the
+     parent's flex/grid/absolute layout, so wrapping an img in a picture (for
+     AVIF sources) can never change geometry. */
+  picture {
+    display: contents;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  /* ---- element defaults (verbatim from css/00-base.css §4) --------------
+     Bare-tag rules, not classes — same reasoning as the reset above: an `a`
+     inside an already-migrated section (e.g. the banner-text link) carries
+     new utility classes (`text-inherit no-underline hover:text-[#dcdcc2]`)
+     that must beat this `a { color; text-decoration }` default. */
+  /* Respect browser text-size preferences; layout must not shrink the rem unit. */
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: var(--leading-body, 1.5);
+    min-height: 100vh;
+  }
+
+  main {
+    overflow: clip; /* clip (NOT hidden): no scroll container, sticky keeps working */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 400;
+    /* Display type must never break mid-word (the body-level wrap-anywhere
+       guard is for long user-ish content, not headlines): hyphenate German
+       compounds natively instead — "beherrsch-bar", not "beherrschb/ar".
+       Short words wrap whole; only 8+ letter words may hyphenate. */
+    overflow-wrap: normal;
+    hyphens: auto;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 4;
+    hyphenate-limit-chars: 8 4 4;
+  }
+
+  a {
+    color: var(--color-ink);
+    text-decoration: underline;
+  }
+}
+
+/* ---- layout utilities (verbatim from css/00-base.css §5) ------------------
+   Deliberately UNLAYERED (not @layer components): pointing @source at
+   sections/js/index.html makes Tailwind's scanner auto-generate its OWN
+   `.container` utility (confirmed empirically) inside the `utilities` layer.
+   If our `.container` were layered, Tailwind's version would win and the
+   page's max-width would silently break at every breakpoint. Unlayered here
+   always beats the layered auto-generated one regardless of source order. */
+
+/* page gutter ("padding-global"): 4.5vw left+right */
+.gutter {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* full-width container, centered; no max-width below 1440 — gutter does the work.
+   max-width:none is LOAD-BEARING: being unlayered only beats the scanner's
+   layered `.container` utility for properties BOTH rules declare. Tailwind's
+   version sets max-width caps at every breakpoint (480/640/768/992/1440/1536);
+   without an explicit `none` here those caps applied unopposed below 1440 and
+   silently boxed the whole page to 480–992px on mid-size viewports. */
+.container {
+  width: 100%;
+  /* Unconditional cap: below ~1477px viewport the 4.5vw gutters keep content
+     narrower than the cap anyway, so no breakpoint gate is needed. */
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Per-section remainders — migration complete -------------------------
+   Every section's utility-mappable CSS now lives as classes in its
+   sections/*.html; each file below holds only what has no utility
+   equivalent: @keyframes bodies, Splide vendor-class exceptions, and (for
+   00-base-remainder) skip-link, focus, and reduced-motion rules. */
+@import "./00-base-remainder.css";
+@import "./07-header.css" layer(components);
+@import "./08-editorial.css" layer(components);
+@import "./09-page-templates.css" layer(components);
+
+@import "./10-feedback.css" layer(components);
