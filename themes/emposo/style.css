@@ -1,0 +1,18 @@
+/*
+Theme Name: Emposo
+Theme URI: https://emposo.de/
+Author: Emposo
+Author URI: https://emposo.de/
+Description: Editorial, work-first theme for Emposo, the Outcome Factory of the Hays network. Classic theme, deliberately without theme.json: core's global-styles output is unlayered and would outrank the theme's @layer cascade.
+Version: 0.1.0
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 8.1
+License: Proprietary
+License URI: https://emposo.de/
+Text Domain: emposo
+Tags: custom-menu, translation-ready
+
+This stylesheet exists for the theme header only. It is never enqueued.
+All CSS is built by Tailwind from src/styles/main.css into assets/css/site.css.
+*/

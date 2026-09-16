@@ -1,0 +1,47 @@
+import globals from 'globals';
+
+/**
+ * The site's five front-end scripts are deliberately ES5-era IIFEs with `var`
+ * and `Array.prototype.slice.call` — that is a supported-browser-floor decision
+ * carried over from the static build, not legacy drift. So this config checks
+ * the things a porting mistake would actually break (undeclared globals, unused
+ * bindings, accidental reassignment) and does not impose modern-syntax rules
+ * that would demand rewriting audited, shipping code.
+ */
+export default [
+	{
+		files: ['themes/emposo/assets/js/**/*.js'],
+		languageOptions: {
+			ecmaVersion: 5,
+			sourceType: 'script',
+			globals: {
+				...globals.browser,
+				Lenis: 'readonly',
+			},
+		},
+		linterOptions: {
+			reportUnusedDisableDirectives: true,
+		},
+		rules: {
+			'no-undef': 'error',
+			'no-unused-vars': ['error', { args: 'after-used' }],
+			'no-redeclare': 'error',
+			'no-implicit-globals': 'error',
+			eqeqeq: ['error', 'smart'],
+			'no-console': 'error',
+		},
+	},
+	{
+		files: ['tools/**/*.mjs'],
+		languageOptions: {
+			ecmaVersion: 2024,
+			sourceType: 'module',
+			globals: { ...globals.node },
+		},
+		rules: {
+			'no-undef': 'error',
+			'no-unused-vars': 'error',
+			eqeqeq: ['error', 'smart'],
+		},
+	},
+];

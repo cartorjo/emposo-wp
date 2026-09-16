@@ -1,0 +1,20 @@
+# WordPress Coding Standards
+# https://make.wordpress.org/core/handbook/best-practices/coding-standards/
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+
+[*.{md,yml,yaml,json,dist}]
+indent_style = space
+indent_size = 2
+
+[*.txt]
+trim_trailing_whitespace = false
+
+[composer.json]
+indent_size = 4

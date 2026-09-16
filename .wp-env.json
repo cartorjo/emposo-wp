@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/wp-env.json",
+  "core": "WordPress/WordPress#7.1",
+  "phpVersion": "8.3",
+  "themes": [],
+  "plugins": [],
+  "port": 8888,
+  "mappings": {
+    "wp-content/themes/emposo": "./themes/emposo",
+    "wp-content/mu-plugins": "./client-mu-plugins",
+    "wp-content/plugins/emposo-local": "./plugins"
+  },
+  "config": {
+    "WP_DEBUG": true,
+    "WP_DEBUG_LOG": true,
+    "WP_DEBUG_DISPLAY": false,
+    "SCRIPT_DEBUG": true,
+    "WP_ENVIRONMENT_TYPE": "local",
+    "DISALLOW_FILE_EDIT": true,
+    "DISALLOW_FILE_MODS": false,
+    "AUTOMATIC_UPDATER_DISABLED": true,
+    "WP_AUTO_UPDATE_CORE": false,
+    "EMPOSO_FORCE_NOINDEX": true
+  },
+  "testsEnvironment": false
+}

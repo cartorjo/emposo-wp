@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+*.png  binary
+*.jpg  binary
+*.webp binary
+*.avif binary
+*.woff2 binary
+*.ttf  binary
+
+# Built CSS is committed on purpose (drift gate); keep diffs readable-ish
+themes/emposo/assets/css/site.css -diff linguist-generated=true

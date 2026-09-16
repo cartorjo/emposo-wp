@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<ruleset name="Emposo">
+	<description>WordPress + WordPress VIP coding standards for the Emposo theme and site plugin.</description>
+
+	<file>themes/emposo</file>
+	<file>client-mu-plugins</file>
+	<file>plugins</file>
+	<file>vip-config</file>
+	<file>tests/php</file>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/reference/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg name="parallel" value="8"/>
+	<arg name="cache" value=".phpcs-cache"/>
+	<arg value="sp"/>
+
+	<!-- Severity 1 mirrors what the hosted VIP Code Analysis Bot reports, so CI
+	     output matches what VIP would say if this ever moves onto the platform. -->
+	<config name="minimum_wp_version" value="7.1"/>
+	<config name="testVersion" value="8.1-"/>
+
+	<rule ref="WordPress">
+		<!-- Built output; Tailwind owns it. -->
+		<exclude-pattern>themes/emposo/assets/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress-VIP-Go"/>
+	<rule ref="WordPressVIPMinimum"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="emposo"/>
+				<element value="EMPOSO"/>
+				<element value="Emposo"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="emposo"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- The theme is private and never distributed, so the wordpress.org
+	     file-naming convention (class-*.php) is enforced only in the plugin,
+	     where the CLI command classes live. -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>themes/emposo/*</exclude-pattern>
+	</rule>
+</ruleset>

@@ -1,0 +1,39 @@
+{
+	"name": "cartorjo/emposo-wp",
+	"description": "Emposo WordPress theme and site plugin. Built to WordPress VIP standards.",
+	"type": "project",
+	"license": "proprietary",
+	"require": {
+		"php": ">=8.1"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.4",
+		"automattic/vipwpcs": "^3.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+		"szepeviktor/phpstan-wordpress": "^2.0",
+		"php-stubs/wordpress-stubs": "^7.1"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		},
+		"sort-packages": true,
+		"platform": {
+			"php": "8.3"
+		}
+	},
+	"scripts": {
+		"phpcs": "phpcs",
+		"phpcbf": "phpcbf",
+		"phpstan": "phpstan analyse --memory-limit=1G",
+		"lint": [
+			"@phpcs",
+			"@phpstan"
+		]
+	},
+	"scripts-descriptions": {
+		"phpcs": "WordPress + VIP coding standards.",
+		"phpstan": "Static analysis at level 8 against WordPress stubs."
+	}
+}

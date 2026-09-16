@@ -1,0 +1,52 @@
+{
+  "name": "emposo-wp",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./themes/emposo/src/styles/main.css -o ./themes/emposo/assets/css/site.css --minify",
+    "watch:css": "tailwindcss -i ./themes/emposo/src/styles/main.css -o ./themes/emposo/assets/css/site.css --watch",
+    "wp:start": "wp-env start",
+    "wp:stop": "wp-env stop",
+    "wp:clean": "wp-env clean all",
+    "wp:destroy": "wp-env destroy",
+    "wp:logs": "wp-env logs",
+    "wp": "wp-env run cli wp",
+    "wp:seed": "wp-env run cli wp emposo import all",
+    "composer": "./scripts/php-docker.sh composer",
+    "composer:install": "./scripts/php-docker.sh composer install",
+    "phpcs": "./scripts/php-docker.sh phpcs",
+    "phpcbf": "./scripts/php-docker.sh phpcbf",
+    "phpstan": "./scripts/php-docker.sh phpstan analyse --memory-limit=1G",
+    "parity": "node tools/parity.mjs",
+    "class-inventory": "node tools/class-inventory.mjs",
+    "behaviours": "node tools/behaviours.mjs",
+    "audit": "node tools/audit.mjs",
+    "compare": "node tools/compare.mjs",
+    "check:sources": "node tools/check-sources.mjs",
+    "check": "npm run lint:js && npm run lint:css && npm run build:css && npm run check:sources && npm run class-inventory && npm run parity -- --strict && git diff --exit-code",
+    "baseline": "node tools/audit.mjs --target=static --write-baseline && node tools/behaviours.mjs --target=static",
+    "lint:js": "eslint themes/emposo/assets/js tools",
+    "lint:css": "stylelint \"themes/emposo/src/styles/**/*.css\"",
+    "audit:deps": "./scripts/audit-deps.sh",
+    "wp:start:tests": "wp-env start --config .wp-env.tests.json",
+    "test:php": "wp-env run tests-cli --config .wp-env.tests.json wp eval \"echo 1;\""
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "@wordpress/env": "^11.15.0",
+    "axe-core": "^4.13.0",
+    "eslint": "^9.39.5",
+    "globals": "^16.5.0",
+    "parse5": "^8.0.0",
+    "playwright": "^1.56.0",
+    "sharp": "0.35.4",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1",
+    "tailwindcss": "4.3.3"
+  }
+}

@@ -1,0 +1,16 @@
+node_modules/
+vendor/
+.DS_Store
+
+# Build + tooling output
+.phpcs-cache
+.phpunit.result.cache
+/tools/.cache/
+/audit-evidence/wp/
+/tests/e2e/test-results/
+/tests/e2e/playwright-report/
+.lighthouseci/
+
+# Local only
+.wp-env.override.json
+*.log

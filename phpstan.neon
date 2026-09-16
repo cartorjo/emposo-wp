@@ -1,0 +1,17 @@
+includes:
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+	level: 8
+	paths:
+		- themes/emposo
+		- client-mu-plugins
+		- vip-config
+	excludePaths:
+		- themes/emposo/assets/*
+		- reference/*
+	scanDirectories:
+		- vendor/php-stubs/wordpress-stubs
+	bootstrapFiles:
+		- tests/php/phpstan-bootstrap.php
+	treatPhpDocTypesAsCertain: false
