@@ -1,0 +1,4 @@
+[submodule "reference/static"]
+	path = reference/static
+	url = https://github.com/cartorjo/weave-clone.git
+	branch = main
