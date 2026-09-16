@@ -374,6 +374,35 @@ function sanitize_id_list( $value ): array {
 }
 
 /**
+ * Sanitise an ordered list of short strings.
+ *
+ * Applies sanitize_text_field per item, which preserves the qualifiers these
+ * carry —
+ * 'Über 70 % weniger Prüfaufwand', 'Bis zu 80.000 EUR ... pro Monat'. Nothing
+ * here may normalise whitespace, convert a currency symbol, or strip '+' or
+ * '>': each is a factual claim.
+ *
+ * @param mixed $value Raw value.
+ * @return string[]
+ */
+function sanitize_string_list( $value ): array {
+	if ( ! is_array( $value ) ) {
+		return array();
+	}
+
+	$items = array_map( 'sanitize_text_field', array_map( 'strval', $value ) );
+
+	return array_values(
+		array_filter(
+			$items,
+			static function ( string $item ): bool {
+				return '' !== trim( $item );
+			}
+		)
+	);
+}
+
+/**
  * Register post meta.
  */
 function register_meta_fields(): void {
@@ -399,6 +428,106 @@ function register_meta_fields(): void {
 			)
 		);
 	}
+
+	/*
+	 * Prose that appears once, on its own page.
+	 *
+	 * The plan called for these to be block content, on the sound argument that
+	 * prose in a meta field is a worse editorial surface than the block editor.
+	 * They are registered meta here instead, deliberately, for one reason: the
+	 * renderers must emit the static build's exact markup — a case study's
+	 * results are a <ul class="result-list">, not core/list's
+	 * <ul class="wp-block-list"> — and reproducing that from core blocks
+	 * requires custom wrapper blocks, which require a JS build step this port
+	 * does not yet have.
+	 *
+	 * So the trade is: editable now through a meta box (pure PHP, real UI,
+	 * revisions), with the renderer in full control of markup, and a clean
+	 * upgrade path to dynamic blocks later — the storage stays the same, only
+	 * the editing surface changes. Recorded as a deviation rather than a
+	 * silent simplification.
+	 */
+	$prose_fields = array(
+		CPT_CASE_STUDY => array(
+			'_emposo_challenge' => __( 'Die Herausforderung', 'emposo' ),
+			'_emposo_solution'  => __( 'Unsere Lösung', 'emposo' ),
+		),
+		'page'         => array(
+			'_emposo_detail'    => __( 'Beschreibung der Disziplin', 'emposo' ),
+			'_emposo_challenge' => __( 'Herausforderung der Branche', 'emposo' ),
+			'_emposo_delivery'  => __( 'Unsere Lieferung', 'emposo' ),
+		),
+	);
+	foreach ( $prose_fields as $type => $fields ) {
+		foreach ( $fields as $key => $label ) {
+			register_post_meta(
+				$type,
+				$key,
+				array(
+					'type'              => 'string',
+					'description'       => $label,
+					'single'            => true,
+					'default'           => '',
+					'show_in_rest'      => true,
+					'sanitize_callback' => 'sanitize_textarea_field',
+					'auth_callback'     => $auth,
+				)
+			);
+		}
+	}
+
+	/*
+	 * Ordered string lists: a case study's results (2-3 items) and a
+	 * discipline's focus areas (4-7). One atomic array rather than multiple
+	 * single => false rows, whose order depends on meta_id and silently changes
+	 * when an editor removes and re-adds an item.
+	 */
+	$list_fields = array(
+		CPT_CASE_STUDY => '_emposo_results',
+		'page'         => '_emposo_focus',
+	);
+	foreach ( $list_fields as $type => $key ) {
+		register_post_meta(
+			$type,
+			$key,
+			array(
+				'type'              => 'array',
+				'single'            => true,
+				'default'           => array(),
+				'show_in_rest'      => array(
+					'schema' => array(
+						'type'  => 'array',
+						'items' => array( 'type' => 'string' ),
+					),
+				),
+				'sanitize_callback' => __NAMESPACE__ . '\\sanitize_string_list',
+				'auth_callback'     => $auth,
+			)
+		);
+	}
+
+	/*
+	 * An industry's related disciplines: an ordered list of page IDs. Curated
+	 * rather than derived, because the source lists a specific subset in a
+	 * specific order.
+	 */
+	register_post_meta(
+		'page',
+		'_emposo_related_disciplines',
+		array(
+			'type'              => 'array',
+			'single'            => true,
+			'default'           => array(),
+			'show_in_rest'      => array(
+				'schema' => array(
+					'type'  => 'array',
+					'items' => array( 'type' => 'integer' ),
+				),
+			),
+			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_id_list',
+			'auth_callback'     => $auth,
+		)
+	);
 
 	// --- page-shaped records (disciplines, industries, pillars) -----------
 	$page_text_fields = array(

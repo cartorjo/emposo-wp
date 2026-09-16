@@ -40,10 +40,15 @@ const replacements = [
 	[/\{\{BODY_CLASS\}\}/g, '<?php echo esc_attr( emposo_body_class() ); ?>'],
 	[/^\s*\{\{SCRIPTS\}\}\s*$/gm, '<?php wp_head(); ?>'],
 
-	// Active-nav stamping. The payload can contain anything, so it is passed
-	// through as a literal second argument.
+	/*
+	 * Active-nav stamping. The payload is everything after the colon, VERBATIM
+	 * — including its leading space: the token is `{{CUR:expertise: is-current}}`
+	 * and assemble.mjs captures `' is-current'`, because the value is
+	 * concatenated straight into a class attribute. An earlier `\s*` here
+	 * consumed that space and produced `class="site-nav__groupis-current"`.
+	 */
 	[
-		/\{\{CUR:([a-z-]+):\s*([^}]*)\}\}/g,
+		/\{\{CUR:([a-z-]+):([^}]*)\}\}/g,
 		(_, key, payload) => `<?php emposo_cur( '${key}', '${payload.replace(/'/g, "\\'")}' ); ?>`,
 	],
 	[/\{\{CURATTR:([a-z-]+)\}\}/g, (_, key) => `<?php emposo_curattr( '${key}' ); ?>`],

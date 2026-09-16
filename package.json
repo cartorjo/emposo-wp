@@ -21,7 +21,7 @@
     "composer:install": "./scripts/php-docker.sh composer install",
     "phpcs": "./scripts/php-docker.sh phpcs",
     "phpcbf": "./scripts/php-docker.sh phpcbf",
-    "phpstan": "./scripts/php-docker.sh phpstan analyse --memory-limit=1G",
+    "phpstan": "./scripts/php-docker.sh phpstan analyse --memory-limit=3G",
     "parity": "node tools/parity.mjs",
     "class-inventory": "node tools/class-inventory.mjs",
     "behaviours": "node tools/behaviours.mjs",

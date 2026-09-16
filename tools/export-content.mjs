@@ -61,16 +61,29 @@ const industryTerms = industries.map((industry) => ({
 	pageSlug: industry.slug,
 }));
 
-// `automotive` is a filter value with no page of its own, and it never appears
-// without `industrial` — so it is a CHILD of the industrials term. That models
-// the seven filter buttons over five industry pages without inventing a sixth.
+/*
+ * `automotive` is a filter value with no page of its own, and it never appears
+ * without `industrial` — so it is a CHILD of the industrials term. That models
+ * the seven filter buttons over five industry pages without inventing a sixth.
+ *
+ * It is SPLICED IN immediately after its parent rather than appended, because
+ * the filter bar's order is a hierarchical walk: the static source lists
+ * aerospace, energy, health, industrial, automotive, technology. Appending put
+ * Automotive last and reordered the buttons.
+ */
 const automotiveUsed = projects.some((p) => p.filter.split(/\s+/).includes('automotive'));
 if (automotiveUsed) {
-	const parent = industries.find((i) => i.filter.split(/\s+/)[0] === 'industrial');
-	industryTerms.push({
+	const parentSlug = 'industrial';
+	const parentIndex = industryTerms.findIndex((term) => term.slug === parentSlug);
+
+	if (parentIndex === -1) {
+		throw new Error(`automotive appears in the data but its parent "${parentSlug}" does not`);
+	}
+
+	industryTerms.splice(parentIndex + 1, 0, {
 		slug: 'automotive',
 		name: 'Automotive',
-		parent: parent ? parent.filter.split(/\s+/)[0] : null,
+		parent: parentSlug,
 		pageSlug: null,
 	});
 }
@@ -82,9 +95,31 @@ const disciplineTerms = [
 	...disciplines.map((d) => ({ slug: d.slug, name: d.name, parent: d.group.toLowerCase() })),
 ];
 
-const outcomeTerms = [...new Set(projects.map((p) => p.outcome))].map((slug) => ({
+/*
+ * Outcome order is NOT first-appearance order in the projects array — that
+ * yields transform, scale, optimize, because the first project is a transform.
+ * The filter bar's order is the one the static source's `choices` table
+ * declares, which reads as a progression: optimise, then transform, then
+ * scale. Declared explicitly, and asserted against the data so a new outcome
+ * cannot be silently dropped.
+ */
+const OUTCOME_ORDER = [
+	['optimize', 'Optimieren'],
+	['transform', 'Transformieren'],
+	['scale', 'Skalieren'],
+];
+
+const usedOutcomes = new Set(projects.map((p) => p.outcome));
+const declaredOutcomes = new Set(OUTCOME_ORDER.map(([slug]) => slug));
+for (const slug of usedOutcomes) {
+	if (!declaredOutcomes.has(slug)) {
+		throw new Error(`Project data uses outcome "${slug}", which OUTCOME_ORDER does not declare`);
+	}
+}
+
+const outcomeTerms = OUTCOME_ORDER.filter(([slug]) => usedOutcomes.has(slug)).map(([slug, name]) => ({
 	slug,
-	name: { optimize: 'Optimieren', transform: 'Transformieren', scale: 'Skalieren' }[slug] ?? slug,
+	name,
 	parent: null,
 }));
 

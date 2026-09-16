@@ -89,19 +89,24 @@
 				"pageSlug": "industrials-manufacturing"
 			},
 			{
-				"slug": "technology",
-				"name": "Technology, Telecoms & Media",
-				"parent": null,
-				"pageSlug": "technology-telecoms-media"
-			},
-			{
 				"slug": "automotive",
 				"name": "Automotive",
 				"parent": "industrial",
 				"pageSlug": null
+			},
+			{
+				"slug": "technology",
+				"name": "Technology, Telecoms & Media",
+				"parent": null,
+				"pageSlug": "technology-telecoms-media"
 			}
 		],
 		"emposo_outcome": [
+			{
+				"slug": "optimize",
+				"name": "Optimieren",
+				"parent": null
+			},
 			{
 				"slug": "transform",
 				"name": "Transformieren",
@@ -110,11 +115,6 @@
 			{
 				"slug": "scale",
 				"name": "Skalieren",
-				"parent": null
-			},
-			{
-				"slug": "optimize",
-				"name": "Optimieren",
 				"parent": null
 			}
 		]

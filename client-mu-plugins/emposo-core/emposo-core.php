@@ -35,4 +35,5 @@ require_once __DIR__ . '/inc/environment.php';
 require_once __DIR__ . '/inc/content-model.php';
 require_once __DIR__ . '/inc/rewrites.php';
 require_once __DIR__ . '/inc/images.php';
+require_once __DIR__ . '/inc/fragments.php';
 require_once __DIR__ . '/inc/cli.php';

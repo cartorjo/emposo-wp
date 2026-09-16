@@ -343,6 +343,22 @@ class Import_Command {
 		);
 
 		foreach ( $taxonomies as $taxonomy => $terms ) {
+			/*
+			 * Creation order and DISPLAY order are different things, and
+			 * conflating them was a real bug: sorting parents first is required
+			 * so a child's parent exists when it is created, but it also moved
+			 * `automotive` to the end of the array — and since the display
+			 * order was assigned from the loop position, the filter bar lost
+			 * the source's hierarchical walk (aerospace, energy, health,
+			 * industrial, automotive, technology).
+			 *
+			 * So capture the source position BEFORE sorting, and store that as
+			 * the order.
+			 */
+			foreach ( $terms as $position => $term ) {
+				$terms[ $position ]['source_order'] = $position;
+			}
+
 			// Parents first: a child's parent must exist when it is created.
 			usort(
 				$terms,
@@ -351,7 +367,6 @@ class Import_Command {
 				}
 			);
 
-			$order = 0;
 			foreach ( $terms as $term ) {
 				$slug   = (string) $term['slug'];
 				$name   = (string) $term['name'];
@@ -408,9 +423,8 @@ class Import_Command {
 				 * Automotive second and break the filter bar's source order.
 				 * The explicit order is stored so every query can request it.
 				 */
-				update_term_meta( $term_id, '_emposo_term_order', $order );
+				update_term_meta( $term_id, '_emposo_term_order', (int) $term['source_order'] );
 				update_term_meta( $term_id, '_emposo_source_slug', $slug );
-				++$order;
 			}
 		}
 	}
@@ -564,6 +578,9 @@ class Import_Command {
 				// factual claims and must survive byte-for-byte.
 				'_emposo_metric'       => (string) $project['metric'],
 				'_emposo_metric_label' => (string) $project['label'],
+				'_emposo_challenge'    => (string) $project['challenge'],
+				'_emposo_solution'     => (string) $project['solution'],
+				'_emposo_results'      => array_map( 'strval', (array) $project['results'] ),
 			)
 		);
 
@@ -603,6 +620,8 @@ class Import_Command {
 			),
 			array(
 				'_emposo_topics'          => (string) $discipline['topics'],
+				'_emposo_detail'          => (string) $discipline['detail'],
+				'_emposo_focus'           => array_map( 'strval', (array) $discipline['focus'] ),
 				'_emposo_discipline_term' => $term ? (int) $term->term_id : 0,
 			)
 		);
@@ -645,6 +664,8 @@ class Import_Command {
 			),
 			array(
 				'_emposo_subtitle'      => (string) ( $industry['subtitle'] ?? '' ),
+				'_emposo_challenge'     => (string) $industry['challenge'],
+				'_emposo_delivery'      => (string) $industry['delivery'],
 				'_emposo_industry_term' => $term ? (int) $term->term_id : 0,
 			)
 		);
@@ -708,6 +729,33 @@ class Import_Command {
 			$this->attach_featured_image( $post->ID, (string) $project['image'] );
 
 			$this->note( 'relate', 'case study', $slug );
+		}
+
+		/*
+		 * An industry's curated discipline list. Resolved here rather than in
+		 * the records pass because it maps slugs to page IDs, and those pages
+		 * are created by the scaffolder but only identifiable after every
+		 * record has its source key.
+		 */
+		foreach ( (array) ( $this->data['industries'] ?? array() ) as $industry ) {
+			if ( $this->dry_run ) {
+				continue;
+			}
+
+			$page = $this->find_post( 'page', '/branchen/' . (string) $industry['slug'] . '/' );
+			if ( ! $page instanceof WP_Post ) {
+				continue;
+			}
+
+			$ids = array();
+			foreach ( (array) $industry['disciplines'] as $discipline_slug ) {
+				$discipline_page = $this->find_post( 'page', '/expertise/' . (string) $discipline_slug . '/' );
+				if ( $discipline_page instanceof WP_Post ) {
+					$ids[] = $discipline_page->ID;
+				}
+			}
+
+			update_post_meta( $page->ID, '_emposo_related_disciplines', $ids );
 		}
 
 		// Discipline and industry pages get their featured images too.

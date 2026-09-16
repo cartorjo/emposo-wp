@@ -12,6 +12,11 @@
  * @package Emposo
  */
 
+/*
+ * Emitted RAW, not trimmed. assemble.mjs concatenates head.html and
+ * header.html verbatim and trims only the <!-- partial: --> includes and page
+ * bodies, so each of these files' own trailing newline is part of the document.
+ */
 get_template_part( 'parts/head' );
 get_template_part( 'parts/header' );
 ?>

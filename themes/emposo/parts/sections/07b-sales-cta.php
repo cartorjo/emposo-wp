@@ -11,5 +11,5 @@
 
 ?>
 <section class="contact page-section" id="contact" aria-labelledby="contact-title">
-	<div class="gutter"><div class="container"><div class="contact__grid"><div><p class="eyebrow eyebrow--light">Kontakt</p><h2 class="display-large display-large--light" id="contact-title">Jetzt Kontakt <em>aufnehmen!</em></h2><p class="contact__note">Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen. Erzählen Sie uns kurz, worum es geht.</p></div><?php get_template_part( 'parts/contact-form' ); ?></div></div></div>
+	<div class="gutter"><div class="container"><div class="contact__grid"><div><p class="eyebrow eyebrow--light">Kontakt</p><h2 class="display-large display-large--light" id="contact-title">Jetzt Kontakt <em>aufnehmen!</em></h2><p class="contact__note">Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen. Erzählen Sie uns kurz, worum es geht.</p></div><?php echo emposo_part_html( 'parts/contact-form' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Template output, escaped at its own point of use. ?></div></div></div>
 </section>

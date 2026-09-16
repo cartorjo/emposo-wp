@@ -254,14 +254,28 @@ function emposo_the_body(): void {
 
 	switch ( $kind ) {
 		case 'parts':
+			/*
+			 * Each part is TRIMMED and the parts are joined with a blank line,
+			 * because that is exactly what assemble.mjs did: it read each
+			 * source with .trim() and joined an array with '\n\n'. Letting
+			 * get_template_part() echo directly instead emits each file's
+			 * trailing newline, which put whitespace between </form> and its
+			 * closing </div> where the static build has none — a real
+			 * difference, since whitespace between nodes becomes a text node.
+			 */
+			$rendered = array();
+
 			foreach ( (array) ( $body['parts'] ?? array() ) as $part ) {
 				// Names come from the frozen contract, but constrain them
 				// anyway: this value reaches a file lookup.
 				if ( ! preg_match( '#^(pages|sections)/[a-z0-9-]+$#', (string) $part ) ) {
 					continue;
 				}
-				get_template_part( 'parts/' . $part );
+				$rendered[] = emposo_part_html( 'parts/' . $part );
 			}
+
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Template output, escaped at its own point of use.
+			echo implode( "\n\n", $rendered );
 			break;
 
 		case 'project':
@@ -285,4 +299,22 @@ function emposo_the_body(): void {
 			get_template_part( 'parts/fallback' );
 			break;
 	}
+}
+
+/**
+ * Capture a template part's output, trimmed.
+ *
+ * The static assembler read every partial and page body with .trim(), so a
+ * file's own trailing newline never reached the document. get_template_part()
+ * echoes directly and does reach it, which shows up as whitespace between two
+ * elements that were adjacent — and whitespace between nodes is a text node,
+ * so it can change how a flex or grid row lays out.
+ *
+ * @param string $slug Template part slug, relative to the theme root.
+ */
+function emposo_part_html( string $slug ): string {
+	ob_start();
+	get_template_part( $slug );
+
+	return trim( (string) ob_get_clean() );
 }

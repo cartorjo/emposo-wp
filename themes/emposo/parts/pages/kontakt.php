@@ -19,7 +19,7 @@
 			<h1 class="display-large display-large--light" id="kontakt-title">Jetzt Kontakt <em>aufnehmen!</em></h1>
 			<p class="contact__note">Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen. Erzählen Sie uns kurz, worum es geht.</p>
 			</div>
-			<?php get_template_part( 'parts/contact-form' ); ?>
+			<?php echo emposo_part_html( 'parts/contact-form' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Template output, escaped at its own point of use. ?>
 		</div>
 		</div></div>
 	</section>

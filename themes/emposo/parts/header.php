@@ -15,7 +15,7 @@
 	<div class="gutter"><div class="container"><div class="site-header__inner">
 	<a class="site-logo" href="/" aria-label="Emposo — Startseite"><?php emposo_brand( 'emposo-logo-neu26' ); ?></a>
 	<nav class="site-nav max-nav:hidden" aria-label="Hauptnavigation">
-		<details class="site-nav__group<?php emposo_cur( 'expertise', 'is-current' ); ?><?php emposo_cur( 'portfolio', 'is-current' ); ?>">
+		<details class="site-nav__group<?php emposo_cur( 'expertise', ' is-current' ); ?><?php emposo_cur( 'portfolio', ' is-current' ); ?>">
 		<summary class="min-h-11">Leistungen</summary>
 		<div class="mega-panel"><div class="gutter"><div class="container mega-panel__grid">
 			<div class="mega-panel__intro">
@@ -37,7 +37,7 @@
 			</div>
 		</div></div></div>
 		</details>
-		<details class="site-nav__group<?php emposo_cur( 'branchen', 'is-current' ); ?>">
+		<details class="site-nav__group<?php emposo_cur( 'branchen', ' is-current' ); ?>">
 		<summary class="min-h-11">Branchen</summary>
 		<div class="mega-panel"><div class="gutter"><div class="container mega-panel__grid mega-panel__grid--4">
 			<div class="mega-panel__intro"><p class="mega-panel__eyebrow">Industrie-Know-how</p><a class="mega-panel__all" href="/branchen/"<?php emposo_curattr( 'branchen' ); ?>>Alle Branchen <span aria-hidden="true">→</span></a><p>Unsere Teams und Spezialisten kommen direkt aus Ihrer Branche.</p></div>
