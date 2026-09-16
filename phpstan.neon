@@ -12,6 +12,12 @@ parameters:
 		- reference/*
 	scanDirectories:
 		- vendor/php-stubs/wordpress-stubs
+	scanFiles:
+		# WP-CLI is not loaded on a web request, so its classes are invisible to
+		# static analysis. php-stubs/wp-cli-stubs cannot be used: it constrains
+		# wordpress-stubs to <=6.x while this project targets 7.1. See the file
+		# header for why a hand-written stub is the better trade.
+		- tests/php/stubs/wp-cli.php
 	bootstrapFiles:
 		- tests/php/phpstan-bootstrap.php
 	treatPhpDocTypesAsCertain: false

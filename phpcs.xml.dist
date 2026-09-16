@@ -11,6 +11,8 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/reference/*</exclude-pattern>
+	<!-- Analysis-only stubs: intentionally not WordPress-formatted. -->
+	<exclude-pattern>tests/php/stubs/*</exclude-pattern>
 
 	<arg name="extensions" value="php"/>
 	<arg name="basepath" value="."/>

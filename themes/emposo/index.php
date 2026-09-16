@@ -2,13 +2,14 @@
 /**
  * Fallback template.
  *
- * Every route has a more specific template; this exists because the Theme
- * Handbook requires index.php, and to make an unexpected query shape visible
- * rather than fatal.
+ * Required by the Theme Handbook, and used until the per-route templates land.
+ * A shim, like every root template: markup lives in parts/ so Tailwind's
+ *
+ * @source list can stay a closed set. tools/check-sources.mjs enforces that.
  *
  * @package Emposo
  */
 
 get_header();
-get_template_part( 'parts/pages/404' );
+get_template_part( 'parts/fallback' );
 get_footer();
