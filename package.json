@@ -30,7 +30,7 @@
     "check:sources": "node tools/check-sources.mjs",
     "check": "npm run lint:js && npm run lint:css && npm run build:css && npm run check:sources && npm run class-inventory && npm run parity -- --strict && git diff --exit-code",
     "baseline": "node tools/audit.mjs --target=static --write-baseline && node tools/behaviours.mjs --target=static",
-    "lint:js": "eslint themes/emposo/assets/js tools",
+    "lint:js": "eslint tools themes/emposo/assets/js --no-error-on-unmatched-pattern",
     "lint:css": "stylelint \"themes/emposo/src/styles/**/*.css\"",
     "audit:deps": "./scripts/audit-deps.sh",
     "wp:start:tests": "wp-env start --config .wp-env.tests.json",
