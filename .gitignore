@@ -6,6 +6,7 @@ vendor/
 .phpcs-cache
 .phpunit.result.cache
 /tools/.cache/
+# WordPress-side reports are regenerated; the static baseline is committed.
 /audit-evidence/wp/
 /tests/e2e/test-results/
 /tests/e2e/playwright-report/

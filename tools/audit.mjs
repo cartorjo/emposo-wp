@@ -1,0 +1,408 @@
+#!/usr/bin/env node
+/**
+ * Measured-quality gate: layout, header alignment, accessibility and budgets.
+ *
+ * Reproduces the shapes in reference/static/audit-evidence/final/verify.json so
+ * static and WordPress numbers are mechanically comparable, and extends them to
+ * every route — 25 of the 41 were never measured, because the committed
+ * evidence predates the September feedback wave that grew the site from 17
+ * pages to 42.
+ *
+ * Always runs logged out. Logged in, the admin bar adds two requests, an inline
+ * `html{margin-top:32px!important}` that causes CLS, and a sticky-header offset
+ * shift that fails the header probes — i.e. it measures a different page.
+ *
+ * Usage:
+ *   node tools/audit.mjs --target=static --write-baseline
+ *   node tools/audit.mjs --target=wp
+ *   node tools/audit.mjs --target=wp --routes=/,/kontakt/
+ */
+import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
+import path from 'node:path';
+import { chromium } from 'playwright';
+import { routes, pageRoutes, STATIC_ROOT, REPO_ROOT } from './routes.mjs';
+import { serveStatic } from './static-server.mjs';
+
+const args = process.argv.slice(2);
+const flag = (n) => args.includes(`--${n}`);
+const opt = (n) => args.find((a) => a.startsWith(`--${n}=`))?.split('=').slice(1).join('=');
+
+const TARGET = opt('target') ?? 'wp';
+const WRITE_BASELINE = flag('write-baseline');
+const ROUTE_FILTER = opt('routes')?.split(',').filter(Boolean);
+
+/** The ten widths the reference's 170 layout probes use. */
+const WIDTHS = [320, 375, 390, 768, 1024, 1280, 1440, 1920, 844, 960];
+
+/** Widths at which the header must sit exactly on the content container. */
+const HEADER_WIDTHS = [1280, 1440, 1920];
+
+/**
+ * Budgets.
+ *
+ * Deliberately only the compression-independent ones. This tool measures
+ * UNCOMPRESSED resource bytes, whereas 01-audit.md's <=800 KB page budget and
+ * the 194-295 KB figures in audit-evidence describe Lighthouse's *compressed
+ * transfer* size — css/site.css alone is 64 KB raw and ~12.5 KB gzipped. So
+ * comparing raw bytes against a transfer budget reads ~2x over and would
+ * manufacture failures on routes the reference passes.
+ *
+ * Absolute byte budgets therefore belong to the Lighthouse step, which measures
+ * the same thing the evidence did. Here, byte growth is gated RELATIVE to the
+ * static baseline: the question this tool answers is "is WordPress worse than
+ * the reference", not "what is the absolute page weight".
+ *
+ * Request count, CLS and image size are compression-independent — images are
+ * already-compressed binaries, so content-length is their transfer size — and
+ * stay absolute.
+ */
+const BUDGETS = {
+	requests: 30,
+	largestImageBytes: 200 * 1024,
+	cls: 0.05,
+	/** Allowed growth over the static baseline before it counts as a regression. */
+	bytesToleranceRatio: 1.02,
+	requestsTolerance: 0,
+};
+
+/** Baseline produced by `--target=static --write-baseline`, when present. */
+let baseline = null;
+
+/**
+ * Committed, not cached: CI gates byte and request growth against this, and it
+ * is the only record that the 25 routes the September evidence never covered
+ * were measured at all.
+ */
+const BASELINE_PATH = path.join(REPO_ROOT, 'audit-evidence', 'static-baseline.json');
+
+async function auditRoute(browser, base, route) {
+	const report = { url: route.url, layouts: [], header: [], images: {}, requests: null };
+
+	const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+	const page = await context.newPage();
+
+	const consoleMessages = [];
+	page.on('console', (m) => consoleMessages.push(`${m.type()}: ${m.text()}`));
+	page.on('pageerror', (e) => consoleMessages.push(`pageerror: ${e.message}`));
+
+	// Off-host requests are a hard GDPR failure, and transfer size drives the
+	// budgets, so record every response.
+	const requests = [];
+	page.on('response', async (res) => {
+		const url = res.url();
+		let bytes = 0;
+		try {
+			const len = res.headers()['content-length'];
+			bytes = len ? Number(len) : (await res.body().catch(() => Buffer.alloc(0))).length;
+		} catch {
+			bytes = 0;
+		}
+		requests.push({ url, status: res.status(), bytes, type: res.request().resourceType() });
+	});
+
+	const response = await page.goto(`${base}${route.url}`, { waitUntil: 'networkidle' });
+	report.status = response?.status() ?? 0;
+
+	// Split the request log at the end of the initial load. Budgets and the
+	// committed Lighthouse figures describe the page AS LOADED; scrolling to
+	// force every lazy image then counting the lot measures something else
+	// entirely (it read 823 KB for a route Lighthouse recorded at 242 KB).
+	// Both numbers are useful, so record both and budget against the initial one.
+	const initialCount = requests.length;
+
+	// A redirect adds a full round trip to LCP; the reference serves 200 directly.
+	report.redirected = response ? response.request().redirectedFrom() !== null : false;
+
+	// Scroll the page so lazy images load and any post-scroll state is measured,
+	// matching how the reference evidence was gathered.
+	await page.evaluate(async () => {
+		await new Promise((resolve) => {
+			let y = 0;
+			const step = () => {
+				y += window.innerHeight;
+				window.scrollTo(0, y);
+				if (y < document.body.scrollHeight) requestAnimationFrame(step);
+				else {
+					window.scrollTo(0, 0);
+					resolve();
+				}
+			};
+			step();
+		});
+	});
+	await page.waitForLoadState('networkidle').catch(() => {});
+
+	// --- layout probes -----------------------------------------------------
+	for (const width of WIDTHS) {
+		const height = width === 844 ? 390 : width === 960 ? 600 : 900;
+		await page.setViewportSize({ width, height });
+		await page.waitForTimeout(60);
+
+		const probe = await page.evaluate(() => {
+			const docWidth = document.documentElement.clientWidth;
+			const clipped = [];
+			for (const el of document.querySelectorAll('body *')) {
+				const style = getComputedStyle(el);
+				if (style.display === 'none' || style.visibility === 'hidden') continue;
+				const rect = el.getBoundingClientRect();
+				if (rect.width === 0 && rect.height === 0) continue;
+				// Overflowing the viewport horizontally, or text cut off inside its box.
+				if (rect.right > docWidth + 1 || rect.left < -1) {
+					clipped.push(`${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]}`);
+				}
+			}
+			return {
+				overflow: document.documentElement.scrollWidth > docWidth + 1,
+				clipped: [...new Set(clipped)].slice(0, 8),
+				rootFont: getComputedStyle(document.documentElement).fontSize,
+			};
+		});
+
+		report.layouts.push({ width, ...probe });
+	}
+
+	// --- header alignment --------------------------------------------------
+	for (const width of HEADER_WIDTHS) {
+		await page.setViewportSize({ width, height: 900 });
+		await page.waitForTimeout(60);
+
+		const probe = await page.evaluate(() => {
+			const header = document.querySelector('[data-site-header]');
+			if (!header) return { missing: true };
+			const headerContainer = header.querySelector('.container') ?? header;
+			const contentContainer = [...document.querySelectorAll('main .container')][0];
+			const cta = header.querySelector('.header-contact, .header-contact a');
+			const lastNav = [...header.querySelectorAll('.site-nav a, .site-nav summary')].pop();
+
+			const gap =
+				cta && lastNav
+					? Math.round(cta.getBoundingClientRect().left - lastNav.getBoundingClientRect().right)
+					: null;
+
+			return {
+				headerLeft: headerContainer ? +headerContainer.getBoundingClientRect().left.toFixed(5) : null,
+				contentLeft: contentContainer ? +contentContainer.getBoundingClientRect().left.toFixed(5) : null,
+				navVisible: !!header.querySelector('.site-nav') &&
+					getComputedStyle(header.querySelector('.site-nav')).display !== 'none',
+				gap,
+			};
+		});
+
+		report.header.push({ width, ...probe });
+	}
+
+	await page.setViewportSize({ width: 1440, height: 900 });
+
+	// --- accessibility -----------------------------------------------------
+	const axeSource = readFileSync(path.join(REPO_ROOT, 'node_modules', 'axe-core', 'axe.min.js'), 'utf8');
+	report.axe = [];
+	for (const width of [1440, 390]) {
+		await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
+		await page.waitForTimeout(60);
+		await page.addScriptTag({ content: axeSource });
+		const axe = await page.evaluate(async () =>
+			// Same rule sets the reference used.
+			window.axe
+				.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } })
+				.then((r) => ({
+					violations: r.violations.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.length })),
+					incomplete: r.incomplete.map((v) => v.id),
+				}))
+		);
+		report.axe.push({ width, ...axe });
+	}
+
+	// --- budgets -----------------------------------------------------------
+	const sameOrigin = new URL(base).origin;
+	const offHost = requests.filter((r) => !r.url.startsWith(sameOrigin) && !r.url.startsWith('data:'));
+	const initial = requests.slice(0, initialCount);
+	const images = requests.filter((r) => r.type === 'image');
+	const sum = (list) => list.reduce((total, r) => total + r.bytes, 0);
+
+	report.requests = {
+		// Budgeted: comparable to the committed Lighthouse evidence.
+		count: initial.length,
+		totalBytes: sum(initial),
+		// Informational: the cost of scrolling the whole page.
+		fullCount: requests.length,
+		fullBytes: sum(requests),
+		offHost: offHost.map((r) => r.url),
+		largestImage: images.reduce((max, r) => (r.bytes > (max?.bytes ?? 0) ? r : max), null),
+		broken: requests.filter((r) => r.status >= 400).map((r) => `${r.status} ${r.url}`),
+	};
+
+	report.console = consoleMessages;
+
+	// --- CLS ---------------------------------------------------------------
+	report.cls = await page.evaluate(
+		() =>
+			new Promise((resolve) => {
+				let total = 0;
+				try {
+					new PerformanceObserver((list) => {
+						for (const entry of list.getEntries()) if (!entry.hadRecentInput) total += entry.value;
+					}).observe({ type: 'layout-shift', buffered: true });
+				} catch {
+					resolve(null);
+					return;
+				}
+				setTimeout(() => resolve(+total.toFixed(4)), 400);
+			})
+	);
+
+	await context.close();
+	return report;
+}
+
+function evaluate(report, route) {
+	const failures = [];
+	const bases = baseline?.routes?.find((r) => r.url === route.url);
+
+	if (report.status !== route.expectStatus) {
+		failures.push(`HTTP ${report.status}, expected ${route.expectStatus}`);
+	}
+	if (report.redirected) failures.push('served via a redirect (adds a round trip to LCP)');
+
+	for (const l of report.layouts) {
+		if (l.overflow) failures.push(`${l.width}px: horizontal overflow`);
+		if (l.clipped?.length) failures.push(`${l.width}px: clipped ${l.clipped.join(', ')}`);
+		if (l.rootFont !== '16px') failures.push(`${l.width}px: rootFont is ${l.rootFont}, expected 16px`);
+	}
+
+	for (const h of report.header) {
+		if (h.missing) {
+			failures.push(`${h.width}px: [data-site-header] missing`);
+			continue;
+		}
+		if (h.headerLeft !== null && h.contentLeft !== null && h.headerLeft !== h.contentLeft) {
+			failures.push(`${h.width}px: header left ${h.headerLeft} != content left ${h.contentLeft}`);
+		}
+		if (h.gap !== null && h.gap < 24) failures.push(`${h.width}px: CTA gap ${h.gap}px, minimum 24px`);
+	}
+
+	for (const a of report.axe) {
+		if (a.violations.length) {
+			failures.push(
+				`${a.width}px: ${a.violations.length} axe violation(s): ${a.violations.map((v) => `${v.id}(${v.nodes})`).join(', ')}`
+			);
+		}
+	}
+
+	const r = report.requests;
+	if (r.offHost.length) failures.push(`${r.offHost.length} off-host request(s): ${r.offHost.slice(0, 3).join(', ')}`);
+	if (r.broken.length) failures.push(`broken request(s): ${r.broken.slice(0, 3).join(', ')}`);
+	if (r.count > BUDGETS.requests) failures.push(`${r.count} requests, budget ${BUDGETS.requests}`);
+
+	// Regression against the reference, not an absolute weight.
+	if (bases) {
+		const allowedBytes = Math.round(bases.totalBytes * BUDGETS.bytesToleranceRatio);
+		if (r.totalBytes > allowedBytes) {
+			failures.push(
+				`${Math.round(r.totalBytes / 1024)} KB vs reference ${Math.round(bases.totalBytes / 1024)} KB ` +
+					`(+${Math.round(((r.totalBytes - bases.totalBytes) / bases.totalBytes) * 100)}%, tolerance ${Math.round((BUDGETS.bytesToleranceRatio - 1) * 100)}%)`
+			);
+		}
+		if (r.count > bases.requests + BUDGETS.requestsTolerance) {
+			failures.push(`${r.count} requests vs reference ${bases.requests}`);
+		}
+		if (report.cls !== null && bases.cls !== null && report.cls > Math.max(bases.cls * 2, 0.01)) {
+			failures.push(`CLS ${report.cls} vs reference ${bases.cls}`);
+		}
+	}
+	if (r.largestImage && r.largestImage.bytes > BUDGETS.largestImageBytes) {
+		failures.push(
+			`largest image ${Math.round(r.largestImage.bytes / 1024)} KB, budget ${BUDGETS.largestImageBytes / 1024} KB (${r.largestImage.url.split('/').pop()})`
+		);
+	}
+	if (report.cls !== null && report.cls > BUDGETS.cls) failures.push(`CLS ${report.cls}, budget ${BUDGETS.cls}`);
+	if (report.console.length) failures.push(`${report.console.length} console message(s): ${report.console[0]}`);
+
+	return failures;
+}
+
+async function main() {
+	let server = null;
+	let base;
+
+	if (TARGET === 'static') {
+		server = await serveStatic(STATIC_ROOT);
+		base = server.url;
+	} else {
+		base = opt('base') ?? 'http://localhost:8888';
+	}
+
+	if (TARGET !== 'static' && existsSync(BASELINE_PATH)) {
+		baseline = JSON.parse(readFileSync(BASELINE_PATH, 'utf8'));
+		console.log(`baseline loaded: ${baseline.routes.length} route(s) from the static reference`);
+	} else if (TARGET !== 'static') {
+		console.log('NOTE: no static baseline found — byte and request growth cannot be gated.');
+		console.log('      Run `node tools/audit.mjs --target=static --write-baseline` first.');
+	}
+
+	let target = TARGET === 'static' ? pageRoutes : routes;
+	if (ROUTE_FILTER) target = target.filter((r) => ROUTE_FILTER.includes(r.url));
+
+	console.log(`Audit against ${TARGET} (${base}) — ${target.length} route(s), logged out`);
+	console.log('');
+
+	const browser = await chromium.launch();
+	const reports = [];
+	let failed = 0;
+
+	for (const route of target) {
+		const report = await auditRoute(browser, base, route);
+		const failures = evaluate(report, route);
+		reports.push({ ...report, failures });
+
+		if (failures.length) {
+			failed += 1;
+			console.log(`  FAIL  ${route.url}`);
+			for (const f of failures.slice(0, 6)) console.log(`          - ${f}`);
+			if (failures.length > 6) console.log(`          … ${failures.length - 6} more`);
+		} else {
+			const r = report.requests;
+			console.log(
+				`  ok    ${route.url.padEnd(44)} ${String(r.count).padStart(2)} req ${String(Math.round(r.totalBytes / 1024)).padStart(4)} KB` +
+					`  (scrolled: ${String(r.fullCount).padStart(2)} req ${String(Math.round(r.fullBytes / 1024)).padStart(4)} KB)  CLS ${report.cls}`
+			);
+		}
+	}
+
+	await browser.close();
+	if (server) await server.close();
+
+	console.log('');
+	console.log(`${reports.length - failed}/${reports.length} route(s) passing${failed ? `, ${failed} failing` : ''}`);
+
+	if (WRITE_BASELINE) {
+		mkdirSync(path.dirname(BASELINE_PATH), { recursive: true });
+		writeFileSync(
+			BASELINE_PATH,
+			JSON.stringify(
+				{
+					target: TARGET,
+					generated: 'see git history for when this baseline was produced',
+					routes: reports.map((r) => ({
+						url: r.url,
+						requests: r.requests.count,
+						totalBytes: r.requests.totalBytes,
+						fullRequests: r.requests.fullCount,
+						fullBytes: r.requests.fullBytes,
+						largestImageBytes: r.requests.largestImage?.bytes ?? 0,
+						cls: r.cls,
+						axeViolations: r.axe.reduce((n, a) => n + a.violations.length, 0),
+					})),
+				},
+				null,
+				2
+			)
+		);
+		console.log(`baseline written: ${path.relative(REPO_ROOT, BASELINE_PATH)}`);
+	} else if (existsSync(BASELINE_PATH)) {
+		console.log(`(baseline available at ${path.relative(REPO_ROOT, BASELINE_PATH)} — use tools/compare.mjs)`);
+	}
+
+	process.exit(failed ? 1 : 0);
+}
+
+await main();
