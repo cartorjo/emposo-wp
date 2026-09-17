@@ -886,6 +886,44 @@ class Import_Command {
 	// ----------------------------------------------------------------------
 
 	/**
+	 * What the old `(string) $array` cast hashed every array value to.
+	 *
+	 * It is the MD5 of the literal string "Array", which is what PHP produced
+	 * for every array here. Kept as a constant so the migration in
+	 * update_fields() is legible rather than a bare magic string.
+	 */
+	private const LEGACY_ARRAY_HASH = '4410ec34d9e6c1a68100ca0ce033fb17';
+
+	/**
+	 * A hash of a meta value that is stable for arrays as well as scalars.
+	 *
+	 * JSON, not serialize(): serialize() encodes float precision and array
+	 * ordering in ways that differ across PHP versions, and this hash has to
+	 * mean the same thing on a developer's machine and on a runner.
+	 *
+	 * @param mixed $value Meta value.
+	 */
+	private function fingerprint( $value ): string {
+		return md5( is_scalar( $value ) ? (string) $value : (string) wp_json_encode( $value ) );
+	}
+
+	/**
+	 * Whether a meta value counts as empty.
+	 *
+	 * An empty string, an empty array and a missing value all mean "the editor
+	 * has not put anything here", and none of them should read as an edit.
+	 *
+	 * @param mixed $value Meta value.
+	 */
+	private function is_blank( $value ): bool {
+		if ( is_array( $value ) ) {
+			return array() === $value;
+		}
+
+		return '' === (string) $value;
+	}
+
+	/**
 	 * Update post fields and meta, preserving editor changes unless --force.
 	 *
 	 * A per-field hash of what the importer last wrote is stored alongside the
@@ -925,13 +963,29 @@ class Import_Command {
 			$current  = get_post_meta( $post->ID, $key, true );
 			$expected = (string) ( $hashes[ $key ] ?? '' );
 
-			$edited = '' !== $expected && md5( (string) $current ) !== $expected && '' !== (string) $current;
+			/*
+			 * Array-valued meta (results, focus, related disciplines) used to be
+			 * hashed with a bare (string) cast, which emitted "Array to string
+			 * conversion" on every import and — far worse — hashed EVERY array
+			 * to md5('Array'). Editor changes to a list were therefore invisible
+			 * to this check and silently overwritten on each rerun, which is the
+			 * one thing the hash exists to prevent.
+			 *
+			 * A hash equal to that legacy value carries no information, so it is
+			 * treated as absent: the value is re-imported once and a real
+			 * fingerprint written in its place.
+			 */
+			$has_hash = '' !== $expected && self::LEGACY_ARRAY_HASH !== $expected;
+			$edited   = $has_hash
+				&& $this->fingerprint( $current ) !== $expected
+				&& ! $this->is_blank( $current );
+
 			if ( $edited && ! $this->force ) {
 				continue;
 			}
 
 			update_post_meta( $post->ID, $key, is_string( $value ) ? wp_slash( $value ) : $value );
-			$hashes[ $key ] = md5( (string) $value );
+			$hashes[ $key ] = $this->fingerprint( $value );
 		}
 
 		update_post_meta( $post->ID, '_emposo_import_hash', $hashes );

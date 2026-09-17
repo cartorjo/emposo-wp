@@ -16,7 +16,7 @@
     "wp:destroy": "wp-env destroy",
     "wp:logs": "wp-env logs",
     "wp": "wp-env run cli wp",
-    "wp:seed": "wp-env run cli wp emposo import all",
+    "wp:seed": "wp-env run cli wp --user=1 emposo import all",
     "composer": "./scripts/php-docker.sh composer",
     "composer:install": "./scripts/php-docker.sh composer install",
     "phpcs": "./scripts/php-docker.sh phpcs",
