@@ -102,6 +102,7 @@ async function auditRoute(browser, base, route) {
 
 	const response = await page.goto(`${base}${route.url}`, { waitUntil: 'networkidle' });
 	report.status = response?.status() ?? 0;
+	report.headers = response ? response.headers() : {};
 
 	// Split the request log at the end of the initial load. Budgets and the
 	// committed Lighthouse figures describe the page AS LOADED; scrolling to
@@ -194,12 +195,32 @@ async function auditRoute(browser, base, route) {
 	await page.setViewportSize({ width: 1440, height: 900 });
 
 	// --- accessibility -----------------------------------------------------
+	/*
+	 * axe is served from a SAME-ORIGIN URL rather than injected inline.
+	 *
+	 * The site sends `script-src 'self'`, which correctly blocks
+	 * addScriptTag({content}) — the injection is an inline script. Playwright
+	 * offers bypassCSP for exactly this, but using it would mean the audit no
+	 * longer runs against the policy the site actually sends. Intercepting a
+	 * same-origin URL keeps the real CSP in force and still loads axe, so the
+	 * measurement stays honest.
+	 */
 	const axeSource = readFileSync(path.join(REPO_ROOT, 'node_modules', 'axe-core', 'axe.min.js'), 'utf8');
+	const axeUrl = `${base}/__axe-core__.js`;
+
+	await page.route(axeUrl, (route) =>
+		route.fulfill({
+			status: 200,
+			contentType: 'text/javascript; charset=utf-8',
+			body: axeSource,
+		})
+	);
+
 	report.axe = [];
 	for (const width of [1440, 390]) {
 		await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
 		await page.waitForTimeout(60);
-		await page.addScriptTag({ content: axeSource });
+		await page.addScriptTag({ url: axeUrl });
 		const axe = await page.evaluate(async () =>
 			// Same rule sets the reference used.
 			window.axe
@@ -228,7 +249,14 @@ async function auditRoute(browser, base, route) {
 		fullBytes: sum(requests),
 		offHost: offHost.map((r) => r.url),
 		largestImage: images.reduce((max, r) => (r.bytes > (max?.bytes ?? 0) ? r : max), null),
-		broken: requests.filter((r) => r.status >= 400).map((r) => `${r.status} ${r.url}`),
+		/*
+		 * The route's own document is excluded when a 4xx IS the expected
+		 * response: the 404 template is audited by requesting a path that
+		 * cannot exist, so its 404 is the point, not a broken subresource.
+		 */
+		broken: requests
+			.filter((r) => r.status >= 400 && !(r.status === route.expectStatus && r.url === `${base}${route.url}`))
+			.map((r) => `${r.status} ${r.url}`),
 	};
 
 	report.console = consoleMessages;
@@ -280,6 +308,31 @@ function evaluate(report, route) {
 		if (h.gap !== null && h.gap < 24) failures.push(`${h.width}px: CTA gap ${h.gap}px, minimum 24px`);
 	}
 
+	/*
+	 * Security headers are asserted directly. Discovering the CSP by watching a
+	 * script get blocked is how this check came to exist — the audit tool broke
+	 * the moment the policy went in — but a side effect is not a test.
+	 */
+	const requiredHeaders = {
+		'content-security-policy': /default-src 'self'/,
+		'x-content-type-options': /nosniff/,
+		'referrer-policy': /strict-origin/,
+		'permissions-policy': /geolocation=\(\)/,
+	};
+	for (const [header, pattern] of Object.entries(requiredHeaders)) {
+		const value = report.headers?.[header] ?? '';
+		if (!pattern.test(value)) {
+			failures.push(`header ${header} is ${value ? `"${value}"` : 'absent'}, expected to match ${pattern}`);
+		}
+	}
+	// Scripts must stay strictly same-origin: 'unsafe-inline' or 'unsafe-eval'
+	// in script-src would defeat the point of the policy.
+	const csp = report.headers?.['content-security-policy'] ?? '';
+	const scriptSrc = /script-src([^;]*)/.exec(csp)?.[1] ?? '';
+	if (/unsafe-inline|unsafe-eval/.test(scriptSrc)) {
+		failures.push(`script-src grants ${scriptSrc.trim()}`);
+	}
+
 	for (const a of report.axe) {
 		if (a.violations.length) {
 			failures.push(
@@ -315,7 +368,15 @@ function evaluate(report, route) {
 		);
 	}
 	if (report.cls !== null && report.cls > BUDGETS.cls) failures.push(`CLS ${report.cls}, budget ${BUDGETS.cls}`);
-	if (report.console.length) failures.push(`${report.console.length} console message(s): ${report.console[0]}`);
+	/*
+	 * A 404 document makes the browser log a resource-load error no page can
+	 * avoid, so console output is only required to be clean where a 200 is
+	 * expected. Everywhere else the reference measured zero messages, and so
+	 * must this.
+	 */
+	if ( 200 === route.expectStatus && report.console.length ) {
+		failures.push(`${report.console.length} console message(s): ${report.console[0]}`);
+	}
 
 	return failures;
 }

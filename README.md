@@ -56,6 +56,24 @@ theme change. `reference/static/` is the audited static build, pinned to
   reintroduce a `vw`-scaled root.
 - **Zero third-party requests** from a visitor. A hard GDPR rule, which is also
   what makes a `default-src 'self'` CSP achievable.
+- **Production expects a persistent object cache: Memcached, not Redis** —
+  matching VIP, where the platform supplies the drop-in; self-hosted it has to
+  be installed. No code depends on the backend, because derived lists invalidate
+  through a bumpable version salt in the cache key rather than
+  `wp_cache_flush_group()`, which VIP does not support. wp-env has no persistent
+  object cache, so locally every request takes the miss path — which is why the
+  query counts inside `inc/fragments.php` are worth keeping honest.
+- **The web server must serve `.avif` as `image/avif`.** This is the only thing
+  the static build's `serve.json` exists to do. With the wrong content type
+  browsers reject `<source type="image/avif">`, fall back to the JPEG, and add
+  roughly 150 KB to a page — which alone breaks the 200 KB largest-image budget.
+  `inc/security.php` filters `wp_headers` as a safety net, but a static file
+  normally never reaches PHP, so the host config is the real fix.
+- **Self-hosted `wp-config.php` must `require` `vip-config/vip-config.php`.** On
+  VIP the platform loads it; self-hosted, nothing does. `inc/environment.php`
+  loads it late as a fallback and logs that it had to, because `wp_debug_mode()`
+  runs before mu-plugins and `WP_DEBUG_DISPLAY` is the one constant a late load
+  cannot rescue — a production site would print errors to visitors.
 
 The measured performance bars are only reachable behind a full-page cache,
 measured logged out. See the plan for the numbers and their provenance.

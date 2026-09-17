@@ -31,6 +31,13 @@ docker run --rm -i "${TTY_FLAG[@]}" \
 			curl -sS https://getcomposer.org/installer | php -- \
 				--install-dir=/usr/local/bin --filename=composer --quiet
 		fi
+		# Raise the limit via conf.d, not `php -d`: PHPStan runs its analysis in
+		# parallel worker processes, and a -d flag on the parent does not reach
+		# them — they inherit php.ini and die at the 128M default. An ini file
+		# applies to every PHP process in the container, so the limit holds
+		# however phpstan is invoked (with or without --memory-limit).
+		mkdir -p "${PHP_INI_DIR}/conf.d"
+		echo "memory_limit = 3G" > "${PHP_INI_DIR}/conf.d/zz-emposo.ini"
 		export PATH="/app/vendor/bin:${PATH}"
 		exec "$@"
 	' -- "$@"

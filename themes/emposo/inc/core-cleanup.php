@@ -82,6 +82,10 @@ function emposo_core_cleanup(): void {
 	add_filter( 'the_generator', '__return_empty_string' );
 	remove_action( 'wp_head', 'rsd_link' );
 	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
+	// The shortlink is emitted TWICE by core: once as a <link> in the head and
+	// once as an HTTP Link: header. Removing only the first leaves the header
+	// advertising /?p=<id> on every response.
+	remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
 	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 	remove_action( 'template_redirect', 'rest_output_link_header', 11 );
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );

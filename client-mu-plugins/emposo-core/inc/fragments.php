@@ -26,6 +26,7 @@ declare( strict_types = 1 );
 namespace Emposo\Core\Fragments;
 
 use WP_Post;
+use function Emposo\Core\Cache\remember;
 use function Emposo\Core\Images\picture;
 use const Emposo\Core\ContentModel\CPT_CASE_STUDY;
 use const Emposo\Core\ContentModel\TAX_DISCIPLINE;
@@ -103,6 +104,56 @@ function term_name( ?\WP_Term $term ): string {
 }
 
 /**
+ * Turn a cached ID list back into post objects.
+ *
+ * Derived lists are cached as IDs rather than post objects on purpose. The
+ * expensive part of a derived query is the derivation — the post_parent scan,
+ * the tax_query, the termmeta join — not fetching rows by primary key, and the
+ * post objects are already in the object cache under their own keys. Caching
+ * the objects too would store every title and body a second time and go stale
+ * on edit independently of the post cache.
+ *
+ * _prime_post_caches() warms posts, postmeta and object terms in one query
+ * each, so the get_post() calls below never hit the database individually.
+ * Without it this would be one query per ID.
+ *
+ * The term cache is primed — the second argument is true — because `fields =>
+ * 'ids'` turns off the priming WP_Query does for a normal post query, and the
+ * case-study filters call has_term() on every card. Measured with 10 case
+ * studies: 29 queries unprimed, 0 primed. For the page lists it costs nothing,
+ * since pages carry no taxonomies and update_object_term_cache() then returns
+ * without querying.
+ *
+ * @param int[] $ids Post IDs, in the order they should render.
+ * @return WP_Post[]
+ */
+function hydrate( array $ids ): array {
+	if ( ! $ids ) {
+		return array();
+	}
+
+	_prime_post_caches( $ids, true, true );
+
+	$posts = array();
+
+	foreach ( $ids as $id ) {
+		$post = get_post( $id );
+
+		/*
+		 * Status is re-checked here, not trusted from the cache: the ID list can
+		 * outlive an unpublish by up to the TTL if a save_post hook did not fire
+		 * (a direct wp_update_post with a suspended object cache, say). A stale
+		 * ID renders nothing rather than a draft.
+		 */
+		if ( $post instanceof WP_Post && 'publish' === $post->post_status ) {
+			$posts[] = $post;
+		}
+	}
+
+	return $posts;
+}
+
+/**
  * Every case study, in source order.
  *
  * Ordered by menu_order, not date: the source array's order drives the featured
@@ -118,17 +169,28 @@ function case_studies(): array {
 		return $cache;
 	}
 
-	$cache = get_posts(
-		array(
-			'post_type'        => CPT_CASE_STUDY,
-			'post_status'      => 'publish',
-			'posts_per_page'   => 100,
-			'orderby'          => 'menu_order',
-			'order'            => 'ASC',
-			'no_found_rows'    => true,
-			'suppress_filters' => false,
-		)
+	$ids = remember(
+		'case-studies',
+		static function (): array {
+			return array_map(
+				'intval',
+				get_posts(
+					array(
+						'post_type'        => CPT_CASE_STUDY,
+						'post_status'      => 'publish',
+						'posts_per_page'   => 100,
+						'orderby'          => 'menu_order',
+						'order'            => 'ASC',
+						'fields'           => 'ids',
+						'no_found_rows'    => true,
+						'suppress_filters' => false,
+					)
+				)
+			);
+		}
 	);
+
+	$cache = hydrate( $ids );
 
 	return $cache;
 }
@@ -145,35 +207,50 @@ function disciplines(): array {
 		return $cache;
 	}
 
-	$parent = get_page_by_path( 'expertise' );
+	$ids = remember(
+		'disciplines',
+		static function (): array {
+			$parent = get_page_by_path( 'expertise' );
 
-	$pages = $parent instanceof WP_Post
-		? get_posts(
-			array(
-				'post_type'      => 'page',
-				'post_status'    => 'publish',
-				'post_parent'    => $parent->ID,
-				'posts_per_page' => 100,
-				'orderby'        => 'menu_order',
-				'order'          => 'ASC',
-				'no_found_rows'  => true,
-			)
-		)
-		: array();
-
-	/*
-	 * The /expertise/ tree also holds the two hand-authored group overview
-	 * pages, which are not disciplines. A discipline is identified by carrying
-	 * a linked term — which is data, not a slug guess.
-	 */
-	$cache = array_values(
-		array_filter(
-			$pages,
-			static function ( WP_Post $page ): bool {
-				return (int) get_post_meta( $page->ID, '_emposo_discipline_term', true ) > 0;
+			if ( ! $parent instanceof WP_Post ) {
+				return array();
 			}
-		)
+
+			$pages = get_posts(
+				array(
+					'post_type'      => 'page',
+					'post_status'    => 'publish',
+					'post_parent'    => $parent->ID,
+					'posts_per_page' => 100,
+					'orderby'        => 'menu_order',
+					'order'          => 'ASC',
+					'fields'         => 'ids',
+					'no_found_rows'  => true,
+				)
+			);
+
+			$pages = array_map( 'intval', $pages );
+			_prime_post_caches( $pages, false, true );
+
+			/*
+			 * The /expertise/ tree also holds the two hand-authored group
+			 * overview pages, which are not disciplines. A discipline is
+			 * identified by carrying a linked term — which is data, not a slug
+			 * guess. The filter runs inside the cached callback so the meta
+			 * reads happen once per invalidation, not once per request.
+			 */
+			return array_values(
+				array_filter(
+					$pages,
+					static function ( int $id ): bool {
+						return (int) get_post_meta( $id, '_emposo_discipline_term', true ) > 0;
+					}
+				)
+			);
+		}
 	);
+
+	$cache = hydrate( $ids );
 
 	return $cache;
 }
@@ -190,21 +267,34 @@ function industries(): array {
 		return $cache;
 	}
 
-	$parent = get_page_by_path( 'branchen' );
+	$ids = remember(
+		'industries',
+		static function (): array {
+			$parent = get_page_by_path( 'branchen' );
 
-	$cache = $parent instanceof WP_Post
-		? get_posts(
-			array(
-				'post_type'      => 'page',
-				'post_status'    => 'publish',
-				'post_parent'    => $parent->ID,
-				'posts_per_page' => 100,
-				'orderby'        => 'menu_order',
-				'order'          => 'ASC',
-				'no_found_rows'  => true,
-			)
-		)
-		: array();
+			if ( ! $parent instanceof WP_Post ) {
+				return array();
+			}
+
+			return array_map(
+				'intval',
+				get_posts(
+					array(
+						'post_type'      => 'page',
+						'post_status'    => 'publish',
+						'post_parent'    => $parent->ID,
+						'posts_per_page' => 100,
+						'orderby'        => 'menu_order',
+						'order'          => 'ASC',
+						'fields'         => 'ids',
+						'no_found_rows'  => true,
+					)
+				)
+			);
+		}
+	);
+
+	$cache = hydrate( $ids );
 
 	return $cache;
 }
@@ -455,18 +545,42 @@ function filters(): string {
  * @return \WP_Term[]
  */
 function ordered_terms( string $taxonomy ): array {
-	$terms = get_terms(
-		array(
-			'taxonomy'   => $taxonomy,
-			'hide_empty' => false,
-			'meta_key'   => '_emposo_term_order', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Small closed vocabulary; the alternative is a wrong order.
-			'orderby'    => 'meta_value_num',
-			'order'      => 'ASC',
-		)
+	/*
+	 * This is the one derived query with a metadata join, and it runs on every
+	 * page carrying a filter bar — so it is the query the cache exists for.
+	 * Term IDs are cached rather than term objects, for the same reason post
+	 * IDs are: get_term() reads from the term cache.
+	 */
+	$ids = remember(
+		'terms:' . $taxonomy,
+		static function () use ( $taxonomy ): array {
+			$found = get_terms(
+				array(
+					'taxonomy'   => $taxonomy,
+					'hide_empty' => false,
+					'fields'     => 'ids',
+					'meta_key'   => '_emposo_term_order', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Small closed vocabulary; the alternative is a wrong order.
+					'orderby'    => 'meta_value_num',
+					'order'      => 'ASC',
+				)
+			);
+
+			if ( is_wp_error( $found ) ) {
+				return array();
+			}
+
+			return array_map( 'intval', $found );
+		}
 	);
 
-	if ( is_wp_error( $terms ) ) {
-		return array();
+	$terms = array();
+
+	foreach ( $ids as $id ) {
+		$term = get_term( $id, $taxonomy );
+
+		if ( $term instanceof \WP_Term ) {
+			$terms[] = $term;
+		}
 	}
 
 	/*
@@ -590,14 +704,25 @@ function cta( string $title = 'Jetzt Kontakt aufnehmen!' ): string {
  * placeholder path and no field an editor can half-fill into a fabricated role.
  */
 function management(): string {
-	$people = get_posts(
-		array(
-			'post_type'      => \Emposo\Core\ContentModel\CPT_PERSON,
-			'post_status'    => 'publish',
-			'posts_per_page' => 100,
-			'orderby'        => 'menu_order',
-			'order'          => 'ASC',
-			'no_found_rows'  => true,
+	$people = hydrate(
+		remember(
+			'people',
+			static function (): array {
+				return array_map(
+					'intval',
+					get_posts(
+						array(
+							'post_type'      => \Emposo\Core\ContentModel\CPT_PERSON,
+							'post_status'    => 'publish',
+							'posts_per_page' => 100,
+							'orderby'        => 'menu_order',
+							'order'          => 'ASC',
+							'fields'         => 'ids',
+							'no_found_rows'  => true,
+						)
+					)
+				);
+			}
 		)
 	);
 
