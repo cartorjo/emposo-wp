@@ -28,7 +28,15 @@ export default [
 			'no-redeclare': 'error',
 			'no-implicit-globals': 'error',
 			eqeqeq: ['error', 'smart'],
-			'no-console': 'error',
+			/*
+			 * console.error is allowed; console.log and friends are not. The one
+			 * call in the ported scripts is `if (window.console && console.error)
+			 * console.error(err)` inside 00-core.js's ready-callback catch — a
+			 * deliberate error path in a file that is byte-identical to the
+			 * audited static build, so the rule had to give rather than the file.
+			 * Debug logging left behind by a porting mistake still fails.
+			 */
+			'no-console': [ 'error', { allow: [ 'error' ] } ],
 		},
 	},
 	{
