@@ -250,7 +250,7 @@ class Scaffold_Command {
 
 			WP_CLI::error(
 				sprintf(
-					'%s: slug became "%s" instead of "%s". Something else holds that slug — check `wp post list --post_status=any --name=%s`.',
+					'%s: slug became "%s" instead of "%s". Something else holds that slug — check `wp post list --post_type=any --post_status=any --name=%s`.',
 					$url,
 					$actual,
 					$slug,
