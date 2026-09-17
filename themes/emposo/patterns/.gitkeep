@@ -1,0 +1,14 @@
+Empty on purpose, and tracked on purpose.
+
+main.css names this directory in an @source, and tools/check-sources.mjs fails
+the build when a named source path stops existing — so an empty, UNTRACKED
+directory is a fresh-clone failure waiting to happen. Git cannot track an empty
+directory; this file is what makes the path survive a clone.
+
+It exists because hand-authored page bodies are registered as block patterns
+when they need to live in the database: Tailwind does not scan the database, so
+a utility class used only inside imported post_content would be missing from
+the build with no error anywhere. Patterns are in a scanned directory, and the
+importer inserts pattern references rather than expanded HTML.
+
+Today the page bodies are PHP template parts in parts/pages/, so this is empty.

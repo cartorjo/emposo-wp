@@ -1,0 +1,9 @@
+Empty on purpose, and tracked on purpose — see patterns/.gitkeep for why an
+empty directory has to be tracked at all (main.css @source plus
+tools/check-sources.mjs).
+
+Reserved for page templates an editor can select. The 31 Pages currently render
+through page.php and the parts in parts/pages/, chosen by slug, because the
+route contract fixes which page renders what — a selectable template would be
+one more way for an editor to change a URL's appearance without changing its
+content.
