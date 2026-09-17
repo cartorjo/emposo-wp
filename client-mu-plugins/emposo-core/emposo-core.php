@@ -38,4 +38,5 @@ require_once __DIR__ . '/inc/images.php';
 require_once __DIR__ . '/inc/fragments.php';
 require_once __DIR__ . '/inc/cache.php';
 require_once __DIR__ . '/inc/security.php';
+require_once __DIR__ . '/inc/claude.php';
 require_once __DIR__ . '/inc/cli.php';

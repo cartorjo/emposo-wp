@@ -84,6 +84,21 @@ namespace {
 	}
 }
 
+namespace cli\progress {
+	/**
+	 * What Utils\make_progress_bar() actually returns on a TTY, from
+	 * wp-cli/php-cli-tools. Declared here because `@return object` is not
+	 * analysable at level 8 — a method call on it is an error.
+	 */
+	class Bar {
+		/** @param int $increment @return void */
+		public function tick( $increment = 1 ) {}
+
+		/** @return void */
+		public function finish() {}
+	}
+}
+
 namespace WP_CLI\Utils {
 	/**
 	 * @param string                    $format
@@ -97,9 +112,19 @@ namespace WP_CLI\Utils {
 	 * @param string $message
 	 * @param int    $count
 	 * @param int    $interval
-	 * @return object
+	 * @return \cli\progress\Bar
 	 */
 	function make_progress_bar( $message, $count, $interval = 100 ) {
-		return new \stdClass();
+		return new \cli\progress\Bar();
+	}
+
+	/**
+	 * @param array<string, mixed> $assoc_args
+	 * @param string               $flag
+	 * @param mixed                $default_value
+	 * @return mixed
+	 */
+	function get_flag_value( $assoc_args, $flag, $default_value = null ) {
+		return $assoc_args[ $flag ] ?? $default_value;
 	}
 }
