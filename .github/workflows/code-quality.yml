@@ -115,22 +115,21 @@ jobs:
     name: CSS build produces no drift
     runs-on: ubuntu-latest
     steps:
-      # reference/static is a SUBMODULE (private: cartorjo/weave-clone), and it
-      # is not optional here — tools/routes.mjs imports the reference build's
+      # reference/static is a SUBMODULE (cartorjo/weave-clone) and it is not
+      # optional here — tools/routes.mjs imports the reference build's
       # pages.mjs, so without it this job dies on ERR_MODULE_NOT_FOUND rather
-      # than on anything it was meant to check. actions/checkout does not fetch
-      # submodules by default, and the default GITHUB_TOKEN cannot read another
-      # private repository, so a token with access must be provided as the
-      # SUBMODULE_TOKEN secret.
+      # than on anything it was meant to check, which is how the first CI run
+      # failed. actions/checkout does not fetch submodules by default. The guard
+      # below turns an auth or availability failure into one sentence instead of
+      # a module-resolution stack trace.
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.SUBMODULE_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Confirm the reference build is present
         run: |
           test -f reference/static/pages.mjs || {
-            echo "::error::reference/static is empty. Add a SUBMODULE_TOKEN secret with read access to cartorjo/weave-clone (a fine-grained PAT or a deploy key); the default GITHUB_TOKEN cannot read a private submodule."
+            echo "::error::reference/static is empty — the submodule did not check out. If cartorjo/weave-clone is private again, add a SUBMODULE_TOKEN secret with read access and pass it as checkout's token; the default GITHUB_TOKEN cannot read another private repository."
             exit 1
           }
 

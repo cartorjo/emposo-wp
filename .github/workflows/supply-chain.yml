@@ -31,16 +31,28 @@ jobs:
       # honest bar for a repository whose dev tree includes a browser engine.
       - run: npm run audit:deps
 
-# CodeQL is deliberately absent, not forgotten. The analysis itself runs fine
-# on a runner, but uploading results needs code scanning enabled, and on a
-# PRIVATE repository that requires GitHub Advanced Security — this repository is
-# private on a free plan, so the upload fails with "Code scanning is not enabled
-# for this repository" and the job can never pass. A permanently red check
-# teaches people to ignore red checks, and `continue-on-error` on a security job
-# is worse than no job: it reports success for an upload that did not happen.
-#
-# To restore it: enable code scanning (GHAS, or make the repository public),
-# then add a codeql job with `security-events: write` and the
-# github/codeql-action/init + analyze steps for javascript-typescript. Note
-# CodeQL has no PHP support, so it would never have covered the plugin or theme
-# code — the PHP gates are PHPCS and PHPStan.
+  # Only javascript-typescript: CodeQL has no PHP support, so it never covers
+  # the plugin or theme code — those gates are PHPCS and PHPStan. This job was
+  # briefly removed while the repository was private on a free plan, where the
+  # analysis ran but the upload failed with "Code scanning is not enabled for
+  # this repository" (private repos need Advanced Security). Public restores it.
+  codeql:
+    name: CodeQL
+    runs-on: ubuntu-latest
+    # Not on Dependabot's pull requests: its token is read-only and cannot
+    # write security events, so the upload fails after a full analysis has
+    # already run. Every merge to main is still scanned.
+    if: github.actor != 'dependabot[bot]'
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+
+      - uses: github/codeql-action/analyze@v3
+        with:
+          category: /language:javascript-typescript
