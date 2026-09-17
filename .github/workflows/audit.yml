@@ -1,0 +1,61 @@
+name: Audit
+
+# Budgets, axe and the layout probes, measured against a warmed, logged-out
+# site. Kept out of the parity workflow because it measures performance: a job
+# that also imports content and builds CSS would be measuring the runner's
+# warm-up, not the site.
+#
+# The committed Lighthouse figures in audit-evidence/ are host measurements and
+# are NOT reproduced here — a shared runner cannot reproduce them, and a number
+# that moves with the weather is not a gate. What is gated here is what does
+# hold on any machine: request counts, transfer sizes, axe violations, CLS,
+# console cleanliness and HTTP status.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Budgets and accessibility
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - run: npm run build:css
+      - run: npm run wp:start
+      - run: npm run wp:seed
+
+      # Two passes. The first warms every route; the second is the one that
+      # gates, because the budgets describe a warm site.
+      - name: Warm
+        run: npm run audit || true
+
+      - name: Audit
+        run: npm run audit
+
+      - name: Upload the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: audit-evidence/wp/latest.json
+          if-no-files-found: warn

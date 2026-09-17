@@ -1,0 +1,116 @@
+name: Code quality
+
+# The fast gate: everything that needs neither Docker nor a browser. Runs on
+# every push and pull request, and is what the branch-protection rules require.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: code-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  phpcs:
+    name: PHPCS (WordPress + VIP)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # cs2pr turns the checkstyle report into inline review comments, which is
+      # the whole point of this job: a coding-standards failure should appear on
+      # the line that caused it, not in a log nobody opens.
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: cs2pr
+
+      # composer.lock is committed, so the cache key is exact and a restore is
+      # either a hit or a full install — never a partially-correct tree.
+      - uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      - run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: PHPCS
+        run: vendor/bin/phpcs -q --report=checkstyle --report-file=phpcs.xml || true
+
+      - name: Annotate
+        run: cs2pr --graceful-warnings phpcs.xml
+
+  phpstan:
+    name: PHPStan (level 8)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
+      - uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      - run: composer install --no-interaction --no-progress --prefer-dist
+
+      # `--error-format=github` rather than SARIF uploaded to code scanning:
+      # PHPStan has no first-party SARIF formatter, and the third-party one
+      # would be a dependency added for a worse outcome — the GitHub format
+      # already annotates the exact line in the diff. Revisit only if these
+      # findings need to live in the security tab.
+      #
+      # 3G, not the 128M default: PHPStan analyses WordPress core's stubs and
+      # runs its workers as separate processes, which do not inherit a -d flag.
+      - name: PHPStan
+        run: vendor/bin/phpstan analyse --memory-limit=3G --error-format=github
+
+  js-css:
+    name: Lint JS and CSS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint:js
+      - run: npm run lint:css
+
+  build:
+    name: CSS build produces no drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # The committed site.css must be exactly what the build produces. A drift
+      # here means someone hand-edited generated CSS, or changed a source and
+      # did not rebuild — and every parity measurement downstream would then be
+      # describing a file the repository does not contain.
+      - run: npm run build:css
+      - run: npm run check:sources
+      - name: Fail on drift
+        run: git diff --exit-code

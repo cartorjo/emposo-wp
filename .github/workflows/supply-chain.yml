@@ -1,0 +1,53 @@
+name: Supply chain
+
+# Dependency hygiene. Weekly as well as per-push: an advisory published after a
+# merge is still an advisory, and nothing else in CI would surface it.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  deps:
+    name: npm and composer advisories
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # The project's own script: it asserts the production tree is clean and
+      # tolerates dev-only advisories below a threshold, which is the only
+      # honest bar for a repository whose dev tree includes a browser engine.
+      - run: npm run audit:deps
+
+  codeql:
+    name: CodeQL
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+
+      - uses: github/codeql-action/analyze@v3
+        with:
+          category: /language:${{ matrix.language }}

@@ -304,6 +304,21 @@ class Import_Command {
 		wp_defer_term_counting( false );
 
 		$counts = array_count_values( wp_list_pluck( $this->plan, 'action' ) );
+
+		/*
+		 * Record the run. Nothing in the content model carries a "last
+		 * imported" timestamp, and the admin dashboard needs one: an importer
+		 * that last ran before the current export is a silent staleness bug,
+		 * and the only way to see it is to write down when it ran.
+		 */
+		update_option(
+			'emposo_last_import',
+			array(
+				'time'    => time(),
+				'actions' => $counts,
+			),
+			false
+		);
 		WP_CLI::success(
 			sprintf(
 				'%d action(s): %s',

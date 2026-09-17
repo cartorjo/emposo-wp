@@ -75,6 +75,16 @@ let baseline = null;
  */
 const BASELINE_PATH = path.join(REPO_ROOT, 'audit-evidence', 'static-baseline.json');
 
+/**
+ * Where a WordPress-side run records itself.
+ *
+ * Gitignored on purpose (`/audit-evidence/wp/`): the static baseline is the
+ * committed contract, and this is a measurement of one machine at one moment.
+ * The admin dashboard reads it to show when the site was last audited, and
+ * reports its absence rather than implying a pass.
+ */
+const WP_REPORT_PATH = path.join(REPO_ROOT, 'audit-evidence', 'wp', 'latest.json');
+
 async function auditRoute(browser, base, route) {
 	const report = { url: route.url, layouts: [], header: [], images: {}, requests: null };
 
@@ -434,6 +444,31 @@ async function main() {
 
 	console.log('');
 	console.log(`${reports.length - failed}/${reports.length} route(s) passing${failed ? `, ${failed} failing` : ''}`);
+
+	if (TARGET !== 'static') {
+		mkdirSync(path.dirname(WP_REPORT_PATH), { recursive: true });
+		writeFileSync(
+			WP_REPORT_PATH,
+			JSON.stringify(
+				{
+					target: TARGET,
+					generated: new Date().toISOString(),
+					passing: reports.length - failed,
+					total: reports.length,
+					routes: reports.map((r) => ({
+						url: r.url,
+						failures: r.failures,
+						requests: r.requests.count,
+						totalBytes: r.requests.totalBytes,
+						cls: r.cls,
+						axeViolations: r.axe.reduce((n, a) => n + a.violations.length, 0),
+					})),
+				},
+				null,
+				2
+			)
+		);
+	}
 
 	if (WRITE_BASELINE) {
 		mkdirSync(path.dirname(BASELINE_PATH), { recursive: true });

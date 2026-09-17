@@ -1,0 +1,69 @@
+name: Parity
+
+# The primary gate. Brings up WordPress, seeds it from the frozen export, and
+# asserts that all 41 routes still render what the audited static build renders.
+# Slow by nature — it boots Docker, imports content and drives a browser — so it
+# is a separate workflow from the fast checks.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: parity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  parity:
+    name: DOM parity, class inventory, behaviours
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build CSS
+        run: npm run build:css
+
+      - name: Start WordPress
+        run: npm run wp:start
+
+      # The importer MUST run before parity. It is idempotent, so a re-run is
+      # safe, but skipping it leaves an empty site that every route check would
+      # fail against for the wrong reason.
+      - name: Seed content
+        run: npm run wp:seed
+
+      - name: Verify the route and content contract
+        run: npm run wp -- emposo verify --routes --content --media --invariants
+
+      - name: Class inventory
+        run: npm run class-inventory
+
+      # Warm the cache first: the first request to each route pays for rewrite
+      # resolution and a cold object cache, and parity compares rendered DOM,
+      # not timings — but a cold run is where flaky failures come from.
+      - name: Warm
+        run: npm run parity
+
+      - name: DOM parity (strict)
+        run: npm run parity -- --strict
+
+      - name: Behaviour contracts
+        run: npm run behaviours
+
+      - name: Logs on failure
+        if: failure()
+        run: npm run wp:logs -- --debug || true

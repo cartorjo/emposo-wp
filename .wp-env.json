@@ -8,7 +8,8 @@
   "mappings": {
     "wp-content/themes/emposo": "./themes/emposo",
     "wp-content/mu-plugins": "./client-mu-plugins",
-    "wp-content/plugins/emposo-local": "./plugins"
+    "wp-content/plugins/emposo-local": "./plugins",
+    "wp-content/audit-evidence": "./audit-evidence"
   },
   "config": {
     "WP_DEBUG": true,
