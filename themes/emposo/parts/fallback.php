@@ -2,29 +2,30 @@
 /**
  * Fallback body.
  *
- * Renders the queried object's title rather than 404 content, so a 200 response
- * never displays "page not found" — a misleading state that reads as a routing
- * bug when routing is in fact correct.
+ * Renders the queried object's own title and content rather than 404 content,
+ * so published pages outside the route contract — the legal pages — stay
+ * readable instead of presenting as "page not found" on a 200 response.
+ *
+ * Uses only classes that exist in the committed site.css (the same
+ * page-section/legal-copy shell as parts/pages/cookies.php), because the CSS
+ * build is not runnable from a fresh clone.
  *
  * @package Emposo
  */
 
 ?>
-<section class="page-hero" aria-labelledby="fallback-title">
+<section class="page-section" aria-labelledby="fallback-title">
 	<div class="gutter">
-		<div class="container">
-			<h1 id="fallback-title" class="page-display"><?php echo esc_html( wp_get_document_title() ); ?></h1>
-			<?php if ( \Emposo\Core\Environment\is_development() ) : ?>
-				<p class="page-hero__intro">
-					<?php
-					printf(
-						/* translators: %s: template file name. */
-						esc_html__( 'Fallback template (%s). Route templates land in the template port.', 'emposo' ),
-						'index.php'
-					);
-					?>
-				</p>
-			<?php endif; ?>
+		<div class="container legal-copy">
+			<h1 id="fallback-title" class="page-title"><?php echo esc_html( get_the_title() ); ?></h1>
+			<?php
+			if ( is_singular() ) {
+				while ( have_posts() ) {
+					the_post();
+					the_content();
+				}
+			}
+			?>
 		</div>
 	</div>
 </section>

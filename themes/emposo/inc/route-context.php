@@ -42,13 +42,19 @@ function emposo_route(): array {
 		}
 	}
 
-	// Unmatched paths are the 404 template; the contract carries its record
-	// under the sentinel object type rather than a URL.
-	foreach ( $contract as $route ) {
-		if ( 'not_found' === ( $route['objectType'] ?? '' ) ) {
-			$cache = $route;
+	// Unmatched paths take the contract's 404 record only when the request is
+	// a real 404; the contract carries that record under the sentinel object
+	// type rather than a URL. A published object outside the contract — the
+	// pre-existing legal pages — falls through to the synthesized record
+	// below, whose missing body kind routes emposo_the_body() to
+	// parts/fallback.php instead of presenting 404 content at HTTP 200.
+	if ( is_404() ) {
+		foreach ( $contract as $route ) {
+			if ( 'not_found' === ( $route['objectType'] ?? '' ) ) {
+				$cache = $route;
 
-			return $cache;
+				return $cache;
+			}
 		}
 	}
 
