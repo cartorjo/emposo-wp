@@ -35,7 +35,7 @@ jobs:
 
       # composer.lock is committed, so the cache key is exact and a restore is
       # either a hit or a full install — never a partially-correct tree.
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: vendor
           key: composer-${{ hashFiles('composer.lock') }}
@@ -59,7 +59,7 @@ jobs:
           php-version: '8.3'
           coverage: none
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: vendor
           key: composer-${{ hashFiles('composer.lock') }}
