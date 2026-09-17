@@ -35,7 +35,7 @@ jobs:
       # failed. actions/checkout does not fetch submodules by default. The guard
       # below turns an auth or availability failure into one sentence instead of
       # a module-resolution stack trace.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -46,7 +46,7 @@ jobs:
             exit 1
           }
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -70,7 +70,7 @@ jobs:
 
       - name: Upload the report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: audit-report
           path: audit-evidence/wp/latest.json
