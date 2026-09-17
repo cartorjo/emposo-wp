@@ -1,5 +1,9 @@
 node_modules/
-vendor/
+# ANCHORED. Unanchored, `vendor/` matched themes/emposo/assets/vendor/ too, so
+# lenis.min.js — enqueued on every page — was never committed: a fresh clone
+# 404ed it and smooth scrolling was silently off site-wide, including in CI.
+# Only Composer's root vendor directory belongs here.
+/vendor/
 .DS_Store
 
 # Build + tooling output

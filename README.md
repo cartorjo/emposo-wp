@@ -10,8 +10,16 @@ colima start --cpu 4 --memory 8   # Docker daemon; nothing works without it
 npm ci
 npm run composer:install          # runs inside php:8.3-cli — there is no host PHP
 npm run wp:start                  # http://localhost:8888
-npm run wp:seed                   # wp emposo import all (idempotent)
+npm run wp:bootstrap              # scaffold, then import (both idempotent)
 ```
+
+`wp:bootstrap` is two steps and both are required on a fresh database.
+`wp:scaffold` creates the 41 route objects and sets what makes the contract's
+paths exist at all — postname permalinks, the front page, `blog_public=0` — then
+flushes the rewrite rules. `wp:seed` fills those objects with content. Seeding
+without scaffolding leaves a site where every route 404s; this README used to
+document `wp:seed` alone, and the gap stayed invisible until CI became the first
+environment to start from an empty database.
 
 `npm run wp -- <args>` runs WP-CLI in the container, e.g.
 `npm run wp -- emposo verify --routes`.

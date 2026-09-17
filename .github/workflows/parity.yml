@@ -56,11 +56,15 @@ jobs:
       - name: Start WordPress
         run: npm run wp:start
 
-      # The importer MUST run before parity. It is idempotent, so a re-run is
-      # safe, but skipping it leaves an empty site that every route check would
-      # fail against for the wrong reason.
-      - name: Seed content
-        run: npm run wp:seed
+      # wp:bootstrap, not wp:seed. scaffold creates the 41 route objects AND sets
+      # the things the contract's paths need to exist at all — postname
+      # permalinks, the front page, blog_public=0 — then flushes the rewrite
+      # rules; import fills those objects with content. Seeding alone produced
+      # a site where every route 404ed, which is how CI first failed here: on
+      # this machine scaffold had been run in an earlier session, so the
+      # difference never showed. Both commands are idempotent.
+      - name: Scaffold routes and seed content
+        run: npm run wp:bootstrap
 
       - name: Verify the route and content contract
         run: npm run wp -- emposo verify --routes --content --media --invariants
