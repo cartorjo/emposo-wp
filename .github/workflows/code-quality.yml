@@ -42,11 +42,29 @@ jobs:
 
       - run: composer install --no-interaction --no-progress --prefer-dist
 
+      # `|| true` was the first version of this step, and it made the job pass
+      # while phpcs was exiting 3 on a missing path — a green check over zero
+      # files scanned. The exit code has to be read, not discarded: 0 is clean,
+      # 1 is warnings, 2 is findings — all three produce a report for cs2pr to
+      # annotate — and 3 or above is phpcs failing to run at all, which is the
+      # one case that must never look like "no findings".
+      #
+      # The report is NOT named phpcs.xml: phpcs discovers phpcs.xml as its own
+      # configuration ahead of phpcs.xml.dist, so writing a report there would
+      # arm the next run.
       - name: PHPCS
-        run: vendor/bin/phpcs -q --report=checkstyle --report-file=phpcs.xml || true
+        run: |
+          set +e
+          vendor/bin/phpcs -q --report=checkstyle --report-file=phpcs-report.xml
+          status=$?
+          set -e
+          if [ "$status" -ge 3 ]; then
+            echo "::error::phpcs exited ${status} — it did not run. See the output above."
+            exit "$status"
+          fi
 
       - name: Annotate
-        run: cs2pr --graceful-warnings phpcs.xml
+        run: cs2pr --graceful-warnings phpcs-report.xml
 
   phpstan:
     name: PHPStan (level 8)
@@ -97,7 +115,24 @@ jobs:
     name: CSS build produces no drift
     runs-on: ubuntu-latest
     steps:
+      # reference/static is a SUBMODULE (private: cartorjo/weave-clone), and it
+      # is not optional here — tools/routes.mjs imports the reference build's
+      # pages.mjs, so without it this job dies on ERR_MODULE_NOT_FOUND rather
+      # than on anything it was meant to check. actions/checkout does not fetch
+      # submodules by default, and the default GITHUB_TOKEN cannot read another
+      # private repository, so a token with access must be provided as the
+      # SUBMODULE_TOKEN secret.
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.SUBMODULE_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Confirm the reference build is present
+        run: |
+          test -f reference/static/pages.mjs || {
+            echo "::error::reference/static is empty. Add a SUBMODULE_TOKEN secret with read access to cartorjo/weave-clone (a fine-grained PAT or a deploy key); the default GITHUB_TOKEN cannot read a private submodule."
+            exit 1
+          }
 
       - uses: actions/setup-node@v4
         with:

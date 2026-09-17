@@ -4,6 +4,9 @@ vendor/
 
 # Build + tooling output
 .phpcs-cache
+# CI writes the checkstyle report here. Never phpcs.xml — phpcs would then
+# discover the report as its own configuration.
+phpcs-report.xml
 .phpunit.result.cache
 /tools/.cache/
 # WordPress-side reports are regenerated; the static baseline is committed.

@@ -1,0 +1,9 @@
+This directory is empty on purpose, and tracked on purpose.
+
+.wp-env.json maps it to wp-content/plugins/emposo-local for local plugin
+experiments, and phpcs.xml.dist scans it so anything dropped here is held to
+the same standards as the rest of the codebase. Neither survives the directory
+not existing: a fresh clone had no plugins/, so phpcs exited 3 with `The file
+"plugins" does not exist` — and CI reported that as a pass.
+
+The site itself ships zero front-end plugins; see the plan's risk 3.

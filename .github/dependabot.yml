@@ -1,28 +1,41 @@
 version: 2
 
-# Grouped, weekly, and deliberately narrow. The parity harness pins its
-# reference build and measures against it, so an unreviewed dependency bump can
-# change a measurement without changing a line of this repository's code.
+# Grouped hard, and capped. The first version of this file grouped only
+# `minor, patch` per ecosystem and left github-actions ungrouped, which opened
+# seven pull requests in one minute — and because every workflow ran on each of
+# them, that was seven Docker-and-Playwright runs of metered private-repo
+# Actions time for four action bumps. Majors fall OUTSIDE a minor/patch group,
+# so they each became their own PR too.
+#
+# Hence: one group per ecosystem covering every update type, and a hard cap on
+# open PRs. Major bumps arriving inside a group means the PR body is the place
+# where a breaking change is noticed, which is the correct place — the parity
+# harness pins its reference build, so any bump can move a measurement without
+# a line of this repository changing.
 updates:
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 2
     groups:
-      dev-tooling:
+      npm:
         patterns: ['*']
-        update-types: [minor, patch]
 
   - package-ecosystem: composer
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 2
     groups:
-      standards:
+      composer:
         patterns: ['*']
-        update-types: [minor, patch]
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 1
+    groups:
+      actions:
+        patterns: ['*']

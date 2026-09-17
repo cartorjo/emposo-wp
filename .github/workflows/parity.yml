@@ -21,8 +21,30 @@ jobs:
     name: DOM parity, class inventory, behaviours
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # Not on Dependabot's pull requests. These jobs boot Docker, import content
+    # and drive a browser; running them per dependency bump spends far more
+    # than the bump is worth, and they cannot pass there anyway — Dependabot's
+    # token cannot read the private submodule. The push to main still runs them.
+    if: github.actor != 'dependabot[bot]'
     steps:
+      # reference/static is a SUBMODULE (private: cartorjo/weave-clone), and it
+      # is not optional here — tools/routes.mjs imports the reference build's
+      # pages.mjs, so without it this job dies on ERR_MODULE_NOT_FOUND rather
+      # than on anything it was meant to check. actions/checkout does not fetch
+      # submodules by default, and the default GITHUB_TOKEN cannot read another
+      # private repository, so a token with access must be provided as the
+      # SUBMODULE_TOKEN secret.
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.SUBMODULE_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Confirm the reference build is present
+        run: |
+          test -f reference/static/pages.mjs || {
+            echo "::error::reference/static is empty. Add a SUBMODULE_TOKEN secret with read access to cartorjo/weave-clone (a fine-grained PAT or a deploy key); the default GITHUB_TOKEN cannot read a private submodule."
+            exit 1
+          }
 
       - uses: actions/setup-node@v4
         with:
