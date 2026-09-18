@@ -366,25 +366,33 @@ function evaluate(report, route) {
 	 * Security headers are asserted directly. Discovering the CSP by watching a
 	 * script get blocked is how this check came to exist — the audit tool broke
 	 * the moment the policy went in — but a side effect is not a test.
+	 *
+	 * WordPress only. The static reference is served by tools/static-server.mjs,
+	 * which sends none of these and is not what ships — asserting them there
+	 * failed every static route, and since --write-baseline runs against static,
+	 * it also meant a re-baseline could never exit 0.
 	 */
-	const requiredHeaders = {
-		'content-security-policy': /default-src 'self'/,
-		'x-content-type-options': /nosniff/,
-		'referrer-policy': /strict-origin/,
-		'permissions-policy': /geolocation=\(\)/,
-	};
-	for (const [header, pattern] of Object.entries(requiredHeaders)) {
-		const value = report.headers?.[header] ?? '';
-		if (!pattern.test(value)) {
-			failures.push(`header ${header} is ${value ? `"${value}"` : 'absent'}, expected to match ${pattern}`);
+	if (TARGET !== 'static') {
+		const requiredHeaders = {
+			'content-security-policy': /default-src 'self'/,
+			'x-content-type-options': /nosniff/,
+			'referrer-policy': /strict-origin/,
+			'permissions-policy': /geolocation=\(\)/,
+		};
+		for (const [header, pattern] of Object.entries(requiredHeaders)) {
+			const value = report.headers?.[header] ?? '';
+			if (!pattern.test(value)) {
+				failures.push(`header ${header} is ${value ? `"${value}"` : 'absent'}, expected to match ${pattern}`);
+			}
 		}
-	}
-	// Scripts must stay strictly same-origin: 'unsafe-inline' or 'unsafe-eval'
-	// in script-src would defeat the point of the policy.
-	const csp = report.headers?.['content-security-policy'] ?? '';
-	const scriptSrc = /script-src([^;]*)/.exec(csp)?.[1] ?? '';
-	if (/unsafe-inline|unsafe-eval/.test(scriptSrc)) {
-		failures.push(`script-src grants ${scriptSrc.trim()}`);
+
+		// Scripts must stay strictly same-origin: 'unsafe-inline' or 'unsafe-eval'
+		// in script-src would defeat the point of the policy.
+		const csp = report.headers?.['content-security-policy'] ?? '';
+		const scriptSrc = /script-src([^;]*)/.exec(csp)?.[1] ?? '';
+		if (/unsafe-inline|unsafe-eval/.test(scriptSrc)) {
+			failures.push(`script-src grants ${scriptSrc.trim()}`);
+		}
 	}
 
 	for (const a of report.axe) {
@@ -400,19 +408,51 @@ function evaluate(report, route) {
 	if (r.broken.length) failures.push(`broken request(s): ${r.broken.slice(0, 3).join(', ')}`);
 	if (r.count > BUDGETS.requests) failures.push(`${r.count} requests, budget ${BUDGETS.requests}`);
 
-	// Regression against the reference, not an absolute weight.
+	/*
+	 * Regression against the reference, not an absolute weight — and measured
+	 * over the WHOLE page rather than the initial load.
+	 *
+	 * The initial-load figures are not stable enough to compare at a 2%
+	 * tolerance. Two lazy images sit exactly at the fold on /branchen/, and
+	 * whether their fetch starts before `networkidle` is a race: the same
+	 * static reference measured 20 requests in a 41-route run and 22 in a
+	 * single-route run minutes later. Comparing those numbers across two
+	 * builds compares two coin flips, which is how this route flapped in and
+	 * out of its budget all day.
+	 *
+	 * After the scroll pass every lazy image has loaded, so the totals are
+	 * determined by the page rather than by timing, and a port that genuinely
+	 * ships more still fails. The initial-load numbers remain in the report and
+	 * on the console, and the absolute gates above still use them.
+	 */
 	if (bases) {
-		const allowedBytes = Math.round(bases.totalBytes * BUDGETS.bytesToleranceRatio);
-		if (r.totalBytes > allowedBytes) {
+		const allowedBytes = Math.round((bases.fullBytes ?? bases.totalBytes) * BUDGETS.bytesToleranceRatio);
+		if (r.fullBytes > allowedBytes) {
+			const reference = bases.fullBytes ?? bases.totalBytes;
 			failures.push(
-				`${Math.round(r.totalBytes / 1024)} KB vs reference ${Math.round(bases.totalBytes / 1024)} KB ` +
-					`(+${Math.round(((r.totalBytes - bases.totalBytes) / bases.totalBytes) * 100)}%, tolerance ${Math.round((BUDGETS.bytesToleranceRatio - 1) * 100)}%)`
+				`${Math.round(r.fullBytes / 1024)} KB vs reference ${Math.round(reference / 1024)} KB ` +
+					`(+${Math.round(((r.fullBytes - reference) / reference) * 100)}%, tolerance ${Math.round((BUDGETS.bytesToleranceRatio - 1) * 100)}%, whole page)`
 			);
 		}
-		if (r.count > bases.requests + BUDGETS.requestsTolerance) {
-			failures.push(`${r.count} requests vs reference ${bases.requests}`);
+		if (r.fullCount > (bases.fullRequests ?? bases.requests) + BUDGETS.requestsTolerance) {
+			failures.push(`${r.fullCount} requests vs reference ${bases.fullRequests ?? bases.requests} (whole page)`);
 		}
-		if (report.cls !== null && bases.cls !== null && report.cls > Math.max(bases.cls * 2, 0.01)) {
+		/*
+		 * Relative CLS, with a noise floor at half the absolute budget.
+		 *
+		 * The floor was 0.01, which is a fifth of the budget and inside the
+		 * spread between two machines: identical code and content measured
+		 * 42/42 on a developer laptop and failed three routes on a Linux runner
+		 * at 0.0122, 0.0127 and 0.0148 — against references of 0.0003 to 0.0069,
+		 * where doubling is also meaningless. The baseline was captured on the
+		 * laptop, so below this floor the comparison measures font-swap timing
+		 * and the runner, not the site.
+		 *
+		 * The absolute budget below is the real gate, and it still catches any
+		 * shift a visitor could notice. A regression that matters shows up well
+		 * above 0.025.
+		 */
+		if (report.cls !== null && bases.cls !== null && report.cls > Math.max(bases.cls * 2, BUDGETS.cls / 2)) {
 			failures.push(`CLS ${report.cls} vs reference ${bases.cls}`);
 		}
 	}
