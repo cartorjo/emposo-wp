@@ -13,13 +13,18 @@ npm run wp:start                  # http://localhost:8888
 npm run wp:bootstrap              # scaffold, then import (both idempotent)
 ```
 
-`wp:bootstrap` is two steps and both are required on a fresh database.
-`wp:scaffold` creates the 41 route objects and sets what makes the contract's
-paths exist at all — postname permalinks, the front page, `blog_public=0` — then
-flushes the rewrite rules. `wp:seed` fills those objects with content. Seeding
-without scaffolding leaves a site where every route 404s; this README used to
-document `wp:seed` alone, and the gap stayed invisible until CI became the first
-environment to start from an empty database.
+`wp:bootstrap` is three steps and every one is required on a fresh database.
+`wp:theme` activates the theme — nothing else does, and an unactivated theme
+means WordPress serves its own default, whose inline scripts the CSP blocks and
+whose markup fails every parity check. `wp:scaffold` creates the 41 route
+objects and sets what makes the contract's paths exist at all — postname
+permalinks, the front page, `blog_public=0` — then flushes the rewrite rules.
+`wp:seed` fills those objects with content. All three are idempotent.
+
+Each of those was invisible for as long as this project only ever ran on
+machines that already had the state: the README documented `wp:seed` alone, and
+the gap surfaced the day CI became the first environment to start from an empty
+database.
 
 `npm run wp -- <args>` runs WP-CLI in the container, e.g.
 `npm run wp -- emposo verify --routes`.

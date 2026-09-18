@@ -1132,7 +1132,7 @@ function discipline_page( string $slug ): string {
 
 	$breadcrumb = '<p class="page-breadcrumb"><a href="/">Startseite</a><span aria-hidden="true">/</span>'
 		. '<a href="/expertise/">Expertise</a><span aria-hidden="true">/</span>'
-		. '<a href="' . e( $group['overview'] ) . '">' . $group['group'] . '</a></p>';
+		. '<a href="' . e( $group['overview'] ) . '">' . e( $group['group'] ) . '</a></p>';
 
 	$out = detail_hero(
 		$breadcrumb,
@@ -1154,7 +1154,7 @@ function discipline_page( string $slug ): string {
 		. '<p>Jede Leistung ist klar abgegrenzt, einzeln beauftragbar und wird bis zur Abnahme geführt.</p>'
 		. '</div></div><ul class="discipline-focus">' . $items . '</ul>'
 		. '<p class="section-more"><a class="text-link" href="' . e( $group['overview'] ) . '">Alle '
-		. $group['group'] . '-Disziplinen ' . ARROW . '</a></p></div></div></section>';
+		. e( $group['group'] ) . '-Disziplinen ' . ARROW . '</a></p></div></div></section>';
 
 	$related = by_discipline( $slug );
 
@@ -1295,6 +1295,22 @@ function by_industry_term( \WP_Term $term ): array {
 		}
 	}
 
+	/*
+	 * An editorial override, deliberately EMPTY on an imported site.
+	 *
+	 * Do not populate it from the export's `industries[].cases` list, however
+	 * much it looks like the missing piece. The static build renders these cards
+	 * in the order of its global projects array, filtered by industry — NOT in
+	 * the order of the cases list. On /branchen/industrials-manufacturing/ the
+	 * reference renders rechenzentrums-umzug third, while the cases list puts it
+	 * last; writing that list into this meta would silently reorder a live page
+	 * and break parity.
+	 *
+	 * Absent, the order comes from case_studies(), which is menu_order — the
+	 * projects-array order the importer assigns. So the fallback is already
+	 * correct, and this hook exists for a human who wants a different order on
+	 * one industry page.
+	 */
 	$hint = $page instanceof WP_Post
 		? array_map( 'intval', (array) get_post_meta( $page->ID, '_emposo_case_order', true ) )
 		: array();

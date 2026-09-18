@@ -12,11 +12,72 @@
  * site.css with no error anywhere.
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { REPO_ROOT } from './routes.mjs';
+import { REPO_ROOT, STATIC_ROOT } from './routes.mjs';
 
 const THEME_ROOT = path.join(REPO_ROOT, 'themes', 'emposo');
 const SOURCE_DIRS = ['parts', 'patterns', 'page-templates', 'inc', 'assets/js'];
+
+/**
+ * Verify the recorded source hashes in the exported data.
+ *
+ * Both data files carry a `sources` map of reference paths to truncated sha256
+ * hashes, and tools/export-content.mjs documented that "the importer refuses to
+ * run against a stale contract" — which nothing did. Nothing read those hashes
+ * at all, so an export could silently describe a reference build that had since
+ * changed, and the importer would seed content the parity harness then compared
+ * against different HTML.
+ *
+ * The check lives here rather than in the importer because that is where the
+ * files are: reference/static is a submodule at the repository root and is not
+ * mapped into the WordPress container, so PHP cannot hash it. `npm run check`
+ * runs on the host, where it can.
+ */
+function checkExportFreshness() {
+	const failures = [];
+
+	const files = [
+		path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data', 'site-export.json'),
+		path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data', 'routes.json'),
+	];
+
+	for (const file of files) {
+		if (!existsSync(file)) {
+			continue;
+		}
+
+		const data = JSON.parse(readFileSync(file, 'utf8'));
+		const sources = data.sources;
+		const name = path.basename(file);
+
+		if (!sources || typeof sources !== 'object' || Object.keys(sources).length === 0) {
+			failures.push(`${name} records no source hashes — regenerate it with the exporter.`);
+			continue;
+		}
+
+		for (const [rel, expected] of Object.entries(sources)) {
+			const target = path.join(STATIC_ROOT, rel);
+
+			if (!existsSync(target)) {
+				failures.push(`${name} names a reference source that no longer exists: ${rel}`);
+				continue;
+			}
+
+			// Same digest and truncation the exporters use.
+			const actual = createHash('sha256').update(readFileSync(target)).digest('hex').slice(0, 16);
+
+			if (actual !== expected) {
+				failures.push(
+					`${name} is stale: reference/static/${rel} now hashes ${actual}, the export records ${expected}. ` +
+						'Re-run the exporter (tools/export-content.mjs, tools/export-routes.mjs) and re-import.'
+				);
+			}
+		}
+	}
+
+	return failures;
+}
 
 function main() {
 	const failures = [];
@@ -68,6 +129,9 @@ function main() {
 			failures.push(`expected theme directory missing: ${dir}`);
 		}
 	}
+
+	// 4. The exported data must still match the reference build it came from.
+	failures.push(...checkExportFreshness());
 
 	if (failures.length) {
 		console.error('Source contract violations:');

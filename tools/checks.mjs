@@ -262,30 +262,81 @@ export function compareStructure(expectedHtml, actualHtml) {
 
 // --- link and asset resolution (needs I/O, so kept separate) ---------------
 
+/** Hosts that must never appear in shipped markup, whatever the path. */
+const DEV_HOSTS = /^(?:localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/i;
+
 /** Resolve every local href/src/srcset and every in-page anchor. */
 export function checkLinks(ctx) {
-	const { html, route, routeUrls, assetRoot, readTarget } = ctx;
+	const { html, route, routeUrls, assetRoot, readTarget, siteOrigin = '', themeBase } = ctx;
 	const failures = [];
 
-	const hrefs = [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
-	for (const href of hrefs) {
-		if (/^(?:https?:|mailto:|tel:|data:|#|javascript:)/.test(href)) {
-			if (href.startsWith('#')) checkAnchor(html, href, route.url, failures, null);
-			continue;
-		}
-		const url = new URL(href, `https://local.test${route.url}`);
-		const pathname = decodeURIComponent(url.pathname);
-
+	/** Validate one site-relative path as an asset or a known route. */
+	const checkLocal = (pathname, href, hash) => {
 		if (isAssetPath(pathname)) {
 			verifyAsset(pathname, assetRoot, failures);
 		} else if (!routeUrls.has(pathname)) {
 			failures.push(`link to unknown route: ${href}`);
 		}
 
-		if (url.hash && routeUrls.has(pathname)) {
+		if (hash && routeUrls.has(pathname)) {
 			const targetHtml = pathname === route.url ? html : readTarget?.(pathname);
-			checkAnchor(targetHtml, url.hash, href, failures, pathname);
+			checkAnchor(targetHtml, hash, href, failures, pathname);
 		}
+	};
+
+	const hrefs = [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
+	for (const href of hrefs) {
+		/*
+		 * Absolute http(s) URLs used to be skipped outright, which left a real
+		 * hole: WordPress renders absolute URLs for everything it enqueues, and
+		 * the parity normaliser strips the site origin before comparing — so an
+		 * absolute URL pointing at a file that does not exist, or at a developer
+		 * machine, satisfied every check in this repository.
+		 *
+		 * Same-origin absolutes are therefore rewritten the way parity rewrites
+		 * them and then validated as local paths. Any other localhost-shaped
+		 * host is a portability bug and fails on sight. Genuinely external
+		 * origins are left alone — a gate must not depend on the network.
+		 */
+		if (/^https?:/.test(href)) {
+			let parsed;
+			try {
+				parsed = new URL(href);
+			} catch {
+				failures.push(`unparseable URL: ${href}`);
+				continue;
+			}
+
+			if (siteOrigin && href.startsWith(siteOrigin)) {
+				/*
+				 * Strip the origin and the theme prefix only — NOT the full
+				 * reference rewrite. assetRoot on a WordPress run is the theme
+				 * directory, so `/assets/js/00-core.js` resolves and the
+				 * reference-shaped `/js/00-core.js` does not. Getting this
+				 * wrong reported every script on every route as missing.
+				 */
+				const base = (themeBase ?? '').replace(/\/$/, '');
+				let pathname = decodeURIComponent(parsed.pathname);
+
+				if (base && pathname.startsWith(base)) {
+					pathname = pathname.slice(base.length);
+				}
+
+				checkLocal(pathname, href, parsed.hash);
+			} else if (DEV_HOSTS.test(parsed.hostname)) {
+				failures.push(`hardcoded local URL in shipped markup: ${href}`);
+			}
+
+			continue;
+		}
+
+		if (/^(?:mailto:|tel:|data:|#|javascript:)/.test(href)) {
+			if (href.startsWith('#')) checkAnchor(html, href, route.url, failures, null);
+			continue;
+		}
+
+		const url = new URL(href, `https://local.test${route.url}`);
+		checkLocal(decodeURIComponent(url.pathname), href, url.hash);
 	}
 
 	for (const [, srcset] of html.matchAll(/\bsrcset="([^"]+)"/g)) {

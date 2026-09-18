@@ -85,6 +85,14 @@ const BASELINE_PATH = path.join(REPO_ROOT, 'audit-evidence', 'static-baseline.js
  */
 const WP_REPORT_PATH = path.join(REPO_ROOT, 'audit-evidence', 'wp', 'latest.json');
 
+/**
+ * Same-origin path the axe engine is served from.
+ *
+ * Declared here because two places depend on it agreeing: the route that
+ * fulfils it, and the response filter that keeps it out of the byte totals.
+ */
+const AXE_PATH = '/__axe-core__.js';
+
 async function auditRoute(browser, base, route) {
 	const report = { url: route.url, layouts: [], header: [], images: {}, requests: null };
 
@@ -95,20 +103,53 @@ async function auditRoute(browser, base, route) {
 	page.on('console', (m) => consoleMessages.push(`${m.type()}: ${m.text()}`));
 	page.on('pageerror', (e) => consoleMessages.push(`pageerror: ${e.message}`));
 
-	// Off-host requests are a hard GDPR failure, and transfer size drives the
-	// budgets, so record every response.
+	/*
+	 * Off-host requests are a hard GDPR failure and payload size drives the
+	 * budgets, so record every response.
+	 *
+	 * The row is pushed SYNCHRONOUSLY and its size filled in later. The first
+	 * version of this handler was `async` and pushed after awaiting the body,
+	 * so `initialCount` below snapshotted a half-filled array: the same route
+	 * measured 20 requests on one run and 22 on the next, and one flapped
+	 * across its budget. Order and count are exact now; only the byte fill is
+	 * asynchronous, and it is awaited before anything reads it.
+	 *
+	 * Bytes are the DECOMPRESSED body length, not Content-Length. Content-Length
+	 * is the compressed size when the server gzips — WordPress behind Apache
+	 * does, the static reference server does not — so budgeting one against the
+	 * other compared transport against payload and quietly flattered whichever
+	 * side happened to be compressed.
+	 */
 	const requests = [];
-	page.on('response', async (res) => {
+	const sized = [];
+	page.on('response', (res) => {
 		const url = res.url();
-		let bytes = 0;
-		try {
-			const len = res.headers()['content-length'];
-			bytes = len ? Number(len) : (await res.body().catch(() => Buffer.alloc(0))).length;
-		} catch {
-			bytes = 0;
+
+		// Skip the audit's own axe fetch: it is a tool, not part of the page,
+		// and counting it would put ~600 KB of accessibility engine into the
+		// very byte totals it exists to check.
+		if (url.endsWith(AXE_PATH)) {
+			return;
 		}
-		requests.push({ url, status: res.status(), bytes, type: res.request().resourceType() });
+
+		const row = { url, status: res.status(), bytes: 0, type: res.request().resourceType() };
+		requests.push(row);
+		sized.push(
+			res
+				.body()
+				.then((body) => {
+					row.bytes = body.length;
+				})
+				.catch(() => {
+					// Redirects and 204s have no body to read; 0 is correct.
+				})
+		);
 	});
+
+	/** Resolve every outstanding size so a count or a sum can be trusted. */
+	const settleSizes = async () => {
+		await Promise.all(sized.splice(0, sized.length));
+	};
 
 	const response = await page.goto(`${base}${route.url}`, { waitUntil: 'networkidle' });
 	report.status = response?.status() ?? 0;
@@ -119,6 +160,7 @@ async function auditRoute(browser, base, route) {
 	// force every lazy image then counting the lot measures something else
 	// entirely (it read 823 KB for a route Lighthouse recorded at 242 KB).
 	// Both numbers are useful, so record both and budget against the initial one.
+	await settleSizes();
 	const initialCount = requests.length;
 
 	// A redirect adds a full round trip to LCP; the reference serves 200 directly.
@@ -216,7 +258,7 @@ async function auditRoute(browser, base, route) {
 	 * measurement stays honest.
 	 */
 	const axeSource = readFileSync(path.join(REPO_ROOT, 'node_modules', 'axe-core', 'axe.min.js'), 'utf8');
-	const axeUrl = `${base}/__axe-core__.js`;
+	const axeUrl = `${base}${AXE_PATH}`;
 
 	await page.route(axeUrl, (route) =>
 		route.fulfill({
@@ -249,6 +291,8 @@ async function auditRoute(browser, base, route) {
 	const initial = requests.slice(0, initialCount);
 	const images = requests.filter((r) => r.type === 'image');
 	const sum = (list) => list.reduce((total, r) => total + r.bytes, 0);
+
+	await settleSizes();
 
 	report.requests = {
 		// Budgeted: comparable to the committed Lighthouse evidence.
@@ -471,6 +515,18 @@ async function main() {
 	}
 
 	if (WRITE_BASELINE) {
+		// --write-baseline is only meaningful against the static reference, and
+		// --target defaults to `wp`. Without this guard, one forgotten flag
+		// rewrites the audited contract with numbers measured from the port —
+		// after which every budget compares WordPress against itself and passes
+		// by construction. The file records its own target, so refuse rather
+		// than silently overwrite.
+		if (TARGET !== 'static') {
+			console.error(`refusing to write the baseline from --target=${TARGET}.`);
+			console.error('The baseline IS the static reference; use --target=static --write-baseline.');
+			process.exit(2);
+		}
+
 		mkdirSync(path.dirname(BASELINE_PATH), { recursive: true });
 		writeFileSync(
 			BASELINE_PATH,

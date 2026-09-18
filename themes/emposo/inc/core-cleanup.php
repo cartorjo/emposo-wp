@@ -166,8 +166,16 @@ function emposo_dequeue_core_assets(): void {
 		'wp-emoji-styles',
 		'core-block-supports',
 		'wp-img-auto-sizes-contain',
-		'admin-bar',
-		'dashicons',
+
+		/*
+		 * NOT 'admin-bar' and NOT 'dashicons'. Both were in this list, which
+		 * contradicted point 3 of this file's own header: the admin bar is kept
+		 * deliberately, and deregistering its stylesheet and icon font left
+		 * editors with an unstyled bar — the editor experience the decision was
+		 * made to protect. Core only enqueues them when the bar renders, so a
+		 * logged-out visitor never pays for them, and the parity and audit
+		 * harnesses run logged out.
+		 */
 	);
 
 	foreach ( $styles as $handle ) {

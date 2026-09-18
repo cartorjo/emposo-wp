@@ -58,13 +58,14 @@ jobs:
 
       - run: npm run build:css
       - run: npm run wp:start
-      # wp:bootstrap, not wp:seed. scaffold creates the 41 route objects AND sets
-      # the things the contract's paths need to exist at all — postname
-      # permalinks, the front page, blog_public=0 — then flushes the rewrite
-      # rules; import fills those objects with content. Seeding alone produced
-      # a site where every route 404ed, which is how CI first failed here: on
-      # this machine scaffold had been run in an earlier session, so the
-      # difference never showed. Both commands are idempotent.
+      # wp:bootstrap, not wp:seed. Three idempotent steps, each of which CI
+      # proved is required on an empty database and none of which anything else
+      # does: activate the theme (WordPress otherwise serves its own default,
+      # whose inline scripts the CSP blocks), scaffold the 41 route objects
+      # along with postname permalinks, the front page and blog_public=0, then
+      # import the content. Seeding alone produced a site where every route
+      # 404ed; seeding plus scaffolding produced one where every route failed
+      # on CSP violations from the wrong theme.
       - name: Scaffold routes and seed content
         run: npm run wp:bootstrap
 

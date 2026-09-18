@@ -771,6 +771,17 @@ class Import_Command {
 			}
 
 			update_post_meta( $page->ID, '_emposo_related_disciplines', $ids );
+
+			/*
+			 * `$industry['cases']` is read from the export and deliberately NOT
+			 * written to _emposo_case_order. That meta is an editorial override,
+			 * and the cases list is not the order the site renders: the static
+			 * build orders these cards by its global projects array filtered by
+			 * industry. On industrials-manufacturing the reference renders
+			 * rechenzentrums-umzug third and the cases list has it last, so
+			 * importing the list would silently reorder a live page and break
+			 * parity. See the matching comment in fragments.php.
+			 */
 		}
 
 		// Discipline and industry pages get their featured images too.

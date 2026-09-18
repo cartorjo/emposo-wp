@@ -60,6 +60,11 @@ async function testFiltering(page, base, route) {
 	if (!contract) return [`${route}: no [data-project-grid] found`];
 	if (contract.cards.length === 0) failures.push(`${route}: no [data-project] cards`);
 	if (contract.industries.length === 0) failures.push(`${route}: no industry filter buttons`);
+	// Outcomes were unasserted: the nested loop below iterates industries ×
+	// outcomes, so an empty outcome list made it run zero times and the route
+	// passed with "0 combinations" — a filter contract verified by not testing
+	// it. The floor after the loop catches any other reason the product is zero.
+	if (contract.outcomes.length === 0) failures.push(`${route}: no outcome filter buttons`);
 
 	// The filter UI ships hidden and is revealed by stripping .js-only, so that
 	// it degrades to nothing rather than to dead controls without JS.
@@ -127,6 +132,8 @@ async function testFiltering(page, base, route) {
 			}
 		}
 	}
+
+	if (combinations === 0) failures.push(`${route}: filter matrix ran 0 combinations — nothing was verified`);
 
 	return { failures, note: `${combinations} combinations, ${contract.cards.length} cards` };
 }

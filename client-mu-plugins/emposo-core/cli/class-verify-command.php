@@ -239,6 +239,23 @@ class Verify_Command {
 						count( $terms ),
 						$label
 					);
+
+					continue;
+				}
+
+				/*
+				 * And the discipline must actually BE a child. The comment above
+				 * has always said so while the check only counted, so a case
+				 * study tagged with the parent group — which breaks the card
+				 * label and every include_children query — passed verification.
+				 * Outcomes are a flat vocabulary and have no parent to require.
+				 */
+				if ( \Emposo\Core\ContentModel\TAX_DISCIPLINE === $taxonomy && 0 === (int) $terms[0]->parent ) {
+					$failures[] = sprintf(
+						'%s: discipline "%s" is a top-level group, not a child discipline',
+						$post->post_name,
+						$terms[0]->slug
+					);
 				}
 			}
 
@@ -364,32 +381,98 @@ class Verify_Command {
 	private function verify_media(): array {
 		$failures = array();
 
-		$attachments = get_posts(
-			array(
-				'post_type'      => 'attachment',
-				'post_status'    => 'inherit',
-				// 22 manifest images today; 100 is VIP's per-page ceiling.
-				'posts_per_page' => 100,
-				'no_found_rows'  => true,
-				'meta_key'       => '_emposo_asset_key', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- CLI verification over ~22 rows.
-			)
-		);
+		/*
+		 * Driven from the export, not from what happens to be in the database.
+		 * The first version of this check listed attachments carrying
+		 * _emposo_asset_key and asserted each had alt text — so 21 of the 22
+		 * images could be absent entirely and the survivor would pass it. The
+		 * contract names which images must exist; only the contract can say one
+		 * is missing.
+		 */
+		$export = EMPOSO_CORE_DIR . '/data/site-export.json';
 
-		if ( ! $attachments ) {
-			$failures[] = 'no attachments carry _emposo_asset_key — media has not been imported';
+		if ( ! is_readable( $export ) ) {
+			$failures[] = sprintf( 'content export not readable: %s', $export );
 
 			return $failures;
 		}
 
-		foreach ( $attachments as $attachment ) {
-			$key = (string) get_post_meta( $attachment->ID, '_emposo_asset_key', true );
-			$alt = (string) get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true );
+		$decoded = json_decode( (string) file_get_contents( $export ), true ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData, WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Local file bundled with the plugin, read from CLI.
 
-			if ( '' === trim( $alt ) ) {
+		if ( ! is_array( $decoded ) || ! isset( $decoded['assets'] ) || ! is_array( $decoded['assets'] ) ) {
+			$failures[] = 'content export is malformed: expected an "assets" array';
+
+			return $failures;
+		}
+
+		$theme = get_template_directory();
+
+		foreach ( $decoded['assets'] as $asset ) {
+			if ( ! is_array( $asset ) || ! isset( $asset['key'] ) ) {
+				continue;
+			}
+
+			$key          = (string) $asset['key'];
+			$attachment   = $this->attachment_for( $key );
+			$expected_alt = trim( (string) ( $asset['alt'] ?? '' ) );
+
+			if ( null === $attachment ) {
+				$failures[] = sprintf( 'asset "%s" has no attachment — media has not been imported', $key );
+				continue;
+			}
+
+			$alt = trim( (string) get_post_meta( $attachment, '_wp_attachment_image_alt', true ) );
+
+			if ( '' === $alt ) {
 				$failures[] = sprintf( 'attachment "%s" has no alt text', $key );
+			} elseif ( '' !== $expected_alt && $alt !== $expected_alt ) {
+				/*
+				 * The export is the SOLE source of alt text for every photograph
+				 * here, so a divergence is either an editor improving it — which
+				 * is allowed and should be exported back — or an import that
+				 * half-applied. Either way it is worth seeing.
+				 */
+				$failures[] = sprintf(
+					'attachment "%s" alt text differs from the export: "%s" vs "%s"',
+					$key,
+					$alt,
+					$expected_alt
+				);
+			}
+
+			// The importer resolves the export's site-absolute src inside the
+			// theme; the same resolution has to hold here or the attachment
+			// points at a file the site cannot serve.
+			$relative = ltrim( str_replace( '/assets/', 'assets/', (string) ( $asset['src'] ?? '' ) ), '/' );
+
+			if ( '' !== $relative && ! file_exists( $theme . '/' . $relative ) ) {
+				$failures[] = sprintf( 'asset "%s" file missing in the theme: %s', $key, $relative );
 			}
 		}
 
 		return $failures;
+	}
+
+	/**
+	 * The attachment carrying a given asset key, if any.
+	 *
+	 * @param string $key Asset key from the export.
+	 * @return int|null Attachment ID.
+	 */
+	private function attachment_for( string $key ): ?int {
+		$found = get_posts(
+			array(
+				'post_type'        => 'attachment',
+				'post_status'      => 'inherit',
+				'posts_per_page'   => 1,
+				'fields'           => 'ids',
+				'no_found_rows'    => true,
+				'meta_key'         => '_emposo_asset_key', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- CLI verification over ~22 rows.
+				'meta_value'       => $key, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- As above.
+				'suppress_filters' => false,
+			)
+		);
+
+		return $found ? (int) $found[0] : null;
 	}
 }

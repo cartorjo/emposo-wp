@@ -157,6 +157,10 @@ async function main() {
 					route,
 					routeUrls,
 					assetRoot,
+					// The same two values normalise() uses, so a same-origin
+					// absolute URL is validated as the local path it becomes.
+					siteOrigin: normaliseOptions.siteOrigin,
+					themeBase: config.themeBase,
 					readTarget: readStaticByUrl,
 				});
 

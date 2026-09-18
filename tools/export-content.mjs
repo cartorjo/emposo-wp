@@ -4,9 +4,14 @@
  *
  * PHP does not parse JavaScript, so the static build's content modules are
  * exported to JSON here and committed. The export carries a hash of every
- * source it reads, and the importer refuses to run against a stale contract —
- * which is what stops someone editing site-data.mjs, forgetting to re-export,
- * and importing last week's copy without noticing.
+ * source it reads, and `npm run check` fails when one no longer matches — which
+ * is what stops someone editing site-data.mjs, forgetting to re-export, and
+ * importing last week's copy without noticing.
+ *
+ * The check is in tools/check-sources.mjs, not the importer. This comment used
+ * to say the importer enforced it and nothing did: reference/static is a
+ * submodule at the repository root and is not mapped into the WordPress
+ * container, so PHP cannot hash the files these digests describe.
  *
  * Three groups of content, all derived rather than retyped:
  *
