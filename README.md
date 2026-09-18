@@ -29,6 +29,23 @@ database.
 `npm run wp -- <args>` runs WP-CLI in the container, e.g.
 `npm run wp -- emposo verify --routes`.
 
+## The Anthropic key
+
+`wp claude` reads `ANTHROPIC_API_KEY` from the environment or a `wp-config`
+constant, and never from the options table — an options-table secret ends up in
+every database export and backup. Locally, that means the gitignored
+`.wp-env.override.json`:
+
+```json
+{ "config": { "ANTHROPIC_API_KEY": "sk-ant-..." } }
+```
+
+Then `npm run wp:start` and `npm run wp -- claude doctor`, which reports the key
+source without printing the key and proves the round trip. Without a key, every
+command still assembles correctly: `wp claude prompt "…" --dry-run` prints the
+exact request — URL, headers, body — and sends nothing, which is how the wire
+format is reviewed on a machine that has no credential.
+
 ## Gates
 
 | Command | Asserts |

@@ -74,6 +74,9 @@ class Claude_Command {
 	 * [--json]
 	 * : Print the raw API response instead of the text.
 	 *
+	 * [--dry-run]
+	 * : Print the request that would be sent — URL, headers, body — and send nothing. The key is redacted. Use it to review the wire format without spending a token.
+	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp claude prompt "Fasse die Positionierung in einem Satz zusammen."
@@ -96,12 +99,20 @@ class Claude_Command {
 					'model'      => Utils\get_flag_value( $assoc_args, 'model', MODEL ),
 					'max_tokens' => (int) Utils\get_flag_value( $assoc_args, 'max-tokens', 4096 ),
 					'effort'     => Utils\get_flag_value( $assoc_args, 'effort', 'high' ),
+					'dry_run'    => (bool) Utils\get_flag_value( $assoc_args, 'dry-run', false ),
 				)
 			)
 		);
 
 		if ( is_wp_error( $response ) ) {
 			WP_CLI::error( $response->get_error_message() );
+		}
+
+		if ( isset( $response['dry_run'] ) ) {
+			WP_CLI::log( (string) wp_json_encode( $response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
+			WP_CLI::success( 'Nothing was sent.' );
+
+			return;
 		}
 
 		if ( (bool) Utils\get_flag_value( $assoc_args, 'json', false ) ) {

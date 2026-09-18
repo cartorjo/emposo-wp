@@ -123,8 +123,8 @@ function key_source(): string {
  *
  * @param array<string, mixed> $args Request arguments: `messages` (required), `system`,
  *                                    `model`, `max_tokens`, `effort`, `format`,
- *                                    `fallbacks`, `timeout`.
- * @phpstan-param array{messages: array<int, array<string, mixed>>, system?: string, model?: string, max_tokens?: int, effort?: string, format?: array<string, mixed>, fallbacks?: bool, timeout?: int} $args
+ *                                    `fallbacks`, `timeout`, `dry_run`.
+ * @phpstan-param array{messages: array<int, array<string, mixed>>, system?: string, model?: string, max_tokens?: int, effort?: string, format?: array<string, mixed>, fallbacks?: bool, timeout?: int, dry_run?: bool} $args
  * @return array<string, mixed>|WP_Error Decoded response, or an error.
  */
 function message( array $args ) {
@@ -140,9 +140,13 @@ function message( array $args ) {
 		);
 	}
 
-	$key = api_key();
+	$key     = api_key();
+	$dry_run = ! empty( $args['dry_run'] );
 
-	if ( null === $key ) {
+	// A dry run assembles the request without sending it, so it must work on a
+	// machine that has no credential at all — that is the situation it exists
+	// for. Everything else needs the key up front.
+	if ( null === $key && ! $dry_run ) {
 		return new WP_Error(
 			'emposo_claude_no_key',
 			'ANTHROPIC_API_KEY is not set. Provide it as an environment variable or a wp-config constant — never in the options table.'
@@ -204,7 +208,7 @@ function message( array $args ) {
 	}
 
 	$headers = array(
-		'x-api-key'         => $key,
+		'x-api-key'         => (string) $key,
 		'anthropic-version' => API_VERSION,
 		'content-type'      => 'application/json',
 	);
@@ -218,6 +222,33 @@ function message( array $args ) {
 
 	if ( false === $encoded ) {
 		return new WP_Error( 'emposo_claude_encode', 'Request body could not be encoded as JSON.' );
+	}
+
+	/*
+	 * Return the request instead of sending it.
+	 *
+	 * Every constraint in this file — the removed sampling parameters, effort
+	 * nested inside output_config, the fallback parameter paired with its exact
+	 * beta header — is a claim about a wire format that is otherwise only
+	 * testable with a live credential. This makes the assembled request
+	 * inspectable without one, so the shape can be reviewed against the API
+	 * reference on a machine that has no key at all.
+	 *
+	 * The key is redacted rather than omitted: the point is to show that the
+	 * header is present and correctly named.
+	 */
+	if ( $dry_run ) {
+		$shown              = $headers;
+		$shown['x-api-key'] = null === $key
+			? '[no key configured — a real request would fail before reaching the API]'
+			: '[redacted: ' . strlen( $key ) . ' characters from the ' . key_source() . ']';
+
+		return array(
+			'dry_run' => true,
+			'url'     => API_URL,
+			'headers' => $shown,
+			'body'    => json_decode( $encoded, true ),
+		);
 	}
 
 	$response = wp_remote_post(
