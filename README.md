@@ -106,4 +106,19 @@ theme change. `reference/static/` is the audited static build, pinned to
   cannot rescue — a production site would print errors to visitors.
 
 The measured performance bars are only reachable behind a full-page cache,
-measured logged out. See the plan for the numbers and their provenance.
+measured logged out. Nothing in CI measures LCP or TTFB — a shared runner cannot
+reproduce host timings — so they are measured on the host at install time; see
+`docs/launch-checklist.md`.
+
+## Documentation
+
+Everything needed to install and sign off this site is in `docs/`, so a clone is
+sufficient and nothing lives only in someone's notes:
+
+| File | What it is |
+|---|---|
+| `docs/install-runbook.md` | The canonical install procedure, sections A–E. Corrected against the repository as it stands; where it disagrees with any older plan, it is right. |
+| `docs/launch-checklist.md` | The manual pass — the viewport and reduced-motion matrix, the host-only checks, and the launch flip. Nothing automated covers these. |
+| `docs/review-2026-09-19.md` | Dated snapshot of the readiness review: what was deliberately left undone, which earlier claims were corrected, and the measurement caveats. |
+| `docs/security.md` | The hardening reference: every implemented measure with its location and gate status, the host-level items no code here can do, and the deliberate divergences. |
+| `docs/redirect-map.md` | The 27 retired live URLs mapped to their nearest new routes, for the Cloudflare Redirect Rules published at launch (runbook D3). |
