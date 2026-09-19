@@ -211,23 +211,40 @@ class Scaffold_Command {
 			return;
 		}
 
-		$postarr = array(
-			'post_type'    => $type,
-			'post_status'  => 'publish',
-			'post_title'   => $this->title_for( $route ),
-			'post_name'    => $slug,
-			'post_parent'  => $parent,
-			'post_content' => '',
-			'menu_order'   => 0,
-		);
-
 		if ( $existing instanceof WP_Post ) {
-			$postarr['ID'] = $existing->ID;
-		}
+			/*
+			 * Update path: ensure ONLY the routing facts — status, slug,
+			 * parent. Title, content and menu_order belong to the import (and
+			 * after that to editors); resetting them here made a scaffold
+			 * re-run on a populated site silently wipe imported content back
+			 * to skeleton state (found 2026-09-19 in the no-shell rehearsal).
+			 * wp_update_post, not wp_insert_post-with-ID: only the former
+			 * merges the fields left unsent with the post's current values.
+			 * Idempotent now means idempotent.
+			 */
+			$postarr = array(
+				'ID'          => $existing->ID,
+				'post_status' => 'publish',
+				'post_name'   => $slug,
+				'post_parent' => $parent,
+			);
 
-		// wp_insert_post expects slashed data: it was built for $_POST and calls
-		// wp_unslash internally, so unslashed input loses backslashes.
-		$id = wp_insert_post( wp_slash( $postarr ), true );
+			$id = wp_update_post( wp_slash( $postarr ), true );
+		} else {
+			$postarr = array(
+				'post_type'    => $type,
+				'post_status'  => 'publish',
+				'post_title'   => $this->title_for( $route ),
+				'post_name'    => $slug,
+				'post_parent'  => $parent,
+				'post_content' => '',
+				'menu_order'   => 0,
+			);
+
+			// wp_insert_post expects slashed data: it was built for $_POST and
+			// calls wp_unslash internally, so unslashed input loses backslashes.
+			$id = wp_insert_post( wp_slash( $postarr ), true );
+		}
 
 		if ( $id instanceof WP_Error ) {
 			WP_CLI::error( sprintf( '%s: %s', $url, $id->get_error_message() ) );
