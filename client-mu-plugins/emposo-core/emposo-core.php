@@ -41,3 +41,6 @@ require_once __DIR__ . '/inc/security.php';
 require_once __DIR__ . '/inc/claude.php';
 require_once __DIR__ . '/inc/dashboard.php';
 require_once __DIR__ . '/inc/cli.php';
+// Self-gated on the EMPOSO_INSTALLER constant; a no-op unless wp-config.php
+// defines it. Required after dashboard.php so its submenu finds the parent.
+require_once __DIR__ . '/inc/installer.php';
