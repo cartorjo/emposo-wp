@@ -121,6 +121,52 @@ self-hosted WordPress installation, replacing the current site at **emposo.de**.
     translation UI is gone while its rows linger). The CPT list screens
     (solutions, vacancies, …) likewise vanish once their registering plugin is
     deactivated — delete content first, deactivate second.
+16. **[new 2026-09-19, from the host's Site Health dump] The server is
+    nginx 1.14.1 + PHP-FPM 8.5.10** (MySQL 8.0.46, 512M, Imagick, WP root
+    `/home/emposodelive/site/public_html`, everything SFTP-writable). So:
+    **no `.htaccess` processing** — an `.htaccess` file exists but is inert
+    (the preflight's warning about it can be ignored on this host), pretty
+    permalinks are served by the nginx config and are already `/%postname%/`,
+    and the AVIF MIME type must come from a **Cloudflare Transform Rule or a
+    provider request**, never `.htaccess`. **No physical robots.txt**
+    (`static_robotstxt_file: false`) — the Yoast block is virtual, so the
+    `blog_public` launch lever really will own robots.txt once Yoast is gone.
+    An **`object-cache.php` drop-in is present** (backend unknown; probably
+    the host's): during cutover, rename it away over SFTP so no stale object
+    cache can mask the content switch, then decide post-launch whether to
+    restore it — the mu-plugin's version-salted cache works either way.
+    PHP `time_limit` is 60 with nginx in front: if the media import step
+    answers 504, nothing is lost — the step is idempotent, re-run it.
+    OPcache is at 100% capacity; if the site behaves stale after the file
+    uploads, recycle PHP-FPM from the hosting panel.
+17. **[new] The live theme is ALSO called "Emposo"** — a hello-elementor
+    child, v1.0.1 by Kinetic Pulse, in `themes/Emposo` (capital E). Our
+    `themes/emposo` (lowercase) does not collide on disk, but Appearance will
+    show two themes named Emposo — ours is v0.1.0 with the screenshot.
+    Rollback data: the theme to reactivate is the one in directory `Emposo`,
+    and its parent `hello-elementor` must stay installed for as long as the
+    old child theme exists.
+18. **[new] Wordfence is active and must be removed in a specific order** —
+    on nginx+FPM its extended protection is an `auto_prepend_file` in the web
+    root's `.user.ini` pointing at `wordfence-waf.php`. Wrong order = fatal
+    on every request. Order: Wordfence admin → Firewall → **Remove Extended
+    Protection**, then deactivate + delete the plugin, then verify over SFTP
+    that `.user.ini` no longer references `wordfence-waf.php` (FPM caches
+    `.user.ini` for up to 5 minutes). Alternative: keeping Wordfence is
+    viable — it is server-side and CSP-neutral — but then leave its
+    `.user.ini` prepend strictly alone.
+19. **[new] ManageWP is the managed-backup channel** (GoDaddy Worker plugin +
+    its mu-plugin loader). Use it (or the hosting panel) for the C0 backup —
+    then remove BOTH the Worker plugin and `mu-plugins/` loader at cutover:
+    the new security posture (XML-RPC off, anonymous REST 401) breaks its
+    connection anyway. Also from the dump: **11 user accounts** exist (audit
+    them at cutover; the new site needs one or two admins), Elementor Pro
+    **form submissions live in the DB** (export the CSV from Elementor →
+    Submissions before deleting the plugins if the leads matter), ACF PRO
+    carries 13 field groups that power only the old content, `DB_CHARSET` is
+    utf8mb3 (fine for this German content; no emoji), and Search Console is
+    a domain property `sc-domain:emposo.de` — submit `/wp-sitemap.xml` there
+    at launch.
 
 ## Code edits: already applied
 
@@ -143,20 +189,20 @@ before install day.
   loader is in (C6): PHP ≥ 8.1, WP ≥ 6.7, GD/Imagick, theme present, Lenis
   md5, bundled JSON, `unfiltered_html`, physical robots.txt, stale drop-ins,
   audit-evidence baseline.
-- Plan the AVIF MIME mechanism: Apache → add `AddType image/avif .avif` to
-  `.htaccess` over SFTP; nginx without config access → a **Cloudflare Transform
-  Rule** setting `Content-Type: image/avif` on `*.avif` responses. Without it
-  browsers reject the AVIF sources, fall back to JPEG, and the largest-image
-  budget breaks.
+- Plan the AVIF MIME mechanism — the host is nginx (fact 16), so `.htaccess`
+  is not an option: a **Cloudflare Transform Rule** setting
+  `Content-Type: image/avif` on `*.avif` responses, or a provider request to
+  add `image/avif avif;` to the nginx types. Without it browsers reject the
+  AVIF sources, fall back to JPEG, and the largest-image budget breaks.
 - Cloudflare prep: confirm **Email Obfuscation, Rocket Loader and Auto Minify
   are OFF before the smoke test** — obfuscation injects a `/cdn-cgi/` script
   the CSP blocks and garbles the mailto contact path, the site's only contact
   channel. Draft the redirect map (D3). Optionally prepare a WAF rule limiting
   the site to the operator's IP for the cutover window — there is no
   `.maintenance`-file option, it would lock wp-admin too.
-- Backup capability: the hosting panel's DB tool if it exists, else a
-  temporary backup plugin (e.g. UpdraftPlus) installed via wp-admin. Decide
-  before install day.
+- Backup channel: **ManageWP is already connected** (fact 19) — take the full
+  pre-cutover backup there, or via the hosting panel's DB tool. No temporary
+  backup plugin needed.
 
 ## B. Local rehearsal (wp-env, from `emposo-wp/`)
 
@@ -188,11 +234,14 @@ uses.
 ## C. Live install (SFTP + wp-admin, no shell)
 
 0. **Backup first — cutover does not start until this is downloaded and
-   spot-checked.** DB export via the hosting panel's tool (or the temporary
-   backup plugin), plus an SFTP download of `wp-content/`. Record for
-   rollback: the active theme name and the values of `show_on_front
-   page_on_front page_for_posts blog_public permalink_structure` (Settings →
-   Reading and Permalinks show all five).
+   spot-checked.** Full backup via ManageWP (or the hosting panel's DB tool),
+   plus an SFTP download of `wp-content/` (~800 MB: uploads 296 + plugins 362
+   + themes 15). **Export the Elementor form submissions CSV** (Elementor →
+   Submissions) — they live only in the DB and the plugins are about to go.
+   Record for rollback: the active theme is the one in directory `Emposo`
+   (capital E, fact 17), plus the values of `show_on_front page_on_front
+   page_for_posts blog_public permalink_structure` (Settings → Reading and
+   Permalinks show all five; permalinks are already `/%postname%/`).
 1. **Stage files over SFTP (all inert):** `themes/emposo/` →
    `wp-content/themes/emposo/`; `client-mu-plugins/emposo-core/` →
    `wp-content/mu-plugins/emposo-core/` **without**
@@ -208,12 +257,21 @@ uses.
    empty trash. Keep ONLY the three German legal pages; their `/en/`
    translation rows go too. Trashing frees slugs (`__trashed` suffix), which
    is what unblocks scaffold.
-4. **Deactivate the old plugin stack** on the Plugins screen: WPML, Elementor
-   + Pro + the four Elementor add-ons, Yoast, Site Kit, Ivory Search, Dynific,
-   and anything else the survey marked as drop. **Keep SMTP Mailer** —
-   password-reset mail still has to send. Over SFTP: delete a physical
-   `robots.txt` if present (fact 6) and any stale `advanced-cache.php` /
-   `object-cache.php` drop-ins.
+4. **Deactivate the old plugin stack** — the complete keep/drop table for the
+   22 active plugins (Site Health, 2026-09-19):
+
+   | Decision | Plugins |
+   |---|---|
+   | **Keep** | SMTP Mailer (password-reset mail must still send) |
+   | **Drop, special order first** | Wordfence — Remove Extended Protection BEFORE deactivating (fact 18) |
+   | **Drop after its backup is taken** | ManageWP Worker + its mu-plugins loader (fact 19) |
+   | **Drop after the submissions CSV export** | Elementor Form Submissions Access |
+   | **Drop, plain** | WPML Multilingual CMS, WPML String Translation, Yoast SEO, Yoast SEO Premium, Elementor, Elementor Pro, Essential Addons (+ Pro), Dynific Addons, OoohBoi Steroids, Sticky Header Effects, Unlimited Elements, Ivory Search, Site Kit, Classic Editor, Mammoth .docx converter, Post Types Order, ACF PRO |
+
+   Over SFTP afterwards: **rename `object-cache.php` away** (fact 16 — no
+   stale object cache across the cutover; decide later whether to restore),
+   and confirm `.user.ini` carries no `wordfence-waf.php` prepend. There is
+   no physical robots.txt on this host (fact 16) — nothing to delete there.
 5. **Flip the switch over SFTP:** edit `wp-config.php` — add the
    `DISALLOW_FILE_MODS` define, the vip-config require (fact 7) and
    `define( 'EMPOSO_INSTALLER', true );` — then upload
@@ -282,9 +340,12 @@ uses.
   then reactivate the old theme and plugins.
 - The `install-<date>` tag from A identifies exactly which commit is on the
   host, so a re-upload after rollback is unambiguous.
-- After a 1–2 week stable window: delete the old theme and deactivated plugin
-  directories over SFTP, uninstall the temporary backup plugin if one was
-  used, and clean out `wp-content/uploads/elementor/`.
+- After a 1–2 week stable window: delete over SFTP the old theme
+  (`themes/Emposo`), its parent `hello-elementor`, and the deactivated plugin
+  directories (~360 MB back); keep one Twenty-* default theme as WordPress's
+  emergency fallback; clean out `wp-content/uploads/elementor/`; decide
+  whether the renamed `object-cache.php` returns. Audit the 11 user accounts
+  down to the people who still need access.
 
 ## Verification summary
 
