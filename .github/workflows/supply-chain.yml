@@ -17,9 +17,9 @@ jobs:
     name: npm and composer advisories
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
@@ -31,28 +31,20 @@ jobs:
       # honest bar for a repository whose dev tree includes a browser engine.
       - run: npm run audit:deps
 
-  # Only javascript-typescript: CodeQL has no PHP support, so it never covers
-  # the plugin or theme code — those gates are PHPCS and PHPStan. This job was
-  # briefly removed while the repository was private on a free plan, where the
-  # analysis ran but the upload failed with "Code scanning is not enabled for
-  # this repository" (private repos need Advanced Security). Public restores it.
-  codeql:
-    name: CodeQL
-    runs-on: ubuntu-latest
-    # Not on Dependabot's pull requests: its token is read-only and cannot
-    # write security events, so the upload fails after a full analysis has
-    # already run. Every merge to main is still scanned.
-    if: github.actor != 'dependabot[bot]'
-    permissions:
-      contents: read
-      security-events: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: github/codeql-action/init@v3
-        with:
-          languages: javascript-typescript
-
-      - uses: github/codeql-action/analyze@v3
-        with:
-          category: /language:javascript-typescript
+# CodeQL is deliberately absent, not forgotten. The analysis itself runs fine on
+# a runner, but uploading results needs code scanning enabled, and on a PRIVATE
+# repository that requires GitHub Advanced Security — so the upload fails with
+# "Code scanning is not enabled for this repository" and the job can never pass.
+# A permanently red check teaches people to ignore red checks, and
+# `continue-on-error` on a security job is worse than no job: it reports success
+# for an upload that did not happen.
+#
+# It was restored for one day (2026-09-18) while the repository was public, and
+# removed again when it went back to private. To bring it back: make the
+# repository public or enable Advanced Security, then add a codeql job with
+# `security-events: write` and the github/codeql-action init + analyze steps for
+# javascript-typescript — skipping Dependabot's pull requests, whose read-only
+# token cannot write security events.
+#
+# Note CodeQL has no PHP support, so it never covered the plugin or theme code.
+# Those gates are PHPCS and PHPStan in code-quality.yml.

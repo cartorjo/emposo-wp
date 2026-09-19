@@ -427,16 +427,27 @@ class Verify_Command {
 				$failures[] = sprintf( 'attachment "%s" has no alt text', $key );
 			} elseif ( '' !== $expected_alt && $alt !== $expected_alt ) {
 				/*
-				 * The export is the SOLE source of alt text for every photograph
-				 * here, so a divergence is either an editor improving it — which
-				 * is allowed and should be exported back — or an import that
-				 * half-applied. Either way it is worth seeing.
+				 * Reported, NOT failed.
+				 *
+				 * The export is where alt text comes from at import time; it is
+				 * not a lock on it afterwards. An editor improving a description
+				 * — or `wp claude alt-text` writing one — is the system working,
+				 * and this command is the one the install runbook says to run
+				 * after launch (`verify --routes --content --media`). Failing on
+				 * divergence would break that command permanently the first time
+				 * anyone touched the media library.
+				 *
+				 * Still worth printing: the same divergence is what a
+				 * half-applied import looks like, and the absent-or-empty cases
+				 * above remain hard failures.
 				 */
-				$failures[] = sprintf(
-					'attachment "%s" alt text differs from the export: "%s" vs "%s"',
-					$key,
-					$alt,
-					$expected_alt
+				WP_CLI::warning(
+					sprintf(
+						'attachment "%s" alt text differs from the export ("%s" vs "%s") — fine if an editor changed it; re-export to make it the contract.',
+						$key,
+						$alt,
+						$expected_alt
+					)
 				);
 			}
 

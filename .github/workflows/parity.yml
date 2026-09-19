@@ -21,6 +21,13 @@ jobs:
     name: DOM parity, class inventory, behaviours
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # Not on Dependabot's pull requests. These jobs boot Docker, import content
+    # and drive a browser, and Actions minutes are metered on a private
+    # repository — which this is again. A dependency bump does not warrant that;
+    # Code quality and Supply chain still run on every pull request, and those
+    # are where a lint or advisory regression would show. The push to main runs
+    # everything.
+    if: github.actor != 'dependabot[bot]'
     steps:
       # reference/static is a SUBMODULE (cartorjo/weave-clone) and it is not
       # optional here — tools/routes.mjs imports the reference build's
@@ -29,7 +36,7 @@ jobs:
       # failed. actions/checkout does not fetch submodules by default. The guard
       # below turns an auth or availability failure into one sentence instead of
       # a module-resolution stack trace.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           submodules: recursive
 
@@ -40,7 +47,7 @@ jobs:
             exit 1
           }
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm

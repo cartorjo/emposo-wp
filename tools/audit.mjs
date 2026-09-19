@@ -591,7 +591,7 @@ async function main() {
 		);
 		console.log(`baseline written: ${path.relative(REPO_ROOT, BASELINE_PATH)}`);
 	} else if (existsSync(BASELINE_PATH)) {
-		console.log(`(baseline available at ${path.relative(REPO_ROOT, BASELINE_PATH)} — use tools/compare.mjs)`);
+		console.log(`(gated against the baseline at ${path.relative(REPO_ROOT, BASELINE_PATH)})`);
 	}
 
 	process.exit(failed ? 1 : 0);
