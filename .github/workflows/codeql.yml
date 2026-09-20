@@ -1,0 +1,43 @@
+name: CodeQL
+
+# Restored 2026-09-20 when the repository went public: code-scanning upload is
+# free on public repos, so the "Code scanning is not enabled" failure that made
+# this a permanently-red check on the private repo no longer applies (see the
+# note in supply-chain.yml).
+#
+# Scope is javascript-typescript only — the tooling under tools/ and the theme's
+# assets/js. CodeQL has no PHP support, so the plugin and theme PHP stay covered
+# by PHPCS and PHPStan in code-quality.yml, not here.
+#
+# The codeql-action steps are tag-pinned (@v3) rather than SHA-pinned: the SHA
+# cannot be verified offline, and Dependabot's actions group will pin and bump
+# them on its next run like the other workflows.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 2'
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze javascript-typescript
+    # Dependabot's read-only token cannot write security events, so its PRs
+    # would fail the upload; skip them, exactly as the restore note prescribes.
+    if: github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3
