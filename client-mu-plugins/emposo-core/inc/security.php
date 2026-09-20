@@ -55,9 +55,15 @@ add_filter( 'wp_headers', __NAMESPACE__ . '\\avif_content_type' );
  * A production edge may well set them too; duplicate identical headers are
  * harmless, and having them here means a misconfigured host degrades to
  * "protected" rather than "unprotected".
+ *
+ * Scoped to this theme: the hardening is for the Emposo site, so it must not
+ * apply while a different theme is active (e.g. the legacy site during a
+ * staged in-place install). And it is skipped inside the Customizer preview,
+ * whose own scripts the strict CSP would otherwise block — the real front end
+ * (never a customize-preview request) still gets the full policy.
  */
 function send_security_headers(): void {
-	if ( is_admin() ) {
+	if ( is_admin() || is_customize_preview() || 'emposo' !== get_stylesheet() ) {
 		return;
 	}
 
@@ -129,8 +135,18 @@ function avif_content_type( array $headers ): array {
  * Every item here is something the static build has no equivalent of, so
  * removing it costs nothing and is also a parity requirement — the harness
  * asserts several of these are absent from the rendered output.
+ *
+ * Scoped to this theme, like the headers above: registered only when the
+ * Emposo theme is active, so a staged in-place install does not strip xmlrpc,
+ * author archives or anonymous REST from the legacy site still serving
+ * visitors. Content-model registration is separate (content-model.php) and
+ * stays unconditional, so the CPTs exist for scaffolding and preview.
  */
 function reduce_surface(): void {
+	if ( 'emposo' !== get_stylesheet() ) {
+		return;
+	}
+
 	// XML-RPC. Also drops the X-Pingback header.
 	add_filter( 'xmlrpc_enabled', '__return_false' );
 	add_filter(

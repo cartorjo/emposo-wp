@@ -75,10 +75,17 @@ class Scaffold_Command {
 	 * [--contract=<file>]
 	 * : Route contract JSON. Defaults to the bundled copy.
 	 *
+	 * [--content-only]
+	 * : Create the route objects but leave global site settings untouched — do
+	 * NOT repoint the front page or change blog_public. For staging content onto
+	 * a live install (e.g. an in-place Customizer preview) without reconfiguring
+	 * or de-indexing the site it is running on.
+	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp emposo scaffold --dry-run
 	 *     wp emposo scaffold
+	 *     wp emposo scaffold --content-only   # pages/CPTs only; no site-config writes
 	 *
 	 * @param array<int, string>    $args       Positional arguments.
 	 * @param array<string, string> $assoc_args Flags.
@@ -87,6 +94,7 @@ class Scaffold_Command {
 		unset( $args );
 
 		$this->dry_run = isset( $assoc_args['dry-run'] );
+		$content_only  = isset( $assoc_args['content-only'] );
 		$contract_path = $assoc_args['contract'] ?? EMPOSO_CORE_DIR . '/data/routes.json';
 
 		$routes = $this->load_contract( $contract_path );
@@ -141,7 +149,15 @@ class Scaffold_Command {
 			wp_cache_flush();
 			wp_defer_term_counting( false );
 
-			$this->configure_front_page();
+			// --content-only leaves the front page and blog_public exactly as the
+			// host has them, so staging content onto a live install does not
+			// repoint its home page or de-index it. The rewrite work below still
+			// runs, so the new page/CPT URLs resolve for the preview.
+			if ( $content_only ) {
+				WP_CLI::log( 'content-only: skipped front-page and blog_public configuration; global site settings left as-is.' );
+			} else {
+				$this->configure_front_page();
+			}
 
 			// Permalinks must be postname-based for the contract's paths to
 			// exist at all, and the rules must be regenerated after creating
