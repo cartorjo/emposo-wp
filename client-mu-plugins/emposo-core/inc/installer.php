@@ -194,8 +194,13 @@ function handle_step(): void {
 	load_commands();
 
 	// A generous budget for the media sideloads; everything else is far under.
-	// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.set_time_limit_set_time_limit -- One nonce-gated admin request on install day; the host has no shell where this could run unbounded.
-	set_time_limit( 300 );
+	// Guarded: hosts that list set_time_limit in disable_functions leave the
+	// symbol undefined (PHP 8), and an Error thrown here would land outside
+	// the try/catch below and kill every step with a white screen.
+	if ( function_exists( 'set_time_limit' ) ) {
+		// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.set_time_limit_set_time_limit -- One nonce-gated admin request on install day; the host has no shell where this could run unbounded.
+		set_time_limit( 300 );
+	}
 	wp_raise_memory_limit( 'admin' );
 
 	CLI_Shim::drain();
@@ -214,6 +219,20 @@ function handle_step(): void {
 		$ok    = false;
 		$error = get_class( $e ) . ': ' . $e->getMessage();
 		CLI_Shim::record( 'error', $error );
+	} finally {
+		/*
+		 * The commands unwind their bulk-import state (suspended cache
+		 * invalidation, deferred term counting) only on their happy path; an
+		 * abort mid-run would leave both engaged for the rest of the request.
+		 * Always unwind, and after a FAILED step flush the object cache so a
+		 * persistent backend cannot keep entries written while invalidation
+		 * was suspended.
+		 */
+		wp_suspend_cache_invalidation( false );
+		wp_defer_term_counting( false );
+		if ( ! $ok ) {
+			wp_cache_flush();
+		}
 	}
 
 	set_transient(

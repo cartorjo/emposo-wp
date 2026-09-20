@@ -7,9 +7,11 @@
  * after the records.
  *
  * Idempotent by design. Every object carries `_emposo_source_slug`, so a rerun
- * updates rather than duplicates, and a per-field hash lets editor changes
- * survive a rerun instead of being silently overwritten — which is what makes
- * this safe to run after go-live rather than only once.
+ * updates rather than duplicates. A per-field hash lets editor changes survive
+ * a rerun — but ONLY in the records stage (update_fields()): people, terms,
+ * relations, options and the media alt/title refresh rewrite unconditionally,
+ * so after go-live re-run records freely and the other stages only when the
+ * export is the intended source of truth again.
  *
  * @package Emposo\Core
  */
@@ -489,7 +491,7 @@ class Import_Command {
 				continue;
 			}
 
-			$id = $this->sideload( $file, (string) $asset['alt'] );
+			$id = $this->sideload( $file, (string) $asset['alt'], $key );
 			if ( 0 === $id ) {
 				continue;
 			}
@@ -830,6 +832,10 @@ class Import_Command {
 				'post_name'    => sanitize_title( $name ),
 				'post_content' => $bio,
 				'menu_order'   => $index * 10,
+				// The identity key rides the insert itself: written afterwards,
+				// a request killed in between leaves a person the re-run cannot
+				// find, and the "idempotent" retry duplicates them.
+				'meta_input'   => array( '_emposo_source_slug' => $key ),
 			);
 			if ( $post instanceof WP_Post ) {
 				$postarr['ID'] = $post->ID;
@@ -844,7 +850,6 @@ class Import_Command {
 			update_post_meta( $id, '_emposo_person_role', wp_slash( (string) $person['role'] ) );
 			update_post_meta( $id, '_emposo_person_initials', wp_slash( (string) $person['initials'] ) );
 			update_post_meta( $id, '_emposo_person_linkedin', wp_slash( (string) $person['linkedin'] ) );
-			update_post_meta( $id, '_emposo_source_slug', $key );
 
 			if ( '' !== (string) $person['image'] ) {
 				$this->attach_featured_image( $id, (string) $person['image'] );
@@ -1060,9 +1065,10 @@ class Import_Command {
 	 *
 	 * @param string $file Absolute path.
 	 * @param string $alt  Alt text, used as the title.
+	 * @param string $key  Asset key, written as identity meta atomically with the insert.
 	 * @return int Attachment ID, or 0 on failure.
 	 */
-	private function sideload( string $file, string $alt ): int {
+	private function sideload( string $file, string $alt, string $key ): int {
 		require_once ABSPATH . 'wp-admin/includes/media.php';
 		require_once ABSPATH . 'wp-admin/includes/file.php';
 		require_once ABSPATH . 'wp-admin/includes/image.php';
@@ -1082,7 +1088,14 @@ class Import_Command {
 				'tmp_name' => $temp,
 			),
 			0,
-			$alt
+			$alt,
+			array(
+				// The identity key rides the insert: written afterwards (in
+				// apply_asset_meta), a request killed in between leaves an
+				// attachment find_attachment() can never match, and the retry
+				// sideloads a duplicate file.
+				'meta_input' => array( '_emposo_asset_key' => $key ),
+			)
 		);
 
 		if ( $id instanceof WP_Error ) {

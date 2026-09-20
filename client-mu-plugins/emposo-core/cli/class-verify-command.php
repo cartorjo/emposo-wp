@@ -459,6 +459,21 @@ class Verify_Command {
 			if ( '' !== $relative && ! file_exists( $theme . '/' . $relative ) ) {
 				$failures[] = sprintf( 'asset "%s" file missing in the theme: %s', $key, $relative );
 			}
+
+			/*
+			 * And every declared AVIF/WebP variant, not just the JPEG
+			 * fallback: picture() emits these URLs into <source> srcsets
+			 * unchecked, so a missing variant is invisible in markup — the
+			 * browser quietly falls back to JPEG and the image-budget story
+			 * breaks with no error anywhere.
+			 */
+			foreach ( (array) ( $asset['variants'] ?? array() ) as $variant ) {
+				$variant_rel = is_array( $variant ) ? ltrim( str_replace( '/assets/', 'assets/', (string) ( $variant['src'] ?? '' ) ), '/' ) : '';
+
+				if ( '' !== $variant_rel && ! file_exists( $theme . '/' . $variant_rel ) ) {
+					$failures[] = sprintf( 'asset "%s" variant missing in the theme: %s', $key, $variant_rel );
+				}
+			}
 		}
 
 		return $failures;
