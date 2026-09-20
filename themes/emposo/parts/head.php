@@ -15,8 +15,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo emposo_escape_static( emposo_document_title() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- emposo_escape_static() is the reference build's 4-char escaper; esc_html would emit &#039; and diverge from parity. ?></title>
-	<meta name="description" content="<?php echo emposo_escape_static( emposo_meta_description() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper, see above. ?>">
+	<title><?php echo \Emposo\Core\escape_static( emposo_document_title() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escape_static() is the reference build's 4-char escaper; esc_html would emit &#039; and diverge from parity. ?></title>
+	<meta name="description" content="<?php echo \Emposo\Core\escape_static( emposo_meta_description() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper, see above. ?>">
 <?php
 /*
  * blog_public=0 is the primary, admin-visible noindex lever. EMPOSO_FORCE_NOINDEX
@@ -52,4 +52,4 @@ if ( '0' === (string) get_option( 'blog_public' ) || ( defined( 'EMPOSO_FORCE_NO
 wp_head();
 ?>
 </head>
-<body class="<?php echo emposo_escape_static( emposo_body_class() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper; the static build emits bodyClass through the same escape(). ?>">
+<body class="<?php echo \Emposo\Core\escape_static( emposo_body_class() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper; the static build emits bodyClass through the same escape(). ?>">

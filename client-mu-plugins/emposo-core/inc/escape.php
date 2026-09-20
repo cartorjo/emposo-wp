@@ -10,9 +10,9 @@
  * per-string parity divergence the moment an editor types one — green today
  * only because no contract string contains one.
  *
- * Defined once here, loaded before images.php and fragments.php, and wrapped as
- * the global emposo_escape_static() so the theme's head.php can call it too.
- * fragments.php's e() delegates to this: one escaper, one behaviour, no drift.
+ * Defined once here, loaded before images.php and fragments.php. fragments.php's
+ * e() delegates to it; images.php and the theme's head.php call it fully
+ * qualified. One escaper, one behaviour, no drift.
  *
  * Safe in every context it is used: all four sites are HTML text or a
  * double-quoted attribute, and " is escaped, so an unescaped ' cannot break out.
@@ -22,41 +22,26 @@
 
 declare( strict_types = 1 );
 
-namespace Emposo\Core {
+namespace Emposo\Core;
 
-	if ( ! defined( 'ABSPATH' ) ) {
-		exit;
-	}
-
-	/**
-	 * Escape a value exactly as the static build's escape() does.
-	 *
-	 * htmlspecialchars runs first with ENT_NOQUOTES so the & in the &quot; added
-	 * afterwards is not double-encoded; double_encode stays true to match JS
-	 * replacing & first, which turns a literal & into &amp; and an existing
-	 * &amp; into &amp;amp; — identical in both runtimes.
-	 *
-	 * @param mixed $value Raw value.
-	 */
-	function escape_static( $value ): string {
-		return str_replace(
-			'"',
-			'&quot;',
-			htmlspecialchars( (string) $value, ENT_NOQUOTES, 'UTF-8', true )
-		);
-	}
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-namespace {
-	/**
-	 * Global alias so the theme can escape exactly as the static build does.
-	 *
-	 * The theme's head.php calls bare emposo_* helpers; this gives it the
-	 * reference escaper without reaching into a plugin namespace.
-	 *
-	 * @param mixed $value Raw value.
-	 */
-	function emposo_escape_static( $value ): string {
-		return \Emposo\Core\escape_static( $value );
-	}
+/**
+ * Escape a value exactly as the static build's escape() does.
+ *
+ * Htmlspecialchars runs first with ENT_NOQUOTES so the & in the &quot; added
+ * afterwards is not double-encoded; double_encode stays true to match JS
+ * replacing & first, which turns a literal & into &amp; and an existing
+ * &amp; into &amp;amp; — identical in both runtimes.
+ *
+ * @param mixed $value Raw value.
+ */
+function escape_static( $value ): string {
+	return str_replace(
+		'"',
+		'&quot;',
+		htmlspecialchars( (string) $value, ENT_NOQUOTES, 'UTF-8', true )
+	);
 }
