@@ -5,7 +5,6 @@
 	<file>themes/emposo</file>
 	<file>client-mu-plugins</file>
 	<file>plugins</file>
-	<file>vip-config</file>
 	<file>tests/php</file>
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
@@ -42,16 +41,6 @@
 				<element value="Emposo"/>
 			</property>
 		</properties>
-	</rule>
-
-	<!-- vip-config/ exists to define WordPress core configuration constants, so
-	     the unprefixed-constant rule cannot apply there. WPCS carries a list of
-	     known core constants but it is incomplete (FORCE_SSL_ADMIN and
-	     SCRIPT_DEBUG pass; DISALLOW_FILE_MODS and WP_AUTO_UPDATE_CORE do not),
-	     so the exclusion is scoped to the directory rather than silenced
-	     per line, which would need a new ignore every time a constant is added. -->
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound">
-		<exclude-pattern>vip-config/*</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.WP.I18n">

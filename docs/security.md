@@ -17,9 +17,9 @@ Hardening lives in three layers, ordered by what survives what:
 1. **The mu-plugin** (`client-mu-plugins/emposo-core/inc/security.php`) —
    headers and surface reduction. Survives a theme change; cannot be
    deactivated from wp-admin.
-2. **`vip-config/vip-config.php`** — constants that must exist before WordPress
-   finishes loading. Survives everything except a missing `require` in
-   `wp-config.php` (see §3).
+2. **`wp-config.php`** — the hardening constants that must exist before
+   WordPress finishes loading (locally supplied by wp-env's own config block;
+   on the host, set directly in `wp-config.php` — see §2).
 3. **The theme cleanup** (`themes/emposo/inc/core-cleanup.php`) — the
    presentation surface. Gone if the theme is swapped, which is why nothing
    that matters *only* for security lives there.
@@ -46,8 +46,8 @@ routine that compensates.
 | Author enumeration: `/?author=N` and author archives 301 to `/`, at `template_redirect` priority **0** — core's `redirect_canonical` runs at 10 and wins ties on registration order, so running first is the whole mechanism (`inc/security.php`); plus the **users sitemap provider dropped** (`wp_sitemaps_add_provider`), because with `blog_public=1` core's `wp-sitemap-users-1.xml` would publish the login name the other measures hide (added 2026-09-20) | `inc/security.php` (redirect, rewrite-rule removal, sitemap provider filter) | CI: `verify --security` asserts the rules are emptied, the compiled ruleset carries no author rule, the priority-0 slot is occupied, and the users sitemap provider is gone. |
 | Application passwords off | `inc/security.php` | CI (`verify --security`) |
 | REST API closed to anonymous requests — 401 `WP_Error`, not switched off, because the block editor needs REST (`inc/security.php`) | `inc/security.php` | CI: `verify --security` evaluates `rest_authentication_errors` as user 0 and asserts the 401. |
-| `DISALLOW_FILE_EDIT` — every environment, unconditional | `vip-config/vip-config.php` | CI (`verify --security`) |
-| `DISALLOW_FILE_MODS`, `FORCE_SSL_ADMIN`, `WP_DEBUG_DISPLAY=false`, `SCRIPT_DEBUG=false`, updaters off, revision/trash bounds — outside local/development only | `vip-config/vip-config.php` | `verify --security` asserts `EMPOSO_CONFIG_LOADED` on production/staging (where the installer's verify step runs it) — locally wp-env supplies the constants and the check says so and skips. The late-load fallback in `inc/environment.php` `error_log()`s remains the runtime tripwire. |
+| `DISALLOW_FILE_EDIT` — every environment | `wp-config.php` (host) / `.wp-env.json` (local) | CI (`verify --security`) |
+| `DISALLOW_FILE_MODS`, `FORCE_SSL_ADMIN`, `WP_DEBUG_DISPLAY=false`, `SCRIPT_DEBUG=false`, updaters off, revision/trash bounds | `wp-config.php` (host) / `.wp-env.json` (local) | **Unguarded** as assertions beyond `DISALLOW_FILE_EDIT` above — they are standard `wp-config.php` constants; §2 lists the block to set, and §4's `wp eval` spot-checks them on the host. |
 | Secrets read from env/constant via `get_env_var()`, never stored in `wp_options` — so they never land in a database export or a backup | `client-mu-plugins/emposo-core/inc/environment.php` | `wp claude doctor` reports where the key came from. |
 | Surface reduction: generator, RSD, shortlink (`<link>` **and** the HTTP `Link:` header — core emits it twice), REST discovery, oEmbed, feeds, emoji, comments and pings closed, avatars off (Gravatar is a third-party request) | `themes/emposo/inc/core-cleanup.php` (`comments_open`, `pings_open`, `option_show_avatars`) | The rendered-output side is CI-guarded — `tools/checks.mjs` (`HEAD_POLLUTION`) fails on `api.w.org`, `xmlrpc.php?rsd`, `wlwmanifest`, `rel="shortlink"`, `secure.gravatar.com` and friends in the document. The **header** side (`Link:`, `X-Pingback`) is dashboard-only. |
 | **Temporary: the no-shell installer** — an admin screen that runs scaffold/import/verify on a host with no WP-CLI. Triple-gated: loads only while `EMPOSO_INSTALLER` is defined true in `wp-config.php` (an SFTP-level switch), screen and handler require `manage_options`, every action is a nonce-checked POST. Its WP_CLI shim aliases the global class name only when real WP-CLI is absent. | `inc/installer.php` (the `EMPOSO_INSTALLER` gate), `cli/class-cli-shim.php`, `cli/wp-cli-utils.php` | **Unguarded in CI** (admin-only code; parity/audit never see it). **Removal deadline: install day** — runbook D7. The removal check: `/wp-admin/admin.php?page=emposo-installer` answers "not permitted" for an administrator once the define is deleted. While the define is absent the file is inert, so the standing risk is the constant being left behind, not the code. |
@@ -61,8 +61,7 @@ made every static route fail and blocked re-baselining) plus script-src purity.
 `npm run parity`, which CI runs strict. **Behavior**: `wp emposo verify
 --security` (in `parity.yml`'s verify step) asserts the filter outcomes and
 registry state — XML-RPC, application passwords, the REST 401, author
-enumeration, the users sitemap, `DISALLOW_FILE_EDIT`, and on production/staging
-the `EMPOSO_CONFIG_LOADED` sentinel. The wp-admin panel (`inc/dashboard.php`,
+enumeration, the users sitemap, and `DISALLOW_FILE_EDIT`. The wp-admin panel (`inc/dashboard.php`,
 `REQUIRED_HEADERS` / `FORBIDDEN_HEADERS`) probes the header side manually, with
 a five-minute transient cache. What still regresses silently until §4 runs:
 HSTS (no TLS anywhere CI reaches), the `/xmlrpc.php` endpoint block (a
@@ -104,26 +103,35 @@ item is and why it cannot live in this repository.
   not writable by the web server user, and a DB account limited to `SELECT,
   INSERT, UPDATE, DELETE`. All provider-side; none verifiable from wp-admin.
 
-- **The `wp-config.php` production block** — applied over SFTP. An earlier
-  plan wanted a committed sample file; this list deliberately supersedes it,
-  because `vip-config/vip-config.php` now owns every hardening constant and a
-  sample would just drift. What `wp-config.php` must still carry:
+- **The `wp-config.php` hardening block** — the constants go directly in
+  `wp-config.php` on the host (this is a self-hosted, non-VIP site; there is no
+  separate config file to require). Add, above the "That's all, stop editing"
+  line:
 
-  - `require_once dirname( __DIR__ ) . '/vip-config/vip-config.php';` — **the
-    one line everything in layer 2 depends on.** On VIP the platform loads it;
-    self-hosted, nothing does. `dirname( __DIR__ )`, not `__DIR__`: the upload
-    goes one level above the WP root and `wp-config.php` sits in the root on
-    this host, so the earlier `__DIR__` spelling pointed at a path that does
-    not exist and fataled the site (corrected 2026-09-20). The fallback loader cannot rescue
-    `WP_DEBUG_DISPLAY` because `wp_debug_mode()` runs before mu-plugins
-    (README, "Things that look optional and are not").
-  - `WP_ENVIRONMENT_TYPE` set to `production` — the switch the vip-config
-    gates read.
-  - The eight salts (`AUTH_KEY` … `NONCE_SALT`), freshly generated.
-  - `WP_DEBUG_LOG` pointed outside the webroot.
-  - The Anthropic key as a constant, not an option — and mind php-fpm's
-    `clear_env`: `getenv()` only sees pool-config `env[NAME]=` lines, so a
-    constant in `wp-config.php` is the reliable form here.
+  ```php
+  define( 'DISALLOW_FILE_EDIT', true );   // no theme/plugin editors in wp-admin
+  define( 'DISALLOW_FILE_MODS', true );   // no install/update from wp-admin
+  define( 'FORCE_SSL_ADMIN', true );
+  define( 'WP_DEBUG', false );
+  define( 'WP_DEBUG_DISPLAY', false );    // never print errors to visitors
+  define( 'WP_DEBUG_LOG', '/path/outside/webroot/emposo.log' );
+  define( 'SCRIPT_DEBUG', false );
+  define( 'AUTOMATIC_UPDATER_DISABLED', true );
+  define( 'WP_AUTO_UPDATE_CORE', false );
+  define( 'WP_POST_REVISIONS', 20 );
+  define( 'EMPTY_TRASH_DAYS', 14 );
+  define( 'WP_ENVIRONMENT_TYPE', 'production' );
+  // Optional: force noindex on a staging clone regardless of Settings → Reading.
+  // define( 'EMPOSO_FORCE_NOINDEX', true );
+  // The Anthropic key, if wp claude is used — a constant, never the options table.
+  // define( 'ANTHROPIC_API_KEY', '...' );
+  ```
+
+  Two notes: regenerate the **eight salts** (`AUTH_KEY` … `NONCE_SALT`) at
+  install; and `WP_DEBUG_DISPLAY` matters most here — `wp_debug_mode()` runs
+  early, so this must be a real `wp-config.php` constant, not set later.
+  For php-fpm, prefer the constant over `getenv()` for the API key (a
+  pool's `clear_env` hides process-environment variables).
 
 - **Deferred, with the reason on record: 2FA / SSO / shortened sessions.**
   One admin account, no second editor yet, and every privileged path already
@@ -146,11 +154,11 @@ Read this before filing a finding; each of these looks wrong on purpose.
   may never traverse the edge cache.
 
 - **`EMPOSO_FORCE_NOINDEX` is the staging backstop, now wired.** `blog_public=0`
-  is the primary, admin-visible noindex lever; the constant (defined in
-  `vip-config/vip-config.php`) forces noindex even if `blog_public` is flipped on
-  a staging clone. It went unread from inception until `parts/head.php` was
-  wired to honour it — a no-op for parity, since the preview environment already
-  noindexes via `blog_public=0`.
+  is the primary, admin-visible noindex lever; the optional `wp-config.php`
+  constant forces noindex even if `blog_public` is flipped on a staging clone.
+  It went unread from inception until `parts/head.php` was wired to honour it —
+  a no-op for parity, since the preview environment already noindexes via
+  `blog_public=0`.
 
 - **`xmlrpc_enabled` is filtered once**, in `inc/security.php` (authoritative:
   survives a theme swap). The theme's `core-cleanup.php` used to duplicate it;
@@ -164,15 +172,15 @@ Local (wp-env running):
   permissions, X-Frame-Options), script-src purity, zero console messages,
   zero off-host requests.
 - `npm run wp -- emposo verify --security` — the filter-outcome and registry
-  assertions listed in §1. Runs in CI (parity workflow) and from the
-  installer's verify step on the host, where it additionally asserts
-  `EMPOSO_CONFIG_LOADED`.
-- `wp-env run cli wp eval 'var_dump( DISALLOW_FILE_EDIT, defined("EMPOSO_CONFIG_LOADED") );'`
-  — constants and config loading. Local-only: there is no WP-CLI on the host.
+  assertions listed in §1. Runs in CI (parity workflow); also runnable on the
+  host over SSH (`wp emposo verify --security --path=<webroot>`).
+- `wp eval 'var_dump( DISALLOW_FILE_EDIT, WP_ENVIRONMENT_TYPE );'` — confirms the
+  hardening constants took effect (locally via `wp-env run cli`, on the host over
+  SSH).
 
 wp-admin (works on the host — it is one of the two access paths):
 
-- Emposo → the header panel: four required headers green, `Link:` and
+- Emposo → the header panel: the five required headers green, `Link:` and
   `X-Pingback` absent. "Re-check" clears the five-minute transient. Remember
   it probes over loopback — it proves PHP sends the headers, not that the
   edge delivers them.
@@ -187,7 +195,6 @@ curl -sd '<methodCall><methodName>demo.sayHello</methodName></methodCall>' \
   https://<host>/xmlrpc.php                        # expect the server block, not an XML answer
 ```
 
-And the debug log (fetched over SFTP, since there is no shell): the
-`inc/environment.php` fallback warning appearing there means `wp-config.php`
-lost its `require` of `vip-config/vip-config.php` — which silently reverts
-every constant in layer 2.
+And the debug log (over SSH, or fetched via SFTP): it should be clean. If the
+hardening constants are missing at runtime, `wp-config.php` did not receive the
+§2 block — re-check that it was applied above the "stop editing" line.

@@ -99,11 +99,13 @@ theme change. `reference/static/` is the audited static build, pinned to
   roughly 150 KB to a page — which alone breaks the 200 KB largest-image budget.
   `inc/security.php` filters `wp_headers` as a safety net, but a static file
   normally never reaches PHP, so the host config is the real fix.
-- **Self-hosted `wp-config.php` must `require` `vip-config/vip-config.php`.** On
-  VIP the platform loads it; self-hosted, nothing does. `inc/environment.php`
-  loads it late as a fallback and logs that it had to, because `wp_debug_mode()`
-  runs before mu-plugins and `WP_DEBUG_DISPLAY` is the one constant a late load
-  cannot rescue — a production site would print errors to visitors.
+- **The host's `wp-config.php` must carry the hardening constants.** This is a
+  self-hosted, non-VIP site, so the constants (`DISALLOW_FILE_EDIT`,
+  `WP_DEBUG_DISPLAY=false`, `FORCE_SSL_ADMIN`, …) live directly in
+  `wp-config.php`; locally, `.wp-env.json` supplies them. `WP_DEBUG_DISPLAY`
+  matters most — `wp_debug_mode()` runs before mu-plugins, so it cannot be set
+  late, or a production site prints errors to visitors. The full block is in
+  `docs/security.md` §2.
 
 The measured performance bars are only reachable behind a full-page cache,
 measured logged out. Nothing in CI measures LCP or TTFB — a shared runner cannot

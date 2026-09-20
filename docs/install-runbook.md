@@ -76,29 +76,16 @@ self-hosted WordPress installation, replacing the current site at **emposo.de**.
    virtual one (and with it the launch lever's robots.txt effect) never
    applies. The installer's Preflight warns when a physical file exists;
    delete it over SFTP.
-7. **`vip-config.php` is meant to be required from `wp-config.php`.** The
-   mu-plugin fallback (`inc/environment.php`) `error_log()`s on every production
-   request — *even when the file is absent*, because the log call sits outside
-   the `is_readable` check. Skipping it means perpetual log spam. Upload
-   `vip-config/` one level above the WP root and add, in `wp-config.php`:
-   ```php
-   define( 'DISALLOW_FILE_MODS', false );          // wp-admin is the only management surface — keep it able to install/update
-   require_once dirname( __DIR__ ) . '/vip-config/vip-config.php';
-   ```
-   Every constant in the file is `if ( ! defined() )`-guarded, so the pre-define
-   wins. With no shell on this host, `DISALLOW_FILE_MODS=false` is not optional
-   hardening slack: it is what keeps plugin/theme management possible at all.
-   **[corrected 2026-09-20]** The require line above previously read
-   `__DIR__ . '/vip-config/...'`, which contradicts the upload location: on
-   this host `wp-config.php` sits IN the web root (Site Health:
-   `public_html`), so `__DIR__` points inside the root while the upload goes
-   one level above it — followed literally, every request fataled at C5.
-   `dirname( __DIR__ )` matches both the upload location and the fallback
-   loader's expectation (`inc/environment.php` reads
-   `dirname( ABSPATH ) . '/vip-config/vip-config.php'`). On the rare layout
-   where `wp-config.php` itself lives one level above the web root, use
-   `__DIR__` instead — the test either way is that no
-   "vip-config was not loaded" line appears in the host's PHP error log.
+7. **Hardening constants go directly in `wp-config.php`.** This is a
+   self-hosted, non-VIP site, so there is no separate config file to require —
+   the constants (`DISALLOW_FILE_EDIT`, `WP_DEBUG_DISPLAY=false`,
+   `FORCE_SSL_ADMIN`, the updater/revision bounds, `WP_ENVIRONMENT_TYPE`) are
+   added straight to `wp-config.php` above the "stop editing" line. The exact
+   block is in `docs/security.md` §2. `WP_DEBUG_DISPLAY` must be set here, not
+   later, because `wp_debug_mode()` runs before mu-plugins. **Because SSH +
+   WP-CLI are available on this host, `DISALLOW_FILE_MODS` can be `true`** —
+   management happens over the shell, not wp-admin — which also means the
+   no-shell installer (§C) is optional; the WP-CLI path below is simpler.
 8. **Bare full verify asserts `blog_public === 0`**
    (`cli/class-verify-command.php`), so it passes pre-launch and fails after the
    flip by design. Post-launch use the installer's "routes, content, media"
@@ -204,9 +191,9 @@ before install day.
 - Package from a tag: `git archive install-<date>` (create it first:
   `git tag -a install-$(date +%F) -m "Uploaded to emposo.de" && git push origin
   install-$(date +%F)`), so rollback names an exact artefact.
-- vip-config as described in fact 7 — the `wp-config.php` edit happens over
-  SFTP **during the cutover window**, not before (fact 12's reasoning: keep
-  every switch in one window).
+- The `wp-config.php` hardening block (fact 7, full list in `docs/security.md`
+  §2) is edited **during the cutover window**, not before (fact 12's reasoning:
+  keep every switch in one window).
 - Preflight runs **on the installer screen** once the files are staged and the
   loader is in (C6): PHP ≥ 8.1, WP ≥ 6.7, GD/Imagick, theme present, Lenis
   md5, bundled JSON, `unfiltered_html`, physical robots.txt, stale drop-ins,
@@ -267,8 +254,8 @@ uses.
 1. **Stage files over SFTP (all inert):** `themes/emposo/` →
    `wp-content/themes/emposo/`; `client-mu-plugins/emposo-core/` →
    `wp-content/mu-plugins/emposo-core/` **without**
-   `client-mu-plugins/plugin-loader.php`; `vip-config/` one level above the WP
-   root; `audit-evidence/static-baseline.json` → `wp-content/audit-evidence/`
+   `client-mu-plugins/plugin-loader.php`;
+   `audit-evidence/static-baseline.json` → `wp-content/audit-evidence/`
    (the Emposo screen otherwise reports "no baseline" forever;
    `audit-evidence/wp/` stays behind). Upload nothing else from the repo root.
    Verify the Lenis md5 by downloading the uploaded file back and hashing it.
@@ -294,10 +281,10 @@ uses.
    stale object cache across the cutover; decide later whether to restore),
    and confirm `.user.ini` carries no `wordfence-waf.php` prepend. There is
    no physical robots.txt on this host (fact 16) — nothing to delete there.
-5. **Flip the switch over SFTP:** edit `wp-config.php` — add the
-   `DISALLOW_FILE_MODS` define, the vip-config require (fact 7) and
-   `define( 'EMPOSO_INSTALLER', true );` — then upload
-   `client-mu-plugins/plugin-loader.php` → `wp-content/mu-plugins/`. The
+5. **Flip the switch over SFTP:** edit `wp-config.php` — add the hardening
+   block (fact 7, `docs/security.md` §2) and, only if using the no-shell
+   installer instead of WP-CLI, `define( 'EMPOSO_INSTALLER', true );` — then
+   upload `client-mu-plugins/plugin-loader.php` → `wp-content/mu-plugins/`. The
    mu-plugin and its hardening are now live; wp-admin keeps working.
 6. **Activate the theme**: Appearance → Themes → Emposo. Never before step 5 —
    the templates use `EMPOSO_CORE_DIR` and `\Emposo\Core\…` from the mu-plugin
@@ -354,8 +341,8 @@ uses.
 
 ## E. Rollback
 
-- **Before step C3** (old-content deletion): pure file rollback — remove
-  `mu-plugins/plugin-loader.php` and the three `wp-config.php` lines over
+- **Before step C3** (old-content deletion): pure file rollback — remove the
+  uploaded `plugin-loader.php` and the added `wp-config.php` lines over
   SFTP, reactivate the old theme and plugins in wp-admin. No DB restore.
 - **Either way, also reverse C4's SFTP-level mutations** — rename
   `object-cache.php` back and re-enable Wordfence extended protection (its
