@@ -818,8 +818,6 @@ function sitemap(): string {
  * @param string $name Fragment name.
  */
 function render( string $name ): string {
-	$all = case_studies();
-
 	switch ( $name ) {
 		case 'industry-cards':
 			return industry_cards();

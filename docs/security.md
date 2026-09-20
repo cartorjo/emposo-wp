@@ -145,18 +145,16 @@ Read this before filing a finding; each of these looks wrong on purpose.
   is a **curl from outside the host** (§4) — the dashboard's loopback probe
   may never traverse the edge cache.
 
-- **`EMPOSO_FORCE_NOINDEX` is a dead constant.** Defined at
-  `vip-config/vip-config.php`, set by the wp-env configs, read by
-  nothing: `1809a1f` gated the noindex meta on `blog_public` instead, so that
-  Settings → Reading stays the single launch lever and the output stays
-  byte-identical for parity. Either wire it into `parts/head.php` as a
-  staging override or delete it — recorded here so nobody "fixes" the wrong
-  side of it.
+- **`EMPOSO_FORCE_NOINDEX` is the staging backstop, now wired.** `blog_public=0`
+  is the primary, admin-visible noindex lever; the constant (defined in
+  `vip-config/vip-config.php`) forces noindex even if `blog_public` is flipped on
+  a staging clone. It went unread from inception until `parts/head.php` was
+  wired to honour it — a no-op for parity, since the preview environment already
+  noindexes via `blog_public=0`.
 
-- **`xmlrpc_enabled` is filtered twice** — `inc/security.php`
-  (authoritative: survives a theme swap) and `themes/emposo/inc/core-cleanup.php`
-  (part of the theme's parity-motivated cleanup). Redundant, harmless, and
-  cheaper than a cross-file dependency.
+- **`xmlrpc_enabled` is filtered once**, in `inc/security.php` (authoritative:
+  survives a theme swap). The theme's `core-cleanup.php` used to duplicate it;
+  the duplicate was removed as it added nothing over the mu-plugin's filter.
 
 ## 4. How to re-verify
 

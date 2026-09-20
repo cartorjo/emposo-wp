@@ -17,7 +17,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php echo emposo_escape_static( emposo_document_title() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- emposo_escape_static() is the reference build's 4-char escaper; esc_html would emit &#039; and diverge from parity. ?></title>
 	<meta name="description" content="<?php echo emposo_escape_static( emposo_meta_description() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper, see above. ?>">
-<?php if ( '0' === (string) get_option( 'blog_public' ) ) : ?>
+<?php
+/*
+ * blog_public=0 is the primary, admin-visible noindex lever. EMPOSO_FORCE_NOINDEX
+ * is the vip-config backstop for a staging clone that must never be indexable
+ * even if blog_public is flipped — the constant its own comment promised but
+ * nothing read until now.
+ */
+if ( '0' === (string) get_option( 'blog_public' ) || ( defined( 'EMPOSO_FORCE_NOINDEX' ) && EMPOSO_FORCE_NOINDEX ) ) :
+	?>
 	<!-- Temporary preview build: remove this only when launch SEO settings are approved. -->
 	<meta name="robots" content="noindex, nofollow">
 <?php endif; ?>
