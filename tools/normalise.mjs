@@ -215,6 +215,25 @@ export function canonicaliseTags(html) {
 			attrs.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
 			const serialised = serialiseAttributes(attrs);
 			out += `<${tagName}${serialised ? ` ${serialised}` : ''}>`;
+
+			/*
+			 * Raw-text elements: their content is CDATA-like, not markup. A `<`
+			 * in a script or stylesheet (`if (a < b)`, `a<b{}`) is not a tag,
+			 * so parsing on would rewrite it and corrupt the diff. Pass the
+			 * content through verbatim, up to the matching close tag.
+			 */
+			if (!selfClosing && (tagName === 'script' || tagName === 'style')) {
+				const close = new RegExp(`</${tagName}\\s*>`, 'i').exec(html.slice(j + 1));
+				if (close) {
+					out += html.slice(j + 1, j + 1 + close.index);
+					out += `</${tagName}>`;
+					i = j + 1 + close.index + close[0].length;
+				} else {
+					out += html.slice(j + 1);
+					i = html.length;
+				}
+				continue;
+			}
 		}
 
 		i = j + 1;

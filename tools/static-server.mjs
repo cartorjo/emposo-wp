@@ -40,6 +40,29 @@ const MIME = {
 };
 
 /**
+ * Resolve a URL pathname to a file inside root, or null if it escapes.
+ *
+ * Containment needs the separator. A bare `resolved.startsWith(root)` lets a
+ * sibling whose name shares the root's prefix escape — `/srv/foobar/x` starts
+ * with `/srv/foo` — so `..` segments that land next to the root are served.
+ * Comparing against `root + sep` (and allowing root itself) closes that.
+ *
+ * @param {string} root     Directory being served.
+ * @param {string} pathname Decoded URL pathname.
+ * @returns {string|null} Absolute path inside root, or null.
+ */
+export function resolveWithinRoot(root, pathname) {
+	// Directory-per-page output: /about-us/ -> about-us/index.html.
+	const withIndex = pathname.endsWith('/') ? `${pathname}index.html` : pathname;
+	const rootResolved = path.resolve(root);
+	const resolved = path.resolve(path.join(root, withIndex.replace(/^\/+/, '')));
+	if (resolved !== rootResolved && !resolved.startsWith(rootResolved + path.sep)) {
+		return null;
+	}
+	return resolved;
+}
+
+/**
  * @param {string} root Directory to serve.
  * @param {number} port
  * @returns {Promise<{url: string, close: () => Promise<void>}>}
@@ -48,15 +71,10 @@ export async function serveStatic(root, port = 0) {
 	const server = createServer(async (req, res) => {
 		try {
 			const url = new URL(req.url ?? '/', 'http://localhost');
-			let pathname = decodeURIComponent(url.pathname);
+			const pathname = decodeURIComponent(url.pathname);
 
-			// Directory-per-page output: /about-us/ -> about-us/index.html.
-			if (pathname.endsWith('/')) pathname += 'index.html';
-
-			// Contain the served path inside root.
-			const target = path.join(root, pathname.replace(/^\/+/, ''));
-			const resolved = path.resolve(target);
-			if (!resolved.startsWith(path.resolve(root))) {
+			const resolved = resolveWithinRoot(root, pathname);
+			if (!resolved) {
 				res.writeHead(403).end('Forbidden');
 				return;
 			}
