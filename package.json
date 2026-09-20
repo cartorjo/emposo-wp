@@ -53,5 +53,11 @@
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1",
     "tailwindcss": "4.3.3"
+  },
+  "comments": {
+    "overrides": "qs is pinned to the patched line only to clear two medium Dependabot advisories (array-limit bypass, isBuffer DoS), both fixed in 6.16.0. It reaches us transitively through @wordpress/env -> @wp-playground/cli -> express, dev-only. Drop the pin once that chain ships >= 6.16.0 on its own."
+  },
+  "overrides": {
+    "qs": "^6.16.0"
   }
 }

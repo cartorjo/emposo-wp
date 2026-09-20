@@ -12,6 +12,18 @@ version: 2
 # where a breaking change is noticed, which is the correct place — the parity
 # harness pins its reference build, so any bump can move a measurement without
 # a line of this repository changing.
+#
+# Policy for these PRs and for alerts:
+#  - A grouped bump PR merges once its checks are green (parity, audit,
+#    lint, phpcs, phpstan). Green here means the measured behaviour did not
+#    move, which is the only thing a dependency bump can break in this repo.
+#    A red check is read in the PR body before anything is merged.
+#  - Security alerts are not waited on for the weekly PR. When an advisory
+#    fires on a transitive dependency we cannot bump directly — the qs pin in
+#    package.json is the worked example: it reached us through
+#    @wordpress/env -> @wp-playground/cli -> express, dev-only, so an
+#    `overrides` entry forcing the patched line clears the alert out of band.
+#    Remove such a pin once the upstream chain ships the fix on its own.
 updates:
   - package-ecosystem: npm
     directory: /
