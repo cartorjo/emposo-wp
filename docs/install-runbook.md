@@ -30,9 +30,12 @@ self-hosted WordPress installation, replacing the current site at **emposo.de**.
 
 1. **Scaffold is not content-only.** It force-sets `show_on_front=page`,
    `page_on_front`, `page_for_posts=0`, `blog_public=0`
-   (`cli/class-scaffold-command.php:340-357`) and permalinks to `/%postname%/`
-   with a flush (`:136-138`). For a full replacement these are all desired;
-   `blog_public=0` is the pre-launch de-index gate.
+   (`cli/class-scaffold-command.php`) and permalinks to `/%postname%/` with a
+   flush. For a full replacement these are all desired; `blog_public=0` is the
+   pre-launch de-index gate. **[corrected 2026-09-20]** The gate applies only
+   on the way in: when `blog_public` is already 1 (site launched), a scaffold
+   re-run warns and leaves it alone instead of silently de-indexing the live
+   site. It also warns when it re-publishes a route an editor had drafted.
 2. **Slug conflicts hard-abort scaffold mid-run** (`:238-260`). Recovery: find
    the squatter with the installer's **slug conflict finder** (all post types,
    all statuses), delete it from its edit screen, re-run — idempotent via
@@ -49,6 +52,11 @@ self-hosted WordPress installation, replacing the current site at **emposo.de**.
    capability check naturally — the `--user=` flag was WP-CLI's way of getting
    the same thing. Locally, `npm run wp:bootstrap` does theme activation,
    scaffold and import in that order; all three are idempotent.
+   **[corrected 2026-09-20]** "Idempotent" has one asterisk post-launch: the
+   editor-protection hash covers the **records** stage only. People, terms,
+   relations, options and the media alt/title refresh rewrite unconditionally,
+   so once editors own the content, re-run records freely but the other
+   stages only when the export is meant to win again.
 4. **No build step on the host.** `assets/css/site.css` is committed by design
    and CI gates drift. Ship the committed file.
 5. **Packaging is not a trap.** Lenis is tracked (`d8cfb63`), so a fresh clone
@@ -72,11 +80,22 @@ self-hosted WordPress installation, replacing the current site at **emposo.de**.
    `vip-config/` one level above the WP root and add, in `wp-config.php`:
    ```php
    define( 'DISALLOW_FILE_MODS', false );          // wp-admin is the only management surface — keep it able to install/update
-   require_once __DIR__ . '/vip-config/vip-config.php';
+   require_once dirname( __DIR__ ) . '/vip-config/vip-config.php';
    ```
    Every constant in the file is `if ( ! defined() )`-guarded, so the pre-define
    wins. With no shell on this host, `DISALLOW_FILE_MODS=false` is not optional
    hardening slack: it is what keeps plugin/theme management possible at all.
+   **[corrected 2026-09-20]** The require line above previously read
+   `__DIR__ . '/vip-config/...'`, which contradicts the upload location: on
+   this host `wp-config.php` sits IN the web root (Site Health:
+   `public_html`), so `__DIR__` points inside the root while the upload goes
+   one level above it — followed literally, every request fataled at C5.
+   `dirname( __DIR__ )` matches both the upload location and the fallback
+   loader's expectation (`inc/environment.php` reads
+   `dirname( ABSPATH ) . '/vip-config/vip-config.php'`). On the rare layout
+   where `wp-config.php` itself lives one level above the web root, use
+   `__DIR__` instead — the test either way is that no
+   "vip-config was not loaded" line appears in the host's PHP error log.
 8. **Bare full verify asserts `blog_public === 0`**
    (`cli/class-verify-command.php`), so it passes pre-launch and fails after the
    flip by design. Post-launch use the installer's "routes, content, media"
@@ -335,6 +354,10 @@ uses.
 - **Before step C3** (old-content deletion): pure file rollback — remove
   `mu-plugins/plugin-loader.php` and the three `wp-config.php` lines over
   SFTP, reactivate the old theme and plugins in wp-admin. No DB restore.
+- **Either way, also reverse C4's SFTP-level mutations** — rename
+  `object-cache.php` back and re-enable Wordfence extended protection (its
+  admin screen re-arms the `.user.ini` prepend) — or the "restored" old site
+  silently runs without its object cache and without its WAF.
 - **After C3**: the C0 dump is the rollback artefact — restore it through the
   same panel tool or backup plugin that made it, then the file rollback above,
   then reactivate the old theme and plugins.

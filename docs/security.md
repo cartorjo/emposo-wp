@@ -41,7 +41,7 @@ routine that compensates.
 | wp-admin exempt from the headers | `inc/security.php:35-37` | n/a — deliberate; core's admin needs its inline scripts. |
 | AVIF `Content-Type` safety net | `inc/security.php:89-99` | Indirect (image budgets); the host config is the real fix — README, deployment requirements. |
 | XML-RPC authenticated methods off; `X-Pingback` header dropped | `inc/security.php:110-118` | Dashboard only (`FORBIDDEN_HEADERS`, `inc/dashboard.php:65`). **The endpoint itself is unguarded — and not fully closed. See §2.** |
-| Author enumeration: `/?author=N` and author archives 301 to `/`, at `template_redirect` priority **0** — core's `redirect_canonical` runs at 10 and wins ties on registration order, so running first is the whole mechanism (`inc/security.php:120-128`) | `inc/security.php:129-139`, rewrite rules removed outright `:143` | **Unguarded** |
+| Author enumeration: `/?author=N` and author archives 301 to `/`, at `template_redirect` priority **0** — core's `redirect_canonical` runs at 10 and wins ties on registration order, so running first is the whole mechanism (`inc/security.php:120-128`); plus the **users sitemap provider dropped** (`wp_sitemaps_add_provider`), because with `blog_public=1` core's `wp-sitemap-users-1.xml` would publish the login name the other measures hide (added 2026-09-20) | `inc/security.php` (redirect, rewrite-rule removal, sitemap provider filter) | **Unguarded** |
 | Application passwords off | `inc/security.php:146` | **Unguarded** |
 | REST API closed to anonymous requests — 401 `WP_Error`, not switched off, because the block editor needs REST (`inc/security.php:148-155`) | `inc/security.php:156-173` | **Unguarded** — no request anywhere asserts the 401. |
 | `DISALLOW_FILE_EDIT` — every environment, unconditional | `vip-config/vip-config.php:40-42` | **Unguarded** |
@@ -104,9 +104,12 @@ item is and why it cannot live in this repository.
   because `vip-config/vip-config.php` now owns every hardening constant and a
   sample would just drift. What `wp-config.php` must still carry:
 
-  - `require_once __DIR__ . '/vip-config/vip-config.php';` — **the one line
-    everything in layer 2 depends on.** On VIP the platform loads it;
-    self-hosted, nothing does. The fallback loader cannot rescue
+  - `require_once dirname( __DIR__ ) . '/vip-config/vip-config.php';` — **the
+    one line everything in layer 2 depends on.** On VIP the platform loads it;
+    self-hosted, nothing does. `dirname( __DIR__ )`, not `__DIR__`: the upload
+    goes one level above the WP root and `wp-config.php` sits in the root on
+    this host, so the earlier `__DIR__` spelling pointed at a path that does
+    not exist and fataled the site (corrected 2026-09-20). The fallback loader cannot rescue
     `WP_DEBUG_DISPLAY` because `wp_debug_mode()` runs before mu-plugins
     (README, "Things that look optional and are not").
   - `WP_ENVIRONMENT_TYPE` set to `production` — the switch the vip-config

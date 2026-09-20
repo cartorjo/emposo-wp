@@ -11,8 +11,11 @@ repository moves.
 ---
 
 Do a deep, adversarial code review of this entire repository (cartorjo/emposo-wp,
-main @ 56cbf89) before it is installed on the production site emposo.de. Goal: find
-real defects that would bite on install day or after launch — not style notes.
+main @ HEAD — record `git rev-parse HEAD`) before it is installed on the
+production site emposo.de. Goal: find real defects that would bite on install day
+or after launch — not style notes. A prior run of this prompt is recorded in
+`docs/review-2026-09-20.md` (8 confirmed findings, all since fixed) — read it,
+verify its fixes held, and spend your budget on angles it did not take.
 
 ## What this repo is
 
