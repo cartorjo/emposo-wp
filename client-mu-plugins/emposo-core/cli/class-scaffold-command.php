@@ -150,16 +150,22 @@ class Scaffold_Command {
 			$wp_rewrite->set_permalink_structure( '/%postname%/' );
 
 			/*
-			 * Deleted, NOT flushed: the rules must regenerate in a request
-			 * that booted with the structure already set. register_post_type()
-			 * skips a post type's permastruct entirely when permalinks are
-			 * plain, so on a site that STARTS plain (the exact case this line
-			 * exists for) a flush from this process writes a ruleset missing
-			 * every custom post type — 75 rules instead of 107, every
-			 * /case-studies/… route a 404, found empirically. With the option
-			 * deleted, the next request rebuilds and persists the full set.
+			 * Re-register the content model BEFORE flushing: on a site that
+			 * booted with plain permalinks (the exact case the line above
+			 * exists for) register_post_type()/register_taxonomy() skipped
+			 * every permastruct at init, so a flush from this process would
+			 * write a ruleset missing all custom post types — 75 rules
+			 * instead of 107, every /case-studies/… route a 404, found
+			 * empirically. Re-registering now, with the structure set, adds
+			 * them; both registrations are idempotent. (Deleting the option
+			 * and letting the next request rebuild is NOT an alternative: a
+			 * later CLI process can schedule core's postponed HARD flush,
+			 * whose mod_rewrite_rules() is empty outside a web request — it
+			 * writes an EMPTY .htaccess block and Apache 404s every route.)
 			 */
-			delete_option( 'rewrite_rules' );
+			\Emposo\Core\ContentModel\register_taxonomies();
+			\Emposo\Core\ContentModel\register_post_types();
+			flush_rewrite_rules( false ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules -- One-off after scaffolding new paths.
 		}
 
 		if ( $this->dry_run ) {
