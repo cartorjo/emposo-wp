@@ -122,3 +122,4 @@ sufficient and nothing lives only in someone's notes:
 | `docs/review-2026-09-19.md` | Dated snapshot of the readiness review: what was deliberately left undone, which earlier claims were corrected, and the measurement caveats. |
 | `docs/security.md` | The hardening reference: every implemented measure with its location and gate status, the host-level items no code here can do, and the deliberate divergences. |
 | `docs/redirect-map.md` | The 27 retired live URLs mapped to their nearest new routes, for the Cloudflare Redirect Rules published at launch (runbook D3). |
+| `docs/review-prompt.md` | A ready-to-paste prompt for an independent adversarial review of the whole repository — carries the non-obvious facts in, fences settled decisions out. |
