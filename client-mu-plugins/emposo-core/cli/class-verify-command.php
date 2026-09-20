@@ -53,6 +53,9 @@ class Verify_Command {
 	 * [--invariants]
 	 * : Check registration facts whose breakage is remote from the change that causes it.
 	 *
+	 * [--security]
+	 * : Check the hardening measures hold — filter outcomes, not filter lists.
+	 *
 	 * [--contract=<file>]
 	 * : Path to the exported route contract JSON. Defaults to the bundled copy.
 	 *
@@ -73,7 +76,8 @@ class Verify_Command {
 		$all = ! isset( $assoc_args['routes'] )
 			&& ! isset( $assoc_args['content'] )
 			&& ! isset( $assoc_args['media'] )
-			&& ! isset( $assoc_args['invariants'] );
+			&& ! isset( $assoc_args['invariants'] )
+			&& ! isset( $assoc_args['security'] );
 
 		$contract  = $assoc_args['contract'] ?? EMPOSO_CORE_DIR . '/data/routes.json';
 		$porcelain = isset( $assoc_args['porcelain'] );
@@ -106,6 +110,9 @@ class Verify_Command {
 		}
 		if ( $all || isset( $assoc_args['invariants'] ) ) {
 			$failures = array_merge( $failures, $this->verify_invariants() );
+		}
+		if ( $all || isset( $assoc_args['security'] ) ) {
+			$failures = array_merge( $failures, $this->verify_security() );
 		}
 
 		if ( $failures ) {
@@ -474,6 +481,135 @@ class Verify_Command {
 					$failures[] = sprintf( 'asset "%s" variant missing in the theme: %s', $key, $variant_rel );
 				}
 			}
+		}
+
+		return $failures;
+	}
+
+	/**
+	 * The hardening measures, asserted by outcome.
+	 *
+	 * The gate table in docs/security.md used to mark most of these
+	 * "unguarded": inc/security.php registers them, nothing proved they still
+	 * worked, and a dropped add_filter would regress silently. These checks call
+	 * the filters
+	 * and read the registries the way WordPress does at request time — the
+	 * OUTCOME, not the presence of a hook — because a hook can be registered
+	 * and then overridden by a later add_filter without any list changing.
+	 *
+	 * Runs from CLI and from the no-shell installer's web dispatcher alike, so
+	 * nothing here may exit, redirect, or trust the current user: the REST
+	 * check switches to user 0 and back rather than assuming it is anonymous.
+	 *
+	 * Deliberately NOT here: HSTS (needs TLS, which neither wp-env nor CI has —
+	 * docs/security.md §4's external curl is the only honest test) and the
+	 * /xmlrpc.php endpoint block (a web-server rule; the filter outcome below
+	 * is the part PHP owns).
+	 *
+	 * @return array<int, string> Failures.
+	 */
+	private function verify_security(): array {
+		$failures = array();
+
+		// XML-RPC: the filter's final word must be false. Calling with true
+		// means a sabotaging re-enable at a later priority is caught, where
+		// has_filter() would still happily report ours.
+		if ( false !== apply_filters( 'xmlrpc_enabled', true ) ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook, asserted not fired.
+			$failures[] = 'xmlrpc_enabled filters to true; XML-RPC authenticated methods are back on';
+		}
+
+		// Application passwords: an authentication path nothing here uses.
+		if ( wp_is_application_passwords_available() ) {
+			$failures[] = 'application passwords are available; wp_is_application_passwords_available must filter to false';
+		}
+
+		/*
+		 * Anonymous REST must be refused with a 401. Evaluated as user 0 and
+		 * restored, because under the installer this runs as a logged-in admin
+		 * — for whom REST is deliberately open (the block editor needs it).
+		 */
+		$previous_user = get_current_user_id();
+		wp_set_current_user( 0 );
+		$rest = apply_filters( 'rest_authentication_errors', null ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook, asserted not fired.
+		wp_set_current_user( $previous_user );
+
+		if ( ! is_wp_error( $rest ) ) {
+			$failures[] = 'anonymous REST is not refused; rest_authentication_errors returns no error for user 0';
+		} else {
+			$status = (int) ( $rest->get_error_data()['status'] ?? 0 );
+			if ( 401 !== $status ) {
+				$failures[] = sprintf( 'anonymous REST refusal carries status %d, expected 401', $status );
+			}
+		}
+
+		// Author enumeration, outcome side: the rewrite shape must not exist.
+		// The ?author=N redirect itself calls exit and cannot run here, so the
+		// priority-0 slot check below stands in as its registration-level proxy.
+		$author_rules = apply_filters( 'author_rewrite_rules', array( 'author/([^/]+)/?$' => 'probe' ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook, asserted not fired.
+		if ( array() !== $author_rules ) {
+			$failures[] = 'author_rewrite_rules is not emptied; /author/<login>/ URLs exist again';
+		}
+
+		foreach ( array_keys( (array) $GLOBALS['wp_rewrite']->wp_rewrite_rules() ) as $rule ) {
+			if ( str_contains( $rule, 'author' ) ) {
+				$failures[] = sprintf( 'compiled rewrite rules still contain an author rule: %s', $rule );
+				break;
+			}
+		}
+
+		/*
+		 * The ?author=N guard must hold template_redirect priority 0 — the
+		 * priority IS the mechanism (core's redirect_canonical wins ties at
+		 * 10). The guard is a closure, so it cannot be identified by name;
+		 * an occupied 0-slot plus the two rule checks above is the closest
+		 * honest assertion.
+		 */
+		if ( empty( $GLOBALS['wp_filter']['template_redirect'][0] ) ) {
+			$failures[] = 'nothing is hooked at template_redirect priority 0; the ?author=N guard has lost its race against redirect_canonical';
+		}
+
+		/*
+		 * The users sitemap would publish the login name at blog_public=1.
+		 * Asserted through the filter, not the registry: at blog_public=0 —
+		 * which verify --invariants REQUIRES pre-launch — core registers no
+		 * providers at all, so a registry lookup passes vacuously in exactly
+		 * the environment CI runs. The filter is what decides post-launch.
+		 */
+		if ( class_exists( 'WP_Sitemaps_Users' ) ) {
+			$users_probe = apply_filters( 'wp_sitemaps_add_provider', new \WP_Sitemaps_Users(), 'users' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook, asserted not fired.
+			if ( false !== $users_probe ) {
+				$failures[] = 'the users sitemap provider is not dropped; at blog_public=1, wp-sitemap-users-1.xml would list the admin login';
+			}
+
+			$posts_probe = apply_filters( 'wp_sitemaps_add_provider', new \WP_Sitemaps_Users(), 'posts' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook, asserted not fired.
+			if ( false === $posts_probe ) {
+				$failures[] = 'the sitemap provider filter drops everything, not just users — the launched site would have no sitemap at all';
+			}
+		} else {
+			WP_CLI::log( 'security: users-sitemap check skipped (WP_Sitemaps_Users not loaded in this WordPress build)' );
+		}
+
+		// File editing from wp-admin: off in every environment, including this
+		// one — locally the constant comes from .wp-env.json, on the host from
+		// vip-config.php. Read via constant() so static analysis does not fold
+		// the wp-env build-time value and call the comparison unreachable.
+		if ( ! defined( 'DISALLOW_FILE_EDIT' ) || true !== constant( 'DISALLOW_FILE_EDIT' ) ) {
+			$failures[] = 'DISALLOW_FILE_EDIT is not true; the theme/plugin file editors are exposed';
+		}
+
+		/*
+		 * vip-config.php must have loaded — but only where it is supposed to.
+		 * Locally wp-env supplies the constants itself and the late-load
+		 * fallback deliberately skips, so asserting the sentinel here would
+		 * make the gate red on every machine except the host. On the host and
+		 * on staging this IS the check that wp-config.php kept its require.
+		 */
+		if ( in_array( wp_get_environment_type(), array( 'production', 'staging' ), true ) ) {
+			if ( ! defined( 'EMPOSO_CONFIG_LOADED' ) ) {
+				$failures[] = 'EMPOSO_CONFIG_LOADED is undefined on a ' . wp_get_environment_type() . ' environment; wp-config.php lost its vip-config require';
+			}
+		} else {
+			WP_CLI::log( 'security: EMPOSO_CONFIG_LOADED check skipped (local environment supplies constants via wp-env)' );
 		}
 
 		return $failures;
