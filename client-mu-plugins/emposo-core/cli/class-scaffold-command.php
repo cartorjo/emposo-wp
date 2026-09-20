@@ -222,6 +222,12 @@ class Scaffold_Command {
 			 * merges the fields left unsent with the post's current values.
 			 * Idempotent now means idempotent.
 			 */
+			// The contract requires every route published; say so out loud
+			// rather than silently overriding an editor's draft.
+			if ( 'publish' !== $existing->post_status ) {
+				WP_CLI::warning( sprintf( '%s: was "%s", re-publishing — the route contract requires it live.', $url, $existing->post_status ) );
+			}
+
 			$postarr = array(
 				'ID'          => $existing->ID,
 				'post_status' => 'publish',
@@ -255,8 +261,16 @@ class Scaffold_Command {
 		/*
 		 * wp_unique_post_slug() may append "-2" if anything else occupies the
 		 * slug — a silent route change. Assert rather than trust.
+		 *
+		 * Read the slug straight from the database: cache invalidation is
+		 * suspended for this whole run, so get_post_field() can serve the
+		 * pre-write cached row and fire this abort on a slug that is actually
+		 * fine — the file's "nothing here reads back what it wrote" design
+		 * note stopped being true at exactly this assertion.
 		 */
-		$actual = (string) get_post_field( 'post_name', $id );
+		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Deliberately uncached: the post cache is suspended for the bulk run and must not be trusted for this assertion.
+		$actual = (string) $wpdb->get_var( $wpdb->prepare( "SELECT post_name FROM {$wpdb->posts} WHERE ID = %d", $id ) );
 		if ( $actual !== $slug ) {
 			// Remove the object we just made before bailing: leaving it behind
 			// would itself occupy the slug and make the next run fail too,
@@ -267,7 +281,7 @@ class Scaffold_Command {
 
 			WP_CLI::error(
 				sprintf(
-					'%s: slug became "%s" instead of "%s". Something else holds that slug — check `wp post list --post_type=any --post_status=any --name=%s`.',
+					'%s: slug became "%s" instead of "%s". Something else holds that slug — find it with the installer\'s slug-conflict finder (or `wp post list --post_type=any --post_status=any --name=%s`), delete it, and run scaffold again; the re-run also restores this route\'s slug.',
 					$url,
 					$actual,
 					$slug,
@@ -367,9 +381,21 @@ class Scaffold_Command {
 		update_option( 'page_on_front', $front );
 		update_option( 'page_for_posts', 0 );
 
-		// The preview gate: core derives noindex, a Disallow: / robots.txt and a
-		// disabled wp-sitemap.xml from this single option, which is exactly the
-		// state the static build ships in.
-		update_option( 'blog_public', 0 );
+		/*
+		 * The preview gate: core derives noindex, a Disallow: / robots.txt and
+		 * a disabled wp-sitemap.xml from this single option, which is exactly
+		 * the state the static build ships in.
+		 *
+		 * Only on the way IN, though. Once the site is launched
+		 * (blog_public=1) a scaffold re-run must not quietly de-index it: the
+		 * reset would print nothing, survive the installer's teardown, and no
+		 * routes/content/media verify would ever notice it (the blog_public
+		 * assertion lives in the full-verify profile only).
+		 */
+		if ( '1' === (string) get_option( 'blog_public' ) ) {
+			WP_CLI::warning( 'blog_public is 1 — the site is launched, so the de-index gate was NOT re-applied. Flip Settings → Reading manually if you really are re-staging.' );
+		} else {
+			update_option( 'blog_public', 0 );
+		}
 	}
 }
