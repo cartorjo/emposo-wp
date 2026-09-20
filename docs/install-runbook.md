@@ -33,9 +33,12 @@ self-hosted WordPress installation, replacing the current site at **emposo.de**.
    (`cli/class-scaffold-command.php`) and permalinks to `/%postname%/` with a
    flush. For a full replacement these are all desired; `blog_public=0` is the
    pre-launch de-index gate. **[corrected 2026-09-20]** The gate applies only
-   on the way in: when `blog_public` is already 1 (site launched), a scaffold
-   re-run warns and leaves it alone instead of silently de-indexing the live
-   site. It also warns when it re-publishes a route an editor had drafted.
+   on the way in: when every route already exists AND `blog_public` is 1, the
+   run is a replay on a launched site, so scaffold warns and leaves the option
+   alone instead of silently de-indexing the live site. (The option alone
+   cannot be the signal — a fresh WordPress defaults to `blog_public=1`, and
+   install runs must still force the gate.) It also warns when it
+   re-publishes a route an editor had drafted.
 2. **Slug conflicts hard-abort scaffold mid-run** (`:238-260`). Recovery: find
    the squatter with the installer's **slug conflict finder** (all post types,
    all statuses), delete it from its edit screen, re-run — idempotent via

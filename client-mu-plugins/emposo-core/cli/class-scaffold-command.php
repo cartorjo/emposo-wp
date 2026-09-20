@@ -52,6 +52,19 @@ class Scaffold_Command {
 	private bool $dry_run = false;
 
 	/**
+	 * Whether this run created at least one new route object.
+	 *
+	 * The launch guard's discriminator: a fresh WordPress ships with
+	 * blog_public=1 by DEFAULT, so the option alone cannot distinguish "a
+	 * launched site being re-scaffolded" (leave it alone) from "a fresh
+	 * install being staged" (force the de-index gate). Creations can: install
+	 * runs create objects, post-launch replays update all of them.
+	 *
+	 * @var bool
+	 */
+	private bool $created_any = false;
+
+	/**
 	 * Create every route's object.
 	 *
 	 * ## OPTIONS
@@ -135,7 +148,18 @@ class Scaffold_Command {
 			// objects that introduce new paths.
 			global $wp_rewrite;
 			$wp_rewrite->set_permalink_structure( '/%postname%/' );
-			flush_rewrite_rules( false ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules -- One-off after scaffolding new paths.
+
+			/*
+			 * Deleted, NOT flushed: the rules must regenerate in a request
+			 * that booted with the structure already set. register_post_type()
+			 * skips a post type's permastruct entirely when permalinks are
+			 * plain, so on a site that STARTS plain (the exact case this line
+			 * exists for) a flush from this process writes a ruleset missing
+			 * every custom post type — 75 rules instead of 107, every
+			 * /case-studies/… route a 404, found empirically. With the option
+			 * deleted, the next request rebuilds and persists the full set.
+			 */
+			delete_option( 'rewrite_rules' );
 		}
 
 		if ( $this->dry_run ) {
@@ -250,6 +274,8 @@ class Scaffold_Command {
 			// wp_insert_post expects slashed data: it was built for $_POST and
 			// calls wp_unslash internally, so unslashed input loses backslashes.
 			$id = wp_insert_post( wp_slash( $postarr ), true );
+
+			$this->created_any = true;
 		}
 
 		if ( $id instanceof WP_Error ) {
@@ -386,14 +412,17 @@ class Scaffold_Command {
 		 * a disabled wp-sitemap.xml from this single option, which is exactly
 		 * the state the static build ships in.
 		 *
-		 * Only on the way IN, though. Once the site is launched
-		 * (blog_public=1) a scaffold re-run must not quietly de-index it: the
-		 * reset would print nothing, survive the installer's teardown, and no
-		 * routes/content/media verify would ever notice it (the blog_public
-		 * assertion lives in the full-verify profile only).
+		 * Only on the way IN, though. Once the site is launched a scaffold
+		 * re-run must not quietly de-index it: the reset would print nothing,
+		 * survive the installer's teardown, and no routes/content/media verify
+		 * would ever notice it (the blog_public assertion lives in the
+		 * full-verify profile only). "Launched" cannot be read off the option
+		 * alone — a fresh WordPress ships with blog_public=1 by default — so
+		 * the discriminator is the run itself: replays update every existing
+		 * route, installs create at least one.
 		 */
-		if ( '1' === (string) get_option( 'blog_public' ) ) {
-			WP_CLI::warning( 'blog_public is 1 — the site is launched, so the de-index gate was NOT re-applied. Flip Settings → Reading manually if you really are re-staging.' );
+		if ( ! $this->created_any && '1' === (string) get_option( 'blog_public' ) ) {
+			WP_CLI::warning( 'Every route already existed and blog_public is 1 — this is a launched site, so the de-index gate was NOT re-applied. Flip Settings → Reading manually if you really are re-staging.' );
 		} else {
 			update_option( 'blog_public', 0 );
 		}

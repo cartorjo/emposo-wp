@@ -97,4 +97,6 @@ jobs:
 
       - name: Logs on failure
         if: failure()
-        run: npm run wp:logs -- --debug || true
+        # Capped: on one failure this step followed the container logs until
+        # the job's 30-minute timeout, turning a red run into "cancelled".
+        run: timeout 120 npm run wp:logs -- --debug || true

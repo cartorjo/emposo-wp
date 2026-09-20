@@ -35,6 +35,18 @@ function maybe_flush(): void {
 	}
 
 	/*
+	 * Never flush under plain permalinks: register_post_type() skipped every
+	 * permastruct this boot, so the flush would persist a ruleset missing all
+	 * custom post types — and burn the version so nothing retries. This state
+	 * exists mid-provision (`wp core install` runs before scaffold sets the
+	 * structure); leaving the version unset lets the flush fire on the first
+	 * request after the structure exists.
+	 */
+	if ( '' === (string) get_option( 'permalink_structure' ) ) {
+		return;
+	}
+
+	/*
 	 * WordPress VIP flushes rewrite rules as part of a deploy, so calling it
 	 * there is both unnecessary and the thing VIPMinimum is warning about.
 	 * Self-hosted there is no deploy hook, so a version-gated one-time flush is
