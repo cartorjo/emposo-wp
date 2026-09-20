@@ -33,7 +33,10 @@ jobs:
     # Code quality and Supply chain still run on every pull request, and those
     # are where a lint or advisory regression would show. The push to main runs
     # everything.
-    if: github.actor != 'dependabot[bot]'
+    # Event-scoped: skip only Dependabot PULL REQUESTS. A bare actor check
+    # would also skip pushes to main made by that actor, silently breaking
+    # the "push to main runs everything" guarantee.
+    if: github.event_name != 'pull_request' || github.actor != 'dependabot[bot]'
     steps:
       # reference/static is a SUBMODULE (cartorjo/weave-clone) and it is not
       # optional here — tools/routes.mjs imports the reference build's

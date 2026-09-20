@@ -20,6 +20,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'send_headers', __NAMESPACE__ . '\\send_security_headers' );
 add_action( 'init', __NAMESPACE__ . '\\reduce_surface' );
+
+/*
+ * The users sitemap would undo the author-enumeration hardening the moment the
+ * site launches: with blog_public=1, core's wp-sitemap-users-1.xml lists
+ * author URLs — and with archives removed those expose the login name for
+ * nothing. Registered HERE, at load, not inside reduce_surface(): core's
+ * wp_sitemaps_get_server callback sits in the same init/10 slot but was
+ * registered before mu-plugins load, so it runs first and a filter added
+ * inside reduce_surface() arrives after the providers already registered.
+ */
+add_filter(
+	'wp_sitemaps_add_provider',
+	/**
+	 * Drop the users provider; keep every other one.
+	 *
+	 * @param \WP_Sitemaps_Provider|false $provider The provider, or false to drop it.
+	 * @param string                      $name     Provider name.
+	 * @return \WP_Sitemaps_Provider|false
+	 */
+	static function ( $provider, string $name ) {
+		return 'users' === $name ? false : $provider;
+	},
+	10,
+	2
+);
 add_filter( 'wp_headers', __NAMESPACE__ . '\\avif_content_type' );
 
 /**
@@ -141,6 +166,34 @@ function reduce_surface(): void {
 	// And remove the author archive rules entirely, so the path shape does not
 	// exist rather than merely redirecting.
 	add_filter( 'author_rewrite_rules', '__return_empty_array' );
+
+	/*
+	 * Unknown sitemap providers are a soft 200 in core: the rewrite rules are
+	 * generic, and render_sitemaps() plain-returns when the provider lookup
+	 * fails, leaving the main query to render the FRONT PAGE under
+	 * /wp-sitemap-<anything>-1.xml. With the users provider dropped (below,
+	 * at load) that would include /wp-sitemap-users-1.xml. Make it the 404 it
+	 * is. 'index' is not a provider — core handles wp-sitemap.xml itself.
+	 */
+	add_action(
+		'template_redirect',
+		static function (): void {
+			$sitemap = (string) get_query_var( 'sitemap' );
+
+			if ( '' === $sitemap || 'index' === $sitemap ) {
+				return;
+			}
+
+			if ( wp_sitemaps_get_server()->registry->get_provider( $sitemap ) ) {
+				return;
+			}
+
+			global $wp_query;
+			$wp_query->set_404();
+			status_header( 404 );
+		},
+		0
+	);
 
 	// Application passwords: an authentication path nothing here uses.
 	add_filter( 'wp_is_application_passwords_available', '__return_false' );
