@@ -55,24 +55,15 @@ const SECTION_GAP = "\n  ";
 /**
  * Escape exactly as the static build's escape() does.
  *
- * Four characters — & < > " — and NOT the apostrophe. esc_html() is
- * htmlspecialchars with ENT_QUOTES plus filters, so it would also emit &#039;
- * for an apostrophe. No apostrophe passes through escape() in today's corpus,
- * but the data will grow and the divergence would be silent and per-string.
- *
- * htmlspecialchars runs first so the ampersand in the &quot; we add is not
- * double-encoded; double_encode stays true to match JS replacing & first, which
- * turns a literal & into &amp; and an existing &amp; into &amp;amp; — identical
- * behaviour in both runtimes.
+ * Delegates to the shared \Emposo\Core\escape_static() (inc/escape.php) so this
+ * file, images.php and the theme's head.php all escape identically — one
+ * behaviour, one place to reason about. See that file for why four characters
+ * and not the apostrophe.
  *
  * @param mixed $value Raw value.
  */
 function e( $value ): string {
-	return str_replace(
-		'"',
-		'&quot;',
-		htmlspecialchars( (string) $value, ENT_NOQUOTES, 'UTF-8', true )
-	);
+	return \Emposo\Core\escape_static( $value );
 }
 
 // --------------------------------------------------------------------------

@@ -15,8 +15,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo esc_html( emposo_document_title() ); ?></title>
-	<meta name="description" content="<?php echo esc_attr( emposo_meta_description() ); ?>">
+	<title><?php echo emposo_escape_static( emposo_document_title() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- emposo_escape_static() is the reference build's 4-char escaper; esc_html would emit &#039; and diverge from parity. ?></title>
+	<meta name="description" content="<?php echo emposo_escape_static( emposo_meta_description() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper, see above. ?>">
 <?php if ( '0' === (string) get_option( 'blog_public' ) ) : ?>
 	<!-- Temporary preview build: remove this only when launch SEO settings are approved. -->
 	<meta name="robots" content="noindex, nofollow">
@@ -44,4 +44,4 @@
 wp_head();
 ?>
 </head>
-<body class="<?php echo esc_attr( emposo_body_class() ); ?>">
+<body class="<?php echo emposo_escape_static( emposo_body_class() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper; the static build emits bodyClass through the same escape(). ?>">

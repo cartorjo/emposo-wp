@@ -367,6 +367,20 @@ class Verify_Command {
 			$failures[] = sprintf( 'nested route path sanitises to "%s"; path structure is being collapsed', $nested );
 		}
 
+		/*
+		 * The output escaper must match the static build's escape() byte for
+		 * byte: four characters, and the apostrophe left raw. Reverting any
+		 * output site to esc_html()/esc_attr() reintroduces &#039;, which
+		 * tools/normalise.mjs does not decode — a per-string parity divergence
+		 * that only appears once a contract string contains an apostrophe, long
+		 * after the change that caused it. Asserted here so the corpus need not
+		 * grow one to catch it.
+		 */
+		$escaped = \Emposo\Core\escape_static( 'A & B \'C\' <d> "e"' );
+		if ( 'A &amp; B \'C\' &lt;d&gt; &quot;e&quot;' !== $escaped ) {
+			$failures[] = sprintf( 'escape_static produced "%s"; it no longer matches the static build escape() (4 chars, apostrophe raw)', $escaped );
+		}
+
 		// The preview gate. blog_public => 0 is what makes core emit noindex,
 		// a Disallow: / robots.txt and no sitemap — the static build's state.
 		if ( '0' !== (string) get_option( 'blog_public' ) ) {
