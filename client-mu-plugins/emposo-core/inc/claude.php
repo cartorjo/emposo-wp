@@ -103,10 +103,6 @@ function is_configured(): bool {
  * front of anyone, and its output pasted into an issue.
  */
 function key_source(): string {
-	if ( function_exists( 'vip_get_env_var' ) && null !== get_env_var( 'ANTHROPIC_API_KEY' ) ) {
-		return 'VIP environment variable';
-	}
-
 	if ( defined( 'ANTHROPIC_API_KEY' ) ) {
 		return 'wp-config constant';
 	}

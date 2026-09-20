@@ -20,11 +20,11 @@
 <?php
 /*
  * blog_public=0 is the primary, admin-visible noindex lever. EMPOSO_FORCE_NOINDEX
- * is the vip-config backstop for a staging clone that must never be indexable
- * even if blog_public is flipped — the constant its own comment promised but
- * nothing read until now.
+ * (a wp-config.php constant) is the backstop for a staging clone that must never
+ * be indexable even if blog_public is flipped. Read via constant() so static
+ * analysis does not fold the build-time value and call the guard always-true.
  */
-if ( '0' === (string) get_option( 'blog_public' ) || ( defined( 'EMPOSO_FORCE_NOINDEX' ) && EMPOSO_FORCE_NOINDEX ) ) :
+if ( '0' === (string) get_option( 'blog_public' ) || ( defined( 'EMPOSO_FORCE_NOINDEX' ) && constant( 'EMPOSO_FORCE_NOINDEX' ) ) ) :
 	?>
 	<!-- Temporary preview build: remove this only when launch SEO settings are approved. -->
 	<meta name="robots" content="noindex, nofollow">

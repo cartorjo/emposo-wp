@@ -605,25 +605,10 @@ class Verify_Command {
 
 		// File editing from wp-admin: off in every environment, including this
 		// one — locally the constant comes from .wp-env.json, on the host from
-		// vip-config.php. Read via constant() so static analysis does not fold
+		// wp-config.php. Read via constant() so static analysis does not fold
 		// the wp-env build-time value and call the comparison unreachable.
 		if ( ! defined( 'DISALLOW_FILE_EDIT' ) || true !== constant( 'DISALLOW_FILE_EDIT' ) ) {
 			$failures[] = 'DISALLOW_FILE_EDIT is not true; the theme/plugin file editors are exposed';
-		}
-
-		/*
-		 * vip-config.php must have loaded — but only where it is supposed to.
-		 * Locally wp-env supplies the constants itself and the late-load
-		 * fallback deliberately skips, so asserting the sentinel here would
-		 * make the gate red on every machine except the host. On the host and
-		 * on staging this IS the check that wp-config.php kept its require.
-		 */
-		if ( in_array( wp_get_environment_type(), array( 'production', 'staging' ), true ) ) {
-			if ( ! defined( 'EMPOSO_CONFIG_LOADED' ) ) {
-				$failures[] = 'EMPOSO_CONFIG_LOADED is undefined on a ' . wp_get_environment_type() . ' environment; wp-config.php lost its vip-config require';
-			}
-		} else {
-			WP_CLI::log( 'security: EMPOSO_CONFIG_LOADED check skipped (local environment supplies constants via wp-env)' );
 		}
 
 		return $failures;

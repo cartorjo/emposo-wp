@@ -47,16 +47,12 @@ function maybe_flush(): void {
 	}
 
 	/*
-	 * WordPress VIP flushes rewrite rules as part of a deploy, so calling it
-	 * there is both unnecessary and the thing VIPMinimum is warning about.
-	 * Self-hosted there is no deploy hook, so a version-gated one-time flush is
-	 * the legitimate case the rule's "any normal circumstances" wording
-	 * excludes: it runs once per registration change, never per request.
+	 * A version-gated one-time flush is the legitimate case the rule's "any
+	 * normal circumstances" wording excludes: it runs once per registration
+	 * change, never per request, because there is no deploy hook to flush from.
 	 */
-	if ( ! \Emposo\Core\Environment\is_vip() ) {
-		// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules -- Version-gated, self-hosted only; VIP flushes on deploy.
-		flush_rewrite_rules( false );
-	}
+	// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules -- Version-gated one-time flush on registration change, not per request.
+	flush_rewrite_rules( false );
 
 	update_option( VERSION_OPTION, REWRITE_VERSION, false );
 }
