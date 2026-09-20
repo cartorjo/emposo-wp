@@ -148,12 +148,12 @@ self-hosted WordPress installation, replacing the current site at **emposo.de**.
     answers 504, nothing is lost — the step is idempotent, re-run it.
     OPcache is at 100% capacity; if the site behaves stale after the file
     uploads, recycle PHP-FPM from the hosting panel.
-17. **[new] The live theme is ALSO called "Emposo"** — a hello-elementor
-    child, v1.0.1 by Kinetic Pulse, in `themes/Emposo` (capital E). Our
-    `themes/emposo` (lowercase) does not collide on disk, but Appearance will
-    show two themes named Emposo — ours is v0.1.0 with the screenshot.
-    Rollback data: the theme to reactivate is the one in directory `Emposo`,
-    and its parent `hello-elementor` must stay installed for as long as the
+17. **The live theme is a `hello-elementor` child named "Emposo"** — v1.0.1 by
+    Kinetic Pulse, in `themes/Emposo` (capital E). Our `themes/emposo`
+    (lowercase) does not collide on disk and displays as **"Emposo — Outcome
+    Factory"** (v0.1.0, with the screenshot), so the two are distinct in
+    Appearance. Rollback data: the theme to reactivate is the one in directory
+    `Emposo`, and its parent `hello-elementor` must stay installed for as long as the
     old child theme exists.
 18. **[new] Wordfence is active and must be removed in a specific order** —
     on nginx+FPM its extended protection is an `auto_prepend_file` in the web
