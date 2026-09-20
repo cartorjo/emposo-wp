@@ -1,14 +1,16 @@
 # Security posture
 
 What is hardened, where it lives, what would catch a regression, and what no
-code in this repository can do. File and line references verified at `9c973e3`;
-for files with pending changes in flight, symbols are named alongside lines.
+code in this repository can do. Citations name the file and the symbol, not a
+line number: this document drifted 25–50 lines out of date within sixteen
+commits when it pinned lines, so `tools/check-docs.mjs` now fails the build if
+any file named here stops existing, and the symbols are the durable anchor.
 
 The starting point is the same fact the whole port rests on: the static build's
 zero-third-party-request rule (a GDPR decision, not a technical one). Because no
 visitor request ever leaves the host, a `default-src 'self'` Content-Security-
 Policy is actually achievable here — not the long allowlist a site with
-analytics or CDN assets needs (`client-mu-plugins/emposo-core/inc/security.php:5-8`).
+analytics or CDN assets needs (`client-mu-plugins/emposo-core/inc/security.php`).
 
 Hardening lives in three layers, ordered by what survives what:
 
@@ -34,21 +36,21 @@ routine that compensates.
 
 | Control | Where | Guarded by |
 |---|---|---|
-| CSP: `default-src 'self'`, `script-src 'self'` (no `unsafe-*`), `style-src 'unsafe-inline'` (core prints inline `<style>`), `img-src data:` (the SVG favicon), `form-action mailto:` (the contact form), `frame-ancestors 'none'`, `base-uri 'self'`, `object-src 'none'` | `inc/security.php:48-61` | CI: `tools/audit.mjs` (`requiredHeaders`) asserts the header exists and matches `default-src 'self'`, and separately fails if `script-src` gains `unsafe-inline`/`unsafe-eval`. **Individual directives beyond those two checks are not asserted** — a CSP that quietly lost `frame-ancestors` would pass. Dashboard probes the same pattern. |
-| `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` | `inc/security.php:62-64` | CI (`requiredHeaders`) + dashboard |
-| `X-Frame-Options: DENY` | `inc/security.php:65` | CI (`requiredHeaders`) + dashboard. CSP `frame-ancestors 'none'` is the modern equivalent but is not individually asserted (see the CSP row). |
-| HSTS, one year, `includeSubDomains` — sent only under `is_ssl()` | `inc/security.php:67-71` | **Unguarded** — wp-env has no TLS, so no local or CI request can ever exercise it. Host-only check, §4. |
-| wp-admin exempt from the headers | `inc/security.php:35-37` | n/a — deliberate; core's admin needs its inline scripts. |
-| AVIF `Content-Type` safety net | `inc/security.php:89-99` | Indirect (image budgets); the host config is the real fix — README, deployment requirements. |
-| XML-RPC authenticated methods off; `X-Pingback` header dropped | `inc/security.php:110-118` | CI: `verify --security` asserts the filter's final outcome; dashboard asserts the header absence (`FORBIDDEN_HEADERS`, `inc/dashboard.php:65`). **The endpoint itself is a web-server matter — and not fully closed. See §2.** |
-| Author enumeration: `/?author=N` and author archives 301 to `/`, at `template_redirect` priority **0** — core's `redirect_canonical` runs at 10 and wins ties on registration order, so running first is the whole mechanism (`inc/security.php:120-128`); plus the **users sitemap provider dropped** (`wp_sitemaps_add_provider`), because with `blog_public=1` core's `wp-sitemap-users-1.xml` would publish the login name the other measures hide (added 2026-09-20) | `inc/security.php` (redirect, rewrite-rule removal, sitemap provider filter) | CI: `verify --security` asserts the rules are emptied, the compiled ruleset carries no author rule, the priority-0 slot is occupied, and the users sitemap provider is gone. |
-| Application passwords off | `inc/security.php:146` | CI (`verify --security`) |
-| REST API closed to anonymous requests — 401 `WP_Error`, not switched off, because the block editor needs REST (`inc/security.php:148-155`) | `inc/security.php:156-173` | CI: `verify --security` evaluates `rest_authentication_errors` as user 0 and asserts the 401. |
-| `DISALLOW_FILE_EDIT` — every environment, unconditional | `vip-config/vip-config.php:40-42` | CI (`verify --security`) |
-| `DISALLOW_FILE_MODS`, `FORCE_SSL_ADMIN`, `WP_DEBUG_DISPLAY=false`, `SCRIPT_DEBUG=false`, updaters off, revision/trash bounds — outside local/development only | `vip-config/vip-config.php:46-79` | `verify --security` asserts `EMPOSO_CONFIG_LOADED` on production/staging (where the installer's verify step runs it) — locally wp-env supplies the constants and the check says so and skips. The late-load fallback in `inc/environment.php` `error_log()`s remain the runtime tripwire (`:105`). |
-| Secrets read from env/constant via `get_env_var()`, never stored in `wp_options` — so they never land in a database export or a backup | `client-mu-plugins/emposo-core/inc/environment.php:37-53` | `wp claude doctor` reports where the key came from. |
-| Surface reduction: generator, RSD, shortlink (`<link>` **and** the HTTP `Link:` header — core emits it twice), REST discovery, oEmbed, feeds, emoji, comments and pings closed, avatars off (Gravatar is a third-party request) | `themes/emposo/inc/core-cleanup.php` (comments `:148`, pings `:149`, avatars `:150`) | The rendered-output side is CI-guarded — `tools/checks.mjs` (`HEAD_POLLUTION`) fails on `api.w.org`, `xmlrpc.php?rsd`, `wlwmanifest`, `rel="shortlink"`, `secure.gravatar.com` and friends in the document. The **header** side (`Link:`, `X-Pingback`) is dashboard-only. |
-| **Temporary: the no-shell installer** — an admin screen that runs scaffold/import/verify on a host with no WP-CLI. Triple-gated: loads only while `EMPOSO_INSTALLER` is defined true in `wp-config.php` (an SFTP-level switch), screen and handler require `manage_options`, every action is a nonce-checked POST. Its WP_CLI shim aliases the global class name only when real WP-CLI is absent. | `inc/installer.php` (gates `:37-45`), `cli/class-cli-shim.php`, `cli/wp-cli-utils.php` | **Unguarded in CI** (admin-only code; parity/audit never see it). **Removal deadline: install day** — runbook D7. The removal check: `/wp-admin/admin.php?page=emposo-installer` answers "not permitted" for an administrator once the define is deleted. While the define is absent the file is inert, so the standing risk is the constant being left behind, not the code. |
+| CSP: `default-src 'self'`, `script-src 'self'` (no `unsafe-*`), `style-src 'unsafe-inline'` (core prints inline `<style>`), `img-src data:` (the SVG favicon), `form-action mailto:` (the contact form), `frame-ancestors 'none'`, `base-uri 'self'`, `object-src 'none'` | `inc/security.php` | CI: `tools/audit.mjs` (`requiredHeaders`) asserts the header exists and matches `default-src 'self'`, and separately fails if `script-src` gains `unsafe-inline`/`unsafe-eval`. **Individual directives beyond those two checks are not asserted** — a CSP that quietly lost `frame-ancestors` would pass. Dashboard probes the same pattern. |
+| `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` | `inc/security.php` | CI (`requiredHeaders`) + dashboard |
+| `X-Frame-Options: DENY` | `inc/security.php` | CI (`requiredHeaders`) + dashboard. CSP `frame-ancestors 'none'` is the modern equivalent but is not individually asserted (see the CSP row). |
+| HSTS, one year, `includeSubDomains` — sent only under `is_ssl()` | `inc/security.php` | **Unguarded** — wp-env has no TLS, so no local or CI request can ever exercise it. Host-only check, §4. |
+| wp-admin exempt from the headers | `inc/security.php` | n/a — deliberate; core's admin needs its inline scripts. |
+| AVIF `Content-Type` safety net | `inc/security.php` | Indirect (image budgets); the host config is the real fix — README, deployment requirements. |
+| XML-RPC authenticated methods off; `X-Pingback` header dropped | `inc/security.php` | CI: `verify --security` asserts the filter's final outcome; dashboard asserts the header absence (`FORBIDDEN_HEADERS`, `inc/dashboard.php`). **The endpoint itself is a web-server matter — and not fully closed. See §2.** |
+| Author enumeration: `/?author=N` and author archives 301 to `/`, at `template_redirect` priority **0** — core's `redirect_canonical` runs at 10 and wins ties on registration order, so running first is the whole mechanism (`inc/security.php`); plus the **users sitemap provider dropped** (`wp_sitemaps_add_provider`), because with `blog_public=1` core's `wp-sitemap-users-1.xml` would publish the login name the other measures hide (added 2026-09-20) | `inc/security.php` (redirect, rewrite-rule removal, sitemap provider filter) | CI: `verify --security` asserts the rules are emptied, the compiled ruleset carries no author rule, the priority-0 slot is occupied, and the users sitemap provider is gone. |
+| Application passwords off | `inc/security.php` | CI (`verify --security`) |
+| REST API closed to anonymous requests — 401 `WP_Error`, not switched off, because the block editor needs REST (`inc/security.php`) | `inc/security.php` | CI: `verify --security` evaluates `rest_authentication_errors` as user 0 and asserts the 401. |
+| `DISALLOW_FILE_EDIT` — every environment, unconditional | `vip-config/vip-config.php` | CI (`verify --security`) |
+| `DISALLOW_FILE_MODS`, `FORCE_SSL_ADMIN`, `WP_DEBUG_DISPLAY=false`, `SCRIPT_DEBUG=false`, updaters off, revision/trash bounds — outside local/development only | `vip-config/vip-config.php` | `verify --security` asserts `EMPOSO_CONFIG_LOADED` on production/staging (where the installer's verify step runs it) — locally wp-env supplies the constants and the check says so and skips. The late-load fallback in `inc/environment.php` `error_log()`s remains the runtime tripwire. |
+| Secrets read from env/constant via `get_env_var()`, never stored in `wp_options` — so they never land in a database export or a backup | `client-mu-plugins/emposo-core/inc/environment.php` | `wp claude doctor` reports where the key came from. |
+| Surface reduction: generator, RSD, shortlink (`<link>` **and** the HTTP `Link:` header — core emits it twice), REST discovery, oEmbed, feeds, emoji, comments and pings closed, avatars off (Gravatar is a third-party request) | `themes/emposo/inc/core-cleanup.php` (`comments_open`, `pings_open`, `option_show_avatars`) | The rendered-output side is CI-guarded — `tools/checks.mjs` (`HEAD_POLLUTION`) fails on `api.w.org`, `xmlrpc.php?rsd`, `wlwmanifest`, `rel="shortlink"`, `secure.gravatar.com` and friends in the document. The **header** side (`Link:`, `X-Pingback`) is dashboard-only. |
+| **Temporary: the no-shell installer** — an admin screen that runs scaffold/import/verify on a host with no WP-CLI. Triple-gated: loads only while `EMPOSO_INSTALLER` is defined true in `wp-config.php` (an SFTP-level switch), screen and handler require `manage_options`, every action is a nonce-checked POST. Its WP_CLI shim aliases the global class name only when real WP-CLI is absent. | `inc/installer.php` (the `EMPOSO_INSTALLER` gate), `cli/class-cli-shim.php`, `cli/wp-cli-utils.php` | **Unguarded in CI** (admin-only code; parity/audit never see it). **Removal deadline: install day** — runbook D7. The removal check: `/wp-admin/admin.php?page=emposo-installer` answers "not permitted" for an administrator once the define is deleted. While the define is absent the file is inert, so the standing risk is the constant being left behind, not the code. |
 
 So, honestly, the gate coverage now stands at three layers. **Response
 headers**: five (`tools/audit.mjs` `requiredHeaders`, inside its
@@ -137,22 +139,22 @@ Read this before filing a finding; each of these looks wrong on purpose.
   wanted them at Nginx/CDN with PHP as fallback. The code inverts that on
   purpose: sent from PHP they exist in local development and on any host, "a
   misconfigured host degrades to 'protected' rather than 'unprotected'"
-  (`inc/security.php:26-33`). The caveat the plan was guarding against is
+  (`inc/security.php`). The caveat the plan was guarding against is
   real, though: a full-page cache is not guaranteed to replay
   generation-time headers on cache hits. That is why the post-install check
   is a **curl from outside the host** (§4) — the dashboard's loopback probe
   may never traverse the edge cache.
 
 - **`EMPOSO_FORCE_NOINDEX` is a dead constant.** Defined at
-  `vip-config/vip-config.php:90-93`, set by the wp-env configs, read by
+  `vip-config/vip-config.php`, set by the wp-env configs, read by
   nothing: `1809a1f` gated the noindex meta on `blog_public` instead, so that
   Settings → Reading stays the single launch lever and the output stays
   byte-identical for parity. Either wire it into `parts/head.php` as a
   staging override or delete it — recorded here so nobody "fixes" the wrong
   side of it.
 
-- **`xmlrpc_enabled` is filtered twice** — `inc/security.php:110`
-  (authoritative: survives a theme swap) and `themes/emposo/inc/core-cleanup.php:151`
+- **`xmlrpc_enabled` is filtered twice** — `inc/security.php`
+  (authoritative: survives a theme swap) and `themes/emposo/inc/core-cleanup.php`
   (part of the theme's parity-motivated cleanup). Redundant, harmless, and
   cheaper than a cross-file dependency.
 
