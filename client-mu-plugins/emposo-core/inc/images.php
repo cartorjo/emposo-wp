@@ -214,7 +214,9 @@ function picture( $image, string $size_key = 'default', bool $priority = false )
 		'<picture>%s<img src="%s" alt="%s" width="%d" height="%d" %s decoding="async"></picture>',
 		$sources,
 		esc_url( $src ),
-		esc_attr( $alt ),
+		// The reference build escapes alt with its 4-char escape(); esc_attr
+		// would emit &#039; for an apostrophe and diverge from parity.
+		\Emposo\Core\escape_static( $alt ),
 		$width,
 		$height,
 		$loading

@@ -78,7 +78,7 @@ jobs:
         run: npm run wp:bootstrap
 
       - name: Verify the route and content contract
-        run: npm run wp -- emposo verify --routes --content --media --invariants
+        run: npm run wp -- emposo verify --routes --content --media --invariants --security
 
       - name: Class inventory
         run: npm run class-inventory

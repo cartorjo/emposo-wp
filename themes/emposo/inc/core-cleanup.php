@@ -148,7 +148,8 @@ function emposo_core_cleanup(): void {
 	add_filter( 'comments_open', '__return_false', 20 );
 	add_filter( 'pings_open', '__return_false', 20 );
 	add_filter( 'option_show_avatars', '__return_false' );
-	add_filter( 'xmlrpc_enabled', '__return_false' );
+	// XML-RPC is disabled authoritatively in the mu-plugin (inc/security.php),
+	// which survives a theme swap; a duplicate filter here added nothing.
 }
 add_action( 'after_setup_theme', 'emposo_core_cleanup' );
 

@@ -16,6 +16,7 @@
  */
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { routes, pageRoutes, STATIC_ROOT, REPO_ROOT } from './routes.mjs';
 import { normalise, collapseWhitespace } from './normalise.mjs';
 import { runChecks, checkLinks, checkFontFaces, compareStructure } from './checks.mjs';
@@ -30,6 +31,31 @@ const WRITE_REPORT = flag('report');
 const ONLY = opt('route');
 const TARGET = opt('target') ?? 'wp';
 const AGAINST_STATIC = TARGET === 'static';
+
+/**
+ * Which bucket a route's result falls in: ok, ws-only, or fail.
+ *
+ * Exported and pure so tools/check-harness.mjs can prove the ws-only bucket is
+ * reachable. It was not: the caller tested `problems.length === 0` first and
+ * returned "ok", so a whitespace-only route in non-strict mode printed "ok"
+ * and the distinction the bucket exists for was silently lost. The whitespace
+ * check must come first. In strict mode a whitespace-only diff is already a
+ * problem (pushed by the caller), so this returns 'fail' there, as intended.
+ *
+ * @param {string} state       The result state (e.g. 'whitespace-only').
+ * @param {number} problemCount Number of problems the caller collected.
+ * @param {boolean} strict     Strict mode.
+ * @returns {'ok'|'ws-only'|'fail'}
+ */
+export function resultLabel(state, problemCount, strict) {
+	if (state === 'whitespace-only' && !strict && problemCount === 0) {
+		return 'ws-only';
+	}
+	if (problemCount === 0) {
+		return 'ok';
+	}
+	return 'fail';
+}
 
 const config = JSON.parse(readFileSync(path.join(REPO_ROOT, 'tools/parity.config.json'), 'utf8'));
 const WP_BASE = opt('base') ?? config.wpBase;
@@ -197,13 +223,13 @@ async function main() {
 		if (r.state === 'whitespace-only' && STRICT) problems.push('whitespace differs (strict)');
 		problems.push(...(r.structure ?? []), ...(r.checks ?? []), ...(r.links ?? []));
 
-		const isWhitespaceOnly = r.state === 'whitespace-only' && !STRICT;
+		const label = resultLabel(r.state, problems.length, STRICT);
 
-		if (problems.length === 0) {
+		if (label === 'ok') {
 			console.log(`  ok        ${r.route.url}`);
 			continue;
 		}
-		if (isWhitespaceOnly && problems.length === 0) {
+		if (label === 'ws-only') {
 			console.log(`  ws-only   ${r.route.url}`);
 			continue;
 		}
@@ -277,4 +303,8 @@ function truncate(s, n = 160) {
 	return marked.length > n ? `${marked.slice(0, n)}…` : marked;
 }
 
-await main();
+// Run only as a script, not when imported (tools/check-harness.mjs imports
+// resultLabel). Guard the entry point, not the module.
+if (path.resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
+	await main();
+}

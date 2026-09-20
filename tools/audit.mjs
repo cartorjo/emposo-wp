@@ -378,6 +378,7 @@ function evaluate(report, route) {
 			'x-content-type-options': /nosniff/,
 			'referrer-policy': /strict-origin/,
 			'permissions-policy': /geolocation=\(\)/,
+			'x-frame-options': /DENY/,
 		};
 		for (const [header, pattern] of Object.entries(requiredHeaders)) {
 			const value = report.headers?.[header] ?? '';

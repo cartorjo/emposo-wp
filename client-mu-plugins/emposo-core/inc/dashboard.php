@@ -53,6 +53,7 @@ const REQUIRED_HEADERS = array(
 	'x-content-type-options'  => 'nosniff',
 	'referrer-policy'         => 'strict-origin',
 	'permissions-policy'      => 'geolocation=()',
+	'x-frame-options'         => 'DENY',
 );
 
 /**

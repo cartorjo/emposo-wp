@@ -32,6 +32,7 @@ const REWRITE_VERSION = '1';
 define( 'EMPOSO_CORE_DIR', __DIR__ );
 
 require_once __DIR__ . '/inc/environment.php';
+require_once __DIR__ . '/inc/escape.php';
 require_once __DIR__ . '/inc/content-model.php';
 require_once __DIR__ . '/inc/rewrites.php';
 require_once __DIR__ . '/inc/images.php';

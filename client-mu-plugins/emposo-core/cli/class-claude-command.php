@@ -126,6 +126,74 @@ class Claude_Command {
 	}
 
 	/**
+	 * Report the credential source and prove the round trip, without printing the key.
+	 *
+	 * The dashboard's unconfigured-key notice sends operators here, and the
+	 * README and docs/security.md both name it — so it must run cleanly whether
+	 * or not a key is set. With no key it reports the source and exits 0: "not
+	 * configured" is a diagnosis, not a command failure. With a key it sends the
+	 * cheapest possible request and reports which model answered, so the failure
+	 * modes it distinguishes — no key, wrong key, network/transport, provider —
+	 * are legible from one line each. The key value is never emitted on any path;
+	 * key_source() returns the SOURCE precisely so the output is safe to paste.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--dry-run]
+	 * : Report the key source and assemble the probe request without sending it.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp claude doctor
+	 *     wp claude doctor --dry-run
+	 *
+	 * @param array<int, string>    $args       Positional arguments (unused).
+	 * @param array<string, string> $assoc_args Flags.
+	 */
+	public function doctor( array $args, array $assoc_args ): void {
+		unset( $args );
+
+		WP_CLI::log( sprintf( 'Key source: %s', key_source() ) );
+
+		$dry_run = (bool) Utils\get_flag_value( $assoc_args, 'dry-run', false );
+
+		if ( ! is_configured() && ! $dry_run ) {
+			// Not an error: the command's job is to report this state clearly.
+			WP_CLI::success( 'No key configured. Set ANTHROPIC_API_KEY as an environment variable or a wp-config constant — never in the options table.' );
+
+			return;
+		}
+
+		$response = claude_request(
+			array(
+				'messages'   => array(
+					array(
+						'role'    => 'user',
+						'content' => 'Reply with the single word: ok.',
+					),
+				),
+				'max_tokens' => 16,
+				'effort'     => 'low',
+				'dry_run'    => $dry_run,
+			)
+		);
+
+		if ( is_wp_error( $response ) ) {
+			WP_CLI::error( sprintf( 'Round trip failed: %s', $response->get_error_message() ) );
+		}
+
+		if ( isset( $response['dry_run'] ) ) {
+			WP_CLI::log( (string) wp_json_encode( $response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
+			WP_CLI::success( 'Request assembled; nothing was sent.' );
+
+			return;
+		}
+
+		$this->log_provenance( $response );
+		WP_CLI::success( 'Round trip complete.' );
+	}
+
+	/**
 	 * Write alt text for one or more attachments.
 	 *
 	 * Existing alt text is never overwritten without --force: the 22 imported

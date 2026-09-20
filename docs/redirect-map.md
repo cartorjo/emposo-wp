@@ -1,8 +1,12 @@
 # Redirect map: old emposo.de URLs → new routes
 
-Draft for runbook D3, built 2026-09-19 from the live Yoast sitemaps (27 unique
-URLs) against the 41-route contract. Implemented as **Cloudflare Redirect
-Rules** (301) — host-agnostic, no server config, editable without a deploy.
+Draft for runbook D3, built 2026-09-19 from the live Yoast sitemaps against the
+41-route contract: twenty-three one-to-one 301s and one `/en/*` catch-all, with
+a handful of URLs that keep their paths and need no redirect (the legal pages,
+the front page, and the rebuilt `/sitemap/` — listed at the end).
+`tools/check-docs.mjs` verifies every target here is a real contract route.
+Implemented as **Cloudflare Redirect Rules** (301) — host-agnostic, no server
+config, editable without a deploy.
 
 The one-to-one page moves are mechanical. The `/solutions/*` rows are
 **editorial judgment calls — review before publishing**: the old solution pages
