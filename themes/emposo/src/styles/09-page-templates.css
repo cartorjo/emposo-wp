@@ -520,6 +520,7 @@
 .page-cta__title em { color: var(--color-lemon); font-style: normal; font-weight: 600; }
 .page-cta__copy { border-top: 1px solid var(--color-line-light); padding-top: 1.17rem; }
 .page-cta__copy p { color: rgba(255,255,255,0.72); font-size: 1.16rem; line-height: 1.42; max-width: 27rem; }
+.page-cta__copy p + p { margin-top: 1.2rem; }
 .page-cta__copy .page-link { margin-top: 1.8rem; }
 
 
