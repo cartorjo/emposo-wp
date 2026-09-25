@@ -41,7 +41,7 @@
 .text-link span { font-size: 1.3em; transition: transform var(--duration-fast) var(--ease-em); }
 .text-link:hover span { transform: translateX(0.35rem); }
 .text-link--light { color: #fff; }
-.hero__visual { margin: 0 calc(var(--gutter) * -1) 0 0; min-height: 100%; overflow: hidden; position: relative; }
+.hero__visual { margin: 0 calc(var(--bleed-right) * -1) 0 0; min-height: 100%; overflow: hidden; position: relative; }
 .hero__visual::after { background: linear-gradient(180deg, rgba(10, 5, 50, 0.04), rgba(10, 5, 50, 0.6)); content: ""; inset: 0; position: absolute; pointer-events: none; }
 .hero__visual > picture > img { height: 100%; object-fit: cover; width: 100%; }
 .hero__visual figcaption { bottom: 1.62rem; color: rgba(255, 255, 255, 0.82); display: flex; font-size: 0.72rem; font-weight: 600; justify-content: space-between; left: 1.62rem; letter-spacing: 0.08em; position: absolute; right: 1.62rem; text-transform: none; z-index: 1; }

@@ -85,7 +85,7 @@
 .page-hero__visual {
   align-self: stretch;
   background: var(--color-bg-dark-2);
-  margin-right: calc(var(--gutter) * -1);
+  margin-right: calc(var(--bleed-right) * -1);
   min-height: 24.3rem;
   overflow: hidden;
   position: relative;
