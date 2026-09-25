@@ -141,10 +141,22 @@
 /* PDF: arrows orange on blue backgrounds. */
 .site-footer a span[aria-hidden] { color: var(--color-lemon); }
 
-.page-hero__grid { align-items: center; gap: 3rem; grid-template-columns: minmax(0,1fr) minmax(0,1fr); padding: 4.5rem 0; min-height: 38rem; }
-.page-hero__copy { min-width: 0; }
+/* Vertikaler Abstand liegt auf dem Text, nicht auf dem Grid — so streckt sich
+   die Figure (align-self: stretch) bis an die obere und untere Navy-Kante. */
+.page-hero__grid { align-items: center; gap: 3rem; grid-template-columns: minmax(0,1fr) minmax(0,1fr); padding: 0; min-height: 38rem; }
+.page-hero__copy { min-width: 0; padding: 4.5rem 0; }
 .page-hero__visual { min-width: 0; min-height: 28rem; }
 .page-hero__visual > picture > img { position: absolute; inset: 0; }
+/* Seiten-Heros wie der Startseiten-Hero (.hero--feedback oben): ein einziger
+   Verlauf als Übergang Text → Bild an der linken Kante (Review 25-09). Ersetzt
+   den 180deg-Tint aus 09-page-templates und den 145deg-Tint des About-Heros. */
+.page-hero__visual::after { background: linear-gradient(90deg, var(--color-ink) 0%, transparent 35%); }
+/* Sobald das Grid einspaltig wird (@max-content:grid-cols-1, Container < 56rem)
+   liegt das Bild unter dem Text: Übergang dann von oben statt von links.
+   Deckt die Spanne 900–985px ab, in der die ≤900px-Regel noch nicht greift. */
+@container (width < 56rem) {
+  .page-hero__visual::after { background: linear-gradient(180deg, var(--color-ink), transparent 35%); }
+}
 .page-hero::before { display: none; }
 .page-display { max-width: none; }
 .about-statement__copy em { color: inherit; font-weight: 700; }
@@ -223,8 +235,10 @@
   .hero--feedback .display-hero { max-width: none; }
   .page-hero__grid, .page-section__top, .page-cta, .expertise-intro__heading, .work__heading { grid-template-columns: minmax(0,1fr); }
   .page-display { max-width: 19ch; }
-  .page-hero__grid { padding: 3rem 0; }
+  .page-hero__grid { padding: 0; }
+  .page-hero__copy { padding: 3rem 0 2.5rem; }
   .page-hero__visual { margin-left: 0; margin-right: 0; min-height: 22rem; aspect-ratio: auto; }
+  .page-hero__visual::after { background: linear-gradient(180deg, var(--color-ink), transparent 35%); }
   .page-section__lede { max-width: 40rem; }
   .company-facts { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
   .case-story { grid-template-columns: minmax(0,1fr); gap: 3rem; }
