@@ -85,7 +85,7 @@
 .page-hero__visual {
   align-self: stretch;
   background: var(--color-bg-dark-2);
-  margin-right: calc(var(--gutter) * -1);
+  margin-right: calc(var(--bleed-right) * -1);
   min-height: 24.3rem;
   overflow: hidden;
   position: relative;
@@ -308,7 +308,9 @@
   grid-template-columns: 3.78rem minmax(12.6rem, 0.9fr) minmax(16.2rem, 1.1fr) auto;
   padding: clamp(0.8rem, 4vw, 3.69rem) 0;
 }
-.portfolio-mode__number { color: var(--color-lemon); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; padding-top: 0.585rem; }
+/* Row numbers read as display digits like the 5-Stufen phases (owner review
+   25-09: at least 2em) — Kennzahlen scale, light weight, lemon. */
+.portfolio-mode__number { color: var(--color-lemon); font-size: clamp(2rem, 2.6vw, 2.75rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; }
 .portfolio-mode h3 { font-size: clamp(1.05rem, 4vw, 3.78rem); font-weight: 300; letter-spacing: -0.065em; line-height: 1.08; }
 .portfolio-mode__copy { color: rgba(255,255,255,0.74); font-size: 1.07rem; line-height: 1.43; max-width: 29.7rem; }
 .portfolio-mode__outcome { align-self: end; border-left: 1px solid var(--color-line-light); color: #fff; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em; line-height: 1.35; max-width: 11.7rem; padding-left: 0.9rem; text-transform: none; }
@@ -518,6 +520,7 @@
 .page-cta__title em { color: var(--color-lemon); font-style: normal; font-weight: 600; }
 .page-cta__copy { border-top: 1px solid var(--color-line-light); padding-top: 1.17rem; }
 .page-cta__copy p { color: rgba(255,255,255,0.72); font-size: 1.16rem; line-height: 1.42; max-width: 27rem; }
+.page-cta__copy p + p { margin-top: 1.2rem; }
 .page-cta__copy .page-link { margin-top: 1.8rem; }
 
 

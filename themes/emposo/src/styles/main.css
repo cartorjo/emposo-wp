@@ -168,6 +168,10 @@
   /* Composite/geometry tokens with no fitting @theme namespace. */
   --gutter: 4.5vw;
   --container-max: 84rem; /* 1344px — the designed ~1348px content measure */
+  /* Distance from the container's right edge to the viewport edge: the gutter
+     while the container is fluid, the centred leftover once it hits --container-max.
+     Hero visuals bleed by this so the photo always touches the browser edge. */
+  --bleed-right: max(var(--gutter), (100vw - var(--container-max)) / 2);
   --header-h: 4.875rem; /* 78px */
   --header-h-scrolled: 4.25rem; /* 68px */
   --duration-fast: 180ms;
