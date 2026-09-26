@@ -5,19 +5,19 @@
     {
       "url": "/",
       "requests": 18,
-      "totalBytes": 480577,
+      "totalBytes": 480576,
       "fullRequests": 35,
-      "fullBytes": 981452,
+      "fullBytes": 981451,
       "largestImageBytes": 127169,
-      "cls": 0.0003,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
       "url": "/expertise/",
       "requests": 11,
-      "totalBytes": 279087,
+      "totalBytes": 279086,
       "fullRequests": 14,
-      "fullBytes": 449519,
+      "fullBytes": 449518,
       "largestImageBytes": 127169,
       "cls": 0.0003,
       "axeViolations": 0
@@ -25,9 +25,9 @@
     {
       "url": "/portfolio/",
       "requests": 11,
-      "totalBytes": 318594,
+      "totalBytes": 318593,
       "fullRequests": 14,
-      "fullBytes": 453439,
+      "fullBytes": 453438,
       "largestImageBytes": 87416,
       "cls": 0.0003,
       "axeViolations": 0
@@ -35,9 +35,9 @@
     {
       "url": "/case-studies/",
       "requests": 20,
-      "totalBytes": 888782,
+      "totalBytes": 888781,
       "fullRequests": 32,
-      "fullBytes": 1283338,
+      "fullBytes": 1283337,
       "largestImageBytes": 165767,
       "cls": 0.0003,
       "axeViolations": 0
@@ -45,9 +45,9 @@
     {
       "url": "/case-studies/data2ai-platform/",
       "requests": 14,
-      "totalBytes": 489684,
+      "totalBytes": 489683,
       "fullRequests": 17,
-      "fullBytes": 551822,
+      "fullBytes": 551821,
       "largestImageBytes": 127169,
       "cls": 0.0032,
       "axeViolations": 0
@@ -55,9 +55,9 @@
     {
       "url": "/about-us/",
       "requests": 12,
-      "totalBytes": 317715,
+      "totalBytes": 317713,
       "fullRequests": 17,
-      "fullBytes": 378268,
+      "fullBytes": 378266,
       "largestImageBytes": 61910,
       "cls": 0.0003,
       "axeViolations": 0
@@ -65,9 +65,9 @@
     {
       "url": "/branchen/",
       "requests": 20,
-      "totalBytes": 564063,
+      "totalBytes": 564062,
       "fullRequests": 39,
-      "fullBytes": 1387617,
+      "fullBytes": 1387616,
       "largestImageBytes": 165767,
       "cls": 0.0003,
       "axeViolations": 0
@@ -75,19 +75,19 @@
     {
       "url": "/karriere/",
       "requests": 11,
-      "totalBytes": 270822,
+      "totalBytes": 270819,
       "fullRequests": 12,
-      "fullBytes": 286136,
+      "fullBytes": 286133,
       "largestImageBytes": 49619,
-      "cls": 0.0003,
+      "cls": 0.0005,
       "axeViolations": 0
     },
     {
       "url": "/kontakt/",
       "requests": 12,
-      "totalBytes": 222246,
+      "totalBytes": 222244,
       "fullRequests": 12,
-      "fullBytes": 222246,
+      "fullBytes": 222244,
       "largestImageBytes": 0,
       "cls": 0.0069,
       "axeViolations": 0
@@ -95,29 +95,29 @@
     {
       "url": "/expertise/engineering/",
       "requests": 15,
-      "totalBytes": 546292,
+      "totalBytes": 546291,
       "fullRequests": 19,
-      "fullBytes": 621359,
+      "fullBytes": 621358,
       "largestImageBytes": 141724,
-      "cls": 0.0005,
+      "cls": 0.0003,
       "axeViolations": 0
     },
     {
       "url": "/expertise/technology/",
       "requests": 14,
-      "totalBytes": 545980,
+      "totalBytes": 545979,
       "fullRequests": 17,
-      "fullBytes": 601746,
+      "fullBytes": 601745,
       "largestImageBytes": 165767,
-      "cls": 0.0003,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
       "url": "/expertise/ai-daten/",
       "requests": 14,
-      "totalBytes": 494505,
+      "totalBytes": 494504,
       "fullRequests": 19,
-      "fullBytes": 617120,
+      "fullBytes": 617119,
       "largestImageBytes": 127169,
       "cls": 0.0003,
       "axeViolations": 0
@@ -125,9 +125,9 @@
     {
       "url": "/portfolio/optimieren/",
       "requests": 14,
-      "totalBytes": 500359,
+      "totalBytes": 500358,
       "fullRequests": 19,
-      "fullBytes": 629812,
+      "fullBytes": 629811,
       "largestImageBytes": 165767,
       "cls": 0.0003,
       "axeViolations": 0
@@ -135,9 +135,9 @@
     {
       "url": "/portfolio/transformieren/",
       "requests": 14,
-      "totalBytes": 505358,
+      "totalBytes": 505357,
       "fullRequests": 21,
-      "fullBytes": 684598,
+      "fullBytes": 684597,
       "largestImageBytes": 87416,
       "cls": 0.0003,
       "axeViolations": 0
@@ -145,9 +145,9 @@
     {
       "url": "/portfolio/skalieren/",
       "requests": 14,
-      "totalBytes": 502418,
+      "totalBytes": 502417,
       "fullRequests": 17,
-      "fullBytes": 561859,
+      "fullBytes": 561858,
       "largestImageBytes": 141724,
       "cls": 0.0003,
       "axeViolations": 0
@@ -155,19 +155,19 @@
     {
       "url": "/portfolio/verzahnen/",
       "requests": 13,
-      "totalBytes": 347295,
+      "totalBytes": 347294,
       "fullRequests": 15,
-      "fullBytes": 375969,
+      "fullBytes": 375968,
       "largestImageBytes": 49619,
-      "cls": 0.0005,
+      "cls": 0.0003,
       "axeViolations": 0
     },
     {
       "url": "/case-studies/engineering-wissensbasis/",
       "requests": 14,
-      "totalBytes": 489694,
+      "totalBytes": 489693,
       "fullRequests": 17,
-      "fullBytes": 551832,
+      "fullBytes": 551831,
       "largestImageBytes": 127169,
       "cls": 0.0032,
       "axeViolations": 0
@@ -175,29 +175,29 @@
     {
       "url": "/case-studies/rechenzentrums-umzug/",
       "requests": 13,
-      "totalBytes": 499540,
+      "totalBytes": 499539,
       "fullRequests": 15,
-      "fullBytes": 541908,
+      "fullBytes": 541907,
       "largestImageBytes": 165767,
-      "cls": 0.0032,
+      "cls": 0.0031,
       "axeViolations": 0
     },
     {
       "url": "/case-studies/mlops-medizinprodukte/",
       "requests": 14,
-      "totalBytes": 489654,
+      "totalBytes": 489653,
       "fullRequests": 17,
-      "fullBytes": 551792,
+      "fullBytes": 551791,
       "largestImageBytes": 127169,
-      "cls": 0.0032,
+      "cls": 0.0031,
       "axeViolations": 0
     },
     {
       "url": "/case-studies/wissens-assistent/",
       "requests": 14,
-      "totalBytes": 499750,
+      "totalBytes": 499749,
       "fullRequests": 17,
-      "fullBytes": 564495,
+      "fullBytes": 564494,
       "largestImageBytes": 127169,
       "cls": 0.0032,
       "axeViolations": 0
@@ -205,19 +205,19 @@
     {
       "url": "/case-studies/multi-site-transition/",
       "requests": 14,
-      "totalBytes": 501169,
+      "totalBytes": 501168,
       "fullRequests": 17,
-      "fullBytes": 565375,
+      "fullBytes": 565374,
       "largestImageBytes": 127169,
-      "cls": 0.0032,
+      "cls": 0.0031,
       "axeViolations": 0
     },
     {
       "url": "/case-studies/homologationstests/",
       "requests": 14,
-      "totalBytes": 490895,
+      "totalBytes": 490894,
       "fullRequests": 17,
-      "fullBytes": 554817,
+      "fullBytes": 554816,
       "largestImageBytes": 127169,
       "cls": 0.0031,
       "axeViolations": 0
@@ -225,9 +225,9 @@
     {
       "url": "/case-studies/managed-service/",
       "requests": 13,
-      "totalBytes": 499457,
+      "totalBytes": 499456,
       "fullRequests": 15,
-      "fullBytes": 541825,
+      "fullBytes": 541824,
       "largestImageBytes": 165767,
       "cls": 0.0032,
       "axeViolations": 0
@@ -235,9 +235,9 @@
     {
       "url": "/case-studies/fahrzeugfunktionen/",
       "requests": 14,
-      "totalBytes": 594886,
+      "totalBytes": 594885,
       "fullRequests": 17,
-      "fullBytes": 672945,
+      "fullBytes": 672944,
       "largestImageBytes": 141724,
       "cls": 0.0032,
       "axeViolations": 0
@@ -245,9 +245,9 @@
     {
       "url": "/case-studies/technische-dokumentation/",
       "requests": 14,
-      "totalBytes": 515086,
+      "totalBytes": 515085,
       "fullRequests": 17,
-      "fullBytes": 584800,
+      "fullBytes": 584799,
       "largestImageBytes": 127169,
       "cls": 0.0032,
       "axeViolations": 0
@@ -255,29 +255,29 @@
     {
       "url": "/expertise/system-engineering/",
       "requests": 12,
-      "totalBytes": 388291,
+      "totalBytes": 388290,
       "fullRequests": 13,
-      "fullBytes": 415504,
+      "fullBytes": 415503,
       "largestImageBytes": 141724,
-      "cls": 0.0031,
+      "cls": 0.0032,
       "axeViolations": 0
     },
     {
       "url": "/expertise/produktion-industrialisierung/",
       "requests": 12,
-      "totalBytes": 290039,
+      "totalBytes": 290038,
       "fullRequests": 13,
-      "fullBytes": 305224,
+      "fullBytes": 305223,
       "largestImageBytes": 44826,
-      "cls": 0.0069,
+      "cls": 0.007,
       "axeViolations": 0
     },
     {
       "url": "/expertise/test-validierung/",
       "requests": 12,
-      "totalBytes": 284331,
+      "totalBytes": 284330,
       "fullRequests": 13,
-      "fullBytes": 297407,
+      "fullBytes": 297406,
       "largestImageBytes": 37697,
       "cls": 0.0032,
       "axeViolations": 0
@@ -285,19 +285,19 @@
     {
       "url": "/expertise/engineering-services/",
       "requests": 12,
-      "totalBytes": 308506,
+      "totalBytes": 308505,
       "fullRequests": 13,
-      "fullBytes": 327374,
+      "fullBytes": 327373,
       "largestImageBytes": 61910,
-      "cls": 0.0032,
+      "cls": 0.0031,
       "axeViolations": 0
     },
     {
       "url": "/expertise/software-cloud/",
       "requests": 12,
-      "totalBytes": 291821,
+      "totalBytes": 291820,
       "fullRequests": 13,
-      "fullBytes": 305720,
+      "fullBytes": 305719,
       "largestImageBytes": 46578,
       "cls": 0.0069,
       "axeViolations": 0
@@ -305,29 +305,29 @@
     {
       "url": "/expertise/cyber-compliance/",
       "requests": 13,
-      "totalBytes": 336771,
+      "totalBytes": 336770,
       "fullRequests": 15,
-      "fullBytes": 363529,
+      "fullBytes": 363528,
       "largestImageBytes": 47878,
-      "cls": 0.0031,
+      "cls": 0.0032,
       "axeViolations": 0
     },
     {
       "url": "/expertise/enterprise-services/",
       "requests": 13,
-      "totalBytes": 500671,
+      "totalBytes": 500670,
       "fullRequests": 15,
-      "fullBytes": 543039,
+      "fullBytes": 543038,
       "largestImageBytes": 165767,
-      "cls": 0.0032,
+      "cls": 0.0031,
       "axeViolations": 0
     },
     {
       "url": "/branchen/aerospace-defense/",
       "requests": 11,
-      "totalBytes": 302932,
+      "totalBytes": 302931,
       "fullRequests": 12,
-      "fullBytes": 328407,
+      "fullBytes": 328406,
       "largestImageBytes": 85853,
       "cls": 0.0051,
       "axeViolations": 0
@@ -335,19 +335,19 @@
     {
       "url": "/branchen/energy-resources/",
       "requests": 13,
-      "totalBytes": 433351,
+      "totalBytes": 433350,
       "fullRequests": 15,
-      "fullBytes": 460878,
+      "fullBytes": 460877,
       "largestImageBytes": 165767,
-      "cls": 0.0032,
+      "cls": 0.0031,
       "axeViolations": 0
     },
     {
       "url": "/branchen/health-pharma/",
       "requests": 14,
-      "totalBytes": 372539,
+      "totalBytes": 372538,
       "fullRequests": 17,
-      "fullBytes": 407217,
+      "fullBytes": 407216,
       "largestImageBytes": 47878,
       "cls": 0.0032,
       "axeViolations": 0
@@ -355,9 +355,9 @@
     {
       "url": "/branchen/industrials-manufacturing/",
       "requests": 16,
-      "totalBytes": 646734,
+      "totalBytes": 646733,
       "fullRequests": 27,
-      "fullBytes": 1049831,
+      "fullBytes": 1049830,
       "largestImageBytes": 141724,
       "cls": 0.0003,
       "axeViolations": 0
@@ -365,9 +365,9 @@
     {
       "url": "/branchen/technology-telecoms-media/",
       "requests": 11,
-      "totalBytes": 259614,
+      "totalBytes": 259613,
       "fullRequests": 12,
-      "fullBytes": 273012,
+      "fullBytes": 273011,
       "largestImageBytes": 42282,
       "cls": 0.0051,
       "axeViolations": 0
@@ -375,9 +375,9 @@
     {
       "url": "/cookies/",
       "requests": 10,
-      "totalBytes": 214801,
+      "totalBytes": 214800,
       "fullRequests": 10,
-      "fullBytes": 214801,
+      "fullBytes": 214800,
       "largestImageBytes": 0,
       "cls": 0,
       "axeViolations": 0
@@ -385,9 +385,9 @@
     {
       "url": "/barrierefreiheit/",
       "requests": 10,
-      "totalBytes": 214946,
+      "totalBytes": 214945,
       "fullRequests": 10,
-      "fullBytes": 214946,
+      "fullBytes": 214945,
       "largestImageBytes": 0,
       "cls": 0,
       "axeViolations": 0
@@ -395,9 +395,9 @@
     {
       "url": "/sitemap/",
       "requests": 10,
-      "totalBytes": 216976,
+      "totalBytes": 216975,
       "fullRequests": 10,
-      "fullBytes": 216976,
+      "fullBytes": 216975,
       "largestImageBytes": 0,
       "cls": 0.0069,
       "axeViolations": 0
@@ -405,9 +405,9 @@
     {
       "url": "/zertifizierungen/",
       "requests": 10,
-      "totalBytes": 215861,
+      "totalBytes": 215860,
       "fullRequests": 10,
-      "fullBytes": 215861,
+      "fullBytes": 215860,
       "largestImageBytes": 0,
       "cls": 0.0069,
       "axeViolations": 0

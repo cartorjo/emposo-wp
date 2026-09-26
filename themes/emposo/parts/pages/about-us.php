@@ -69,7 +69,7 @@
 	<section class="page-section" aria-labelledby="locations-title">
 		<div class="gutter"><div class="container @container"><div class="about-locations @max-content:grid-cols-1">
 		<div class="about-locations__map" aria-hidden="true"><span></span><span></span><span></span><span></span><strong>Deutschland + Rumänien</strong></div>
-		<div class="about-locations__copy"><p class="page-eyebrow">Standorte &amp; Reichweite</p><h2 id="locations-title">Nah am Kunden. Bereit zu <em class="text-accent-text">liefern.</em></h2><p>Kundennähe in Deutschland trifft auf standortübergreifende Zusammenarbeit und skalierbare Delivery. Die richtige Expertise kommt dorthin, wo sie im Projekt gebraucht wird.</p><div class="location-list"><div><strong>Mannheim</strong><span>Hauptsitz</span></div><div><strong>Düsseldorf</strong><span>Deutschland</span></div><div><strong>Frankfurt</strong><span>Deutschland</span></div><div><strong>Timișoara</strong><span>Rumänien</span></div></div></div>
+		<div class="about-locations__copy"><p class="page-eyebrow">Standorte &amp; Reichweite</p><h2 id="locations-title">Nah am Kunden. Bereit zu <em class="text-accent-text">liefern.</em></h2><p>Kundennähe in Deutschland trifft auf standortübergreifende Zusammenarbeit und skalierbare Delivery. Die richtige Expertise kommt dorthin, wo sie im Projekt gebraucht wird.</p><div class="location-list"><div><strong>Mannheim</strong><span>Hauptsitz</span></div><div><strong>Düsseldorf</strong><span>Deutschland</span></div><div><strong>Ingolstadt</strong><span>Deutschland</span></div><div><strong>Bukarest</strong><span>Rumänien</span></div></div></div>
 		</div></div></div>
 	</section>
 

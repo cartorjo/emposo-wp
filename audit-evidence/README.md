@@ -3,7 +3,7 @@
 ## `static-baseline.json`
 
 The measured state of the **pinned static reference** (`reference/static`,
-`c471ef0`), produced by:
+`3371afb`, i.e. `c471ef0` plus the 2026-09-26 locations copy fix), produced by:
 
 ```bash
 node tools/audit.mjs --target=static --write-baseline
