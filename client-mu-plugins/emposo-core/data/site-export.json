@@ -8,7 +8,7 @@
 		"sections/03-models.html": "34fb6ca3c78ed975",
 		"sections/07aa-faq.html": "9563d7955978787f",
 		"partials/contact-form.html": "845a44354b4c543c",
-		"pages/kontakt.html": "6a33ea266edd523b"
+		"pages/kontakt.html": "13049c68c1e8af25"
 	},
 	"terms": {
 		"emposo_discipline": [
@@ -1513,11 +1513,11 @@
 				"label": "Deutschland"
 			},
 			{
-				"name": "Frankfurt",
+				"name": "Ingolstadt",
 				"label": "Deutschland"
 			},
 			{
-				"name": "Timișoara",
+				"name": "Bukarest",
 				"label": "Rumänien"
 			}
 		],

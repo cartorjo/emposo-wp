@@ -36,7 +36,7 @@
 			<article><span class="fact-grid__label">Gründung</span><h3>2014</h3><p>anspruchsvolle Engineering- und Technologievorhaben als Werkleistung</p></article>
 			<article><span class="fact-grid__label">Team</span><h3>250+</h3><p>Mitarbeitende in Engineering, Technology und Operations</p></article>
 			<article><span class="fact-grid__label">Erfahrung</span><h3>2.900+</h3><p>Projekte und Dienstleistungen als Grundlage für praxisnahes Wissen</p></article>
-			<article><span class="fact-grid__label">Standorte</span><h3>4</h3><p>Mannheim, Düsseldorf, Frankfurt und Timișoara</p></article>
+			<article><span class="fact-grid__label">Standorte</span><h3>4</h3><p>Mannheim, Düsseldorf, Ingolstadt und Bukarest</p></article>
 		</div>
 		</div></div>
 	</section>
@@ -59,7 +59,7 @@
 	<section class="page-section" aria-labelledby="karriere-orte-title">
 		<div class="gutter"><div class="container @container"><div class="about-locations @max-content:grid-cols-1">
 		<div class="about-locations__map" aria-hidden="true"><span></span><span></span><span></span><span></span><strong>Deutschland + Rumänien</strong></div>
-		<div class="about-locations__copy"><p class="page-eyebrow">Standorte</p><h2 id="karriere-orte-title">Arbeiten, wo geliefert <em class="text-accent-text">wird.</em></h2><p>Kundennähe in Deutschland trifft auf standortübergreifende Zusammenarbeit. Die richtige Expertise kommt dorthin, wo sie im Projekt gebraucht wird.</p><div class="location-list"><div><strong>Mannheim</strong><span>Hauptsitz</span></div><div><strong>Düsseldorf</strong><span>Deutschland</span></div><div><strong>Frankfurt</strong><span>Deutschland</span></div><div><strong>Timișoara</strong><span>Rumänien</span></div></div></div>
+		<div class="about-locations__copy"><p class="page-eyebrow">Standorte</p><h2 id="karriere-orte-title">Arbeiten, wo geliefert <em class="text-accent-text">wird.</em></h2><p>Kundennähe in Deutschland trifft auf standortübergreifende Zusammenarbeit. Die richtige Expertise kommt dorthin, wo sie im Projekt gebraucht wird.</p><div class="location-list"><div><strong>Mannheim</strong><span>Hauptsitz</span></div><div><strong>Düsseldorf</strong><span>Deutschland</span></div><div><strong>Ingolstadt</strong><span>Deutschland</span></div><div><strong>Bukarest</strong><span>Rumänien</span></div></div></div>
 		</div></div></div>
 	</section>
 
