@@ -10,2668 +10,2667 @@
  */
 
 ?>
-<!-- Temporary (owner decision 2026-09-27): the German privacy notice, marked lang="de", until Hays' official English text is supplied. -->
-<section class="page-section"><div class="gutter"><div class="container legal-copy" lang="de"><nav class="page-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/en/">Home</a></li><li><span aria-hidden="true">/</span><span aria-current="page">Datenschutzerklärung</span></li></ol></nav><h1 class="display-large">Datenschutzerklärung</h1>
-<p>EMPOSO ALLGEMEINE DATENSCHUTZRICHTLINIE <em>DEUTSCHLAND</em></p>
-<p>Emposo hält sich an die Hays-Datenschutzerklärung wie im Folgenden beschrieben:</p>
-<p><strong>Einleitung</strong></p>
+<section class="page-section"><div class="gutter"><div class="container legal-copy"><nav class="page-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/en/">Home</a></li><li><span aria-hidden="true">/</span><span aria-current="page">Privacy Policy</span></li></ol></nav><h1 class="display-large">Privacy Policy</h1>
+<p>EMPOSO GENERAL PRIVACY POLICY <em>GERMANY</em></p>
+<p>Emposo complies with the Hays Privacy Policy below:</p>
+<p><strong>Introduction</strong></p>
 <ul>
-<li>In dieser Datenschutzrichtlinie wird beschrieben, wie wir Ihre personenbezogenen Daten erfassen, nutzen und verarbeiten und wie wir dabei unseren gesetzlichen Verpflichtungen Ihnen gegenüber nachkommen. Ihre Privatsphäre ist uns wichtig und wir haben es uns zur Aufgabe gemacht, Ihre Rechte zu schützen und zu wahren.</li>
-<li>Diese Datenschutzrichtlinie gilt in Bezug auf die personenbezogenen Daten der folgenden Personengruppen: Kandidaten, Zeitarbeitnehmer, Kunden, Lieferanten und sonstige Dritte, Personen deren Daten wir von Kandidaten und Mitarbeitern erhalten, Website-Nutzer, Alumni und Besucher.</li>
-<li>Wenn Sie:
+<li>This Privacy Policy describes how we collect, use and process your personal data, and how, in doing so, we comply with our legal obligations to you. Your privacy is important to us, and we are committed to protecting and safeguarding your data privacy rights.</li>
+<li>This Privacy Policy applies in respect of the personal data of the following categories of people: Candidates, Temporary Workers, Clients, Suppliers and Third Parties, People Whose Data We Receive from Candidates and Staff, Website Users, Staff Alumni, and Visitors.</li>
+<li>If you are:
 <ul>
-<li>Interner Mitarbeiter von Hays sind, beachten Sie bitte die Hays Mitarbeiter-Datenschutzrichtlinie, die Sie im Intranet von Hays einsehen können; oder</li>
-<li>intern nach einer Beschäftigung bei Hays suchen, sollten Sie die <a href="https://www.hayscareer.net/datenschutz">Datenschutzrichtlinie für die Rekrutierung</a> einsehen.</li>
+<li>a member of Hays’ Staff, you should refer to the Hays’ Staff Privacy Policy which is available on the Hays Intranet; or</li>
+<li>seeking employment with Hays internally, you should refer to the <a href="https://www.hayscareer.net/datenschutz">Recruits Privacy Policy</a>.</li>
 </ul>
 </li>
-<li>Für die Zwecke der geltenden Datenschutzgesetze, einschließlich, aber nicht beschränkt auf die Datenschutz-Grundverordnung (Verordnung (EU) 2016/679) (die „DSGVO“) sowie die britische DSGVO, beachten Sie bitte, dass wir im Rahmen dieser Datenschutzerklärung mit dem Begriff „DSGVO“ sowohl auf die EU-DSGVO als auch auf die britische DSGVO Bezug nehmen..</li>
-<li>Das für Ihre personenbezogenen Daten verantwortliche Unternehmen („<strong>Hays</strong>“, „<strong>wir</strong>“ oder „<strong>uns</strong>“) finden Sie hier.</li>
-<li>Wichtig: Diese Datenschutzrichtlinie kann von Zeit zu Zeit geändert werden. Bitte nutzen Sie diese Seite, um sich zu informieren, da wir eventuelle Änderungen hier einstellen.</li>
-<li>Falls Sie mit einem Aspekt unserer Datenschutzrichtlinie nicht einverstanden sind, stehen Ihnen möglicherweise gesetzliche Rechte zu, die wir hier in diesem Dokument, soweit einschlägig, beschrieben haben.</li>
+<li>For the purpose of applicable data protection legislation including but not limited to the General Data Protection Regulation (Regulation (EU) 2016/679) (the “GDPR”), and the UK GDPR, please note that when we refer to the GDPR throughout this Privacy Policy, we are referring to both the GDPR and UK GDPR.</li>
+<li>The company responsible for your personal data (“<strong>Hays</strong>”, “<strong>we</strong>” or “<strong>us</strong>”) can be found here.</li>
+<li>It is important to point out that we may amend this Privacy Policy from time to time. Please just visit this page if you want to stay up to date, as we will post any changes here.</li>
+<li>If you are dissatisfied with any aspect of our Privacy Policy, you may have legal rights and, where relevant, we have described these in this document.</li>
 </ul>
-<p><strong>Wie Sie diese Datenschutzrichtlinie verwenden</strong></p>
+<p><strong>How to Use This Privacy Policy</strong></p>
 <ul>
-<li>Diese Datenschutzrichtlinie gibt Ihnen einige Informationen darüber, wie wir Ihre personenbezogenen Daten verwenden, und, was vielleicht noch wichtiger ist, welche Rechte Sie diesbezüglich haben (Sie haben zum Beispiel das Recht jederzeit, uns zu bitten, die Art der Informationen, die wir über Sie gespeichert haben, zu löschen oder zu bestätigen, etwaige Einwilligungen, die Sie zuvor gegeben haben, zu widerrufen und/oder eine Beschwerde bei unserem Datenschutzbeauftragten oder einer Aufsichtsbehörde einzureichen, wenn Sie mit dem, was wir getan haben, nicht einverstanden sind).</li>
-<li>Die Datenschutzrichtlinie ist weitgehend in zwei Abschnitte unterteilt:
+<li>This Privacy Policy tells you a few things about how we use your personal data, and perhaps more importantly, what your rights are in relation to this (you have, for example, the right to ask us to delete or confirm the nature of information that we hold about you at any time, withdraw any consents that you may previously have given and/or lodge a complaint with our Data Protection Officer or a supervisory authority if you are not happy about something we have done).</li>
+<li>The Privacy Policy is broadly divided into two sections:
 <ul>
-<li>Kontextspezifische Datenschutzinformationen, die für die verschiedenen Kategorien von Personen gelten, die unter diese Datenschutzrichtlinie fallen, wie folgt:
+<li>Context-specific privacy information that applies to the different categories of person covered by this Privacy Policy, as follows:
 <ul>
-<li>Kandidaten</li>
-<li>Zeitarbeitnehmer</li>
-<li>Kunden</li>
-<li>Lieferanten und sonstige Dritte</li>
-<li>Personen, deren Daten wir von Kandidaten und Mitarbeitern erhalten</li>
-<li>Website-Nutzer</li>
-<li>Alumni</li>
-<li>Besucher</li>
-</ul>
-</li>
-<li>Allgemeine Datenschutzinformationen, die für alle unterschiedlichen Kategorien von Personen gelten, die unter diese Datenschutzrichtlinie fallen, einschließlich:
-<ul>
-<li>An wen werden Ihre personenbezogenen Daten weitergegeben?</li>
-<li>Wie werden Ihre personenbezogenen Daten von uns geschützt?</li>
-<li>Wie lange werden Ihre personenbezogenen Daten von uns gespeichert?</li>
-<li>Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen?</li>
-<li>Wer ist für die Verarbeitung Ihrer personenbezogenen Daten verantwortlich?</li>
-<li>Wie werden Ihre Daten von uns international gespeichert und übermittelt?</li>
-<li>Cookie-Richtlinie</li>
-<li>Nutzung von Diensten Dritter</li>
+<li>Candidates</li>
+<li>Temporary Workers</li>
+<li>Clients</li>
+<li>Suppliers and Third Parties</li>
+<li>People Whose Data We Receive from Candidates and Staff</li>
+<li>Website Users</li>
+<li>Staff Alumni</li>
+<li>Visitors</li>
 </ul>
 </li>
+<li>General privacy information that applies to all of the different categories of people covered by this Privacy Policy, including:
+<ul>
+<li>Who do we share your personal data with?</li>
+<li>How do we safeguard your personal data?</li>
+<li>How long do we keep your personal data for?</li>
+<li>How can you access, amend or take back the personal data that you have given to us?</li>
+<li>Who is responsible for processing your personal data?</li>
+<li>How do we store and transfer data internationally?</li>
+<li>Cookies Policy</li>
+<li>Use of third party services</li>
 </ul>
 </li>
-<li>Diese Datenschutzrichtlinie gilt in den entsprechenden Ländern innerhalb unseres internationalen Netzwerks. Verschiedene Länder verfolgen ggf. leicht abweichende Ansätze beim Datenschutz, daher beinhaltet diese Datenschutzrichtlinie länderspezifische Teile. Länderspezifische Bestimmungen für Ihre Gerichtsbarkeit finden Sie hier. Dies ermöglicht es uns sicherzustellen, dass wir unabhängig von Ihrem Aufenthaltsort alle geltenden Datenschutzbestimmungen einhalten.</li>
-<li>Diese Datenschutzrichtlinie enthält auch eine Reihe definierter Begriffe, weshalb wir am Ende dieses Dokuments ein Glossar eingefügt haben.</li>
 </ul>
-<h2>Kontextspezifische DatenschutzInformationen</h2>
-<h3>1. Kandidaten</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Kandidaten.</p>
-<p>Sie sind ein Kandidat, wenn:</p>
-<ul>
-<li>Sie sich auf eine von Hays ausgeschriebene oder beworbene Stelle beworben haben, einschließlich Festanstellungen, Teilzeitstellen, befristete Stellen und freiberufliche Einsätze bei Kunden von Hays (auch wenn Sie Zeitarbeitnehmer werden wollen);</li>
-<li>Sie sich mit Hays über die Dienstleistungen von Hays und/oder eine der oben genannten von Hays ausgeschriebenen oder beworbenen Stellen unterhalten haben oder einen spekulativen Lebenslauf an Hays geschickt haben, der nicht im Zusammenhang mit einer bestimmten Stelle steht; oder;</li>
-<li>wir bisher keinen vorherigen Kontakt mit Ihnen hatten, aber wir nach vernünftigem Ermessen annehmen dürfen, dass sie an Hays-Dienstleistungen interessiert sind oder von diesen profitieren könnten, und für die oben genannten beworbenen oder angebotenen Stellen in Betracht kommen könnten.</li>
+</li>
+<li>This Privacy Policy applies in relevant countries throughout our international network. Different countries may approach data privacy in slightly different ways and so we also have country-specific parts to this Privacy Policy. You can find country-specific provisions for your jurisdiction here. This allows us to ensure that we’re complying with all applicable data privacy protections, no matter where you are.</li>
+<li>This Privacy Policy also contains a number of defined terms, so we have included a Glossary at the end of this document.</li>
 </ul>
-<p>Einzelne Auftragnehmer, freie Mitarbeiter oder Angestellte von Lieferanten, die (etwa im Rahmen eines MSP-Angebots) für Stellen bei Kunden von Hays vorgeschlagen werden, gelten ebenfalls als Kandidaten im Sinne dieser Richtlinie.</p>
-<p><strong>Hays Kandidatenpool</strong></p>
-<p>Als Personaldienstleister besteht unser Hauptziel darin, die richtigen Kandidaten mit den richtigen Stellen zu verbinden. Wir können Ihnen helfen, wenn Sie sich für eine bestimmte Stelle bewerben möchten oder wenn Sie sich für Stellen interessieren, die wir allgemein ausschreiben oder bewerben. Wir möchten Sie auch auf andere Weise bei der Verwirklichung Ihrer Karriereziele unterstützen, indem wir Ihnen Fortbildungsmöglichkeiten anbieten, unsere Gehaltsreports erstellen und verteilen und Ihnen Ratschläge für das Verfassen von Lebensläufen und die Technik von Vorstellungsgesprächen geben. Als Teil unseres Angebots für Bewerber möchten wir eine breite Palette nützlicher karrierebezogener Dienstleistungen anbieten, um Sie auf Ihrem Karriereweg zu unterstützen.</p>
-<p>Um dieses Ziel zu erreichen, erstellen wir für Sie ein Bewerberprofil in unserer Datenbank, das auf den Informationen beruht, die Sie uns zur Verfügung stellen und/oder die wir aus anderen Quellen wie Stellenbörsen, beruflichen Netzwerken und Empfehlungen erhalten haben. Diese Informationen können wir dann nutzen, um Sie mit Stellen abzugleichen, die für Sie von Interesse sein könnten, und um Ihnen unsere anderen karrierebezogenen Unterstützungs- und Dienstleistungen anzubieten.</p>
-<p>Wenn Ihre Daten in unserer Datenbank gespeichert sind, gehören sie zu einem so genannten „Kandidatenpool“. Der Kandidatenpool ermöglicht es uns nicht nur, wichtige Informationen zu erfassen und Ihre Fortschritte in Bezug auf bestimmte Stellen zu verfolgen, sondern wird auch von unseren Beratern durchsucht, um Sie mit neuen und interessanten Stellenangeboten abzugleichen. Wenn unsere Berater beim Durchsuchen des Kandidatenpools eine potenzielle Übereinstimmung feststellen, setzen sie sich mit Ihnen in Verbindung, um herauszufinden, ob Sie für die Stelle in Frage kommen würden. Wenn die Stelle für Sie interessant ist, werden wir in Zusammenarbeit mit Ihnen das entsprechenden Bewerbungsverfahren einleiten. Wenn die Stelle für Sie nicht von Interesse ist oder unsere Berater der Meinung sind, dass die Stelle für Sie nicht in Frage kommt, bleiben Ihre Daten in der Datenbank gespeichert, damit Sie für andere sich bietende Stellen in Betracht gezogen werden können und natürlich, damit Sie weiterhin unsere anderen einstellungsbezogenen Unterstützungs- und Serviceleistungen in Anspruch nehmen können.</p>
-<p><strong>Recht auf Widerspruch</strong>: Wenn Sie zu irgendeinem Zeitpunkt nicht für andere offene Stellen im Rahmen dieses Kandidatenpools berücksichtigt werden möchten, haben Sie das Recht, dem zu widersprechen. Sie müssen uns dies lediglich mitteilen, indem Sie sich an Ihr lokales Hays-Datenteam wenden, dessen Kontaktdaten Sie hier finden. Nach Erhalt eines Widerspruchs wird unser Datenteam die geeigneten Maßnahmen ermitteln, gegebenenfalls auch mit Ihnen Rücksprache halten, um die Verarbeitung, gegen die Sie Widerspruch einlegen wollen, besser zu verstehen.</p>
-<p>Bitte beachten Sie, dass das Widerspruchsrecht zusätzlich zu Ihrem Recht besteht, sich von unseren Werbe-Nachrichten abzumelden. Einzelheiten dazu finden Sie hier.</p>
-<p>Welche Arten personenbezogener Daten werden erfasst?</p>
-<p>Sie möchten genauer erfahren, welche Daten wir über Sie erfassen? Hier sind die Informationen, die wir erfassen, genauer beschrieben. Die unten beschriebenen Informationen verstehen sich selbstverständlich zusätzlich zu den personenbezogenen Daten, zu deren Verarbeitung wir in den jeweiligen Situationen gesetzlich verpflichtet sind.</p>
-<p>Je nach den relevanten Umständen und den geltenden lokalen Gesetzen und Anforderungen sammeln wir einige oder alle der unten aufgeführten Informationen, um festzustellen, wie wir Ihnen helfen können, wenn wir vernünftigerweise davon ausgehen, dass Sie an unseren Dienstleistungen interessiert sind oder unsere Dienstleistungen nutzen könnten, und um Ihnen Beschäftigungsmöglichkeiten anzubieten, die auf Ihre Situation und Ihre Interessen zugeschnitten sind.</p>
-<p>In einigen Rechtsordnungen ist unsere Verarbeitung einiger der nachfolgend aufgeführten Daten beschränkt. In solchen Fällen werden wir die Daten in diesen Ländern nur in dem Umfang und unter den gesetzlich zulässigen Umständen verarbeiten:</p>
+<h2>Context-Specific Privacy Information</h2>
+<h3>1. Candidates</h3>
+<p>This section of the Privacy Policy applies to Candidates.</p>
+<p>You are a Candidate if:</p>
 <ul>
-<li><strong>Wichtige Identifikations- und Kontaktinformationen</strong>
+<li>you have applied for a role advertised or promoted by Hays including permanent, part-time and temporary positions and freelance roles with Hays’ Clients (including if you want to be a Temporary Worker);</li>
+<li>you have engaged with Hays about Hays’ services and/or any of the roles advertised or promoted by Hays referred to above or supplied a speculative CV to Hays though not in relation to a specific job; or</li>
+<li>we haven’t had prior contact with you but, we reasonably consider that you would be interested in, or might benefit from, Hays’ services and being considered for any roles advertised or promoted by Hays referred to above.</li>
+</ul>
+<p>Individual contractors, freelance workers and employees of suppliers or other third parties put forward for roles with Hays’ Clients (for example, as part of an MSP offering) will also be treated as Candidates for the purposes of this Privacy Policy.</p>
+<p><strong>Hays Candidate Pool</strong></p>
+<p>As a recruitment agency, our main goal is to connect the right Candidates with the right jobs. We can help you whether you are interested in applying for a specific role or are interested in hearing about roles that we are advertising or promoting more generally. We also want to help you to achieve your career aspirations in other ways, such as making training opportunities available to you, preparing and circulating our salary guides and giving guidance to you on things like CV writing and interview technique. Ultimately, as part of our offering to Candidates, we aim to provide a wide range of useful recruitment-related services to help you on your career journeys.</p>
+<p>To make a start towards that goal, we prepare a Candidate profile for you on our database based on the information that you provide to us and/or that we have gathered from other sources, including job boards, professional networking sites and recommendations. We are then able to use this information to match you with roles that might be of interest to you, as well as reaching out to you to provide you with our other recruitment-related support and services.</p>
+<p>If your details are on our database, they will be part of what is sometimes referred to as a “Candidate Pool”. In addition to allowing us to both record key information and track your progress against specific jobs, the Candidate Pool will be searched against by our consultants to match you with new and exciting job opportunities. If our consultants identify a potential match when searching the Candidate Pool, they will reach out to you to see if you would be interested in being considered for the role. If the role is of interest, then we will, in collaboration with you, move forward with the applicable recruitment processes. If the role isn’t of interest to you or our consultants do not consider that the role would be a suitable opportunity for you, your details would remain on the database so that you can be considered for different job opportunities that arise and, of course, so that you can continue to receive our other recruitment-related support and services.</p>
+<p><strong>Right to object</strong>: If, at any time, you do not wish to be considered for other vacancies as part of this Candidate Pool, you have the right to object. All you need to do is let us know by contacting your local Hays data team, details of which can be found here. On receipt of an objection, our data team will identify the appropriate measures, including working with you to understand the processing that you are objecting to, if necessary.</p>
+<p>Please note the right to object is in addition to your right to opt out of marketing through our unsubscribe process. Details of how to do so can be found here.</p>
+<p>What kind of personal information do we collect?</p>
+<p>So you’re looking for a bit more insight into what data we collect about you? Here’s a more detailed look at the sorts of information that we will collect. The information described below is, of course, in addition to any personal data we are required by law to process in any given situation.</p>
+<p>Depending on the relevant circumstances and applicable local laws and requirements, we will collect some or all of the information listed below to enable us to assess how we can assist you if we reasonably believe you might be interested in, or might benefit from our services, and to offer you employment opportunities which are tailored to your circumstances and your interests.</p>
+<p>In some jurisdictions, we are restricted from processing some of the data outlined below. In such cases, we will only process the data in those jurisdictions to the extent and under the circumstances permitted by law:</p>
+<ul>
+<li><strong>Key identification and contact information</strong>
 <ul>
 <li>Name;</li>
-<li>Alter/Geburtsdatum;</li>
-<li>Geburtsnummer;</li>
-<li>Geschlecht/Geschlechter;</li>
-<li>Foto;</li>
-<li>Familienstand;</li>
-<li>Staatsangehörigkeit/Staatsbürgerschaft/Geburtsort;</li>
-<li>Kontaktdaten;</li>
-<li>Notfallkontakte/Informationen zu Angehörigen und Einzelheiten zu unterhaltsberechtigten Personen;</li>
-<li>Eine Kopie Ihres Führerscheins und/oder Reisepasses/Personalausweises;</li>
+<li>Age/date of birth;</li>
+<li>Birth number;</li>
+<li>Sex/gender;</li>
+<li>Photograph;</li>
+<li>Marital status;</li>
+<li>Nationality/citizenship/place of birth;</li>
+<li>Contact details;</li>
+<li>Emergency contacts/next of kin information and details of any dependents;</li>
+<li>A copy of your driver’s license and/or passport/identity card;</li>
 </ul>
 </li>
-<li><strong>Informationen zu Ausbildung und Beruf</strong>
+<li><strong>Education and employment information</strong>
 <ul>
-<li>Einzelheiten zur Ausbildung;</li>
-<li>Beruflicher Werdegang;</li>
-<li>Aktuelle Berufsbezeichnung/Spezialisierung/Unternehmensbereich;</li>
-<li>Fähigkeiten und Sprachkenntnisse;</li>
-<li>Einzelheiten zu Ansprechpartnern für eine Referenz;</li>
-<li>Einwanderungsstatus (ob Sie eine Arbeitserlaubnis benötigen);</li>
-<li>Anfangsdatum oder Verfügbarkeitsdatum;</li>
-<li>Angaben zu Ihrer vorherigen und aktuellen Vergütung, Pensionen und Sozialleistungen;</li>
-<li>Einzelheiten zu den geleisteten Arbeitsstunden (nachdem Sie eine Stelle angetreten haben);</li>
-<li>Informationen zu Ihren Interessen und Ansprüchen im Hinblick auf eine künftige Beschäftigung; diese werden sowohl direkt erfasst als auch abgeleitet, beispielsweise aus den Stellenangeboten oder Artikeln, die Sie auf unserer Website oder über Links in von uns erhaltenen digitale Nachrichten lesen oder anklicken;</li>
+<li>Education details;</li>
+<li>Employment history;</li>
+<li>Current job title/specialism/industry sector;</li>
+<li>Skills and languages spoken;</li>
+<li>Referee details;</li>
+<li>Immigration status (whether you need a work permit);</li>
+<li>Start date or availability date;</li>
+<li>Details about your previous and current remuneration, pensions and benefits arrangements;</li>
+<li>Details of hours worked (once you have been placed in a role);</li>
+<li>Information on your interests and needs regarding future employment, both collected directly and inferred, for example from jobs viewed or articles read on our website or from links clicked on in electronic messages from us;</li>
 </ul>
 </li>
-<li><strong>Finanzinformationen</strong>
+<li><strong>Financial information</strong>
 <ul>
-<li>Bankverbindung;</li>
-<li>Finanzdaten (wenn wir Ihren finanziellen Hintergrund prüfen müssen);</li>
-<li>Sozialversicherungsnummer (oder Gleichwertiges in Ihrem Land) und andere steuerliche Informationen;</li>
+<li>Bank details;</li>
+<li>Financial information (where we need to carry out financial background checks);</li>
+<li>Social security number (or equivalent in your country) and any other tax-related information;</li>
 </ul>
 </li>
-<li><strong>Besondere Kategorien personenbezogener Daten</strong>
+<li><strong>Special category information</strong>
 <ul>
-<li>Einzelheiten über die rassische oder ethnische Herkunft, die sexuelle Orientierung, religiöse oder ähnliche Überzeugungen und die physische oder geistige Gesundheit, einschließlich Informationen über Behinderung, jeweils für die Zwecke des Diversitätsmonitorings;</li>
-<li>Sexuelle Orientierung (beispielsweise, wenn Sie dies durch die Übermittlung von Einzelheiten zu Angehörigen offenlegen);</li>
-<li>Körperliche oder geistige Gesundheit, einschließlich Informationen in Bezug auf Behinderungen, die es uns ermöglichen, angemessene Anpassungen vorzunehmen, sowie gesundheitsbezogene Informationen im Zusammenhang mit bestimmten Stellen, bei denen wir Arbeitsschutzmaßnahmen ergreifen oder Ihnen anbieten müssen;</li>
-<li>Gegebenenfalls Angaben zu gesundheitsbezogenen Informationen, die sich aus oder im Zusammenhang mit der COVID-19 oder anderen Pandemien ergeben, wenn dies für eine Stelle erforderlich ist, bezüglich welcher Sie an einer Bewerbung interessiert sind oder für die Sie sich beworben haben, z. B. ein Testergebnis (entweder positiv oder negativ) oder die Impfhistorie (einschließlich Gesundheitszustände in Bezug auf Impfungen oder die die Impfung beeinträchtigen);</li>
-<li>Unter bestimmten Umständen Videoaufzeichnungen von Kandidaten, die an Schulungen oder an Sitzungen teilnehmen, bei denen die Einzelpersonen der Aufzeichnung zugestimmt haben;</li>
-<li>Religiöse Überzeugungen, um den Anspruch auf Jahresurlaub zu berechnen;</li>
+<li>Details of racial or ethnic origin, sexual orientation, religious or other similar beliefs, and physical or mental health, including disability-related information, in each case for diversity monitoring purposes;</li>
+<li>Sexual orientation (for example where you disclose this through providing next-of-kin details);</li>
+<li>Physical or mental health, including disability-related information in order to enable us to make reasonable adjustments and health-related information when we need to use or offer occupational health to you in the context of certain types of roles;</li>
+<li>Where appropriate, details of health-related information arising from or in connection with COVID-19 or other pandemics, if this is required for a role that you are interested in applying for or have applied for, e.g. a test result (whether positive or negative) or vaccination history (including medical conditions relating to or affecting vaccination);</li>
+<li>In certain circumstances, video recordings of Candidates attending or participating in training or meetings where individuals have consented to the recording;</li>
+<li>Religious beliefs in order to calculate entitlement to annual leave;</li>
 </ul>
 </li>
-<li><strong>Daten über strafrechtliche Verurteilungen</strong>
+<li><strong>Criminal conviction data</strong>
 <ul>
-<li>Einzelheiten zu eventuellen strafrechtlichen Verurteilungen, wenn dies für eine Stelle, für die Sie sich bewerben, relevant ist;</li>
+<li>Details of any criminal convictions if this is relevant to a role that you are applying for;</li>
 </ul>
 </li>
-<li><strong>Automatisch erhobene Informationen</strong>
+<li><strong>Automatically collected information</strong>
 <ul>
-<li>IP-Adresse;</li>
-<li>Anwendungsinformationen einschließlich Datum, Uhrzeit und Häufigkeit Ihrer Zugriffe auf unsere Dienste;</li>
-<li>Nutzerverhalten (z. B. Marketingpräferenzen);</li>
-<li>Nutzerberichte;</li>
-<li>Protokoll- und Fehlerbehebungsinformationen;</li>
-<li>Geräteinformationen, wenn Sie unsere Dienste installieren, darauf zugreifen oder diese nutzen;</li>
-<li>Website-Browsing-Daten der besuchten Seiten, z. B. der Hays-Website oder Websites der Kunden;</li>
-<li>Verlauf der digitalen Nachrichten mit Hays;</li>
-<li>Standortinformationen (abgeleitet aus Jobs, IP-Adresse, Anwendungshistorie oder Systemspeicherdaten);</li>
-<li>Kontozugriffsdaten (z. B. PIN-Nummern für Zwecke der Benutzerkonto-Überprüfung);</li>
+<li>IP address;</li>
+<li>Usage information including the dates, times and frequency with which you access our services;</li>
+<li>User choices (e.g. marketing preferences);</li>
+<li>User reports;</li>
+<li>Log and troubleshooting information;</li>
+<li>Device information when you install, access or use our services;</li>
+<li>Website browsing data e.g. pages viewed e.g. Hays or Clients’ websites;</li>
+<li>Electronic message engagement history with Hays;</li>
+<li>Location information (inferred from jobs, IP address, application history or system stored data);</li>
+<li>Account access information (e.g. PIN numbers for account verification purposes);</li>
 </ul>
 </li>
-<li><strong>Informationen, die andere über Sie bereitstellen</strong>
+<li><strong>Information that others provide about you</strong>
 <ul>
-<li>Zusätzliche Informationen, die uns Ihr Ansprechpartner für eine Referenz von sich aus über Sie mitteilt;</li>
-<li>Zusätzliche Informationen, die uns unsere Kunden über Sie mitteilen, oder die wir von anderen Quellen Dritter, wie z. B. Job-börsen (in die Sie Informationen hochgeladen haben oder die uns anderweitig zur Verfügung gestellt werden), erhalten;</li>
-<li>Informationen über Ihre Interessen und Bedürfnisse im Hinblick auf eine künftige Beschäftigung, die sowohl direkt als auch indirekt erfasst werden, beispielsweise durch die Anzeige von Stellenangeboten, das Lesen von Artikeln auf unserer Webseite oder durch das Anklicken von Links in digitalen Nachrichten von uns;</li>
-<li>Einzelheiten über Sie, die in einem Whistleblowing-„SpeakUp“- oder „SafeCall“-Bericht oder einer Untersuchung enthalten sind, die entweder von Ihnen initiiert wurde oder an der Sie anderweitig beteiligt sind; und</li>
+<li>Extra information that your referees choose to tell us about you;</li>
+<li>Extra information that our Clients may tell us about you, or that we find from other third party sources such as job sites (which you have uploaded information onto, or is otherwise made available to us);</li>
+<li>Information about your interests and needs regarding future employment, both collected directly and inferred, for example from jobs viewed or articles read on our website or from links clicked on in electronic messages from us;</li>
+<li>Details contained in any whistleblowing “SpeakUp” or “SafeCall” report or investigation, either instigated by you or in which you are otherwise involved; and</li>
 </ul>
 </li>
-<li><strong>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</strong>
+<li><strong>Additional information that you choose to tell us</strong>
 <ul>
-<li>Alle anderen Informationen, die Sie uns möglicherweise zur Verfügung stellen, einschließlich z. B. Angaben zu Ihren Regelungen in Bezug auf Kinderbetreuung oder Pflege (z. B. wenn Sie einem Abzug von Kinderbetreuungsgutscheinen von Ihrem Gehalt einwilligen oder wenn Sie diese Informationen freiwillig angeben) und wenn Sie uns diese Informationen per digitaler Nachricht oder anderweitig mitteilen.</li>
-</ul>
-</li>
-</ul>
-<p>Bitte beachten Sie, dass die obige Liste der Kategorien personenbezogener Daten, die wir erfassen, nicht abschließend ist.</p>
-<p>Soweit Sie auf unsere Website zugreifen oder Links in einer digitalen Nachricht von uns anklicken, werden wir auch bestimmte Daten von Ihnen erheben. Wenn Sie diesbezüglich weitere Informationen wünschen, lesen Sie bitte den kontextspezifischen Abschnitt dieser Datenschutzrichtlinie, der für die Website-Nutzer gilt.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten erfasst?</strong></p>
-<p>Wir erfassen personenbezogene Daten von Kandidaten auf die folgenden Arten:</p>
-<ul>
-<li>Personenbezogene Daten, die Sie uns als Kandidat mitteilen;</li>
-<li>Personenbezogene Daten, die wir aus anderen Quellen erhalten; und</li>
-<li>Personenbezogene Daten, die wir automatisch erfassen.</li>
-</ul>
-<p><strong>Personenbezogene Daten, die Sie uns mitteilen</strong></p>
-<ul>
-<li>Hays benötigt bestimmte Informationen über Sie, um Ihnen Leistungen erbringen zu können. Auf diese Weise können wir Ihnen unter anderem die besten Möglichkeiten, Informationen und Unterstützung bieten. Außerdem sparen Sie vermutlich Zeit, weil Sie keine Informationen über Jobs und Leistungen durchsuchen müssen, die für Sie nicht relevant sind.</li>
-<li>Es gibt zahlreiche Möglichkeiten, wie Sie Ihre Daten mit uns teilen können. Das können sein:
-<ul>
-<li>Eingabe Ihrer Daten auf der Hays-Website oder über ein Bewerbungsformular als Teil des Registrierungsprozesses;</li>
-<li>Übergabe eines Lebenslaufes in Papierform bei einer Hays-Rekrutierungsveranstaltung, einer Jobmesse oder einer Niederlassung;</li>
-<li>Sie senden Ihren Lebenslauf oder andere Informationen digital an einen Hays Consultant von Hays oder führen ein Interview mit ihm durch;</li>
-<li>Bewerbung über eine Jobsuchmaschine auf Stellen, die Sie dann auf die Website von Hays weiterleitet;</li>
-<li>Eingabe Ihre personenbezogenen Informationen auf einer Microsite von Hays; oder</li>
-<li>Teilnahme an einem Wettbewerb über ein soziales Netzwerk wie Facebook oder Twitter (oder ähnliches).</li>
-</ul>
-</li>
-<li>Zu den Arten von Informationen, die wir auf diese Weise von Ihnen erhalten, gehören:
-<ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen;</li>
-<li>Informationen zu Ausbildung und Beruf;</li>
-<li>Finanzinformationen;</li>
-<li>Besondere Kategorien personenbezogener Daten;</li>
-<li>Daten über strafrechtliche Verurteilungen und</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen,</li>
+<li>Any other information that you may provide to us including, for instance, details of your childcare or carer arrangements (for example, when you authorize a deduction from pay for childcare vouchers or when you volunteer this information) and when corresponding with us via electronic messages or otherwise.</li>
 </ul>
 </li>
 </ul>
-<p>wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</p>
-<p><strong>Personenbezogene Daten, die wir aus anderen Quellen erhalten</strong></p>
+<p>Please note that the above list of categories of personal data we collect is not exhaustive.</p>
+<p>To the extent that you access our website or click through any links in an electronic message from us, we will also collect certain data from you. If you would like more information about this, please refer to the context-specific section of this Privacy Policy that applies to Website Users.</p>
+<p><strong>How do we collect your personal data?</strong></p>
+<p>We collect Candidate personal data in the following ways:</p>
 <ul>
-<li>Wir erhalten auch aus anderen Quellen personenbezogene Daten über Kandidaten. Je nach den relevanten Umständen und den geltenden lokalen Gesetzen und Anforderungen umfasst dies personenbezogene Daten, die in folgenden Situationen erhalten werden:
+<li>Personal data that you, the Candidate, give to us;</li>
+<li>Personal data that we receive from other sources; and</li>
+<li>Personal data that we collect automatically.</li>
+</ul>
+<p><strong>Personal data you give to us</strong></p>
 <ul>
-<li>Wenn wir Kandidaten über Drittanbieter-Quellen wie LinkedIn und andere Websites mit Stellenangeboten suchen, von denen wir Ihre personenbezogenen Daten erhalten und/oder wenn wir andere Rekrutierungsmaßnahmen vor der Einstellung durchführen (siehe den Abschnitt „vorbereitende Rekrutierungsmaßnahmen“ unten);</li>
-<li>Ihr Referenzgeber kann personenbezogene Informationen über Sie offenlegen;</li>
-<li>Unsere Kunden, Lieferanten, andere Kandidaten, unsere Kollegen innerhalb von Hays (z. B. im Rahmen einer Empfehlung) und andere relevante Personen können personenbezogene Daten über Sie an uns weitergeben;</li>
-<li>Wenn wir Ihre personenbezogenen Daten von Facebook oder Twitter erhalten, wenn Sie unsere Facebook-Seite „liken“ oder uns auf Twitter „folgen“ (oder mit uns einen ähnlichen Austausch auf einer Social-Media-Plattform, auf der wir präsent sind, haben); und</li>
-<li>Wenn Sie von einem RPO- oder MSP-Anbieter an uns verwiesen werden, teilt dieser uns möglicherweise personenbezogene Informationen über Sie mit.</li>
+<li>Hays needs to know certain information about you in order to provide you with its services. This will enable us, amongst other things, to provide you with the best opportunities, information and support and should save you time in not having to trawl through information about jobs and services that are not relevant to you.</li>
+<li>There are numerous ways you can share your information with us. These may include:
+<ul>
+<li>Entering your details on the Hays website or via an application form, as part of the registration process;</li>
+<li>Leaving a hard copy CV at a Hays recruitment event, job fair or office;</li>
+<li>Sending your CV or other information to a Hays consultant electronically or being interviewed by them;</li>
+<li>Applying for jobs through a job aggregator, which then redirects you to the Hays website;</li>
+<li>Entering your personal details into a Hays microsite; or</li>
+<li>Entering a competition through a social media channel such as Facebook or Twitter (or similar).</li>
 </ul>
 </li>
-<li>Zu den Arten von Informationen, die wir auf diese Weise über Sie erhalten, gehören die von anderen, Sie betreffenden, bereitgestellten Informationen, die im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben sind.</li>
-</ul>
-<p><strong>Personenbezogene Informationen, die wir automatisch erfassen</strong></p>
+<li>The types of information that we receive from you in this way include:
 <ul>
-<li>Soweit Sie auf unsere Website zugreifen oder eine digitale Nachricht von uns lesen oder anklicken, sammeln wir Ihre Daten gegebenenfalls und sofern dies den örtlichen Gesetzen und Vorschriften entspricht, auch automatisch (z. B. über Website-Tracking-Skripte wie Cookies, Pixel oder UTM-Parameter) oder erhalten sie von Ihnen, wenn Sie uns diese zur Verfügung stellen. Weitere Informationen finden Sie im kontextspezifischen Abschnitt dieser Datenschutzrichtlinie, der für Website-Nutzer gilt.</li>
-<li>Zu den Arten von Informationen, die wir auf diese Weise über Sie sammeln, gehören die „Automatisch erhobene Informationen“, die im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben sind.</li>
-</ul>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
-<p>In der Regel verwenden wir Kandidatendaten auf sechs Arten:</p>
-<ul>
-<li>vorbereitende Rekrutierungsmaßnahmen;</li>
-<li>Rekrutierungsmaßnahmen;</li>
-<li>Werbemaßnahmen;</li>
-<li>Gleichstellungsmonitoring bzw. Überwachung der Chancengleichheit; und</li>
-<li>Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</li>
-<li>Unter bestimmten Umständen verwenden wir Kandidatendaten auch für die Erstellung eines Persönlichkeitsprofils.</li>
-</ul>
-<p><strong>Vorbereitende Rekrutierungsmaßnahmen</strong></p>
-<ul>
-<li>Bei vorbereitenden Rekrutierungsmaßnahmen verwenden wir Ihre Daten, um herauszufinden, ob Sie an unseren Dienstleistungen interessiert sein könnten oder von diesen profitieren könnten, und um zu beurteilen, ob und wie wir Ihnen helfen können. Wenn wir glauben, dass wir Ihnen helfen können, verwenden wir Ihre Kontaktdaten, um mit Ihnen in Kontakt zu treten und herauszufinden, ob Sie an unseren Dienstleistungen interessiert sind (in der Regel per digitaler Nachricht), vorbehaltlich geltender Gesetze und Anforderungen.</li>
-<li>Um dies zu tun, können wir:
-<ul>
-<li>Ihre personenbezogenen Daten erheben;</li>
-<li>Ihre Daten in unserer Datenbank als Teil unseres „Kandidatenpools“ speichern (und ggf. aktualisieren), damit wir Sie im Zusammenhang mit unseren Dienstleistungen kontaktieren können (weitere Einzelheiten finden Sie im obigen Abschnitt über Kandidatenpools);;</li>
-<li>Ihnen eine digitale Nachricht senden, um Sie über die von uns vorgenommene Verarbeitung Ihrer personenbezogenen Daten zu informieren und Sie auf diese Datenschutzrichtlinie zu verweisen;</li>
-<li>Ihre Daten überprüfen, um herauszufinden, ob und wie unsere Dienstleistungen Ihnen helfen könnten; und</li>
-<li>Sie hinsichtlich unserer Dienstleistungen kontaktieren.</li>
+<li>Key identification and contact information;</li>
+<li>Education and employment information;</li>
+<li>Financial information;</li>
+<li>Special category information;</li>
+<li>Criminal conviction data, and</li>
+<li>Additional information that you choose to tell us,</li>
 </ul>
 </li>
-<li>Im Folgenden erklären wir eingehender die verschiedenen Arten, auf die wir Ihre personenbezogenen Daten verwenden und verarbeiten werden, um gegebenenfalls und sofern dies den örtlichen Gesetzen und Vorschriften entspricht, festzustellen, ob unsere Dienstleistungen für Sie von Vorteil wären. Bitte beachten Sie, dass diese Liste nicht vollständig ist.</li>
-<li>In den meisten Fällen können wir Ihre personenbezogenen Daten für die unten beschriebenen Zwecke nutzen, wenn wir dies als durch unsere berechtigten Interessen gerechtfertigt erachten. Dies ist in Artikel 6 (1) (f) der DSGVO geregelt: Er besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Wahrung der berechtigten Interessen [von uns] oder eines Dritten erforderlich ist, sofern nicht [Ihre] Interessen oder Grundrechte und Grundfreiheiten, die den Schutz personenbezogener Daten erfordern, überwiegen.“</li>
-<li>Wir glauben nicht, dass eine der Aktivitäten, bezüglich welcher wir uns auf berechtigte Interessen stützen, die Kandidaten in irgendeiner Weise beeinträchtigt. Sie haben jedoch das Recht, der Verarbeitung Ihrer personenbezogenen Daten durch uns auf dieser Grundlage zu widersprechen. Wenn Sie mehr darüber erfahren möchten, wie Sie dies tun können, lesen Sie bitte den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 1" tabindex="0"><table>
+<p>as described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>Personal data we receive from other sources</strong></p>
+<ul>
+<li>We also receive personal data about Candidates from other sources. Depending on the relevant circumstances and applicable local laws and requirements, this will involve personal data received in the following situations:
+<ul>
+<li>When we search for Candidates via third party sources, such as LinkedIn and other job sites, from which we obtain your personal information and/or when we carry out other pre-recruitment activities (please refer to the section entitled “Pre-recruitment activities” below);</li>
+<li>Your referees may disclose personal information about you;</li>
+<li>Our Clients, Suppliers, other Candidates, our colleagues within Hays (e.g. in the context of them making a referral) and other relevant individuals may share personal information about you with us;</li>
+<li>If we receive your personal information from Facebook or Twitter, if you “like” our Facebook page or “follow” us on Twitter (or perform a similar interaction with us on any social media platform on which we have a presence); and</li>
+<li>If you were referred to us through an RPO or an MSP supplier, they may share personal information about you with us.</li>
+</ul>
+</li>
+<li>The types of information that we receive about you in this way include the information that others provide about you described in the section entitled “What kind of personal information do we collect?” above.</li>
+</ul>
+<p><strong>Personal data we collect automatically</strong></p>
+<ul>
+<li>To the extent that you access our website or read or click on an electronic message from us, where appropriate and in accordance with any local laws and requirements, we will also collect your data automatically (e.g. via website tracking scripts such as cookies, pixels or UTM parameters) or through you providing it to us. For more information, please refer to the context-specific section of this Privacy Policy that applies to Website Users.</li>
+<li>The types of information that we collect about you in this way include the “Automatically collected information” described in the section entitled “What kind of personal information do we collect?” above.</li>
+</ul>
+<p><strong>How do we use your personal data?</strong></p>
+<p>We generally use Candidate data in six ways:</p>
+<ul>
+<li>Pre-recruitment Activities;</li>
+<li>Recruitment Activities;</li>
+<li>Marketing Activities;</li>
+<li>Equal Opportunities Monitoring; and</li>
+<li>To help us to establish, exercise or defend legal claims.</li>
+<li>In appropriate circumstances, we also use Candidate data for Profiling.</li>
+</ul>
+<p><strong>Pre-recruitment Activities</strong></p>
+<ul>
+<li>When conducting pre-recruitment activities, we use your data to work out whether you might be interested in, or might benefit from, our services, and to assess whether and how we might be able to assist you. If we think we can help, we will use your contact details to get in touch with you and find out if you are interested in our services (usually via electronic message), subject to any applicable laws and requirements.</li>
+<li>In order for us to do this, we may:
+<ul>
+<li>Collect your personal data;</li>
+<li>Store your details (and update them when necessary) on our database as part of our “Candidate Pool” so that we can contact you about our services (see section above on Candidate Pools for more details);</li>
+<li>Send you an electronic message to inform you about our processing of your personal data and to direct you towards this Privacy Policy;</li>
+<li>Review your information to work out whether and how our services might help you; and</li>
+<li>Contact you about our services.</li>
+</ul>
+</li>
+<li>We’ve set out in more detail below various ways in which we will use and process your personal data for the purposes of determining whether our services would be beneficial to you, where appropriate and in accordance with any local laws and requirements. Please note that this list is not exhaustive.</li>
+<li>In most cases, we will use your personal data for the purposes below if we deem it necessary to do so for our legitimate interests. Article 6(1)(f) of the GDPR says that we can process your data where it “is necessary for the purposes of the legitimate interests pursued by [us] or by a third party, except where such interests are overridden by the interests or fundamental rights or freedoms of [you] which require protection of personal data.”</li>
+<li>We don’t think that any of the activities in relation to which we rely on the legitimate interests condition prejudice Candidates in any way. However, you do have the right to object to us processing your personal data on this basis. If you would like to know more about how to do so, please refer to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 1" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Daten im Rahmen von und in dem Umfang, der erforderlich ist, um herauszufinden, ob Sie an Personalbeschaffungsdiensten interessiert sind oder solche Dienste in Anspruch nehmen könnten, unter anderem durch:
+<td>Collecting and processing data in the course of and to the extent necessary to work out whether you might be interested in or benefit from recruitment services, including by:
 <ul>
-<li>Erfassung der Daten von Kandidaten und aus anderen Quellen, z. B. LinkedIn</li>
-<li>Speicherung der Daten von Kandidaten in unserer Datenbank als Teil des Hays Kandidatenpools</li>
-<li>Abgleich von Daten mit offenen Stellen</li>
+<li>collecting data from Candidates and other sources, such as LinkedIn</li>
+<li>storing Candidates’ details on our database as part of the Hays Candidate Pool</li>
+<li>assessing data against vacancies</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Additional information that you choose to tell us</li>
+<li>Information that others provide about you</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, dass wir beurteilen, ob Sie an unseren Rekrutierungsdienstleistungen interessiert sein könnten oder von diesen profitieren könnten</td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to assess whether you may be interested in or benefit from our recruitment services</td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung Ihrer Daten im Zuge der Überprüfung Ihrer Informationen, um festzustellen, in welcher Weise die Rekrutierungsdienstleistungen von Hays eine Unterstützung darstellen können</td>
+<td>Collecting and processing your data in the course of reviewing your information to ascertain how Hays’ recruitment services may assist</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, festzustellen, wie wir Ihnen bei Ihrer Arbeitssuche helfen können</td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to identify how we can help you with your job search</td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung Ihrer Daten im Rahmen der Kommunikation mit Ihnen in Bezug auf die Rekrutierungsdienstleistungen von Hays</td>
+<td>Collecting and processing your data in the course of communicating with you in relation to Hays’ recruitment services</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, mit Ihnen im Rahmen der Erbringung unserer Rekrutierungsdienstleistungen Kontakt aufzunehmen und uns mit Ihnen abzustimmen</td>
+<td>Legitimate interests, namely it is in our interests and your interests to contact and correspond with you as part of providing you with our recruitment services</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Rekrutierungsmaßnahmen</strong></p>
+<p><strong>Recruitment Activities</strong></p>
 <ul>
-<li>Offensichtlich handelt es sich bei der Rekrutierung um den Schwerpunktbereich unserer Arbeit – wir führen die richtigen Kandidaten zu den richtigen Jobs, unabhängig davon, ob Sie sich für eine bestimmte Stelle bewerben möchten oder ob Sie an Stellen interessiert sind, die wir ausschreiben oder ob Sie sich nur allgemein bewerben. Wie oben erläutert, speichern wir Ihre Daten (und aktualisieren sie bei Bedarf) in unserer Datenbank als Teil unseres „Kandidatenpools“, so dass wir Ihnen dabei helfen und Ihnen auch andere karrierebezogene Unterstützung und Dienstleistungen anbieten können, wie z. B. die Bereitstellung von Schulungsmöglichkeiten für Sie, die Erstellung und Verbreitung unserer Gehaltsreports und die Beratung in Fragen der Erstellung von Lebensläufen und der Durchführung von Bewerbungsgesprächen. Nachfolgend haben wir verschiedene Möglichkeiten aufgeführt, wie wir Ihre personenbezogenen Daten für diese Zwecke nutzen und verarbeiten, sofern dies angemessen und in Übereinstimmung mit den örtlichen Gesetzen und Anforderungen ist. Bitte beachten Sie, dass diese Liste nicht vollständig ist.</li>
-<li>In den meisten Fällen können wir Ihre personenbezogenen Daten für die unten beschriebenen Zwecke nutzen, wenn wir dies als durch unsere berechtigten Interessen gerechtfertigt erachten. Dies ist in Artikel 6 (1) (f) der DSGVO geregelt: Er besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Wahrung der berechtigten Interessen [von uns] oder eines Dritten erforderlich ist, sofern nicht [Ihre] Interessen oder Grundrechte und Grundfreiheiten, die den Schutz personenbezogener Daten erfordern, überwiegen.“</li>
-<li>Wir glauben nicht, dass eine der Aktivitäten, bezüglich welcher wir uns auf berechtigte Interessen stützen, die Kandidaten in irgendeiner Weise beeinträchtigt – vielmehr helfen sie uns, Ihnen einen maßgeschneiderten und effizienteren Service anzubieten. Sie haben jedoch das Recht, der Verarbeitung Ihrer personenbezogenen Daten durch uns auf dieser Grundlage zu widersprechen. Wenn Sie mehr darüber erfahren möchten, wie Sie dies tun können, lesen Sie bitte den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</li>
-<li>Wir können Ihre personenbezogenen Daten unter bestimmten Umständen für die nachstehenden Zwecke verarbeiten, wenn dies notwendig ist, um Ihnen eine vertragliche Dienstleistung zu erbringen (oder zur Erfüllung einer Ihrerseitigen Anfrage vor dem Vertragsabschluss). Artikel 6 (1) (b) der DSGVO besagt, dass wir Ihre Daten verarbeiten können, „wenn dies für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, oder zur Durchführung vorvertraglicher Maßnahmen erforderlich [ist], die auf Anfrage der betroffenen Person erfolgen.“</li>
-<li>Wenn wir Ihre Daten auf der Grundlage Ihrer Einwilligung für Rekrutierungsaktivitäten verarbeiten, haben Sie das Recht, Ihre Einwilligung jederzeit zu widerrufen, ohne dass die Rechtmäßigkeit der aufgrund dieser Einwilligung bis zum Widerruf erfolgten Verarbeitung berührt wird, indem Sie auf den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie Bezug nehmen.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Obviously, our main area of work is recruitment – connecting the right Candidates with the right jobs, whether you are interested in applying for a specific role or are interested in hearing about roles that we are advertising or promoting more generally. As we have explained above, we will store your details (and update them when necessary) on our database as part of our “Candidate Pool” so that we can help you with this and also provide you with other recruitment-related support and services, such as making training opportunities available to you, preparing and circulating our salary guides and giving guidance to you on things like CV writing and interview technique. We’ve listed below various ways in which we will use and process your personal data for these purposes, where appropriate and in accordance with any local laws and requirements. Please note that this list is not exhaustive.</li>
+<li>In most cases, we will use your personal data for the purposes below if we deem it necessary to do so for our legitimate interests. Article 6(1)(f) of the GDPR says that we can process your data where it “is necessary for the purposes of the legitimate interests pursued by [us] or by a third party, except where such interests are overridden by the interests or fundamental rights or freedoms of [you] which require protection of personal data.”</li>
+<li>We don’t think that any of the activities in relation to which we rely on the legitimate interests condition prejudice Candidates in any way – in fact, they help us to offer you a more tailored, efficient service. However, you do have the right to object to us processing your personal data on this basis. If you would like to know more about how to do so, please refer to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>We may in certain circumstances process your personal data for the purposes below if it is necessary for us to deliver a contractual service to you (or to fulfill a pre-contract request from you). Article 6(1)(b) of the GDPR says that we can process your data where it “is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract.”</li>
+<li>When we process your information for recruitment activities based on your consent, you have the right to withdraw your consent at any time without affecting the lawfulness of processing based on such consent before the consent is withdrawn by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 2" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 2" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Daten im Laufe und in dem Umfang, der erforderlich ist, um Rekrutierungsdienste zu erbringen und den Einstellungsprozess zu erleichtern, u.a. durch:
+<td>Collecting and processing data in the course of and to the extent necessary to provide recruitment services to Candidates and facilitating the recruitment process including by:
 <ul>
-<li>Erfassung der Daten von Kandidaten und aus anderen Quellen, z. B. LinkedIn</li>
-<li>Speicherung der Daten von Kandidaten in unserer Datenbank als Teil des Kandidatenpools</li>
-<li>Abgleich von Daten mit offenen Stellen</li>
-<li>Übermittlung von Kandidateninformationen an Kunden, um sich für Stellen zu bewerben oder die Eignung für Stellenangebote zu bewerten</li>
-<li>die Möglichkeit für Kandidaten, Lebensläufe einzureichen, sich online um Stellen zu bewerben oder um Benachrichtigungen über Stellenangebote zu abonnieren</li>
-<li>Aufzeichnung der Frage- und Antwortrunden von Kandidaten und/oder Videogesprächen zur Unterstützung unserer Rekrutierungsdienste (wobei die Aufzeichnungen zu Schulungs-/Überwachungszwecken analysiert und/oder mit Kunden geteilt und über eine sichere Plattform Dritter angesehen werden)</li>
-<li>Erstellung von Videoaufzeichnungen über die Teilnahme von Kandidaten an Schulungen oder Sitzungen zu internen Schulungs-/Überwachungszwecken und/oder zur Überwachung der internen Compliance-Standards</li>
-<li>Aufzeichnung und Berücksichtigung aller Widersprüche, die Sie uns gegenüber geäußert haben</li>
+<li>Collecting data from Candidates and other sources, such as LinkedIn</li>
+<li>Storing Candidates’ details on our database as part of our Candidate Pool</li>
+<li>Assessing data against vacancies</li>
+<li>Sending Candidates’ information to Clients, in order to apply for jobs or to assess eligibility for jobs</li>
+<li>Enabling Candidates to submit CVs, apply online for jobs or to subscribe to alerts about jobs</li>
+<li>Recording Candidates’ question and answer sessions and/or video interviews to support our recruitment services (with the recordings being analyzed for training/monitoring purposes and/or shared with Clients and viewed via a secure third party platform)</li>
+<li>Making video recordings of Candidates’ participation in training sessions or meetings for internal training/monitoring purposes and/or monitoring internal compliance standards</li>
+<li>Recording and respecting any objections that you have indicated to us</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Zusätzliche Informationen, die Sie uns mitteilen (z. B. Informationen, die Sie uns in einer Aufzeichnung mitteilen)</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Videoaufzeichnungen</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Additional information that you choose to tell us (e.g. information that you tell us in a recording)</li>
+<li>Information that others provide about you</li>
+<li>Video recording footage</li>
 </ul>
 </td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, dass wir Ihnen unsere Rekrutierungsdienstleistungen zur Verfügung stellen und Sie diese erhalten, damit wir als gewinnorientiertes Unternehmen arbeiten und Ihnen und anderen Kandidaten bei der Arbeitssuche helfen
-<p>Wenn Sie mit uns einen Vertrag abgeschlossen haben oder im Begriff sind, einen solchen mit uns abzuschließen oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, soweit die von uns beabsichtigte Verarbeitungstätigkeit für die Zwecke des Vertrags oder der Bearbeitung Ihrer Anfrage erforderlich ist</p>
-<p>Soweit wir eine Videoaufnahme von Ihnen machen, werden wir Ihre Einwilligung ersuchen, bevor wir mit der Aufzeichnung beginnen, werden uns jedoch in Bezug auf unsere Nutzung der Daten zur Schulung/Überwachung und zur Überwachung der Compliance-Standards auf unser berechtigtes Interesse stützen</p></td>
+<td>We will rely on legitimate interests, namely it is in our interests and your interests for us to provide you with our recruitment services and for you to receive them in order for us to function as a profit-making business, and to help you and other Candidates to find employment
+<p>If you have entered or are about to enter into a contract with us or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis to the extent that the processing activity that we are seeking to conduct is necessary for the purposes of the contract or your request</p>
+<p>To the extent that we record a video of you, we will ask for your consent before we start recording but will rely on legitimate interests in relation to our use of the data for training/monitoring and for monitoring compliance standards</p></td>
 </tr>
 <tr>
-<td>Verarbeitung der Kandidatendaten zur Erleichterung der Erstellung von Gehaltsabrechnungen und der Rechnungstellung</td>
+<td>Processing Candidates’ data to facilitate payroll and invoicing processes</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Finanzinformationen</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Financial information</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:
+<td>Legitimate interests, namely it is in our interests and your interests to:
 <ul>
-<li>sicherzustellen, dass unsere Geschäftstätigkeit reibungslos funktioniert, damit wir Kandidaten, wie Ihnen, weiterhin Leistungen bereitstellen können</li>
-<li>sicherzustellen, dass Sie angemessen vergütet werden</li>
+<li>ensure that our business runs smoothly, so that we can carry on providing services to Candidates like you</li>
+<li>ensure that you are appropriately remunerated</li>
 </ul>
-<p>Wenn Sie mit uns einen Vertrag abgeschlossen haben oder im Begriff sind, einen solchen mit uns abzuschließen oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen</p></td>
+<p>If you have entered or are about to enter into a contract with us or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis</p></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung der Kandidatendaten im Rahmen der Durchführung von:
+<td>Collecting and processing Candidates’ data in the course of carrying out:
 <ul>
-<li>Umfragen zur Kundenzufriedenheit</li>
-<li>Hays Marktforschung, die wir für unsere Marketingmaterialien und andere Informationsmaterialien wie Whitepapers, Berichte und Artikel (z. B. unser Gehaltsreport) nutzen werden</li>
+<li>customer satisfaction surveys</li>
+<li>Hays market research which we will use to inform our marketing materials and other informational materials such as whitepapers, reports and articles (e.g. our salary guides)</li>
 </ul>
-<p>Soweit Daten veröffentlicht werden, erfolgt dies nur in aggregierter/anonymisierter Form</p></td>
+<p>To the extent that any data is published, this will be in aggregated/anonymized form only</p></td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigtes Interesse, was heißt, dass es in unserem Interesse liegt:
+<td>Legitimate interests, namely it is in our interests to:
 <ul>
-<li>die Rekrutierungsdienstleistung, die wir Ihnen zur Verfügung stellen, zu verbessern und weiterzuentwickeln, indem wir Ihr Feedback berücksichtigen und dies in unsere Prozesse einfließen lassen, wenn wir es für notwendig halten</li>
-<li>uns einen Einblick in den Werdegang, die Ziele und die Wünsche der Kandidaten zu verschaffen, denen wir Dienstleistungen anbieten, um unser Serviceangebot zu vermarkten und uns auf einem wettbewerbsorientierten Markt zu differenzieren</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Erhebung und Verarbeitung von Kandidatendaten im Rahmen der Einholung von Feedback und Vorschlägen zur Verbesserung des Hays-Geschäfts, über die Hays-Innovationsplattform oder auf andere Weise</td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Finanzinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Berechtigte Interessen, d.h. es liegt in unserem Interesse und im Interesse unserer Kunden und Kandidaten, um:
-<ul>
-<li>unsere Rekrutierungsdienstleistungen zu verbessern und weiterzuentwickeln, um unseren Kunden den bestmöglichen End-to-End-Service zu bieten und unser Dienstleistungsangebot zu verbessern, indem wir Rückmeldungen berücksichtigen und diese gegebenenfalls in unsere Prozesse einfließen lassen</li>
-<li>einen Einblick in die Karrieren, Ziele und Wünsche der Kandidaten zu gewinnen, denen wir Dienstleistungen anbieten, um uns auf einem wettbewerbsorientierten Markt zu differenzieren</li>
-<li>alle Probleme anzusprechen, die uns zur Kenntnis gebracht werden</li>
+<li>improve and develop the recruitment services that we provide to you by considering your feedback and feeding this into our processes where we deem necessary</li>
+<li>gain an insight into the careers, goals and aspirations of the Candidates to whom we provide services in order to market our service offering to help differentiate us in a competitive marketplace</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Kandidatendaten im Rahmen der Kommunikation mit Kandidaten im Zusammenhang mit dienstleistungsbezogenen Fragen und Bereitstellung von Kundenberatung durch die Bearbeitung von Supportanfragen</td>
+<td>Collecting and processing Candidates’ data in the course of requesting feedback and suggestions to improve Hays’ business, via the Hays innovation platform or otherwise</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Financial information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:
+<td>Legitimate interests, namely it is in our interests and the interests of our Clients and Candidates to:
 <ul>
-<li>alle Probleme anzusprechen, die Ihnen widerfahren sind</li>
-<li>die Rekrutierungsdienstleistung, die wir Ihnen zur Verfügung stellen, zu verbessern und weiterzuentwickeln, indem wir Ihr Feedback berücksichtigen und dies in unsere Prozesse einfließen lassen, wenn wir es für notwendig halten</li>
-</ul>
-<p>Wenn Sie mit uns einen Vertrag abgeschlossen haben oder im Begriff sind, einen solchen mit uns abzuschließen oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, um Ihre Daten im Rahmen der Kommunikation mit Ihnen über unsere Dienstleistungen zu verwenden</p></td>
-</tr>
-<tr>
-<td>Verarbeitung der Kandidatendaten, um Ihnen zu ermöglichen, karrierebezogene Dienstleistungen und Zusatzdienste zu erhalten, wie z. B. die Teilnahme an:
-<ul>
-<li>spezialisierten Online-Schulungen</li>
-<li>interaktiven Funktionen von Dienstleistungen</li>
-<li>Dienstleistungen mit Rekrutierungsbezug über die Hays App</li>
-<li>Beratung in Bezug auf das Verfassen von Lebensläufen und Interviewtechniken</li>
-<li>Bereitstellung unserer Veröffentlichungen (z. B. unserer Gehaltsreports)</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Bestimmte automatisch erhobene Informationen, wie z. B. Nutzerverhalten und Informationen über Ihre Nutzung dieser Dienste</li>
-</ul>
-</td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:
-<ul>
-<li>Ihnen Zugang zu unseren Online-Schulungen oder zu einigen unserer interaktiveren Services zu empfehlen und zu gewähren, da diese bei Ihrer Stellensuche hilfreich sein könnten</li>
-<li>Ihnen den bestmöglichen End-to-End-Service zu bieten, unser Serviceangebot für Sie zu verbessern und uns dabei zu helfen, uns auf einem wettbewerbsorientierten Markt zu differenzieren</li>
-</ul>
-<p>Wenn Sie sich für den Erhalt dieser karrierebezogenen Dienstleistungen angemeldet haben (entweder separat oder als Teil der von Ihnen bereits in Anspruch genommenen Rekrutierungsdienstleistungen) oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, soweit die von uns beabsichtigte Verarbeitungstätigkeit für die Zwecke des Vertrags oder der Bearbeitung Ihrer Anfrage erforderlich ist</p></td>
-</tr>
-<tr>
-<td>Verarbeitung von Kandidatendaten im Rahmen der Erfüllung der Verpflichtungen von Hays, die sich aus Verträgen ergeben, die zwischen Hays und Dritten in Bezug auf die Einstellung von Kandidaten geschlossen wurden, wie z. B. potenziellen Arbeitgebern, denen gegenüber wir verpflichtet sind, die am besten geeigneten Kandidaten für Stellen in ihren Organisationen zu identifizieren</td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Finanzinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, unsere Verpflichtungen aus Vereinbarungen mit Dritten wie potenziellen Arbeitgebern zu erfüllen, damit wir Ihnen bei der Stellensuche helfen können
-<p>Wenn Sie mit uns einen Vertrag abgeschlossen haben oder im Begriff sind, einen solchen mit uns abzuschließen oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, soweit die von uns beabsichtigte Verarbeitungstätigkeit auch für die Zwecke unseres Vertrags mit Ihnen (oder mit einem Dritten) erforderlich ist</p></td>
-</tr>
-<tr>
-<td>Prüfung der von einem Kandidaten übermittelten Informationen oder Anforderung von Informationen (z. B. Referenzen, Qualifikationen oder möglichicherweise strafrechtliche Verurteilungen, sofern dies angemessen ist und mit den örtlichen Gesetzen im Einklang steht)</td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Daten über strafrechtliche Verurteilungen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Für Daten aus strafrechtlichen Verurteilungen holen wir Ihre ausdrückliche Einwilligung ein.
-<p>Für alle anderen Arten von Daten:</p>
-<ul>
-<li>werden wir uns auf die Rechtsgrundlage für berechtigte Interessen stützen, d. h. es liegt in unserem Interesse und in Ihrem Interesse, zu überprüfen, dass alle von Ihnen gemachten Angaben wahrheitsgemäß und richtig sind und um im Rahmen der Stellensuche Referenzen über Ihr früheres Verhalten einzuholen</li>
-<li>Wenn Sie mit uns einen Vertrag abgeschlossen haben oder im Begriff sind, einen solchen mit uns abzuschließen oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, soweit die Überprüfung der von Ihnen bereitgestellten Informationen oder der Anfragen, die wir vornehmen müssen, für die Zwecke unseres Vertrags mit Ihnen erforderlich ist.</li>
+<li>improve and develop our recruitment services to provide Clients with the best possible end-to-end service and enhance our service offering by considering feedback and feeding this into our processes where appropriate</li>
+<li>gain an insight into the careers, goals and aspirations of the Candidates to whom we provide services in order to help differentiate us in a competitive marketplace</li>
+<li>address any issues which are brought to our attention</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>In bestimmten Rechtsordnungen die Erhebung und Verarbeitung von Bewerberdaten zum Zweck der Überprüfung von Bewerbern anhand von Anti-Terror-/Sanktionslisten der EU und des Vereinigten Königreichs oder ähnlichen Listen</td>
+<td>Collecting and processing Candidates’ data in the course of communicating with Candidates in relation to services-related issues and providing customer support by processing requests for support</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Daten über strafrechtliche Verurteilungen</li>
-<li>Finanzinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>In bestimmten Rechtsordnungen müssen wir uns möglicherweise auf die Rechtsgrundlage „Einhaltung zur Erfüllung einer rechtlichen Verpflichtung“ berufen, wenn wir nach geltendem Recht zur Durchführung dieser Überprüfungen verpflichtet sind.
-<p>In Rechtsordnungen, in denen wir nicht gesetzlich verpflichtet sind, solche Überprüfungen durchzuführen, stützen wir uns auf die Rechtsgrundlage des „berechtigten Interesses“, zum Beispiel wenn es uns untersagt ist, Zahlungen an Personen zu leisten, die auf Anti-Terror-/Sanktionslisten stehen, und/oder um Hays-Mitarbeiter, das Geschäft von Hays und den Ruf von Hays zu schützen.</p>
-<p>Wenn dies die Verarbeitung von Daten einer besonderen Kategorie oder von Daten über strafbare Handlungen beinhaltet, werden wir diese Informationen nur dann verarbeiten, wenn die Gesetze in Ihrem Land uns dies erlauben und es eine angemessene Rechtsgrundlage für uns gibt, dies gemäß den Datenschutzgesetzen Ihres Landes zu tun.</p></td>
+<td>We will rely on legitimate interests, namely it is in our interests and your interests to:
+<ul>
+<li>address any issues that you have been experiencing</li>
+<li>improve and develop the recruitment services that we provide to you by considering your feedback and feeding this into our processes where we deem necessary</li>
+</ul>
+<p>If you have entered or are about to enter into a contract with us or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis in relation to using your data in the course of conducting communications relating to our services with you</p></td>
 </tr>
 <tr>
-<td>In bestimmten Rechtsordnungen, Verwendung eines webbasierten Verfahrens zur Überprüfung der Identität, um die Identität eines Kandidaten zu überprüfen, wenn wir ihn nicht persönlich treffen und um diesen Prozess dokumentieren</td>
-<td>
+<td>Processing Candidates’ data to enable them to receive recruitment-related support and services, such as participating in:
 <ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen (einschließlich einer Kopie des Führerscheins und/oder Reisepasses/Personalausweises)</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Videoaufzeichnungen</li>
+<li>specialist online training</li>
+<li>interactive features of services</li>
+<li>recruitment-related services via the Hays App</li>
+<li>guidance in relation to CV writing and interview technique</li>
+<li>making our publications (such as our salary guides) available to you</li>
 </ul>
 </td>
-<td>Soweit dies in Ihrem Land geschieht, werden wir Ihre Einwilligung einholen, bevor wir mit der Aufzeichnung beginnen, stützen uns jedoch, was unsere Verwendung der Daten, die wir zur Überprüfung Ihrer Identität erfassen, anbelangt, auf das berechtigte Interesse (es liegt in unserem berechtigten Interesse, interne Compliance-Standards aufrechtzuerhalten).
-<p>Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier</p></td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
+<li>Information that others provide about you</li>
+<li>Certain automatically collected information e.g. User choices and information about your use of these services</li>
+</ul>
+</td>
+<td>We will rely on legitimate interests, namely it is in our interests and your interests to:
+<ul>
+<li>recommend and grant you access to our specialist online training or some of our more interactive services as this might help with your job search</li>
+<li>provide you with the best possible end-to-end service and enhance our service offering to you and to help differentiate us in a competitive marketplace</li>
+</ul>
+<p>If you have signed up to receive these recruitment-related services (either separately or because they form part of the recruitment services to which you have already signed up) or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis to the extent that the processing activity that we are seeking to conduct is necessary for the purposes of the contract or your request</p></td>
 </tr>
 <tr>
-<td>In bestimmten Rechtsgebieten Erhebung und Verarbeitung von Daten zum Zwecke der Durchführung von Compliance-Prüfungen</td>
+<td>Processing Candidates’ data in the course of carrying out Hays’ obligations arising from any contracts entered into between Hays and third parties in relation to Candidates’ recruitment, such as potential employers to whom we are committed to identifying the most suitable Candidates for roles in their organizations</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Finanzinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Financial information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, d.h. es liegt in unserem und im Interesse unserer Kunden, zu überprüfen, ob Sie den richtigen Arbeitnehmer-/Beschäftigungsstatus für eine Aufgabe, ein Projekt und/oder einen potenziellen Arbeitgeber haben oder haben werden, damit wir unseren Verpflichtungen zur Einhaltung unserer Personalbesetzungsvorschriften nachkommen können und um das Geschäft und den Ruf von Hays und ggf. das Geschäft und den Ruf des Kunden zu schützen.</td>
+<td>We will rely on legitimate interests, namely it is in our interests and your interests to fulfill our obligations under agreements with third parties such as potential employers so that we can help you find employment
+<p>If you have entered or are about to enter into a contract with us or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis to the extent that the processing activity that we are seeking to conduct is also necessary for the purposes of our contract with you (or with the third party)</p></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Kandidatendaten im Zuge der Durchführung von Bewertungs- und Entwicklungstätigkeiten wie psychometrische Auswertungen oder Kompetenztests – für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier</td>
+<td>Verifying details that a Candidate has provided or to request information (such as references, qualifications and potentially any criminal convictions, to the extent that this is appropriate and in accordance with local laws)</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns während des Bewertungs-/Kompetenztests zur Verfügung stellen oder uns mitteilen möchten (auch in Bezug auf Ihre Leistung)</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Criminal conviction data</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, Ihnen die Dienstleistungen unserer Abteilungen für Bewertung und Entwicklung zur Verfügung zu stellen, insbesondere in Bezug auf psychologische Bewertung und Forschung, Assessment Center, Kompetenzmanagement, Reorganisationsfragen, Managemententwicklung, Karriereentwicklung, Mobilität, Outplacement, berufliche Neuorientierung und Coaching.</td>
+<td>For criminal conviction data, we will obtain your explicit consent.
+<p>For all other types of data:</p>
+<ul>
+<li>we will rely on the legitimate interests legal basis, namely it is in our interests and your interests to verify that all of the information that you have provided to us is true and accurate and to obtain references about your prior conduct as part of the process of finding you employment</li>
+<li>if you have entered or are about to enter into a contract with us or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis to the extent that verifying details that you have provided or the requests that we need to make are necessary for the purposes of our contract with you.</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td>Verarbeitung von Kandidaten bei der Durchführung von Ermittlungen (unabhängig davon, ob es sich um Whistleblowing-Meldungen oder andere Fälle handelt), soweit diese den Kandidaten betreffen oder mit ihm in Verbindung stehen</td>
+<td>In certain jurisdictions, collecting and processing Candidates’ data for the purpose of screening them against EU and UK anti-terror/sanctions lists or similar</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Criminal conviction data</li>
+<li>Financial information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, d. h. es liegt in unserem und Ihrem Interesse, dass wir Vorfälle, Beschwerden oder Klagen untersuchen oder darauf reagieren und entsprechende Berichte erstellen.
-<p>Möglicherweise haben wir auch andere gesetzliche Verpflichtungen, denen wir in Bezug auf diese Daten nachkommen müssen (z. B. in dem Maße, in dem wir in Ihrem Land Meldepflichten haben, die uns zur Offenlegung Ihrer Daten gegenüber einer Aufsichtsbehörde verpflichten).</p></td>
+<td>In certain jurisdictions, we may need to rely on the “compliance with a legal obligation” legal basis to the extent that we are required by applicable law to conduct these checks.
+<p>In jurisdictions where we are not under a legal obligation to carry out such checks, we rely on the “legitimate interests” legal basis, for example where we are prohibited from making payments to persons on anti-terror/sanctions lists, and/or to protect Hays employees, Hays’ business and reputation.</p>
+<p>If this involves the processing of special category data or criminal offense data, we will only process this information if the laws in your jurisdiction permit us to do so and there is an appropriate legal basis for us to do so under the data protection laws of your jurisdiction.</p></td>
+</tr>
+<tr>
+<td>In certain jurisdictions, using a web-based video identity verification process to verify a Candidate’s identity if we do not meet them in person and to document this process</td>
+<td>
+<ul>
+<li>Key identification and contact information (including a copy of driver’s license and/or passport/identity card)</li>
+<li>Additional information that you choose to tell us</li>
+<li>Video recording footage</li>
+</ul>
+</td>
+<td>To the extent that this is carried out in your jurisdiction, we will ask for your consent before we start recording but rely on the legitimate interests condition (it is in our legitimate interests to maintain internal compliance standards) in relation to our use of the data that we capture to verify your identity.
+<p>For more information in relation to your jurisdiction, please click here</p></td>
+</tr>
+<tr>
+<td>In certain jurisdictions, collecting and processing data for the purposes of conducting compliance checks</td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Financial information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our and our Clients’ interests to verify that you have or will have the correct worker/employment status for a role, project and/or prospective employer so that we can adhere to our staffing compliance obligations and to protect Hays’ business and reputation and, if applicable, the Client’s business and reputation.</td>
+</tr>
+<tr>
+<td>Collecting and processing Candidate data in the course of carrying out assessment and development activities such as psychometric evaluations or skills tests – for more information in relation to your jurisdiction, please click here</td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Additional information that you provide or choose to tell us during the evaluation/skills test (including in relation to your performance)</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to provide you with the services of our Assessment and Development departments, namely in relation to psychological assessment and research, assessment centers, competency management, reorganization issues, management development, career development, mobility, outplacement, career transition and coaching.</td>
+</tr>
+<tr>
+<td>Processing Candidates’ data when carrying out investigations (whether relating to whistleblowing disclosures or otherwise) to the extent that this involves or relates to the Candidate</td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to investigate or respond to any incidents, complaints or grievances and prepare reports in relation to the same.
+<p>We may also have other legal obligations that we need to comply with in relation to this data (e.g. to the extent that we have any reporting obligations in your jurisdiction which require us to disclose your data to a regulatory authority).</p></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Werbemaßnahmen</strong></p>
+<p><strong>Marketing Activities</strong></p>
 <ul>
-<li>Wir werden Ihnen in regelmäßigen Zeitabständen Informationen zusenden, von denen wir glauben, dass sie für Sie interessant sein können, einschließlich solcher, die im Zusammenhang mit der Unterstützung und den Dienstleistungen stehen, die wir im Zusammenhang mit der Rekrutierung anbieten, oder wir bitten Sie um Ihre Hilfe bei der Vermittlung von Stellen an andere Kandidaten. Insbesondere werden wir Ihre Daten gegebenenfalls und sofern dies den örtlichen Gesetzen und Vorschriften entspricht, für die unten aufgeführten Zwecke verwenden. Bitte beachten Sie, dass diese Liste nicht vollständig ist.</li>
-<li>Für einige Aspekte dieser Aktivitäten benötigen wir Ihre ausdrückliche Einwilligung (Opt-In) oder Ihr Soft-Opt-In (was wir weiter unten erläutern). Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzliche gesetzliche Bestimmungen bezüglich der Einwilligung zum Erhalt von Marketingmaterial beachten. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-<li>Die Einwilligung zu Soft-Opt-In ist eine besondere Art der Einwilligung, die gilt, wenn wir Ihre Kontaktdaten erhalten haben, weil Sie zuvor mit uns in Kontakt getreten sind (z. B. indem Sie einem unserer Hays Consultants mitgeteilt haben, dass Sie an unseren Dienstleistungen interessiert sind, eine Bewerbung oder einen Lebenslauf eingereicht oder eine zu besetzende Stelle gemeldet haben), und wir Ihnen von uns aus per digitaler Nachricht andere Dienstleistungen in Bezug auf die Rekrutierung zusenden. Bei der „Soft-Opt-in“-Einwilligung gehen wir davon aus, dass Ihre Einwilligung gegeben ist, solange Sie nicht widersprechen oder sich abmelden, (und wir werden Sie in jeder digitalen Marketing-Nachricht, die wir Ihnen zusenden, an Ihr Recht erinnern und Ihnen die Möglichkeit geben, sich abzumelden). Für die meisten Menschen ist das von Vorteil, weil wir Ihnen so zusätzlich zu der Stelle, für die Sie sich beworben haben, weitere Stellenangebote vorschlagen können und wir Ihnen Informationen zukommen lassen können, von denen wir glauben, dass sie für Sie von Interesse sind. Dies erhöht die Wahrscheinlichkeit, dass wir eine neue Stelle für Sie finden, erheblich. Wir verwenden Ihre personenbezogenen Daten, um Ihnen mit Ihrer „Soft-Opt-in“-Einwilligung E-Marketing-Materialien zuzusenden, wenn wir der Ansicht sind, dass dies in unserem berechtigten Interesse liegt.</li>
-<li>Für andere Aktivitäten des E-Marketings-sind wir verpflichtet, Ihre ausdrückliche Einwilligung einzuholen. Wenn Sie mit unserer Vorgehensweise zum Marketing nicht einverstanden sind, haben Sie das Recht, sich jederzeit abzumelden oder Ihre Einwilligung zu widerrufen. Weitere Informationen, wie Sie dies tun können, finden Sie im Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie. Niemand ist perfekt, auch wenn wir uns große Mühe geben. Sie sollten wissen, dass es möglich ist, dass Ihre Daten im Zuge einer separaten Werbekampagne über öffentliche Quellen erneut erfasst werden können, selbst wenn Sie unsere Werbemitteilungen über unser Einstellungscenter abbestellt haben. Wir versuchen sicherzustellen, dass dies nicht passiert, aber wenn es doch passiert, tut es uns leid. Wir möchten Sie bitten, sich in diesen Fällen erneut abzumelden.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>We will periodically send you information that we think you may find interesting including those linked to the wider recruitment-related support and services that we provide, or to ask for your help with connecting other Candidates with jobs. In particular, we will use your data for the purposes listed below, where appropriate and in accordance with any local laws and requirements. Please note that this list is not exhaustive.</li>
+<li>We need your explicit opt-in consent for some aspects of these activities or soft opt-in (which we explain further below). Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements regarding consenting to receive marketing materials. For more information in relation to your jurisdiction, please click here.</li>
+<li>Soft opt-in consent is a specific type of consent which applies where we have obtained your contact details from an occasion when you previously engaged with us (for example by informing one of our Hays consultants that you are interested in our services, submitting a job application or CV, or registering a vacancy to be filled), and we are e-marketing via electronic messages other recruitment-related services of our own. Under “soft opt-in” consent, we will take your consent as given unless or until you object or opt out (and we will remind you of your right to do this and provide you with the opportunity to opt out, in each e-marketing electronic message that we send to you). For most people, this is beneficial as it allows us to suggest other jobs to you alongside the specific one you applied for and to provide you with information that we think will be of interest to you. This significantly increases the likelihood of us finding you a new position. We will use your personal data to send you e-marketing materials with your “soft opt-in” consent if we deem that it is in our legitimate interests to do so.</li>
+<li>For other types of e-marketing, we are required to obtain your explicit consent. If you are not happy about our approach to marketing, you have the right to opt out or withdraw your consent at any time and can find out more about how to do so by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy. Nobody’s perfect, even though we try to be. We want to let you know that even if you have opted out from our marketing communications through our preference center, it is possible that your details may be recaptured through public sources in an unconnected marketing campaign. We will try to make sure this doesn’t happen, but if it does, we’re sorry. We’d just ask that in those circumstances you opt out again.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 3" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 3" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Nutzung der Daten von Kandidaten, um Marketingaktivitäten durchzuführen, um unsere Dienstleistungen über digitale Kanäle zu fördern, einschließlich in Bezug auf:
+<td>Using Candidates’ data to carry out marketing activities to promote our services through digital channels including in relation to:
 <ul>
-<li>Vermarktung unseres gesamten Angebots an Rekrutierungsdienstleistungen (Vermittlung in Festanstellung, Arbeitnehmerüberlassung, Contracting, Werkverträge, MSP-Programme und RPO-Dienste) an Sie</li>
-<li>Kandidaten Einzelheiten zu Berichten, Werbeaktionen, Angeboten, Networking- und Kundenveranstaltungen sowie ganz allgemein Informationen über Branchen zusenden, von denen wir glauben, dass sie für Sie von Interesse sind</li>
-<li>Übersendung von Informationen an die Kandidaten und Unterstützung in Bezug auf die von uns angebotenen karrierebezogenen Unterstützungs- und Dienstleistungen</li>
-<li>Kandidaten über bestimmte Preisnachlässe und Angebote informieren, die Ihnen aufgrund Ihrer Geschäftsbeziehung mit Hays zustehen</li>
+<li>marketing our full range of recruitment services (permanent placement, temporary staffing, contracting, fixed-scope contracts, MSP programs and RPO services) to you</li>
+<li>sending Candidates details of reports, promotions, offers, networking and client events, and general information about the industry sectors which we think might be of interest to them</li>
+<li>sending Candidates information and providing assistance in relation to the recruitment-related support and services that we provide</li>
+<li>providing Candidates with information about certain discounts and offers that they are eligible for by virtue of their relationship with Hays</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Wenn wir Ihre Kontaktdaten aus einer früheren Zusammenarbeit mit uns erhalten haben und wir andere Dienstleistungen im Zusammenhang mit der Rekrutierung per E-Mail vermarkten, stützen wir uns auf die Einwilligung nach dem Soft-Opt-In-Prinzip, wenn wir der Ansicht sind, dass die Rechtsgrundlage des berechtigten Interesses vorliegt, was heißt, dass wir Sie über unsere Dienstleistungen informieren möchten, und wir der Ansicht sind, dass es in Ihrem Interesse liegt, von ähnlichen Dienstleistungen zu erfahren, wie denen, für die Sie bereits Ihr Interesse bekundet haben
-<p>Unter allen anderen Umständen holen wir Ihre explizite Einwilligung (Opt-In) ein</p></td>
+<td>If we have obtained your contact details from an occasion when you previously engaged with us and we are e-marketing other recruitment-related services of our own, we will rely on soft opt-in consent if we consider that the legitimate interests legal basis applies, namely if we wish to reach out to you to tell you about our services and we consider that it would be in your interests to hear about similar services to those that you have already expressed an interest in
+<p>In all other circumstances, we will obtain your explicit opt-in consent</p></td>
 </tr>
 <tr>
-<td>Erhebung von Daten über Cookies, Zählpixel oder UTM-Parameter und Verwendung von Daten, um Nutzern Hays Werbung und andere Inhalte auf anderen Websites, z. B. Facebook, anzuzeigen</td>
+<td>Collection of data via cookies, tracking pixels or UTM parameters and use of data to show users Hays adverts and other content on other websites, for example, Facebook</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein
-<p>Wenn Sie nicht möchten, dass wir Ihre Daten auf diese Weise nutzen, deaktivieren Sie die „Marketing-Cookies“-Option (bitte sehen Sie hierzu unsere Cookie-Richtlinie ein)</p>
-<p>Auch wenn Sie Marketing-Cookies deaktiviert haben, ist es möglich, dass Ihnen Werbeanzeigen von Hays angezeigt werden. In diesem Fall erfolgt dies jedoch nicht gezielt für Sie persönlich, sondern für eine anonyme Zielgruppe</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise über den Cookie-Präferenzen-Link auf jedem Ihrer Geräte Ihre Einstellungen (z. B. wenn Sie Marketing-Cookies deaktivieren möchten) anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen</p></td>
+<td>We will obtain your consent via the Cookie Preferences link on our website
+<p>If you do not want us to use your data in this way, please turn off the “Marketing Cookies” option (please refer to our Cookies Policy)</p>
+<p>Even where you have turned off marketing cookies, it is still possible that you may see a Hays advert, but in this case it won’t have been targeted at you personally, but rather at an anonymous audience</p>
+<p>Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings (e.g. if you want to turn off marketing cookies) via the Cookie Preferences link on each of your devices</p></td>
 </tr>
 <tr>
-<td>Lookalike Targeting und anderes datengesteuertes Marketing: Bereitstellung von Listen der Daten bestimmter Kandidaten an Facebook und Google, um ihnen zu ermöglichen, für die Marketingzwecke von Hays eine Zielgruppe von Personen mit ähnlichen Eigenschaften oder demografischen Merkmalen wie diese Kandidaten zu finden (zu denen diese Kandidaten nicht gehören).
-<p>Es ist die Politik Facebooks, solche Listen vor der Verwendung unwiderruflich zu hashen, die gehashten Daten mit den eigenen Kunden abzugleichen, die ähnliche Zielgruppe zu generieren, dann die ursprüngliche Liste zu löschen und sie für keinen anderen Zweck zu verwenden. Wir haben keinen Zugriff auf die Identität der Personen in der ähnlichen Zielgruppe, es sei denn, sie klicken auf die Werbung.</p></td>
+<td>Lookalike targeting and other data-driven marketing: providing lists of certain Candidates’ data to Facebook and Google to enable them to find an audience of people with similar characteristics or demographics to these Candidates (which will not include these Candidates) for Hays’ marketing purposes.
+<p>Facebook’s policy is to irreversibly hash such lists prior to use, match the hashed data against their own customers, generate the lookalike audience, then delete the original list and use it for no other purpose. We will not have access to the identity of anyone in the lookalike audience, unless they choose to click on the advertisements.</p></td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen (Werbekennungen)</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information (advertising identifiers)</li>
 </ul>
 </td>
-<td>Wir holen Ihre Opt-in-Einwilligung zur Erfassung von Werbekennungen über den Cookie-Präferenzen-Link auf unserer Website ein
-<p>Wir teilen diese Werbekennungen mit Facebook und Google auf der Rechtsgrundlage legitimer Interessen, was heißt, dass es in unserem Interesse liegt, potenzielle Kunden, die dieselben Eigenschaften oder demographischen Merkmale aufweisen, zu identifizieren und gezielt mit Werbung anzusprechen, es sei denn, wir sind nach örtlichem Recht verpflichtet, Ihre Einwilligung einzuholen. In diesem Fall holen wir diese Einwilligung über unser Einwilligungsmanagement-Tool ein</p></td>
+<td>We will obtain your opt-in consent for the collection of advertising identifiers via the Cookie Preferences link on our website
+<p>We will share these advertising identifiers with Facebook and Google in reliance on the legitimate interests legal basis, namely it is in our interests to identify and target advertisements to potential customers who share the same characteristics or demographics, unless we are required by local law to obtain your consent, in which case we will obtain such consent via our consent management tool</p></td>
 </tr>
 <tr>
-<td>Darstellung von Auszügen aus Kandidatenprofilen zu Werbezwecken auf der Hays-Website(s), um Beispiele für Erfolgsgeschichten zu liefern</td>
+<td>Displaying excerpts from Candidates’ profiles for promotional purposes on Hays’ website(s) to provide examples of success stories</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Zusätzliche Informationen, die Sie uns mitteilen (wir bitten Sie möglicherweise um zusätzliche Einzelheiten über Ihren Werdegang, um über Ihre Erfolgsgeschichte berichten zu können)</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Additional information that you choose to tell us (we may ask you for additional details about your career for the purposes of the story that we tell about you)</li>
 </ul>
 </td>
-<td>Wir werden immer Ihre ausdrückliche Einwilligung einholen, bevor wir Sie auf diese Weise auf der Website vorstellen</td>
+<td>We will always ask for your explicit consent before featuring you in this way on the website</td>
 </tr>
 <tr>
-<td>Verwendung der Kandidatendaten im Rahmen der Service- und Marketingkommunikation über WhatsApp</td>
+<td>Use of Candidates’ data in the course of making service and marketing communications via WhatsApp</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Wir vergewissern uns, dass Sie sich über einen der verschiedenen Kanäle angemeldet (und damit Ihre Einwilligung gegeben) haben:
+<td>We will ensure that you have opted in (and therefore provided your consent) through one of a number of channels:
 <ul>
-<li>wenn Sie sich für WhatsApp-Job-Benachrichtigungen auf der Website anmelden</li>
-<li>beim Versand einer Opt-In-Nachricht direkt an einen unserer WhatsApp-Kanäle</li>
-<li>beim Klicken auf eine Anmeldetaste in einer digitalen Einladungs-Nachricht.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Besondere Kategorien personenbezogener Daten</strong></p>
-<ul>
-<li>Wir verpflichten uns sicherzustellen, dass unsere Rekrutierungsprozesse mit unserem Ansatz zur Chancengleichheit im Einklang stehen und wir werden somit bestimmte besondere Kategorien personenbezogener Daten über Sie verarbeiten, um dies zu erleichtern. Gegebenenfalls verwenden wir diese Informationen in anonymisierter Form, um die Einhaltung unserer Gleichstellungsrichtlinie zu überprüfen.</li>
-<li>Wir werden andere besondere Kategorien personenbezogener Daten über Sie erheben, wie z. B. Daten im Zusammenhang mit der Gesundheit oder der Religionszugehörigkeit, wenn dies den örtlichen Gesetzen entspricht: Artikel 9 (2) (b) der DSGVO erlaubt uns dies, wenn die Verarbeitung für die Erfüllung der Verpflichtungen und die Ausübung unserer oder Ihrer aus dem Arbeitsrecht und dem Recht der sozialen Sicherheit und des Sozialschutzes erwachsenden Rechte erforderlich ist.</li>
-<li>Wir können auch Daten über strafrechtliche Verurteilungen erheben, wenn dies angemessen ist und mit den örtlichen Gesetzen im Einklang steht, die Ihre Einwilligung erfordern können. Wenn Ihnen dies nicht zusagt, haben Sie das Recht, Ihre Einwilligung jederzeit zu widerrufen, und Sie können dies unter Bezugnahme auf den Abschnitt „Wie Sie auf die personenbezogenen Daten, die Sie uns übermittelt haben, zugreifen, diese ändern oder zurücknehmen können“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie erfahren.</li>
-<li>Bitte beachten Sie, dass in einigen Ländern, in denen wir tätig sind, andere Regelungen für besondere Kategorien personenbezogener Daten gelten. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-</ul>
-<div class="legal-table" role="region" aria-label="Tabelle 4" tabindex="0"><table>
-<tbody>
-<tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
-</tr>
-<tr>
-<td>Erhebung und Analyse der Daten von Kandidaten, um unsere Einhaltung der Verpflichtungen zur Chancengleichheit zu bewerten und sicherzustellen</td>
-<td>Einzelheiten über die rassische oder ethnische Herkunft, die sexuelle Orientierung, religiöse oder ähnliche Überzeugungen und die physische oder geistige Gesundheit, einschließlich Informationen über Behinderung</td>
-<td>Wir verarbeiten Ihre personenbezogenen Daten auf diese Weise, wenn unsere Verarbeitung erforderlich ist (und wir ein berechtigtes Interesse daran haben), um die Gewährleistung von oder den Mangel an Chancengleichheit oder Gleichbehandlung zwischen Personengruppen zu überprüfen und uns die örtlichen Gesetze erlauben, Ihre Daten auf diese Weise ohne Ihre Einwilligung zu verarbeiten
-<p>Wenn wir vor Ort Ihre Einwilligung einholen müssen, werden wir dies tun</p></td>
-</tr>
-<tr>
-<td>Weitergabe der Daten von Kandidaten (die erhoben wurden, um unsere Einhaltung der Verpflichtungen zur Chancengleichheit zu bewerten und sicherzustellen) an Kunden (einschließlich an deren interne oder externe Prüfer), wenn dies vertraglich vorgeschrieben ist oder der Kunde diese Informationen ausdrücklich anfordert, um seine eigenen Arbeitsprozesse einhalten zu können</td>
-<td>Einzelheiten über die rassische oder ethnische Herkunft, die sexuelle Orientierung, religiöse oder ähnliche Überzeugungen und die physische oder geistige Gesundheit, einschließlich Informationen über Behinderung</td>
-<td>Wir werden Ihre ausdrückliche Einwilligung einholen, bevor wir Ihre Daten auf diese Weise weitergeben</td>
-</tr>
-<tr>
-<td>Verarbeitung medizinischer Vorgeschichte/Gesundheitsdaten, um während des Einstellungsprozesses angemessene Anpassungen vorzunehmen</td>
-<td>Krankengeschichte/physische oder psychische Gesundheitsdaten</td>
-<td>Wir verarbeiten Ihre personenbezogenen Daten auf diese Weise, wenn wir ein berechtigtes Interesse daran haben und es für uns notwendig ist, Ihre Daten für Gesundheits- und Sozialleistungen zu verarbeiten (z. B. zur Beurteilung der Arbeitsfähigkeit eines Mitarbeiters oder eines potenziellen Mitarbeiters für einen Arbeitgeber) und uns die örtlichen Gesetze erlauben, Ihre Daten auf diese Weise ohne Ihre Einwilligung zu verarbeiten
-<p>Wenn wir vor Ort Ihre Einwilligung einholen müssen, werden wir dies tun</p></td>
-</tr>
-<tr>
-<td>Verarbeitung gesundheitsbezogener Daten, wenn wir im Zusammenhang mit bestimmten Tätigkeiten (z. B. Lehrtätigkeit, Krankenpflege oder Nachtarbeit) eine arbeitsmedizinische Betreuung von Bewerben in Anspruch nehmen oder anbieten müssen</td>
-<td>Krankengeschichte/physische oder psychische Gesundheitsdaten</td>
-<td>Wir verarbeiten Ihre personenbezogenen Daten auf diese Weise, wenn wir ein berechtigtes Interesse daran haben und es für uns notwendig ist, Ihre Daten für gesundheitliche und soziale Zwecke (z. B. zur Bereitstellung von Gesundheitsvorsorge oder Behandlung) zu verarbeiten, und uns die örtlichen Gesetze erlauben, Ihre Daten auf diese Weise ohne Ihre Einwilligung zu verarbeiten
-<p> Wenn wir vor Ort Ihre Einwilligung einholen müssen, werden wir dies tun</p></td>
-</tr>
-<tr>
-<td>Verarbeitung gesundheitsbezogener Informationen, die sich aus oder im Zusammenhang mit der COVID-19-Pandemie oder anderen Pandemien ergeben, sofern dies für eine Stelle erforderlich ist, bezüglich welcher Sie an einer Bewerbung interessiert sind oder für die Sie sich beworben haben</td>
-<td>Gegebenenfalls Testergebnisse (positiv oder negativ) oder Impfhistorie (einschließlich medizinischer Erkrankungen in Bezug auf die Impfung oder Auswirkungen der Impfung)</td>
-<td>Wir stützen uns auf berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, dass wir Ihre gesundheitsbezogenen Informationen erfassen und weitergeben, wenn dies für eine Stelle erforderlich ist, bezüglich welcher Sie an einer Bewerbung interessiert sind
-<p>Wir können uns auch auf die Rechtsgrundlagen des lebenswichtigen Interesses und des öffentlichen Interesses stützen, d. h. zum Schutz vor schwerwiegenden grenzüberschreitenden Gesundheitsgefahren</p>
-<p>Wir können Ihre Gesundheitsdaten und Informationen in Bezug auf Reisen gemäß Artikel 9 (2) (i) DSGVO verarbeiten, um uns zu ermöglichen, Gesundheitsdaten, die sich aus oder im Zusammenhang mit der COVID-19-Pandemie ergeben, zu verarbeiten und so die Ausbreitung und Bewertung des Risikos von COVID-19 und anderen infektiösen Viren und Krankheiten zu verhindern und einzuschätzen</p>
-<p>Wenn wir vor Ort Ihre Einwilligung einholen müssen, werden wir dies tun</p></td>
-</tr>
-<tr>
-<td>Verarbeitung von Daten über strafrechtliche Verurteilungen bei der Durchführung von Hintergrundprüfungen</td>
-<td>Einzelheiten zu etwaigen strafrechtlichen Verurteilungen, die der Kandidat in dem Bewerbungsbogen mitgeteilt hat
-<p>Einzelheiten zu etwaigen strafrechtlichen Verurteilungen, die wir aufgrund von Hintergrundprüfungen erhalten haben, die wir durchführen müssen, soweit wir zur Einhaltung unserer gesetzlichen Verpflichtungen im Zusammenhang mit der Arbeitssuche eines Kandidaten verpflichtet sind (z. B. wenn wir einen Kandidaten für bestimmte Aufgaben vorschlagen, die eine Hintergrundprüfung erfordern)</p></td>
-<td>Wir werden Ihre ausdrückliche Einwilligung im Bewerbungsbogen einholen, jedoch müssen wir, sofern uns das örtliche Recht dies erlaubt, möglicherweise eine Überprüfung durch den Disclosure- und Barring-Service (oder eine gleichwertige, in Ihrer Gerichtsbarkeit vorzunehmende Prüfung) ohne Ihre Einwilligung anfordern, wenn dies zur Einhaltung unserer rechtlichen Verpflichtungen im Zusammenhang mit Ihrer Arbeitssuche erforderlich ist</td>
-</tr>
-<tr>
-<td>Verarbeitung bestimmter Arten von Kandidatendaten zur Berechnung des Jahresurlaubs</td>
-<td>Krankengeschichte/Gesundheitsdaten
-<p>Zugehörigkeit zu einer Religionsgemeinschaft</p></td>
-<td>Wir verarbeiten Ihre personenbezogenen Daten auf diese Weise, wenn unsere Verarbeitung erforderlich ist (und wir ein berechtigtes Interesse daran haben), um Verpflichtungen von Hays im Bereich des Arbeits- und Sozialversicherungs- und Sozialrechts zu erfüllen und die diesbezüglichen spezifischen Rechte auszuüben, und uns die örtlichen Gesetze erlauben, Ihre Daten auf diese Weise ohne Ihre Einwilligung zu verarbeiten
-<p>Wenn wir vor Ort Ihre Einwilligung einholen müssen, werden wir dies tun</p></td>
-</tr>
-<tr>
-<td>Verarbeitung der besonderen Kategorien personenbezogener Daten von Personen, die mit Kandidaten in Verbindung stehen, z. B.:
-<ul>
-<li>wenn ein Kandidat uns dies im Zuge der Bereitstellung von Kontaktdaten der nächsten Angehörigen bekannt gibt</li>
-<li>um dem betreffenden Kandidaten den Zugang zu bestimmten Vorteilen zu ermöglichen</li>
-</ul>
-</td>
-<td>Angaben zur sexuellen Orientierung und zur körperlichen oder geistigen Gesundheit, einschließlich Informationen über Behinderung</td>
-<td>Wir verarbeiten Ihre personenbezogenen Daten auf diese Weise, wenn unsere Verarbeitung erforderlich ist (und wir ein berechtigtes Interesse daran haben), um Verpflichtungen von Hays im Bereich des Arbeits- und Sozialversicherungs- und Sozialrechts zu erfüllen und die diesbezüglichen spezifischen Rechte auszuüben, und uns die örtlichen Gesetze erlauben, Ihre Daten auf diese Weise ohne Ihre Einwilligung zu verarbeiten
-<p>Wenn wir vor Ort Ihre Einwilligung einholen müssen, werden wir dies tun</p></td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen</strong></p>
-<ul>
-<li>Manchmal wird es notwendig sein, dass wir personenbezogene Daten aufgrund der Rechtsgrundlage der berechtigten Interessen und gegebenenfalls, in Übereinstimmung mit den örtlichen Gesetzen und Vorschriften, besondere Kategorien personenbezogener Daten im Zusammenhang mit der Ausübung oder Verteidigung von Rechtsansprüchen verarbeiten. Artikel 9 (2) (f) DSGVO gestattet dies, wenn die Verarbeitung „zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder bei Handlungen der Gerichte im Rahmen ihrer justiziellen Tätigkeit erforderlich [ist]“.</li>
-<li>Dies wird z. B. dann eintreten, wenn wir im Zusammenhang mit Gerichtsverfahren Rechtsberatung einholen müssen oder gesetzlich verpflichtet sind, im Rahmen des Gerichtsverfahrens gewisse Informationen vertraulich zu behandeln oder diese offenzulegen.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-</ul>
-<div class="legal-table" role="region" aria-label="Tabelle 5" tabindex="0"><table>
-<tbody>
-<tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
-</tr>
-<tr>
-<td>Aufbewahrung, Weitergabe und anderweitige Verarbeitung von Kandidatendaten zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen</td>
-<td>Die tatsächlich verwendeten Informationen hängen von den sachlichen Umständen ab, könnten jedoch Folgendes umfassen:
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Besondere Kategorien personenbezogener Daten</li>
-<li>Daten über strafrechtliche Verurteilungen</li>
-<li>Finanzinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, Rechtsberatung zu ersuchen und zu erhalten, sofern dies erforderlich ist, um uns im Rahmen von Rechtsstreitigkeiten und anderen Streitfragen zu schützen
-<p>In dem unwahrscheinlichen Fall, dass wir zu diesem Zweck besondere Kategorien personenbezogener Daten oder Daten aus strafrechtlichen Verurteilungen verarbeiten müssen, werden wir dies nur tun, wenn das lokale Recht es uns erlaubt, diese Daten zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen zu verarbeiten</p></td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Profiling, Algorithmen und automatisierte Entscheidungsfindung</strong></p>
-<ul>
-<li>Profiling ist eine Art der Verarbeitung, die es uns ermöglicht, die Informationen, die wir über Sie sammeln, besser zu verstehen, um ein personalisiertes „Profil“ für Sie zu erstellen. Dies hilft uns, eine bessere Vorstellung davon zu bekommen, wie Sie mit uns und unseren Diensten interagieren, welche Art von Anfragen Sie an uns richten und natürlich auch, welche Dinge Sie nicht mögen. Der Zweck zur Erstellung dieses persönlichen Profils ist es, Ihnen den bestmöglichen Service zu bieten und die Chancen zu maximieren, dass wir Ihnen schnell und effizient Zugang zu Inhalten verschaffen können, die für Sie am ehesten relevant und hilfreich sind.</li>
-<li>Wir verwenden Profiling-Methoden in Bezug auf Ihre personenbezogenen Daten, wenn wir dies für unsere berechtigten Interessen, wie in der nachstehenden Tabelle beschrieben, für erforderlich halten. Wenn Sie darüber nicht zufrieden sind, haben Sie unter bestimmten Umständen das Recht, Widerspruch einzulegen. Um mehr darüber zu erfahren, wie und wann Sie dies tun können, sehen Sie den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</li>
-<li>Manchmal setzen wir auch automatisierte Systeme wie Filtertools oder gelegentlich komplexere Instrumente ein, die ein Element künstlicher Intelligenz wie Algorithmen oder maschinelles Lernen nutzen (einschließlich solcher, die von Dritten bereitgestellt werden), um uns dabei zu helfen, die Daten, die wir über Sie und andere Kandidaten haben, sowie die Daten, die wir über die Bedürfnisse unserer Kunden besitzen, schnell, effizient und genauer zu analysieren, und dies hilft uns letztlich, Entscheidungen auf der Grundlage dieser Daten zu treffen. Dazu kann auch die Verwendung von Tools gehören, die Algorithmen (z. B. Filtertools oder maschinelles Lernen) auf die persönlichen Daten von Kandidatenanwenden, um uns dabei zu helfen, die bestmögliche Auswahlliste für eine bestimmte Stelle zu erstellen. Diese Technologie dürfte den Zeitaufwand für die Prüfung der Frage, wann ein Kandidat für eine bestimmte Stelle am besten geeignet ist, erheblich verringern. Dies wiederum sollte den Einstellungsprozess wesentlich effizienter und effektiver machen, was hoffentlich Ihre Erfahrung mit uns insgesamt verbessern wird.</li>
-<li>Da sich neue und bessere Technologien immer mehr durchsetzen, können einige unserer Profiling-Aktivitäten und unsere Verarbeitungstätigkeiten, bei denen automatisierte Systeme wie die oben beschriebenen zum Einsatz kommen, einer automatisierten Entscheidungsfindung im Sinne von Artikel 22 DSGVO gleichkommen. Dies bedeutet, dass eine Entscheidung mit automatisierten Mitteln getroffen wird, wobei der Mensch nur begrenzt oder gar nicht in die Entscheidungsfindung eingreift. Wir verwenden eine automatisierte Entscheidungsfindung in Bezug auf Ihre personenbezogenen Daten nur, wenn wir dies für die Durchführung von vorvertraglichen Schritten auf Ihren Wunsch hin für erforderlich halten.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-</ul>
-<div class="legal-table" role="region" aria-label="Tabelle 6" tabindex="0"><table>
-<tbody>
-<tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
-</tr>
-<tr>
-<td> Erhebung von Daten über Personalisierungs-Cookies/Pixel/UTM-Parameter und Verwendung dieser Daten zu Profilerstellungszwecken, sodass wir Kandidaten sowohl zielgerichtete als auch personalisierte Inhalte zeigen können. Dazu gehören:
-<ul>
-<li>Personalisierung der Website der Kandidaten, auch in Bezug auf die Stellen, auf die Sie beim Besuch der Website aufmerksam gemacht werden</li>
-<li>Empfehlungen für redaktionelle Inhalte, die unserer Meinung nach für Kandidaten von Interesse sein könnten (z. B. Berichte über Entwicklungen in ihrer Branche)</li>
-<li>Personalisierung der Marketinginhalte, die Kandidaten über die Website, digitale Nachrichten und andere Marketingkanäle erhalten (wenn sie diesem Marketing zugestimmt haben)</li>
-</ul>
-<p>Diese Personalisierungs-Cookies/Pixel/UTM-Parameter werden verwendet, um zu verstehen, wie die Kandidaten die Website nutzen, indem ihr Besuch auf der Website, die besuchten Seiten, die durchgeführten Interaktionen und die Links, denen sie gefolgt sind, aufgezeichnet werden</p>
-<p>Wir werden diese Informationen verwenden, um zu verstehen, woran sie interessiert sein könnten, und um die Inhalte, die wir ihnen darstellen und senden, entsprechend anzupassen</p></td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-<p>Dazu gehören insbesondere:</p>
-<ul>
-<li>Personenbezogene Daten und Informationen über die Stellensuche des Kandidaten (z. B. über ein ausgefülltes Formular oder aus unseren Systemen abgerufen)</li>
-<li>Details zu den Interaktionen der Kandidaten mit der Website (z. B. Anwendungen, Webseitenbesuche) und andere Informationen aus den Systemen abgerufen werden (z. B. Stellenbezeichnung, vorherige Bewerbungen)</li>
-<li>Standortdaten – entweder von Jobs, IP-Adresse oder Anwendungshistorie abgeleitet oder systemgespeicherte Daten</li>
-<li>Digitale Kennungen – IP-Adresse, Personalisierungs-Cookies</li>
-<li>Website-Browserdaten, Formular-Einreichungsdaten und Versanddaten von digitalen Nachrichten</li>
-<li>Marketingpräferenzen</li>
-</ul>
-</td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein, bevor wir Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät platzieren und diese Funktionalität aktivieren
-<p>Wenn Sie nicht möchten, dass wir auf Ihrem Gerät ein Personalisierungs-Cookie/Pixel/UTM-Parameter ablegen, deaktivieren Sie bitte die Optionen „Funktionelle Cookies“ und „Marketing-Cookies“ (siehe unsere Cookie-Richtlinie)</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Cookie-Präferenzen-Link auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen.</p>
-<p>Ungeachtet der Einholung Ihrer Einwilligung vor dem Setzen von Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät werden wir uns im Zusammenhang mit den Personalisierungsaktivitäten, die wir anschließend durchführen, auf die Voraussetzung eines berechtigten Interesses stützen</p>
-<p>Wir sind der Ansicht, dass es in unserem Interesse (und manchmal auch in Ihren Interessen) liegt:</p>
-<ul>
-<li>die Bindung für unsere Dienstleistungen zu erhöhen und die Erfahrung bei der Nutzung unserer Dienstleistungen zu verbessern, indem die Relevanz der Inhalte, die Sie auf den Hays-Websites und digitalen Nachrichten-Kampagnen sehen, erhöht wird</li>
-<li>die Anzahl der Bewerbungen, die Quote und die Nützlichkeit der Bewerbung zu erhöhen, indem wir Ihnen maßgeschneiderte Stellenempfehlungen geben</li>
-<li>Sie zu ermutigen, auf unsere Website zurückzukehren, indem wir diese Erfahrung so hilfreich wie möglich gestalten</li>
-<li>die Absprungrate der Website zu verringern</li>
-<li>die Beteiligungsquote von digitalen Nachrichten (d. h. die Häufigkeit, mit der der Nutzer auf die digitale Nachricht klickt) zu erhöhen</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Wir können das web-basierte Verhalten von Kandidaten anhand verschiedener Daten erfassen und analysieren (z. B. Anzahl der gelesenen Stellenanzeigen und diesbezüglichen Online-Bewerbungen, Anzahl und Art der gelesenen Artikel, Anzahl der besuchten Websites, Zugehörigkeit zu „Talentpools“/Segmenten – siehe unten), um einem Kandidaten eine „Ansprechwahrscheinlichkeit“ zuzuweisen, um Einblicke in die Bedürfnisse der Kandidaten zu erhalten und es Hays zu ermöglichen, bei Bedarf nachzufassen
-<p>Hays Consultants werden diese Punktzahl als Teil der unten näher beschriebenen Vorauswahl- und Ranking-Aktivitäten und als Faktor bei der Entscheidung, ob sie sich bezüglich einer Stellenanzeige an einen Kandidaten wenden/ihm die Stellen zeigen, verwenden. Diese Daten dienen dazu, andere Daten zu ergänzen, die Hays über den Kandidaten besitzt.</p>
-<p>Unsere Erhebung webbasierter Daten beruht auf den Personalisierungs-Cookies/Pixel/UTM-Parameter, die wir im Rahmen der oben beschriebenen Personalisierungsaktivitäten auf Ihrem Gerät platzieren</p></td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein, bevor wir Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät platzieren
-<p>Wenn Sie nicht möchten, dass wir auf Ihrem Gerät ein Personalisierungs-Cookie ablegen, deaktivieren Sie bitte die Optionen „Funktionelle Cookies“ und „Marketing-Cookies“ (siehe unsere Cookie-Richtlinie)</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Link „Cookie Präferenzen“ auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen</p>
-<p>Bitte beachten Sie jedoch, dass wir nach wie vor Engagement-Scoring-Aktivitäten durchführen können, auch wenn ein Personalisierungs-Cookie nicht auf Ihrem Gerät platziert wird (z. B. können wir die Informationen berücksichtigen, die wir bereits über Sie in unseren Systemen gespeichert haben, um Ihnen eine Engagement-Score zuzuweisen, auch wenn Sie das Personalisierungs-Cookie abgelehnt haben)</p>
-<p>Ungeachtet der Einholung Ihrer Einwilligung vor dem Setzen von Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät werden wir uns in Bezug auf die Zuweisung eines Engagement-Score und der anschließenden Verwendung dieses Scores auf die Voraussetzung eines berechtigten Interesses stützen</p>
-<p>Wir sind der Ansicht, dass es in unserem berechtigten Interesse liegt, Ihnen eine Engagement-Score zuzuweisen, um unseren Hays Consultants dabei zu helfen, Entscheidungen in Bezug auf die Empfehlung relevanter Stellenangebote und die Übermittlung entsprechender Mitteilungen an Sie zu treffen</p></td>
-</tr>
-<tr>
-<td>Wir können die Daten, die wir über Personalisierungs-Cookies/Pixel/UTM-Parameter erfassen, z. B. webbasiertes Verhalten wie Angaben zu den Interaktionen der Kandidaten mit der Website (z. B. Anwendungen, Webseitenbesuche) verwenden, um die Kandidatendaten und die bereits in unserem System bestehenden Kandidatenprofile zu ergänzen</td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Automatisch erhobene Informationen</li>
-</ul>
-</td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein, bevor wir Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät platzieren
-<p>Wenn Sie nicht möchten, dass wir auf Ihrem Gerät ein Personalisierungs-Cookie ablegen, deaktivieren Sie bitte die Optionen „Funktionelle Cookies“ und „Marketing-Cookies“ (siehe unsere Cookie-Richtlinie)</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Link „Cookie-Präferenzen“ auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen</p>
-<p>Ungeachtet der Einholung Ihrer Einwilligung vor dem Setzen von Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät werden wir uns in Bezug auf die Verwendung von Daten, die wir über Sie erheben, um Ihr bestehendes Profil in unseren Systemen zu vervollständigen, auf die Voraussetzung eines berechtigten Interesses stützen</p>
-<p>Wir sind der Ansicht, dass es in unserem berechtigten Interesse liegt, die Daten, die wir über Sie halten, zu ergänzen, um unseren Hays Consultants dabei zu helfen, Entscheidungen in Bezug auf die Empfehlung relevanter Stellenangebote und die Übermittlung entsprechender Mitteilungen an Sie zu treffen</p></td>
-</tr>
-<tr>
-<td>Analyse der Kandidatendaten durch kontinuierliches Tracking und Monitoring ihrer Erfahrungen und Kontoaktivitäten, um sie zu einem Persönlichkeitsprofil zusammenzufügen und sie auf der Grundlage ihrer Eigenschaften und Verhaltensweisen (z. B. frühere Aufgaben, Fähigkeiten, Branchenerfahrung, Standort, Arbeitsbereitschaft) „Talentpools“ innerhalb unseres größeren Kandidatenpools zuzuweisen.
-<p>Talentpools werden als Mittel zur Verwaltung der Kandidatendatenbank zur Vermittlung von Kandidaten und für das Marketing an Kandidaten verwendet</p>
-<p>Die Zuordnung von Kandidaten zu Talentpools ist ein vollautomatischer Prozess und kann den Einsatz von Bots beinhalten</p></td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse liegt, Profiling-Methoden zu verwenden, um Sie und Ihr Kandidatenprofil auf der Grundlage Ihrer Interessen, Gewohnheiten, Eigenschaften und/oder Vorlieben in Gruppen oder Segmente mit anderen Kandidaten einzuordnen, um:
-<ul>
-<li>Uns zu helfen, den Abgleich von Bewerberprofilen mit Rollen zu optimieren und die Effektivität und Effizienz des Rekrutierungszyklus zu verbessern</li>
-<li>uns zu ermöglichen, jederzeit nachzuverfolgen, ob wir über genügend geeignete Kandidaten verfügen, um jederzeit unsere Geschäftsanforderungen und die unserer Kunden zu erfüllen</li>
-<li>unseren Hays Consultants dabei zu helfen, Entscheidungen in Bezug auf die Empfehlung relevanter Stellenangebote zu treffen und Ihnen entsprechende Mitteilungen zu senden</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Wir können Profiling-Methoden in Bezug auf die Daten von Kandidaten verwenden, damit wir:
-<ul>
-<li>Sie und andere geeignete <a href="https://www.hays.co.uk/revised-privacy-policy#Candidates">Kandidaten</a> auf der Grundlage vorgegebener Kriterien für bestimmte Stellen in die engere Wahl nehmen können, was es unseren Hays Consultants ermöglicht auf die effizienteste Weise die für eine Stelle geeigneten Kandidaten zu ermitteln; und</li>
-<li>aufgrund der Interessen, Gewohnheiten, Eigenschaften und/oder Präferenzen eines Kandidaten im Vergleich zu anderen Kandidaten Stellen empfehlen können</li>
-</ul>
-<p>Unsere Absicht ist es, dass solche Aktivitäten (die den Einsatz automatisierter Prozesse zur Profilerstellung, zur Auswahl, zum Screening, zur Einstufung, zur Benotung, zur Erstellung einer Auswahlliste und/oder zum Vorschlagen von Kandidaten für eine Stelle umfassen könnten) die Tätigkeit unserer Hays Consultants nicht vollständig ersetzt, sondern ergänzt</p></td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse liegt, Profiling-Methoden zu verwenden, um Sie und Ihr Kandidatenprofil auf der Grundlage Ihrer Interessen, Gewohnheiten, Eigenschaften und/oder Vorlieben in Gruppen oder Segmente mit anderen Kandidaten einzuordnen, um:
-<ul>
-<li>uns zu helfen, den Abgleich von Kandidatenprofilen mit Stellen zu optimieren und die Effektivität und Effizienz des Rekrutierungszyklus zu verbessern</li>
-<li>unseren Hays Consultants dabei zu helfen, Entscheidungen zu treffen, um Ihnen relevante Stellen vorzuschlagen</li>
-</ul>
-<p>Sofern diese Aktivitäten zur Vorauswahl- und Einstufung einer automatisierten Entscheidungsfindung im Sinne von Artikel 22 der DSGVO entsprechen, werden wir diese Aktivitäten nur dann durchführen, wenn wir dies für den Abschluss vorvertraglicher Schritte auf Ihren Wunsch hin für erforderlich halten. Wir gehen davon aus, dass Sie als Kandidat hoffen, einen Arbeitsvertrag abschließen zu können, und dass Sie uns durch die Nutzung unserer Dienstleistungen bitten, die zu diesem Zweck erforderlichen Schritte vorzunehmen. Solche Schritte können z. B. die Überprüfung umfassen, dass Sie gewisse Anforderungen für eine bestimmte Stelle erfüllen. Wenn die Stelle sehr gefragt ist, müssen wir möglicherweise die Eignung einer großen Anzahl potenzieller Kandidaten überprüfen – wir können daher automatisierte Entscheidungsfindung verwenden, um diesen Pool von Kandidaten bis zu einer überschaubareren Zahl zu filtern.</p></td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Einhaltung einer gesetzlichen Verpflichtung</strong></p>
-<ul>
-<li>Unter bestimmten Umständen werden wir Ihre personenbezogenen Daten verwenden, um unseren gesetzlichen Verpflichtungen nachzukommen. Artikel 6 (1) (c) der DSGVO besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Erfüllung einer rechtlichen Verpflichtung erforderlich [ist], der [wir] unterliegen“.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-</ul>
-<div class="legal-table" role="region" aria-label="Tabelle 7" tabindex="0"><table>
-<tbody>
-<tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
-</tr>
-<tr>
-<td>Zugriff, Aufbewahrung und Offenlegung von Kandidatendaten, wenn eine rechtlich gültige Anforderung einer Regulierungsbehörde, einer Strafverfolgungsbehörde oder einer Behörde vorliegt oder wir anderweitig gesetzlich dazu verpflichtet sind</td>
-<td>Die tatsächlich verwendeten Informationen hängen von den sachlichen Umständen ab, könnten jedoch Folgendes umfassen:
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Finanzinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-</ul>
-</td>
-<td>Erfüllung einer gesetzlichen Verpflichtung, unter anderem, wenn wir:
-<ul>
-<li>eine gerichtliche Anordnung zur Offenlegung von Informationen für die Zwecke von Gerichtsverfahren im Zusammenhang mit Zivil- und Handelssachen erhalten haben</li>
-<li>von Strafverfolgungsbehörden gezwungen werden, Daten in Bezug auf eine strafrechtliche Untersuchung bereitzustellen</li>
-<li>unseren Verpflichtungen aus dem Verbraucherrecht, wie z. B. dem Wettbewerbsrecht, nachkommen müssen</li>
-<li>unsere Verpflichtungen aus dem Gesellschafts- und Steuerrecht erfüllen müssen, z. B. um Einzelheiten zu Ihrer Vergütung und der gezahlten Steuer anzugeben</li>
-<li>unsere Verpflichtungen aus den Datenschutzgesetzen erfüllen müssen</li>
-<li>unseren arbeitsrechtlichen Verpflichtungen nachkommen müssen (z. B. wenn wir die Anzahl der Stunden, die Sie gearbeitet haben, nachvollziehen müssen)</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Aufbewahrung und Weitergabe der Daten von Kandidaten an Dritte, einschließlich an Strafverfolgungsbehörden und zur Beantwortung rechtlich begründeter Anfragen, wenn wir nicht durch geltendes Recht gezwungen sind, aber nach Treu und Glauben der Ansicht sind, dass dies in der betreffenden Gerichtsbarkeit vorgeschrieben ist</td>
-<td>Die tatsächlich verwendeten Informationen hängen von den sachlichen Umständen ab, könnten jedoch Folgendes umfassen:
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Finanzinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-</ul>
-</td>
-<td>Auch wenn wir nicht gesetzlich dazu verpflichtet sind, Ihre Daten zu verarbeiten, haben wir unter bestimmten Umständen ein berechtigtes Interesse an der Zusammenarbeit mit Strafverfolgungsbehörden und anderen Stellen, um beispielsweise bei der Verhütung und Aufdeckung von Straftaten behilflich zu sein</td>
-</tr>
-<tr>
-<td>Verarbeitung der Kandidatendaten bei der Überprüfung von Unterlagen und Informationen, die bei den Kandidaten angefordert und von ihnen zur Verfügung gestellt werden, um nachzuweisen, dass sie berechtigt sind in einem bestimmten Land zu arbeiten</td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen (z. B. eine Kopie Ihres Reisepasses und Nachweis der Anschrift)</li>
-<li>Bildungs- und Beschäftigungsinformationen (z. B. Einwanderungsstatus und Arbeitserlaubnis, falls zutreffend)</li>
-<li>Finanzielle Informationen (z. B. Sozialversicherungsnummer oder gleichwertige Angaben in Ihrem Land)</li>
-</ul>
-</td>
-<td>Wir verarbeiten Ihre Daten, wenn dies für uns erforderlich ist, um unseren gesetzlichen Verpflichtungen im Hinblick auf die Überprüfung Ihrer Erlaubnis, in einem bestimmten Land zu arbeiten, nachzukommen</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Weitergabe von Daten</strong></p>
-<ul>
-<li>Wir werden Ihre personenbezogenen Daten auf unterschiedliche Art und Weise und aus unterschiedlichen Gründen an unterschiedliche Empfänger weitergeben. In erster Linie geben wir Ihre Informationen an potenzielle Arbeitgeber weiter, um Ihre Chancen zu erhöhen, die gewünschte Stelle zu bekommen. Sofern Sie nichts anderes angegeben haben, werden wir Ihre Informationen auch an jedes unserer Konzernunternehmen sowie verbundene Dritte, wie unsere Dienstleister und ausgewählte Job-Aggregatoren weitergeben, wenn wir der Meinung sind, dass dies dazu beiträgt, Ihnen den bestmöglichen Service zu bieten und Ihre Chancen zu maximieren, Ihre Ziele zu erreichen.</li>
-<li>Wenn Sie eine vollständige Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-</ul>
-<div class="legal-table" role="region" aria-label="Tabelle 8" tabindex="0"><table>
-<tbody>
-<tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
-</tr>
-<tr>
-<td>Offenlegung der Daten der Kandidaten an die im Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ genannten Empfänger, einschließlich der Übermittlung, der Speicherung und der Verarbeitung dieser Daten außerhalb des Vereinigten Königreichs/Europäischen Wirtschaftsraums für die in den vorstehenden Tabellen aufgeführten Zwecke</td>
-<td>Die tatsächlich verwendeten Informationen hängen von den sachlichen Umständen ab, könnten jedoch Folgendes umfassen:
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Finanzinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Besondere Kategorien personenbezogener Daten</li>
-<li>Daten über strafrechtliche Verurteilungen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>Die Offenlegung ist (z. B. an potenzielle Arbeitgeber) für den Abschluss und die Erfüllung von Verträgen, die wir mit Ihnen geschlossen haben (siehe Abschnitt „Rekrutierungsmaßnahmen“ oben) notwendig</li>
-<li>Die Offenlegung (z. B. gegenüber Steuer-, Prüfungs- oder sonstigen Behörden) ist für die Einhaltung einer gesetzlichen Verpflichtung erforderlich, der wir unterliegen (siehe obiger Abschnitt mit dem Titel „Einhaltung einer gesetzlichen Verpflichtung“)</li>
-<li>Die Offenlegung (z. B. gegenüber unseren professionellen Beratern) ist erforderlich, um uns bei der Geltendmachung, der Ausübung oder der Verteidigung von Rechtsansprüchen zu helfen</li>
-<li>Wir haben Ihre Einwilligung eingeholt (z. B. wenn wir Ihre besonderen Kategorien personenbezogener Daten an Kunden (einschließlich ihrer internen oder externen Prüfer) weitergeben), wenn dies vertraglich erforderlich ist oder der Kunde diese Informationen ausdrücklich anfordert, um seine eigenen Beschäftigungsprozesse einhalten zu können</li>
-<li>Die Offenlegung ist für gesundheitliche und soziale Zwecke erforderlich (z. B. an einen Arbeitsmediziner, um die Unterstützung während des Einstellungsprozesses zu ermöglichen, wenn ein Kandidat an einer gesundheitlichen Beeinträchtigung oder an einer Behinderung leidet)</li>
-<li>Die Offenlegung ist für die Erfüllung der Verpflichtungen und die Ausübung der spezifischen Rechte von Hays im Bereich des Arbeits- und Sozialversicherungsrecht und des Rechts über die Soziale Sicherheit erforderlich (z. B. auf konzerninterner Basis bei der Beurteilung und Durchführung Ihres Anspruches auf Jahresurlaub/bestimmte Leistungen)</li>
-<li>Die Offenlegung ist für die von uns verfolgten „berechtigten Interessen“ (wie in den vorstehenden Tabellen näher ausgeführt) erforderlich</li>
+<li>when you sign up to WhatsApp job alerts on the website</li>
+<li>submitting an opt-in message directly to one of our WhatsApp channels</li>
+<li>clicking through on a sign-up button in an invitation electronic message.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table></div>
-<h3>2. Zeitarbeitnehmer</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Zeitarbeitnehmer.</p>
-<p>Zeitarbeitnehmer umfasst Personen, die bei Hays zum Zwecke der Zeitarbeit für einen Kunden oder ein anderes Unternehmen der Hays-Gruppe angestellt oder eingestellt werden. Wenn Sie ein Zeitarbeitnehmer sind, werden wir Ihre personenbezogenen Daten ebenfalls als Kandidat während der Dauer Ihrer Zeitarbeit und danach gemäß den Bestimmungen dieser Datenschutzrichtlinie verarbeiten. Die Frage, ob und in welchem Umfang die <a href="https://www.hays.co.uk/careers/privacy-policy">Datenschutzrichtlinie für die Rekrutierung</a> und die Mitarbeiterdatenschutzrichtlinie für Sie als Zeitarbeitnehmer gelten, richtet sich nach den örtlichen gesetzlichen Auflagen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier. Zeitarbeitsverhältnis bedeutet unsere vertragliche Beziehung zu Zeitarbeitnehmern, während sie direkt von uns beschäftigt oder angestellt werden.</p>
-<p><strong>Welche Arten personenbezogener Daten werden erfasst?</strong></p>
-<p>Wenn wir Sie als Zeitarbeitnehmer direkt anstellen oder beschäftigen, werden wir, je nach den relevanten Umständen und geltenden lokalen Gesetzen und Anforderungen, einige oder alle der unten aufgeführten Informationen (zusätzlich zu den über Kandidaten erhobenen Daten) sammeln, um sicherzustellen, dass unser Zeitarbeitsverhältnis reibungslos verläuft und dass wir in der Lage sind, unsere vertraglichen und sonstigen Pflichten untereinander und gegenüber unseren Kunden im Rahmen unseres Zeitarbeitsverhältnisses und unsere Pflichten gegenüber Dritten wie Steuerbehörden und Regierungsbehörden zu erfüllen. In einigen Rechtsordnungen ist unsere Verarbeitung einiger der nachfolgend aufgeführten Daten beschränkt. In solchen Fällen werden wir die Daten in diesen Ländern nur in dem Umfang und unter den gesetzlich zulässigen Umständen verarbeiten:</p>
+<p><strong>Special category data</strong></p>
 <ul>
-<li><strong>Angaben zu Zeitarbeitnehmern</strong>
-<ul>
-<li>Personalnummer/Sozialversicherungsnummer/sonstige Kennung;</li>
-<li>Standort Ihres Arbeitsplatzes beim Kunden;</li>
-<li>Einzelheiten zu etwaigen Beschwerden, unabhängig davon, ob sie von Ihnen oder gegen Sie vorgebracht wurden oder an denen Sie anderweitig beteiligt sind oder waren;</li>
-<li>Angaben zu allen Urlaubstagen, die Sie während unserem Zeitarbeitsverhältnis nehmen oder beantragen;</li>
-<li>Einzelheiten zu durchgeführten Reisen;</li>
-<li>Angaben zur Aufenthalts-/Arbeitserlaubnis;</li>
-<li>Falls zutreffend:
-<ul>
-<li>Einzelheiten zu etwaigen Beschwerden oder Disziplinarverfahren, unabhängig davon, ob sie von Ihnen oder gegen Sie eingeleitet wurden oder an denen Sie anderweitig beteiligt sind oder waren; und</li>
-<li>Informationen über Ihre Leistung in Ihrer Funktion während unserem Zeitarbeitsverhältnis, einschließlich Angaben zu Boni oder Gehaltserhöhungen, die Sie erhalten, Leistungsbewertungen und andere Informationen, die sich auf Ihre Beschäftigung, Ihre Interaktion mit Kollegen und arbeitsbezogene Probleme, die auftreten, beziehen.</li>
+<li>We are committed to ensuring that our recruitment processes are aligned with our approach to equal opportunities and so we will process certain special category data about you to facilitate this. Where appropriate, we will use this information on an anonymized basis to monitor our compliance with our equal opportunities policy.</li>
+<li>We will collect other special category personal data about you such as health-related information or religious affiliation if this is in accordance with local laws: Article 9(2)(b) of the GDPR allows us to do this where the processing is necessary for the purposes of carrying out the obligations and exercising our or your specific rights in the field of employment and social security and social protection law.</li>
+<li>We may also collect details of any criminal convictions if appropriate in accordance with local laws which may require your consent. If you are not happy about this, you have the right to withdraw your consent at any time and you can find out how to do so by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, different rules apply to special category data. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><strong>Besondere Kategorien personenbezogener Daten</strong>
-<ul>
-<li>Angaben zu Krankheitsausfällen einschließlich gesundheitsbezogener Angaben.</li>
-</ul>
-</li>
-</ul>
-<p>Bitte beachten Sie, dass die obige Liste der Kategorien personenbezogener Daten, die wir erfassen, nicht abschließend ist.</p>
-<p>Einige der oben aufgelisteten Angaben benötigen wir, um unsere vertraglichen Verpflichtungen Ihnen oder anderen gegenüber zu erfüllen. Einige Angaben, wie Ihre Sozialversicherungsnummer (oder Gleichwertiges), sind durch Gesetz oder andere Rechtsvorschriften vorgeschrieben. Andere werden lediglich benötigt, um ein reibungsloses Zeitarbeitsverhältnis zu gewährleisten.</p>
-<p>Je nach Art der jeweiligen personenbezogenen Daten und der Gründe für ihre Verarbeitung durch uns, können wir unseren vertraglichen Verpflichtungen eventuell nicht nachkommen oder, in extremen Fällen, das Zeitarbeitsverhältnis nicht weiter aufrechterhalten, wenn Sie sich weigern, uns diese Daten zur Verfügung zu stellen.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten erfasst?</strong></p>
-<p>Wenn wir Sie direkt als Zeitarbeitnehmer beschäftigen oder einstellen, erheben wir Ihre Daten (neben den bereits über Kandidaten erhobenen Daten) auf die folgende Art und Weise:</p>
-<ul>
-<li>Personenbezogene Daten, die Sie uns mitteilen; und</li>
-<li>Personenbezogene Daten, die wir aus anderen Quellen erhalten.</li>
-</ul>
-<p>Untenstehend finden Sie einige weitere Details zu jeder dieser Methoden.</p>
-<p><strong>Personenbezogene Daten, die Sie uns mitteilen</strong></p>
-<p>Hays benötigt bestimmte Informationen über Sie, um unseren Verpflichtungen Ihnen gegenüber nachzukommen, um sicherzustellen, dass Sie Ihren Verpflichtungen uns gegenüber ordnungsgemäß nachkommen, und um sicherzustellen, dass wir beide unseren Verpflichtungen gegenüber anderen nachkommen. Diese Informationen ermöglichen es uns, ein normales Zeitarbeitsverhältnis zu führen, mit allem, was dazu gehört.</p>
-<p>Zusätzlich zu den Informationen, die Sie als Kandidat mitteilen, können Sie uns Ihre Daten auf verschiedene Weise mitteilen. Gegebenenfalls und in Übereinstimmung mit den lokalen Gesetzen und Anforderungen kann dies Folgendes umfassen:</p>
-<ul>
-<li>wenn Sie die Registrierungsformulare zu Beginn unseres Zeitarbeitsverhältnisses ausfüllen; oder</li>
-<li>bei Treffen oder Kommunikationen mit Ihrem Hays Consultant, unserem HR-Team oder anderen Kollegen.</li>
-</ul>
-<p>Zu den Arten von Informationen, die wir auf diese Weise von Ihnen erhalten, gehören:</p>
-<ul>
-<li>Informationen über Zeitarbeitnehmer; und</li>
-<li>Besondere Kategorien personenbezogener Daten,</li>
-</ul>
-<p>wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</p>
-<p><strong>Personenbezogene Daten, die wir aus anderen Quellen erhalten</strong></p>
-<p>Wir erhalten auch aus anderen Quellen personenbezogene Daten über Sie. Je nach den gegebenen Umständen und den geltenden örtlichen Gesetzen und Vorschriften können dies personenbezogene Daten sein, die wir in den folgenden Situationen erhalten:</p>
-<ul>
-<li>Wenn Sie von einem RPO- oder MSP-Anbieter an uns verwiesen wurden, teilt dieser uns möglicherweise personenbezogene Informationen über Sie mit;</li>
-<li>Informationen über Sie von Drittanbietern, die zu Beginn unseres Zeitarbeitsverhältnisses in unserem Namen Hintergrundprüfungen über Sie durchgeführt haben;</li>
-<li>Ihre Kollegen und andere relevante Personen können personenbezogene Informationen über Sie an uns weitergeben;</li>
-<li>medizinische Fachkräfte können (unter angemessenen und begrenzten Umständen) personenbezogene Daten über Sie an uns weitergeben;</li>
-<li>Ihre Renten- und Versorgungsanbieter können relevante personenbezogene Daten über Sie an uns weitergeben; und</li>
-<li>andere Dritte, wie Ihre lokale Steuerbehörde, können Ihre personenbezogenen Daten an uns weitergeben.</li>
-</ul>
-<p>Zu den Arten von Informationen, die wir auf diese Weise über Sie erhalten, gehören:</p>
-<ul>
-<li>Informationen über Zeitarbeitnehmer; und</li>
-<li>Besondere Kategorien personenbezogener Daten,</li>
-</ul>
-<p>wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
-<p>Wenn wir Sie direkt als Zeitarbeitnehmer anstellen oder beschäftigen, verwenden wir Ihre Daten zu folgenden Zwecken:</p>
-<ul>
-<li>Um den reibungslosen Ablauf unseres Zeitarbeitsverhältnisses zu gewährleisten, einschließlich aller Aktivitäten, die in einer normalen Beziehung dieser Art durchgeführt werden müssen, wie:
-<ul>
-<li>zur Erleichterung von Lohn- und Abrechnungsprozessen, sofern dies für Ihr Land relevant ist;</li>
-<li>Festlegung der Bedingungen, zu denen Sie während Ihres Zeitarbeitsverhältnisses arbeiten;</li>
-<li>zur Dokumentation von Beförderungen, Gehaltserhöhungen oder Boni, die Ihnen gewährt werden; und</li>
-</ul>
-</li>
-<li>zur Beurteilung Ihrer Leistung.</li>
-</ul>
-<p>Ausführlichere Informationen darüber, wie Ihre Daten verarbeitet werden, finden sich in der internen Datenschutzrichtlinie für die Rekrutierung bei Hays. Während des Onboardingverfahrens mit Hays werden Zeitarbeitnehmer für Positionen bei Hays beispielsweise ähnlich wie interne Bewerber behandelt und ihre personenbezogenen Daten während des Rekrutierungsprozesses für diese Positionen werden so verarbeitet, wie in der internen Datenschutzrichtlinie für die Rekrutierung bei Hays (https://www.hayscareer.net/datenschutz) beschrieben. Je nach lokalen gesetzlichen Gegebenheiten wissen wir, dass Sie kein ‚interner Bewerber‘ im Sinne dieser Richtline sind, aber da wir die Daten auf ähnliche Weise und für dieselben Zwecke verwenden, dachten wir, es würde Ihnen nichts ausmachen, einen kurzen Blick in diese Richtline zu werfen, wenn Sie an detaillierten Einzelheiten interessiert sind.</p>
-<p>Die Frage, ob und in welchem Umfang die <a href="https://www.hays.co.uk/careers/privacy-policy">Datenschutzrichtlinie für die Rekrutierung </a>und die Mitarbeiterdatenschutzrichtlinie für Sie als Zeitarbeitnehmer gelten, richtet sich nach den örtlichen gesetzlichen Auflagen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</p>
-<p><strong>Aktivitäten während des Zeitarbeitsverhältnisses</strong></p>
-<ul>
-<li>Nachfolgend haben wir verschiedene Arten aufgeführt, auf die wir Ihre personenbezogenen Daten gegebenenfalls, sofern dies den örtlichen Gesetzen und Vorschriften entspricht, im Zusammenhang mit unserem Zeitarbeitsverhältnis verwenden und verarbeiten. Bitte beachten Sie, dass diese Liste nicht vollständig ist.</li>
-<li>In den meisten Fällen verwenden wir Ihre personenbezogenen Daten für die folgenden Zwecke, wenn dies für uns erforderlich ist, um unsere Verpflichtungen aus einem Vertrag zu erfüllen, den wir mit Ihnen geschlossen haben oder wenn wir dies für unsere berechtigten Interessen für erforderlich erachten.</li>
-<li>Artikel 6 (1) (b) der DSGVO besagt, dass wir Ihre Daten verarbeiten können, „wenn dies für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, oder zur Durchführung vorvertraglicher Maßnahmen erforderlich [ist], die auf Anfrage der betroffenen Person erfolgen“.</li>
-<li>Artikel 6 (1) (f) der DSGVO besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Wahrung der berechtigten Interessen [von uns] oder eines Dritten erforderlich ist, sofern nicht [Ihre] Interessen oder Grundrechte und Grundfreiheiten, die den Schutz personenbezogener Daten erfordern, überwiegen“.</li>
-<li>Wir glauben nicht, dass eine der Aktivitäten, bezüglich welcher wir uns auf berechtigte Interessen stützen, Zeitarbeitnehmer in irgendeiner Weise beeinträchtigt. Vielmehr helfen sie uns, Ihnen einen maßgeschneiderten und effizienteren Service anzubieten. Sie haben jedoch das Recht, der Verarbeitung Ihrer personenbezogenen Daten durch uns auf dieser Grundlage zu widersprechen. Wenn Sie mehr darüber erfahren möchten, wie Sie dies tun können, lesen Sie bitte den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</li>
-<li>Wenn wir Ihre Daten für Rekrutierungsmaßnahmen auf der Grundlage Ihrer Einwilligung verarbeiten, haben Sie das Recht, Ihre Einwilligung jederzeit zu widerrufen, ohne dass die Rechtmäßigkeit der auf dieser Einwilligung beruhenden Verarbeitung berührt wird, bevor die Einwilligung wiederrufen wird. Sie können mehr darüber erfahren, wie dies zu tun ist, indem Sie den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durchlesen.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-</ul>
-<div class="legal-table" role="region" aria-label="Tabelle 9" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 4" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Daten im Laufe und in dem Umfang, der erforderlich ist, um das Zeitarbeitsverhältnis durchzuführen, u.a. durch:
+<td>Collecting and analyzing Candidates’ data in order to assess and ensure our compliance with equal opportunities obligations</td>
+<td>Details of racial or ethnic origin, sexual orientation, religious or other similar beliefs, and physical or mental health, including disability-related information</td>
+<td>We will process your personal data in this way if our processing is necessary for the purposes of (and we have a legitimate interest in) keeping under review the existence or absence of equality of opportunity or treatment between groups of people and local laws allow us to process your data in this way without obtaining your consent
+<p>If local law requires us to obtain your consent, we will do so</p></td>
+</tr>
+<tr>
+<td>Sharing Candidates’ data (that has been collected to assess and ensure our compliance with equal opportunities obligations) with Clients (including to their internal or external auditors) where this is contractually required or the Client specifically requests such information to enable them to comply with their own employment processes</td>
+<td>Details of racial or ethnic origin, sexual orientation, religious or other similar beliefs, and physical or mental health, including disability-related information</td>
+<td>We will obtain your explicit consent before we share your data in this way</td>
+</tr>
+<tr>
+<td>Processing medical history/health-related data to make reasonable adjustments during the recruitment process</td>
+<td>Medical history/physical or mental health-related data</td>
+<td>We will process your personal data in this way if we have a legitimate interest in and it is necessary for us to process your data for health and social care purposes (e.g. to assess the working capacity of an employee or potential employee for an employer) and local laws allow us to process your data in this way without obtaining your consent
+<p>If local law requires us to obtain your consent, we will do so</p></td>
+</tr>
+<tr>
+<td>Processing health-related data when we need to use or offer occupational health to Candidates in the context of certain types of roles (e.g. teaching, nursing or night work)</td>
+<td>Medical history/physical or mental health-related data</td>
+<td>We will process your personal data in this way if we have a legitimate interest in and it is necessary for us to process your data for health and social care purposes (e.g. the provision of health care or treatment) and local laws allow us to process your data in this way without obtaining your consent
+<p> If local law requires us to obtain your consent, we will do so</p></td>
+</tr>
+<tr>
+<td>Processing health-related information arising from or in connection with the COVID-19 or other pandemics where this is required for a role that you are interested in applying for or have applied for</td>
+<td>Test results (whether positive or negative), or vaccination history (including medical conditions relating to or affecting vaccination) where appropriate</td>
+<td>We rely on legitimate interests, namely it is in our and your interests for us to collect and share your health-related information if this is required for a role that you are interested in applying for
+<p>We may also rely on the vital interests and the public interest lawful bases, namely to protect against serious cross-border threats to health</p>
+<p>We may process your health and travel-related information pursuant to Article 9(2)(i) of the GDPR to enable us to process health-related information arising from or in connection with the COVID-19 pandemic to prevent the spread of and assess the risk of COVID-19 and other infectious viruses and diseases</p>
+<p>If local law requires us to obtain your consent, we will do so</p></td>
+</tr>
+<tr>
+<td>Processing criminal convictions data when carrying out background checks</td>
+<td>Details of any criminal convictions disclosed by the Candidate on the Candidate Application Form
+<p>Details of any criminal convictions obtained via background checks that we are required to carry out where this is necessary for us to comply with our legal obligations in connection with a Candidate’s search for work (e.g. if we put a Candidate forward for certain roles which require a certain type of background check to be carried out)</p></td>
+<td>We will obtain your explicit consent in the Candidate Application Form though where local laws allow us to do so, we may need to request a Disclosure and Barring Service Check (or equivalent applicable check in your jurisdiction) without your consent where this is necessary for us to comply with our legal obligations in connection with your search for work</td>
+</tr>
+<tr>
+<td>Processing certain types of Candidate data in order to calculate entitlement to annual leave</td>
+<td>Medical history/health-related data
+<p>Religious affiliation</p></td>
+<td>We will process your personal data in this way if our processing is necessary for the purposes of (and we have a legitimate interest in) carrying out the obligations and exercising Hays’ specific rights in the field of employment and social security and social protection law and local laws allow us to process your data in this way without obtaining your consent
+<p>If local law requires us to obtain your consent, we will do so</p></td>
+</tr>
+<tr>
+<td>Processing the special category personal data of individuals connected with Candidates, for example:
 <ul>
-<li>Erleichterung unserer Vergütungs- und Rechnungsstellungsprozesse</li>
-<li>Festlegung der Bedingungen, zu denen Zeitarbeitnehmer während des Zeitarbeitsverhältnisses arbeiten</li>
-<li>Speicherung der Angaben des Zeitarbeitnehmers in der Datenbank (einschließlich Startdatum und Dauer des Einsatzes, während der Aufträge geleistete Arbeitsstunden und (in einigen Rechtsordnungen) Aufzeichnungen über etwaige Beförderungen, Gehaltserhöhungen oder Prämien)</li>
-<li>Bewertung der Leistung von Zeitarbeitnehmern</li>
-<li>Rückmeldungen an die Zeitarbeitnehmer in Bezug auf ihre Einsätze</li>
-<li>Verwaltung von Fehlzeiten</li>
+<li>where a Candidate discloses this to us in the course of providing next-of-kin details</li>
+<li>to allow the relevant Candidate to access certain benefits</li>
+</ul>
+</td>
+<td>Details of sexual orientation, and physical or mental health, including disability-related information</td>
+<td>We will process your personal data in this way if our processing is necessary for the purposes of (and we have a legitimate interest in) carrying out the obligations and exercising Hays’ specific rights in the field of employment and social security and social protection law and local laws allow us to process your data in this way without obtaining your consent
+<p>If local law requires us to obtain your consent, we will do so</p></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>To help us to establish, exercise or defend legal claims</strong></p>
+<ul>
+<li>Sometimes it will be necessary for us to process personal data in reliance on the legitimate interests legal basis and, where appropriate and in accordance with local laws and requirements, special category data in connection with exercising or defending legal claims. Article 9(2)(f) of the GDPR allows this where the processing “is necessary for the establishment, exercise or defense of legal claims or whenever courts are acting in their judicial capacity”.</li>
+<li>This will arise for example where we need to take legal advice in relation to legal proceedings or are required by law to preserve or disclose certain information as part of the legal process.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 5" tabindex="0"><table>
+<tbody>
+<tr>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
+</tr>
+<tr>
+<td>Preserving, sharing and otherwise processing Candidate data to establish, exercise or defend legal claims</td>
+<td>The actual information used depends on the factual circumstances, but could include any of the following:
+<ul>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Special category information</li>
+<li>Criminal conviction data</li>
+<li>Financial information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests and your interests to seek and receive legal advice should we need it to protect ourselves in the context of litigation and other disputes
+<p>In the unlikely event that we need to process any special category information or criminal conviction data for this purpose, we will only do so where local law allows us to process such data to establish, exercise or defend legal claims</p></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Profiling, Algorithms and Automated Decision Making</strong></p>
+<ul>
+<li>Profiling is a type of processing activity which enables us better to understand the information that we collect about you, to help us to develop a personalized “profile” for you. This helps us to gain a better idea of how you like to interact with us and our services, the sorts of requests you like to make of us and, of course, the sorts of things you don’t like. The purpose of our building this personalized profile is to enable us to provide the best possible service to you and maximize the chances that we will be able quickly and efficiently to provide you with access to content that is most likely to be relevant and helpful to you.</li>
+<li>We will use profiling methods in relation to your personal data if we consider this is necessary for our legitimate interests as detailed in the table below. If you are not happy about this, in certain circumstances you have the right to object and can find out more about how and when to do this by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>We also sometimes use automated systems such as filtering tools, or occasionally more complex tools which use an element of artificial intelligence, such as algorithms or machine learning (including those provided by third parties), to help us quickly, efficiently and more accurately to analyze data we have about you and other Candidates, as well as data we hold on our Clients’ needs, and this ultimately helps us to make decisions based on this data. This can include applying tools which use algorithms (such as filtering tools or machine learning) to Candidate personal data in order to help us come up with the best possible shortlist for a particular role. Such technology should reduce significantly the amount of time needed to consider when Candidates might be the best fit for relevant jobs. This should in turn make the recruitment process much more efficient and effective, which, we hope, will improve your overall experience with us.</li>
+<li>As new and better technology becomes more prevalent, some of our profiling activities and our processing activities which use automated systems such as those described above, may amount to Automated Decision Making within the meaning of Article 22 of the GDPR. This means a process of making a decision by automated means with limited, or even no, human intervention in reaching the decision. We will only use automated decision making in relation to your personal data where we consider this is necessary for the completion of pre-contractual steps taken at your request.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 6" tabindex="0"><table>
+<tbody>
+<tr>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
+</tr>
+<tr>
+<td> Collection of data via personalization cookies/pixels/UTM parameters and use of this data for profiling purposes so that we can show Candidates both targeted and personalized content. This will include:
+<ul>
+<li>personalizing Candidates’ website experience, including in relation to the roles that are brought to their attention when visiting the website</li>
+<li>making recommendations for editorial content that we think may be of interest to Candidates (e.g. reports about developments in their industry)</li>
+<li>personalizing the marketing content that Candidates receive via the website, electronic message and other marketing channels (where they have consented to that marketing)</li>
+</ul>
+<p>These personalization cookies/pixels/UTM parameters are used to understand how Candidates engage with the website by recording their visit to the website, the pages they have visited, the interactions they have made and the links they have followed</p>
+<p>We will use this information to understand what they may be interested in and tailor what we show and send to them accordingly</p></td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Automatically collected information</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+<p>More specifically, this will include:</p>
+<ul>
+<li>Personal information and information about the Candidate’s job search (i.e. as submitted via form or pulled through from our Systems)</li>
+<li>Details of Candidates’ interactions with the website (e.g. applications, web page visits), and other information pulled through from the Systems (e.g. job title, past applications)</li>
+<li>Location data – either inferred from jobs, IP address, or application history, or system stored data</li>
+<li>Digital identifiers – IP address, personalization cookies</li>
+<li>Website browsing data, form submission data and electronic message engagement data</li>
+<li>Marketing preferences</li>
+</ul>
+</td>
+<td>We will obtain your consent via the Cookie Preferences link on our website before we place personalization cookies/pixels/UTM parameters on your device and enable this functionality
+<p>If you do not wish to provide your consent to us placing a personalization cookie/pixel/UTM parameter on your device, please turn off the “Functional Cookies” and “Marketing Cookies” options (please refer to our Cookies Policy)</p>
+<p>Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings via the Cookie Preferences link on each of your devices.</p>
+<p>Notwithstanding our collection of consent prior to placing personalization cookies/pixels/UTM parameters onto your device, we will rely on the legitimate interests condition in relation to the personalization activities that we subsequently carry out</p>
+<p>We consider that it is in our interests (and sometimes your interests) to:</p>
+<ul>
+<li>increase engagement with and improve the experience of using our services by increasing the relevance of the content that you see across the Hays websites and electronic message campaigns</li>
+<li>increase application numbers, conversion rates and application usefulness through providing tailored job recommendations to you</li>
+<li>encourage you to come back to our website by making this experience as helpful as possible</li>
+<li>reduce website bounce rate</li>
+<li>increase electronic message engagement rate (i.e. the frequency with which users click through)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>We may capture and analyze Candidates’ web-based behaviors using various items of data (e.g. number of job ads read/applied for online, number and type of articles read, number of web visits made, membership of “talent pools”/segments – see below) in order to award a Candidate an “approachability score” with a view to providing insights into Candidates’ needs and to allow Hays to follow up where needed
+<p>Hays consultants will use these scores as part of the shortlisting and ranking activities described in more detail below and as a factor in determining whether to approach/show roles to a Candidate. This data will serve to supplement other data that Hays holds about the Candidate.</p>
+<p>Our collection of web-based data will rely on the personalization cookies/pixels/UTM parameters that we place on your device as part of the personalization activities as described above</p></td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+</td>
+<td>We will obtain your consent via the Cookie Preferences link on our website before we place personalization cookies/pixels/UTM parameters on your device
+<p>If you do not wish to provide your consent to us placing a personalization cookie on your device, please turn off the “Functional Cookies” and “Marketing Cookies” options (please refer to our Cookies Policy)</p>
+<p>Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings via the “Cookie Preferences” link on each of your devices</p>
+<p>However, please note that we may still carry out engagement scoring activities even if a personalization cookie is not placed on your device (e.g. we may consider the information that we already hold about you on our Systems with a view to allocating you an engagement score even if you have opted out of the personalization cookie)</p>
+<p>Notwithstanding our collection of consent prior to placing personalization cookies/pixels/UTM parameters onto your device, we will rely on the legitimate interests condition in relation to allocating you an engagement score and our subsequent use of this score</p>
+<p>We consider that it is in our legitimate interests to allocate you an engagement score in order to help our Hays consultants to make decisions in relation to suggesting relevant roles and sending relevant communications to you</p></td>
+</tr>
+<tr>
+<td>We may use the data that we collect via personalization cookies/pixels/UTM parameters e.g. web-based behaviors such as details of Candidates’ interactions with the website (e.g. applications, web page visits), to enrich the Candidate data and existing profiles about them that we already hold on our Systems</td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Automatically collected information</li>
+</ul>
+</td>
+<td>We will obtain your consent via the Cookie Preferences link on our website before we place personalization cookies/pixels/UTM parameters on your device
+<p>If you do not wish to provide your consent to us placing a personalization cookie on your device, please turn off the “Functional Cookies” and “Marketing Cookies” options (please refer to our Cookies Policy)</p>
+<p>Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings via the “Cookie Preferences” link on each of your devices</p>
+<p>Notwithstanding our collection of consent prior to placing personalization cookies/pixels/UTM parameters onto your device, we will rely on the legitimate interests condition in relation to using data that we collect about you to enrich your existing profile on our Systems</p>
+<p>We consider that it is in our legitimate interests to enrich the data that we hold about you to help our Hays consultants to make decisions in relation to suggesting relevant roles and sending relevant communications to you</p></td>
+</tr>
+<tr>
+<td>Analyzing Candidates’ data by continuously tracking and monitoring their experience and account activity in order to profile them and allocate them to “talent pools” within our wider Candidate Pool based on their attributes and behaviors (e.g. previous roles, skills, industry experience, location, when a Candidate is willing to work).
+<p>Talent pools are used as a means of managing the Candidate database, placing Candidates in roles and marketing to Candidates</p>
+<p>The assignment of Candidates to talent pools is a fully automated process and can involve the use of bots</p></td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests to use profiling methods to place you and your Candidate profile into groups or segments with other Candidates, based on your interests, habits, attributes and/or preferences in order to:
+<ul>
+<li>help us to optimize the matching of Candidate profiles to roles and improve the effectiveness and efficiency of the recruitment cycle</li>
+<li>allow us to keep track of whether we have enough suitable Candidates to fulfill our business needs and those of our Clients at all times</li>
+<li>help our Hays consultants to make decisions in relation to suggesting relevant roles and sending relevant communications to you</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>We may use profiling methods in relation to Candidates’ data so that we can:
+<ul>
+<li>place you and other suitable <a href="https://www.hays.co.uk/revised-privacy-policy#Candidates">Candidates</a> on shortlists for particular roles based on prescribed criteria, which will allow our Hays consultants to identify the most appropriate Candidates for roles in the most efficient manner; and</li>
+<li>recommend roles based on how a Candidate’s interests, habits, attributes and/or preferences rank in comparison to other Candidates</li>
+</ul>
+<p>Our intention is for any such activities (which might involve using automated processes to profile, select, screen, rank, grade, shortlist and/or put forward Candidates for roles) to complement rather than completely replace the activity of our Hays consultants</p></td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests to use profiling methods to place you and your Candidate profile into groups or segments with other Candidates, based on your interests, habits, attributes and/or preferences in order to:
+<ul>
+<li>help us to optimize the matching of Candidate profiles to roles and improve the effectiveness and efficiency of the recruitment cycle</li>
+<li>help our Hays consultants to make decisions in relation to suggesting relevant roles to you</li>
+</ul>
+<p>If these shortlisting and ranking activities amount to Automated Decision Making for the purposes of Article 22 of the GDPR, we will only conduct these activities where we deem this to be necessary for the completion of pre-contractual steps taken at your request. We think it is reasonable to assume that, as a Candidate, you are hoping to enter into an employment contract, and that by using our services you are asking us to take the necessary steps for this purpose. Such steps might include, for example, checking you meet certain requirements for a particular role. If the role is very popular, we may have to check the eligibility of a large number of potential Candidates – we may therefore use automated decision making to filter this pool of Candidates down to a more manageable number.</p></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Compliance with a legal obligation</strong></p>
+<ul>
+<li>In some circumstances, we will use your personal data to comply with our legal obligations. Article 6(1)(c) of the GDPR says that we can process your data where it “is necessary for compliance with a legal obligation to which [we] are subject”.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 7" tabindex="0"><table>
+<tbody>
+<tr>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
+</tr>
+<tr>
+<td>Accessing, preserving and disclosing Candidates’ data if there is a valid legal request from a regulator, law enforcement or other authority or if we otherwise have a legal duty to do so</td>
+<td>The actual information used depends on the factual circumstances, but could include any of the following:
+<ul>
+<li>Key identification and contact information</li>
+<li>Financial information</li>
+<li>Automatically collected information</li>
+<li>Education and employment information</li>
+<li>Information that others provide about you</li>
+</ul>
+</td>
+<td>Compliance with a legal obligation including where:
+<ul>
+<li>we are in receipt of a court order to disclose information for the purposes of court proceedings in the context of civil and commercial matters</li>
+<li>we are compelled by law enforcement agencies to provide data in relation to a criminal investigation</li>
+<li>we need to comply with our obligations under consumer law, for example competition legislation</li>
+<li>we need to comply with our obligations under companies legislation and tax law, for example, to provide details of your remuneration and tax paid</li>
+<li>we need to comply with our obligations under data protection laws</li>
+<li>we need to comply with our obligations under employment laws (e.g. those which require us to track the number of hours you have worked)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Preserving and sharing Candidates’ data with others including law enforcement agencies and to respond to legal requests when we are not compelled by applicable law but have a good faith belief it is required by law in the relevant jurisdiction</td>
+<td>The actual information used depends on the factual circumstances, but could include any of the following:
+<ul>
+<li>Key identification and contact information</li>
+<li>Financial information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+</ul>
+</td>
+<td>Even where we are not under a legal obligation to process your data, we will, under certain circumstances, have a legitimate interest in cooperating with law enforcement agencies and other bodies in order to assist, for example, with the prevention and detection of crime</td>
+</tr>
+<tr>
+<td>Processing Candidates’ data when verifying documents and information requested from and provided by Candidates to prove that they have the right to work in a particular jurisdiction</td>
+<td>
+<ul>
+<li>Key identification and contact information (e.g. a copy of your passport and proof of address)</li>
+<li>Education and employment information (e.g. immigration status and work permit if applicable)</li>
+<li>Financial information (e.g. social security number or equivalent in your country)</li>
+</ul>
+</td>
+<td>We will process your data where this is necessary for us to comply with our legal obligations in relation to ensuring that you have the right to work in a particular jurisdiction</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sharing of data</strong></p>
+<ul>
+<li>We will share your personal data with various parties, in various ways and for various reasons. Primarily we will share your information with prospective employers to increase your chances of securing the job you want. Unless you specify otherwise, we will also share your information with any of our group companies and associated third parties such as our service providers and selected job aggregators where we feel this will help us to provide you with the best possible service and maximize your chances of achieving your goals.</li>
+<li>If you would like to see a full list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 8" tabindex="0"><table>
+<tbody>
+<tr>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
+</tr>
+<tr>
+<td>Disclosing Candidates’ data to the recipients listed in the section entitled “Who do we share your personal data with?”, including the transfer, storage and processing of such data outside of the UK/European Economic Area for the purposes listed in the preceding tables</td>
+<td>The actual information used depends on the factual circumstances, but could include any of the following:
+<ul>
+<li>Key identification and contact information</li>
+<li>Financial information</li>
+<li>Education and employment information</li>
+<li>Special category data</li>
+<li>Criminal conviction data</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Angaben zu Zeitarbeitnehmern</li>
-<li>Besondere Kategorien personenbezogener Daten</li>
+<li>The disclosure is necessary (e.g. to potential employers) to conclude and perform any contracts that we have entered into with you (see section entitled “Recruitment Activities” above)</li>
+<li>The disclosure (e.g. to tax, audit, or other authorities) is necessary for the compliance with a legal obligation to which we are subject (see section entitled “Compliance with a legal obligation” above)</li>
+<li>The disclosure (e.g. to our professional advisers) is necessary to help us to establish, exercise or defend legal claims</li>
+<li>We have obtained your consent (e.g. when we share your special category data with Clients (including to their internal or external auditors)) where this is contractually required or the Client specifically requests such information to enable them to comply with their own employment processes</li>
+<li>The disclosure is necessary for health and social care purposes (e.g. to an occupational health specialist to enable the provision of support during the recruitment process if a Candidate suffers from a health condition or disability)</li>
+<li>The disclosure is necessary for carrying out the obligations and exercising Hays’ specific rights in the field of employment and social security and social protection law (e.g. on an intragroup basis when assessing and effecting your entitlement to annual leave/certain benefits)</li>
+<li>The disclosure is necessary for the purposes of “legitimate interests” pursued by us (as detailed in the tables above)</li>
 </ul>
 </td>
-<td>Wenn Sie mit uns ein Zeitarbeitsverhältnis eingegangen sind, stützen wir uns auf die Rechtsgrundlage für die Erfüllung eines Vertrages, sofern die von uns angestrebte Verarbeitungstätigkeit für die Zwecke des mit Ihnen geschlossenen Vertrags erforderlich ist
-<p>Wir werden uns ansonsten auf berechtigte Interessen berufen, d. h., es ist in unserem und Ihrem Interesse, dass wir das Zeitarbeitsverhältnis durchführen</p>
-<p>Wenn wir Ihre besonderen Kategorien von personenbezogenen Daten verarbeiten müssen (z. B. Angaben zu Krankheitsausfällen einschließlich Gesundheitsinformationen), verarbeiten wir Ihre personenbezogenen Daten auf diese Weise, wenn wir ein berechtigtes Interesse daran haben und es für uns notwendig ist, Ihre Daten zu Gesundheits- und Sozialfürsorgezwecke zu verarbeiten, und uns die örtlichen Gesetze erlauben, Ihre Daten auf diese Weise ohne Ihre Einwilligung zu verarbeiten. Wenn wir vor Ort Ihre Einwilligung einholen müssen, werden wir dies tun.</p></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Weitergabe von Daten</strong></p>
+<h3>2. Temporary Workers</h3>
+<p>This section of the Privacy Policy applies to Temporary Workers.</p>
+<p>Temporary Workers include someone who becomes employed or engaged by Hays for the purposes of undertaking temporary work for a Client or other Hays group company. If you are a Temporary Worker, we will also process your personal data as a Candidate throughout the duration of your temporary work assignment and thereafter, in accordance with the terms of this Privacy Policy. The question of whether and the extent to which the <a href="https://www.hays.co.uk/careers/privacy-policy">Recruits Privacy Policy</a> and the Staff Privacy Policy apply to you as a Temporary Worker depends on local law requirements. For more information in relation to your jurisdiction, please click here. Temp Relationship means our contractual relationship with Temporary Workers while they are employed or engaged directly by us.</p>
+<p><strong>What kind of personal information do we collect?</strong></p>
+<p>If we employ or engage you as a Temporary Worker directly, we will, depending on the relevant circumstances and applicable local laws and requirements, collect some or all of the information listed below (in addition to the data collected about Candidates) in order to ensure that our Temp Relationship runs smoothly and that we are able to comply with our contractual and other duties to each other, and to our Clients, as part of our Temp Relationship and our duties to third parties such as tax authorities and government agencies. In some jurisdictions, we are restricted from processing some of the data outlined below. In such cases, we will only process the data in those jurisdictions to the extent and under the circumstances permitted by law:</p>
 <ul>
-<li>Wenn wir Sie direkt als Zeitarbeitnehmer anstellen oder beschäftigen, können wir Ihre personenbezogenen Daten an eine Reihe zusätzlicher Parteien weitergeben, um den reibungslosen Ablauf unseres Zeitarbeitsverhältnisses zu gewährleisten. Zum Beispiel können wir Ihre personenbezogenen Daten an entsprechende Kollegen innerhalb von Hays (dies kann auch Kollegen in Auslandsbüros umfassen), an einen Kunden und gegebenenfalls medizinische Fachkräfte, wie Ihren Arzt oder einen Arbeitsmediziner (z. B. zum Zwecke von Beurteilungen zur Arbeitsanpassung, falls zutreffend) weitergeben.</li>
-<li>Wir werden uns in der Regel auf die gleichen Rechtsgrundlagen stützen, auf die sich der Abschnitt über Aktivitäten während des Zeitarbeitsverhältnisses beziehen, je nach Kontext.</li>
-<li>Wenn Sie eine vollständige Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-</ul>
-<h3>3. Kunden</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Kunden.</p>
-<p>Diese Kategorie umfasst unsere Kunden, Klienten und andere Parteien, für die Hays im Zuge ihrer Geschäftstätigkeit Leistungen erbringt oder von denen Hays vernünftigerweise annimmt, dass sie an unseren Dienstleistungen interessiert wären. Unter bestimmten Umständen bietet Hays Dienstleistungen für einzelne Mitarbeiter an, die für Kundenunternehmen tätig sind, wie z. B. Schulungen für Lehrkräfte, die für Kunden im Bildungssektor tätig sind. Bitte beachten Sie, dass Hays von den Kunden verlangt, dass sie ihre Mitarbeiter über die maßgeblichen Bestandteile dieser Datenschutzrichtlinie (insbesondere die Abschnitte zu Kandidaten, Besuchern und Website-Nutzern) informieren.</p>
-<p><strong>Welche Arten personenbezogener Daten werden erfasst?</strong></p>
-<p>Sie möchten also mehr darüber erfahren, welche Daten wir über Sie erfassen? Hier finden Sie einen detaillierteren Überblick über die Art der Informationen, die wir erfassen werden. Die unten beschriebenen Daten verstehen sich selbstverständlich zusätzlich zu den personenbezogenen Daten, zu deren Verarbeitung wir in den jeweiligen Situationen gesetzlich verpflichtet sind.</p>
-<p>Über unsere Kunden erfassen wir nur in sehr eingeschränktem Umfang Daten. Wir benötigen in der Regel nur Ihre Kontaktdaten oder die Details einzelner Ansprechpartner in Ihrem Unternehmen, damit wir sicherstellen können, dass wir Sie über unsere Dienstleistungen informieren können, um eine reibungslose Zusammenarbeit zu gewährleisten und um unter bestimmten Umständen Dienstleistungen für Ihre Mitarbeiter zu erbringen. Außerdem speichern wir Daten über Ihre Online-Interaktionen mit Kandidatenprofilen und anderen von Hays veröffentlichten Materialien. Diese Daten nutzen wir, um sicherzustellen, dass Sie zum richtigen Zeitpunkt passende Werbemitteilungen von uns erhalten. Wir können auch zusätzliche Informationen speichern, die uns jemand aus Ihrer Organisation von sich aus mitgeteilt hat. Unter bestimmten Umständen, z. B. wenn Sie mit unseren Finanz- und Inkassoteams in Kontakt treten, können unsere Telefongespräche mit Ihnen gemäß den geltenden örtlichen Gesetzen und Anforderungen aufgezeichnet werden. Falls wir aus irgendwelchen Gründen weitere personenbezogene Daten von Ihnen benötigen, werden wir Sie dies wissen lassen:</p>
+<li><strong>Temporary worker information</strong>
 <ul>
-<li><strong>Wichtige Identifikations- und Kontaktinformationen</strong></li>
+<li>Staff number/social security number/other identifier;</li>
+<li>Location of your workplace at the Client;</li>
+<li>Details of any complaints, whether brought by or against you or in which you are or have been otherwise involved;</li>
+<li>Details of any leave you take or request during our Temp Relationship;</li>
+<li>Details of travel undertaken;</li>
+<li>Details of resident/work permit;</li>
+<li>Where applicable:
+<ul>
+<li>Details of any grievance or disciplinary matters, whether brought by or against you or in which you are or have been otherwise involved; and</li>
+<li>Information about your performance in your role during our Temp Relationship, including details of any bonuses or salary increases you receive, performance assessments and other information that relates to your employment, your interaction with colleagues and employment-related issues that arise.</li>
 </ul>
-<p>Über Sie selbst oder einzelne Kontaktpersonen in Ihrem Unternehmen, darunter:</p>
+</li>
+</ul>
+</li>
+<li><strong>Special category information</strong>
+<ul>
+<li>Details of any sickness absence including health-related information.</li>
+</ul>
+</li>
+</ul>
+<p>Please note that the above list of categories of personal data we collect is not exhaustive.</p>
+<p>A number of the items listed above are required to enable us to fulfill our contractual duties to you or to others. Some, for example your social security number (or equivalent), are required by statute or other laws. Others may simply be needed to ensure that our Temp Relationship can run smoothly.</p>
+<p>Depending on the type of personal data in question and the grounds on which we may be processing it, should you decline to provide us with such data, we may not be able to fulfill our contractual requirements or, in extreme cases, may not be able to continue with our Temp Relationship.</p>
+<p><strong>How do we collect your personal data?</strong></p>
+<p>If we employ or engage you as a Temporary Worker directly, we collect your data (in addition to the data already collected about Candidates) in the following ways:</p>
+<ul>
+<li>Personal data that you give to us; and</li>
+<li>Personal data that we receive from other sources.</li>
+</ul>
+<p>Below are some more details about each of these methods.</p>
+<p><strong>Personal data you give to us</strong></p>
+<p>Hays needs to know certain information about you in order to fulfill our obligations to you, to ensure that you are properly fulfilling your obligations to us, and to ensure that we are both fulfilling our obligations to others. This information will enable us to operate a usual Temp Relationship, along with all that entails.</p>
+<p>There are numerous ways that you can share your information with us in addition to the information you share as a Candidate. Where appropriate and in accordance with any local laws and requirements, these may include:</p>
+<ul>
+<li>when you complete registration forms at the beginning of our Temp Relationship; or</li>
+<li>in meetings or communications with your Hays consultant, our HR team or other colleagues.</li>
+</ul>
+<p>The types of information that we receive from you in this way include:</p>
+<ul>
+<li>Temporary worker information; and</li>
+<li>Special category information,</li>
+</ul>
+<p>as described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>Personal data we receive from other sources</strong></p>
+<p>We also receive personal data about you from other sources. Depending on the relevant circumstances and applicable local laws and requirements, these may include personal data received in the following situations:</p>
+<ul>
+<li>if you were referred to us through an RPO or MSP supplier, they may share personal information about you with us;</li>
+<li>information obtained about you from third party service providers who undertook background checks about you on our behalf at the start of our Temp Relationship;</li>
+<li>your colleagues or other relevant individuals may share personal information about you with us;</li>
+<li>medical professionals may (in appropriate and limited circumstances) share personal information about you with us;</li>
+<li>your pension and benefits providers may share relevant personal information about you with us; and</li>
+<li>other third parties like your local tax authority may share your personal data with us.</li>
+</ul>
+<p>The types of information that we receive about you in this way include:</p>
+<ul>
+<li>Temporary worker information; and</li>
+<li>Special category information,</li>
+</ul>
+<p>as described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>How do we use your personal data?</strong></p>
+<p>If we employ or engage you as a Temporary Worker directly, we use your data for the following purposes:</p>
+<ul>
+<li>To ensure the smooth running of our Temp Relationship, including all of the activities that need to be undertaken in a usual relationship of that type, such as:
+<ul>
+<li>facilitating payroll and invoicing processes, if relevant to your jurisdiction;</li>
+<li>determining the terms on which you work during your Temp Relationship;</li>
+<li>keeping a record of any promotions, salary raises or bonuses you are awarded; and</li>
+</ul>
+</li>
+<li>Assessing your performance.</li>
+</ul>
+<p>Some more detailed information about the way in which your data is processed can be found in the Hays Recruits Privacy Policy. For example, during the onboarding process with Hays, Temporary Workers will be treated in a similar way as internal applicants for Hays roles and their personal data during the recruitment process for such roles will be processed in the ways described in the Hays Recruits Privacy Policy (https://www.hayscareer.net/datenschutz). Depending on the applicable local laws, we appreciate that you are not an “internal applicant” in the sense of that policy but given that we use the data in a similar way, for the same purposes, we thought you wouldn’t mind having a quick look at that policy if you were interested in a greater level of detail.</p>
+<p>The question of whether and the extent to which the <a href="https://www.hays.co.uk/careers/privacy-policy">Recruits Privacy Policy </a>and the Staff Privacy Policy apply to you as a Temporary Worker depends on local law requirements. For more information in relation to your jurisdiction, please click here.</p>
+<p><strong>Temp Relationship Activities</strong></p>
+<ul>
+<li>We’ve listed below various ways in which we will use and process your personal data in connection with our Temp Relationship, where appropriate and in accordance with any local laws and requirements. Please note that this list is not exhaustive.</li>
+<li>In most cases, we will use your personal data for the purposes below if it is necessary for us to carry out our obligations under a contract that we have entered into with you or if we deem it necessary to do so for our legitimate interests.</li>
+<li>Article 6(1)(b) of the GDPR says that we can process your data where it “is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract”.</li>
+<li>Article 6(1)(f) of the GDPR says that we can process your data where it “is necessary for the purposes of the legitimate interests pursued by [us] or by a third party, except where such interests are overridden by the interests or fundamental rights or freedoms of [you] which require protection of personal data”.</li>
+<li>We don’t think that any of the activities in relation to which we rely on the legitimate interests condition prejudice Temporary Workers in any way. In fact, they help us to offer you a more tailored, efficient service. However, you do have the right to object to us processing your personal data on this basis. If you would like to know more about how to do so, please refer to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>When we process your information for recruitment activities based on your consent, you have the right to withdraw your consent at any time without affecting the lawfulness of processing based on such consent before the consent is withdrawn. You can find out more about how to do so by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 9" tabindex="0"><table>
+<tbody>
+<tr>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
+</tr>
+<tr>
+<td>Collecting and processing data in the course of and to the extent necessary to facilitate the Temp Relationship, including by:
+<ul>
+<li>Facilitating payroll and invoicing processes</li>
+<li>Determining the terms on which Temporary Workers work during the Temp Relationship</li>
+<li>Storing Temporary Worker details on database (including start dates and duration of the length of assignment, hours worked during assignments, and (in some jurisdictions) records of any promotions, salary raises or bonuses awarded)</li>
+<li>Assessing Temporary Workers’ performance</li>
+<li>Giving Temporary Workers feedback in relation to assignments</li>
+<li>Managing absences</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Temporary worker information</li>
+<li>Special category information</li>
+</ul>
+</td>
+<td>If you have entered into a Temp Relationship with us, we will rely on the performance of a contract legal basis to the extent that the processing activity that we are seeking to conduct is necessary for the purposes of the contract that we have entered into with you
+<p>We will otherwise rely on legitimate interests, namely it is in our interests and your interests for us to facilitate the Temp Relationship</p>
+<p>If we need to process your special category data (e.g. details of any sickness absence including health-related information), we will process your personal data in this way if we have a legitimate interest in and it is necessary for us to process your data for health and social care purposes and local laws allow us to process your data in this way without obtaining your consent. If local law requires us to obtain your consent, we will do so.</p></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sharing of data</strong></p>
+<ul>
+<li>If we employ or engage you directly as a Temporary Worker, we may share your personal data with a number of additional parties in order to ensure the smooth running of our Temp Relationship. For example, we may share your personal data with appropriate colleagues within Hays (this may include colleagues in overseas offices), with a Client and, if appropriate, medical professionals such as your doctor or an occupational health specialist (for instance, for the purpose of any work adjustment assessments if applicable).</li>
+<li>We will generally rely on the same legal bases referred to in the section addressing Temp Relationship Activities above, depending on the context.</li>
+<li>If you would like to see a full list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<h3>3. Clients</h3>
+<p>This section of the Privacy Policy applies to Clients.</p>
+<p>This category includes our customers, clients, and others to whom Hays provides services in the course of its business or whom Hays reasonably considers would be interested in our services. In certain circumstances, Hays provides services to individual employees who work for Client organizations, such as training courses to teaching staff who work for Clients in the education sector. Please note that Hays requires Clients to communicate the relevant parts of this Privacy Policy (namely the sections directed at Candidates, Visitors and Website Users) to their employees.</p>
+<p><strong>What kind of personal information do we collect?</strong></p>
+<p>So you’re looking for a bit more insight into what data we collect about you? Here’s a more detailed look at the sorts of information that we will collect. The information described below is, of course, in addition to any personal data we are required by law to process in any given situation.</p>
+<p>The data we collect about Clients is actually very limited. We generally only need to have your contact details or the details of individual contacts at your organization to enable us to ensure that we can reach out to you about our services, ensure our relationship runs smoothly and in certain circumstances, provide services to your employees. We also hold information relating to your online engagement with Candidate profiles and other material published by Hays, which we use to ensure that our marketing communications to you are relevant and timely. We may also hold extra information that someone in your organization has chosen to tell us. In certain circumstances, such as when you engage with our Finance and Debt Recovery teams, our calls with you may be recorded, depending on the applicable local laws and requirements. If we need any additional personal data for any reason, we will let you know:</p>
+<ul>
+<li><strong>Key identification and contact information</strong></li>
+</ul>
+<p>About yourself or individual contacts at your organization, including:</p>
 <ul>
 <li>
 <ul>
-<li>Namen;</li>
-<li>Stellenbezeichnungen;</li>
-<li>Telefonnummern;</li>
-<li>E-Mail-Adressen;</li>
+<li>Names;</li>
+<li>Job titles;</li>
+<li>Telephone numbers;</li>
+<li>Email addresses;</li>
 </ul>
 </li>
-<li><strong>Automatisch erhobene Informationen</strong>
+<li><strong>Automatically collected information</strong>
 <ul>
-<li>Informationen in Bezug auf Ihre Online-Bindung mit Kandidatenprofilen;</li>
-<li>Informationen in Bezug auf Ihre Online-Bindung mit anderen von Hays veröffentlichten Materialien;</li>
-<li>IP-Adresse;</li>
-<li>Anwendungsinformationen, die Sie uns mitteilen möchten, einschließlich Datum, Uhrzeit und Häufigkeit Ihrer Zugriffe auf unsere Dienste;</li>
-<li>Nutzerverhalten (z. B. Marketingpräferenzen);</li>
-<li>Nutzerberichte;</li>
-<li>Informationen zu Log- und Fehlerbehebung;</li>
-<li>Geräteinformationen, wenn Sie unsere Dienste installieren, darauf zugreifen oder diese nutzen;</li>
-<li>Website-Browsing-Daten, z. B. angesehene Seiten (begrenzt auf Websites von Hays);</li>
-<li>Interaktion mit Hays aufgrund von digitalen Nachrichten;</li>
-<li>Standortinformationen (abgeleitet aus Jobs, IP-Adresse, Anwendungshistorie oder Systemspeicherdaten);</li>
-<li>Kontozugriffsdaten (z. B. PIN-Nummern für Zwecke der Benutzerkonto-Überprüfung);</li>
+<li>Information relating to your online engagement with Candidate profiles;</li>
+<li>Information relating to your online engagement with other material published by Hays;</li>
+<li>IP address;</li>
+<li>Usage information that you choose to tell us, including the dates, times and frequency with which you access our services;</li>
+<li>User choices (e.g. marketing preferences);</li>
+<li>User reports;</li>
+<li>Log and troubleshooting information;</li>
+<li>Device information when you install, access or use our services;</li>
+<li>Website browsing data e.g. pages viewed (limited to Hays websites);</li>
+<li>Electronic message engagement with Hays;</li>
+<li>Location information (inferred from jobs, IP address, application history or system stored data);</li>
+<li>Account access information (e.g. PIN numbers for account verification purposes);</li>
 </ul>
 </li>
-<li><strong>Informationen, die andere über Sie bereitstellen</strong>
+<li><strong>Information that others provide about you</strong>
 <ul>
-<li>Zusätzliche Informationen, die unsere Kandidaten uns über Sie mitteilen oder die wir aus anderen Quellen Dritter erfahren;</li>
+<li>Extra information that our Candidates may tell us about you, or that we find from other third party sources;</li>
 </ul>
 </li>
-<li>Einzelheiten über Sie, die in einem Whistleblowing-„SpeakUp“- oder „SafeCall“-Bericht oder einer Untersuchung enthalten sind, die entweder von Ihnen initiiert wurde oder an der Sie anderweitig beteiligt sind; und <strong>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</strong>
+<li>Details contained in any whistleblowing “SpeakUp” or “SafeCall” report or investigation, either instigated by you or in which you are otherwise involved; and <strong>Additional information that you choose to tell us</strong>
 <ul>
-<li>Zusätzliche Informationen, die Sie oder jemand in Ihrem Unternehmen entschieden hat, uns mitzuteilen, auch wenn Sie mit uns per digitaler Nachricht korrespondieren.</li>
-</ul>
-</li>
-</ul>
-<p>Bitte beachten Sie, dass die obige Liste der Kategorien personenbezogener Daten, die wir erfassen, nicht abschließend ist.</p>
-<p>Soweit Sie auf unsere Website zugreifen oder auf Links in einer digitalen Nachricht von uns klicken, werden wir auch bestimmte Daten von Ihnen erheben. Wenn Sie diesbezüglich weitere Informationen wünschen, lesen Sie bitte den kontextspezifischen Abschnitt dieser Datenschutzrichtlinie, der für die Website-Nutzer gilt.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten erfasst?</strong></p>
-<p>Wir erfassen personenbezogene Daten von Kunden auf die folgenden Arten:</p>
-<ul>
-<li>Personenbezogenen Daten, die wir von Ihnen erhalten;</li>
-<li>Personenbezogene Daten, die wir aus anderen Quellen erhalten; und</li>
-<li>Personenbezogene Daten, die wir automatisch erfassen.</li>
-</ul>
-<p><strong>Personenbezogenen Daten, die wir direkt von Ihnen erhalten</strong></p>
-<ul>
-<li>Wir verfolgen beide dasselbe Ziel: Wir wollen sicherstellen, dass Sie die besten Mitarbeiter für Ihr Unternehmen und in Ihrem Unternehmen haben. Wir erhalten auf zwei Arten Daten direkt von Ihnen:
-<ul>
-<li>wenn Sie sich von sich aus, normalerweise telefonisch oder per digitaler Nachricht, an uns wenden und/oder</li>
-<li>wenn wir Sie telefonisch, per digitaler Nachricht oder allgemeiner im Zuge der Geschäftsentwicklungsaktivitäten eines unserer Hays Consultants kontaktieren.</li>
-</ul>
-</li>
-<li>Zu den Arten von Informationen, die wir auf diese Weise von Ihnen erhalten, gehören:
-<ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen; und</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen,</li>
+<li>Extra information that you or someone in your organization has chosen to tell us, including when corresponding with us via electronic message.</li>
 </ul>
 </li>
 </ul>
-<p>wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</p>
-<p><strong>Personenbezogene Daten, die wir aus anderen Quellen erhalten</strong></p>
+<p>Please note that the above list of categories of personal data we collect is not exhaustive.</p>
+<p>To the extent that you access our website or click through any links in an electronic message from us, we will also collect certain data from you. If you would like more information about this, please refer to the context-specific section of this Privacy Policy that applies to Website Users.</p>
+<p><strong>How do we collect your personal data?</strong></p>
+<p>We collect Client personal data in the following ways:</p>
 <ul>
-<li>Gegebenenfalls und in Übereinstimmung mit den örtlichen Gesetzen und Vorschriften werden wir weitere Informationen über Sie oder Ihrer Kollegen aus anderen Quellen einholen, in der Regel durch Sorgfaltsprüfungen oder anderer Marktanalysen:
+<li>Personal data that we receive from you;</li>
+<li>Personal data that we receive from other sources; and</li>
+<li>Personal data that we collect automatically.</li>
+</ul>
+<p><strong>Personal data that we receive directly from you</strong></p>
 <ul>
-<li>Von Drittanbieter für Marktforschung und durch die Analyse von Online- und Offline-Medien (diese Analyse können wir selbst durchführen oder andere Unternehmen damit beauftragen);</li>
-<li>Von renommierten Anbietern von Business-to-Business-Datenlisten, soweit wir in der Lage sind, diese Daten aus diesen Quellen in Übereinstimmung mit der DSGVO zu verwenden;</li>
-<li>Teilnehmerlisten bei entsprechenden Veranstaltungen</li>
-<li>Aus weiteren limitierten Quellen und von Dritten, wie beispielsweise von unseren Kandidaten, wenn diese uns Ihre Daten weitergeben, um als Referenzgeber zu dienen oder wenn diese uns Rückmeldung zu einem bestimmten Einsatz geben.</li>
+<li>We both share the same goal – to make sure that you have the best staff for and at your organization. We will receive data directly from you in two ways:
+<ul>
+<li>where you contact us proactively, usually by phone or electronic message; and/or</li>
+<li>where we contact you, either by phone, electronic message, or through our Hays consultants’ business development activities more generally.</li>
 </ul>
 </li>
-<li>Unsere Kandidaten, Lieferanten, Mitarbeiter innerhalb von Hays und andere relevante Personen können auch personenbezogene Daten über Sie mit uns teilen.</li>
-<li>Zu den Arten von Daten, die wir auf diese Weise über Sie erhalten, können auch Daten gehören, die andere über sie zur Verfügung stellen, wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</li>
-</ul>
-<p><strong>Personenbezogene Daten, die wir über unsere Website oder über Links und digitale Nachrichten erheben</strong></p>
+<li>The types of information that we receive from you in this way include:
 <ul>
-<li>Soweit Sie auf unsere Website zugreifen oder digitale Nachricht von uns lesen oder anklicken, werden wir Ihre Daten gegebenenfalls und sofern dies den örtlichen Gesetzen und Vorschriften entspricht, auch automatisch oder dadurch, dass Sie sie uns zur Verfügung stellen, erfassen o. Weitere Informationen finden Sie im kontextspezifischen Abschnitt dieser Datenschutzrichtlinie, der für Website-Nutzer gilt.</li>
-<li>Zu den Arten von Informationen, die wir auf diese Weise über Sie sammeln, gehören die „Automatisch erhobene Informationen“, die im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben sind.</li>
+<li>Key identification and contact information; and</li>
+<li>Additional information that you choose to tell us,</li>
 </ul>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
-<p>Wir nutzen Kundeninformationen zu folgenden Zwecken:</p>
+</li>
+</ul>
+<p>as described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>Personal data we receive from other sources</strong></p>
 <ul>
-<li>Erbringung unserer Dienstleistungen;</li>
-<li>Werbemaßnahmen; und</li>
-<li>Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</li>
-</ul>
-<p><strong>Bereitstellung unserer Dienstleistungen</strong></p>
+<li>Where appropriate and in accordance with any local laws and requirements, we will seek more information about you or your colleagues from other sources generally by way of due diligence or other market intelligence:
 <ul>
-<li>Unsere Dienstleistungen umfassen im Wesentlichen: (i) die Bereitstellung von Kandidaten, (ii) RPO-Dienstleistungen, (iii) MSP-Programme und (iv) Beratungsdienstleistungen. Im Folgenden haben wir die verschiedenen Möglichkeiten aufgeführt, wie wir Ihre Daten dazu verwenden können.</li>
-<li>Wir bieten auch Dienstleistungen für Ihre Mitarbeiter an, wie z. B. Schulungen für Lehrpersonal, die für unsere Kunden im Bildungssektor tätig sind, was dazu führt, dass wir ihre personenbezogenen Daten verwenden müssen, um ihnen Zugang zu diesen Dienstleistungen zu gewähren.</li>
-<li>In den meisten Fällen können wir Ihre personenbezogenen Daten für die unten beschriebenen Zwecke nutzen, wenn wir dies als durch unsere berechtigten Interessen gerechtfertigt erachten.</li>
-<li>Dies ist in Artikel 6 (1) (f) der DSGVO geregelt: Er besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Wahrung der berechtigten Interessen [von uns] oder eines Dritten erforderlich ist, sofern nicht [Ihre] Interessen oder Grundrechte und Grundfreiheiten, die den Schutz personenbezogener Daten erfordern, überwiegen.“</li>
-<li>Wir glauben nicht, dass eine der Aktivitäten, bei denen wir uns auf berechtigte Interessen stützen, Kunden in irgendeiner Weise beeinträchtigt. Sie haben jedoch das Recht, der Verarbeitung Ihrer personenbezogenen Daten durch uns auf dieser Grundlage zu widersprechen. Wenn Sie mehr darüber erfahren möchten, wie Sie dies tun können, lesen Sie bitte den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir arbeiten, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>From third party market research and by analyzing online and offline media (which we will do ourselves or employ other organizations to do for us);</li>
+<li>From reputable vendors of business-to-business data lists to the extent we are able to use such data from such sources in compliance with the GDPR;</li>
+<li>From delegate lists at relevant events</li>
+<li>From other limited sources and third parties, for example, from our Candidates to the extent that they provide us with your details to act as a referee for them or where they give feedback on a particular assignment.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 10" tabindex="0"><table>
+</li>
+<li>Our Candidates, Suppliers, colleagues within Hays and other relevant individuals may also share personal information about you with us.</li>
+<li>The types of information that we receive about you in this way may include information that others provide about you as described in the section entitled “What kind of personal information do we collect?” above.</li>
+</ul>
+<p><strong>Personal data we collect via our website or through links and electronic messages</strong></p>
+<ul>
+<li>To the extent that you access our website or read or click on an electronic message from us, where appropriate and in accordance with any local laws and requirements, we will also collect your data automatically or through you providing it to us. For more information, please refer to the context-specific section of this Privacy Policy that applies to Website Users.</li>
+<li>The types of information that we collect about you in this way include the “Automatically collected information” described in the section entitled “What kind of personal information do we collect?” above.</li>
+</ul>
+<p><strong>How do we use your personal data?</strong></p>
+<p>We use Client information for:</p>
+<ul>
+<li>Providing our services;</li>
+<li>Marketing Activities; and</li>
+<li>To help us to establish, exercise or defend legal claims.</li>
+</ul>
+<p><strong>Providing our services</strong></p>
+<ul>
+<li>Our services broadly consist of: (i) providing you with Candidates; (ii) RPO services; (iii) MSP programs; and (iv) consultancy and advisory services. We’ve listed below the various ways in which we use your data in order to facilitate this.</li>
+<li>We also provide services to your employees such as training courses to teaching staff who work for our Clients in the education sector, which will require us to use their personal data in order to grant them access to these services.</li>
+<li>In most cases, we will use your personal data for the purposes below if we deem it necessary to do so for our legitimate interests.</li>
+<li>Article 6(1)(f) of the GDPR says that we can process your data where it “is necessary for the purposes of the legitimate interests pursued by [us] or by a third party, except where such interests are overridden by the interests or fundamental rights or freedoms of [you] which require protection of personal data.”</li>
+<li>We don’t think that any of the activities in relation to which we rely on the legitimate interests condition prejudice Clients in any way. However, you do have the right to object to us processing your personal data on this basis. If you would like to know more about how to do so, please refer to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 10" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Daten im Laufe und in dem Umfang, der erforderlich ist, um Kunden über unsere Dienstleistungen zu informieren, u.a. durch:
+<td>Collecting and processing data in the course of and to the extent necessary to reach out to Clients about our services, including by:
 <ul>
-<li>Speicherung (und ggf. Aktualisierung) von Kundendaten in der Hays-Datenbank, damit Hays Kunden im Zusammenhang mit Rekrutierungsmaßnahmen kontaktieren kann;</li>
-<li>Aufzeichnung von Gesprächen und Besprechungen von Hays mit Kunden, damit Hays gezielt Leistungen für Kunden erbringen kann</li>
+<li>Storing Client details (and updating them when necessary) on Hays’ database, so that Hays can contact Clients in relation to recruitment activities;</li>
+<li>Keeping records of Hays’ conversations and meetings with Clients, so that Hays can provide targeted services to Clients</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:
+<td>Legitimate interests, namely it is in our interests and your interests:
 <ul>
-<li>Sie über unsere Dienstleistungen zu informieren, um Ihnen oder Ihrem Unternehmen geeignete Kandidaten, ein MSP-Programm, RPO-Dienstleistungen und/oder Beratungsdienstleistungen zur Verfügung zu stellen</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Daten in dem Rahmen und Umfang zu erheben und zu verarbeiten, der erforderlich ist, um:
-<ul>
-<li>Dienstleistungen für Kollegen/Mitarbeiter der Kunden von Hays zu erbringen</li>
-<li>Videoaufzeichnungen über die Teilnahme von Kunden (und Kollegen/Mitarbeitern von Kunden) an Schulungen oder Meetings zu internen Schulungs-/Überwachungszwecken zu erstellen und/oder interne Compliance-Standards aufrechtzuerhalten</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Videoaufzeichnungen</li>
-</ul>
-</td>
-<td>Berechtigte Interessen, was bedeutet, dass es in unserem Interesse und in Ihrem Interesse liegt:
-<ul>
-<li>unter bestimmten Umständen, Ihre Kollegen/Mitarbeiter hinsichtlich unserer Dienstleistungen, wie z. B. Schulungen, zu informieren</li>
-</ul>
-<p>Soweit wir eine Videoaufzeichnung von Ihnen machen, werden wir Sie um Ihre Einwilligung bitten, bevor wir mit der Aufzeichnung beginnen, aber wir werden uns auf das berechtigte Interesse in Bezug auf die Nutzung der Daten für Schulungen/Überwachungen und zur Einhaltung von Compliance-Standards berufen</p></td>
-</tr>
-<tr>
-<td>Erhebung und Verarbeitung von Kundendaten im Rahmen der Durchführung von:
-<ul>
-<li>Umfragen zur Kundenzufriedenheit</li>
-<li>Hays Marktforschung, die Hays für ihre Marketingmaterialien und andere Informationsmaterialien wie Whitepapers, Berichte und Artikel (z. B. Gehaltsreports von Hays) verwenden wird</li>
-</ul>
-<p>Soweit Daten veröffentlicht werden, erfolgt dies nur in aggregierter/anonymisierter Form</p></td>
-<td>
-<ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-</ul>
-</td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:
-<ul>
-<li>Verbesserung und Weiterentwicklung der Rekrutierungsdienstleistungen, die wir Ihnen zur Verfügung stellen, indem wir Ihr Feedback berücksichtigen und dies in unsere Prozesse einfließen lassen, wo wir es für notwendig halten</li>
+<li>for us to reach out to you about our services in order to provide you or your organization with suitable Candidates, an MSP program, RPO services and/or consultancy and advisory services</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Kundendaten im Rahmen der Einholung von Feedback und Vorschlägen zur Verbesserung des Hays-Geschäfts, über die Hays-Innovationsplattform oder auf andere Weise</td>
-<td>
+<td>Collecting and processing data in the course of and to the extent necessary to:
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>provide services to colleagues/employees of Hays’ Clients</li>
+<li>make video recordings of Clients’ (and colleagues/employees of Clients) participation in training sessions or meetings for internal training/monitoring purposes and/or maintaining internal compliance standards</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, d.h. es liegt in unserem Interesse und in ihrem Interesse:
+<td>
 <ul>
-<li>die Rekrutierungsdienstleistungen, die wir unseren Kunden und Kandidaten anbieten, zu verbessern und weiterzuentwickeln, indem wir Feedback berücksichtigen und unsere Prozesse gegebenenfalls ergänzen</li>
-<li>uns zu helfen, uns auf einem wettbewerbsorientierten Markt zu differenzieren</li>
-<li>auf Probleme oder Bedenken einzugehen, die uns im Zuge des Feedbacks gemeldet werden</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
+<li>Video recording footage</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests and your interests:
+<ul>
+<li>for us to, in certain circumstances, reach out to your colleagues/employees about our services, such as training courses</li>
+</ul>
+<p>To the extent that we record a video of you, we will ask for your consent before we start recording, but will rely on legitimate interests in relation to our use of the data for training/monitoring and for maintaining compliance standards</p></td>
+</tr>
+<tr>
+<td>Collecting and processing Client data in the course of carrying out:
+<ul>
+<li>customer satisfaction surveys</li>
+<li>Hays market research which Hays will use to inform its marketing materials and other informational materials, such as whitepapers, reports and articles (e.g. Hays’ salary guides)</li>
+</ul>
+<p>To the extent that any data is published, this will be in aggregated/anonymized form only</p></td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
+<li>Additional information that you choose to tell us</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests and your interests to:
+<ul>
+<li>improve and develop the recruitment services that we provide to you by considering your feedback and feeding this into our processes where we deem necessary</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Verarbeitung von Kundendaten im Rahmen der Erfüllung der Pflichten von Hays aus Verträgen, die zwischen Hays und Dritten im Zusammenhang mit Rekrutierungsdienstleistungen geschlossen wurden, wie zum Beispiel potenzielle Kandidaten, die Hays für eine Stelle im Kundenunternehmen als geeignet ermittelt</td>
+<td>Collecting and processing Client data in the course of requesting feedback and suggestions to improve Hays’ business, via the Hays innovation platform or otherwise</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, unsere Verpflichtungen aus Vereinbarungen mit Dritten, wie potenziellen Kandidaten, zu erfüllen, damit wir Ihnen bei der Suche nach geeigneten Mitarbeitern helfen können</td>
+<td>Legitimate interests, namely it is in our interests and your interests to:
+<ul>
+<li>improve and develop the recruitment services that we provide to Clients and Candidates by considering feedback and supplementing our processes where appropriate</li>
+<li>help differentiate us in a competitive marketplace</li>
+<li>address any issues or concerns reported to us in the course of feedback being provided</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td>In bestimmten Rechtsordnungen, indem ein webbasiertes Verfahren zur Überprüfung der Identität eines Kunden verwendet wird, um die Identität eines Kunden zu überprüfen und diesen Prozess zu dokumentieren</td>
+<td>Processing Client data in the course of carrying out Hays’ obligations arising from any contracts entered into between Hays and third parties in relation to recruitment services, such as potential Candidates who Hays identifies as suitable for a role in a Client organization</td>
 <td>
 <ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen (einschließlich einer Kopie des Führerscheins und/oder Reisepasses/Personalausweises)</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Videoaufzeichnungen</li>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Soweit dies in Ihrem Land erfolgt, werden wir Sie um Ihre Einwilligung bitten, bevor wir mit der Aufnahme beginnen, uns jedoch auf die Einhaltung einer gesetzlichen Verpflichtung stützen, soweit wir nach geltendem Recht verpflichtet sind, Ihre Identität zu überprüfen (z. B. im Rahmen von Zahlungsdienstleistungen)
-<p>Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier</p></td>
+<td>Legitimate interests, namely it is in our interests and your interests to fulfill our obligations under agreements with third parties such as potential Candidates, so that we can help you find suitable employees</td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Kundendaten im Zuge der Einholung von Kandidatenreferenzen von Kunden und gegebenenfalls Weitergabe dieser Daten an Dritte, die diese Referenzen anfordern</td>
+<td>In certain jurisdictions, using a web-based video identity verification process to verify a Client’s identity and document this process</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Referenz über einen Kandidaten</li>
+<li>Key identification and contact information (including a copy of driver’s license and/or passport/identity card)</li>
+<li>Additional information that you choose to tell us</li>
+<li>Video recording footage</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse liegt, im Zuge der Erbringung unserer Dienstleistungen Kandidatenreferenzen einzuholen und die darin bereitgestellten Informationen zu überprüfen</td>
+<td>To the extent that this is carried out in your jurisdiction, we will ask for your consent before we start recording but rely on compliance with a legal obligation to the extent that we are compelled by applicable law to verify your identity (e.g. in the context of payment services)
+<p>For more information in relation to your jurisdiction, please click here</p></td>
 </tr>
 <tr>
-<td>Verarbeitung von Kundendaten bei der Durchführung von Ermittlungen (sei es im Zusammenhang mit Whistleblowing-Meldungen oder anderweitig), soweit diese den Kunden betreffen oder mit ihm in Verbindung stehen</td>
+<td>Collecting and processing Client data in the course of obtaining Candidate references from Clients, and sharing this data with third parties who require these references where appropriate</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Referenz über einen Kandidaten</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
+<li>Reference about a Candidate</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, d. h. es liegt in unserem und Ihrem Interesse, dass wir Vorfälle, Beschwerden oder Klagen untersuchen oder darauf reagieren und entsprechende Berichte erstellen.
-<p>Möglicherweise haben wir auch andere gesetzliche Verpflichtungen, denen wir in Bezug auf diese Daten nachkommen müssen (z. B. in dem Maße, in dem wir in Ihrem Land Meldepflichten haben, die uns zur Offenlegung Ihrer Daten gegenüber einer Aufsichtsbehörde verpflichten).</p></td>
+<td>Legitimate interests, namely it is in our interests to obtain Candidate references in the course of carrying out our services, and to verify details they have provided</td>
+</tr>
+<tr>
+<td>Processing Clients’ data when carrying out investigations (whether relating to whistleblowing disclosures or otherwise) to the extent that this involves or relates to the Client</td>
+<td>
+<ul>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
+<li>Reference about a Candidate</li>
+</ul>
+</td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to investigate or respond to any incidents, complaints or grievances and prepare reports in relation to the same.
+<p>We may also have other legal obligations that we need to comply with in relation to this data (e.g. to the extent that we have any reporting obligations in your jurisdiction which require us to disclose your data to a regulatory authority).</p></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Werbemaßnahmen</strong></p>
+<p><strong>Marketing Activities</strong></p>
 <ul>
-<li>Sofern dies mit den geltenden lokalen Gesetzen und Vorschriften vereinbar ist, werden wir Sie nicht unbedingt um Ihre Einwilligung bitten, wenn wir Ihnen Werbematerialien wie unseren Global Skills Index an eine geschäftliche Postanschrift oder geschäftliche E-Mail-Adresse senden.</li>
-<li>Wenn Sie damit nicht einverstanden sind, haben Sie das Recht, sich gegen den Erhalt von Marketingmaterialien von uns zu entscheiden. Wie Sie dies tun können, erfahren Sie, im Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzliche gesetzliche Bestimmungen bezüglich der Marketingtätigkeiten einhalten müssen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Subject to any applicable local laws and requirements, we will not, as a matter of course, seek your consent when sending marketing materials such as our Global Skills Index to a corporate postal or email address.</li>
+<li>If you are not happy about this, you have the right to opt out of receiving marketing materials from us and can find out more about how to do so by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements regarding marketing activities. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 11" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 11" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Verarbeitung von Kundendaten um für die Hays Dienstleistungen geeignete Werbekampagnen an Sie richten zu können</td>
+<td>Processing Client data for the purpose of targeting appropriate marketing campaigns for Hays’ services</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass wir Sie über unsere Dienstleistungen informieren möchten, und wir der Ansicht sind, es sei in Ihrem Interesse, von ähnlichen Dienstleistungen zu erfahren, wie denen, für die Sie bereits ein Interesse bekundet haben.</td>
+<td>Legitimate interests, namely if we wish to reach out to you to tell you about our services, and we consider that it would be in your interests to hear about similar services to those that you have already expressed an interest in.</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Profiling, Algorithmen und automatisierte Entscheidungsfindung</strong></p>
+<p><strong>Profiling, Algorithms and Automated Decision Making</strong></p>
 <ul>
-<li>Profiling ist eine Art der Verarbeitung, die es uns ermöglicht, die Informationen, die wir über Sie sammeln, besser zu verstehen, um ein personalisiertes „Profil“ für Sie zu erstellen. Dies hilft uns, eine bessere Vorstellung davon zu bekommen, wie Sie mit uns und unseren Diensten interagieren möchten, welche Art von Anfragen Sie an uns richten und natürlich auch, welche Dinge Sie nicht mögen. Der Zweck zur Erstellung dieses personalisierten Profils ist es, Ihnen den bestmöglichen Service zu bieten und die Chancen zu maximieren, dass wir Ihnen schnell und effizient Zugang zu Inhalten verschaffen können, die für Sie am ehesten relevant und hilfreich sind.</li>
-<li>Wir verwenden Profiling-Methoden in Bezug auf Ihre personenbezogenen Daten, wenn wir dies für unsere berechtigten Interessen, wie in der nachstehenden Tabelle beschrieben, für erforderlich halten. Wenn Sie darüber nicht zufrieden sind, haben Sie unter bestimmten Umständen das Recht, Widerspruch einzulegen. Um mehr darüber zu erfahren, wie und wann Sie dies tun können, sehen Sie den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</li>
-<li>Da sich neue und bessere Technologien immer mehr durchsetzen, können einige unserer Profiling-Aktivitäten und unsere Verarbeitungstätigkeiten, bei denen automatisierte Systeme wie die oben beschriebenen zum Einsatz kommen, einer automatisierten Entscheidung im Sinne von Artikel 22 DSGVO gleichkommen. Dies bedeutet, dass eine Entscheidung mit automatisierten Mitteln, getroffen wird, wobei der Mensch nur begrenzt oder gar nicht in die Entscheidungsfindung eingreift. Wir verwenden eine automatisierte Entscheidungsfindung in Bezug auf Ihre personenbezogenen Daten nur, wenn wir dies für die Durchführung von vorvertraglichen Schritten auf Ihren Wunsch hin für erforderlich halten.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Profiling is a type of processing activity which enables us better to understand the information that we collect about you, to help us to develop a personalized “profile” for you. This helps us to gain a better idea of how you like to interact with us and our services, the sorts of requests you like to make of us and, of course, the sorts of things you don’t like. The purpose of our building this personalized profile is to enable us to provide the best possible service to you and maximize the chances that we will be able quickly and efficiently to provide you with access to content that is most likely to be relevant and helpful to you.</li>
+<li>We will use profiling methods in relation to your personal data if we consider this is necessary for our legitimate interests as detailed in the table below. If you are not happy about this, in certain circumstances you have the right to object and can find out more about how and when to do this by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>As new and better technology becomes more prevalent, some of our profiling activities and our processing activities which use automated systems such as those described above, may amount to Automated Decision Making within the meaning of Article 22 of the GDPR. This means a process of making a decision by automated means with limited, or even no, human intervention in reaching the decision. We will only use automated decision making in relation to your personal data where we consider this is necessary for the completion of pre-contractual steps taken at your request.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 12" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 12" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Erhebung von Daten über Personalisierungs-Cookies/Pixel/UTM-Parameter und Verwendung dieser Daten zu Profilerstellungszwecken, sodass Hays seinen Kunden sowohl zielgerichtete als auch personalisierte Inhalte anzeigen kann
-<p>Dazu gehören:</p>
+<td>Collection of data via personalization cookies/pixels/UTM parameters and use of this data for profiling purposes so that Hays can show Clients both targeted and personalized content
+<p>This will include:</p>
 <ul>
-<li>Personalisierung der Kundenerfahrung beim Besuchen der Website, auch in Bezug auf die Stellen, auf die sie beim Besuch der Website aufmerksam gemacht werden</li>
-<li>Empfehlungen für redaktionelle Inhalte, die unserer Meinung nach für Kunden von Interesse sein könnten (z. B. Berichte über Entwicklungen in der jeweiligen Branche)</li>
-<li>Personalisierung der Marketinginhalte, die Kunden über die Website, eine digitale Nachricht und andere Marketingkanäle erhalten (wenn sie diesem Marketing zugestimmt haben)</li>
+<li>personalizing Clients’ website experience, including in relation to the roles that are brought to their attention when visiting the website</li>
+<li>making recommendations for editorial content that we think may be of interest to Clients (e.g. reports about developments in the relevant industry)</li>
+<li>personalizing the marketing content that Clients receive via the website, electronic messages and other marketing channels (where they have consented to that marketing)</li>
 </ul>
-<p>Diese Personalisierungs-Cookies/Pixel/UTM-Parameter werden verwendet, um zu verstehen, wie die Kunden mit der Website in Kontakt treten, indem sie ihren Besuch auf der Website, die von ihnen besuchten Seiten, die Interaktionen und die Links, die sie besucht haben, erfassen. Hays wird diese Informationen verwenden, um zu verstehen, woran sie interessiert sein könnten und dementsprechend anzupassen, was ihnen angezeigt und zugesandt wird</p></td>
+<p>These personalization cookies/pixels/UTM parameters are used to understand how Clients engage with the website by recording their visit to the website, the pages they have visited, the interactions they have made and the links they have followed. Hays will use this information to understand what they may be interested in and tailor what it shows and sends to them accordingly</p></td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
-<p>Dazu gehören insbesondere:</p>
+<p>More specifically, this will include:</p>
 <ul>
-<li>Personenbezogene Daten und Informationen zur Stellensuche des Kunden (z. B. über ein ausgefülltes Formular oder aus unseren Systemen abgerufen)</li>
-<li>Angaben zu den Interaktionen der Kunden mit der Website (z. B. Anwendungen, Webseitenbesuche) und andere Informationen, die aus den Systemen abgerufen werden (z. B. Stellenbezeichnung, vorherige Bewerbungen)</li>
-<li>Standortdaten – entweder von Jobs, IP oder Anwendungshistorie abgeleitet oder systemgespeicherte Daten</li>
-<li>Digitale Kennungen – IP-Adresse, Personalisierungs-Cookies</li>
-<li>Website-Browserdaten, Formular-Einreichungsdaten und Versanddaten von digitalen Nachrichten</li>
-<li>Marketingpräferenzen</li>
+<li>Personal information and information about the Client’s job search (i.e. as submitted via form or pulled through from our Systems)</li>
+<li>Details of Clients’ interactions with the website (e.g. applications, web page visits), and other information pulled through from the Systems (e.g. job title, past applications)</li>
+<li>Location data – either inferred from jobs, IP, or application history, or system stored data</li>
+<li>Digital identifiers – IP address, personalization cookies</li>
+<li>Website browsing data, form submission data and electronic message engagement data</li>
+<li>Marketing preferences</li>
 </ul>
 </td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein, bevor wir Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät platzieren und diese Funktionalität aktivieren.
-<p>Wenn Sie nicht möchten, dass wir auf Ihrem Gerät ein Personalisierungs-Cookie/Pixel/UTM-Parameter ablegen, deaktivieren Sie bitte die Optionen „Funktionelle Cookies“ und „Marketing-Cookies“ (siehe unsere Cookie-Richtlinie)</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Cookie-Präferenzen-Link auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen</p>
-<p>Ungeachtet der Einholung Ihrer Einwilligung vor dem Setzen von Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät werden wir uns im Zusammenhang mit den Personalisierungsaktivitäten, die wir anschließend durchführen, auf die Voraussetzung eines berechtigten Interesses stützen</p>
-<p>Wir sind der Ansicht, dass es in unserem Interesse (und manchmal auch in Ihren Interessen) liegt:</p>
+<td>We will obtain your consent via the Cookie Preferences link on our website before we place personalization cookies/pixels/UTM parameters on your device and enable this functionality.
+<p>If you do not wish to provide your consent to us placing a personalization cookie/pixel/UTM parameter on your device, please turn off the “Functional Cookies” and “Marketing Cookies” options (please refer to our Cookies Policy)</p>
+<p>Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings via the Cookie Preferences link on each of your devices</p>
+<p>Notwithstanding our collection of consent prior to placing personalization cookies/pixels/UTM parameters onto your device, we will rely on the legitimate interests condition in relation to the personalization activities that we subsequently carry out</p>
+<p>We consider that it is in our interests (and sometimes your interests) to:</p>
 <ul>
-<li>die Bindung für unsere Dienstleistungen zu erhöhen und die Erfahrung bei der Nutzung unserer Dienstleistungen zu verbessern, indem die Relevanz der Inhalte, die Sie auf den Hays-Websites und digitalen Nachrichten-Kampagnen sehen, erhöht wird</li>
-<li>die Anzahl der Bewerbungen, die Quote und die Nützlichkeit der Bewerbung zu erhöhen, indem wir Ihnen maßgeschneiderte Stellenempfehlungen geben</li>
-<li>Sie zu ermutigen, auf unsere Website zurückzukehren, indem wir diese Erfahrung so hilfreich wie möglich gestalten</li>
-<li>die Absprungrate der Website zu verringern</li>
-<li>dieBeteiligungsquote von digitalen Nachrichten (d. h. die Häufigkeit, mit der der Nutzer auf die digitale Nachricht klickt)) zu erhöhen</li>
+<li>increase engagement with and improve the experience of using our services by increasing the relevance of the content that you see across the Hays websites and electronic message campaigns</li>
+<li>increase application numbers, conversion rates and application usefulness through providing tailored job recommendations to you</li>
+<li>encourage you to come back to our website by making this experience as helpful as possible</li>
+<li>reduce website bounce rate</li>
+<li>increase electronic message engagement rate (i.e. the frequency with which users click through)</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Hays kann das webbasierte Verhalten der Kunden anhand verschiedener Daten erfassen und analysieren, (z. B. Anzahl der durchgeführten Webseitenbesuche, Anzahl der gesuchten Kandidaten), um einem Kunden eine „Ansprechwahrscheinlichkeit“ zuzuweisen, um Einblicke in die Bedürfnisse der Kunden zu erhalten und es Hays zu ermöglichen, bei Bedarf nachzufassen
-<p> Hays Consultants werden diese Punktzahl als Teil der unten näher beschriebenen Vorauswahl- und Ranking-Aktivitäten und Faktor bei der Entscheidung verwenden, ob sie sich bezüglich einer Stellenanzeige an einen Kunden wenden/ihm die Stellen zeigen (und was sie ihnen zeigen). Diese Daten dienen dazu, andere Daten zu ergänzen, über die Hays hinsichtlich des Kunden verfügt</p>
-<p>Unsere Erhebung webbasierter Daten beruht auf den Personalisierungs-Cookies/Pixel/UTM-Parameter, die wir im Rahmen der oben beschriebenen Personalisierungsaktivitäten auf Ihrem Gerät platzieren</p></td>
+<td>Hays may capture and analyze Clients’ web-based behaviors using various items of data (e.g. number of web visits made, number of candidates searched) in order to award a Client an “approachability score” with a view to providing insights into Clients’ needs and to allow Hays to follow up where needed
+<p> Hays consultants will use these scores as part of the shortlisting and ranking activities described in more detail below and as a factor in determining whether to approach/show roles to a Client (and what to show them). This data will serve to supplement other data that Hays holds about the Client</p>
+<p>Our collection of web-based data will rely on the personalization cookies/pixels/UTM parameters that we place on your device as part of the personalization activities described above</p></td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein, bevor wir Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät platzieren
-<p>Wenn Sie nicht möchten, dass wir auf Ihrem Gerät ein Personalisierungs-Cookie ablegen, deaktivieren Sie bitte die Optionen „Funktionelle Cookies“ und „Marketing-Cookies“ (siehe unsere Cookie-Richtlinie)</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Cookie-Präferenzen-Link auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen</p>
-<p>Bitte beachten Sie jedoch, dass wir nach wie vor Engagement-Scoring-Aktivitäten durchführen können, auch wenn ein Personalisierungs-Cookie nicht auf Ihrem Gerät platziert wird (z. B. können wir die Daten berücksichtigen, die wir bereits über Sie in unseren Systemen gespeichert haben, um Ihnen eine Engagement-Score zuzuweisen, auch wenn Sie das Personalisierungs-Cookie abgelehnt haben)</p>
-<p>Ungeachtet der Einholung Ihrer Einwilligung vor dem Setzen von Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät werden wir uns in Bezug auf die Zuweisung eines Engagement-Score und der anschließenden Verwendung dieses Scores auf die Voraussetzung eines berechtigten Interesses stützen</p>
-<p>Wir sind der Ansicht, dass es in unserem berechtigten Interesse liegt, Ihnen eine Engagement-Score zuzuweisen, um unseren Hays Consultants dabei zu helfen, Entscheidungen in Bezug auf die Empfehlung relevanter Dienste und die Übermittlung entsprechender Mitteilungen an Sie zu treffen</p></td>
+<td>We will obtain your consent via the Cookie Preferences link on our website before we place personalization cookies/pixels/UTM parameters on your device
+<p>If you do not wish to provide your consent to us placing a personalization cookie on your device, please turn off the “Functional Cookies” and “Marketing Cookies” options (please refer to our Cookies Policy)</p>
+<p>Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings via the Cookie Preferences link on each of your devices</p>
+<p>However, please note that we may still carry out engagement scoring activities even if a personalization cookie is not placed on your device (e.g. we may consider the data that we already hold on our Systems about you with a view to allocating you an engagement score even if you have opted out of the personalization cookie)</p>
+<p>Notwithstanding our collection of consent prior to placing personalization cookies/pixels/UTM parameters onto your device, we will rely on the legitimate interests condition in relation to allocating you an engagement score and our subsequent use of this score</p>
+<p>We consider that it is in our legitimate interests to allocate you an engagement score in order to help our Hays consultants to make decisions in relation to suggesting relevant services and sending relevant communications to you</p></td>
 </tr>
 <tr>
-<td>Hays kann die Daten, die über Personalisierungs-Cookies/Pixel/UTM-Parameter gesammelt werden, z. B. webbasiertes Verhaltensweisen, wie Einzelheiten über die Interaktionen der Kunden mit der Website (z. B. Bewerbungen, Webseitenbesuche), verwenden, um die Kundendaten und bestehenden Profile über sie, die Hays bereits in seinen Systemen gespeichert hat, zu ergänzen</td>
+<td>Hays may use the data that it collects via personalization cookies/pixels/UTM parameters e.g. web-based behaviors such as details of Clients’ interactions with the website (e.g. applications, web page visits), to enrich the Client data and existing profiles about them that Hays already holds on its Systems</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein, bevor wir Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät platzieren
-<p>Wenn Sie nicht möchten, dass wir auf Ihrem Gerät ein Personalisierungs-Cookie ablegen, deaktivieren Sie bitte die Optionen „Funktionelle Cookies“ und „Marketing-Cookies“ (siehe unsere Cookie-Richtlinie)</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Cookie-Präferenzen-Link auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen</p>
-<p>Ungeachtet der Einholung Ihrer Einwilligung vor dem Setzen von Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät werden wir uns in Bezug auf die Verwendung von Daten, die wir über Sie erheben, um Ihr bestehendes Profil in unseren Systemen zu vervollständigen, auf die Voraussetzung eines berechtigten Interesses stützen</p>
-<p>Wir sind der Ansicht, dass es in unserem berechtigten Interesse liegt, die Daten, die wir über Sie halten, zu ergänzen, um unseren Hays Consultants dabei zu helfen, Entscheidungen in Bezug auf die Empfehlung relevanter Dienste und die Übermittlung entsprechender Mitteilungen an Sie zu treffen</p></td>
+<td>We will obtain your consent via the Cookie Preferences link on our website before we place personalization cookies/pixels/UTM parameters on your device
+<p>If you do not wish to provide your consent to us placing a personalization cookie on your device, please turn off the “Functional Cookies” and “Marketing Cookies” options (please refer to our Cookies Policy)</p>
+<p>Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings via the Cookie Preferences link on each of your devices</p>
+<p>Notwithstanding our collection of consent prior to placing personalization cookies/pixels/UTM parameters onto your device, we will rely on the legitimate interests condition in relation to using data that we collect about you to enrich your existing profile on our Systems</p>
+<p>We consider that it is in our legitimate interests to enrich the data that we hold about you to help our Hays consultants to make decisions in relation to suggesting relevant services and sending relevant communications to you</p></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Weitergabe von Daten</strong></p>
+<p><strong>Sharing of data</strong></p>
 <ul>
-<li>Wir geben Ihre Daten zu folgenden Zwecken weiter: (i) in erster Linie um sicherzustellen, dass wir Ihnen einen geeigneten Kandidatenpool zur Verfügung stellen; (ii) um Ihnen ein MSP-Programm bereitzustellen (oder ein anderes Unternehmen dabei zu unterstützen); (iii) um Ihnen gegenüber RPO-Dienstleistungen zu erbringen (oder ein anderes Unternehmen dabei unterstützen); (iv) um Sie mit Beratungsdienstleistungen zu versorgen und/oder (v) um Dienstleistungen für Ihre Mitarbeiter zu erbringen, wie z. B. Schulungen für Lehrkräfte, die für unsere Kunden im Bildungssektor tätig sind. Sofern Sie nichts anderes angegeben haben, werden wir Ihre Informationen an jedes unserer Konzernunternehmen sowie verbundene Dritte, z. B. von uns eingesetzte Dienstleister, weitergeben, um diese Ziele besser erreichen zu können.</li>
-<li>Wenn Sie eine detailliertere Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein. Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>We will share your data: (i) primarily to ensure that we provide you with a suitable pool of Candidates; (ii) to provide you with an MSP program (or assist another organization to do so); (iii) to provide you with RPO services (or assist another organization to do so); (iv) to provide you with consultancy and advisory services and/or (v) to provide services to your employees, such as training courses to teaching staff who work for our Clients in the education sector. Unless you specify otherwise, we will share your information with any of our group companies and associated third parties such as our service providers to help us meet these aims.</li>
+<li>If you would like to see a more detailed list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy. Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 13" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 13" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten </strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information </strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Offenlegung der Daten der Kunden an die im Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ genannten Empfänger, einschließlich der Übermittlung, der Speicherung und der Verarbeitung dieser Daten außerhalb des Vereinigten Königreichs/Europäischen Wirtschaftsraums für die in den vorstehenden Tabellen aufgeführten Zwecke</td>
-<td>Die tatsächlich verwendeten Informationen hängen von den sachlichen Umständen ab, könnten jedoch Folgendes umfassen:
+<td>Disclosing Clients’ data to the recipients listed in the section entitled “Who do we share your personal data with?”, including the transfer, storage and processing of such data outside of the UK/European Economic Area for the purposes listed in the preceding tables</td>
+<td>The actual information used depends on the factual circumstances, but could include any of the following:
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Die Offenlegung (z. B. gegenüber unseren professionellen Beratern) ist erforderlich, um uns bei der Geltendmachung, der Ausübung oder der Verteidigung von Rechtsansprüchen zu helfen</li>
-<li>Die Offenlegung ist für die von uns verfolgten „berechtigte Interessen“ (wie in den vorstehenden Tabellen näher ausgeführt) erforderlich</li>
+<li>The disclosure (e.g. to our professional advisers) is necessary to help us to establish, exercise or defend legal claims</li>
+<li>The disclosure is necessary for the purposes of “legitimate interests” pursued by us (as detailed in the tables above)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen</strong></p>
+<p><strong>To help us to establish, exercise or defend legal claims</strong></p>
 <ul>
-<li>Unter eher außergewöhnlichen Umständen verwenden wir Ihre personenbezogenen Daten unter Berufung die Rechtsgrundlage der legitimen Interessen, um uns bei der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen zu unterstützen.</li>
+<li>In more unusual circumstances, we will use your personal data in reliance on the legitimate interests legal basis to help us to establish, exercise or defend legal claims.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 14" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 14" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Aufbewahrung, Weitergabe und anderweitige Verarbeitung von Kundendaten zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen</td>
-<td>Die tatsächlich verwendeten Informationen hängen von den sachlichen Umständen ab, könnten jedoch Folgendes umfassen:
+<td>Preserving, sharing and otherwise processing Client data to establish, exercise or defend legal claims</td>
+<td>The actual information used depends on the factual circumstances, but could include any of the following:
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, Rechtsberatung zu ersuchen und zu erhalten, sofern dies erforderlich ist, um uns im Rahmen von Rechtsstreitigkeiten und anderen Streitfragen zu schützen</td>
+<td>Legitimate interests, namely it is in our interests and your interests to seek and receive legal advice should we need it to protect ourselves in the context of litigation and other disputes</td>
 </tr>
 </tbody>
 </table></div>
-<h3>4. Lieferanten und sonstige Dritte</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Lieferanten.</p>
-<p>Der Begriff Lieferanten umfasst Partnerschaften und Unternehmen (einschließlich Einzelunternehmer) sowie atypische Arbeitnehmer, wie unabhängige Auftragnehmer und freie Mitarbeiter, die Leistungen für Hays erbringen. Unter bestimmten Umständen vergibt Hays Unteraufträge für Leistungen, die Hays für seine Kunden erbringt, an externe Dienstleister, die die Leistungen im Namen von Hays erbringen. In diesem Kontext werden Lieferanten, bei denen es sich um einzelne Auftragnehmer, freie Mitarbeiter oder Beschäftigte von Lieferanten handelt, zu Datenschutzzwecken als Kandidaten behandelt. Bitte beachten Sie, dass Hays den Lieferanten vorgibt, ihre Beschäftigten über die maßgeblichen Bestandteile dieser Datenschutzrichtlinie (insbesondere die Abschnitte zu Kandidaten) zu informieren.</p>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt auch für andere Parteien, mit denen wir eine Geschäftsbeziehung oder eine andere Art von Beziehung unterhalten (von Investoren bis hin zu gemeinnützigen Organisationen).</p>
-<p>Welche Arten personenbezogener Daten werden erfasst?</p>
-<p>Wir erheben wenige Daten über Lieferanten und andere Dritte, mit denen wir Geschäftsbeziehungen unterhalten (z. B. Investoren) – wir müssen einfach sicherstellen können, dass unsere Beziehung reibungslos läuft. Wir erfassen die Daten unserer Ansprechpartner innerhalb Ihres Unternehmens, wie etwa Namen, Telefonnummern und E-Mail-Adressen. Im Falle der Lieferanten erfassen wir außerdem Bankdaten, um Zahlungen an Sie leisten zu können. Wir können auch zusätzliche Informationen speichern, die uns jemand aus Ihrer Organisation von sich aus mitgeteilt hat. Unter bestimmten Umständen, z. B. wenn ein Lieferant mit unseren Finanz- und Inkassoteams in Kontakt tritt, können unsere Telefongespräche mit Ihnen gemäß den geltenden örtlichen Gesetzen und Anforderungen aufgezeichnet werden:</p>
+<h3>4. Suppliers and Other Third Parties</h3>
+<p>This section of the Privacy Policy applies to Suppliers.</p>
+<p>Suppliers include partnerships and companies (including sole proprietors), and atypical workers such as independent contractors and freelance workers, who provide services to Hays. In certain circumstances Hays will subcontract the services it provides to Clients to third party suppliers who perform services on Hays’ behalf. In this context, suppliers that are individual contractors, freelance workers, or employees of suppliers will be treated as Candidates for data protection purposes. Please note that Hays requires Suppliers to communicate the relevant parts of this Privacy Policy (namely the sections directed at Candidates) to their employees.</p>
+<p>This section of the Privacy Policy also applies to other parties with which we have a business or other type of relationship (ranging from investors to charitable organizations).</p>
+<p>What kind of personal information do we collect?</p>
+<p>We don’t collect much data about Suppliers and other third parties with which we conduct a business relationship (e.g. investors) – we simply need to make sure that our relationship runs smoothly. We’ll collect the details of contacts within your organization, such as names, telephone numbers and email addresses. In the case of Suppliers, we’ll also collect bank details, so that we can pay you. We may also hold extra information that someone in your organization has chosen to tell us. In certain circumstances, such as when a Supplier engages with our Finance and Debt Recovery teams, our calls with you may be recorded, depending on the applicable local laws and requirements:</p>
 <ul>
-<li><strong>Wichtige Identifikations- und Kontaktinformationen</strong></li>
+<li><strong>Key identification and contact information</strong></li>
 </ul>
-<p>Über Sie selbst oder einzelne Kontaktpersonen in Ihrem Unternehmen, darunter:</p>
+<p>About yourself or individual contacts at your organization, including:</p>
 <ul>
 <li>
 <ul>
-<li>Namen;</li>
-<li>Stellenbezeichnungen;</li>
-<li>Telefonnummern;</li>
-<li>E-Mail-Adressen;</li>
-<li>Bankverbindung des Unternehmens;</li>
-<li>Identifikationsnummer;</li>
+<li>Names;</li>
+<li>Job titles;</li>
+<li>Telephone numbers;</li>
+<li>Email addresses;</li>
+<li>Business account bank details;</li>
+<li>Identification number;</li>
 </ul>
 </li>
-<li><strong>Informationen, die andere über Sie bereitstellen</strong>
+<li><strong>Information that others provide about you</strong>
 <ul>
-<li>Zusätzliche Informationen, die unsere Kandidaten oder Kunden uns über Sie mitteilen oder die wir aus anderen Quellen Dritter erfahren;</li>
-<li>Einzelheiten über Sie, die in einem Whistleblowing-„SpeakUp“- oder „SafeCall“-Bericht oder einer Untersuchung enthalten sind, die entweder von Ihnen initiiert wurde oder an der Sie anderweitig beteiligt sind; und</li>
+<li>Extra information that our Candidates or Clients may tell us about you, or that we find from other third party sources;</li>
+<li>Details contained in any whistleblowing “SpeakUp” or “SafeCall” report or investigation, either instigated by you or in which you are otherwise involved; and</li>
 </ul>
 </li>
-<li><strong>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</strong>
+<li><strong>Additional information that you choose to tell us</strong>
 <ul>
-<li>Zusätzliche Informationen, die Sie oder jemand in Ihrem Unternehmen entschieden hat, uns mitzuteilen, auch wenn Sie mit uns per digitaler Nachricht korrespondieren.</li>
-</ul>
-</li>
-</ul>
-<p>Bitte beachten Sie, dass die obige Liste der Kategorien personenbezogener Daten, die wir erfassen, nicht abschließend ist.</p>
-<p>Soweit Sie auf unsere Website zugreifen oder auf Links in einer digitalen Nachricht von uns klicken, werden wir auch bestimmte Daten von Ihnen erheben. Wenn Sie diesbezüglich weitere Informationen wünschen, lesen Sie bitte den kontextspezifischen Abschnitt dieser Datenschutzrichtlinie, der für die Website-Nutzer gilt.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten erfasst?</strong></p>
-<p>Wir erfassen personenbezogene Daten von Lieferanten und anderen Dritten auf die folgenden Arten:</p>
-<ul>
-<li>Personenbezogenen Daten, die wir von Ihnen erhalten; und</li>
-<li>Personenbezogene Daten, die wir aus anderen Quellen erheben oder erhalten.</li>
-</ul>
-<p><strong>Personenbezogenen Daten, die wir direkt von Ihnen erhalten</strong></p>
-<ul>
-<li>Wir erhalten auf zwei Arten Daten direkt von Ihnen:
-<ul>
-<li>wenn Sie sich von sich aus, normalerweise telefonisch oder per digitaler Nachricht, an uns wenden und/oder</li>
-<li>wenn wir mit Ihnen entweder per Telefon oder digitaler Nachricht in Kontakt treten.</li>
-</ul>
-</li>
-<li>Zu den Arten von Informationen, die wir auf diese Weise von Ihnen erhalten, gehören:
-<ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen; und</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen,</li>
+<li>Extra information that you or someone in your organization has chosen to tell us, including when corresponding with us via electronic message.</li>
 </ul>
 </li>
 </ul>
-<p>wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</p>
-<p><strong>Personenbezogene Daten, die wir aus anderen Quellen erhalten</strong></p>
+<p>Please note that the above list of categories of personal data we collect is not exhaustive.</p>
+<p>To the extent that you access our website or click through any links in an electronic message from us, we will also collect certain data from you. If you would like more information about this, please refer to the context-specific section of this Privacy Policy that applies to Website Users.</p>
+<p><strong>How do we collect your personal data?</strong></p>
+<p>We collect Supplier and other third party personal data in the following ways:</p>
 <ul>
-<li>Gegebenenfalls und in Übereinstimmung mit den örtlichen Gesetzen und Vorschriften werden wir weitere Informationen über Sie oder Ihrer Kollegen aus anderen Quellen einholen, in der Regeldurch Sorgfaltsprüfungen oder andere Marktanalysen:
+<li>Personal data that we receive from you; and</li>
+<li>Personal data that we collect or receive from other sources.</li>
+</ul>
+<p><strong>Personal data that we receive directly from you</strong></p>
 <ul>
-<li>Von Drittanbietern für Marktforschung und durch die Analyse von Online- und Offline-Medien (diese Analyse können wir selbst durchführen oder andere Unternehmen damit beauftragen);</li>
-<li>Teilnehmerlisten bei entsprechenden Veranstaltungen</li>
-<li>Aus anderen begrenzten Quellen und von Dritten.</li>
+<li>We will receive data directly from you in two ways:
+<ul>
+<li>where you contact us proactively, usually by phone or electronic message; and/or</li>
+<li>where we contact you, either by phone or electronic message.</li>
 </ul>
 </li>
-<li>Unsere Kandidaten, Kunden, Mitarbeiter innerhalb von Hays und andere relevante Personen können auch personenbezogene Daten über Sie mit uns teilen.</li>
-<li>Zu den Arten von Informationen, die wir auf diese Weise über Sie erhalten, können auch Daten gehören, die andere über sie zur Verfügung stellen, wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</li>
-</ul>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
+<li>The types of information that we receive from you in this way include:
 <ul>
-<li>In den meisten Fällen können wir Ihre personenbezogenen Daten für die unten beschriebenen Zwecke nutzen, wenn wir dies als notwendig und durch unsere berechtigten Interessen gerechtfertigt erachten.</li>
-<li>Wir werden Sie nicht unbedingt um Ihre Einwilligung bitten, wenn wir Ihnen Werbemitteilungen an eine geschäftliche Postanschrift oder geschäftliche Adresse für digitale Nachrichten zu senden.</li>
-<li>In den meisten Fällen können wir Ihre personenbezogenen Daten für die unten beschriebenen Zwecke nutzen, wenn wir dies als durch unsere berechtigten Interessen gerechtfertigt erachten. Dies ist in Artikel 6 (1) (f) der DSGVO geregelt: Er besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Wahrung der berechtigten Interessen [von uns] oder eines Dritten erforderlich ist, sofern nicht [Ihre] Interessen oder Grundrechte und Grundfreiheiten, die den Schutz personenbezogener Daten erfordern, überwiegen.“</li>
-<li>Wir glauben nicht, dass irgendeine der folgenden Aktivitäten Lieferanten oder andere Dritten in irgendeiner Weise beeinträchtigt. Sie haben jedoch das Recht, der Verarbeitung Ihrer personenbezogenen Daten durch uns auf dieser Grundlage zu widersprechen. Wenn Sie mehr darüber erfahren möchten, wie Sie dies tun können, lesen Sie bitte den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Key identification and contact information; and</li>
+<li>Additional information that you choose to tell us,</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 15" tabindex="0"><table>
+</li>
+</ul>
+<p>as described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>Personal data we receive from other sources</strong></p>
+<ul>
+<li>Where appropriate and in accordance with any local laws and requirements, we will seek more information about you or your colleagues from other sources generally by way of due diligence or other market intelligence:
+<ul>
+<li>From third party market research and by analyzing online and offline media (which we will do ourselves or employ other organizations to do for us);</li>
+<li>From delegate lists at relevant events</li>
+<li>From other limited sources and third parties.</li>
+</ul>
+</li>
+<li>Our Candidates, Clients, colleagues within Hays and other relevant individuals may also share personal information about you with us.</li>
+<li>The types of information that we receive about you in this way may include information that others provide about you as described in the section entitled “What kind of personal information do we collect?” above.</li>
+</ul>
+<p><strong>How do we use your personal data?</strong></p>
+<ul>
+<li>In most cases, we will use your personal data for the purposes below if we deem this to be necessary for our legitimate interests.</li>
+<li>We will not, as a matter of course, seek your consent when sending marketing messages to a corporate postal or electronic message address.</li>
+<li>In most cases, we will use your personal data for the purposes below if we deem it necessary to do so for our legitimate interests. Article 6(1)(f) of the GDPR says that we can process your data where it “is necessary for the purposes of the legitimate interests pursued by [us] or by a third party, except where such interests are overridden by the interests or fundamental rights or freedoms of [you] which require protection of personal data.”</li>
+<li>We don’t think that any of the following activities prejudice Suppliers or other third parties in any way. However, you do have the right to object to us processing your personal data on this basis. If you would like to know more about how to do so, please refer to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+</ul>
+<div class="legal-table" role="region" aria-label="Table 15" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Speicherung der Angaben des Lieferanten und anderer Dritter (ggf. deren Aktualisierung) in der Hays-Datenbank, sodass Hays den Lieferanten und Dritten in Bezug auf Vereinbarungen und Geschäftsbeziehungen mit diesen Parteien kontaktieren kann</td>
+<td>Storing Supplier and other third party details (and updating them where necessary) on Hays’ database, so that Hays can contact Suppliers and third parties in relation to agreements and business relationships with these parties</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:
+<td>Legitimate interests, namely it is in our interests and your interests:
 <ul>
-<li>uns mit Ihnen in Verbindung zu setzen, um sie über die von uns getroffenen Vereinbarungen zu informieren</li>
+<li>for us to reach out to you about the arrangements that we have in place</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Daten in dem Rahmen und dem Umfang, der erforderlich ist, um Unterstützung und Dienstleistungen von Lieferanten zu erhalten und Geschäftsbeziehungen zu anderen Dritten zu pflegen</td>
+<td>Collecting and processing data in the course of and to the extent necessary to receive support and services from Suppliers and maintain business relationships with other third parties</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:
+<td>Legitimate interests, namely it is in our interests and your interests:
 <ul>
-<li>für uns unter bestimmten Umständen Informationen über Ihre Dienstleistungen zu erhalten</li>
-<li>unsere Geschäftsbeziehung mit Ihnen zu pflegen</li>
+<li>for us to, in certain circumstances, receive information about your services</li>
+<li>to conduct our business relationship with you</li>
 </ul>
-<p>Wenn Sie eine natürliche Person sind (z. B. ein Lieferant, der als Einzelunternehmer tätig ist) oder wenn Sie mit uns einen Vertrag abgeschlossen haben oder im Begriff sind, einen solchen mit uns abzuschließen oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen</p>
-<p>Unter bestimmten Umständen müssen wir uns möglicherweise auf die Einhaltung einer gesetzlichen Verpflichtung stützen, soweit wir nach geltendem Recht gezwungen sind, gegenüber unseren Lieferanten und anderen Dritten verschiedene Kontrollen durchzuführen (wie beispielsweise zur Überprüfung der Entrichtung von Sozialbeiträgen und der Einholung von Listen von ausländischen Mitarbeitern)</p></td>
+<p>If you are an individual (e.g. a Supplier that operates as a sole proprietor) or you have entered or are about to enter into a contract with us or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis</p>
+<p>In certain circumstances, we may need to rely on the compliance with a legal obligation legal basis to the extent that we are compelled by applicable law to conduct various checks in relation to our Suppliers and other third parties (e.g. in relation to verifying that social contributions are being paid and obtaining lists of overseas employees)</p></td>
 </tr>
 <tr>
-<td>Aufbewahrung, Weitergabe und anderweitige Verarbeitung von Daten des Lieferanten und Dritter zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen</td>
-<td>Die tatsächlich verwendeten Informationen hängen von den sachlichen Umständen ab, könnten jedoch umfassen:
+<td>Preserving, sharing and otherwise processing Supplier and third party data to establish, exercise or defend legal claims</td>
+<td>The actual information used depends on the factual circumstances, but could include:
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, Rechtsberatung zu ersuchen und zu erhalten, sofern dies erforderlich ist um uns im Rahmen von Rechtsstreitigkeiten und anderen Streitfragen zu schützen</td>
+<td>Legitimate interests, namely it is in our interests and your interests to seek and receive legal advice should we need it to protect ourselves in the context of litigation and other disputes</td>
 </tr>
 <tr>
-<td>In bestimmten Rechtsordnungen, durch Verwendung eines webbasierten Verfahrens zur Überprüfung der Identität eines Lieferanten oder eines Dritten und um diesen Prozess aufzuzeichnen</td>
+<td>In certain jurisdictions, using a web-based video identity verification process to verify a Supplier or third party’s identity and document this process</td>
 <td>
 <ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen (einschließlich einer Kopie des Führerscheins und/oder Reisepasses/Personalausweises)</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Videoaufzeichnungen</li>
+<li>Key identification and contact information (including a copy of driver’s license and/or passport/identity card)</li>
+<li>Additional information that you choose to tell us</li>
+<li>Video recording footage</li>
 </ul>
 </td>
-<td>Soweit dies in Ihrem Land erfolgt, werden wir Sie um Ihre Einwilligung bitten, bevor wir mit der Aufnahme beginnen, uns jedoch auf folgende Rechtsgrundlagen stützen:
+<td>To the extent that this is carried out in your jurisdiction, we will ask for your consent before we start recording but rely on:
 <ul>
-<li>Einhaltung einer rechtlichen Verpflichtung, soweit wir nach geltendem Recht verpflichtet sind, Ihre Identität zu überprüfen (z. B. im Rahmen von Zahlungsdienstleistungen)</li>
-<li>die Voraussetzung berechtigter Interessen, soweit wir gesetzlich nicht verpflichtet sind, Ihre Identität zu überprüfen, es aber in unserem berechtigten Interesse liegt, dies zu tun, um interne Compliance-Standards aufrechtzuerhalten</li>
+<li>compliance with a legal obligation to the extent that we are compelled by applicable law to verify your identity (e.g. in the context of payment services)</li>
+<li>the legitimate interests condition to the extent that we are not legally required to verify your identity but it is in our legitimate interests to do so in order to maintain internal compliance standards</li>
 </ul>
-<p>Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier</p></td>
+<p>For more information in relation to your jurisdiction, please click here</p></td>
 </tr>
 <tr>
-<td>Verarbeitung von Lieferantendaten bei der Durchführung von Ermittlungen (sei es im Zusammenhang mit Whistleblowing-Meldungen oder anderweitig), soweit diese den Lieferanten oder einen anderen Dritten betreffen oder sich auf ihn beziehen</td>
+<td>Processing Suppliers’ data when carrying out investigations (whether relating to whistleblowing disclosures or otherwise) to the extent that this involves or relates to the Supplier or other third party</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, d. h. es liegt in unserem und Ihrem Interesse, dass wir Vorfälle, Beschwerden oder Klagen untersuchen oder darauf reagieren und entsprechende Berichte erstellen.
-<p>Möglicherweise haben wir auch andere gesetzliche Verpflichtungen, denen wir in Bezug auf diese Daten nachkommen müssen (z. B. in dem Maße, in dem wir in Ihrem Land Meldepflichten haben, die uns zur Offenlegung Ihrer Daten gegenüber einer Aufsichtsbehörde verpflichten).</p></td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to investigate or respond to any incidents, complaints or grievances and prepare reports in relation to the same.
+<p>We may also have other legal obligations that we need to comply with in relation to this data (e.g. to the extent that we have any reporting obligations in your jurisdiction which require us to disclose your data to a regulatory authority).</p></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Weitergabe von Daten</strong></p>
+<p><strong>Sharing of data</strong></p>
 <ul>
-<li>Wenn wir Sie als Lieferant oder anderen Dritten identifiziert haben und sofern Sie nichts anderes angeben, können wir Ihre Daten an unsere Konzerngesellschaften und verbundenen Dritten, wie z. B. unsere Dienstleister, weitergeben, um Sie hinsichtlich unserer Dienstleistungen zu kontaktieren.</li>
-<li>Wir werden uns in der Regel auf die gleichen Rechtsgrundlagen stützen, auf die wir im obigen Abschnitt Bezug genommen haben.</li>
-<li>Wenn Sie eine vollständige Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Where we have identified you as a Supplier or other third party and unless you specify otherwise, we may share your information with any of our group companies and associated third parties such as our service providers in order to get in touch with you about our services.</li>
+<li>We will generally rely on the same legal bases that we have referred to in the section above.</li>
+<li>If you would like to see a full list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<h3>5. PERSONEN, DEREN DATEN WIR VON KANDIDATEN UND MITARBEITERN ERHALTEN, Z. B. REFERENZGEBER, NOTFALLKONTAKTE UND FAMILIENANGEHÖRIGE</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Personen, deren Daten wir von Kandidaten und Mitarbeitern von Hays erhalten. Dazu können Notfallkontakte und Referenzgeber gehören. Wir kontaktieren diese Personen nur, wenn dies den Umständen entsprechend angemessen ist.</p>
-<p><strong>Welche Art von personenbezogenen Daten werden erfasst und wie sammeln wir sie?</strong></p>
-<p>Von Ansprechpartnern für Referenzen benötigen wir lediglich eine Bestätigung dessen, was Sie bereits über unseren Kandidaten oder potenziellen Mitarbeiter wissen, damit sie sich die Stelle sichern können, die sie möchten. Dank der Notfallkontaktdaten haben wir jemanden, den wir im Notfall benachrichtigen können. Um jemanden um eine Referenz zu bitten, benötigen wir natürlich die Kontaktdaten des Referenzgebers (etwa Name, E-Mail-Adresse und Telefonnummer). Diese Details benötigen wir auch, wenn der Kandidat oder einer unserer Mitarbeiter Sie als Notfallkontakt angegeben hat, damit wir Sie im Falle eines Unfalls oder Notfalls benachrichtigen können.</p>
-<p>Wir erfassen Ihr Geburtsdatum, Ihre Kontaktdaten und möglicherweise einige Gesundheitsinformationen, wenn ein Mitglied unseres Personals Sie als Familienangehörigen oder anderen Begünstigten für eine Leistung im Zusammenhang mit ihrer Beschäftigung eingesetzt hat oder wenn ein Mitglied unseres Personals bestimmte Beschäftigungsrechte ausübt. Auch können uns (durch Schlussfolgerung) einige begrenzte Informationen über Ihre sexuelle Orientierung gegeben werden, wenn ein Mitglied unseres Personals Sie bei der Eintragung als Familienangehöriger, naher Verwandter oder als Notfallkontakt als Ehegatte/Ehegattin oder Partner/Partnerin identifiziert:</p>
+<h3>5. PEOPLE WHOSE DATA WE RECEIVE FROM CANDIDATES AND STAFF, SUCH AS REFEREES, EMERGENCY CONTACTS AND DEPENDENTS</h3>
+<p>This section of the Privacy Policy applies to People Whose Data we receive from Candidates and Hays’ Staff. These may include emergency contacts and referees. We will only contact them in appropriate circumstances.</p>
+<p><strong>What kind of personal information do we collect and how do we collect it?</strong></p>
+<p>All we need from referees is confirmation of what you already know about our Candidate or prospective member of Staff, so that they can secure the job they really want. Emergency contact details give us somebody to call on in an emergency. To ask for a reference, we’ll obviously need the referee’s contact details (such as name, email address and telephone number). We’ll also need these details if our Candidate or a member of our Staff has put you down as their emergency contact so that we can contact you in the event of an accident or an emergency.</p>
+<p>We will collect your date of birth, contact details and potentially some health information if a member of our Staff has put you down as a dependent or any other kind of beneficiary for a benefit connected with their employment or if a member of our Staff exercises certain employment rights. We may also be provided (by inference) with some limited information about your sexual orientation if a member of our Staff identifies you as a spouse or partner when putting you down as a dependent, next of kin or emergency contact:</p>
 <ul>
-<li><strong>Wichtige Identifikations- und Kontaktinformationen</strong>
+<li><strong>Key identification and contact information</strong>
 <ul>
 <li>Name;</li>
-<li>Alter/Geburtsdatum;</li>
-<li>Familienstand;</li>
-<li>Kontaktdaten;</li>
-<li>Nutzung des Firmenfahrzeugs der Mitarbeiter;</li>
+<li>Age/date of birth;</li>
+<li>Marital status;</li>
+<li>Contact details;</li>
+<li>Use of Staff member’s company vehicle;</li>
 </ul>
 </li>
-<li><strong>Besondere Kategorien personenbezogener Daten</strong>
+<li><strong>Special category information</strong>
 <ul>
-<li>Einzelheiten zur sexuellen Orientierung (abgeleitet) und körperlicher oder geistiger Gesundheit, z. B. wenn dies hinsichtlich des Anspruchs eines Berechtigten auf eine Leistung im Zusammenhang mit ihrer Beschäftigung erforderlich ist oder wenn Sie dies durch Angabe von Einzelheiten der nächsten Angehörigen offenlegen;</li>
+<li>Details of sexual orientation (inferred) and physical or mental health, for example if this is necessary in connection with a beneficiary’s entitlement to a benefit connected with their employment or where you disclose this through providing next-of-kin details;</li>
 </ul>
 </li>
-<li><strong>Informationen, die andere über Sie bereitstellen</strong>
+<li><strong>Information that others provide about you</strong>
 <ul>
-<li>Zusätzliche Informationen, die Ihr Ansprechpartner für eine Referenz uns von sich aus über Sie mitteilt;</li>
-<li>Zusätzliche Informationen, die uns ein Mitarbeiter über Sie mitteilen kann;</li>
-<li>Einzelheiten über Sie, die in einem Whistleblowing-„SpeakUp“- oder „SafeCall“-Bericht oder einer Untersuchung enthalten sind, die entweder von Ihnen initiiert wurde oder an der Sie anderweitig beteiligt sind; und</li>
+<li>Extra information that your referee chooses to tell us about you;</li>
+<li>Extra information that a member of Staff may tell us about you;</li>
+<li>Details contained in any whistleblowing “SpeakUp” or “SafeCall” report or investigation, either instigated by you or in which you are otherwise involved; and</li>
 </ul>
 </li>
-<li><strong>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</strong>
+<li><strong>Additional information that you choose to tell us</strong>
 <ul>
-<li>Alle anderen Informationen, die Sie uns möglicherweise zur Verfügung stellen, einschließlich, wenn Sie mit uns per digitaler Nachricht korrespondieren.</li>
+<li>Any other information that you may provide to us including when corresponding with us via electronic message.</li>
 </ul>
 </li>
 </ul>
-<p>Bitte beachten Sie, dass die oben genannte Liste der Kategorien personenbezogener Daten, die wir erfassen, nicht abschließend ist. Soweit Sie auf unsere Website zugreifen oder auf Links in einer digitalen Nachricht von uns klicken, werden wir auch bestimmte Daten von Ihnen erheben. Wenn Sie diesbezüglich weitere Informationen wünschen, lesen Sie bitte den kontextspezifischen Abschnitt dieser Datenschutzrichtlinie, der für die Website-Nutzer gilt.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
-<p>Wir werden die Informationen, die unsere Kandidaten oder Mitarbeiter uns über Sie zur Verfügung stellen, nur zu folgenden Zwecken nutzen:</p>
+<p>Please note that the above list of categories of personal data we collect is not exhaustive. To the extent that you access our website or click through any links in an electronic message from us, we will also collect certain data from you. If you would like more information about this, please refer to the context-specific section of this Privacy Policy that applies to Website Users.</p>
+<p><strong>How do we use your personal data?</strong></p>
+<p>We will only use the information that our Candidates or Staff give us about you for the following purposes:</p>
 <ul>
-<li>Wenn Kandidaten oder Mitarbeiter Sie in unserem Formular als Notfallkontakt angegeben haben, kontaktieren wir Sie, wenn sie in einen Unfall oder Notfall verwickelt werden;</li>
-<li>Wenn Sie von einem Mitarbeiter oder Zeitarbeitnehmer als Angehöriger oder Unterhaltsberechtigter oder sonstiger Begünstigter eingetragen wurden, speichern wir Ihre personenbezogenen Daten, um sicherzustellen, dass die Personalunterlagen dieses Mitarbeiters oder Zeitarbeitnehmers korrekt sind, und verwenden Ihre personenbezogenen Daten, soweit dies für die Gewährung von Sozialleistungen und die Zahlung von Entgelten erforderlich ist, und geben Ihre Daten an den jeweiligen Leistungserbringer weiter; oder</li>
-<li>Wenn Sie von einem Kandidaten oder einem potenziellen Mitarbeiter als Ansprechperson für Referenzen eingetragen wurden, werden wir Sie kontaktieren, um eine Referenz zu erhalten oder Ihre Daten an Dritte weitergeben, um dies in unserem Namen zu tun. Wenn Sie aufgefordert werden, aufgrund ihrer Berufserfahrung mit einem Kandidaten eine Referenz zu geben, und wir glauben, dass Sie daran interessiert sein könnten, Kunde von uns zu werden, können wir Ihre Daten auch verwenden, um uns mit Ihnen zu diesem anderen Zweck in Verbindung zu setzen (vorbehaltlich örtlicher Gesetze und Anforderungen).</li>
+<li>If our Candidates or Staff members put you down on our form as an emergency contact, we’ll contact you in the case of an accident or emergency affecting them;</li>
+<li>If you were put down by a Staff member or Temporary Worker as a next of kin or dependent or any other kind of beneficiary, we will store your personal data to ensure the personnel records of that Staff member or Temporary Worker are correct, and use your personal data where necessary to provide employee benefits and pay remuneration and disclose your data to the relevant benefits provider; or</li>
+<li>If you were put down by a Candidate or prospective Staff member as a referee, we will contact you to get a reference or give your details to a third party to do this on our behalf. Where you are being asked to give a reference based on your professional experience of a Candidate, and where we think that you may be interested in becoming a Client of ours, we may also use your details to get in touch with you in that alternative capacity (subject to any local laws and requirements).</li>
 </ul>
-<p>Wir können Ihre personenbezogenen Daten zu diesen Zwecken nutzen, wenn dies in unserem berechtigten Interesse liegt oder geltendem Arbeitsrecht entspricht.</p>
-<p>Wenn Sie damit nicht zufrieden sind, haben Sie das Recht, Widerspruch einzulegen. Um mehr darüber zu erfahren, wie Sie dies tun können, sehen Sie den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</p>
-<p>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</p>
-<div class="legal-table" role="region" aria-label="Tabelle 16" tabindex="0"><table>
+<p>We will use your personal data for these purposes if we deem this to be necessary for our legitimate interests or in accordance with applicable employment law.</p>
+<p>If you are not happy about this, you have the right to object and can find out more about how to do so by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</p>
+<p>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</p>
+<div class="legal-table" role="region" aria-label="Table 16" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Daten in dem Rahmen und Umfang zu erheben und zu verarbeiten, der erforderlich ist, um:
+<td>Collecting and processing data in the course of and to the extent necessary to:
 <ul>
-<li>auf Unfälle und Notfälle zu reagieren, einschließlich der Speicherung von Daten von Personen, deren Daten Hays von Kandidaten und Mitarbeitern erhält, wie Notfallkontakte und Angehörige, in einer Datenbank</li>
-<li>Mitarbeitersozialleistungen erbringen und Vergütungen auszubezahlen, einschließlich der Speicherung in Datenbanken der Daten von Personen, deren Daten Hays von Mitarbeitern und Zeitarbeitnehmern erhält, wie beispielsweise Familienangehörige, und diese gegebenenfalls an Leistungserbringer weiterleitet</li>
+<li>respond to accidents and emergencies, including by storing data of people whose data Hays receives from Candidates and Staff, such as emergency contacts and dependents, on database</li>
+<li>provide employee benefits and pay remuneration, including by storing data of people whose data Hays receives from Staff and Temporary Workers, such as dependents, on database, and sharing these with benefits providers where appropriate</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns mitteilen (z. B. Informationen, die Sie uns in einer Aufzeichnung mitteilen)</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us (e.g. information that you tell us in a recording)</li>
+<li>Information that others provide about you</li>
 </ul>
 </td>
-<td>Berechtigtes Interesse, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, dass wir:
+<td>Legitimate interests, namely it is in our interests and your interests for us to:
 <ul>
-<li>über die Mittel verfügen, um Sie im Falle eines Unfalls oder Notfalls zu kontaktieren;</li>
-<li>Ihnen zustehende Vergütungen oder Zahlungen bereitzustellen, die Ihnen im Rahmen der Leistungen für Mitarbeiter oder Zeitarbeitnehmer zustehen</li>
+<li>have the means to contact you in the event of an accident or emergency;</li>
+<li>provide any pay or remuneration due to you as part of Staff or Temporary Worker benefits</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td> Erhebung und Verarbeitung von Daten von Personen, deren Daten Hays von Kandidaten und Mitarbeitern erhält, wie z. B. Referenzgebern, im Rahmen der Kommunikation mit Referenzgebern, um Kandidaten- oder Personalreferenzen zu erhalten und gegebenenfalls die Weitergabe dieser Daten an Dritte, die Referenzen benötigen</td>
+<td> Collecting and processing data of people whose data Hays receives from Candidates and Staff, such as referees, in the course of communicating with referees in order to obtain Candidate or Staff references, and sharing this data with third parties who require references where appropriate</td>
 <td>
 <ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen;</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Referenz über einen Kandidaten</li>
+<li>Key identification and contact information;</li>
+<li>Additional information that you choose to tell us</li>
+<li>Reference about a Candidate</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse liegt, im Zuge der Erbringung unserer Dienstleistungen Personal- und Kandidatenreferenzen einzuholen und die darin bereitgestellten Informationen zu überprüfen</td>
+<td>Legitimate interests, namely it is in our interests to obtain Staff and Candidate references in the course of carrying out our services, and to verify details they have provided</td>
 </tr>
 <tr>
-<td>Verwendung der Daten von Personen, deren Daten Hays von Kandidaten und Mitarbeitern, wie Referenzgeber, Notfallkontakte und Familienangehörige, erhält, zur Durchführung von Marketingaktivitäten, um die Dienstleistungen von Hays zu bewerben, wenn Hays der Meinung ist, dass die Person daran interessiert sein könnte ein Kunde zu werden (vorbehaltlich örtlicher Gesetze und Anforderungen)</td>
+<td>Using the data of people whose data Hays receives from Candidates and Staff, such as referees, emergency contacts and dependents, to carry out marketing activities to promote Hays’ services where Hays thinks the individual may be interested in becoming a Client (subject to any local laws and requirements)</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
+<li>Key identification and contact information</li>
 </ul>
 </td>
-<td>Wir holen Ihre Einwilligung (Opt-in) ein</td>
+<td>We will obtain your opt-in consent</td>
 </tr>
 <tr>
-<td>Verarbeitung von Daten bei der Durchführung von Ermittlungen (sei es im Zusammenhang mit Whistleblowing-Meldungen oder anderweitig), soweit dies Personen betrifft, deren Daten Hays von Kandidaten und Mitarbeitern erhält</td>
+<td>Processing data when carrying out investigations (whether relating to whistleblowing disclosures or otherwise) to the extent that this involves or relates to people whose data Hays receives from Candidates and Staff</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die andere über Sie bereitstellen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that others provide about you</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, d. h. es liegt in unserem und Ihrem Interesse, dass wir Vorfälle, Beschwerden oder Klagen untersuchen oder darauf reagieren und entsprechende Berichte erstellen.
-<p>Möglicherweise haben wir auch andere gesetzliche Verpflichtungen, denen wir in Bezug auf diese Daten nachkommen müssen (z. B. in dem Maße, in dem wir in Ihrem Land Meldepflichten haben, die uns zur Offenlegung Ihrer Daten gegenüber einer Aufsichtsbehörde verpflichten).</p></td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to investigate or respond to any incidents, complaints or grievances and prepare reports in relation to the same.
+<p>We may also have other legal obligations that we need to comply with in relation to this data (e.g. to the extent that we have any reporting obligations in your jurisdiction which require us to disclose your data to a regulatory authority).</p></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Weitergabe von Daten</strong></p>
+<p><strong>Sharing of data</strong></p>
 <ul>
-<li>Sofern Sie nichts anderes angegeben haben, werden wir Ihre Informationen an jedes unserer Konzernunternehmen sowie verbundene Dritte, z. B. von uns eingesetzte Dienstleister und Organisationen, für die wir Leistungen erbringen, weitergeben.</li>
-<li>Wenn Sie eine vollständige Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Unless you specify otherwise, we will share your information with any of our group companies and associated third parties such as our service providers and organizations to whom we provide services.</li>
+<li>If you would like to see a full list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<h3>6. Website-Nutzer</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Website-Nutzer.</p>
-<p>Website-Nutzer schließen jede Person ein, die auf eine der Websites von Hays oder einer der mobilen Anwendungen von Hays (Apps) zugreift.</p>
-<p><strong>Welche Arten personenbezogener Daten werden erfasst?</strong></p>
-<p>Wir erfassen eine begrenzte Menge an Daten von den Besuchern unserer Website und nutzen sie, um Ihnen die Handhabung unserer Website oder unserer mobilen Applikationen zu erleichtern und die von uns angebotenen Leistungen besser verwalten zu können. Dazu gehören Informationen wie z. B. wie Sie unsere Website oder unsere mobilen Applikationen nutzen, wie oft Sie auf unsere Website oder auf unsere mobilen Applikationen zugreifen, Ihr Browsertyp, Ihr Gerätetyp, der Ort, von dem aus Sie unsere Website aufrufen, die ausgewählte Sprache und die Zeiten, zu denen unsere Website besonders gefragt ist. Wenn Sie über die Website oder die mobilen Apps mit uns Kontakt aufnehmen, z. B. unter Verwendung der Chat-Funktion, oder wenn Sie sich für einen unserer Newsletter, Webinaren anmelden oder an einem weiteren Angebot unserer Website oder mobilen Apps teilnehmen, erheben wir alle Daten, die Sie uns zur Verfügung stellen, wie beispielsweise Ihren Namen und Ihre Kontaktdaten:</p>
+<h3>6. Website Users</h3>
+<p>This section of the Privacy Policy applies to Website Users.</p>
+<p>Website Users include any individual who accesses any of the Hays websites or any of the Hays mobile applications (apps).</p>
+<p><strong>What kind of personal information do we collect?</strong></p>
+<p>We collect a limited amount of data from our Website Users which we use to help us to improve your experience when using our website or mobile apps and to help us manage the services we provide. This comprises information such as how you use our website or our mobile apps, the frequency with which you access our website or mobile apps, your browser type, your type of device, the location you view our website from, the language you choose to view it in and the times that our website is most popular. If you contact us via the website or the mobile apps, for example by using the chat function, or when you register for one of our newsletters, webinars or participate in any further offer of our website or mobile apps, we will collect any information that you provide to us, for example your name and contact details:</p>
 <ul>
-<li><strong>Wichtige Identifikations- und Kontaktinformationen</strong>
+<li><strong>Key identification and contact information</strong>
 <ul>
-<li>Namen;</li>
-<li>Telefonnummern;</li>
-<li>E-Mail-Adressen;</li>
-</ul>
-</li>
-<li><strong>Automatisch erhobene Informationen</strong>
-<ul>
-<li>Informationen in Bezug auf Ihre Online-Verhalten in Bezug auf von Hays veröffentlichten Materialien;</li>
-<li>IP-Adresse;</li>
-<li>Zusätzliche Nutzungsdaten, die Sie uns mitteilen möchten, einschließlich des Datums, der Uhrzeit, der Häufigkeit Ihrer Zugriffe und des Ortes, von dem aus Sie auf unsere Dienste zugreifen;</li>
-<li>Nutzerverhalten;</li>
-<li>Nutzerberichte;</li>
-<li>Informationen zu Log- und Fehlerbehebung;</li>
-<li>Geräteinformationen, wenn Sie unsere Dienste installieren, darauf zugreifen oder diese nutzen;</li>
-<li>Kontozugriffsdaten (z. B. PIN-Nummern für Zwecke der Benutzerkonto-Überprüfung); und</li>
+<li>Names;</li>
+<li>Telephone numbers;</li>
+<li>Email addresses;</li>
 </ul>
 </li>
-<li><strong>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</strong>
+<li><strong>Automatically collected information</strong>
 <ul>
-<li>Alle anderen Informationen, die Sie uns zur Verfügung stellen, einschließlich, wenn Sie mit uns per digitaler Nachricht korrespondieren,</li>
+<li>Information relating to your online engagement with material published by Hays;</li>
+<li>IP address;</li>
+<li>Extra usage information that you choose to tell us, including the dates, times and frequency with and location from which you access our services;</li>
+<li>User choices;</li>
+<li>User reports;</li>
+<li>Log and troubleshooting information;</li>
+<li>Device information when you install, access or use our services;</li>
+<li>Account access information (e.g. PIN numbers for account verification purposes); and</li>
+</ul>
+</li>
+<li><strong>Additional information that you choose to tell us</strong>
+<ul>
+<li>Any other information that you may provide to us including when corresponding with us via electronic message,</li>
 </ul>
 </li>
 </ul>
-<p>Bitte beachten Sie, dass die obige Liste der Kategorien personenbezogener Daten, die wir erfassen, nicht abschließend ist.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten erfasst?</strong></p>
-<p>Wenn Sie unsere Website oder mobilen Apps besuchen, gibt es bestimmte Informationen, die wir automatisch sammeln, unabhängig davon, ob Sie sich entscheiden, unsere Dienste zu nutzen oder nicht, nämlich Ihre IP-Adresse, das Datum und die Uhrzeit und Häufigkeit, mit der Sie auf die Website oder die mobilen Apps zugreifen, wie Sie ihre Inhalte durchsuchen und andere technische Informationen. Wir erheben auch Daten von Ihnen, wenn Sie mit uns über die Website oder die mobilen Apps Kontakt aufnehmen, z. B. durch Nutzung der Chat-Funktion oder wenn Sie sich für einen unserer Newsletter, Webinaren oder an einem weiteren Angebot unserer Website oder mobilen Apps anmelden.</p>
-<p>Wir erfassen Ihre Daten automatisch über Cookies oder ähnliche Technologien wie Tracking Pixel, UTM-Parameter und HTML5 Local Storage im Einklang mit den Cookie-Einstellungen, die Sie über den Link „Cookie-Präferenzen-Link“ entweder oben oder unten auf der Website oder die Einstellungen in Ihrem Browser angeben. Wenn Sie auch ein Kandidat oder Kunde von Hays sind, werden wir Daten zu Ihrer Nutzung der Website verwenden, um andere Aspekte der Kommunikation mit Ihnen oder der Leistung, die wir für Sie erbringen, zu verbessern. Wenn Sie mehr über Cookies oder ähnliche Technologien, einschließlich der Art und Weise, wie wir sie verwenden und welche Möglichkeiten Ihnen zur Verfügung stehen, erfahren möchten, lesen Sie bitte den Abschnitt „Cookies“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</p>
-<p>Zu den Arten von Informationen, die wir auf diese Weise über Sie sammeln, gehören:</p>
+<p>Please note that the above list of categories of personal data we collect is not exhaustive.</p>
+<p><strong>How do we collect your personal data?</strong></p>
+<p>When you visit our website or mobile apps there is certain information that we will automatically collect, whether or not you decide to use our services, namely your IP address, the date and the times and frequency with which you access the website or the mobile apps, the way you browse its content and other technical information. We will also collect data from you when you contact us via the website or the mobile apps, for example by using the chat function or when you register for one of our newsletters, webinars or participate in any further offer of our website or mobile apps.</p>
+<p>We collect your data automatically via cookies or similar technology such as tracking pixels, UTM parameters and HTML5 Local Storage in line with the cookie settings that you specify via the “Cookie Preferences” link at either the top or bottom of the website, or the settings in your browser. If you are also a Candidate or a Client of Hays, we will use data from your use of our websites to enhance other aspects of our communications with or service to you. If you would like to find out more about cookies or similar technology, including how we use them and what choices are available to you, please refer to the section entitled “Cookies” in the General Privacy Information section of this Privacy Policy.</p>
+<p>The types of information that we collect about you in this way include:</p>
 <ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen; und</li>
-<li>Automatisch erfasste Informationen,</li>
+<li>Key identification and contact information; and</li>
+<li>Automatically collected information,</li>
 </ul>
-<p>wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
-<p>Wir verwenden Ihre Daten, um:</p>
+<p>as described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>How do we use your personal data?</strong></p>
+<p>We use your data to:</p>
 <ul>
-<li>Ihnen die Dienste zur Verfügung zu stellen, für die Sie sich angemeldet haben oder die Dienste, an denen Sie teilgenommen haben, z. B. der Versand eines Newsletters oder die Teilnahme an einer Online-Umfrage;</li>
-<li>unsere Systeme vor Angriffen und anderen illegalen Aktivitäten zu schützen; und</li>
-<li>um uns dabei zu helfen, Ihre Erfahrungen mit der Nutzung unserer Website oder unserer mobilen Apps zu verbessern, indem wir beispielsweise Ihre aktuellen Stellensuchkriterien analysieren, um uns zu helfen, Ihnen Stellen oder Kandidaten vorzustellen, die Sie interessieren könnten.</li>
+<li>provide you with the service you registered for or the services you participated in, for example sending you a newsletter or taking part in an online survey;</li>
+<li>protect our Systems from attacks and other illegal activities; and</li>
+<li>help us to improve your experience of using our website or our mobile apps, for example by analyzing your recent job search criteria to help us to present jobs or Candidates to you that we think you’ll be interested in.</li>
 </ul>
-<p>Wir werden Ihre personenbezogenen Daten zu diesen Zwecken nutzen, wenn dies unseren berechtigten Interessen entspricht. Wenn Sie damit nicht zufrieden sind, haben Sie das Recht, Widerspruch einzulegen. Um mehr darüber zu erfahren, wie Sie dies tun können, sehen Sie den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</p>
-<p>Wenn Sie mehr über Cookies oder ähnliche Technologien, einschließlich der Art und Weise, wie wir sie verwenden und welche Möglichkeiten Ihnen zur Verfügung stehen, erfahren möchten, lesen Sie bitte den Abschnitt „Cookies“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</p>
-<p>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</p>
-<div class="legal-table" role="region" aria-label="Tabelle 17" tabindex="0"><table>
+<p>We will use your personal data for these purposes if we deem this to be necessary for our legitimate interests. If you are not happy about this, you have the right to object and can find out more about how to do so by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</p>
+<p>If you would like to find out more about cookies or similar technology, including how we use them and what choices are available to you, please refer to the section entitled “Cookies” in the General Privacy Information section of this Privacy Policy.</p>
+<p>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</p>
+<div class="legal-table" role="region" aria-label="Table 17" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage</strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon</strong></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Daten im Rahmen und in dem Umfang, der erforderlich ist, um den Nutzern der Website Dienstleistungen zur Verfügung zu stellen, für die sie sich registrieren, einschließlich Newslettern und Online-Umfragen</td>
+<td>Collecting and processing data in the course of and to the extent necessary to provide Website Users with services they register for, including newsletters and online surveys</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, dass wir Ihnen diese Dienstleistungen bereitstellen und Sie diese zur Unterstützung unserer Kerngeschäftsaktivitäten im Zusammenhang mit der Personalrekrutierung erhalten
-<p>Wenn Sie mit uns einen Vertrag abgeschlossen haben oder im Begriff sind, einen solchen mit uns abzuschließen oder wenn Sie in diesem Zusammenhang eine Anfrage stellen, können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, soweit die von uns beabsichtigte Verarbeitungstätigkeit für die Zwecke des Vertrags oder der Bearbeitung Ihrer Anfrage erforderlich ist</p>
-<p>Wir holen die Opt-in-Einwilligung ein, bevor wir Ihnen Marketingmaterialien zusenden</p></td>
+<td>We will rely on legitimate interests, namely it is in our interests and your interests for us to provide you with these services and for you to receive them in support of our core business activities relating to recruitment
+<p>If you have entered or are about to enter into a contract with us or if you are making a request in the course of doing so, we may rely on the performance of a contract legal basis to the extent that the processing activity that we are seeking to conduct is necessary for the purposes of the contract or your request</p>
+<p>We will obtain opt-in consent before sending you any marketing materials</p></td>
 </tr>
 <tr>
-<td>Erhebung von Daten durch Personalisierungs-Cookies/Pixel/UTM-Parameter und Verwendung dieser Daten zu Profilerstellungszwecken, sodass Hays den Nutzern der Website sowohl zielgerichtete als auch personalisierte Inhalte zeigen kann. Dazu gehören:
+<td>Collection of data via personalization cookies/pixels/UTM parameters and use of this data for profiling purposes so that Hays can show Website Users both targeted and personalized content. This will include:
 <ul>
-<li>Personalisierung der Website-Erfahrung der Website-Nutzer, auch in Bezug auf die Stellen, die ihnen beim Besuch der Website zur Kenntnis gebracht werden</li>
-<li>Empfehlungen für redaktionelle Inhalte, von denen Hays glaubt, dass sie für Website-Nutzer von Interesse sein könnten</li>
-<li>Personalisierung der Marketinginhalte, die Website-Nutzer über die Website, digitale Nachrichten und andere Marketingkanäle erhalten (wenn sie diesem Marketing zugestimmt haben)</li>
+<li>personalizing Website Users’ website experience, including in relation to the roles that are brought to their attention when visiting the website</li>
+<li>making recommendations for editorial content that Hays thinks may be of interest to Website Users</li>
+<li>personalizing the marketing content that Website Users receive via the website, electronic messages and other marketing channels (where they have consented to that marketing)</li>
 </ul>
-<p>Diese Personalisierungs-Cookies/Pixel/UTM-Parameter werden verwendet, um zu verstehen, wie Website-Nutzer mit der Website umgehen, indem sie ihren Besuch auf der Website, die von ihnen besuchten Seiten, die Interaktionen und die von ihnen verfolgten Links erfassen. Hays wird diese Informationen verwenden, um zu verstehen, woran die Nutzer der Website interessiert sein könnten und dementsprechend anzupassen, was ihnen gezeigt und gesandt wird.</p></td>
+<p>These personalization cookies/pixels/UTM parameters are used to understand how Website Users engage with the website by recording their visit to the website, the pages they have visited, the interactions they have made and the links they have followed. Hays will use this information to understand what Website Users may be interested in and tailor what they are shown and sent accordingly.</p></td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
-<p>Dazu gehören insbesondere:</p>
+<p>More specifically, this will include:</p>
 <ul>
-<li>Personenbezogene Daten und Informationen über die Suche der Website-Nutzer (z. B. über ein ausgefülltes Formular oder aus unseren Systemen abgerufen)</li>
-<li>Angaben zu den Interaktionen der Website-Nutzer mit der Website (z. B. Anwendungen, Webseitenbesuche) und andere Informationen, die aus den Systemen abgerufen werden (z. B. Stellenbezeichnung, vorherige Bewerbungen)</li>
-<li>Standortdaten – entweder von Jobs, IP oder Anwendungshistorie abgeleitet oder systemgespeicherte Daten</li>
-<li>Digitale Kennungen – IP-Adresse, Personalisierungs-Cookies</li>
-<li>Website-Browserdaten, Formular-Einreichungsdaten und Versanddaten von digitalen Nachrichten</li>
-<li>Marketingpräferenzen</li>
+<li>Personal information and information about the Website Users’ searches (i.e. as submitted via form or pulled through from our Systems)</li>
+<li>Details of the Website Users’ interactions with the website (e.g. applications, web page visits), and other information pulled through from the Systems (e.g. job title, past applications)</li>
+<li>Location data – either inferred from jobs, IP, or application history, or system stored data</li>
+<li>Digital identifiers – IP address, personalization cookies</li>
+<li>Website browsing data, form submission data and electronic message engagement data</li>
+<li>Marketing preferences</li>
 </ul>
 </td>
-<td>Wir holen Ihre Einwilligung über den Cookie-Präferenzen-Link auf unserer Website ein, bevor wir Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät platzieren und diese Funktionalität aktivieren
-<p>Wenn Sie nicht möchten, dass wir auf Ihrem Gerät ein Personalisierungs-Cookie ablegen, deaktivieren Sie bitte die Optionen „Funktionelle Cookies“ und „Marketing-Cookies“ (siehe unsere Cookie-Richtlinie)</p>
-<p>Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Cookie-Präferenzen-Link auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf unsere Dienste auf mehreren Geräten zugreifen</p>
-<p>Ungeachtet der Einholung Ihrer Einwilligung vor dem Setzen von Personalisierungs-Cookies/Pixel/UTM-Parameter auf Ihrem Gerät werden wir uns im Zusammenhang mit den Personalisierungsaktivitäten, die wir anschließend durchführen, auf die Voraussetzung eines berechtigten Interesses stützen</p>
-<p>Wir sind der Ansicht, dass es in unserem Interesse (und manchmal auch in Ihren Interessen) liegt:</p>
+<td>We will obtain your consent via the Cookie Preferences link on our website before we place personalization cookies/pixels/UTM parameters on your device and enable this functionality
+<p>If you do not wish to provide your consent to us placing a personalization cookie on your device, please turn off the “Functional Cookies” and “Marketing Cookies” options (please refer to our Cookies Policy)</p>
+<p>Please note that if you access our services across multiple devices, you may need to adjust your settings via the Cookie Preferences link on each of your devices</p>
+<p>Notwithstanding our collection of consent prior to placing personalization cookies/pixels/UTM parameters onto your device, we will rely on the legitimate interests condition in relation to the personalization activities that we subsequently carry out</p>
+<p>We consider that it is in our interests (and sometimes your interests) to:</p>
 <ul>
-<li>die Bindung für unsere Dienstleistungen zu erhöhen und die Erfahrung bei der Nutzung unserer Dienstleistungen zu verbessern, indem die Relevanz der Inhalte, die Sie auf den Hays-Websites und Kampagnen durch digitale Nachrichten sehen, erhöht wird</li>
-<li>die Anwendungszahlen, die Konversionsraten und den Nutzen der Anwendung zu erhöhen</li>
-<li>Sie zu ermutigen, sich erneut auf unsere Website zu begeben, indem wir Ihre Erfahrung so hilfreich wie möglich gestalten</li>
-<li>die Absprungrate der Website zu verringern</li>
-<li>die Versandrate von digitalen Nachrichten (d. h. die Häufigkeit, mit der der Nutzer sie aufruft) zu erhöhen</li>
+<li>increase engagement with and improve the experience of using our services by increasing the relevance of the content that you see across the Hays websites and electronic message campaigns</li>
+<li>increase application numbers, conversion rates and application usefulness</li>
+<li>encourage you to come back to our website by making your experience as helpful as possible</li>
+<li>reduce website bounce rate</li>
+<li>increase electronic message engagement rate (i.e. the frequency with which users click through)</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Zur Verhinderung und Ergreifung von Maßnahmen gegen Betrug, illegale Aktivitäten, Verletzungen der Rechte oder Interessen von Hays oder gegen andere Angriffe auf Hays‘ Systems</td>
+<td>To prevent and take measures against fraud, illegal activities, infringement of Hays’ rights or interests, or other attacks on Hays’ Systems</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, und zwar:
+<td>Legitimate interests, namely:
 <ul>
-<li>liegt es in unserem Interesse und in Ihrem Interesse, Betrug, unbefugte Nutzung unseres Systems und andere illegale oder schädliche Aktivitäten zu verhindern und diesbezügliche Maßnahmen zu ergreifen</li>
-<li>liegt es in unserem Interesse, uns, Sie und andere zu schützen</li>
-<li>wir unter bestimmten Umständen ein berechtigtes Interesse an der Zusammenarbeit mit Strafverfolgungsbehörden, Aufsichtsbehörden und anderen Stellen haben, selbst wenn wir gesetzlich nicht dazu verpflichtet sind, Ihre Daten weiterzugeben oder anderweitig zu verarbeiten</li>
+<li>it is in our interests and your interests for us to prevent and take measures against fraud, unauthorized use of our System and other illegal or harmful activity</li>
+<li>it is in our interests to protect ourselves, you and others</li>
+<li>even if we are not under a legal obligation to share or otherwise process your data, we will, under certain circumstances, have a legitimate interest in cooperating with law enforcement agencies, regulators and other bodies</li>
 </ul>
-<p>die Einhaltung einer gesetzlichen Verpflichtung, z. B. wenn wir eine gültige gesetzliche Anfrage von einer Strafverfolgungsbehörde, Regulierungsbehörde oder einer anderen Stelle erhalten, sofern wir gesetzlich verpflichtet sind, Ihre Daten weiterzugeben oder anderweitig zu verarbeiten</p></td>
+<p>Compliance with a legal obligation, for example if we receive a valid legal request from a law enforcement agency, regulator or other body, if we are under a legal obligation to share or otherwise process your data</p></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Weitergabe von Daten</strong></p>
+<p><strong>Sharing of data</strong></p>
 <ul>
-<li>Sofern Sie nichts anderes angegeben haben, können wir Ihre Informationen an jedes unserer Konzernunternehmen sowie verbundene Dritte, z. B. von uns eingesetzte Dienstleister weitergeben, um mit Ihnen hinsichtlich unserer Dienstleistungen in Kontakt zu treten.</li>
-<li>Wir werden uns in der Regel auf die gleichen Rechtsgrundlagen stützen, auf die wir im obigen Abschnitt Bezug genommen haben.</li>
-<li>Wenn Sie eine vollständige Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein. Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Unless you specify otherwise, we may share your information with any of our group companies and associated third parties such as our service providers in order to get in touch with you about our services.</li>
+<li>We will generally rely on the same legal bases that we have referred to in the section above.</li>
+<li>If you would like to see a full list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy. Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<h3>7. Alumni</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Alumni.</p>
-<p>Alumni umfasst ehemalige Mitarbeiter, die ihren Wunsch zum Ausdruck gebracht haben, Teil des Alumni-Netzwerks von Hays zu werden und das Alumni-Portal von Hays zu nutzen.</p>
-<p><strong>Welche Arten personenbezogener Daten werden erfasst?</strong></p>
-<p>Wenn Sie ein ehemaliger Mitarbeiter sind und Mitglied unseres Alumni-Netzwerks werden und unser Alumni-Portal nutzen möchten, erfassen wir Ihren Namen, die Kontaktdaten, die wir verwenden möchten, und alle anderen Informationen, die Sie uns zur Verfügung stellen möchten, um mit Ihnen in Kontakt bleiben zu können. Wir können auch bestimmte Arten von Daten speichern, die wir aufgrund des Zeitraums gespeichert haben, während dessen Sie als Mitarbeiter bei uns waren:</p>
+<h3>7. Staff Alumni</h3>
+<p>This section of the Privacy Policy applies to Staff Alumni.</p>
+<p>Staff Alumni include former members of Staff who have expressed their wish to become part of Hays’ alumni network and to use Hays’ alumni portal.</p>
+<p><strong>What kind of personal information do we collect?</strong></p>
+<p>If you are a former member of Staff and you want to be part of our alumni network and use our alumni portal, we will collect your name, the contact details that you would like us to use and any other information you would like to provide to us for staying in touch with you. We may also retain certain types of data that we held about you relating to your time with us as a member of Staff:</p>
 <ul>
-<li><strong>Wichtige Identifikations- und Kontaktinformationen</strong>
+<li><strong>Key identification and contact information</strong>
 <ul>
 <li>Name;</li>
-<li>Alter/Geburtsdatum;</li>
-<li>Geschlecht/Geschlechter;</li>
-<li>Foto;</li>
-<li>Familienstand;</li>
-<li>Staatsangehörigkeit/Staatsbürgerschaft/Geburtsort;</li>
-<li>Kontaktdaten;</li>
+<li>Age/date of birth;</li>
+<li>Sex/gender;</li>
+<li>Photograph;</li>
+<li>Marital status;</li>
+<li>Nationality/citizenship/place of birth;</li>
+<li>Contact details;</li>
 </ul>
 </li>
-<li><strong>Informationen zu Ausbildung und Beruf</strong>
+<li><strong>Education and employment information</strong>
 <ul>
-<li>Einzelheiten zur Ausbildung;</li>
-<li>Beruflicher Werdegang; und</li>
+<li>Education details;</li>
+<li>Employment history; and</li>
 </ul>
 </li>
-<li><strong>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</strong>
+<li><strong>Additional information that you choose to tell us</strong>
 <ul>
-<li>Alle anderen Informationen, die Sie uns möglicherweise zur Verfügung stellen, einschließlich, wenn Sie mit uns per digitaler Nachricht oder anderweitig korrespondieren.</li>
+<li>Any other information that you may provide to us including when corresponding with us via electronic message or otherwise.</li>
 </ul>
 </li>
 </ul>
-<p><strong>Wie werden Ihre personenbezogenen Daten erfasst?</strong></p>
-<p>Wenn Sie ein ehemaliger Mitarbeiter sind, werden wir Sie kurz vor Ihrem Ausscheiden fragen, ob Sie Teil unseres Alumni-Netzwerks bleiben und unser Alumni-Portal nutzen möchten. Wenn Sie interessiert sind, werden wir Sie bitten, uns Ihren Namen und Ihre Kontaktdaten mitzuteilen und Ihnen die Möglichkeit geben, sich für den Erhalt von Marketingmitteilungen zu entscheiden, von denen wir glauben, dass sie für Sie als eines unserer Alumni von Interesse sein könnten.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
-<p>Wenn Sie ein ehemaliger Mitarbeiter sind und Teil unseres Alumni-Netzwerks sein und unser Alumni-Portal nutzen möchten, verwenden wir Ihre Daten, um Sie einzubeziehen und mit Ihnen in Kontakt zu bleiben, damit wir unsere Beziehung zu Ihnen pflegen können, u.a. durch:</p>
+<p><strong>How do we collect your personal data?</strong></p>
+<p>If you are a former member of Staff, we will ask you if you wish to remain part of our alumni network and use our alumni portal just before your departure. If you are interested, we will ask you to provide your name and contact details to us and give you the option to opt into receiving marketing communications that we think will be of interest to you as one of our alumni.</p>
+<p><strong>How do we use your personal data?</strong></p>
+<p>If you are a former member of Staff and you want to be part of our alumni network and use our alumni portal, we will use your data to engage and stay in touch with you in order to maintain our relationship with you, including by:</p>
 <ul>
-<li>den Versand von Newslettern und Berichten;</li>
-<li>die Einladung zu Veranstaltungen;</li>
-<li>indem wir Sie über spezielle Stellenangebote informieren;</li>
-<li>Versenden von Neuigkeiten über Hays;</li>
-<li>Einladung zur Teilnahme an Meinungsumfragen; und</li>
-<li>Versandt von Nachrichten an Sie zu besonderen Anlässen, wie zum Beispiel Ihrem Geburtstag.</li>
+<li>sending you newsletters and reports;</li>
+<li>inviting you to events;</li>
+<li>informing you about special vacancies;</li>
+<li>sending you news about Hays;</li>
+<li>inviting you to participate in opinion polls; and</li>
+<li>sending you messages on special occasions such as your birthday.</li>
 </ul>
-<p>In den meisten Fällen können wir Ihre personenbezogenen Daten für die unten beschriebenen Zwecke nutzen, wenn wir dies als durch unsere berechtigten Interessen gerechtfertigt erachten.</p>
-<p>Dies ist in Artikel 6 (1) (f) der DSGVO geregelt: Er besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Wahrung der berechtigten Interessen [von uns] oder eines Dritten erforderlich ist, sofern nicht [Ihre] Interessen oder Grundrechte und Grundfreiheiten, die den Schutz personenbezogener Daten erfordern, überwiegen.“ Wenn Sie damit nicht zufrieden sind, haben Sie das Recht, Widerspruch einzulegen. Um mehr darüber zu erfahren, wie Sie dies tun können, sehen Sie den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</p>
-<p>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</p>
-<div class="legal-table" role="region" aria-label="Tabelle 18" tabindex="0"><table>
+<p>In most cases, we will use your personal data for the purposes below if we deem it necessary to do so for our legitimate interests.</p>
+<p>Article 6(1)(f) of the GDPR says that we can process your data where it “is necessary for the purposes of the legitimate interests pursued by [us] or by a third party, except where such interests are overridden by the interests or fundamental rights or freedoms of [you] which require protection of personal data.” If you are not happy about this, you have the right to object and you can find out more about how to do so by referring to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</p>
+<p>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</p>
+<div class="legal-table" role="region" aria-label="Table 18" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage </strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon </strong></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Daten im Laufe und in dem Umfang, der erforderlich ist, um Alumni Zugang zum Alumni-Netzwerk und zum Alumni-Portal von Hays zu geben, unter anderem durch die Speicherung von Einzelheiten zu Alumni in der Datenbank</td>
+<td>Collecting and processing data in the course of and to the extent necessary to provide Staff Alumni with access to Hays’ alumni network and alumni portal, including by storing Staff Alumni details on database</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen (einschließlich Daten zur Erstellung Ihres Alumni-Portal-Zugangs)</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information (including data to create your alumni portal account)</li>
+<li>Education and employment information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigtes Interesse, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, dass wir Ihnen Zugang zum Alumni-Netzwerk, Portal und relevanten Ressourcen bieten</td>
+<td>Legitimate interests, namely it is in our interests and your interests for us to provide you with access to the alumni network, portal, and relevant resources</td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Alumni-Daten im Rahmen der Durchführung von Hays Meinungsumfragen
-<p>Soweit Daten veröffentlicht werden, erfolgt dies nur in aggregierter/anonymisierter Form</p></td>
+<td>Collecting and processing Staff Alumni data in the course of carrying out Hays opinion polls
+<p>To the extent that any data is published, this will be in aggregated/anonymized form only</p></td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigtes Interesse, was heißt, dass es in unserem Interesse liegt:
+<td>Legitimate interests, namely it is in our interests to:
 <ul>
-<li>die Erfahrung, die wir Ihnen bieten zu verbessern und weiterzuentwickeln, indem wir Ihr Feedback berücksichtigen und dies in unsere Prozesse einfließen lassen, wenn wir es für notwendig halten</li>
+<li>improve and develop the experience that we provide to you by considering your feedback and feeding this into our processes where we deem necessary</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung von Alumni-Daten im Rahmen der Kommunikation mit dem Personal-Alumni, einschließlich durch:
+<td>Collecting and processing Staff Alumni data in the course of communicating with Staff Alumni, including by:
 <ul>
-<li>den Versand von Newslettern und Berichten an Alumni</li>
-<li>Einladung der Alumni zu Veranstaltungen</li>
-<li>Information der Alumni über besondere Stellenangebote</li>
-<li>Versendung von Nachrichten an Alumni anlässlich besonderer Gelegenheiten</li>
+<li>Sending Staff Alumni newsletters and reports</li>
+<li>Inviting Staff Alumni to events</li>
+<li>Informing Staff Alumni of special vacancies</li>
+<li>Sending Staff Alumni messages on special occasions</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Wir werden Ihre Einwilligung einholen, bevor wir Ihre Daten zu Marketingzwecken verwenden. Wenn Sie Ihre Einwilligung erteilen, sind Sie berechtigt, die Einwilligung jederzeit zu widerrufen
-<p>Wir werden uns ansonsten auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt:</p>
+<td>We will obtain your consent before using your data for marketing purposes. If you provide consent, you will be entitled to withdraw consent at any time
+<p>We will otherwise rely on legitimate interests, namely it is in our interests and your interests to:</p>
 <ul>
-<li>Ihnen Zugang zu unseren Alumni-Ressourcen und Veranstaltungen zu empfehlen und zu gewähren</li>
+<li>recommend and grant you access to our alumni resources and events</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Weitergabe von Daten</strong></p>
+<p><strong>Sharing of data</strong></p>
 <ul>
-<li>Sofern Sie nichts anderes angegeben haben, werden wir Ihre Informationen an jedes unserer Konzernunternehmen sowie verbundene Dritte, z. B. von uns eingesetzte Dienstleister und Organisationen, für die wir Leistungen erbringen, weitergeben.</li>
-<li>Wenn Sie eine detailliertere Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, lesen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Unless you specify otherwise, we will share your information with any of our group companies and associated third parties such as our service providers and organizations to whom we provide services.</li>
+<li>If you would like to see a more detailed list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<h3>8. Besucher</h3>
-<p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Besucher.</p>
-<p>Zu den Besuchern gehören Personen, die unsere Räumlichkeiten besuchen, ohne unserem Personal anzugehören.</p>
-<p><strong>Welche Arten personenbezogener Daten werden erfasst?</strong></p>
-<p>Sie möchten genauer erfahren, welche Daten wir über Sie erfassen? Hier sind die Informationen, die wir erfassen, genauer beschrieben. Die unten beschriebenen Informationen verstehen sich selbstverständlich zusätzlich zu den personenbezogenen Daten, zu deren Verarbeitung wir in den jeweiligen Situationen gesetzlich verpflichtet sind.</p>
-<p>Je nach den relevanten Umständen und den geltenden örtlichen Gesetzen und Vorschriften sammeln wir einige oder alle der unten aufgeführten Informationen. In einigen Rechtsordnungen ist unsere Verarbeitung einiger der nachfolgend aufgeführten Daten beschränkt. In solchen Fällen werden wir die Daten in diesen Ländern nur in dem Umfang und unter den gesetzlich zulässigen Umständen verarbeiten:</p>
+<h3>8. Visitors</h3>
+<p>This section of the Privacy Policy applies to Visitors.</p>
+<p>Visitors include individuals who visit our premises but who are not members of our Staff.</p>
+<p><strong>What kind of personal information do we collect?</strong></p>
+<p>So you’re looking for a bit more insight into what data we collect about you? Here’s a more detailed look at the sorts of information that we will collect. The information described below is, of course, in addition to any personal data we are required by law to process in any given situation.</p>
+<p>Depending on the relevant circumstances and applicable local laws and requirements, we will collect some or all of the information listed below. In some jurisdictions, we are restricted from processing some of the data outlined below. In such cases, we will only process the data in those jurisdictions to the extent and under the circumstances permitted by law:</p>
 <ul>
-<li><strong>Wichtige Identifikations- und Kontaktinformationen</strong>
+<li><strong>Key identification and contact information</strong>
 <ul>
 <li>Name;</li>
-<li>Alter/Geburtsdatum;</li>
-<li>Eine Kopie Ihres Führerscheins und/oder Reisepasses/Personalausweises;</li>
-<li>Amtliches Kennzeichen des Fahrzeugs;</li>
-<li>E-Mail-Adresse;</li>
+<li>Age/date of birth;</li>
+<li>A copy of your driver’s license and/or passport/identity card;</li>
+<li>Vehicle registration number;</li>
+<li>Email address;</li>
 </ul>
 </li>
-<li><strong>Informationen zu Ausbildung und Beruf</strong>
+<li><strong>Education and employment information</strong>
 <ul>
-<li>Aktuelle Berufsbezeichnung/Spezialisierung/Unternehmensbereich;</li>
+<li>Current job title/specialism/industry sector;</li>
 </ul>
 </li>
-<li><strong>Besondere Kategorien personenbezogener Daten</strong>
+<li><strong>Special category information</strong>
 <ul>
-<li>Angaben zu Ihrem aktuellen Gesundheitszustand (z. B. mögliche COVID-19-Symptome);</li>
-<li>Temperaturkontrollen;</li>
-<li>Impfstatus (einschließlich Gesundheitszustände im Zusammenhang mit Impfungen);</li>
-<li>Gegebenenfalls Einzelheiten zu Reisevorkehrungen;</li>
+<li>Details of your current health status (e.g. possible COVID-19 symptoms);</li>
+<li>Temperature checks;</li>
+<li>Vaccination status (including medical conditions relating to vaccination);</li>
+<li>Details of travel arrangements where appropriate;</li>
 </ul>
 </li>
-<li><strong>Automatisch erhobene Informationen</strong>
+<li><strong>Automatically collected information</strong>
 <ul>
-<li>IP-Adresse;</li>
-<li>MAC-Adresse;</li>
-<li>Geräteinformationen, wenn Sie unsere Dienste installieren, darauf zugreifen oder diese nutzen;</li>
-<li>Standortinformationen (abgeleitet aus Jobs, IP-Adresse, Anwendungshistorie oder Systemspeicherdaten);</li>
-<li>Kontozugriffsdaten (z. B. PIN-Nummern für Zwecke der Benutzerkonto-Überprüfung);</li>
-<li>Videoüberwachungsmaterial;</li>
+<li>IP address;</li>
+<li>MAC address;</li>
+<li>Device information when you install, access or use our services;</li>
+<li>Location information (inferred from jobs, IP address, application history or system stored data);</li>
+<li>Account access information (e.g. PIN numbers for account verification purposes);</li>
+<li>CCTV footage;</li>
 </ul>
 </li>
-<li><strong>Zusätzliche Informationen, die Sie uns im Zusammenhang mit Ihrem Besuch mitteilen möchten</strong>
+<li><strong>Additional information that you choose to tell us in connection with your visit</strong>
 <ul>
-<li>Angaben zur Registrierung von Einrichtungen und Standorten und</li>
-<li>Zweck Ihres Besuchs.</li>
+<li>Registration details for facilities and sites; and</li>
+<li>Purpose of your visit.</li>
 </ul>
 </li>
 </ul>
-<p>Bitte beachten Sie, dass die obige Liste der Kategorien personenbezogener Daten, die wir erfassen, nicht abschließend ist.</p>
-<p>Sofern Sie als Kandidat, Kunde, Lieferant/anderer Dritter oder Zeitarbeitnehmer unsere Räumlichkeiten besuchen, sehen Sie bitte zusätzlich zu den in diesem Abschnitt beschriebenen Verarbeitungstätigkeiten den entsprechenden kontextspezifischen Abschnitt dieser Datenschutzrichtlinie an, der Informationen darüber enthält, wie wir Ihre Daten in jeder dieser Situationen verarbeiten.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten erfasst?</strong></p>
-<p>Wir erfassen personenbezogene Daten von Besuchern auf die folgenden Arten:</p>
+<p>Please note that the above list of categories of personal data we collect is not exhaustive.</p>
+<p>To the extent that you are visiting our premises as a Candidate, Client, Supplier/other third party or Temporary Worker, please also refer to the relevant context-specific section of this Privacy Policy which contains information about how we process your data in each of these scenarios in addition to the processing activities set out in this section.</p>
+<p><strong>How do we collect your personal data?</strong></p>
+<p>We collect Visitor personal data in the following ways:</p>
 <ul>
-<li>Personenbezogene Daten, die Sie uns als Besucher mitteilen; und</li>
-<li>Personenbezogene Daten, die wir automatisch erfassen.</li>
+<li>Personal data that you, the Visitor, give to us; and</li>
+<li>Personal data that we collect automatically.</li>
 </ul>
-<p><strong>Personenbezogene Daten, die Sie uns mitteilen</strong></p>
-<p>Hays benötigt bestimmte Informationen über Sie, um Ihnen Zugang zu unseren Geschäftsräumen geben zu können.</p>
-<p>Hays sammelt diese Informationen normalerweise bei Ihrer Ankunft in unserem Haus.</p>
-<p>Zu den Arten von Informationen, die wir auf diese Weise von Ihnen erhalten, gehören:</p>
+<p><strong>Personal data you give to us</strong></p>
+<p>Hays needs to know certain information about you in order to provide you with access to its premises.</p>
+<p>Hays will usually collect this information from you upon your arrival at our premises.</p>
+<p>The types of information that we receive from you in this way include:</p>
 <ul>
-<li>Wichtige Identifizierungs- und Kontaktinformationen;</li>
-<li>Informationen zu Ausbildung und Beruf;</li>
-<li>Besondere Kategorien personenbezogener Daten und</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen,</li>
+<li>Key identification and contact information;</li>
+<li>Education and employment information;</li>
+<li>Special category information; and</li>
+<li>Additional information that you choose to tell us,</li>
 </ul>
-<p>wie im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben.</p>
-<p><strong>Personenbezogene Informationen, die wir automatisch erfassen</strong></p>
-<p>Soweit Sie eine Verbindung zu unseren WLAN-Diensten herstellen oder in unseren Videoüberwachungssystemen erfasst werden, sammeln wir Ihre Daten gegebenenfalls und sofern dies den örtlichen Gesetzen und Vorschriften entspricht, auch automatisch (z. B. über Website-Tracking-Skripte wie Cookies, Pixel oder UTM-Parameter) oder erhalten sie von Ihnen, wenn Sie uns diese zur Verfügung stellen.</p>
-<p>Zu den Arten von Informationen, die auf diese Weise über Sie gesammelt werden, gehören die „Automatisch erhobene Informationen, die im obigen Abschnitt „Welche Arten personenbezogener Daten werden erfasst?“ beschrieben werden.</p>
-<p><strong>Wie werden Ihre personenbezogenen Daten verwendet?</strong></p>
-<p>Wir verwenden die Besucherdaten in der Regel zu Zwecken der Besucherverwaltung.</p>
-<p><strong>Besucherverwaltung</strong></p>
+<p>as described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>Personal data we collect automatically</strong></p>
+<p>To the extent that you connect to our Wi-Fi services, or are captured on our CCTV systems, where appropriate and in accordance with any local laws and requirements, we will also collect your data automatically (e.g. via website tracking scripts such as cookies, pixels or UTM parameters) or through you providing it to us.</p>
+<p>The types of information that we collect about you in this way include the “Automatically collected information” described in the section entitled “What kind of personal information do we collect?” above.</p>
+<p><strong>How do we use your personal data?</strong></p>
+<p>We generally use Visitor data for Visitor Management purposes.</p>
+<p><strong>Visitor Management</strong></p>
 <ul>
-<li>Nachfolgend haben wir verschiedene Möglichkeiten aufgeführt, wie wir Ihre personenbezogenen Daten gegebenenfalls, und sofern dies den örtlichen Gesetzen und Vorschriften entspricht, zu der Besucherverwaltung verwenden und verarbeiten. Bitte beachten Sie, dass diese Liste nicht vollständig ist.</li>
-<li>In den meisten Fällen können wir Ihre personenbezogenen Daten für die unten beschriebenen Zwecke nutzen, wenn wir dies als durch unsere berechtigten Interessen gerechtfertigt erachten. Dies ist in Artikel 6 (1) (f) der DSGVO geregelt: Er besagt, dass wir Ihre Daten verarbeiten können, wenn dies „zur Wahrung der berechtigten Interessen [von uns] oder eines Dritten erforderlich ist, sofern nicht [Ihre] Interessen oder Grundrechte und Grundfreiheiten, die den Schutz personenbezogener Daten erfordern, überwiegen.“</li>
-<li>Wir glauben nicht, dass eine der Aktivitäten, bei denen wir uns auf berechtigte Interessen stützen, Besucher in irgendeiner Weise beeinträchtigt. Sie haben jedoch das Recht, der Verarbeitung Ihrer personenbezogenen Daten durch uns auf dieser Grundlage zu widersprechen. Wenn Sie mehr darüber erfahren möchten, wie Sie dies tun können, lesen Sie bitte den Abschnitt „Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie durch.</li>
-<li>Wir können Ihre gesundheitsbezogenen besonderen Kategorien von Daten zu den unten aufgeführten Zwecken erheben und verwenden, wenn wir dies für lebenswichtige oder öffentliche Interessen für erforderlich halten. Artikel 6 (1) (d) der DSGVO besagt, dass wir Ihre Daten verarbeiten können, wenn dies „erforderlich [ist], um lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person zu schützen“. DSGVO „einleitender Teil“ Punkt 46 ergänzt: „Manche Arten der Verarbeitung können sowohl wichtigen Gründe des öffentlichen Interesses als auch den lebenswichtigen Interessen der betroffenen Person dienen, beispielsweise wenn die Verarbeitung für humanitäre Zwecke erforderlich ist, einschließlich zur Überwachung von Epidemien und deren Verbreitung“. Artikel 9 (2) (i) der DSGVO besagt, dass wir Ihre besonderen Kategorien von Daten verarbeiten können, wenn dies „aus Gründen des öffentlichen Interesses im Bereich der öffentlichen Gesundheit, wie dem Schutz vor schwerwiegenden grenzüberschreitenden Gesundheitsgefahren erforderlich [ist]“.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>We have listed below various ways in which we will use and process your personal data for visitor management purposes, where appropriate and in accordance with any local laws and requirements. Please note that this list is not exhaustive.</li>
+<li>In most cases, we will use your personal data for the purposes below if we deem it necessary to do so for our legitimate interests. Article 6(1)(f) of the GDPR says that we can process your data where it “is necessary for the purposes of the legitimate interests pursued by [us] or by a third party, except where such interests are overridden by the interests or fundamental rights or freedoms of [you] which require protection of personal data.”</li>
+<li>We don’t think that any of the activities in relation to which we rely on the legitimate interests condition prejudice Visitors in any way. However, you do have the right to object to us processing your personal data on this basis. If you would like to know more about how to do so, please refer to the section entitled “How can you access, amend or take back the personal data that you have given to us” in the General Privacy Information section of this Privacy Policy.</li>
+<li>We may collect and use your health-related special category data for the purposes below if we deem it necessary to do so for vital or public interests. Article 6(1)(d) of the GDPR says that we can process your data where it “is necessary in order to protect the vital interests of the data subject or of another natural person”. GDPR Recital 46 adds that: “Some types of processing may serve both important grounds of public interest and the vital interests of the data subject as for instance when processing is necessary for humanitarian purposes, including for monitoring epidemics and their spread”. Article 9(2)(i) of the GDPR says that we can process your special category data where it “is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health”.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<div class="legal-table" role="region" aria-label="Tabelle 19" tabindex="0"><table>
+<div class="legal-table" role="region" aria-label="Table 19" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Warum und wie wir Ihre Daten verarbeiten</strong></td>
-<td><strong>Arten von personenbezogenen Daten, die verwendet werden</strong></td>
-<td><strong>Rechtsgrundlage </strong></td>
+<td><strong>Why and how we process your information</strong></td>
+<td><strong>Types of personal data used</strong></td>
+<td><strong>Legal basis relied upon </strong></td>
 </tr>
 <tr>
-<td>Erhebung und Verarbeitung personenbezogener Daten in dem Umfang, der erforderlich ist, um einen Überblick über die Besucher unserer Räumlichkeiten zu erhalten, u.a. durch:
+<td>Collecting and processing personal data to the extent necessary to keep a record of Visitors to our premises, including by:
 <ul>
-<li>Erfassung von Daten von Besuchern bei der Ankunft</li>
-<li>Speicherung der Besucherdaten in unseren Systemen</li>
+<li>Collecting data from Visitors upon arrival</li>
+<li>Storing Visitor details on our Systems</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen zu Ausbildung und Beruf</li>
-<li>Zusätzliche Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Education and employment information</li>
+<li>Additional information that you choose to tell us</li>
 </ul>
 </td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse liegt, zu Zwecken der Besucherverwaltung Aufzeichnungen über alle Besucher unserer Räumlichkeiten zu führen und den Schutz und die Sicherheit unserer Räumlichkeiten zu gewährleisten</td>
+<td>We will rely on legitimate interests, namely it is in our interests to keep a record of all visitors to our premises for visitor management purposes, and to ensure the protection and security of our premises</td>
 </tr>
 <tr>
-<td>Erhebung besonderer Kategorien von Informationen in Bezug auf Gesundheit und Reisen zur Wahrung der Gesundheit und Sicherheit von Mitarbeitern und anderen Besuchern sowie zur Verhinderung und Bewertung des Risikos von COVID-19 und anderen infektiösen Viren und Krankheiten</td>
+<td>Collecting health and travel-related special category information to maintain the health and safety of Staff and other Visitors and to prevent the spread of and assess the risk of COVID-19 and other infectious viruses and diseases</td>
 <td>
 <ul>
-<li>Besondere Kategorien personenbezogener Daten</li>
+<li>Special category information</li>
 </ul>
 </td>
-<td>Wir stützen uns auf das berechtigte Interessen, was heißt, dass es in unserem Interesse liegt, unser Unternehmen vor COVID-19 und anderen infektiösen Viren und Krankheiten zu schützen, indem wir Gesundheit und Reiseverhalten unserer Besucher überwachen. Wir müssen sicherstellen, dass unser Unternehmen reibungslos funktioniert und unsere Mitarbeiter und andere Besucher würden gefährdet, wenn wir keine geeigneten Maßnahmen ergreifen, um sicherzustellen, dass unsere Besucher die entsprechenden Kontrollen durchlaufen.
-<p>Wir können uns auch auf die Rechtsgrundlagen des lebenswichtigen Interesses und des öffentlichen Interesses stützen, d. h. zum Schutz vor schwerwiegenden grenzüberschreitenden Gesundheitsgefahren</p>
-<p>Wir können Ihre Gesundheitsdaten und Informationen in Bezug auf Reisen gemäß Artikel 9 (2) (i) der DSGVO verarbeiten, um uns zu ermöglichen, Gesundheitsdaten, die sich aus oder im Zusammenhang mit der COVID-19-Pandemie ergeben, zu verarbeiten oder auf andere Weise, damit wir gegebenenfalls Maßnahmen ergreifen können um die Gesundheit und Sicherheit des Personals und anderer Besucher gewährleisten können und um die Ausbreitung und Bewertung des Risikos von COVID-19 und anderen infektiösen Viren und Krankheiten zu verhindern und einzuschätzen</p></td>
+<td>We rely on legitimate interests, namely it is in our interests to protect our business from COVID-19 and other infectious viruses and diseases by monitoring the health and travel background of our visitors. We have to make sure our business runs smoothly and our Staff and other Visitors may be put at risk if we do not implement appropriate measures to ensure that our Visitors pass the appropriate checks.
+<p>We may also rely on the vital interests and the public interest lawful bases, namely to protect against serious cross-border threats to health</p>
+<p>We may process your health and travel-related information pursuant to Article 9(2)(i) of the GDPR to enable us to process health-related information arising from or in connection with the COVID-19 pandemic or as otherwise applicable to enable us to take steps, where appropriate, to ensure the health and safety of Staff and other Visitors and to prevent the spread of and assess the risk of COVID-19 and other infectious viruses and diseases</p></td>
 </tr>
 <tr>
-<td>Aufnahme und Verarbeitung von Bildern und Videos von Besuchern, die von Hays‘ Videoüberwachungssystemen erfasst werden</td>
+<td>Recording and processing images and videos of Visitors captured by Hays’ CCTV systems</td>
 <td>
 <ul>
-<li>Automatisch erhobene Informationen</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, die Sicherheit unserer Räumlichkeiten und unserer Mitarbeiter und anderer Personen zu erhalten und zu schützen, indem wir Sicherheitsbedrohungen oder andere kriminelle oder schädliche Aktivitäten verhindern und aufdecken</td>
+<td>We will rely on legitimate interests, namely it is in our interests and your interests to maintain and protect the security of our premises and our Staff and others by preventing and detecting security threats or other criminal or harmful activities</td>
 </tr>
 <tr>
-<td>Speicherung und Verarbeitung von elektronischen Identifikationsdaten, die von Besuchern und ihren elektronischen Geräten erhoben werden, um ihnen den Zugriff auf IT-Dienste zu ermöglichen, z. B. Gast-WLAN</td>
+<td>Retaining and processing electronic identification data collected from Visitors and their electronic devices to enable them to access IT services e.g. guest Wi-Fi</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Automatisch erhobene Informationen</li>
+<li>Key identification and contact information</li>
+<li>Automatically collected information</li>
 </ul>
 </td>
-<td>Wir werden uns auf berechtigte Interessen berufen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt, IT-bezogene Dienstleistungen in unseren Räumlichkeiten bereitzustellen, wie z. B. WLAN-Dienste für Gäste</td>
+<td>We will rely on legitimate interests, namely it is in our interests and your interests for us to provide IT related services on our premises, such as guest Wi-Fi services</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Weitergabe von Daten</strong></p>
+<p><strong>Sharing of data</strong></p>
 <ul>
-<li>Wenn wir Sie als Besucher identifiziert haben und sofern Sie nichts anderes angeben, können wir Ihre Daten an unsere Konzerngesellschaften und verbundenen Dritten, wie z. B. unsere Dienstleister, weitergeben, um Sie hinsichtlich unserer Dienstleistungen zu kontaktieren.</li>
-<li>Wir werden uns in der Regel auf die gleichen Rechtsgrundlagen stützen, auf die wir im obigen Abschnitt Bezug genommen haben.</li>
-<li>Wenn Sie eine vollständige Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>Where we have identified you as a Visitor and unless you specify otherwise, we may share your information with any of our group companies and associated third parties such as our service providers in order to get in touch with you about our services.</li>
+<li>We will generally rely on the same legal bases that we have referred to in the section above.</li>
+<li>If you would like to see a full list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<h2>Allgemeine Datenschutzinformationen</h2>
-<h3>1. An wen werden Ihre personenbezogenen Daten weitergegeben?</h3>
-<p>Gegebenenfalls und in Übereinstimmung mit den örtlichen Gesetzen und Anforderungen teilen wir Ihre personenbezogenen Daten in der Regel mit den folgenden Personengruppen:</p>
+<h2>General Privacy Information</h2>
+<h3>1. Who do we share your personal data with?</h3>
+<p>Where appropriate and in accordance with local laws and requirements, we generally share your personal data with the following categories of people:</p>
 <ul>
-<li>Unsere Konzerngesellschaften;</li>
-<li>Entsprechende Kollegen innerhalb von Hays (hierzu können Kollegen in Büros im Ausland zählen);</li>
-<li>Personen und Unternehmen, die über Informationen verfügen, die sich auf Ihre Referenzen oder Ihre Bewerbung bei uns beziehen, wie z. B. derzeitige, ehemalige oder künftige Arbeitgeber, Ausbilder und Prüfungsstellen sowie Arbeitsvermittlungs- und Rekrutierungsagenturen;</li>
-<li>Steuer-, Rechnungsprüfungs- oder sonstige Behörden, wenn wir in gutem Glauben davon ausgehen, dass wir gesetzlich oder aufgrund einer anderen Vorschrift verpflichtet sind, diese Daten weiterzugeben (beispielsweise, aufgrund einer Anfrage einer Steuerbehörde oder in Verbindung mit einem zu erwartenden Rechtsstreit);</li>
-<li>Dienstleister (entweder Dritte oder unsere Konzerngesellschaften), die in unserem Auftrag Leistungen erbringen (einschließlich externer Berater, Geschäftspartner und professionelle Berater wie Anwälte, Wirtschaftsprüfer und Buchhalter, technische Supportfunktionen und IT-Berater, die Entwicklung- und Testarbeiten an unseren technischen Systemen durchführen);</li>
-<li>Anbieter extern vergebener IT-Dienstleistungen und Speicheranbieter, wenn eine entsprechende Auftragsverarbeitungsvereinbarung (oder vergleichbare Absicherung) vorliegt;</li>
-<li>Marketingtechnologieplattformen und -lieferanten; und</li>
-<li>Wenn Hays in Zukunft mit einem anderen Unternehmen oder einer anderen Gesellschaft fusioniert oder von einem anderen Unternehmen erworben wird (oder ernsthafte Gespräche über eine solche Möglichkeit führt), können wir Ihre personenbezogenen Daten an die (künftigen) neuen Eigentümer des Unternehmens oder der Gesellschaft weitergeben.</li>
+<li>Any of our group companies;</li>
+<li>Appropriate colleagues within Hays (this may include colleagues in overseas offices);</li>
+<li>Individuals and organizations who hold information related to your reference or application to work with us, such as current, past or prospective employers, educators and examining bodies and employment and recruitment agencies;</li>
+<li>Tax, audit, or other authorities, when we believe in good faith that the law or other regulation requires us to share this data (for example, because of a request by a tax authority or in connection with any anticipated litigation);</li>
+<li>Service providers (whether third parties or our group companies) who perform functions on our behalf (including external consultants, business associates and professional advisers such as lawyers, auditors and accountants, technical support functions and IT consultants carrying out testing and development work on our technology Systems);</li>
+<li>Third party outsourced IT and storage providers where we have an appropriate processing agreement (or similar protections) in place;</li>
+<li>Marketing technology platforms and suppliers; and</li>
+<li>If Hays merges with or is acquired by another business or company in the future (or is in meaningful discussions about such a possibility), we may share your personal data with the (prospective) new owners of the business or company.</li>
 </ul>
-<p>Es gibt auch bestimmte Kategorien von Personen, mit denen wir Ihre personenbezogenen Daten teilen, wenn Sie Kandidaten, Zeitarbeitnehmer, Personen sind, deren Daten wir erhalten (z. B. ein Referenzgeber) oder Alumni.</p>
-<p><strong>Kandidaten:</strong></p>
-<p>Wenn Sie ein Kandidat sind, können wir Ihre personenbezogenen Daten auch an folgende Personengruppen weitergeben:</p>
+<p>There are also certain categories of people that we share your personal data with if you are a Candidate, Temporary Worker, Person whose data we receive (e.g. a referee) or Staff Alumni.</p>
+<p><strong>Candidates:</strong></p>
+<p>If you are a Candidate, we may also share your personal data with the following categories of people:</p>
 <ul>
-<li>potenzielle Arbeitgeber und andere Personaldienstleitungsagenturen/-unternehmen, um Ihre Chancen zu erhöhen, eine Beschäftigung zu finden;</li>
-<li>Drittpartner, Job-Boards, Jobplattformen, Stellenaggregatoren, Softwareanbieter und Cloud-basierte Datenbanken, wenn wir der Ansicht sind, dass dies Ihre Chancen erhöht, dass wir den richtigen Arbeitsplatz für Sie finden oder generell die Einstellungsprozesse verbessern;</li>
-<li>MSP-Anbieter im Rahmen der MSP-Programme unserer Kunden;</li>
-<li>Dritte, die wir mit Dienstleistungen wie der Überprüfung von Referenzen, Qualifikationen und strafrechtlichen Verurteilungen beauftragt haben, sofern diese Überprüfungen angemessen sind und mit den örtlichen Gesetzen im Einklang stehen;</li>
-<li>interne und externe Prüfer unserer Kunden, wenn wir auf Anfrage diese Daten mit ihnen teilen müssen, um unseren vertraglichen oder regulatorischen Verpflichtungen nachzukommen; und</li>
-<li>Dritte, die uns dabei helfen, Dienstleistungen und Prozesse zu entwickeln, um den Auswahlprozess für Kandidaten mit dem Ziel zu optimieren, die Qualität und Effizienz der Personalbeschaffungsdienste zu verbessern.</li>
+<li>potential employers and other recruitment agencies/organizations to increase your chances of finding employment;</li>
+<li>third party partners, job boards, job platforms, job aggregators, software providers and cloud based databases where we consider this will improve the chances of finding you the right job or improving recruitment processes more generally;</li>
+<li>MSP suppliers as part of our Clients’ MSP programs;</li>
+<li>third parties who we have retained to provide services such as reference, qualification and criminal convictions checks, to the extent that these checks are appropriate and in accordance with local laws;</li>
+<li>internal and external auditors of our Clients when we are required to share this data with them upon request in order to comply with our contractual or regulatory obligations; and</li>
+<li>third parties helping us by developing services and processes to optimize the Candidate selection process in order to improve the quality and efficiency of recruitment services.</li>
 </ul>
-<p><strong>Zeitarbeitnehmer:</strong></p>
-<p>Wenn Sie ein Zeitarbeitnehmer sind, können wir Ihre personenbezogenen Daten auch an folgende Personenkategorien weitergeben:</p>
+<p><strong>Temporary Workers:</strong></p>
+<p>If you are a Temporary Worker, we may also share your personal data with the following categories of people:</p>
 <ul>
-<li>unter bestimmten Umständen, sofern dies angemessen ist, an medizinische Fachleute, wie Ihren Hausarzt oder einen Facharzt für Arbeitsmedizin;</li>
-<li>den Kunden, bei dem Sie als Zeitarbeitnehmer arbeiten oder arbeiten werden; und</li>
-<li>potenzielle Arbeitgeber (z. B. bei der Bereitstellung einer Referenz, soweit dies gemäß den örtlichen Gesetzen und Anforderungen zulässig ist).</li>
+<li>in limited circumstances as appropriate, medical professionals such as your primary care physician or an occupational health specialist;</li>
+<li>the Client where you as a Temporary Worker are or will be working; and</li>
+<li>prospective employers (for example, when providing a reference, where permissible in accordance with local laws and requirements).</li>
 </ul>
-<p><strong>Personen, deren Daten wir von Kandidaten oder Mitarbeitern erhalten:</strong></p>
-<p>Wenn Sie der Ansprechpartner für eine Referenz eines unserer Kandidaten sind, können wir Ihre personenbezogenen Daten auch an folgende Personengruppen weitergeben:</p>
+<p><strong>People whose data we receive from Candidates or Staff:</strong></p>
+<p>If you are a referee of one of our Candidates, we may also share your personal data with the following categories of people:</p>
 <ul>
-<li>Dritte, die wir mit Dienstleistungen wie der Überprüfung von Referenzen, Qualifikationen und strafrechtlichen Verurteilungen beauftragt haben, sofern diese Überprüfungen angemessen sind und mit den örtlichen Gesetzen im Einklang stehen; und</li>
-<li>interne und externe Prüfer unserer Kunden, wenn wir auf Anfrage diese Daten mit ihnen teilen müssen, um unseren vertraglichen oder regulatorischen Verpflichtungen nachzukommen.</li>
+<li>third parties who we have retained to provide services such as reference, qualification and criminal convictions checks, to the extent that these checks are appropriate and in accordance with local laws; and</li>
+<li>internal and external auditors of our Clients when we are required to share this data with them upon request in order to comply with our contractual or regulatory obligations.</li>
 </ul>
-<p><strong>Alumni:</strong></p>
+<p><strong>Staff Alumni:</strong></p>
 <ul>
-<li>Wenn Sie Alumni sind, können wir Ihre personenbezogenen Daten auch an eine Reihe weiterer Parteien weitergeben, um die Fortsetzung unserer Beziehung zu erleichtern, beispielsweise können wir Ihre personenbezogenen Daten an andere Alumni und an verbundene Dritte weitergeben, wie unsere Dienstleister, die unser Alumni-Portal betreiben.</li>
+<li>If you are Staff Alumni, we may also share your personal data with a number of additional parties in order to facilitate our continuing relationship, for example, we may share your personal data with other Staff Alumni and associated third parties such as our service providers which operate our alumni portal.</li>
 </ul>
-<h3>2. Wie werden Ihre personenbezogenen Daten von uns geschützt?</h3>
+<h3>2. How do we safeguard your personal data?</h3>
 <ul>
-<li>Wir werden alle sinnvollen und geeigneten Maßnahmen ergreifen, um die von uns gespeicherten personenbezogenen Informationen vor Missbrauch, Verlust oder unbefugtem Zugriff zu schützen. Dazu haben wir eine Reihe von technischen und organisatorischen Maßnahmen ergriffen. Dazu gehören Maßnahmen zum Umgang mit mutmaßlichen Datenschutzverletzungen.</li>
-<li>Wenn Sie den Verdacht haben, dass Ihre personenbezogenen Informationen missbraucht wurden oder verloren gegangen sind oder ein unbefugter Zugriff darauf erfolgt ist, lassen Sie uns dies bitte schnellstmöglich wissen. Einzelheiten dazu, wie Sie uns kontaktieren können, finden Sie hier.</li>
+<li>We are committed to taking all reasonable and appropriate steps to protect the personal information that we hold from misuse, loss, or unauthorized access. We do this by having in place a range of appropriate technical and organizational measures. These include measures to deal with any suspected data breach.</li>
+<li>If you suspect any misuse or loss of or unauthorized access to your personal information please let us know as soon as possible. Details of how to contact us can be found here.</li>
 </ul>
-<h3>3. Wie lange werden Ihre personenbezogenen Daten von uns gespeichert?</h3>
+<h3>3. How long do we keep your personal data for?</h3>
 <ul>
-<li>Bei der Festlegung der angemessenen Aufbewahrungsfrist für verschiedene Arten personenbezogener Daten berücksichtigen wir immer den Umfang, die Art und die Sensibilität der betreffenden personenbezogenen Daten, das potenzielle Risiko eines Schadens durch unbefugte Verwendung oder Offenlegung dieser personenbezogenen Daten, die Zwecke, für die wir sie verarbeiten müssen und ob wir diese Zwecke auf andere Weise erfüllen können (neben der Sicherstellung, dass wir unsere gesetzlichen, regulatorischen und Risikomanagement-Pflichten erfüllen).</li>
-<li>Im Folgenden erläutern wir die Aufbewahrungspraktiken, die wir für bestimmte Kategorien von Personen anwenden.</li>
+<li>In determining the appropriate retention period for different types of personal data, we always consider the amount, nature, and sensitivity of the personal data in question, the potential risk of harm from unauthorized use or disclosure of that personal data, the purposes for which we need to process it and whether we can achieve those purposes by other means (in addition of course to ensuring that we comply with our legal, regulatory and risk-management obligations).</li>
+<li>We set out below the retention practices that we apply to certain categories of people.</li>
 </ul>
-<p><strong>Kandidaten:</strong></p>
+<p><strong>Candidates:</strong></p>
 <ul>
-<li>Wenn Sie ein Kandidat sind, speichern wir Ihre personenbezogenen Daten in unseren Systemen für einen Zeitraum von bis zu zwei Jahren ab dem Zeitpunkt, an dem wir diese personenbezogenen Daten erhoben haben oder anschließend einen aussagekräftigen Kontakt mit Ihnen hatten (oder ggf. mit dem Unternehmen, für das oder mit dem Sie arbeiten). Nach diesem Zeitraum werden Ihre Daten wahrscheinlich nicht mehr für die Zwecke relevant sein, für die sie erhoben wurden. Wir können Ihre personenbezogenen Daten länger auf unseren Systemen aufbewahren, wenn wir in gutem Glauben davon ausgehen, dass wir dies z. B. aufgrund unserer Verpflichtungen gegenüber den Steuerbehörden oder im Zusammenhang mit erwarteten Rechtsstreitigkeiten tun müssen.</li>
-<li>Wir gehen davon aus, dass in diesem Zusammenhang ein aussagekräftiger Kontakt mit Ihnen besteht, wenn Sie z. B. einen Lebenslauf über unsere Website an uns übermitteln, an einer unserer Online-Schulungen teilnehmen, sich mit uns (durch mündliche oder schriftliche Kommunikation) über mögliche Stellen austauschen oder durch Klicken aus einer unserer Marketingmitteilungen kommunizieren. Ihr Empfang, das Öffnen oder Lesen einer digitalen Nachricht von uns wird für diese Zwecke nicht als aussagekräftiger Kontakt gelten, sondern nur wenn Sie direkt draufklicken oder direkt antworten – wir nehmen nur dann an, dass wir einen aussagekräftigen Kontakt mit Ihnen hatten, wenn Ihrerseits eine positive Handlung vorgenommen wurde.</li>
-<li>Für Kandidaten, deren Dienstleistungen über ein Drittunternehmen oder einen anderen Rechtsträger erbracht werden, bedeutet der aussagekräftige Kontakt mit Ihnen, dass wir einen aussagekräftigen Kontakt mit dem Unternehmen oder dem Rechtsträger hatten, der Ihre Dienstleistungen erbringt. Wenn uns ein solches Unternehmen oder ein solchen Rechtsträger mitteilt, dass die Beziehung zu Ihnen nicht mehr besteht, speichern wir Ihre Daten für einen Zeitraum von höchstens zwei Jahre ab diesem Zeitpunkt oder, falls dies später geschieht, für den Zeitraum von zwei Jahren ab dem Zeitpunkt, an dem wir wieder einen aussagekräftigen Kontakt direkt mit Ihnen haben.</li>
-<li>Kandidaten, die nur wünschen, dass wir ihre personenbezogenen Daten im Zusammenhang mit einer bestimmten Bewerbung für eine Stelle verarbeiten, werden von uns nur so lange gespeichert, wie dies im Zusammenhang mit unseren rechtlichen und regulatorischen Anforderungen erforderlich ist. Nach dieser Zeit werden sie, vorbehaltlich der unten aufgeführten Überlegungen, aus unseren Systemen gelöscht.</li>
-<li>Wenn Sie als Kandidat ausdrücklich angegeben haben, dass Sie nicht möchten, dass wir Ihre personenbezogenen Daten aufbewahren, werden wir sie aus unseren Systemen löschen, es sei denn, wir nehmen in gutem Glauben an, dass wir sie aufbewahren müssen, z. B. aufgrund unserer Verpflichtungen gegenüber den Steuerbehörden oder im Zusammenhang mit drohenden Rechtsstreitigkeiten.</li>
+<li>If you are a Candidate, we will keep your personal data on our Systems for a period of up to two years from the point that we collect such personal data or subsequently have meaningful contact with you (or, where appropriate, the company you are working for or with). After this period, it is likely your data will no longer be relevant for the purposes for which it was collected. We may keep your personal data on our Systems for a longer period than this if we believe in good faith that we need to do so, for example, because of our obligations to tax authorities or in connection with any anticipated litigation.</li>
+<li>We will consider there to be meaningful contact with you in this context if you, for example, submit a CV to us via our website, take part in any of our online training, communicate with us about potential roles (either by verbal or written communication) or click through from any of our marketing communications. Your receipt, opening or reading of an electronic message from us will not count as meaningful contact for these purposes, only where you click through or reply directly – we will only deem that we have had meaningful contact with you if there is positive action on your part.</li>
+<li>For those Candidates whose services are provided via a third party company or other entity, meaningful contact with you means meaningful contact with the company or entity which supplies your services. Where we are notified by such company or entity that it no longer has that relationship with you, we will retain your data for no longer than two years from that point or, if later, for the period of two years from the point we subsequently have meaningful contact directly with you.</li>
+<li>For Candidates who only wish for us to process their personal data in relation to a specific application for a role, we will only retain your personal data for as long as we need to in connection with our legal and regulatory requirements. After this time it will, subject to the below considerations, be deleted from our Systems.</li>
+<li>If you have expressly indicated as a Candidate that you would rather we didn’t retain your personal data, then we will delete it from our Systems unless we believe in good faith that we need to preserve it, for example, because of our obligations to tax authorities or in connection with any anticipated litigation.</li>
 </ul>
-<p><strong>Zeitarbeitnehmer:</strong></p>
+<p><strong>Temporary Workers:</strong></p>
 <ul>
-<li>Wenn wir Sie direkt als Zeitarbeitnehmer beschäftigen oder beauftragen, verarbeiten wir Ihre Daten normalerweise im Laufe Ihres Zeitarbeitsverhältnisses und werden sie nach dem Ausscheiden für einen gewissen Zeitraum aufbewahren. Die genaue Dauer hängt von der Art der Daten, unseren berechtigten Geschäftsanforderungen und anderen gesetzlichen oder regulatorischen Vorschriften ab, die es erforderlich machen können, diese für bestimmte Mindestfristen aufzubewahren. Zum Beispiel sind wir möglicherweise verpflichtet, bestimmte Daten zum Zwecke der steuerlichen Rechnungslegung oder der Beantwortung von Steueranfragen aufzubewahren. Wir können sie auch aufbewahren, wenn dies für potenzielle Rechtsstreitigkeiten relevant sein könnte. In Rechtsordnungen, die dies erlauben, werden wir generell personenbezogene Daten über Sie speichern, wenn dies erforderlich ist, um Ihnen oder einem künftigen Arbeitgeber eine Referenz geben können.</li>
-<li>Wenn Sie ein Zeitarbeitnehmer sind, werden wir Ihre personenbezogenen Daten als Kandidat ebenfalls weiterhin während der Dauer Ihres Zeitarbeitsverhältnisses und danach verarbeiten. Die Frage, ob und inwieweit wir Ihre personenbezogenen Daten während der Dauer Ihres Zeitarbeitsverhältnisses und danach weiterhin als Personaldaten verarbeiten, hängt danach von den örtlichen Rechtsvorschriften ab. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
+<li>If we employ or engage you as a Temporary Worker directly, we will ordinarily process your data throughout the course of your Temp Relationship and will then retain it for a period after we have parted ways. The precise length of time will depend on the type of data, our legitimate business needs and other legal or regulatory rules that may require us to retain it for certain minimum periods. For example, we may be required to retain certain data for the purposes of tax reporting or responding to tax queries. We may also retain it if it might be relevant to any potential litigation. In jurisdictions that allow it, we will generally retain personal data relating to you where necessary to enable us to provide you or a future employer with a reference.</li>
+<li>If you are a Temporary Worker, we will also continue to process your personal data as a Candidate through the duration of your Temp Relationship and thereafter. The question of whether and the extent to which we will continue to process your personal data as Staff data through the duration of your Temp Relationship and thereafter depends on local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
-<p><strong>Kunden und Lieferanten:</strong></p>
+<p><strong>Clients and Suppliers:</strong></p>
 <ul>
-<li>Wenn Sie ein Kunde oder Lieferant sind, speichern wir Ihre personenbezogenen Daten, um Ihnen Dienstleistungen zu erbringen oder Dienstleistungen von Ihnen zu erhalten oder um Ihnen Informationen über unsere Dienstleistungen zur Verfügung zu stellen, von denen wir annehmen, dass sie für Sie von Interesse sein könnten.</li>
-<li>Wenn Sie ausdrücklich darauf hingewiesen haben, dass Sie nicht an unseren Dienstleistungen interessiert sind, werden wir Ihre personenbezogenen Daten aus unseren Systemen löschen, es sei denn, wir nehmen in gutem Glauben an, dass wir sie aufbewahren müssen, z. B. aufgrund unserer Verpflichtungen gegenüber den Steuerbehörden oder im Zusammenhang mit drohenden Rechtsstreitigkeiten.</li>
+<li>If you are a Client or a Supplier we will retain your personal data in order to provide you with services or to receive services from you, or to provide you with information about our services that we believe you may be interested in.</li>
+<li>If you have expressly indicated that you’re not interested in our services, then we will delete your personal data from our Systems unless we believe in good faith that we need to preserve it, for example, because of our obligations to tax authorities or in connection with any anticipated litigation.</li>
 </ul>
-<p><strong>Website-Nutzer:</strong></p>
+<p><strong>Website Users:</strong></p>
 <ul>
-<li>Wenn Sie ein Website-Nutzer sind, werden wir Ihre IP-Adresse und alle anderen Informationen, die für den Betrieb der Website erforderlich sind, 365 Tagen aufbewahren.</li>
+<li>If you are a Website User we will retain your IP address and any other information that is required to operate the website for 365 days.</li>
 </ul>
-<p><strong>Andere Kategorien von Personen:</strong></p>
+<p><strong>Other categories of people:</strong></p>
 <ul>
-<li>Ansonsten werden wir Ihre Daten so lange aufbewahren, wie es notwendig ist, um den Zweck zu erreichen, für den sie erhoben oder verarbeitet wurden. Wenn dieser Zeitpunkt gekommen ist oder Sie ausdrücklich angegeben haben, dass Sie nicht mehr an einem unserer Dienste auf der Website oder der mobilen App interessiert sind, werden wir diese Daten aus unseren Systemen löschen, es sei denn, wir sind in gutem Glauben davon überzeugt, dass wir sie aufbewahren müssen, zum Beispiel aufgrund unserer Verpflichtungen gegenüber Steuerbehörden oder im Zusammenhang mit einem zu erwartenden Rechtsstreit.</li>
+<li>We will otherwise retain your data for as long as it is necessary to achieve the purpose it was collected or processed for. If this time has come or you have expressly indicated that you’re not interested in one of our website or mobile app services anymore, we will delete it from our Systems unless we believe in good faith that we need to preserve it, for example, because of our obligations to tax authorities or in connection with any anticipated litigation.</li>
 </ul>
-<h3>4. Wie können Sie auf personenbezogene Daten, die Sie uns überlassen haben, zugreifen, diese ändern oder zurücknehmen?</h3>
+<h3>4. How can you access, amend or take back the personal data that you have given to us?</h3>
 <ul>
-<li>Eines der Hauptziele der DSGVO besteht darin, die Datenschutzrechte der EU-Bürger sowie von Personen innerhalb der EU zu schützen und klarzustellen. Das bedeutet, dass Ihnen hinsichtlich Ihrer Daten verschiedene Rechte zustehen, auch dann, wenn Sie sie uns bereits zur Verfügung gestellt haben. Diese Rechte werden im Folgenden genauer beschrieben.</li>
-<li>Wenn Sie sich im Zusammenhang mit diesen Rechten an uns wenden möchten, nehmen Sie bitte Kontakt mit uns auf. Wir werden uns bemühen, Ihre Anfrage schnellstmöglich, in jedem Fall innerhalb eines Monats, zu beantworten (vorbehaltlich etwaiger Fristverlängerungen, die uns von Rechts wegen zustehen). Bitte beachten Sie, dass wir, falls notwendig, Aufzeichnungen Ihrer Mitteilungen aufbewahren werden, um von Ihnen angesprochene Probleme besser lösen zu können.</li>
-<li><strong>Widerspruchsrecht</strong>: Auf der Grundlage dieses Rechts können Sie der Verarbeitung Ihrer personenbezogenen Daten durch uns widersprechen, wenn die Verarbeitung aus einem der folgenden vier Gründe erfolgt: (i) unser berechtigtes Interesse, (ii) damit wir eine Aufgabe im öffentlichen Interesse erfüllen oder öffentliche Gewalt ausüben können, (iii) damit wir Ihnen Direktmarketingmaterialien zusenden können und (iv) zu wissenschaftlichen, historischen oder statistischen Zwecken oder zu Forschungszwecken.</li>
-<li>Die oben genannten Kategorien „berechtigte Interessen“ und „Direktmarketing“ sind die Kategorien, die am ehesten auf unsere Kandidaten, Kunden und Lieferanten zutreffen. Wenn Sie Einwände dagegen haben, dass wir Ihre personenbezogenen Daten verarbeiten, weil wir es für Ihre berechtigten Interessen als notwendig erachten, müssen wir die entsprechenden Aktivitäten aufgrund Ihres Einspruchs einstellen, es sei denn:
+<li>One of the GDPR’s main objectives is to protect and clarify the rights of EU citizens and individuals in the EU with regard to data privacy. This means that you retain various rights in respect of your data, even once you have given it to us. These are described in more detail below.</li>
+<li>To get in touch about these rights, please contact us. We will seek to deal with your request without undue delay, and in any event within one month (subject to any extensions to which we are lawfully entitled). Please note that we will, where necessary, keep a record of your communications to help us resolve any issues which you raise.</li>
+<li><strong>Right to object</strong>: this right enables you to object to us processing your personal data where we do so for one of the following four reasons: (i) our legitimate interests; (ii) to enable us to perform a task in the public interest or exercise official authority; (iii) to send you direct marketing materials; and (iv) for scientific, historical, research, or statistical purposes.</li>
+<li>The “legitimate interests” and “direct marketing” categories above are the ones most likely to apply to our Candidates, Clients and Suppliers. If your objection relates to us processing your personal data because we deem it necessary for your legitimate interests, we must act on your objection by ceasing the activity in question unless:
 <ul>
-<li>wir können nachweisen, dass uns vorrangige berechtigte Gründe für die Verarbeitung vorliegen, die gegenüber Ihren Interessen überwiegen, oder</li>
-<li>wir verarbeiten Ihre Daten, um einen Rechtsanspruch geltend zu machen, auszuüben oder zu verteidigen.</li>
-</ul>
-</li>
-<li>Falls Sie im Zusammenhang mit Direktwerbung widersprechen, müssen wir diese Aktivität daraufhin einstellen.</li>
-<li><strong>Recht, die Einwilligung zu widerrufen:</strong> Wenn Sie uns Ihre Einwilligung erteilt haben, Ihre personenbezogenen Daten für bestimmte Aktivitäten (z. B. für die Verwendung von Cookies, Pixels oder UTM-Parameter in manchen Ländern) zu verarbeiten, können Sie diese Einwilligung jederzeit widerrufen. Wir werden die Aktivität, in die Sie zuvor eingewilligt haben, einstellen, sofern unserer Ansicht nach kein alternativer Grund vorliegt, der die weitere Verarbeitung Ihrer Daten zu diesem Zweck durch uns rechtfertigt. Sollte dies der Fall sein, werden wir Sie darüber informieren.</li>
-<li><strong>Antrag von betroffenen Personen auf Erteilung einer Auskunft über personenbezogene Daten (DSAR):</strong> Sie können jederzeit eine Bestätigung von uns anfordern, welche Informationen wir über Sie gespeichert haben, und uns auffordern, diese Informationen zu ändern, zu aktualisieren oder zu löschen. Wir können Sie bitten, Ihre Identität zu bestätigen, oder Sie um weitere Informationen zu Ihrer Aufforderung bitten. Falls wir Ihnen Zugriff auf die Informationen gewähren, die wir über Sie gespeichert haben, werden wir dafür keine Gebühren erheben, es sei denn, Ihre Anfrage ist „offenkundig unbegründet oder unverhältnismäßig“. Falls Sie weitere Kopien dieser Informationen bei uns anfordern, können wir Ihnen, soweit gesetzlich zulässig, angemessene Verwaltungskosten in Rechnung stellen. Wir können Ihre Anfrage ablehnen, sofern dies gesetzlich zulässig ist. Falls wir Ihre Anfrage ablehnen, werden wir dies in jedem Fall begründen.</li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig, zusätzlichen lokalen gesetzlichen Bestimmungen zu Zugriffsanfragen betroffener Personen unterliegen und Ihre Anfrage in Übereinstimmung mit diesen Gesetzen ablehnen können. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-<li><strong>Recht auf Löschung:</strong> Unter bestimmten Umständen können Sie verlangen, dass wir Ihre personenbezogenen Daten löschen. In der Regel müssen die Informationen eines der folgenden Kriterien erfüllen:
-<ul>
-<li>Die Daten werden für den Zweck, zu dem wir sie ursprünglich erfasst und/oder verarbeitet haben, nicht mehr benötigt;</li>
-<li>Sie haben Ihre zuvor erteilte Einwilligung zur Verarbeitung Ihrer Daten durch uns widerrufen und es besteht kein anderer gültiger Grund, die Verarbeitung fortzusetzen;</li>
-<li>die Daten wurden unrechtmäßig verarbeitet (d. h. auf eine Art und Weise, die der DSGVO zuwiderläuft);</li>
-<li>die Daten müssen gelöscht werden, damit wir unseren Verpflichtungen als Verantwortlicher für die Daten nachkommen können; oder</li>
-<li>Sie widersprechen der Verarbeitung und wir können keine vorrangigen berechtigten Gründe für die weitere Verarbeitung durch uns nachweisen, falls wir die Daten verarbeiten, weil wir es für unsere berechtigten Interessen als notwendig erachten.</li>
+<li>we can show that we have compelling legitimate grounds for processing which override your interests; or</li>
+<li>we are processing your data for the establishment, exercise or defense of a legal claim.</li>
 </ul>
 </li>
-<li>Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen zu Löschungsanfragen betroffener Personen unterliegen und Ihre Anfrage in Übereinstimmung mit diesen Gesetzen ablehnen können. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-<li>Wir dürfen Ihre Anfrage nur aus einem der folgenden Gründe ablehnen:
+<li>If your objection relates to direct marketing, we must act on your objection by ceasing this activity.</li>
+<li><strong>Right to withdraw consent:</strong> Where we have obtained your consent to process your personal data for certain activities (for example, in order to use cookies, pixels or UTM parameters in certain jurisdictions), you may withdraw this consent at any time. We will cease to carry out the particular activity that you previously consented to unless we consider that there is an alternative reason to justify our continued processing of your data for this purpose. If so, we will inform you of this.</li>
+<li><strong>Data Subject Access Requests (DSAR):</strong> You may ask us to confirm what information we hold about you at any time, and request us to modify, update or delete such information. We may ask you to verify your identity and for more information about your request. If we provide you with access to the information we hold about you, we will not charge you for this unless your request is “manifestly unfounded or excessive”. If you request further copies of this information from us, we may charge you a reasonable administrative cost where legally permissible. Where we are legally permitted to do so, we may refuse your request. If we refuse your request we will always tell you the reasons for doing so.</li>
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements regarding data subject access requests and may refuse your request in accordance with such laws. For more information in relation to your jurisdiction, please click here.</li>
+<li><strong>Right to erasure:</strong> You have the right to request that we erase your personal data in certain circumstances. Normally, the information must meet one of the following criteria:
 <ul>
-<li>um das Recht auf Freiheit der Meinungsäußerung und Informationsfreiheit auszuüben;</li>
-<li>um rechtlichen Verpflichtungen nachzukommen, eine Aufgabe im öffentlichen Interesse zu erfüllen oder öffentliche Gewalt auszuüben;</li>
-<li>wenn dies aus Gründen der öffentlichen Gesundheit im öffentlichen Interesse ist;</li>
-<li>zu Archivierungs-, Forschungs- und Statistikzwecken; oder</li>
-<li>um einen Rechtsanspruch auszuüben oder zu verteidigen.</li>
+<li>the data are no longer necessary for the purpose for which we originally collected and/or processed them;</li>
+<li>where previously given, you have withdrawn your consent to us processing your data, and there is no other valid reason for us to continue processing;</li>
+<li>the data has been processed unlawfully (i.e. in a manner which does not comply with the GDPR);</li>
+<li>it is necessary for the data to be erased in order for us to comply with our legal obligations as a data controller; or</li>
+<li>if we process the data because we believe it necessary to do so for our legitimate interests, you object to the processing and we are unable to demonstrate overriding legitimate grounds for our continued processing.</li>
 </ul>
 </li>
-<li>Wenn wir einer gültigen Aufforderung zur Löschung von Daten nachkommen, werden wir die betreffenden Daten löschen.</li>
-<li><strong>Recht auf Einschränkung der Verarbeitung: </strong>Unter bestimmten Umständen können Sie verlangen, dass wir die Verarbeitung Ihrer personenbezogenen Daten einschränken. Das bedeutet, dass wir Ihre Daten künftig nur speichern werden und keine weiteren Verarbeitungsaktivitäten vornehmen können, bis: (i) eine der unten aufgeführten Bedingungen ausgeräumt wurde, (ii) Sie Ihre Einwilligung erteilen oder (iii) die weitere Verarbeitung notwendig ist, um Rechtsansprüche geltend zu machen, auszuüben oder zu verteidigen, die Rechte anderer Personen zu schützen oder wenn sie aufgrund berechtigten öffentlichen Interesses der EU oder eines Mitgliedsstaats notwendig ist.</li>
-<li>Unter folgenden Umständen können Sie verlangen, dass wir die Verarbeitung Ihrer personenbezogenen Daten einschränken:
+<li>Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements regarding data subject requests for erasure and may refuse your request in accordance with such laws. For more information in relation to your jurisdiction, please click here.</li>
+<li>We would only be entitled to refuse to comply with your request for one of the following reasons:
 <ul>
-<li>Wenn Sie die Richtigkeit der personenbezogenen Daten, die wir über Sie verarbeiten, bestreiten. In diesem Fall wird die Verarbeitung Ihrer personenbezogenen Daten durch uns eingeschränkt, bis die Richtigkeit der Daten überprüft wurde;</li>
-<li>Wenn Sie der Verarbeitung Ihrer personenbezogenen Daten durch uns im Sinne unserer berechtigten Interessen widersprechen. In diesem Fall können Sie verlangen, dass die Daten eingeschränkt werden, während wir unsere Gründe für die Verarbeitung Ihrer personenbezogenen Daten überprüfen;</li>
-<li>Wenn die Verarbeitung Ihrer Daten durch uns unrechtmäßig ist, Sie es jedoch bevorzugen, die Verarbeitung durch uns einzuschränken, anstatt die Daten löschen zu lassen; und</li>
-<li>Wenn keine Notwendigkeit mehr besteht, dass wir Ihre personenbezogenen Daten verarbeiteten, Sie die Daten jedoch benötigen, um Rechtsansprüche geltend zu machen, auszuüben oder zu verteidigen.</li>
+<li>to exercise the right of freedom of expression and information;</li>
+<li>to comply with legal obligations or for the performance of a public interest task or exercise of official authority;</li>
+<li>for public health reasons in the public interest;</li>
+<li>for archival, research or statistical purposes; or</li>
+<li>to exercise or defend a legal claim.</li>
 </ul>
 </li>
-<li>Falls wir Ihre personenbezogenen Daten an Dritte weitergegeben haben, werden wir diese über die eingeschränkte Verarbeitung informieren, sofern dies möglich ist und keinen unverhältnismäßigen Aufwand erfordert. Wir werden Sie selbstverständlich informieren, bevor wir Einschränkungen für die Verarbeitung Ihrer personenbezogenen Daten aufheben.</li>
-<li><strong>Recht auf Berichtigung: </strong>Sie können auch verlangen, dass wir unrichtige oder unvollständige personenbezogene Daten, die wir über Sie gespeichert haben, berichtigen. Falls wir diese personenbezogenen Daten an Dritte weitergegeben haben, werden wir diese über die Berichtigung informieren, sofern dies möglich ist und keinen unverhältnismäßigen Aufwand erfordert. Gegebenenfalls werden wir Sie darüber informieren, an welche Dritten wir die unrichtigen oder unvollständigen personenbezogenen Daten weitergegeben haben. Wenn wir es für unangemessen halten, Ihrer Aufforderung zu entsprechen, werden wir Ihnen die Gründe für diese Entscheidung erläutern.</li>
-<li><strong>Recht auf Datenübertragbarkeit:</strong> Falls Sie es wünschen, sind Sie berechtigt, Ihre Daten von einem Verantwortlichen an einen anderen zu übertragen. Das bedeutet im Endeffekt, dass Sie die Daten Ihres Kontos bei Hays an eine andere Online-Plattform übermitteln können. Zu diesem Zweck stellen wir Ihnen die Daten in einem üblichen maschinenlesbaren Format kennwortgeschützt zur Verfügung, damit Sie die Daten an eine andere Online-Plattform übermitteln können. Alternativ werden wir die Daten direkt für Sie übertragen. Das Recht auf Datenübertragbarkeit gilt für: (i) personenbezogene Daten, die wir automatisch (d. h. ohne menschliches Eingreifen) verarbeiten, (ii) personenbezogene Daten, die Sie uns zur Verfügung gestellt haben, und (iii) personenbezogene Daten, die wir auf der Grundlage Ihrer Einwilligung oder zwecks Erfüllung eines Vertrags verarbeiten.</li>
-<li><strong>Recht auf Beschwerde bei einer Aufsichtsbehörde: </strong>Sie haben das Recht, bei der zuständigen lokalen Aufsichtsbehörde eine Beschwerde einzureichen. Einzelheiten dazu, wie Sie sie kontaktieren können, finden Sie hier.</li>
-<li>Wenn Sie eines dieser Rechte ausüben oder Ihre Einwilligung zur Verarbeitung Ihrer personenbezogenen Daten widerrufen möchten (wenn Ihre Einwilligung die rechtliche Grundlage für die Verarbeitung Ihrer personenbezogenen Daten darstellt), finden Sie hier Einzelheiten dazu, wie Sie uns kontaktieren können. Bitte beachten Sie, dass wir, falls notwendig, Aufzeichnungen Ihrer Mitteilungen aufbewahren werden, um von Ihnen angesprochene Probleme besser lösen zu können.</li>
-<li>Sie können Benachrichtigungen über offene Jobs und anderen Marketingmitteilungen jederzeit abbestellen. Einzelheiten dazu finden Sie hier.</li>
-<li>Es ist wichtig, dass die von uns über Sie gespeicherten personenbezogenen Informationen richtig und aktuell sind. Bitte halten Sie uns auf dem Laufenden, wenn sich Ihre personenbezogenen Daten in dem Zeitraum, in dem wir Daten speichern, ändern.</li>
-</ul>
-<h3>5. Wer ist für die Verarbeitung Ihrer personenbezogenen Daten verantwortlich?</h3>
+<li>When complying with a valid request for the erasure of data we will delete the relevant data.</li>
+<li><strong>Right to restrict processing: </strong>You have the right to request that we restrict our processing of your personal data in certain circumstances. This means that we can only continue to store your data and will not be able to carry out any further processing activities with it until either: (i) one of the circumstances listed below is resolved; (ii) you consent; or (iii) further processing is necessary for either the establishment, exercise or defense of legal claims, the protection of the rights of another individual, or reasons of important EU or Member State public interest.</li>
+<li>The circumstances in which you are entitled to request that we restrict the processing of your personal data are:
 <ul>
-<li>Wenn Sie wissen möchten, welches Unternehmen von Hays für die Verarbeitung Ihrer personenbezogenen Daten verantwortlich ist und wo es sich befindet, folgen Sie diesem Link.</li>
-<li>Falls Sie Kommentare oder Vorschläge zu dieser Datenschutzrichtlinie haben, folgen Sie diesem Link. Wir nehmen den Datenschutz sehr ernst. Daher werden wir uns schnellstmöglich bei Ihnen melden.</li>
-</ul>
-<h3>6.Wie werden Ihre Daten von uns international gespeichert und übermittelt?</h3>
-<ul>
-<li>Sie möchten mehr darüber erfahren, wie wir Ihre Daten international speichern und übermitteln? Um die optimale Leistung für Sie erbringen zu können und die in dieser Datenschutzrichtlinie beschriebenen Zwecke zu erfüllen, können Ihre Daten übermittelt werden:
-<ul>
-<li>zwischen den einzelnen Unternehmen von Hays sowie innerhalb dieser Unternehmen;</li>
-<li>an Dritte (z. B. Berater oder andere Lieferanten von Hays);</li>
-<li>gegebenenfalls an Kunden im Ausland;</li>
-<li>an Kunden in Ihrem Land, die Ihre Daten ihrerseits international übermitteln können;</li>
-<li>an einen Anbieter von cloudbasiertem Speicher und</li>
-<li>an andere Dritte, wie im Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben“ oben beschrieben.</li>
+<li>where you dispute the accuracy of the personal data that we are processing about you. In this case, our processing of your personal data will be restricted for the period during which the accuracy of the data is verified;</li>
+<li>where you object to our processing of your personal data for our legitimate interests. Here, you can request that the data be restricted while we verify our grounds for processing your personal data;</li>
+<li>where our processing of your data is unlawful, but you would prefer us to restrict our processing of it rather than erasing it; and</li>
+<li>where we have no further need to process your personal data but you require the data to establish, exercise, or defend legal claims.</li>
 </ul>
 </li>
-<li>Wir möchten sichergehen, dass Ihre Daten auf sichere Art und Weise gespeichert und übermittelt werden. Daher übermitteln wir Daten nur dann außerhalb des Europäischen Wirtschaftsraums bzw. EWR (d. h. die Mitgliedsstaaten der Europäischen Union sowie Norwegen, Island und Liechtenstein), wenn dies dem Datenschutzrecht entspricht und der Weg der Übermittlung angemessenen Schutz für Ihre Daten bietet, zum Beispiel:
+<li>If we have shared your personal data with third parties, we will notify them about the restricted processing unless this is impossible or involves disproportionate effort. We will, of course, notify you before lifting any restriction on processing your personal data.</li>
+<li><strong>Right to rectification: </strong>You also have the right to request that we rectify any inaccurate or incomplete personal data that we hold about you. If we have shared this personal data with third parties, we will notify them about the rectification unless this is impossible or involves disproportionate effort. Where appropriate, we will also tell you which third parties we have disclosed the inaccurate or incomplete personal data to. Where we think that it is reasonable for us not to comply with your request, we will explain our reasons for this decision.</li>
+<li><strong>Right of data portability:</strong> If you wish, you have the right to transfer your personal data between data controllers. In effect, this means that you are able to transfer your Hays account details to another online platform. To allow you to do so, we will provide you with your data in a commonly used machine-readable format that is password-protected so that you can transfer the data to another online platform. Alternatively, we will directly transfer the data for you. This right of data portability applies to: (i) personal data that we process automatically (i.e. without any human intervention); (ii) personal data provided by you; and (iii) personal data that we process based on your consent or in order to fulfill a contract.</li>
+<li><strong>Right to lodge a complaint with a supervisory authority: </strong>You also have the right to lodge a complaint with your local supervisory authority. Details of how to contact them can be found here.</li>
+<li>If you would like to exercise any of these rights, or withdraw your consent to the processing of your personal data (where consent is our legal basis for processing your personal data), details of how to contact us can be found here. Please note that we will, where necessary, keep a record of your communications to help us resolve any issues which you raise.</li>
+<li>You may ask to unsubscribe from job alerts and other marketing communications from us at any time. Details of how to do so can be found here.</li>
+<li>It is important that the personal information we hold about you is accurate and current. Please keep us informed if your personal information changes during the period for which we hold your data.</li>
+</ul>
+<h3>5. Who is responsible for processing your personal data?</h3>
 <ul>
-<li>mittels einer Datenübermittlungsvereinbarung, die die aktuellen Standardvertragsklauseln beinhaltet, die die Europäische Kommission für die Übermittlung personenbezogener Daten durch Verantwortliche im EWR an Verantwortliche und Auftragsverarbeiter in Rechtssystemen ohne angemessenes Datenschutzrecht vorsieht; oder</li>
-<li>die Übermittlung Ihrer Daten in ein Land, in dem ein gesetzlich vorgeschriebenes Datenschutzniveau besteht, das von der Europäischen Kommission als angemessen bewertet wurde, oder</li>
-<li>durch ein von der Europäischen Kommission (als Nachfolger des Privacy Shield oder anderweitig) genehmigtes System, das den Austausch personenbezogener Daten zwischen Rechtsordnungen regelt; oder</li>
-<li>wenn es für den Abschluss oder die Abwicklung eines Vertrags zwischen uns und einem Dritten notwendig ist und die Übermittlung zum Zwecke dieses Vertrags in Ihrem Interesse ist (etwa, wenn wir Daten außerhalb des EWR übermitteln müssen, um unsere Verpflichtungen aus diesem Vertrag zu erfüllen, wenn Sie ein Kunde von uns sind), oder</li>
-<li>wenn Sie Ihre Einwilligung für die Datenübermittlung erteilt haben.</li>
+<li>You can find out which Hays entity is responsible for processing your personal data and where it is located by following this link.</li>
+<li>If you have any comments or suggestions concerning this Privacy Policy please follow this link. We take privacy seriously so we’ll get back to you as soon as possible.</li>
+</ul>
+<h3>6. How do we store and transfer data internationally?</h3>
+<ul>
+<li>So you want to know more about how we store and transfer your data internationally? In order to provide you with the best service and to carry out the purposes described in this Privacy Policy, your data may be transferred:
+<ul>
+<li>between and within Hays entities;</li>
+<li>to third parties (such as advisers or other Suppliers to the Hays business);</li>
+<li>to overseas Clients where applicable;</li>
+<li>to Clients within your country who may, in turn, transfer your data internationally;</li>
+<li>to a cloud-based storage provider; and</li>
+<li>to other third parties as set out in the section entitled “Who do we share your personal data with?” above.</li>
 </ul>
 </li>
-<li>Um sicherzustellen, dass Ihre personenbezogenen Daten ein angemessenes Schutzniveau erhalten, haben wir geeignete Verfahren mit den Dritten, mit denen wir Ihre personenbezogenen Daten teilen, eingerichtet, um sicherzustellen, dass Ihre personenbezogenen Daten von diesen Dritten in einer Weise behandelt werden, die mit dem Datenschutzrecht vereinbar ist und die dieses respektiert.</li>
-</ul>
-<h3>7. Cookie-Richtlinie</h3>
-<p><strong>Was ist ein Cookie?</strong></p>
+<li>We want to make sure that your data are stored and transferred in a way which is secure. We will therefore only transfer data outside of the European Economic Area or EEA (i.e. the Member States of the European Union, together with Norway, Iceland and Liechtenstein) where it is compliant with data protection legislation and the means of transfer provides adequate safeguards in relation to your data, for example:
 <ul>
-<li>Ein „Cookie“ (oder zusammen mit ähnlichen Technologien wie einem Zählpixel und UTM-Parametern) („Cookie“) ist eine sehr kleine Textdatei, Grafik oder ein Stück Code, die beim Besuch einer Webseite oder beim Öffnen einer digitalen Nachricht auf Ihrem Gerät abgelegt wird und Ihr Verhalten aufzeichnet (z. B. Navigation einer Website). Cookies dienen dazu, Ihre Nutzung der verschiedenen digitalen Hays-Kanäle zu verbessern, indem wir beispielsweise maßgeschneiderte Inhalte und Optionen auf der Grundlage von Informationen, die über Ihren letzten Besuch gespeichert werden, präsentieren. Cookies können auch zur Analyse von Datenverkehr und zu Werbe- und Marketingzwecken genutzt werden.</li>
-<li>Cookies werden von fast allen digitalen Kanälen verwendet und schaden Ihrem System nicht. Wir nutzen sie unabhängig davon, ob Sie über unsere Website, eine App oder einen anderen digitalen Kanal mit Hays interagieren, und unabhängig davon, ob Sie Kandidat, Zeitarbeitnehmer, Kunde, Lieferant, Website-Benutzer oder jemand anderes sind.</li>
-<li>Wenn Sie überprüfen oder ändern möchten, welche Arten von Cookies Sie akzeptieren, kann dies in der Regel über die Datenschutzeinstellungen Ihres Browsers geändert werden, oder Sie können dies sehr einfach über den Cookie-Präferenzen-Link am oberen oder unteren Rand der Website tun. Bitte beachten Sie, dass Sie möglicherweise Ihre Einstellungen über den Cookie-Präferenzen-Link auf jedem Ihrer Geräte anpassen müssen, wenn Sie auf die Dienste von Hays über mehrere Geräte zugreifen.</li>
-</ul>
-<p><strong>Wie verwenden wir Cookies?</strong></p>
-<ul>
-<li>Wir verwenden Cookies zu folgenden Zwecken:
-<ul>
-<li>um Ihre Erfahrung mit unseren digitalen Kanälen zu personalisieren und deren Funktionalität zu verbessern, zum Beispiel:
-<ul>
-<li>damit Sie während Ihres gesamten Besuchs in Ihrem Konto eingeloggt bleiben;</li>
-<li>um die Relevanz der von Ihnen angezeigten Inhalte anzupassen und zu erhöhen (die je nachdem, ob Sie ein Kandidat, Zeitarbeiter, Kunde, Lieferant, Website-Nutzer oder jemand anderes sind, und auch nach Ihren Präferenzen variieren können), bezüglich welcher wir hoffen, dass sie wiederum die Bindung und die Erfahrung bei der Nutzung unserer Dienstleistungen verbessert wird (und Sie ermutigen wird, zurückzukehren);</li>
-<li>wenn Sie Kandidat sind, um Marketing-Inhalte zu personalisieren, die wir Ihnen über unsere digitalen Kanäle zur Verfügung stellen (wenn Sie diesem Marketing zugestimmt haben), bezüglich welcher wir hoffen, dass sie die Anzahl der Kandidaten, die Konversionsraten und den Nutzen der Anwendung erhöhen werden;</li>
+<li>by way of data transfer agreement, incorporating the current standard contractual clauses adopted by the European Commission for the transfer of personal data by data controllers in the EEA to data controllers and processors in jurisdictions without adequate data protection laws; or</li>
+<li>transferring your data to a country where there has been a finding of adequacy by the European Commission in respect of that country’s levels of data protection via its legislation; or</li>
+<li>by way of scheme approved by the European Commission (whether as a successor to the Privacy Shield or otherwise) which regulates exchanges of personal data between jurisdictions; or</li>
+<li>where it is necessary for the conclusion or performance of a contract between ourselves and a third party and the transfer is in your interests for the purposes of that contract (for example, if we need to transfer data outside the EEA in order to meet our obligations under that contract if you are a Client of ours); or</li>
+<li>where you have consented to the data transfer.</li>
 </ul>
 </li>
-<li>um zu verstehen, wie Sie mit unserer Website und anderen digitalen Kanälen interagieren, z.B. indem wir die von Ihnen besuchten Seiten, die vorgenommenen Interaktionen, die von Ihnen gefolgten Links und die Anzahl der gelesenen Stellenanzeigen und Artikel verfolgen. Dies ermöglicht es uns zu verstehen, wie Sie unsere digitalen Kanäle nutzen, anzupassen, was wir Ihnen zeigen und senden, und Verhaltensmuster zu verfolgen, die sich individuell oder aus größeren Gruppen ergeben. Dies hilft uns, unsere digitalen Kanäle und Dienstleistungen unter Berücksichtigung der Wünsche und Bedürfnisse unserer Besucher zu entwickeln und zu verbessern (und wir verstehen, dass diese Wünsche und Bedürfnisse je nachdem, ob Sie ein Kandidat, Zeitarbeiter, Kunde, Lieferant, Website-Nutzer oder jemand anderes sind, variieren), was uns wiederum hilft, die Bindung für unsere Dienstleistungen zu erhöhen und die Erfahrung bei der Nutzung unserer Dienstleistungen zu verbessern, indem die Relevanz der von uns angebotenen Inhalte erhöht wird. Wie oben in den Abschnitten „Profiling, Algorithmen und automatisierte Entscheidungsfindung“ beschrieben, ermöglicht uns der Prozess der Analyse webbasierter Verhaltensweisen, den Nutzern mit dem Ziel, Einblicke in die Bedürfnisse der Nutzer zu geben und Hays zu ermöglichen, wo nötig, nachzuverfolgen, eine gewichtete „Ansprechwahrscheinlichkeit“ zuzuweisen; und Hays Consultants verwenden diese Bewertung als Teil der Vorauswahl und der Einstufung von Kandidaten und als Faktor bei der Entscheidung, ob sie sich bezüglich einer Stellenanzeige an einen Kunden wenden/ihm Stellen zeigen, was der Ergänzung anderer Daten dient, über die Hays hinsichtlich des Kandidaten verfügt; und</li>
-<li>wenn Sie ein Kandidat sind:
+<li>To ensure that your personal information receives an adequate level of protection, we have put in place appropriate procedures with the third parties we share your personal data with to ensure that your personal information is treated by those third parties in a way that is consistent with and which respects the law on data protection.</li>
+</ul>
+<h3>7. Cookies Policy</h3>
+<p><strong>What’s a cookie?</strong></p>
 <ul>
-<li>damit wir Ihnen Stellen anbieten können, von denen wir glauben, dass sie Ihr Interesse wecken könnten, indem wir die Stellen, die Ihnen zur Kenntnis gebracht werden, personalisieren;</li>
-<li>um unsere Empfehlungen für redaktionelle Inhalte zu personalisieren (z. B. Berichte über Entwicklungen in Ihrer Branche), die unserer Meinung nach von Interesse sein könnten;</li>
-<li>zur Anreicherung von Kandidatendaten und bestehenden Profilen von Kandidaten, die wir bereits in unseren Systemen gespeichert haben;</li>
-<li>Analyse der Daten, die durch die Nachverfolgung und Überwachung der Erfahrungen und Kontoaktivitäten der Kandidaten gewonnen wurden, um Kandidaten zu profilieren und sie auf der Grundlage ihrer Eigenschaften und Verhaltensweisen (z. B. vorherige Aufgaben, Fähigkeiten, Branchenerfahrung, Standort oder wann ein Kandidat bereit ist, zu arbeiten) „Talentpools“ zuzuordnen – wie oben in den Abschnitten „Profiling, Algorithmen und automatisierte Entscheidungsfindung“ beschrieben, wobei die Zuordnung von Kandidaten zu Talentpools ein vollautomatischer Prozess ist und den Einsatz von Bots beinhalten kann.</li>
+<li>A “cookie” (along with similar technologies such as tracking pixels and UTM parameters) (“Cookie”) is a very small text file, graphic or piece of code that is placed on your device when you visit a webpage or open an electronic message and which records your behavior (such as navigation of a website). Cookies are used to enhance your use of the various Hays digital channels, for example by enabling us to present tailored content and options based on the information stored about your last visit. Cookies can also be used to analyze traffic and for advertising and marketing purposes.</li>
+<li>Cookies are used by nearly all digital channels and do not harm your system. We use them irrespective of whether you interact with Hays via our website, an app or other digital channel, and regardless of whether you are a Candidate, Temporary Worker, Client, Supplier, Website User or someone else.</li>
+<li>If you want to check or change what types of Cookies you accept, this can usually be altered using the privacy settings within your browser, or you can do so very easily using the Cookie Preferences link at either the top or bottom of the website. Please note that if you access Hays’ services across multiple devices, you may need to adjust your settings via the Cookie Preferences link on each of your devices.</li>
+</ul>
+<p><strong>How do we use Cookies?</strong></p>
+<ul>
+<li>We use Cookies to do the following:
+<ul>
+<li>to personalize your experience of our digital channels and to enhance their functionality, for example:
+<ul>
+<li>to keep you signed in to your account throughout your visit;</li>
+<li>to tailor and increase the relevance of the content that you see (which may vary depending on whether you are a Candidate, Temporary Worker, Client, Supplier, Website User or someone else, and also according to your preferences) which we hope will in turn increase engagement with and improve the experience of using our services (and encourage you to return);</li>
+<li>if you are a Candidate, to personalize marketing content that we make available to you via our digital channels (where you have consented to that marketing) which we hope will increase application numbers, conversion rates and application usefulness;</li>
 </ul>
 </li>
+<li>to understand how you engage with our website and other digital channels, for example by tracking the pages you have visited, the interactions you have made, the links you have followed, and the number of job ads and articles read. This enables us to understand how you use our digital channels, tailor what we show and send to you, and track any patterns that emerge individually or from larger groups. This helps us to develop and improve our digital channels and services in response to what our visitors want and need (and we understand that those wants and needs vary depending on whether you are a Candidate, Temporary Worker, Client, Supplier, Website User or someone else) which in turn helps us increase engagement with and improve the experience of using our services by increasing the relevance of the content that we serve. As described above in the sections on “Profiling, Algorithms and Automated Decision Making”, the process of analyzing web-based behaviors enables us to award users a weighted “approachability score” with a view to providing insights into users’ needs and to allow Hays to follow up where needed; and Hays consultants use these scores as part of shortlisting and ranking Candidates and as a factor in determining whether to approach/show roles to a Client, which will serve to supplement other data that Hays holds about the Candidate; and</li>
+<li>if you are a Candidate:
+<ul>
+<li>to help us advertise jobs to you that we think you’ll be interested in, by personalizing the roles that are brought to your attention;</li>
+<li>to personalize our recommendations for editorial content (such as reports about developments in your industry) that we think may be of interest;</li>
+<li>to enrich Candidate data and existing profiles about Candidates that we already hold on our Systems;</li>
+<li>analyzing data obtained by tracking and monitoring Candidates’ experience and account activity in order to profile Candidates and allocate them to “talent pools” based on their attributes and behaviors (e.g. previous roles, skills, industry experience, location, or when a Candidate is willing to work) – as described above in the sections on “Profiling, Algorithms and Automated Decision Making”, the assignment of Candidates to talent pools is a fully automated process and can involve the use of bots.</li>
 </ul>
 </li>
 </ul>
-<p>Wir hoffen, dass Sie dadurch weniger Zeit mit endlosem Durchsuchen von Seiten verbringen und schneller das gewünschte Beschäftigungsverhältnis finden.</p>
-<ul>
-<li>Es gibt mehrere Arten von Cookies:
-<ul>
-<li>Sitzungscookies: Diese werden nur während Ihrer Internetsitzung auf Ihrem Gerät gespeichert und erlöschen automatisch, wenn Sie Ihren Browser schließen. Sie ermöglichen der Website Ihre Handlungen während einer Browsing-Sitzung zu erkennen und zu verbinden und speichern in der Regel eine anonyme Sitzungs-ID, mit der Sie eine Website nutzen können, ohne sich bei jeder einzelnen Seite anmelden zu müssen. Sie erfassen jedoch keine Informationen von Ihrem Computer; oder</li>
-<li>Dauerhafte Cookies: Ein dauerhafter Cookie wird als Datei auf Ihrem Gerät zwischen Browsing-Sitzungen gespeichert und verbleibt somit dort, wenn Sie Ihren Webbrowser schließen. Der Cookie kann von der Website, die ihn erstellt hat, gelesen werden, wenn Sie diese Website erneut besuchen. Wir verwenden dauerhafte Cookies für Google Analytics und zur Personalisierung (siehe oben für weitere Informationen darüber, was Personalisierung beinhalten kann, und auch die obigen Abschnitte oben über „Profiling, Algorithmen und automatisierte Entscheidungsfindung“).</li>
-</ul>
-</li>
-<li>Cookies können auch folgendermaßen kategorisiert werden:
-<ul>
-<li><strong>Unbedingt erforderliche Cookies: </strong>Diese Cookies sind unbedingt erforderlich, damit Sie die Website effektiv nutzen können, etwa, wenn Sie sich für eine Stelle bewerben. Daher können sie nicht deaktiviert werden. Ohne diese Cookies können wir die Dienste, die wir Ihnen über unsere Website anbieten, nicht bereitstellen. Diese Cookies erfassen keine Informationen über Sie, die für Werbezwecke genutzt werden könnten oder anhand derer erkennbar wäre, welche Websites Sie besucht haben.</li>
-<li><strong>Funktionelle Cookies:</strong> Mithilfe dieser Cookies können wir die Performance unserer Website überwachen und verbessern. Mit ihnen können wir beispielsweise Besuche zählen, Datenverkehrsquellen identifizieren und erkennen, welche Teile der Website besonders gefragt sind. Darüber hinaus ermöglichen diese Cookies unserer Website zu speichern, welche Optionen Sie ausgewählt haben (z. B. Ihren Benutzernamen, Ihre Sprache oder die Region, in der Sie sich befinden) und erweiterte Funktionen bereitstellen. So können wir Ihnen beispielsweise Neuigkeiten oder Aktualisierungen zu den Diensten, die Sie nutzen, zur Verfügung stellen. Diese Cookies können genutzt werden, um Änderungen zu speichern, die Sie an der Textgröße, Schriftart oder anderen Teilen der Website, die Sie anpassen können, vorgenommen haben. Außerdem können sie verwendet werden, um Dienste bereitzustellen, die Sie angefordert haben, z. B. um ein Video abzuspielen oder einen Blog zu kommentieren. Die von diesen Cookies erfassten Informationen werden normalerweise anonymisiert.</li>
-<li><strong>Marketing-Cookies: </strong>Mithilfe dieser Cookies können wir Einzelheiten zu Beschäftigungsmöglichkeiten bewerben, von denen wir glauben, dass sie für Sie von Interesse sind. Hierbei handelt es sich um residente Cookies, die dauerhaft gespeichert werden (solange Sie bei uns registriert sind). Daher werden Ihnen Anzeigen für ähnliche Jobs wie die, die Sie sich zuvor angeschaut haben, angezeigt, wenn Sie sich anmelden oder auf die Website zurückkehren.</li>
-</ul>
 </li>
 </ul>
-<p>Der Cookie Präferenzen-Link auf unserer Website enthält eine Liste der Cookies, die wir in Ihrem Land verwenden, warum wir sie verwenden und welche Arten von Cookies dies sind.</p>
-<p><strong>Wie Sie Cookies verwalten oder ablehnen</strong></p>
+<p>Hopefully this means less time for you trawling through endless pages and will get you into the employment you want more quickly.</p>
 <ul>
-<li>Wenn Sie zum ersten Mal unsere Website(s) besuchen, werden Sie aufgefordert, zu wählen, welche Art von Cookies Sie erhalten möchten. Für einige Cookies holen wir über den das Cookie Präferenz Center Ihre vorherige Einwilligung ein, während wir unbedingt notwendige Cookies ohne Ihre Einwilligung setzen können. Dazu können Sie auch die Datenschutzeinstellungen Ihres Browsers verwenden. Bitte beachten Sie, dass die Ablehnung aller Cookies über die Datenschutzeinstellungen Ihres Browsers dazu führt, dass Sie möglicherweise nicht alle Funktionen unserer Website vollumfänglich nutzen können. Jeder Browser ist anders. Schauen Sie daher im Hilfe-Menü Ihres Browsers nach, wie Sie Ihre Cookie-Einstellungen ändern können.</li>
-<li>Sie können Ihre erteilte Einwilligung jederzeit über den Cookie-Präferenzen-Link- aktualisieren. Sie können auch Cookies deaktivieren, die nicht unbedingt erforderlich sind, um grundlegende Funktionen unserer Website zu erfüllen, indem Sie Ihre Browsereinstellungen ändern. Wenn Sie den Cookie-Präferenzen-Link verwenden, um Ihre Wahl von Cookies zu aktualisieren, beachten Sie bitte, dass dies nicht dazu führt, dass bereits gesetzte Cookies auf Ihrem Gerät gelöscht werden. Wenn Sie diese Cookies löschen möchten, sollten Sie dies in den Datenschutzeinstellungen Ihres Browsers tun.</li>
-<li>Wenn Sie sich entscheiden, alle Cookies über die Datenschutzeinstellungen Ihres Browsers zu löschen, werden dadurch auch alle Aufzeichnungen eines Opt-Out-Cookies (Ablehnungscookie) gelöscht, (damit das Opt-Out weiter aktiviert werden kann) und Sie müssen sich ggf. wieder aktiv abmelden.</li>
-</ul>
-<h3>8. Nutzung von Dienste Dritter</h3>
+<li>Cookies are either:
 <ul>
-<li>Im Rahmen der Nutzung unserer Dienstleistungen können Kandidaten, Zeitarbeitnehmer und Alumni auf unabhängige Websites und Dienste Dritter (z. B. Arbeitsplattformen) zugreifen, die nicht von uns betrieben werden. Solche unabhängigen Websites und Dritte unterliegen nicht unserer Kontrolle, und wir sind nicht für sie verantwortlich und haben deren Inhalt oder deren Datenschutzrichtlinien (falls vorhanden) nicht geprüft und genehmigt. Sie müssen sich selbst eine unabhängige Meinung darüber verschaffen, ob solche unabhängigen Seiten genutzt werden sollen, einschließlich der Frage, ob die von Dritten angebotenen Dienste in Anspruch genommen werden sollen.</li>
-<li>Gelegentlich verarbeiten externe Dienstleister, die wir beauftragt haben, personenbezogene Daten, die wir ihnen als Datenverantwortlicher aus eigenem Recht zur Verfügung gestellt haben, z. B. für folgende Zwecke: (i) Durchführung ihrer eigenen internen Berichterstattung, (ii) Verhinderung oder Reaktion auf Bedrohungen der Sicherheit oder Integrität ihrer Systeme; (iii) Geltendmachung, Ausübung oder Verteidigung eigener Rechtsansprüche; (iv) Erfüllung gesetzlicher Verpflichtungen, die für sie gelten; und (v) Verwendung personenbezogener Daten in anonymisierter oder aggregierter Form zur Verbesserung ihrer eigenen Produkte und Dienstleistungen. Sie werden in der Regel über eigene Datenschutzrichtlinien verfügen, die in Bezug auf diese Verarbeitungstätigkeiten näher beschrieben werden.</li>
+<li>Session cookies: these are only stored on your device during your browser session and automatically expire when you close your browser. They allow the website to recognize and link your actions during a browsing session and usually store an anonymous session ID allowing you to browse a website without having to log in to each page, but they do not collect any information from your computer; or</li>
+<li>Persistent cookies: a persistent cookie is stored on your device in between browsing sessions and so it remains there when you close your web browser. The cookie can be read by the website that created it when you visit that website again. We use persistent cookies for Google Analytics and for personalization (see above for more information about what personalization may involve and also the sections above on “Profiling, Algorithms and Automated Decision Making”).</li>
 </ul>
-<h3>Glossar</h3>
+</li>
+<li>Cookies can also be categorized as follows:
 <ul>
-<li><strong><em>Kandidaten</em></strong> – umfasst Personen, mit denen Hays noch keinen Kontakt hatte, von denen Hays jedoch nach vernünftigem Ermessen annimmt, dass sie an Hays-Dienstleistungen interessiert sind oder von diesen profitieren könnten, und die für alle von Hays beworbenen oder angebotenen Stellen in Betracht kommen, einschließlich unbefristeter, Teilzeit- und Zeitarbeitsstellen und freiberuflicher Tätigkeiten bei Kunden von Hays (einschließlich Personen, die Zeitarbeitnehmer werden wollen). Zu den Kandidaten gehören auch Bewerber für solche Stellen, sowie Personen, die Hays einen Lebenslauf im Rahmen einer Initiativbewerbung vorgelegt haben, die sich nicht auf einen bestimmten Job bezieht und/oder sich mit Hays über die Dienste von Hays und/oder Stellen ausgetauscht haben, die von Hays beworben oder gefördert werden. Einzelne Auftragnehmer, freie Mitarbeiter oder Angestellte von Lieferanten, die (etwa im Rahmen eines MSP-Angebots) für Stellen bei Kunden von Hays vorgeschlagen werden, gelten ebenfalls als Kandidaten im Sinne dieser Richtlinie.</li>
-<li><strong><em>Kunden</em></strong> – Diese Kategorie umfasst, wie der Begriff bereits nahelegt, unsere Kunden, Klienten und andere Parteien, für die Hays im Zuge ihrer Geschäftstätigkeit Leistungen erbringt oder von denen Hays vernünftigerweise annimmt, dass sie an unseren Dienstleistungen interessiert wären. Unter bestimmten Umständen bietet Hays Dienstleistungen für einzelne Mitarbeiter an, die für Kundenunternehmen tätig sind, wie z. B. Schulungen für Lehrkräfte, die für Kunden im Bildungssektor tätig sind. Bitte beachten Sie, dass Hays von den Kunden verlangt, dass sie ihre Mitarbeiter über die maßgeblichen Bestandteile dieser Datenschutzrichtlinie (insbesondere die Abschnitte zu Kandidaten) informieren.</li>
-<li><strong><em>Löschen</em></strong> – In der heutigen Zeit ist es praktisch unmöglich, die dauerhafte und irreversible Löschung elektronischer Daten zu gewährleisten. Darüber hinaus sind wir, wie wir Ihnen in dieser Datenschutzrichtlinie erläutert haben, manchmal aufgrund von Gesetzen oder Vorschriften oder aus Gründen des Risikomanagements verpflichtet, die Möglichkeit zu behalten, auf bestimmte Elemente personenbezogener Daten zuzugreifen. Wir verpflichten uns Ihnen gegenüber jedoch, dass wir, sobald Ihre personenbezogenen Daten das Ende der nominellen Aufbewahrungsfrist erreicht haben oder wenn wir eine berechtigte Aufforderung zu deren Löschung von Ihnen erhalten, spezifische Betriebs- und Systemmaßnahmen ergreifen, um sicherzustellen, dass Ihre Daten „unbrauchbar“ gemacht werden. Damit meinen wir, dass die Daten zwar noch technisch auf einem Archivsystem vorhanden sind, wir aber sicherstellen, dass sie nicht ohne weiteres von unseren betrieblichen Systemen, Prozessen oder Mitarbeitern abgerufen werden können. Nur eine sehr (und wir meinen außergewöhnliche) geringe Anzahl leitender Mitarbeiter, wird in sehr (und wiederum, wir meinen ausnahmsweise) begrenzten und genau vorgegebenen Situationen in der Lage sein, Ihre personenbezogenen Daten wiederherzustellen, damit sie zu diesen legitimen Zwecken eingesehen werden können. Sobald uns klar ist, dass alle relevanten gesetzlich vorgeschriebenen Aufbewahrungsfristen abgelaufen sind (die für dies vorliegenden Zwecke voraussichtlich einem Zeitraum von zehn Jahren entsprechen), werden wir als letzten Schritt eine „dauerhafte Löschung“ vornehmen, bei der nicht einmal diese sehr begrenzte Anzahl leitender Mitarbeiter in der Lage wäre, Ihre personenbezogenen Daten wiederherzustellen.</li>
-<li><strong><em>Datenschutz-Grundverordnung (DSGVO)</em></strong> – Eine Rechtsverordnung der Europäischen Union zur Harmonisierung des europäischen Datenschutzrechts. Sie ist am 25. Mai 2018 in Kraft getreten und alle Bezugnahmen darauf sollten so ausgelegt werden, dass sämtliche nationale Datenschutz-Gesetze berücksichtigt werden.</li>
-<li><strong><em>Managed-Service-Provider- (MSP-) Programme</em></strong> – Beauftragung eines externen Personaldienstleisters mit der Verwaltung externer Mitarbeiter (darunter freie Mitarbeiter, unabhängige Auftragnehmer und Zeitarbeitskräfte) durch Kunden.</li>
-<li><strong><em>Weitere Personen, mit denen Hays Kontakt aufnehmen kann</em></strong> – Dies können Notfallkontakte sowie Referenzgeber von Kandidaten und Mitarbeitern von Hays sein. Wir kontaktieren diese Personen nur, wenn dies den Umständen entsprechend angemessen ist.</li>
-<li><em><strong>Recruitment-Process-Outsourcing- (RPO-) Dienste</strong> –</em> Beauftragung eines Personaldienstleisters mit dem gesamten Rekrutierungsprozess für unbefristet Beschäftigte bzw. mit einem Teil dieses Prozesses.</li>
-<li><strong><em>Mitarbeiter</em></strong> – umfasst derzeitige und ehemalige Mitarbeiter und Praktikanten, die direkt in Hays-Unternehmen tätig sind (oder die ein Einstellungsangebot angenommen haben) sowie bestimmte andere Arbeitnehmer, die im Rahmen der Erbringung von Dienstleistungen für Hays tätig sind oder waren (obwohl sie nicht als Angestellte eingestuft werden). Zu diesen Zwecken beziehen wir auch Mitarbeiter von Hays ein, die gemäß den Bedingungen der RPO- oder MSP-Vereinbarungen für die Arbeitstätigkeit in den Räumlichkeiten der Kunden beschäftigt werden. Zur Klarstellung: „Personal“ umfasst keine Personen, die von Hays eingestellt wurden, um bei Kunden außerhalb eines RPO/MSP-Arrangements platziert zu werden. Diese Personen werden auf die gleiche Weise behandelt wie Hays-Kandidaten und unterliegen dieser Datenschutzrichtlinie. Ebenso fallen unabhängige Auftragnehmer und Berater, die Dienstleistungen für Hays erbringen, im Sinne dieser Datenschutzrichtlinie unter die Definition eines „Lieferanten“.</li>
-<li><strong><em>Lieferanten</em></strong> – bezeichnet Partnerschaften und Unternehmen (einschließlich Einzelunternehmer) sowie atypische Arbeitnehmer wie unabhängige Auftragnehmer und freie Mitarbeiter, die Leistungen für Hays erbringen. Unter bestimmten Umständen vergibt Hays Unteraufträge für Leistungen, die das Unternehmen für seine Kunden erbringt, an externe Dienstleister, die die Leistungen im Namen von Hays erbringen. In diesem Kontext werden Lieferanten, bei denen es sich um einzelne Auftragnehmer, freie Mitarbeiter oder Beschäftigte von Lieferanten handelt, zu Datenschutzzwecken als Kandidaten behandelt. Bitte beachten Sie, dass Hays den Lieferanten vorgibt, ihre Beschäftigten über die maßgeblichen Bestandteile dieser Datenschutzrichtlinie (insbesondere die Abschnitte zu Kandidaten) zu informieren.</li>
-<li><strong><em>Alumni </em></strong>– bezieht sich auf ehemalige Mitarbeiter, die ihren Wunsch zum Ausdruck gebracht haben, Teil des Alumni-Netzwerks von Hays zu bleiben und das Alumni-Portal von Hays zu nutzen.</li>
-<li><strong><em>Systeme</em></strong> – umfasst Telefon-, Computer-, Internet- und WLAN-Systeme, Software und Portale, Konten bzw. Netzwerke, die Hays gehören, von Hays gesteuert oder genutzt werden, um Mitteilungen zu übermitteln, vorzunehmen bzw. zu empfangen oder auf sonstige Art und Weise im Laufe der Geschäftstätigkeit von Hays, einschließlich der Kandidatenportalsoftware und der CRM-Systeme, genutzt werden.</li>
-<li><strong><em>Zeitarbeitsverhältnis</em> </strong>– bedeutet unsere vertragliche Beziehung zu Zeitarbeitnehmern, während sie direkt von uns beschäftigt oder angestellt werden.</li>
-<li><strong><em>Zeitarbeitnehmer</em> </strong>– umfasst Personen, die bei Hays zum Zwecke der befristeten Arbeit für einen Kunden oder ein anderes Unternehmen der Hays-Gruppe beschäftigt oder angestellt werden. Wenn Sie Zeitarbeitnehmer sind, werden wir Ihre personenbezogenen Kandidatendaten während der Dauer Ihres befristeten Arbeitseinsatzes und danach in Übereinstimmung mit den Bestimmungen dieser Datenschutzrichtlinie weiter verarbeiten. Die Frage, ob und in welchem Umfang die Datenschutzrichtlinie für die Rekrutierung und die Mitarbeiterdatenschutzrichtlinie für Sie als Zeitarbeitnehmer gelten, richtet sich nach den örtlichen gesetzlichen Auflagen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
-<li><strong><em>UK GDPR</em></strong> – die GDPR (DSGVO), da sie gemäß Artikel 3 des UK European Union Act (zum Austritt) von 2018 Bestandteil der Gesetze des Vereinigten Königreichs ist.</li>
-<li><strong><em>Besucher</em></strong> – Personen, die die Räumlichkeiten von Hays besuchen, ohne unserem Personal anzugehören.</li>
-<li><strong><em>Website-Nutzer </em></strong>– jede Person, die auf eine der Websites von Hays oder einer der mobilen Anwendungen von Hays (Apps) zugreift.</li>
+<li><strong>Strictly necessary cookies: </strong>These cookies are essential to enable you to use the website effectively, such as when applying for a job, and therefore cannot be turned off. Without these cookies, the services available to you on our website cannot be provided. These cookies do not gather information about you that could be used for marketing or remembering where you have been on the internet.</li>
+<li><strong>Functional cookies:</strong> These cookies enable us to monitor and improve the performance of our website. For example, they allow us to count visits, identify traffic sources and see which parts of the site are most popular. Furthermore these cookies allow our website to remember choices you make (such as your user name, language or the region you are in) and provide enhanced features. For instance, we may be able to provide you with news or updates relevant to the services you use. These cookies can also be used to remember changes you have made to text size, font and other parts of web pages that you can customize. They may also be used to provide services you have requested such as viewing a video or commenting on a blog. The information these cookies collect is usually anonymized.</li>
+<li><strong>Marketing cookies: </strong>These cookies help us to advertise details of potential job opportunities that we think may be of interest. These cookies are persistent (for as long as you are registered with us) and mean that when you log in or return to the website, you may see advertising for jobs that are similar to jobs that you have previously browsed.</li>
 </ul>
-<p><strong>ANLAGE 1 – UNSERE KONTAKTDATEN</strong></p>
-<div class="legal-table" role="region" aria-label="Tabelle 20" tabindex="0"><table>
+</li>
+</ul>
+<p>The Cookie Preferences link on our website provides a list of the Cookies we use in your jurisdiction, why we use them and what types of Cookies they are.</p>
+<p><strong>How to manage or reject Cookies</strong></p>
+<ul>
+<li>When you first visit our website(s) you will be asked to choose what kind of cookies you want to receive. We ask for your prior consent for some Cookies via the Cookie Preference Center, while we may set strictly necessary Cookies without your consent. You may also use the privacy settings within your browser to do this. Please be aware that rejecting all Cookies through your browser’s privacy settings will mean that you may not be able to take full advantage of all our website’s features. Each browser is different, so check the “Help” menu of your browser to learn how to change your Cookie preferences.</li>
+<li>You can update your given consent at any time via the Cookie Preferences link. You may also choose to opt out of Cookies which are not strictly necessary to perform basic features of our website by changing your browser settings. If you use the Cookie Preferences link to update your choice of Cookies, please note that this does not result in deletion of already placed Cookies on your device. If you want to delete these Cookies you should do so using your browser’s privacy settings.</li>
+<li>If you choose to delete all Cookies through your browser’s privacy settings, this will also delete any record of having opted out that may be stored by a Cookie on your device (so that the opt-out can continue to be actioned) and you may need to actively opt out again.</li>
+</ul>
+<h3>8. Use of third party services</h3>
+<ul>
+<li>In the course of using our services, Candidates, Temporary Workers and Staff Alumni may access independent websites and third party services (e.g. job platforms) which are not operated by us. Such independent sites and third parties are not under our control, and we are not responsible for and have not checked and approved their content or their privacy policies (if any). You will need to make your own independent judgment about whether to use any such independent sites, including whether to use any services offered by the third party.</li>
+<li>Occasionally, third party service providers that we have engaged will process personal data that we have given to them as a data controller in their own right, for example, for the purposes of: (i) conducting their own internal reporting, (ii) preventing or responding to threats to the security or integrity of their systems; (iii) establishing, exercising or defending their own legal claims; (iv) complying with legal obligations that apply to them; and (v) using personal data in anonymized or aggregated form to improve their own products and services. They will usually have their own privacy policies which set out more detail in relation to these processing activities.</li>
+</ul>
+<h3>Glossary</h3>
+<ul>
+<li><strong><em>Candidates</em></strong> – include individuals with whom Hays has not had prior contact, but whom Hays reasonably considers would be interested in, or might benefit from, Hays’ services and being considered for any roles advertised or promoted by Hays including permanent, part-time and temporary positions and freelance roles with Hays’ Clients (including those individuals who want to become Temporary Workers). Candidates also include applicants for such roles, as well as people who have supplied a speculative CV to Hays not in relation to a specific job, and/or who have engaged with Hays about Hays’ services and/or any roles advertised or promoted by Hays. Individual contractors, freelance workers or employees of suppliers put forward for roles with Hays’ Clients (for example, as part of an MSP offering) will also be treated as Candidates for the purposes of this Privacy Policy.</li>
+<li><strong><em>Clients</em></strong> – while it speaks for itself, this category covers our customers, clients, and others to whom Hays provides services in the course of its business or whom Hays reasonably considers would be interested in our services. In certain circumstances, Hays provides services to individual employees who work for Client organizations, such as training courses to teaching staff who work for Clients in the education sector. Please note that Hays requires Clients to communicate the relevant parts of this Privacy Policy (namely the sections directed at Candidates) to their employees.</li>
+<li><strong><em>Delete</em></strong> – In this day and age it is virtually impossible to guarantee the permanent and irretrievable deletion of electronic data. In addition, as we have explained to you in this Privacy Policy, sometimes we will be obliged by law or regulation, or need for risk-management reasons, to retain the ability to access certain elements of personal data. However, our commitment to you is that once your personal data reaches the end of its nominal retention period, or where we receive a valid request from you to erase it, we will put in place specific operational and Systems measures to ensure that your data is “put beyond use”. By this we mean that while the data will still technically exist on an archive system, we will ensure that it cannot be readily accessed by any of our operational Systems, processes or Staff. Only a very (and we mean exceptionally) small number of senior Staff, in very (and, again, we mean exceptionally) limited and carefully prescribed situations, will be able to restore your personal data so that it can be viewed for those legitimate purposes. Once we are clear that all relevant legally mandated retention periods have expired (which, for present purposes, we expect to be the period of ten years), we will go the additional final step of undertaking a “hard delete”, whereby not even that very limited number of senior Staff would be able to restore your personal data.</li>
+<li><strong><em>General Data Protection Regulation (GDPR)</em></strong> – a European Union statutory instrument which aims to harmonize European data protection laws. It has an effective date of May 25, 2018, and any references to it should be construed accordingly to include any related national data protection legislation.</li>
+<li><strong><em>Managed Service Provider (MSP) programs</em></strong> – Clients’ outsourcing of the management of external staff (including freelance workers, independent contractors and temporary employees) to an external recruitment provider.</li>
+<li><strong><em>Other people whom Hays may contact</em></strong> – these may include Candidates’ and Hays’ Staff emergency contacts and referees. We will only contact them in appropriate circumstances.</li>
+<li><em><strong>Recruitment Process Outsourcing (RPO) services</strong> –</em> full or partial outsourcing of the recruitment process for permanent employees to a recruitment provider.</li>
+<li><strong><em>Staff</em></strong> – includes current and former employees and interns engaged directly in the business of Hays (or who have accepted an offer to be engaged) as well as certain other workers who are or were engaged in the business of providing services to Hays (even though they are not classed as employees). For these purposes we also include employees of Hays who are engaged to work on Clients’ premises under the terms of RPO or MSP agreements. To be clear, “Staff” does not include individuals hired by Hays for the purpose of being placed with Clients outside of an RPO/MSP arrangement. These individuals are treated in the same way as Hays’ Candidates and are covered by this Privacy Policy. Likewise, independent contractors and consultants performing services for Hays fall within the definition of a “Supplier” for the purposes of this Privacy Policy.</li>
+<li><strong><em>Suppliers</em></strong> – refers to partnerships and companies (including sole proprietors), and atypical workers such as independent contractors and freelance workers, who provide services to Hays. In certain circumstances Hays will subcontract the services it provides to Clients to third party suppliers who perform services on Hays’ behalf. In this context, suppliers that are individual contractors, freelance workers, or employees of suppliers will be treated as Candidates for data protection purposes. Please note that Hays requires Suppliers to communicate the relevant parts of this Privacy Policy (namely the sections directed at Candidates) to their employees.</li>
+<li><strong><em>Staff Alumni </em></strong>– refers to former members of Staff who have expressed their wish to remain part of Hays’ alumni network and to use Hays’ alumni portal.</li>
+<li><strong><em>Systems</em></strong> – telephone, computer, internet and Wi-Fi systems, software and portals, accounts and/or networks belonging, controlled or used by Hays that are used to transmit, undertake and/or receive communications or are otherwise used in the course of Hays’ business, including candidate portal software and CRM systems.</li>
+<li><strong><em>Temp Relationship</em> </strong>– means our contractual relationship with Temporary Workers while they are employed or engaged directly by us.</li>
+<li><strong><em>Temporary Workers</em> </strong>– includes someone who becomes employed or engaged by Hays for the purposes of undertaking temporary work for a Client or other Hays group company. If you are a Temporary Worker, we will also continue to process your personal data as a Candidate throughout the duration of your temporary work assignment and thereafter, in accordance with the terms of this Privacy Policy. The question of whether and the extent to which the Recruits Privacy Policy and the Staff Privacy Policy apply to you as a Temporary Worker depends on local law requirements. For more information in relation to your jurisdiction, please click here.</li>
+<li><strong><em>UK GDPR</em></strong> – the GDPR as it forms part of the laws of the UK by virtue of Section 3 of the UK European Union (Withdrawal) Act 2018.</li>
+<li><strong><em>Visitors</em></strong> – individuals who visit Hays premises but who are not members of our Staff.</li>
+<li><strong><em>Website Users </em></strong>– any individual who accesses any of the Hays websites or any of the Hays mobile applications (apps).</li>
+</ul>
+<p><strong>ANNEX 1 – HOW TO CONTACT US</strong></p>
+<div class="legal-table" role="region" aria-label="Table 20" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Land, in dem Sie Leistungen von Hays in Anspruch nehmen oder Leistungen für Hays erbringen</strong></td>
-<td><strong>Für die Verarbeitung von personenbezogenen Daten der Besucher unserer Website verantwortliches Unternehmen von Hays</strong></td>
-<td><strong>Das für die Verarbeitung der personenbezogenen Daten von Kandidaten, Kunden, Lieferanten und den Notfallkontakten und Ansprechpartnern für Referenzen der Kandidaten und der Mitarbeiter von Hays hängt davon ab, welche der folgenden Unternehmen die Gegenpartei für das relevante Arrangement ist.</strong></td>
-<td><strong>So erreichen Sie uns:</strong>
+<td><strong>Country in which you use Hays’ services or supply Hays with services</strong></td>
+<td><strong>Hays entity responsible for processing the personal data of Website Users</strong></td>
+<td><strong>The Hays entity responsible for processing the personal data of Candidates, Clients, Suppliers and the emergency contacts and referees of Candidates and Hays’ Staff will depend on which of the below companies is the counterparty associated with the relevant arrangement.</strong></td>
+<td><strong>How you can get in touch with us:</strong>
 <ul>
-<li><strong>um auf personenbezogene Daten, die Sie uns überlassen haben, zuzugreifen und sie zu ändern oder zurückzunehmen,</strong></li>
-<li><strong>wenn Sie den Verdacht haben, dass Ihre personenbezogenen Informationen missbraucht wurden, verloren gegangen sind oder ein unbefugter Zugriff darauf erfolgt ist,</strong></li>
-<li><strong>um Ihre Einwilligung für die Verarbeitung Ihrer personenbezogenen Daten zu widerrufen (wenn die Einwilligung die Rechtsgrundlage für die Verarbeitung Ihrer personenbezogenen Daten darstellt),</strong></li>
-<li><strong>bei Kommentaren oder Vorschlägen zu dieser Datenschutzrichtlinie.</strong></li>
+<li><strong>to access, amend or take back the personal data that you have given to us;</strong></li>
+<li><strong>if you suspect any misuse or loss of or unauthorized access to your personal information;</strong></li>
+<li><strong>to withdraw your consent to the processing of your personal data (where consent is the legal basis on which we process your personal data);</strong></li>
+<li><strong>with any comments or suggestions concerning this Privacy Policy.</strong></li>
 </ul>
 </td>
-<td><strong>So erreichen Sie uns, wenn Sie Ihre Werbeeinstellungen aktualisieren möchten</strong></td>
+<td><strong>How you can get in touch with us to update your marketing preferences</strong></td>
 </tr>
 <tr>
-<td><strong>Deutsch-land</strong></td>
+<td><strong>Germany</strong></td>
 <td>Emposo GmbH, Mannheim</td>
 <td>Emposo GmbH, Mannheim</td>
-<td>Postanschrift:
-<p>Emposo GmbH, Datenschutzbeauftragter/DPO, Glücksteinallee 67, 68163 Mannheim, Deutschland</p>
-<p>Alternativ können Sie unseren Datenschutzbeauftragten und das Datenschutzteam per E-Mail erreichen unter: <a href="mailto:privacy@hays.de">privacy@hays.de</a>.</p></td>
-<td>Senden Sie uns eine E-Mail an: <a href="mailto:service@hays.de">service@hays.de</a> oder klicken Sie auf den Link zum Abbestellen in jeder Werbe-E-Mail, die Sie von uns erhalten.</td>
+<td>You can write to us at the following address:
+<p>Emposo GmbH, Datenschutzbeauftragter/DPO, Glücksteinallee 67, 68163 Mannheim, Germany</p>
+<p>Alternatively, you can send an email to our Data Protection Officer and the data protection team: <a href="mailto:privacy@hays.de">privacy@hays.de</a>.</p></td>
+<td>Email us at: <a href="mailto:service@hays.de">service@hays.de</a> or click the unsubscribe link in any marketing email we send to you.</td>
 </tr>
 </tbody>
 </table></div>
-<p>Für den Fall, dass mehr als eine der oben aufgeführten Hays Gesellschaften oder der unter www.hays.at/datenschutz, https://www.hays.dk/fortrolighedspolitik und www.hays.ch/datenschutz aufgeführten Hays-Gesellschaften gemeinsam über die Mittel und Zwecke der Verarbeitung personenbezogener Daten der oben aufgeführten Personengruppen entscheidet, verarbeiten die Hays Gesellschaften diese personenbezogenen Daten als gemeinsam für die Verarbeitung Verantwortliche im Sinne von Artikel 26 Absatz 1 der DSGVO.</p>
-<p>Wir halten uns an die von der DSGVO auferlegten Anforderungen in Bezug auf den Abschluss von Vereinbarungen über gemeinsame Verantwortliche zwischen Hays-Unternehmen.</p>
-<p>Wenn Sie Ihre Rechte aus der DSGVO in Bezug auf die Verarbeitung Ihrer personenbezogenen Daten durch Hays-Unternehmen, die als gemeinsam für die Verarbeitung Verantwortliche tätig sind, ausüben möchten, kontaktieren Sie uns bitte über die oben genannten Kanäle.</p>
-<p>Wenn Sie mit einer der oben genannten Hays-Gesellschaften in Kontakt getreten sind, indem Sie sich für die Rekrutierungsdienste von Hays angemeldet oder anderweitig Interesse daran bekundet haben, kann diese Hays-Gesellschaft Ihre personenbezogenen Daten mit den anderen oben genannten Hays-Gesellschaften teilen. Vorbehaltlich zusätzlicher lokaler gesetzlicher Anforderungen kann jede dieser Hays-Gesellschaften auf ein sogenanntes „Soft-Opt-in“-Einverständnis zurückgreifen, um Ihnen elektronische Marketingnachrichten zu senden, die für Sie von Interesse sein könnten.</p>
-<p><strong>ANLAGE 2 – KONTAKTDATEN DER ZUSTÄNDIGEN LOKALEN AUFSICHTSBEHÖRDEN</strong></p>
-<div class="legal-table" role="region" aria-label="Tabelle 21" tabindex="0"><table>
+<p>In the event that more than one of the Hays entities listed above or listed under www.hays.at/datenschutz, https://www.hays.dk/fortrolighedspolitik and www.hays.ch/datenschutz jointly determines the means and purposes of processing personal data of the types of individuals listed above, the Hays entities will process such personal data as joint controllers for the purpose of Article 26(1) of the GDPR.</p>
+<p>We adhere to the requirements imposed by the GDPR in relation to the establishment of joint controller arrangements between Hays entities.</p>
+<p>If you wish to exercise your rights under the GDPR in relation to the processing of your personal data by Hays entities operating on a joint controller basis, please contact us using the channels set out above.</p>
+<p>If you have engaged with one of the Hays entities listed above by signing up for or otherwise expressing an interest in receiving Hays’ recruitment services, that Hays entity may share your personal data with the other Hays entities listed above. Subject to any additional local law requirements, any of these Hays entities may rely on so-called “soft opt-in” consent in order to send you e-marketing messages that are likely to be of interest to you.</p>
+<p><strong>ANNEX 2 – HOW TO CONTACT YOUR LOCAL SUPERVISORY AUTHORITY</strong></p>
+<div class="legal-table" role="region" aria-label="Table 21" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>Land, in dem Sie Leistungen von Hays in Anspruch nehmen oder Leistungen für Hays erbringen</strong></td>
-<td><strong>Kontaktdaten der zuständigen lokalen Aufsichtsbehörde</strong></td>
+<td><strong>Country in which you use Hays’ services or supply Hays with services</strong></td>
+<td><strong>Details of your local supervisory authority</strong></td>
 </tr>
 <tr>
-<td><strong>Deutschland</strong></td>
-<td>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg.
+<td><strong>Germany</strong></td>
+<td>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg (State Commissioner for Data Protection and Freedom of Information of Baden-Württemberg).
 <ul>
 <li>Post: Postfach 10 29 32, 70025 Stuttgart</li>
 <li>Email: poststelle@lfdi.bwl.de</li>
-<li>Telefon: (+49) 0711/61 55 41 – 10</li>
+<li>Phone: (+49) 0711/61 55 41 – 10</li>
 <li>Fax: 0711/61 55 41 – 15</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>ANLAGE 3 – LÄNDERSPEZIFISCHE ABWEICHUNGEN VON UNSERER DATENSCHUTZRICHTLINIE</strong></p>
-<div class="legal-table" role="region" aria-label="Tabelle 22" tabindex="0"><table>
+<p><strong>ANNEX 3 – COUNTRY-SPECIFIC VARIATIONS TO OUR PRIVACY POLICY</strong></p>
+<div class="legal-table" role="region" aria-label="Table 22" tabindex="0"><table>
 <tbody>
 <tr>
-<td><strong>RECHTSSYSTEM</strong></td>
-<td><strong>LÄNDERSPEZIFISCHE RECHTLICHE REGELUNG</strong></td>
+<td><strong>JURISDICTION</strong></td>
+<td><strong>COUNTRY-SPECIFIC LEGAL REQUIREMENT</strong></td>
 </tr>
 <tr>
-<td><strong>Deutschland</strong></td>
-<td><strong>Ansprechpartner für Referenzen</strong>
-<p>Wenn ein Ansprechpartner für Referenzen gebeten wird, eine Referenz auf der Grundlage seiner Erfahrung mit einem unserer Kandidaten abzugeben, werden wir die Angaben des Ansprechpartners für Referenzen nicht verwenden, um uns in der alternativen Eigenschaft als Kunde bei Ihm zu melden, es sei denn, der Ansprechpartner für Referenzen bittet uns ausdrücklich darum, dies zu tun.</p></td>
+<td><strong>Germany</strong></td>
+<td><strong>Referees</strong>
+<p>Where a referee is being asked to give a reference based on their experience of one of our Candidates, we will not use the referee’s details to get in touch with them in the alternative capacity as a Client unless we are explicitly asked to do so by the referee.</p></td>
 </tr>
 <tr>
-<td><strong>Potentielle Kandidaten Daten </strong>
-<p>In Bezug auf die Art und Weise, in der wir Ihre Daten erfassen, werden wir, wenn wir Ihre personenbezogenen Daten von einer Online-Plattform/Website eines Dritten erfassen, die in ihren Nutzungsbedingungen ein Daten-Scraping verbietet, dies bei der Entscheidung, ob wir Ihre Daten aus solchen Quellen erfassen, berücksichtigen.</p>
-<p>Wir verwenden die Daten potenzieller Kandidaten, um herauszufinden, ob Sie an unseren Dienstleistungen interessiert sind oder davon profitieren könnten, und um zu beurteilen, ob und wie wir Ihnen helfen können. Wenn wir glauben, dass wir Ihnen helfen können, werden wir Ihre Kontaktdaten verwenden, um mit Ihnen in Kontakt zu treten und herauszufinden, ob Sie an unseren Dienstleistungen interessiert sind. In Deutschland tun wir dies nicht per E-Mail, sondern telefonisch oder per Nachrichten über ein Job-Netzwerk (es sei denn, Sie haben einer Kontaktaufnahme per E-Mail zugestimmt).</p></td>
+<td><strong>Prospective Candidate Data </strong>
+<p>In relation to the ways in which we collect your data, if we collect your personal data from a third party online platform/website that prohibits data scraping in its terms of use, we will take this into account in determining whether to collect your data from such sources.</p>
+<p>We use Prospective Candidate data to work out whether you might be interested in, or might benefit from, our services, and to assess whether and how we might be able to assist you. If we think we can help, we will use your contact details to get in touch with you and find out if you are interested in our services. In Germany, we do this not via email, but via phone or messages via a job network (unless you have consented to be contacted via email).</p></td>
 </tr>
 <tr>
-<td><strong>Verwendung sensibler oder besonderer Kategorie von Kandidaten- und Zeitarbeitnehmer-Daten</strong>
-<p><strong>Rasse oder ethnischer Hintergrund</strong></p>
-<p>In Deutschland erfassen wir Daten zur Zugehörigkeit der Kandidaten zu einer Religionsgemeinschaft, um unsere Vergütungsprozesse zu erleichtern. Weil dies gesetzlich vorgeschrieben ist, bitten wir Sie nicht um Ihre ausdrückliche Einwilligung zur Verarbeitung dieser Information.</p></td>
+<td><strong>Use of sensitive or special category Candidate and Temporary Worker Data</strong>
+<p><strong>Race or ethnic background</strong></p>
+<p>In Germany, we collect details of our Candidates’ religious affiliation to facilitate our payroll process. As this is a necessary legal requirement, we will not seek your explicit consent to process this information.</p></td>
 </tr>
 <tr>
-<td><strong>DSAR-Anträge</strong>
-<p>Den lokalen Gesetzen zufolge sind wir berechtigt, Ihren DSAR-Antrag abzulehnen, wenn Ihre Daten nur aus den folgenden Gründen gespeichert werden: (i) weil wir gesetzlich verpflichtet sind, sie zu speichern oder (ii) zum Zwecke der Überwachung des Datenschutzes oder zum Schutz von Daten, wenn es einen unverhältnismäßigen Aufwand erfordern würde, die Informationen vorzulegen, und wenn angemessene technische und organisatorische Maßnahmen die Verarbeitung zu anderen Zwecken unmöglich machen.</p>
-<p><strong>Aufforderungen, Ihre Daten zu löschen</strong></p>
-<p>Wenn Ihre Daten nicht automatisch verarbeitet werden, sind wir, sofern Ihre Daten nicht unrechtmäßig verarbeitet werden, nicht verpflichtet, Ihre Daten zu löschen, falls das Löschen wegen der verwendeten Speichermethode unmöglich wäre oder einen unverhältnismäßig hohen Aufwand erfordern würde, sofern wir der Ansicht sind, dass Ihr Interesse an der Löschung nur minimal ist.</p>
-<p>Wenn Ihre Daten automatisch verarbeitet werden, sind wir ebenfalls berechtigt, die Löschung Ihrer Daten abzulehnen, falls wir Grund zu der Annahme haben, dass die Löschung Ihren berechtigten Interessen zuwiderläuft, oder falls wir durch die Löschung gegen gesetzliche Verpflichtungen, Ihre Daten für einen bestimmten Zeitraum zu speichern, verstoßen würden. Stattdessen wird die Verarbeitung Ihrer Daten unter diesen Umständen auf die in der DSGVO vorgesehenen Art und Weise eingeschränkt.</p></td>
+<td><strong>DSARs</strong>
+<p>In accordance with local law, we have the right to refuse to respond to your DSAR in circumstances where your data are only being held: (i) pursuant to a legal obligation to retain them; or (ii) for the purposes of monitoring data protection or safeguarding data, in each case where providing the information would require a disproportionate effort, and appropriate technical and organizational measures make processing for other purposes impossible.</p>
+<p><strong>Requests to erase your data</strong></p>
+<p>Where your data are not being processed in an automated way, unless your data are being processed unlawfully, we will not be required to erase your data if erasure would be impossible or would involve a disproportionate effort due to the specific method of storage, provided that we think your interest in erasure is minimal.</p>
+<p>Where your data are being processed in an automated way, we will also have the right to refuse to erase your data if we have reason to believe that such erasure will adversely affect your legitimate interests, or if such erasure would cause us to breach any legal obligation to retain your data for a specific period. Instead, in these circumstances, processing of your data will be restricted in the particular ways envisaged by the GDPR.</p></td>
 </tr>
 <tr>
-<td><strong>Marketing-, Retargeting- und Marktforschungszwecke</strong>
-<p>Soft-Opt-In</p>
-<p>Wie im Hauptteil unserer Datenschutzerklärung beschrieben, sind wir berechtigt, uns bei bestimmten Marketingnachrichten, die wir Ihnen zusenden möchten, auf die „Soft-Opt-In“-Einwilligung zu stützen. Für unsere Verwendung der „Soft-Opt-In“-Einwilligung gelten folgende Bedingungen: (i) Wir haben Ihre E-Mail-Adresse im Zusammenhang mit dem Verkauf von Waren oder Dienstleistungen erhalten; (ii) wir verwenden diese Adresse nur für die Direktvermarktung unserer eigenen (oder im Wesentlichen ähnlicher) Dienstleistungen; (iii) Sie haben dieser Verwendung nicht widersprochen; und (iv) wir weisen Sie in jeder derartigen Mitteilung deutlich auf Ihr Recht hin, die Verwendung abzulehnen.</p>
-<p>Opt-In</p>
-<p>In allen anderen Fällen des E-Marketings sind wir dazu verpflichtet, Ihre ausdrückliche Einwilligung („Opt-In“) einzuholen, und wir sind dazu verpflichtet, Aufzeichnungen über den Erhalt einer solchen Einwilligung zu führen. Um unseren Verpflichtungen aus dem Gesetz gegen den unlauteren Wettbewerb nachzukommen, wenden wir das so genannte „Double-Opt-In“-Einwilligungsverfahren an, bei dem wir Sie zunächst bitten, sich für den Erhalt von E-Marketing zu entscheiden, und Ihnen dann eine E-Mail schicken, in der wir Sie bitten, Ihr Einverständnis zu bestätigen. Wir dürfen Sie erst dann in unsere Marketingliste aufnehmen, wenn wir diese zweite E-Mail-Bestätigung erhalten haben.</p>
+<td><strong>Marketing, Retargeting and Market Research Purposes</strong>
+<p>Soft opt-in</p>
+<p>As described in the main body of our Privacy Policy, we are entitled to rely on “soft opt-in” consent in respect of certain marketing messages that we wish to send to you. The conditions that apply to our use of soft opt-in consent are that: (i) we have obtained your email address in connection with the sale of goods or services; (ii) we use that address only for direct advertising of our own (or substantially similar) services; (iii) you have not objected to this use; and (iv) we clearly advise you, in each such communication, of your right to opt out.</p>
+<p>Opt-in</p>
+<p>In all other e-marketing circumstances, we are required to obtain your specific “opt-in” consent and we are required to keep records of such consent having been received. To comply with our obligations under the German Act Against Unfair Competition, we undertake what is commonly known as the “double opt-in” consent procedure, which is where we first ask you to opt in to receive e-marketing, and we then send you an email asking you to confirm that you have given your consent. We may only add you to our marketing list once we have received this second email confirmation.</p>
 <p>Retargeting</p>
-<p>Wenn Sie in die Datenübermittlung an unsere Werbepartner eingewilligt haben, übermitteln wir Ihre Daten (z. B. Ihre E-Mail-Adresse, Ihren Namen, Ihre Telefonnummer) in verschlüsselter und pseudonymisierter Form („hashed“) an unsere Werbepartner (eine Liste unserer Werbepartner finden Sie unten). Diese Partner vergleichen diese Daten mit den Daten, die sie bereits über Sie verarbeiten, und wenn sie übereinstimmen, ermöglichen es uns die Partner, gezielte Werbung für diese Übereinstimmungen oder für ähnliche Personengruppen wie Sie zu schalten, was bedeutet, dass die Partner auf ihren Plattformen Hays-Werbung anzeigen, die speziell für Sie oder für Personen wie Sie konzipiert ist. Nach der Feststellung dieser Übereinstimmungen werden Ihre verschlüsselten Daten bei unseren Partnern automatisch wieder gelöscht. Die Partner erhalten infolgedessen keine neuen Adressen. Wir denken, dass dies ein großer Vorteil für Sie darstellt, da Sie nur Werbung erhalten, die auch Ihren Bedürfnissen entspricht.</p>
-<p>Unternehmen der Hays-Gruppe &amp; Hays-Werbepartner</p>
-<p>Wird in diesem Abschnitt über die Unternehmen der Hays-Gruppe in Deutschland, Österreich, Dänemark und der Schweiz gesprochen, so sind damit die folgenden Unternehmen gemeint:</p>
-<p>•    Hays AG, mit Sitz in Deutschland<br>
-•    Hays Professional Solutions GmbH, mit Sitz in Deutschland<br>
-•    Hays Talent Solutions GmbH, mit Sitz in Deutschland<br>
-•    Emposo GmbH, mit Sitz in Deutschland<br>
-•    Hays Holding GmbH, mit Sitz in Deutschland<br>
-•    Hays Beteiligungs GmbH &amp; Co.KG, mit Sitz in Deutschland<br>
-•    Hays Vorrat 01 GmbH, mit Sitz in Deutschland<br>
-•    Hays (Schweiz) AG, mit Sitz in der Schweiz<br>
-•    Hays Talent Solutions (Schweiz) GmbH, mit Sitz in der Schweiz<br>
-•    Hays Österreich GmbH, mit Sitz in Österreich<br>
-•    Hays Professional Solutions Österreich GmbH, mit Sitz in Österreich<br>
-•    Hays Specialist Recruitment Denmark A/S, mit Sitz in Dänemark</p>
-<p>Wenn wir im Zusammenhang mit unserer Werbeeinwilligung von Werbepartnern sprechen, sind damit die folgenden Partner gemeint:</p>
-<p>•    Facebook Inc, mit Sitz in den USA, (<a href="https://www.facebook.com/about/privacy/update">https://www.facebook.com/about/privacy/update</a>)</p>
-<p>•    LinkedIn Corporation, mit Sitz in den USA, (<a href="https://www.linkedin.com/legal/privacy-policy?trk=homepage-basic_footer-privacy-policy">https://www.linkedin.com/legal/privacy-policy?trk=homepage-basic_footer-privacy-policy</a>)</p>
-<p>•    Google Ireland Limited, mit Sitz in Irland (https://policies.google.com/privacy)</p>
-<p>Datenübermittlung in Länder außerhalb des EWR</p>
-<p><strong>Sofern wir Sie um Ihre Marketing-Einwilligung in Bezug auf unsere Werbepartner gebeten haben und diese Beteiligten außerhalb des Europäischen Wirtschaftsraums ansässig sind, willigen Sie (Art. 49 I a DSGVO) in eine Übermittlung in Länder außerhalb des Europäischen Wirtschaftsraums ein, und Sie sind sich bewusst, dass bei diesen Anbietern/Ländern ein geringeres Datenschutzniveau als im Europäischen Wirtschaftsraum bestehen kann.<br>
-Es besteht insbesondere das Risiko, dass Ihre Daten durch Behörden zu Überwachungszwecken eingesehen werden können, auch ohne Rechtsbehelfsverfahren. Die Ausübung von Datenschutzrechten, die Sie kennen und mit denen Sie nach der DSGVO vertraut sind, kann schwieriger oder sogar unmöglich sein. </strong></p>
-<p>Marktforschungszwecke</p>
-<p>Wenn Sie in die Verwendung Ihrer personenbezogenen Daten zu Marktforschungszwecken eingewilligt haben, bedeutet dies, dass wir Umfragen zu Zufriedenheit, NetPromoterScore, Personalthemen, Wünschen, Angeboten, soziodemografischen Merkmalen, Tests neuer Plattformen, Testgruppen, UX-Tests und Markenpanels durchführen werden.</p></td>
+<p>If you have consented to the transfer of data to our advertising partners, we send your data (e.g. your email address, your name, your phone number) in an encrypted and pseudonymized form (so-called “hashed”) to our advertising partners (for a list of our advertising partners, see below). They compare this data with the data they already process about you and if they match, the partners enable us to run targeted advertising on those matches or on similar groups of people like you, which means the partners display on their platforms Hays advertising which is specially designed for you or for people like you. After the matches have been identified, your encrypted data is automatically deleted again at our partners. The partners do not gain new addresses as a result of this. We think this is a great benefit for you as you only receive advertising which suits your needs.</p>
+<p>Hays group companies &amp; Hays advertising partners</p>
+<p>Where this section refers to Hays group companies in Germany, Austria, Denmark and Switzerland, we mean the following legal entities:</p>
+<p>•    Hays AG, based in Germany<br>
+•    Hays Professional Solutions GmbH, based in Germany<br>
+•    Hays Talent Solutions GmbH, based in Germany<br>
+•    Emposo GmbH, based in Germany<br>
+•    Hays Holding GmbH, based in Germany<br>
+•    Hays Beteiligungs GmbH &amp; Co.KG, based in Germany<br>
+•    Hays Vorrat 01 GmbH, based in Germany<br>
+•    Hays (Schweiz) AG, based in Switzerland<br>
+•    Hays Talent Solutions (Schweiz) GmbH, based in Switzerland<br>
+•    Hays Österreich GmbH, based in Austria<br>
+•    Hays Professional Solutions Österreich GmbH, based in Austria<br>
+•    Hays Specialist Recruitment Denmark A/S, based in Denmark</p>
+<p>When we talk about advertising partners in the context of our advertising consent, we mean the following partners:</p>
+<p>•    Facebook Inc, based in the USA, (<a href="https://www.facebook.com/about/privacy/update">https://www.facebook.com/about/privacy/update</a>)</p>
+<p>•    LinkedIn Corporation, based in the USA, (<a href="https://www.linkedin.com/legal/privacy-policy?trk=homepage-basic_footer-privacy-policy">https://www.linkedin.com/legal/privacy-policy?trk=homepage-basic_footer-privacy-policy</a>)</p>
+<p>•    Google Ireland Limited, based in Ireland (https://policies.google.com/privacy)</p>
+<p>Transfer to countries outside of the EEA</p>
+<p><strong>Where we have asked you for your marketing consent regarding our advertising partners and where those parties are located outside of the European Economic Area, you consent (Art. 49(1)(a) GDPR) to a transfer to countries outside of the European Economic Area, and you are aware that there might be a lower level of data protection with these providers/countries than is the case in the European Economic Area.<br>
+There might in particular be a risk that your data may be accessed by authorities for surveillance purposes, even without legal redress procedures. Exercising the data protection rights that you know and are familiar with under the GDPR may be more difficult or even impossible. </strong></p>
+<p>Market Research Purposes</p>
+<p>If you have consented to the use of your personal data for market research purposes, this means that we will run surveys regarding satisfaction, NetPromoterScore, personnel topics, wishes, offers, socio-demographic characteristics, new platform testing, test groups, UX testing and brand panels.</p></td>
 </tr>
 <tr>
-<td><strong>Abgrenzung Rekrutierungskandidaten und Mitarbeiter</strong>
-<p>Bestimmte Aspekte des deutschen Rechts legen nahe, dass Rekrutierungskandidaten und Mitarbeiter nicht eindeutig voneinander abgegrenzt werden können. Auch wenn wir nicht davon ausgehen, dass diese unklare Abgrenzung im Zusammenhang mit den Kandidaten eines Personaldienstleisters beabsichtigt war, richten wir uns im Zweifelsfall nach den Bestimmungen der DSGVO (sowie des deutschen Rechts, d. h. des neuen Bundesdatenschutzgesetzes), die für Beschäftigungsverhältnisse gelten, um sicherzustellen, dass wir Ihre Daten auch in Zukunft korrekt und rechtmäßig verarbeiten.</p>
-<p>Die für Beschäftigungsverhältnisse geltenden Bestimmungen erlauben die Verarbeitung personenbezogener Daten von Beschäftigten zu Zwecken, die im Zusammenhang mit dem Beschäftigungsverhältnis stehen, wenn dies für Einstellungsentscheidungen oder, nach der Einstellung, zur Abwicklung oder Kündigung des Beschäftigungsvertrags oder um den gesetzlichen oder durch Tarif- oder sonstige Verträge zwischen dem Arbeitgeber und einem Betriebsrat vorgesehenen Rechten und Pflichten der Arbeitnehmervertreter zu entsprechen und zu genügen erforderlich ist. Weitere Informationen finden Sie in Paragraf 26 des neuen Bundesdatenschutzgesetzes.</p></td>
+<td><strong>Distinction between recruitment candidates and employees</strong>
+<p>Certain aspects of German law suggest a blurring of the line between recruitment candidates and employees. While we do not consider that this blurring was intended to apply in respect of candidates in the context of a recruitment business, in case of doubt we rely on the employment-specific provisions of the GDPR (and German law, i.e. the new German Federal Data Protection Act) to ensure that we can continue to process your data correctly and lawfully.</p>
+<p>The employment-specific provisions permit the processing of personal data of employees for employment-related purposes where necessary for hiring decisions or, after hiring, for carrying out or terminating the employment contract or to exercise or satisfy rights and obligations of employees’ representation laid down by law or by collective agreements or other agreements between the employer and any works council. For more information, please see Section 26 of the new German Federal Data Protection Act.</p></td>
 </tr>
 <tr>
-<td><strong>ID Check für Pay-Agent Services (für Lieferanten und Kunden)</strong>
-<p>Zweck der Datenerhebung / Art der Daten, die wir sammeln</p>
-<p>Da wir Ihnen Zahlungsdienstleistungen nach § 10 Abs 1. ZAG anbieten, sind wir durch das Geldwäschegesetz verpflichtet, die Identität eines jeden unserer Vertragspartner bzw. der für ihn auftretenden Person festzustellen und diese zu dokumentieren. Hierzu verwenden wir ein webbasierten Videoidentifikationsverfahren um Ihnen die Identifizierung so bequem wie möglich zu machen. Während dieses Verfahrens wird ein Hays Mitarbeiter oder ein Mitarbeiter unseres Dienstleisters, der in unserem Auftrag tätig wird und nach unseren Weisungen handelt, Sie bitten sich mittels Kamera zu legitimieren. Das Gespräch wird audio-visuell mitgeschnitten und es werden diverse Bilder (Screenshots) von Ihrem verwendeten Ausweisdokument (der Vorder- und Rückseite, der jeweiligen Sicherheitsmerkmale), sowie von Ihnen selbst aufgenommen. Hierfür bitten wir Sie im Gespräch, jedoch vor Beginn des Prozesses der Aufzeichnung, um Ihr bankenrechtliches Einverständnis.</p>
-<p>(„Wir dürfen einmalig im Rahmen dieser Identitätsfeststellung Fotos von Ihnen, sowie von der vollständigen Vorder- und Rückseite Ihres Ausweises (einschließlich dessen Sicherheitsmerkmale) machen. Des Weiteren wird das jetzt geführte Videogespräch zur Identitätsfeststellung visuell und akustisch aufgezeichnet. Die Daten werden anschließend gemäß der gesetzlichen Vorgabe gespeichert. So kann der erforderliche Nachweis für die ordnungsgemäße Durchführung des VideoIdents gegenüber der entsprechenden Regulierungsbehörde jederzeit erbracht werden.“)</p>
-<p>Ferner werden in diesem Prozess die auf Ihren Ausweisdokument enthaltenen Angaben (zum Beispiel Vorname, Nachname, Staatsbürgerschaft, etc.) verarbeitet und dokumentiert.</p>
-<p>Diese Angaben sind notwendig, um zum einen die Identifizierung zu gewährleisten und darüber hinaus den Identifizierungsvorgang korrekt zu dokumentieren.</p>
-<p>Rechtsgrundlage</p>
-<p>Art. 6 I c DSGVO (Erfüllung einer rechtlichen Verpflichtung), Art. 6 I a DSGVO (Einwilligung) i.V.m . §§ 11, 8 GwG.</p>
-<p>Aufbewahrungsfrist</p>
-<p>Wir bewahren gemäß den Anforderungen des Geldwäschegesetzes die angefertigten Unterlagen komplett für die Dauer der unser Geschäftsbeziehung mit Ihnen oder Ihrem Unternehmen und darüber hinaus für einen Zeitraum von 5 Jahren auf.</p>
-<p>Alternativen</p>
-<p>Die Videoidentifizierung ist für Sie das schnellste und unkomplizierteste Verfahren, um sich gegenüber uns zu legitimieren. Wir können und werden Ihnen auf Wunsch auch alternative Lösungen zur Identifizierung anbieten, wenn Sie uns hierauf ansprechen und dies explizit wünschen.</p>
-<p><strong>ID Check für sonstige Hays Leistungen (für Kandidaten und Lieferanten)</strong></p>
-<p>Zweck der Datenerhebung / Art der Daten, die wir sammeln</p>
-<p>In unserer heutigen virtuellen Zeit treffen wir leider viele unserer Kandidaten, Zeitarbeitnehmer und Lieferanten nicht mehr persönlich. Nichts desto trotz möchten wir für die Durchführung eines ordnungsgemäßen Geschäftsverkehres die Identität unserer Personen (oder in Falle der Zusammenarbeit mit Unternehmen, die Personen, die im Auftrag es Unternehmens tätig werden) überprüfen. Dies erfolgt zum einen aus unserem berechtigten Interesse gewisse interne Compliance-Standards einzuhalten als auch zur Gewährleistung gesetzlicher Vorgaben (wir sind beispielsweise verpflichtet, keine bzw. nur eingeschränkt Dienstleistungen gegenüber „sanktionierten Personen“ zu erbringen).</p>
-<p>Hierzu verwenden wir ein webbasierten Videoidentifikationsverfahren um Ihnen die Identifizierung so bequem wie möglich zu machen. Während dieses Verfahrens wird ein Hays Mitarbeiter oder ein Mitarbeiter unseres Dienstleisters, der in unserem Auftrag tätig wird und nach unseren Weisungen handelt, Sie bitten sich mittels Kamera zu legitimieren. Das Gespräch wird audio-visuell mitgeschnitten und es werden diverse Bilder (Screenshots) von Ihrem verwendeten Ausweisdokument (der Vorder- und Rückseite, der jeweiligen Sicherheitsmerkmale), sowie von Ihnen selbst aufgenommen. Hierfür bitten wir Sie im Gespräch, jedoch vor Beginn des Prozesses der Aufzeichnung, um Ihr Einverständnis.</p>
-<p>(„Wir dürfen einmalig im Rahmen dieser Identitätsfeststellung Fotos von Ihnen, sowie von der vollständigen Vorder- und Rückseite Ihres Ausweises (einschließlich dessen Sicherheitsmerkmale) machen. Des Weiteren wird das jetzt geführte Videogespräch zur Identitätsfeststellung visuell und akustisch aufgezeichnet. Die Daten werden anschließend gemäß der gesetzlichen Vorgabe gespeichert. So kann der erforderliche Nachweis für die ordnungsgemäße Durchführung des Video-Idents jederzeit erbracht werden.“)</p>
-<p>Ferner werden in diesem Prozess die auf Ihren Ausweisdokument enthaltenen Angaben (zum Beispiel Vorname, Nachname, Staatsbürgerschaft, etc.) verarbeitet und dokumentiert. Im Nachgang prüfen wir diese Angaben und stellt sich für uns heraus, dass die Überprüfung erfolgreich war, löschen wir diese Daten. Bei Unstimmigkeiten klären wir diese mit Ihnen halten die Daten für diesen Zeitraum vor.</p>
-<p>Diese Angaben sind notwendig, um zum einen die Identifizierung zu gewährleisten und darüber hinaus den Identifizierungsvorgang korrekt zu dokumentieren.</p>
-<p>Rechtsgrundlage</p>
-<p>Art. 6 I f DSGVO (berechtigtes Interesse)</p>
-<p>Aufbewahrungsfrist</p>
-<p>Wir bewahren, die während des Gesprächs erfassten Daten für den Zeitraum der Überprüfung der Identität auf und löschen Sie im Anschluss. Dieser Zeitraum beträgt in der Regel wenige Tage.<br>
-Wir speichern nach erfolgter Identitätsprüfung während der Dauer unserer Geschäftsbeziehung und für einen Zeitraum von 3 Jahren darüber hinaus lediglich die Information ab, dass Ihre Identität geprüft wurde.</p>
-<p>Alternativen</p>
-<p>Die Videoidentifizierung ist für Sie das schnellste und unkomplizierteste Verfahren, um sich gegenüber uns zu legitimieren. Wir können und werden Ihnen auf Wunsch auch alternative Lösungen zur Identifizierung anbieten, wenn Sie uns hierauf ansprechen und dies explizit wünschen.</p></td>
+<td><strong>ID Check for Pay-Agent Services (for Suppliers and Clients)</strong>
+<p>Purpose of data collection / kind of data we collect</p>
+<p>As we provide you with payment services according to Section 10(1) ZAG (German Payment Services Supervision Act), we are obliged by the Money Laundering Act to establish the identity of each of our contractual partners or the person acting on their behalf and to document this. For this purpose, we use a web-based video identity verification process to make identification as convenient as possible for you. During this procedure, a Hays employee or an employee of our service provider, acting on our behalf and according to our instructions, will ask you to identify yourself by means of a camera. The interview will be recorded audio-visually and various images (screenshots) will be taken of the ID document you are using (the front and back, the respective security features), as well as of yourself. For this purpose, we ask you during the interview, but before we start recording, for your consent under banking law.</p>
+<p>(“We will take photos of you, as well as of the complete front and back of your ID card (including its security features) once in the course of this identity verification. Furthermore, the video call now conducted for the purpose of establishing your identity will be recorded visually and acoustically. We will store this data in accordance with our legal obligations. In this way, we will be able to provide proof that we have properly executed the VideoIdent at any time to the applicable regulatory authority.”)</p>
+<p>Furthermore, the information contained on your identification document (for example, first name, last name, citizenship, etc.) is processed and documented as part of this process.</p>
+<p>This information is necessary to ensure that we have identified you correctly and to document the identity verification process correctly.</p>
+<p>Legal Basis</p>
+<p>Article 6(1)(c) GDPR (compliance with a legal obligation), Article 6(1)(a) GDPR (consent) in conjunction with Sections 11 and 8 GwG (German Money Laundering Act).</p>
+<p>Retention Period</p>
+<p>In accordance with the requirements of the Money Laundering Act, we retain the documents produced in their entirety for the duration of our business relationship with you or your organization and beyond that for a period of 5 years.</p>
+<p>Alternatives</p>
+<p>Video identification is the fastest and most convenient method for you to identify yourself to us. We can and will also offer you alternative solutions for identification if you ask us about this and explicitly request an alternative.</p>
+<p><strong>ID Check for all other Hays services (for Candidates and Suppliers)</strong></p>
+<p>Purpose of data collection / kind of data we collect</p>
+<p>In today’s virtual age, we unfortunately no longer meet many of our Candidates, Temporary Workers and Suppliers in person. Nevertheless, to conduct business properly, we want to verify the identity of the people we work with (or, in the case of organizations, the people acting on their behalf). This is done both for our own legitimate interests, namely to maintain certain internal compliance standards, and to comply with our legal obligations (for example, we are obliged not to provide any, or to provide only limited, services to “sanctioned persons”).</p>
+<p>For this purpose, we use a web-based video identity verification process to make identification as convenient as possible for you. During this process, a Hays employee or an employee of our service provider, acting on our behalf and according to our instructions, will ask you to identify yourself using a camera. The interview will be recorded audio-visually and various images (screenshots) will be taken of the ID document you are using (the front and back, the respective security features), as well as of yourself. For this purpose, we ask for your consent during the interview, but before we start recording.</p>
+<p>(“We will take photos of you, as well as of the complete front and back of your ID card (including its security features) once in the course of this identity verification process. Furthermore, the video call now conducted for the purpose of establishing your identity will be recorded visually and acoustically. We will store this data in accordance with our legal obligations. In this way, we will be able to provide proof that we have properly executed the Video-Ident at any time.”)</p>
+<p>Furthermore, the information contained on your identification document (for example, first name, last name, citizenship, etc.) is processed and documented as part of this process. Afterwards, we check this information and if the check was successful, we delete this data. In the event of discrepancies, we will clarify these with you and retain the data for this period.</p>
+<p>This information is necessary to ensure identification and to document the identity verification process correctly.</p>
+<p>Legal Basis</p>
+<p>Article 6(1)(f) GDPR (legitimate interests)</p>
+<p>Retention Period</p>
+<p>We keep the data collected during the call for the period of the identity check and delete it afterwards. This period is usually a few days.<br>
+After a successful identity check, we only store the information that your identity has been checked, for the duration of our business relationship and for a period of 3 years beyond that.</p>
+<p>Alternatives</p>
+<p>Video identification is the fastest and most convenient method for you to identify yourself to us. We can and will also offer you alternative solutions for identification if you ask us about this and explicitly request an alternative.</p></td>
 </tr>
 <tr>
-<td><strong>Wenn Sie unsere tribeworks Plattform über www.tribeworks.de besucht haben gelten ergänzend bzw. abweichend zu unserer Datenschutzerklärung die folgenden Angaben.</strong>
-<p>tribeworks ist unsere digitale Rekrutierungsplattform von Hays, die es Kandidaten (auf tribeworks auch Talente genannt) und Kunden ermöglicht, den Rekrutierungs- und Besetzungsprozess eigenständig und digital mit Hays zu steuern. Dazu werden nach der Registrierung verschiedene Funktionen angeboten, die Kandidaten und Kunden den Prozess von der Profil- und Projekterstellung über Interview-Durchführung bis hin zu Buchung und Abrechnung ermöglichen. Die Plattform richtet sich aktuell an freiberufliche IT-Spezialisten und kleine, mittelständische Unternehmen für die Besetzung von IT-Projekten in Deutschland.</p>
-<p><em>Abschnitt Kandidaten</em></p>
-<p>„Wie werden Ihre personenbezogenen Daten verwendet?“</p>
-<p>Ergänzend zu den bereits aufgelisteten Zwecken besteht einer der Hauptgründe der Verwendung Ihrer personenbezogenen Informationen darin, aussagekräftige Kandidatenprofile auf tribeworks zu erstellen und einen Abgleich mit der Suche unserer Kunden zu ermöglichen sowie Ihnen zu helfen, Projekte zu finden, die für Sie geeignet sein könnten. Je mehr Informationen uns über Sie, Ihre Fähigkeiten und Ihre Ziele vorliegen, desto besser können wir unsere Leistung auf Sie zuschneiden und ein aktuelles Kandidatenprofil über Sie führen. Wir haben nachfolgend unterschiedene Arten aufgelistet, auf die wir Ihre personenbezogenen Daten zu diesem Zweck ggf. und in Übereinstimmung jedweder anwendbarer Gesetze und Vorschriften nutzen und verarbeiten. Bitte beachten Sie, dass diese Liste nicht vollständig ist.</p>
+<td><strong>If you have visited our tribeworks platform via www.tribeworks.de, the following information applies in addition to or in deviation from our Privacy Policy.</strong>
+<p>tribeworks is our digital recruitment platform from Hays, which enables candidates (called talents on tribeworks) and clients to manage the recruitment and staffing process independently and digitally with Hays. After registration, various functions are offered that enable candidates and clients to manage the process from profile and project creation to the interview phase, booking and invoicing. The platform is currently aimed at freelance IT specialists and small and medium-sized companies for the staffing of IT projects in Germany.</p>
+<p><em>Candidates section</em></p>
+<p>“How do we use your personal data?”</p>
+<p>In addition to the purposes already listed, one of the main reasons we use your personal information is to create meaningful candidate profiles on tribeworks and to enable a comparison with our clients’ searches and to help you find projects that may be suitable for you. The more information we have about you, your skills and your goals, the better we can tailor our service to you and maintain an up-to-date candidate profile about you. We have listed below different ways in which we may use and process your personal data for this purpose, where appropriate and in accordance with any applicable laws and regulations. Please note that this list is not exhaustive.</p>
 <ul>
-<li>Datenabgleich mit Projektanfragen von potenziellen Kunden und Darstellung Ihres Profils für unsere Kunden auf tribeworks;</li>
-<li>Speichern (und ggf. Aktualisieren) Ihrer Daten in unserer Datenbank, damit wir Sie im Zusammenhang mit potenziellen Projekten kontaktieren können;</li>
+<li>Matching data with project requests from potential clients and displaying your profile to our clients on tribeworks;</li>
+<li>Storing (and updating if necessary) your data in our database so that we can contact you in connection with potential projects;</li>
 </ul>
-<p>Wenn Sie sich auf tribeworks registriert haben können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, soweit die von uns beabsichtigte Verarbeitungstätigkeit für die Zwecke des Vertrags oder der Bearbeitung Ihrer Anfrage erforderlich ist. Soweit Sie uns Ihre Einwilligung erteilt haben, können wir Ihre durch tribeworks erfassten personenbezogenen Daten in die allgemeine Recruiting-Datenbank von Hays (außerhalb der tribeworks Plattform) übertragen. Dort werden sie nach Maßgabe der Datenschutzerklärung für Hays verarbeitet. Im Übrigen können wir Ihre personenbezogenen Daten für die im Abschnitt „Wie werden Ihre personenbezogenen Daten verwendet“ beschriebenen Zwecke nutzen, wenn wir dies – wie in diesem Abschnitt ausgeführt – als durch unsere berechtigten Interessen gerechtfertigt erachten.</p>
-<p>„Wie werden Ihre personenbezogenen Daten erfasst?“</p>
-<p>Ergänzend erfassen wir Ihre Daten direkt von Ihnen über die Eingabemasken auf tribeworks.</p>
-<p><em>Abschnitt Kunden</em></p>
-<p>„Welche Arten personenbezogener Daten werden erfasst?</p>
-<p>Ergänzend erfassen wir auch noch folgende Informationen:</p>
+<p>If you have registered on tribeworks, we may rely on the legal basis of performance of a contract to the extent that the processing activity we intend to undertake is necessary for the purposes of the contract or to deal with your inquiry. If you have given us your consent, we may transfer your personal data collected by tribeworks to the general Hays recruiting database (outside of the tribeworks platform). There it will be processed in accordance with the Hays Privacy Policy. Otherwise, we may use your personal data for the purposes described in the section “How do we use your personal data?” if we consider this to be justified by our legitimate interests, as set out in that section.</p>
+<p>“How do we collect your personal data?”</p>
+<p>In addition, we collect your data directly from you via the input forms on tribeworks.</p>
+<p><em>Clients section</em></p>
+<p>“What kind of personal information do we collect?”</p>
+<p>We also collect the following information:</p>
 <ul>
-<li>Daten zur Abrechnung wie Steuernummer, Rechnungsadresse;</li>
-<li>Daten über Ihr Unternehmen, wenn Sie diese freiwillig bereitstellen, wie Firmengröße, Webseite, Logo.</li>
+<li>Billing data such as tax number, billing address;</li>
+<li>Data about your company, if you provide this voluntarily, such as company size, website, logo.</li>
 </ul>
-<p>„Wie werden Ihre personenbezogenen Daten verwendet?“</p>
-<p>Ergänzend gilt, einer der Hauptgründe, warum wir Informationen über Kunden nutzen, besteht darin, dass wir ihnen Zugang zu tribeworks und zu Dienstleistungen im Zusammenhang mit tribeworks verschaffen und es dem Kunden ermöglichen, den richtigen Kandidaten für sein Projekt zu finden. Dies wird Folgendes beinhalten: (i) die Bereitstellung des Zugangs zu tribeworks für Sie und/oder (ii) die Erbringung von Dienstleistungen für Sie und Ihre Mitarbeiter im Zusammenhang mit tribeworks und (iii) die Ermittlung von Kandidaten, die unserer Meinung nach für Sie oder Ihr Unternehmen geeignet sind.</p>
-<p>Wenn Sie sich für tribeworks registriert haben können wir uns auf die Rechtsgrundlage der Vertragserfüllung berufen, soweit die von uns beabsichtigte Verarbeitungstätigkeit für die Zwecke des Vertrags oder der Bearbeitung Ihrer Anfrage erforderlich ist. Im Übrigen können wir Ihre personenbezogenen Daten für die im Abschnitt „Wie werden Ihre personenbezogenen Daten verwendet“ beschriebenen Zwecke nutzen, wenn wir dies – wie in diesem Abschnitt ausgeführt – als durch unsere berechtigten Interessen gerechtfertigt erachten.</p>
-<p>„Wie werden Ihre personenbezogenen Daten erfasst?“</p>
-<p>Ergänzend erfassen wir Ihre Daten direkt von Ihnen über die Eingabemasken auf tribeworks.</p>
-<p><em>Abschnitt Lieferanten</em></p>
-<p>„Wie werden Ihre personenbezogenen Daten erfasst?“</p>
-<p>Ergänzend erfassen wir Ihre Daten direkt von Ihnen über die Eingabemasken auf tribeworks.</p></td>
+<p>“How do we use your personal data?”</p>
+<p>In addition, one of the main reasons we use information about Clients is to provide them with access to tribeworks and to services related to tribeworks and to enable the Client to find the right candidate for their project. This will include: (i) providing you with access to tribeworks and/or (ii) providing you and your employees with tribeworks-related services and (iii) identifying candidates that we believe are suitable for you or your organization.</p>
+<p>If you have registered for tribeworks, we may rely on the legal basis of performance of a contract to the extent that the processing activity we intend to carry out is necessary for the purposes of the contract or processing your inquiry. Otherwise, we may use your personal data for the purposes described in the section “How do we use your personal data?” if we consider this to be justified by our legitimate interests, as set out in that section.</p>
+<p>“How do we collect your personal data?”</p>
+<p>In addition, we collect your data directly from you via the input forms on tribeworks.</p>
+<p><em>Suppliers section</em></p>
+<p>“How do we collect your personal data?”</p>
+<p>In addition, we collect your data directly from you via the input forms on tribeworks.</p></td>
 </tr>
 <tr>
-<td><strong>Cookie Richtlinie</strong>
+<td><strong>Cookies Policy</strong>
 <p>Friendly Captcha</p>
-<p>Wir haben den Dienst Friendly Captcha des Anbieters Friendly Captcha GmbH, Am Anger 3–5, 82237 Wörthsee, Deutschland („<strong>Friendly Captcha</strong>“) in bestimmten Bereichen unserer Website integriert, um es automatisierten Programmen und Skripten („<strong>Bots</strong>“) zu erschweren, unsere Website zu nutzen, und um sie vor Spam und Missbrauch zu schützen.</p>
-<p>Wenn Sie unsere Website nutzen, auf der Friendly Captcha integriert ist, übermittelt Ihr Browser bestimmte Daten – darunter Verbindungsdaten, Umgebungsdaten, Interaktionsdaten und funktionale Daten – an Friendly Captcha. Diese Daten werden analysiert, um festzustellen, ob es sich bei Ihnen um einen menschlichen Nutzer oder einen Bot handelt. Das Ergebnis dieser Analyse wird anschließend an uns übermittelt.</p>
-<p>Die rechtliche Grundlage für die Verarbeitung Ihrer Daten durch Friendly Captcha ist unser berechtigtes Interesse gemäß Artikel 6 Absatz 1 Buchstabe f DSGVO. Es liegt sowohl in unserem als auch in Ihrem Interesse, Betrug, unbefugte Nutzung unseres Systems sowie andere illegale oder schädliche Aktivitäten zu verhindern und entsprechende Maßnahmen zu ergreifen – zum Schutz von uns, Ihnen und anderen sowie zur Gewährleistung der Datensicherheit.</p>
-<p>Weitere Informationen zum Datenschutz und darüber, welche Daten im Zusammenhang mit der Nutzung von Friendly Captcha verarbeitet werden, finden Sie <a href="https://friendlycaptcha.com/legal/privacy-end-users/">hier</a>.<br>
-Weitere Informationen zu Friendly Captcha finden Sie <a href="https://friendlycaptcha.com/">hier</a>.</p></td>
+<p>We have integrated the Friendly Captcha service by the provider Friendly Captcha GmbH, Am Anger 3–5, 82237 Wörthsee, Germany (“<strong>Friendly Captcha</strong>”) into certain areas of our website to make it more difficult for automated programs and scripts (“<strong>bots</strong>”) to use our website, and to protect it from spam and abuse.</p>
+<p>When you use our website where Friendly Captcha is integrated, your browser transmits certain data – including connection data, environment data, interaction data and functional data – to Friendly Captcha. This data is analyzed to determine whether you are a human user or a bot. The result of this analysis is then transmitted to us.</p>
+<p>The legal basis for the processing of your data by Friendly Captcha is our legitimate interest under Article 6(1)(f) of the GDPR. It is in our interests and your interests for us to prevent and take measures against fraud, unauthorized use of our System and other illegal or harmful activity – to protect ourselves, you and others, and to ensure data security.</p>
+<p>For more data privacy information and to understand more about what data will be processed related to our use of Friendly Captcha, please click <a href="https://friendlycaptcha.com/legal/privacy-end-users/">here</a>.<br>
+For more information about Friendly Captcha, please click <a href="https://friendlycaptcha.com/">here</a>.</p></td>
 </tr>
 <tr>
 <td><strong>Hays PayAgent Service </strong>
-<p>Im Rahmen unseres PayAgent Services, bei dem wir Zahlungen zwischen unseren Kunden und deren Fremdpersonallieferanten im Bereich der Arbeitnehmerüberlassung abwickeln, verarbeiten wir zusätzlich zu den bereits in unserer Datenschutzerklärung genannten personenbezogenen Daten folgende Informationen:</p>
-<p><em>Abschnitt Kunden</em></p>
-<p>„Welche Arten personenbezogener Daten werden erfasst?“</p>
-<p>Ergänzend erfassen wir über Sie selbst oder einzelne Kontaktpersonen in Ihrem Unternehmen noch folgende Daten:</p>
-<p>Wichtige Identifikations- und Kontaktinformationen</p>
+<p>As part of our PayAgent Service, in which we process payments between our Clients and their external personnel suppliers in the field of temporary staffing, we process the following information in addition to the personal data already mentioned in our Privacy Policy:</p>
+<p><em>Clients section</em></p>
+<p>“What kind of personal information do we collect?”</p>
+<p>We also collect the following data about you or individual contact persons in your company:</p>
+<p>Key identification and contact information</p>
 <ul>
-<li>Bankverbindung des Unternehmens</li>
-<li>Steuernummer (TAX ID) / Identifikationsnummer</li>
+<li>Bank details of the company</li>
+<li>Tax identification number (TAX ID) / identification number</li>
 </ul>
-<p>„Wie werden Ihre Personenbezogenen Daten erfasst?“</p>
-<p>Ergänzend erfassen wir Ihre Daten direkt von Ihnen über die von uns bereitgestellte Schnittstelle an Ihr Buchhaltungs- bzw. Abrechnungssystem oder per manueller Eingabe Ihrer Daten auf unserer Webseite.</p>
-<p>„Wie werden Ihre personenbezogenen Daten verwendet?“</p>
-<p>Wir werden diese Daten zur Erbringung unserer Dienstleistung, konkret des PayAgent Services, verwenden. Dies bedeutet wir wickeln Zahlungen gegenüber Ihren Fremdpersonallieferanten für Sie ab.</p>
-<div class="legal-table" role="region" aria-label="Tabelle 23" tabindex="0"><table>
+<p>“How do we collect your personal data?”</p>
+<p>In addition, we collect your data directly from you via the interface we provide to your accounting or billing system or by manually entering your data on our website.</p>
+<p>“How do we use your personal data?”</p>
+<p>We will use this data to provide our service, specifically the PayAgent service. This means that we process payments to your external personnel suppliers on your behalf.</p>
+<div class="legal-table" role="region" aria-label="Table 23" tabindex="0"><table>
 <tbody>
 <tr>
-<td>Warum und wie wir Ihre Daten verarbeiten</td>
-<td>Art von personenbezogenen Daten, die verwendet werden</td>
-<td>Rechtsgrundlage</td>
+<td>Why and how we process your information</td>
+<td>Type of personal data used</td>
+<td>Legal basis relied upon</td>
 </tr>
 <tr>
-<td>Abwicklung von Zahlungen an Ihre Fremdpersonallieferanten</td>
+<td>Processing payments to your external personnel suppliers</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt,
+<td>Legitimate interests, namely it is in our interests and in your interests
 <ul>
-<li>Zahlungen Ihrer Fremdpersonallieferanten so effizient wie möglich abzuwickeln</li>
+<li>to process payments to your external personnel suppliers as efficiently as possible</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Aufbewahrung der Dokumentation von Zahlungen, die wir für Sie abgewickelt haben</td>
+<td>Retention of documentation of payments that we have processed for you</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Information that you choose to tell us</li>
 </ul>
 </td>
-<td>Erfüllung einer gesetzlichen Verpflichtung, unter anderem, wenn wir:
+<td>Compliance with a legal obligation, including when we:
 <ul>
-<li>unsere Verpflichtungen auf dem Zahlungsdiensteaufsichtsgesetz erfüllen müssen.</li>
+<li>need to fulfill our obligations under the German Payment Services Supervision Act.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p>„Wie lange werden Ihre personenbezogenen Daten von uns gespeichert?“</p>
-<p>Ergänzend gilt: Die personenbezogenen Daten werden von Hays nur so lange verarbeitet oder gespeichert, wie dies für die Dauer der Zahlungsabwicklung und der Rechnungsstellung erforderlich ist, es sei denn, gesetzliche Aufbewahrungsfristen sehen eine längere Speicherdauer vor, insbesondere gemäß § 30 ZAG, § 257 HGB und § 147 AO (bis zu zehn Jahre).</p>
-<p><em>Abschnitt Lieferanten und sonstige Dritte</em></p>
+<p>“How long do we keep your personal data for?”</p>
+<p>In addition, Hays will only process and store your personal data for as long as is necessary for the duration of payment processing and invoicing, unless statutory retention periods provide for a longer retention period, in particular in accordance with Section 30 ZAG, Section 257 HGB and Section 147 AO (up to ten years).</p>
+<p><em>Suppliers and other third parties section</em></p>
 <p>Definition</p>
-<p>Wir behandeln die Fremdpersonallieferanten für Arbeitnehmerüberlassung unserer Kunden für die Zwecke dieser Datenschutzerklärung als „Lieferanten und sonstige Dritte“. Drunter fallen auch, die personenbezogenen Daten von Mitarbeitenden der Fremdpersonallieferanten, wie beispielsweise die an unsere Kunden überlassene Arbeitnehmenden. Für diese Fremdpersonallieferanten gelten daher die Abschnitte „Lieferanten und sonstige Dritte“ sowie die allgemeinen Teile dieser Datenschutzerklärung.</p>
-<p>„Welche Arten personenbezogener Daten werden erfasst?“</p>
-<p>Ergänzend erfassen wir über Sie selbst oder einzelne Kontaktpersonen in Ihrem Unternehmen noch folgende Daten:</p>
-<p>Wichtige Identifikations- und Kontaktinformationen</p>
+<p>For the purposes of this Privacy Policy, we treat our Clients’ external personnel suppliers for temporary staffing as “Suppliers and other third parties”. This also includes the personal data of employees of external personnel suppliers, such as employees assigned to our Clients. The sections “Suppliers and other third parties” and the general parts of this Privacy Policy therefore apply to these external personnel suppliers.</p>
+<p>“What kind of personal information do we collect?”</p>
+<p>We also collect the following data about you or individual contact persons in your company:</p>
+<p>Key identification and contact information</p>
 <ul>
-<li>Steuernummer (TAX ID)</li>
-<li>Personalnummern oder sonstige ID</li>
+<li>Tax identification number (TAX ID)</li>
+<li>Personnel numbers or other ID</li>
 </ul>
-<p>Abrechnungsrelevante Daten zum Überlassungsverhältnis des Fremdpersonals zwischen Kunde und Fremdpersonallieferant</p>
+<p>Billing-relevant data on the supply of external personnel between the Client and external personnel supplier</p>
 <ul>
-<li>Name von Mitarbeitenden der Fremdpersonallieferanten</li>
-<li>Verrechnungssatz des Mitarbeitenden der Fremdpersonallieferanten</li>
-<li>Abrechenbare Arbeitsstunden des Mitarbeitenden der Fremdpersonallieferanten</li>
-<li>Arbeitsort des Mitarbeitenden der Fremdpersonallieferanten</li>
+<li>Name of employees of the external personnel supplier</li>
+<li>Billing rate of the employee of the external personnel supplier</li>
+<li>Billable working hours of the employee of the external personnel supplier</li>
+<li>Work location of the employee of the external personnel supplier</li>
 </ul>
-<p>„Wie werden Ihre Personenbezogenen Daten erfasst?“</p>
-<p>Ergänzend erfassen wir Ihre Daten direkt von Ihnen über die von uns bereitgestellte Schnittstelle an Ihr Buchhaltungs- bzw. Abrechnungssystem oder per manueller Eingabe Ihrer Daten auf unserer Webseite.</p>
-<p>Personenbezogenen Daten von Mitarbeitenden der Fremdpersonallieferanten erhalten wir über dieselben Wege jedoch nicht von diesen Direkt, sondern über Dritte, nämlich vom Fremdpersonallieferanten oder dem Kunden.</p>
-<p>„Wie werden Ihre personenbezogenen Daten verwendet?“</p>
-<p>Wir werden diese Daten zur Erbringung unserer Dienstleistung, konkret des PayAgent Services, verwenden. Dies bedeutet wir wickeln Zahlungen gegenüber Ihren Fremdpersonallieferanten für Sie ab.</p>
-<div class="legal-table" role="region" aria-label="Tabelle 24" tabindex="0"><table>
+<p>“How do we collect your personal data?”</p>
+<p>In addition, we collect your data directly from you via the interface we provide to your accounting or billing system or by manually entering your data on our website.</p>
+<p>However, we do not receive the personal data of employees of external personnel suppliers directly from them via the same channels, but via third parties, namely the external personnel supplier or the Client.</p>
+<p>“How do we use your personal data?”</p>
+<p>We will use this data to provide our service, specifically the PayAgent service. This means that we process payments to your external personnel suppliers on your behalf.</p>
+<div class="legal-table" role="region" aria-label="Table 24" tabindex="0"><table>
 <tbody>
 <tr>
-<td>Warum und wie wir Ihre Daten verarbeiten</td>
-<td>Art von personenbezogenen Daten, die verwendet werden</td>
-<td>Rechtsgrundlage</td>
+<td>Why and how we process your information</td>
+<td>Type of personal data used</td>
+<td>Legal basis relied upon</td>
 </tr>
 <tr>
-<td>Abrechnung der von Ihnen erbrachten Fremdpersonalleistungen gegenüber Ihrem Kunden in dem wir Rechnungen in Ihrem Namen gegenüber dem Kunden erstellen und die Zahlungsflüsse abwickeln</td>
+<td>Billing your Client for the external personnel services you provide by issuing invoices to the Client on your behalf and processing the payment flows</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Abrechnungsrelevante Daten zum Überlassungsverhältnis des Fremdpersonals zwischen Kunde und Fremdpersonallieferant</li>
-<li>Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Billing-relevant data on the supply of external personnel between the Client and external personnel supplier</li>
+<li>Information that you choose to tell us</li>
 </ul>
 </td>
-<td>Berechtigte Interessen, was heißt, dass es in unserem Interesse und in Ihrem Interesse liegt,
+<td>Legitimate interests, namely it is in our interests and in your interests
 <ul>
-<li>Den Abrechnungsprozess für Fremdpersonalleistungen gegenüber Ihren Kunden so effizient wie möglich abzuwickeln</li>
+<li>to handle the billing process for external personnel services to your Clients as efficiently as possible</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Aufbewahrung der Dokumentation von Rechnungen und Zahlungen, die wir für Sie abgewickelt haben.</td>
+<td>Retention of documentation of invoices and payments that we have processed for you.</td>
 <td>
 <ul>
-<li>Wichtige Identifikations- und Kontaktinformationen</li>
-<li>Abrechnungsrelevante Daten zum Überlassungsverhältnis des Fremdpersonals zwischen Kunde und Fremdpersonallieferant</li>
-<li>Informationen, die Sie uns von sich aus mitteilen</li>
+<li>Key identification and contact information</li>
+<li>Billing-relevant data on the supply of external personnel between the Client and external personnel supplier</li>
+<li>Information that you choose to tell us</li>
 </ul>
 </td>
-<td>Erfüllung einer gesetzlichen Verpflichtung, unter anderem, wenn wir:
+<td>Compliance with a legal obligation, including when we:
 <ul>
-<li>unsere Verpflichtungen auf dem Zahlungsdiensteaufsichtsgesetz erfüllen müssen.</li>
+<li>need to fulfill our obligations under the German Payment Services Supervision Act.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p>„Wie lange werden Ihre personenbezogenen Daten von uns gespeichert?“</p>
-<p>Ergänzend gilt: Die personenbezogenen Daten werden von Hays nur so lange verarbeitet oder gespeichert, wie dies für die Dauer der Zahlungsabwicklung und der Rechnungsstellung erforderlich ist, es sei denn, gesetzliche Aufbewahrungsfristen sehen eine längere Speicherdauer vor, insbesondere gemäß § 30 ZAG, § 257 HGB und § 147 AO (bis zu zehn Jahre).</p></td>
+<p>“How long do we keep your personal data for?”</p>
+<p>In addition, Hays will only process and store personal data for as long as is necessary for the duration of payment processing and invoicing, unless statutory retention periods provide for a longer retention period, in particular in accordance with Section 30 ZAG, Section 257 HGB and Section 147 AO (up to ten years).</p></td>
 </tr>
 </tbody>
 </table></div>

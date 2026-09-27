@@ -11,13 +11,13 @@
  * 2. wp_global_styles_render_svg_filters() injects an <svg> as the first child
  *    of <body>, ahead of the skip link — which breaks "the skip link is the
  *    first focusable element" and costs the accessibility score.
- * 3. The admin bar is deliberately NOT removed. It adds two requests (~70 KB),
- *    an inline html{margin-top:32px!important} that causes layout shift, and a
- *    sticky-header offset shift — but only ever for logged-in users, who are
- *    editors rather than visitors. Removing it would degrade the editor
- *    experience to fix a measurement problem that does not exist, because the
- *    parity and audit harnesses both run logged out. That is also why they
- *    must keep doing so: measured logged in, they measure a different page.
+ * 3. The front-end admin bar is switched off. The templates never call
+ *    wp_footer(), which is where core prints the bar, because its other
+ *    output (speculation rules, stored styles) breaks parity and the CSP.
+ *    So the bar never rendered, but core still printed its inline
+ *    html{margin-top:32px!important}: logged-in editors saw an empty 32px
+ *    strip above the header. Visitors never got the bar, so this changes
+ *    nothing for them. wp-admin keeps its toolbar.
  *
  * The rest are head noise, extra requests, or third-party origins — each of
  * which the parity harness asserts is absent, so this list is a test rather
@@ -170,13 +170,9 @@ function emposo_dequeue_core_assets(): void {
 		'wp-img-auto-sizes-contain',
 
 		/*
-		 * NOT 'admin-bar' and NOT 'dashicons'. Both were in this list, which
-		 * contradicted point 3 of this file's own header: the admin bar is kept
-		 * deliberately, and deregistering its stylesheet and icon font left
-		 * editors with an unstyled bar — the editor experience the decision was
-		 * made to protect. Core only enqueues them when the bar renders, so a
-		 * logged-out visitor never pays for them, and the parity and audit
-		 * harnesses run logged out.
+		 * NOT 'admin-bar' and NOT 'dashicons': core only enqueues them when the
+		 * bar renders, and the front-end bar is off (point 3), so no page pays
+		 * for them. Deregistering them here would also strip wp-admin's toolbar.
 		 */
 	);
 
@@ -203,3 +199,9 @@ function emposo_remove_inline_core_styles(): void {
 	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_stored_styles', 1 );
 }
 add_action( 'init', 'emposo_remove_inline_core_styles' );
+
+/**
+ * No front-end admin bar: the templates have no wp_footer() to print it in, so
+ * only its 32px html margin would render (see point 3 above).
+ */
+add_filter( 'show_admin_bar', '__return_false' ); // phpcs:ignore WordPressVIPMinimum.UserExperience.AdminBarRemoval.RemovalDetected -- Front end only renders the bar's margin, never the bar (no wp_footer()); wp-admin keeps its toolbar.
