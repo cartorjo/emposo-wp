@@ -98,7 +98,7 @@ function checkUnresolvedTemplates({ html }, add) {
  * "Hays-Gruppe" as the controller's group). They are not site copy, so the
  * branding rule does not apply to them.
  */
-const VERBATIM_LEGAL = new Set(['/impressum/', '/datenschutzerklaerung/', '/nutzungsbestimmungen/']);
+const VERBATIM_LEGAL = new Set(['/impressum/', '/datenschutzerklaerung/', '/nutzungsbestimmungen/', '/en/legal-notice/', '/en/privacy-policy/', '/en/terms-of-use/']);
 
 function checkSupersededBranding({ html, route }, add) {
 	// Both are explicit owner decisions: "Hays-Gruppe" was removed per the
@@ -180,12 +180,18 @@ function checkScriptMatrix({ html, route }, add) {
 
 /**
  * The preview noindex is the X-Robots-Tag header, as on the static build; the
- * head itself must match the reference (parity covers it). `headers` is absent
+ * head itself must match the reference (parity covers it). With --indexable
+ * (the launched site) the header must be absent instead. `headers` is absent
  * when the reference is checked against itself, which has no server.
  */
-function checkNoindex({ headers }, add) {
+function checkNoindex({ headers, indexable }, add) {
 	if (!headers) return;
 	const value = headers.get('x-robots-tag');
+	// Launched (parity --indexable): the preview header must be gone.
+	if (indexable) {
+		if (value) add(`X-Robots-Tag "${value}" is still sent after launch`);
+		return;
+	}
 	if (!value) {
 		add('missing X-Robots-Tag header — the preview noindex must stay until launch is approved');
 		return;

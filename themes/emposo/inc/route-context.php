@@ -49,8 +49,10 @@ function emposo_route(): array {
 	// below, whose missing body kind routes emposo_the_body() to
 	// parts/fallback.php instead of presenting 404 content at HTTP 200.
 	if ( is_404() ) {
+		// An unmatched path under /en/ gets the English 404, every other the German one.
+		$locale = 0 === strpos( $path, '/en/' ) ? 'en' : 'de';
 		foreach ( $contract as $route ) {
-			if ( 'not_found' === ( $route['objectType'] ?? '' ) ) {
+			if ( 'not_found' === ( $route['objectType'] ?? '' ) && ( $route['locale'] ?? 'de' ) === $locale ) {
 				$cache = $route;
 
 				return $cache;
@@ -67,6 +69,7 @@ function emposo_route(): array {
 		'navGroup'   => null,
 		'navExact'   => true,
 		'objectType' => 'page',
+		'locale'     => 0 === strpos( $path, '/en/' ) ? 'en' : 'de',
 	);
 
 	return $cache;
@@ -281,7 +284,8 @@ function emposo_the_body(): void {
 			foreach ( (array) ( $body['parts'] ?? array() ) as $part ) {
 				// Names come from the frozen contract, but constrain them
 				// anyway: this value reaches a file lookup.
-				if ( ! preg_match( '#^(pages|sections)/[a-z0-9-]+$#', (string) $part ) ) {
+				// The English twins live one level down: pages/en/x, sections/en/x.
+				if ( ! preg_match( '#^(pages|sections)/(en/)?[a-z0-9-]+$#', (string) $part ) ) {
 					continue;
 				}
 				$rendered[] = emposo_part_html( 'parts/' . $part );

@@ -35,7 +35,19 @@ function record(name, failures, note = '') {
 }
 
 /** The filter page: industries and projects together on /branchen/ (owner 2026-09-27). */
-const FILTER_PAGES = ['/branchen/'];
+const FILTER_PAGES = ['/branchen/', '/en/industries/'];
+
+/*
+ * Both languages (reference/static docs/i18n.md): the German site and its
+ * American English twin under /en/, each with its own filter page, contact
+ * page, home, count wording and case-study paths.
+ */
+const { CASE_SLUGS } = await import(path.join(STATIC_ROOT, 'content', 'i18n.mjs'));
+const LOCALES = [
+	{ lang: 'de', home: '/', filter: '/branchen/', contact: '/kontakt/', facts: ['/about-us/', '/karriere/'], words: ['Projekt', 'Projekte'], casePath: (slug) => `/case-studies/${slug}/` },
+	{ lang: 'en', home: '/en/', filter: '/en/industries/', contact: '/en/contact/', facts: ['/en/about-us/', '/en/careers/'], words: ['project', 'projects'], casePath: (slug) => `/en/case-studies/${CASE_SLUGS[slug] ?? slug}/` },
+];
+const localeOf = (route) => (route.startsWith('/en/') ? LOCALES[1] : LOCALES[0]);
 
 /** Filter groups and their URL parameters, as js/06-work.js declares them (B-41). */
 const GROUPS = { industry: 'branche', discipline: 'leistung' };
@@ -131,7 +143,7 @@ async function testFiltering(page, base, route) {
 			}
 
 			// German pluralisation is in the script, so it is part of the contract.
-			const word = expected.length === 1 ? 'Projekt' : 'Projekte';
+			const word = localeOf(route).words[expected.length === 1 ? 0 : 1];
 			if (state.countText !== null && !state.countText.includes(`${expected.length} ${word}`)) {
 				failures.push(`${label}: count reads "${state.countText}", expected "${expected.length} ${word}"`);
 			}
@@ -163,16 +175,16 @@ async function testFiltering(page, base, route) {
 // --------------------------------------------------------------------------
 // Card inventory vs the content module — catches a data porting error.
 // --------------------------------------------------------------------------
-async function testCardInventory(page, base) {
+async function testCardInventory(page, base, L) {
 	const failures = [];
 	const { projects } = await import(path.join(STATIC_ROOT, 'content', 'site-data.mjs'));
 
-	await page.goto(`${base}${FILTER_PAGES[0]}`, { waitUntil: 'domcontentloaded' });
+	await page.goto(`${base}${L.filter}`, { waitUntil: 'domcontentloaded' });
 	const hrefs = await page.evaluate(() =>
 		[...document.querySelectorAll('[data-project]')].map((c) => c.getAttribute('href'))
 	);
 
-	const expected = new Set(projects.map((p) => `/case-studies/${p.slug}/`));
+	const expected = new Set(projects.map((p) => L.casePath(p.slug)));
 	const actual = new Set(hrefs);
 
 	for (const href of expected) if (!actual.has(href)) failures.push(`missing case-study card: ${href}`);
@@ -184,9 +196,9 @@ async function testCardInventory(page, base) {
 // --------------------------------------------------------------------------
 // ?branche= / ?leistung= restore the selection; disabled values are ignored.
 // --------------------------------------------------------------------------
-async function testFilterDeepLinks(page, base) {
+async function testFilterDeepLinks(page, base, L) {
 	const failures = [];
-	const route = FILTER_PAGES[0];
+	const route = L.filter;
 	await page.goto(`${base}${route}`, { waitUntil: 'domcontentloaded' });
 	const chips = await page.evaluate(() =>
 		[...document.querySelectorAll('[data-filter-group]')]
@@ -215,19 +227,19 @@ async function testFilterDeepLinks(page, base) {
 // --------------------------------------------------------------------------
 // ?interesse= preselects the contact form and announces it.
 // --------------------------------------------------------------------------
-async function testIntentLinks(page, base) {
+async function testIntentLinks(page, base, L) {
 	const failures = [];
 
-	await page.goto(`${base}/kontakt/`, { waitUntil: 'domcontentloaded' });
+	await page.goto(`${base}${L.contact}`, { waitUntil: 'domcontentloaded' });
 	const options = await page.evaluate(() =>
 		[...document.querySelectorAll('select[name="interest"] option')]
 			.map((o) => o.value)
 			.filter(Boolean)
 	);
-	if (options.length === 0) return [`no interest options found on /kontakt/`];
+	if (options.length === 0) return [`no interest options found on ${L.contact}`];
 
 	for (const value of options) {
-		await page.goto(`${base}/kontakt/?interesse=${encodeURIComponent(value)}`, { waitUntil: 'networkidle' });
+		await page.goto(`${base}${L.contact}?interesse=${encodeURIComponent(value)}`, { waitUntil: 'networkidle' });
 		const state = await page.evaluate(() => ({
 			selected: document.querySelector('select[name="interest"]')?.value ?? null,
 			hintHidden: document.querySelector('[data-contact-hint]')?.hidden ?? null,
@@ -257,14 +269,14 @@ async function testMobileMenu(page, base) {
 	const menu = page.locator('#mobile-menu');
 	if ((await menu.count()) === 0) return ['#mobile-menu not found'];
 
-	await menu.locator('summary').click();
+	await menu.locator(':scope > summary').click();
 	if (!(await menu.evaluate((d) => d.open))) failures.push('mobile menu did not open');
 
 	const links = await menu.locator('a').count();
 	if (links === 0) failures.push('mobile menu exposes no links');
 
 	// The label must announce state, since the control is a bare summary.
-	const label = await menu.locator('summary').getAttribute('aria-label');
+	const label = await menu.locator(':scope > summary').getAttribute('aria-label');
 	if (!label) failures.push('mobile menu summary has no aria-label');
 
 	await page.keyboard.press('Escape');
@@ -306,13 +318,13 @@ async function testSkipLink(page, base) {
 // --------------------------------------------------------------------------
 // Count-up: ends on the exact authored strings; static under reduced motion.
 // --------------------------------------------------------------------------
-async function testCountUp(browser, base) {
+async function testCountUp(browser, base, L) {
 	const failures = [];
 
 	// Authored values, read from the rendered markup rather than hardcoded.
 	const plain = await browser.newContext({ reducedMotion: 'no-preference' });
 	const p1 = await plain.newPage();
-	await p1.goto(`${base}/`, { waitUntil: 'networkidle' });
+	await p1.goto(`${base}${L.home}`, { waitUntil: 'networkidle' });
 	await p1.locator('.company-facts__value').first().scrollIntoViewIfNeeded();
 	await p1.waitForTimeout(1600); // the animation is 900ms; allow for observer latency
 	const animated = await p1.evaluate(() =>
@@ -320,13 +332,13 @@ async function testCountUp(browser, base) {
 	);
 	await plain.close();
 
-	if (animated.length === 0) failures.push('no .company-facts__value elements on /');
+	if (animated.length === 0) failures.push(`no .company-facts__value elements on ${L.home}`);
 
 	// The count-up must always land on the authored string — the static markup is
 	// the source of truth, so a mid-animation value must never be the end state.
 	const reduced = await browser.newContext({ reducedMotion: 'reduce' });
 	const p2 = await reduced.newPage();
-	await p2.goto(`${base}/`, { waitUntil: 'networkidle' });
+	await p2.goto(`${base}${L.home}`, { waitUntil: 'networkidle' });
 	await p2.locator('.company-facts__value').first().scrollIntoViewIfNeeded();
 	await p2.waitForTimeout(1600);
 	const still = await p2.evaluate(() =>
@@ -345,7 +357,7 @@ async function testCountUp(browser, base) {
 	// Wherever it appears, it must show the same authored values.
 	const ctx = await browser.newContext({ reducedMotion: 'reduce' });
 	const p3 = await ctx.newPage();
-	for (const route of ['/about-us/', '/karriere/']) {
+	for (const route of L.facts) {
 		await p3.goto(`${base}${route}`, { waitUntil: 'networkidle' });
 		const values = await p3.evaluate(() => [...document.querySelectorAll('.company-facts__value')].map((e) => e.textContent.trim()));
 		if (values.length && values.join('|') !== still.join('|')) {
@@ -360,12 +372,12 @@ async function testCountUp(browser, base) {
 // --------------------------------------------------------------------------
 // No-JS: filters hidden, content static, page still usable.
 // --------------------------------------------------------------------------
-async function testNoJs(browser, base) {
+async function testNoJs(browser, base, L) {
 	const failures = [];
 	const ctx = await browser.newContext({ javaScriptEnabled: false });
 	const page = await ctx.newPage();
 
-	for (const route of ['/', FILTER_PAGES[0]]) {
+	for (const route of [L.home, L.filter]) {
 		await page.goto(`${base}${route}`, { waitUntil: 'domcontentloaded' });
 		const state = await page.evaluate(() => ({
 			h1: document.querySelectorAll('h1').length,
@@ -376,10 +388,10 @@ async function testNoJs(browser, base) {
 
 		if (state.h1 !== 1) failures.push(`${route} (no JS): ${state.h1} <h1>`);
 		// The filter UI must stay hidden rather than render dead controls.
-		if (route === FILTER_PAGES[0] && state.jsOnly === 0) {
+		if (route === L.filter && state.jsOnly === 0) {
 			failures.push(`${route} (no JS): filter UI is not gated behind .js-only`);
 		}
-		if (route === FILTER_PAGES[0] && state.cards === 0) {
+		if (route === L.filter && state.cards === 0) {
 			failures.push(`${route} (no JS): no cards in the static markup`);
 		}
 		// Plain links and a native <details> mobile menu: navigation needs no JS.
@@ -388,6 +400,31 @@ async function testNoJs(browser, base) {
 
 	await ctx.close();
 	return failures;
+}
+
+// --------------------------------------------------------------------------
+// Language switch: names the current language, opens its menu, Escape closes
+// it, and the other language's option lands on the twin page.
+// --------------------------------------------------------------------------
+async function testLanguageSwitch(page, base) {
+	const failures = [];
+	await page.setViewportSize({ width: 1440, height: 900 });
+	for (const [from, to, current] of [['/portfolio/', '/en/services/', 'Deutsch'], ['/en/services/', '/portfolio/', 'English']]) {
+		await page.goto(`${base}${from}`, { waitUntil: 'networkidle' });
+		const picker = page.locator('.site-header [data-lang-switch]:not(.lang-switch--menu)');
+		if ((await picker.count()) === 0) { failures.push(`${from}: no language switch in the header`); continue; }
+		const label = (await picker.locator(':scope > summary').innerText()).trim();
+		if (!label.endsWith(current)) failures.push(`${from}: switch reads "${label}", expected "${current}"`);
+		await picker.locator(':scope > summary').click();
+		if (!(await picker.evaluate((d) => d.open))) failures.push(`${from}: switch did not open`);
+		await page.keyboard.press('Escape');
+		if (await picker.evaluate((d) => d.open)) failures.push(`${from}: Escape did not close the switch`);
+		await picker.locator(':scope > summary').click();
+		await Promise.all([page.waitForURL(`**${to}`), picker.locator('[data-lang-option]').click()]);
+		const path = new URL(page.url()).pathname;
+		if (path !== to) failures.push(`${from}: switched to ${path}, expected ${to}`);
+	}
+	return { failures, note: 'DE -> EN and EN -> DE' };
 }
 
 // --------------------------------------------------------------------------
@@ -429,13 +466,16 @@ async function main() {
 	for (const route of FILTER_PAGES) {
 		await run(`filtering ${route}`, () => testFiltering(page, base, route));
 	}
-	await run('card inventory', () => testCardInventory(page, base));
-	await run('?branche= / ?leistung= deep links', () => testFilterDeepLinks(page, base));
-	await run('?interesse= intent links', () => testIntentLinks(page, base));
+	for (const L of LOCALES) {
+		await run(`card inventory (${L.lang})`, () => testCardInventory(page, base, L));
+		await run(`?branche= / ?leistung= deep links (${L.lang})`, () => testFilterDeepLinks(page, base, L));
+		await run(`?interesse= intent links (${L.lang})`, () => testIntentLinks(page, base, L));
+		await run(`count-up (${L.lang})`, () => testCountUp(browser, base, L));
+		await run(`no-JS (${L.lang})`, () => testNoJs(browser, base, L));
+	}
+	await run('language switch', () => testLanguageSwitch(page, base));
 	await run('mobile menu', () => testMobileMenu(page, base));
 	await run('skip link', () => testSkipLink(page, base));
-	await run('count-up', () => testCountUp(browser, base));
-	await run('no-JS', () => testNoJs(browser, base));
 
 	await run('console clean', () => (consoleMessages.length ? consoleMessages : []));
 

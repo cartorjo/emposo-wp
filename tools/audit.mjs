@@ -168,22 +168,40 @@ async function auditRoute(browser, base, route) {
 
 	// Scroll the page so lazy images load and any post-scroll state is measured,
 	// matching how the reference evidence was gathered.
+	//
+	// The whole-page total is snapshotted HERE, once the page is quiescent, and
+	// not at the end of the audit (#40). It used to be summed after the width
+	// sweep and the axe runs, so it also counted whichever srcset candidates and
+	// lazy images those resizes happened to start inside their 60 ms windows,
+	// and the reference measured 974 KB and 1054 KB on / in consecutive runs.
+	// One requestAnimationFrame per screen was also too fast for loading=lazy
+	// to trigger reliably. Now each screen gets time to start its fetches, and
+	// every image must settle before the snapshot.
 	await page.evaluate(async () => {
-		await new Promise((resolve) => {
-			let y = 0;
-			const step = () => {
-				y += window.innerHeight;
-				window.scrollTo(0, y);
-				if (y < document.body.scrollHeight) requestAnimationFrame(step);
-				else {
-					window.scrollTo(0, 0);
-					resolve();
-				}
-			};
-			step();
-		});
+		const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+		for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight / 2) {
+			window.scrollTo(0, y);
+			await pause(120);
+		}
+		window.scrollTo(0, document.body.scrollHeight);
+		await pause(120);
+		await Promise.all(
+			[...document.images]
+				.filter((img) => !img.complete)
+				.map(
+					(img) =>
+						new Promise((resolve) => {
+							img.addEventListener('load', resolve, { once: true });
+							img.addEventListener('error', resolve, { once: true });
+							setTimeout(resolve, 5000);
+						})
+				)
+		);
+		window.scrollTo(0, 0);
 	});
 	await page.waitForLoadState('networkidle').catch(() => {});
+	await settleSizes();
+	const scrolledCount = requests.length;
 
 	// --- layout probes -----------------------------------------------------
 	for (const width of WIDTHS) {
@@ -295,6 +313,7 @@ async function auditRoute(browser, base, route) {
 	const sameOrigin = new URL(base).origin;
 	const offHost = requests.filter((r) => !r.url.startsWith(sameOrigin) && !r.url.startsWith('data:'));
 	const initial = requests.slice(0, initialCount);
+	const scrolled = requests.slice(0, scrolledCount);
 	const images = requests.filter((r) => r.type === 'image');
 	const sum = (list) => list.reduce((total, r) => total + r.bytes, 0);
 
@@ -304,9 +323,10 @@ async function auditRoute(browser, base, route) {
 		// Budgeted: comparable to the committed Lighthouse evidence.
 		count: initial.length,
 		totalBytes: sum(initial),
-		// Informational: the cost of scrolling the whole page.
-		fullCount: requests.length,
-		fullBytes: sum(requests),
+		// The whole page after the scroll pass, snapshotted before the width
+		// sweep (see the scroll pass above). Gated against the reference.
+		fullCount: scrolled.length,
+		fullBytes: sum(scrolled),
 		offHost: offHost.map((r) => r.url),
 		largestImage: images.reduce((max, r) => (r.bytes > (max?.bytes ?? 0) ? r : max), null),
 		/*

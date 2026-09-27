@@ -12,14 +12,15 @@
     var stats = document.querySelectorAll('.company-facts__value');
     if (!stats.length || !('IntersectionObserver' in window)) return;
 
-    // "2014", "250+", "2.900+", "4" — digits with optional German thousands
-    // separators plus an optional suffix. Anything else stays untouched.
-    var pattern = /^(\d{1,3}(?:\.\d{3})+|\d+)(\+?)$/;
+    // "2014", "250+", "2.900+" (German) or "2,900+" (English), "4" — digits
+    // with optional thousands separators plus an optional suffix. Anything
+    // else stays untouched.
+    var pattern = /^(\d{1,3}(?:([.,])\d{3})+|\d+)(\+?)$/;
 
-    function render(value, grouped) {
+    function render(value, separator) {
       var digits = String(value);
-      if (!grouped) return digits;
-      return digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      if (!separator) return digits;
+      return digits.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
     }
 
     function animate(dt, parsed) {
@@ -32,7 +33,7 @@
         var t = Math.min((now - start) / duration, 1);
         var eased = 1 - Math.pow(1 - t, 3);
         if (t < 1) {
-          dt.textContent = render(Math.round(parsed.target * eased), parsed.grouped) + parsed.suffix;
+          dt.textContent = render(Math.round(parsed.target * eased), parsed.separator) + parsed.suffix;
           window.requestAnimationFrame(frame);
         } else {
           // Always end on the exact authored string.
@@ -52,9 +53,9 @@
         if (!match) return;
         animate(entry.target, {
           original: original,
-          target: parseInt(match[1].replace(/\./g, ''), 10),
-          grouped: match[1].indexOf('.') !== -1,
-          suffix: match[2]
+          target: parseInt(match[1].replace(/[.,]/g, ''), 10),
+          separator: match[2] || '',
+          suffix: match[3]
         });
       });
     }, { threshold: 0.4 });

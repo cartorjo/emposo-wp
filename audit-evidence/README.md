@@ -27,6 +27,11 @@ reference itself (533 vs 573 KB on one case study, 974 vs 1054 KB on `/`), so a
 route can fail the 2 % whole-page tolerance on measurement noise alone; see
 #40.
 
+Re-measured at the f2e0a91 bilingual re-pin (2026-09-27), after the #40 fix
+(the whole-page total is snapshotted after a paced scroll pass, before the width
+sweep; three consecutive runs gave byte-identical totals): the static baseline
+covers **70/70 routes** (35 German, 35 English), and WordPress passes **72/72** (both 404s included) on the first run.
+
 ## What the numbers are, and are not
 
 `tools/audit.mjs` records **uncompressed** resource bytes. The 194–295 KB

@@ -6,5 +6,6 @@
  */
 
 get_header();
-get_template_part( 'parts/pages/404' );
+// The 404 route of the request's language (English under /en/).
+get_template_part( 'en' === emposo_lang() ? 'parts/pages/en/404' : 'parts/pages/404' );
 get_footer();

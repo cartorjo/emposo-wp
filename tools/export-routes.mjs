@@ -11,7 +11,7 @@
  * edits pages.mjs without re-exporting, rather than verifying against a stale
  * contract.
  */
-import { writeFileSync, readFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { routes, STATIC_ROOT, REPO_ROOT } from './routes.mjs';
@@ -29,6 +29,9 @@ const OUT = path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data', 'ro
 function objectType(route) {
 	if (route.kind === '404') return 'not_found';
 	if (/^case-studies\/[^/]+\/index\.html$/.test(route.out)) return 'emposo_case_study';
+	// English case studies are their own post type, the one resolver of
+	// /en/case-studies/ (content-model.php routing rule).
+	if (/^en\/case-studies\/[^/]+\/index\.html$/.test(route.out)) return 'emposo_case_study_en';
 	return 'page';
 }
 
@@ -47,6 +50,17 @@ function slug(route) {
  * derived from, and so a manifest shape the exporter does not understand fails
  * loudly at export time instead of rendering an empty page.
  */
+/**
+ * An English route reads its twin source (pages/en/x.html, sections/en/x.html)
+ * when the reference has one, as assemble.mjs source() does; otherwise the
+ * German file.
+ */
+function twinFile(route, file) {
+	if (route.locale !== 'en') return file;
+	const twin = file.replace(/^(pages|sections)\//, '$1/en/');
+	return existsSync(path.join(STATIC_ROOT, twin)) ? twin : file;
+}
+
 function bodyFor(route) {
 	const content = route.content;
 
@@ -61,7 +75,7 @@ function bodyFor(route) {
 		return {
 			kind: 'parts',
 			// Manifest order, not filename order: 03-models renders sixth.
-			parts: content.map((file) => file.replace(/\.html$/, '')),
+			parts: content.map((file) => twinFile(route, file).replace(/\.html$/, '')),
 		};
 	}
 
@@ -76,7 +90,7 @@ function bodyFor(route) {
 	}
 
 	if (content.startsWith('pages/')) {
-		return { kind: 'parts', parts: [content.replace(/\.html$/, '')] };
+		return { kind: 'parts', parts: [twinFile(route, content).replace(/\.html$/, '')] };
 	}
 
 	throw new Error(`Unrecognised content for ${route.out}: ${content}`);
@@ -112,6 +126,13 @@ const contract = {
 	},
 	routes: routes.map((route) => ({
 		url: route.url,
+		locale: route.locale,
+		// The twin's URL in the other language, for the language switch and hreflang.
+		twinUrl: (() => {
+			const twinOut = route.twinOut ?? routes.find((other) => other.twinOut === route.out)?.out;
+			const twin = twinOut && routes.find((other) => other.out === twinOut);
+			return twin ? twin.url : null;
+		})(),
 		slug: slug(route),
 		objectType: objectType(route),
 		parentPath: (() => {

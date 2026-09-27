@@ -69,7 +69,7 @@
    reference emits that this build does not. */
 @source not "../../../../client-mu-plugins/emposo-core/data";
 /* Words in copy, comments and JS that the scanner mistakes for utilities. */
-@source not inline("filter grayscale grid hidden static table transform visible");
+@source not inline("filter fixed grayscale grid hidden static table transform transition visible");
 
 /* ---- design tokens --------------------------------------------------------
    The token system is calibrated for the user-relative 16px root (the old

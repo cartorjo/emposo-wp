@@ -22,7 +22,7 @@ const EMPOSO_BRAND_SVGS = array( 'emposo-logo-neu26' );
 /**
  * Icons that may be inlined.
  *
- * The 22 icons the reference build inlines; tools/sync-assets.mjs ships
+ * The 23 icons the reference build inlines; tools/sync-assets.mjs ships
  * exactly these. Listing them keeps the shipped directory honest and makes an
  * accidental reference fail loudly.
  */
@@ -38,6 +38,7 @@ const EMPOSO_ICONS = array(
 	'documents-2-line',
 	'factory-line',
 	'finance-trend-line',
+	'globe-grid-line',
 	'handshake-2-line',
 	'layers-4-vertical-line',
 	'lightbulb-shine-line',
@@ -168,4 +169,66 @@ function emposo_fragment( string $name ): void {
 	}
 
 	echo \Emposo\Core\Fragments\render( $name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Assembled and escaped by the fragment renderer.
+}
+
+/**
+ * The page language, for <html lang> (the route's locale).
+ */
+function emposo_lang(): string {
+	return function_exists( '\\Emposo\\Core\\I18n\\locale' ) ? \Emposo\Core\I18n\locale() : 'de';
+}
+
+/**
+ * A UI string from the reference dictionary ({{t:key}} in the partials).
+ * Returned raw: dictionary values carry entities and inline markup.
+ *
+ * @param string $key Dictionary key.
+ */
+function emposo_t( string $key ): string {
+	return function_exists( '\\Emposo\\Core\\I18n\\t' ) ? \Emposo\Core\I18n\t( $key ) : '';
+}
+
+/**
+ * A German site path in the page language ({{href:/path/}} in the partials).
+ *
+ * @param string $path German path.
+ */
+function emposo_href( string $path ): string {
+	return function_exists( '\\Emposo\\Core\\I18n\\localize_path' ) ? \Emposo\Core\I18n\localize_path( $path ) : $path;
+}
+
+/**
+ * The language switch ({{LANGSWITCH:slot}}), as assemble.mjs langSwitch()
+ * renders it: a disclosure naming the current language, with a menu of both
+ * languages (German first), the current one marked. Printed with the leading
+ * newline and indent assemble.mjs emits, so the header stays byte-identical.
+ *
+ * @param string $slot 'header' or 'menu'.
+ */
+function emposo_lang_switch( string $slot ): void {
+	$route = emposo_route();
+	$here  = (string) emposo_lang();
+	$there = 'en' === $here ? 'de' : 'en';
+
+	// A 404 has no twin page: the switch leads to the other language's home.
+	$not_found = 'not_found' === ( $route['objectType'] ?? '' );
+	$paths     = array(
+		$here  => $not_found ? ( 'en' === $here ? '/en/' : '/' ) : (string) ( $route['url'] ?? '/' ),
+		$there => $not_found ? ( 'en' === $there ? '/en/' : '/' ) : (string) ( $route['twinUrl'] ?? ( 'en' === $there ? '/en/' : '/' ) ),
+	);
+	$names     = array(
+		'de' => 'Deutsch',
+		'en' => 'English',
+	);
+
+	$options = '';
+	foreach ( array( 'de', 'en' ) as $lang ) {
+		$options .= '<li><a class="lang-switch__option min-h-11" href="' . esc_url( $paths[ $lang ] ) . '" hreflang="' . $lang . '" lang="' . $lang . '"'
+			. ( $lang === $here ? ' aria-current="true"' : ' data-lang-option' ) . '>' . $names[ $lang ] . '</a></li>';
+	}
+
+	$class = 'header' === $slot ? 'lang-switch max-nav:hidden' : 'lang-switch lang-switch--menu';
+
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Assembled from escaped parts, an allowlisted icon and dictionary text.
+	echo "\n" . ( 'header' === $slot ? '    ' : '        ' ) . '<details class="' . $class . '" data-lang-switch><summary class="lang-switch__button min-h-11"><span class="lang-switch__icon" aria-hidden="true">' . emposo_icon_svg( 'globe-grid-line' ) . '</span><span class="sr-only">' . emposo_t( 'lang.label' ) . ' </span><span>' . $names[ $here ] . '</span></summary><ul class="lang-switch__menu">' . $options . '</ul></details>';
 }

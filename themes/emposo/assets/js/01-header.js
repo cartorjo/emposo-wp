@@ -2,6 +2,22 @@
    subtle scroll state. Opening/closing is native <details>. */
 (function () {
   'use strict';
+
+  /* A cross-document view transition rejects its promises when the browser
+     aborts or skips it (the viewport changing size mid-transition, an invalid
+     state, or the skipTransition() below). Nothing awaits them, so settle
+     them here, or they surface as uncaught errors. Registered before DOM ready, because
+     pagereveal fires before the first frame. */
+  var settle = function (transition) {
+    if (!transition) return;
+    [transition.ready, transition.finished, transition.updateCallbackDone].forEach(function (promise) {
+      if (promise) promise.catch(function () {});
+    });
+  };
+  window.addEventListener('pagereveal', function (event) {
+    settle(event.viewTransition);
+  });
+
   if (!window.__onReady) return;
 
   window.__onReady(function () {
@@ -12,7 +28,9 @@
 
     if (menu) {
       menu.addEventListener('toggle', function () {
-        menu.querySelector('summary').setAttribute('aria-label', menu.open ? 'Menü schließen' : 'Menü öffnen');
+        // The page language picks the label (docs/i18n.md).
+        var en = document.documentElement.lang === 'en';
+        menu.querySelector('summary').setAttribute('aria-label', menu.open ? (en ? 'Close menu' : 'Menü schließen') : (en ? 'Open menu' : 'Menü öffnen'));
       });
       menu.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
@@ -36,6 +54,37 @@
         if (event.matches) menu.open = false;
       });
     }
+
+    /* Language switch: a native disclosure (no JS needed to use it). Escape
+       closes it and returns focus to its button; a click or focus outside
+       closes it too. */
+    var switching = false;
+    Array.prototype.slice.call(document.querySelectorAll('[data-lang-switch]')).forEach(function (picker) {
+      var button = picker.querySelector('summary');
+      picker.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && picker.open) {
+          event.stopPropagation();
+          picker.open = false;
+          button.focus();
+        }
+      });
+      picker.addEventListener('focusout', function (event) {
+        if (picker.open && event.relatedTarget && !picker.contains(event.relatedTarget)) picker.open = false;
+      });
+      document.addEventListener('click', function (event) {
+        if (picker.open && !picker.contains(event.target)) picker.open = false;
+      });
+      picker.addEventListener('click', function (event) {
+        if (event.target.closest('[data-lang-option]')) switching = true;
+      });
+    });
+
+    /* The cross-document view transition (styles/11-components.css) is for
+       switching language only: every other navigation skips it. */
+    window.addEventListener('pageswap', function (event) {
+      settle(event.viewTransition);
+      if (event.viewTransition && !switching) event.viewTransition.skipTransition();
+    });
 
     var updateHeader = function () {
       if (header) header.classList.toggle('is-scrolled', window.scrollY > 12);

@@ -2,6 +2,7 @@
   "hero-flow": {
     "source": "Technology/GettyImages-2200128716.jpg",
     "alt": "Leuchtende Datenverbindungen auf einer digitalen Platine",
+    "alt_en": "Glowing data connections on a digital circuit board",
     "src": "/assets/supplied/hero-flow-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -67,6 +68,7 @@
   "data2ai": {
     "source": "Technology/GettyImages-2153711283.jpg",
     "alt": "Visualisierung vernetzter Daten und Analysen",
+    "alt_en": "Visualization of connected data and analytics",
     "src": "/assets/supplied/data2ai-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -132,6 +134,7 @@
   "engineering-knowledge": {
     "source": "Technology/GettyImages-2226205524.jpg",
     "alt": "Vernetzte Prozessoren und digitale Informationsflüsse",
+    "alt_en": "Connected processors and digital information flows",
     "src": "/assets/supplied/engineering-knowledge-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -197,6 +200,7 @@
   "technology-team": {
     "source": "Technology/GettyImages-2255324297.jpg",
     "alt": "Fachleute arbeiten gemeinsam an Software und Daten",
+    "alt_en": "Specialists working together on software and data",
     "src": "/assets/supplied/technology-team-1600.jpg",
     "width": 1600,
     "height": 1067,
@@ -262,6 +266,7 @@
   "technology": {
     "source": "Technology/GettyImages-2246977904.jpg",
     "alt": "Softwareentwicklung an vernetzten Arbeitsplätzen",
+    "alt_en": "Software development at connected workstations",
     "src": "/assets/supplied/technology-1600.jpg",
     "width": 1600,
     "height": 1066,
@@ -327,6 +332,7 @@
   "pharma": {
     "source": "Pharma/GettyImages-2192040012.jpg",
     "alt": "Laborgerät für die Analyse medizinischer Proben",
+    "alt_en": "Laboratory device for analyzing medical samples",
     "src": "/assets/supplied/pharma-1600.jpg",
     "width": 1600,
     "height": 1067,
@@ -392,6 +398,7 @@
   "pharma-transition": {
     "source": "Pharma/GettyImages-1178748271.jpg",
     "alt": "Fachkraft arbeitet an einer Anlage im Reinraum",
+    "alt_en": "Technician working at a system in a clean room",
     "src": "/assets/supplied/pharma-transition-1600.jpg",
     "width": 1600,
     "height": 1068,
@@ -457,6 +464,7 @@
   "pharma-research": {
     "source": "Pharma/GettyImages-477001700.jpg",
     "alt": "Wissenschaftlerin untersucht ein Molekülmodell",
+    "alt_en": "Scientist examining a molecular model",
     "src": "/assets/supplied/pharma-research-1600.jpg",
     "width": 1600,
     "height": 1068,
@@ -522,6 +530,7 @@
   "energy": {
     "source": "Sustainability/GettyImages-1850142671.jpg",
     "alt": "Fachkraft mit Solarmodul vor Windenergieanlagen",
+    "alt_en": "Technician with a solar panel in front of wind turbines",
     "src": "/assets/supplied/energy-1600.jpg",
     "width": 1600,
     "height": 1067,
@@ -587,6 +596,7 @@
   "wind-energy": {
     "source": "Sustainability/GettyImages-869503738.jpg",
     "alt": "Windenergieanlagen zwischen landwirtschaftlichen Flächen",
+    "alt_en": "Wind turbines between farm fields",
     "src": "/assets/supplied/wind-energy-1600.jpg",
     "width": 1600,
     "height": 1067,
@@ -652,6 +662,7 @@
   "collaboration": {
     "source": "Sustainability/GettyImages-2002270922.jpg",
     "alt": "Zwei Fachleute besprechen Daten auf einem Tablet",
+    "alt_en": "Two specialists discussing data on a tablet",
     "src": "/assets/supplied/collaboration-1600.jpg",
     "width": 1600,
     "height": 1067,
@@ -717,6 +728,7 @@
   "engineering": {
     "source": "General/AdobeStock_286447622.jpeg",
     "alt": "Ingenieur arbeitet mit digitalen Fahrzeugmodellen",
+    "alt_en": "Engineer working with digital vehicle models",
     "src": "/assets/supplied/engineering-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -782,6 +794,7 @@
   "automotive": {
     "source": "General/AdobeStock_1912234018.jpeg",
     "alt": "Digitales Modell eines vernetzten Fahrzeugs",
+    "alt_en": "Digital model of a connected vehicle",
     "src": "/assets/supplied/automotive-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -847,6 +860,7 @@
   "vehicle-testing": {
     "source": "General/AdobeStock_341429200.jpeg",
     "alt": "Fahrzeugdiagnose mit einem digitalen Prüfgerät",
+    "alt_en": "Vehicle diagnostics with a digital testing device",
     "src": "/assets/supplied/vehicle-testing-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -912,6 +926,7 @@
   "logistics": {
     "source": "General/AdobeStock_584600576.jpeg",
     "alt": "Digitale Steuerung von Lager- und Logistikprozessen",
+    "alt_en": "Digital control of warehouse and logistics processes",
     "src": "/assets/supplied/logistics-1600.jpg",
     "width": 1600,
     "height": 800,
@@ -977,6 +992,7 @@
   "datacenter": {
     "source": "General/AdobeStock_2013412737.jpeg",
     "alt": "Vernetzte Server in einem Rechenzentrum",
+    "alt_en": "Networked servers in a data center",
     "src": "/assets/supplied/datacenter-1600.jpg",
     "width": 1600,
     "height": 893,
@@ -1042,6 +1058,7 @@
   "software": {
     "source": "General/AdobeStock_1949888112.jpeg",
     "alt": "Entwicklung einer digitalen Anwendung am Laptop",
+    "alt_en": "Developing a digital application on a laptop",
     "src": "/assets/supplied/software-1600.jpg",
     "width": 1600,
     "height": 816,
@@ -1107,6 +1124,7 @@
   "claus-thierbach": {
     "source": "Foto Thierbach.jpg",
     "alt": "Claus Thierbach",
+    "alt_en": "Claus Thierbach",
     "src": "/assets/supplied/claus-thierbach-850.jpg",
     "width": 850,
     "height": 607,
@@ -1144,6 +1162,7 @@
   "verzahnung": {
     "source": "EMPOSO Grafik 26-V2.jpg",
     "alt": "Orange und blaue Datenströme laufen im Emposo-Logo zusammen",
+    "alt_en": "Orange and blue data streams converging in the Emposo logo",
     "src": "/assets/supplied/verzahnung-1083.jpg",
     "width": 1083,
     "height": 962,
@@ -1195,6 +1214,7 @@
   "aleksandar-amidzic": {
     "source": "ALA.jpg",
     "alt": "Aleksandar Amidzic",
+    "alt_en": "Aleksandar Amidzic",
     "src": "/assets/supplied/aleksandar-amidzic-850.jpg",
     "width": 850,
     "height": 607,
@@ -1232,6 +1252,7 @@
   "markus-auer": {
     "source": "Markus Auer.jpg",
     "alt": "Markus Auer",
+    "alt_en": "Markus Auer",
     "src": "/assets/supplied/markus-auer-850.jpg",
     "width": 850,
     "height": 607,
@@ -1269,6 +1290,7 @@
   "roman-bretz": {
     "source": "Roman Bretz.jpg",
     "alt": "Roman Bretz",
+    "alt_en": "Roman Bretz",
     "src": "/assets/supplied/roman-bretz-850.jpg",
     "width": 850,
     "height": 607,
@@ -1306,6 +1328,7 @@
   "michael-schmitt": {
     "source": "Michael Schmitt.jpg",
     "alt": "Dr. Michael Schmitt",
+    "alt_en": "Dr. Michael Schmitt",
     "src": "/assets/supplied/michael-schmitt-850.jpg",
     "width": 850,
     "height": 607,
@@ -1343,6 +1366,7 @@
   "marcus-hefele": {
     "source": "Marcus Hefele.jpg",
     "alt": "Marcus Hefele",
+    "alt_en": "Marcus Hefele",
     "src": "/assets/supplied/marcus-hefele-850.jpg",
     "width": 850,
     "height": 607,
@@ -1380,6 +1404,7 @@
   "industry-aerospace": {
     "source": "AdobeStock_2155375490-Aerospace & Defense.jpg",
     "alt": "Fachkraft überwacht Radar- und Flugdaten auf mehreren Monitoren",
+    "alt_en": "Specialist monitoring radar and flight data on several screens",
     "src": "/assets/supplied/industry-aerospace-920.jpg",
     "width": 920,
     "height": 614,
@@ -1417,6 +1442,7 @@
   "industry-energy": {
     "source": "AdobeStock_223686976-Energy & Resources.jpg",
     "alt": "Strommast mit Solarmodulen und Windenergieanlagen im Gegenlicht",
+    "alt_en": "Power pylon with solar panels and wind turbines against the light",
     "src": "/assets/supplied/industry-energy-919.jpg",
     "width": 919,
     "height": 613,
@@ -1454,6 +1480,7 @@
   "industry-health": {
     "source": "GettyImages-1194960360-Health & Pharma.jpg",
     "alt": "Pipette dosiert Proben in Laborgefäße",
+    "alt_en": "Pipette dispensing samples into laboratory tubes",
     "src": "/assets/supplied/industry-health-816.jpg",
     "width": 816,
     "height": 612,
@@ -1491,6 +1518,7 @@
   "industry-industrials": {
     "source": "AdobeStock_483288607-Indutrials & Manufacturing.jpg",
     "alt": "Digital vernetzte Roboter in einer Fahrzeug-Fertigungslinie",
+    "alt_en": "Digitally connected robots on a vehicle production line",
     "src": "/assets/supplied/industry-industrials-1091.jpg",
     "width": 1091,
     "height": 613,
@@ -1542,6 +1570,7 @@
   "industry-technology": {
     "source": "AdobeStock_970503738-Technology, Telecoms & Media.jpg",
     "alt": "Mobilfunkmast über einer abendlichen Stadt",
+    "alt_en": "Cell tower above a city in the evening",
     "src": "/assets/supplied/industry-technology-1094.jpg",
     "width": 1094,
     "height": 614,
@@ -1593,6 +1622,7 @@
   "portfolio-hero": {
     "source": "General/AdobeStock_1952732297.jpeg",
     "alt": "Laptop mit Engineering-Workflows in einem Rechenzentrum",
+    "alt_en": "Laptop with engineering workflows in a data center",
     "src": "/assets/supplied/portfolio-hero-1600.jpg",
     "width": 1600,
     "height": 844,
@@ -1658,6 +1688,7 @@
   "about-netzwerk": {
     "source": "About Emposo Grafik Final_About Emposo Grafik V1B.jpg",
     "alt": "250 Inhouse-Experten von Emposo, dahinter das Hays-Netzwerk mit 3.000 festangestellten Talenten und 10.000 aktiven Partnern",
+    "alt_en": "250 in-house experts at Emposo, backed by the Hays network with 3,000 permanently employed talents and 10,000 active partners",
     "src": "/assets/supplied/about-netzwerk-1600.jpg",
     "width": 1600,
     "height": 985,
@@ -1723,6 +1754,7 @@
   "antriebssteuerung": {
     "source": "Software Antriebssteuerung-AdobeStock_341431108.jpg",
     "alt": "Fahrzeugdiagnose mit einem robusten Prüf-Notebook in der Werkstatt",
+    "alt_en": "Vehicle diagnostics with a rugged testing notebook in the workshop",
     "src": "/assets/supplied/antriebssteuerung-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -1788,6 +1820,7 @@
   "gewichtsmanagement": {
     "source": "Gewichtsmanagement-AdobeStock_305628594.jpg",
     "alt": "Ingenieur betrachtet das leuchtende Gitternetzmodell eines Fahrzeugs",
+    "alt_en": "Engineer looking at the glowing wireframe model of a vehicle",
     "src": "/assets/supplied/gewichtsmanagement-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -1853,6 +1886,7 @@
   "pharma-qualitaet": {
     "source": "Pharma-Qualitätssicherung-GettyImages-544457191.jpg",
     "alt": "Laborfachkraft in Schutzkleidung am Mikroskop neben einer Bioreaktoranlage",
+    "alt_en": "Lab technician in protective clothing at a microscope next to a bioreactor",
     "src": "/assets/supplied/pharma-qualitaet-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -1918,6 +1952,7 @@
   "ki-testspezifikation": {
     "source": "KI-Testspezifikation-AdobeStock_1891097286.jpg",
     "alt": "Hand tippt auf ein Tablet, darüber ein Schaubild vernetzter KI-Agenten",
+    "alt_en": "Hand tapping a tablet, above it a diagram of connected AI agents",
     "src": "/assets/supplied/ki-testspezifikation-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -1983,6 +2018,7 @@
   "technische-dokumentation-dita": {
     "source": "Technische Dokumentation-AdobeStock_550744833.jpg",
     "alt": "Hände an einem Laptop, darüber eine Ordnerstruktur mit Dokumenten",
+    "alt_en": "Hands on a laptop, above them a folder structure with documents",
     "src": "/assets/supplied/technische-dokumentation-dita-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2048,6 +2084,7 @@
   "projektsteuerung": {
     "source": "Projektsteuerung-GettyImages-2255324297.jpg",
     "alt": "Zwei Entwickler besprechen Code vor mehreren Monitoren",
+    "alt_en": "Two developers discussing code in front of several monitors",
     "src": "/assets/supplied/projektsteuerung-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2113,6 +2150,7 @@
   "lieferanten-entwicklung": {
     "source": "Lieferanten-Entwicklung-AdobeStock_555709912.jpg",
     "alt": "Zwei Fachkräfte mit Schutzhelmen prüfen Anlagendaten auf einem Tablet in der Fertigung",
+    "alt_en": "Two technicians in hard hats checking plant data on a tablet in production",
     "src": "/assets/supplied/lieferanten-entwicklung-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2178,6 +2216,7 @@
   "betriebsanleitung": {
     "source": "TechnischeDokumentation-AdobeStock_2051971830.jpg",
     "alt": "Person blättert in einem digitalen Benutzerhandbuch über einem Tablet",
+    "alt_en": "Person paging through a digital user manual above a tablet",
     "src": "/assets/supplied/betriebsanleitung-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2243,6 +2282,7 @@
   "virtuelles-kraftwerk": {
     "source": "Virtuelles Kraftwerk-AdobeStock_1407699569.jpg",
     "alt": "Hände auf einer Laptop-Tastatur, darüber ein Smart-Grid-Schaubild zum Stromverbrauch",
+    "alt_en": "Hands on a laptop keyboard, above them a smart grid diagram of power consumption",
     "src": "/assets/supplied/virtuelles-kraftwerk-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2308,6 +2348,7 @@
   "penetrationstests": {
     "source": "Penetrationstests-parking-1-Emposo Webseite.jpg",
     "alt": "Heck eines SUV mit visualisierten Parksensoren vor einem Poller",
+    "alt_en": "Rear of an SUV with visualized parking sensors in front of a bollard",
     "src": "/assets/supplied/penetrationstests-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2373,6 +2414,7 @@
   "cybersecurity-medizin": {
     "source": "Cybersecurity-AdobeStock_1359219322.jpg",
     "alt": "Drei Fachleute vor einem Bildschirm mit Schloss-Symbol und Sicherheitsgrafiken",
+    "alt_en": "Three specialists in front of a screen with a lock symbol and security graphics",
     "src": "/assets/supplied/cybersecurity-medizin-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2438,6 +2480,7 @@
   "risikomanagement": {
     "source": "Informationssicherheits-Risikomanagement-AdobeStock_2157639186.jpg",
     "alt": "Person mit Tablet, darüber medizinische Symbole und Diagramme in Blau",
+    "alt_en": "Person with a tablet, above it medical symbols and charts in blue",
     "src": "/assets/supplied/risikomanagement-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2503,6 +2546,7 @@
   "fuzzing": {
     "source": "Fuzzing-AdobeStock_1951615053.jpg",
     "alt": "Hände auf einer Laptop-Tastatur, darüber Warnsymbole und Programmcode",
+    "alt_en": "Hands on a laptop keyboard, above them warning symbols and program code",
     "src": "/assets/supplied/fuzzing-1600.jpg",
     "width": 1600,
     "height": 900,

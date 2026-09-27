@@ -24,6 +24,7 @@ use WP_CLI;
 use WP_Error;
 use WP_Post;
 use const Emposo\Core\ContentModel\CPT_CASE_STUDY;
+use const Emposo\Core\ContentModel\CPT_CASE_STUDY_EN;
 use const Emposo\Core\ContentModel\CPT_PERSON;
 use const Emposo\Core\ContentModel\TAX_DISCIPLINE;
 use const Emposo\Core\ContentModel\TAX_INDUSTRY;
@@ -532,6 +533,8 @@ class Import_Command {
 		// the site, so losing it is an accessibility regression with no visual
 		// symptom.
 		update_post_meta( $id, '_wp_attachment_image_alt', wp_slash( (string) $asset['alt'] ) );
+		// The English alt text (reference/static manifest alt_en).
+		update_post_meta( $id, '_emposo_alt_en', wp_slash( (string) ( $asset['alt_en'] ?? $asset['alt'] ) ) );
 		update_post_meta( $id, '_emposo_asset_key', $key );
 		update_post_meta( $id, '_emposo_source_slug', '/' . $key . '/' );
 
@@ -563,6 +566,22 @@ class Import_Command {
 		foreach ( (array) ( $this->data['projects'] ?? array() ) as $index => $project ) {
 			$this->apply_case_study( $project, $index );
 		}
+		foreach ( (array) ( $this->data['projectsEn'] ?? array() ) as $index => $project ) {
+			$this->apply_case_study( $project, $index, CPT_CASE_STUDY_EN );
+		}
+	}
+
+	/**
+	 * The two case-study sets: German, and the English twins (their own post
+	 * type under /en/case-studies/, reference/static docs/i18n.md).
+	 *
+	 * @return array<int, array{0: string, 1: string, 2: array<int, array<string, mixed>>}>
+	 */
+	private function case_study_sets(): array {
+		return array(
+			array( CPT_CASE_STUDY, '/case-studies/', (array) ( $this->data['projects'] ?? array() ) ),
+			array( CPT_CASE_STUDY_EN, '/en/case-studies/', (array) ( $this->data['projectsEn'] ?? array() ) ),
+		);
 	}
 
 	/**
@@ -570,10 +589,12 @@ class Import_Command {
 	 *
 	 * @param array<string, mixed> $project Project record.
 	 * @param int                  $index   Position in the source array.
+	 * @param string               $type    Post type (German or English case study).
 	 */
-	private function apply_case_study( array $project, int $index ): void {
-		$slug = (string) $project['slug'];
-		$post = $this->find_post( CPT_CASE_STUDY, '/case-studies/' . $slug . '/' );
+	private function apply_case_study( array $project, int $index, string $type = CPT_CASE_STUDY ): void {
+		$slug   = (string) $project['slug'];
+		$prefix = CPT_CASE_STUDY_EN === $type ? '/en/case-studies/' : '/case-studies/';
+		$post   = $this->find_post( $type, $prefix . $slug . '/' );
 
 		if ( ! $post instanceof WP_Post ) {
 			WP_CLI::warning( sprintf( 'case study %s not scaffolded; run `wp emposo scaffold` first', $slug ) );
@@ -628,67 +649,91 @@ class Import_Command {
 	 * Assign terms to case studies, with ancestor closure.
 	 */
 	private function do_relations(): void {
-		foreach ( (array) ( $this->data['projects'] ?? array() ) as $project ) {
-			$slug = (string) $project['slug'];
-			$post = $this->find_post( CPT_CASE_STUDY, '/case-studies/' . $slug . '/' );
-
-			if ( ! $post instanceof WP_Post ) {
-				continue;
+		foreach ( $this->case_study_sets() as list( $type, $prefix, $set ) ) {
+			foreach ( $set as $project ) {
+				$this->relate_case_study( $type, $prefix, $project );
 			}
-
-			if ( $this->dry_run ) {
-				$this->note( 'relate', 'case study', $slug );
-				continue;
-			}
-
-			/*
-			 * Ancestor closure. `filter` already lists both tokens
-			 * ('industrial automotive'), but assign ancestors explicitly so the
-			 * invariant holds even if a future record lists only the child:
-			 * otherwise the client-side `industrial` button and a server-side
-			 * include_children query disagree, and the filter counts diverge
-			 * from the data.
-			 */
-			$tokens = preg_split( '/\s+/', (string) $project['filter'] );
-			if ( ! is_array( $tokens ) ) {
-				$tokens = array();
-			}
-			$ids = array();
-			foreach ( $tokens as $token ) {
-				$term = get_term_by( 'slug', $token, TAX_INDUSTRY );
-				if ( ! $term ) {
-					continue;
-				}
-				$ids[] = (int) $term->term_id;
-				foreach ( get_ancestors( (int) $term->term_id, TAX_INDUSTRY ) as $ancestor ) {
-					$ids[] = (int) $ancestor;
-				}
-			}
-			wp_set_object_terms( $post->ID, array_values( array_unique( $ids ) ), TAX_INDUSTRY, false );
-
-			// Exactly one discipline (a CHILD term).
-			$discipline = get_term_by( 'slug', (string) $project['discipline'], TAX_DISCIPLINE );
-			if ( $discipline ) {
-				wp_set_object_terms( $post->ID, array( (int) $discipline->term_id ), TAX_DISCIPLINE, false );
-			}
-
-			// Outcomes are space-separated tokens ('optimize verzahnen').
-			$outcomes = array();
-			$tokens   = preg_split( '/\s+/', trim( (string) $project['outcome'] ) );
-			foreach ( is_array( $tokens ) ? $tokens : array() as $token ) {
-				$outcome = get_term_by( 'slug', $token, TAX_OUTCOME );
-				if ( $outcome ) {
-					$outcomes[] = (int) $outcome->term_id;
-				}
-			}
-			wp_set_object_terms( $post->ID, $outcomes, TAX_OUTCOME, false );
-
-			$this->attach_featured_image( $post->ID, (string) $project['image'] );
-
-			$this->note( 'relate', 'case study', $slug );
 		}
 
-		// The industry tiles' photographs, as term meta pointing at the attachment.
+		$this->relate_term_images();
+	}
+
+	/**
+	 * Terms, featured image and (English) the link to the German twin.
+	 *
+	 * @param string               $type    Post type.
+	 * @param string               $prefix  URL prefix of the type.
+	 * @param array<string, mixed> $project Project record.
+	 */
+	private function relate_case_study( string $type, string $prefix, array $project ): void {
+		$slug = (string) $project['slug'];
+		$post = $this->find_post( $type, $prefix . $slug . '/' );
+
+		if ( ! $post instanceof WP_Post ) {
+			return;
+		}
+
+		if ( CPT_CASE_STUDY_EN === $type && ! $this->dry_run ) {
+			$german = $this->find_post( CPT_CASE_STUDY, '/case-studies/' . (string) $project['translationOf'] . '/' );
+			update_post_meta( $post->ID, '_emposo_translation_of', $german instanceof WP_Post ? $german->ID : 0 );
+		}
+
+		if ( $this->dry_run ) {
+			$this->note( 'relate', 'case study', $slug );
+			return;
+		}
+
+		/*
+		 * Ancestor closure. `filter` already lists both tokens
+		 * ('industrial automotive'), but assign ancestors explicitly so the
+		 * invariant holds even if a future record lists only the child:
+		 * otherwise the client-side `industrial` button and a server-side
+		 * include_children query disagree, and the filter counts diverge
+		 * from the data.
+		 */
+		$tokens = preg_split( '/\s+/', (string) $project['filter'] );
+		if ( ! is_array( $tokens ) ) {
+			$tokens = array();
+		}
+		$ids = array();
+		foreach ( $tokens as $token ) {
+			$term = get_term_by( 'slug', $token, TAX_INDUSTRY );
+			if ( ! $term ) {
+				continue;
+			}
+			$ids[] = (int) $term->term_id;
+			foreach ( get_ancestors( (int) $term->term_id, TAX_INDUSTRY ) as $ancestor ) {
+				$ids[] = (int) $ancestor;
+			}
+		}
+		wp_set_object_terms( $post->ID, array_values( array_unique( $ids ) ), TAX_INDUSTRY, false );
+
+		// Exactly one discipline (a CHILD term).
+		$discipline = get_term_by( 'slug', (string) $project['discipline'], TAX_DISCIPLINE );
+		if ( $discipline ) {
+			wp_set_object_terms( $post->ID, array( (int) $discipline->term_id ), TAX_DISCIPLINE, false );
+		}
+
+		// Outcomes are space-separated tokens ('optimize verzahnen').
+		$outcomes = array();
+		$tokens   = preg_split( '/\s+/', trim( (string) $project['outcome'] ) );
+		foreach ( is_array( $tokens ) ? $tokens : array() as $token ) {
+			$outcome = get_term_by( 'slug', $token, TAX_OUTCOME );
+			if ( $outcome ) {
+				$outcomes[] = (int) $outcome->term_id;
+			}
+		}
+		wp_set_object_terms( $post->ID, $outcomes, TAX_OUTCOME, false );
+
+		$this->attach_featured_image( $post->ID, (string) $project['image'] );
+
+		$this->note( 'relate', 'case study', $slug );
+	}
+
+	/**
+	 * The industry tiles' photographs, as term meta pointing at the attachment.
+	 */
+	private function relate_term_images(): void {
 		foreach ( (array) ( $this->data['terms']['emposo_industry'] ?? array() ) as $term ) {
 			$key = (string) ( $term['meta']['image'] ?? '' );
 			if ( $this->dry_run || '' === $key ) {
@@ -742,6 +787,9 @@ class Import_Command {
 			$id = (int) $id;
 
 			update_post_meta( $id, '_emposo_person_roles', wp_slash( array_map( 'strval', (array) $person['roles'] ) ) );
+			// English roles and bio paragraphs (reference/static site-data.en.mjs people).
+			update_post_meta( $id, '_emposo_person_roles_en', wp_slash( array_map( 'strval', (array) ( $person['roles_en'] ?? $person['roles'] ) ) ) );
+			update_post_meta( $id, '_emposo_person_bio_en', wp_slash( array_map( 'strval', (array) ( $person['bio_en'] ?? $person['bio'] ) ) ) );
 			update_post_meta( $id, '_emposo_person_linkedin', wp_slash( (string) $person['linkedin'] ) );
 
 			if ( '' !== (string) $person['image'] ) {
@@ -760,9 +808,12 @@ class Import_Command {
 
 		$map = array(
 			'emposo_facts'          => $options['facts'] ?? array(),
+			'emposo_facts_en'       => $options['facts_en'] ?? array(),
 			'emposo_certifications' => $options['certifications'] ?? array(),
 			'emposo_jobs'           => $options['jobs'] ?? array(),
+			'emposo_jobs_en'        => $options['jobs_en'] ?? array(),
 			'emposo_interests'      => $options['interests'] ?? array(),
+			'emposo_interests_en'   => $options['interests_en'] ?? array(),
 		);
 
 		foreach ( $map as $name => $value ) {

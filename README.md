@@ -16,8 +16,8 @@ npm run wp:bootstrap              # scaffold, then import (both idempotent)
 `wp:bootstrap` is three steps and every one is required on a fresh database.
 `wp:theme` activates the theme — nothing else does, and an unactivated theme
 means WordPress serves its own default, whose inline scripts the CSP blocks and
-whose markup fails every parity check. `wp:scaffold` creates the 35 route
-objects and sets what makes the contract's paths exist at all — postname
+whose markup fails every parity check. `wp:scaffold` creates the 70 route
+objects (35 German, 35 English under `/en/`) and sets what makes the contract's paths exist at all — postname
 permalinks, the front page, `blog_public=0` — then flushes the rewrite rules.
 `wp:seed` fills those objects with content. All three are idempotent.
 
@@ -50,7 +50,7 @@ format is reviewed on a machine that has no credential.
 
 | Command | Asserts |
 |---|---|
-| `npm run check` | lint, CSS build, class inventory, DOM parity on all 35 routes and the 404, no drift |
+| `npm run check` | lint, CSS build, class inventory, DOM parity on all 70 routes (DE + EN) and both 404s, no drift |
 | `npm run parity -- --strict` | Every route matches `reference/static/` after normalisation |
 | `npm run class-inventory` | The built CSS emits a superset of the reference's 175 classes |
 | `npm run behaviours` | Interaction, filter, deep-link, count-up and no-JS contracts |

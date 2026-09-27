@@ -26,6 +26,8 @@ const flag = (name) => args.includes(`--${name}`);
 const opt = (name) => args.find((a) => a.startsWith(`--${name}=`))?.split('=').slice(1).join('=');
 
 const STRICT = flag('strict');
+// After launch (blog_public=1) the X-Robots-Tag header must be ABSENT.
+const INDEXABLE = flag('indexable');
 const SELF_TEST = flag('self-test');
 const WRITE_REPORT = flag('report');
 const ONLY = opt('route');
@@ -168,7 +170,10 @@ async function main() {
 			// Only strip the origin on the WordPress side; the reference has none.
 			siteOrigin: SELF_TEST || AGAINST_STATIC ? '' : WP_BASE,
 		};
-		const expected = normalise(staticHtml, { themeBase: config.themeBase });
+		// The same origin is stripped from the reference too: against the live
+		// site (--base=https://emposo.de) the head's canonical/OG URLs name that
+		// origin on both sides. Elsewhere the reference never contains the base.
+		const expected = normalise(staticHtml, { themeBase: config.themeBase, siteOrigin: normaliseOptions.siteOrigin });
 		const got = normalise(actualHtml, normaliseOptions);
 		const state = classify(expected, got);
 
@@ -176,7 +181,7 @@ async function main() {
 
 		const checks = SELF_TEST
 			? []
-			: runChecks({ html: actualHtml, headers, route, routeUrls });
+			: runChecks({ html: actualHtml, headers, indexable: INDEXABLE, route, routeUrls });
 
 		const links = SELF_TEST
 			? []

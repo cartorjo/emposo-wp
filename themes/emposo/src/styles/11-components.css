@@ -13,7 +13,7 @@
    underlines, arrow slides) and the focus ring. The stacking context stays,
    so positioned children keep their layout. */
 :is(.header-contact, .mobile-menu__cta, .filter-button:where(:enabled), .contact-form button, .mobile-menu__panel a,
-  .site-nav > a, .text-link, .expander summary, .mobile-menu summary, .site-logo, .site-footer a, .page-breadcrumb a,
+  .site-nav > a, .text-link, .expander summary, .mobile-menu > summary, .site-logo, .site-footer a, .page-breadcrumb a,
   .reference-card__copy, a.expertise-card) { isolation: isolate; position: relative; }
 
 /* Filter chip — the one toggle chip (/branchen/, /case-studies/). Resting
@@ -170,3 +170,32 @@ svg:dir(rtl) { direction: ltr; }
    headline-sm role and a wrapping row of text links. */
 .explore__title { font-size: var(--text-headline-sm); font-weight: 400; line-height: var(--leading-title); }
 .explore__links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-8); list-style: none; margin: var(--space-6) 0 0; padding: 0; }
+
+/* Language switch (owner design 2026-09-27, revised): a pill button naming the
+   current language (faint ink tint over --color-paper, the header ground) that
+   opens a small menu with both languages. Native <details>: open state comes
+   from [open], hover deepens the ground and adds the outer ring, focus uses the
+   site-wide ring. */
+.lang-switch { position: relative; }
+.lang-switch__button { align-items: center; background: color-mix(in srgb, var(--color-ink) 6%, var(--color-paper)); border-radius: var(--radius-full); color: var(--color-ink); cursor: pointer; display: inline-flex; font-size: var(--text-body-sm); font-weight: 400; gap: var(--space-2); list-style: none; padding: var(--space-2) var(--space-4); transition: background-color var(--duration-fast) var(--ease-em), box-shadow var(--duration-fast) var(--ease-em); white-space: nowrap; }
+.lang-switch__button::-webkit-details-marker { display: none; }
+.lang-switch__button:hover, .lang-switch[open] > .lang-switch__button { background: color-mix(in srgb, var(--color-ink) 11%, var(--color-paper)); box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 3px var(--color-line); }
+.lang-switch__icon { display: inline-flex; height: 1.1em; width: 1.1em; }
+.lang-switch__icon svg { height: 100%; width: 100%; }
+.lang-switch__menu { background: var(--color-bg); border: 1px solid var(--color-line); border-radius: var(--space-4); box-shadow: var(--shadow-overlay); display: grid; inset-inline-end: 0; list-style: none; margin: 0; min-width: 100%; padding: var(--space-2); position: absolute; top: calc(100% + var(--space-2)); z-index: 60; }
+.lang-switch__option { align-items: center; border-radius: var(--space-3); color: var(--color-ink); display: flex; font-size: var(--text-body-sm); padding: var(--space-2) var(--space-4); text-decoration: none; transition: background-color var(--duration-fast) var(--ease-em); white-space: nowrap; }
+.lang-switch__option:hover { background: color-mix(in srgb, var(--color-ink) 6%, var(--color-paper)); }
+.lang-switch__option[aria-current] { font-weight: 500; }
+.lang-switch__option[aria-current]::after { content: "✓"; margin-inline-start: auto; padding-inline-start: var(--space-4); }
+/* In the mobile panel: the button aligned with the links' text, the menu in flow. */
+.lang-switch--menu { justify-self: start; margin: var(--space-4) var(--space-6) 0; }
+.lang-switch--menu .lang-switch__menu { box-shadow: none; position: static; margin-top: var(--space-2); }
+.mobile-menu__panel .lang-switch__option[aria-current] { text-decoration: none; }
+.mobile-menu__panel .lang-switch__option { border-bottom: 0; min-height: var(--target-min); padding: var(--space-2) var(--space-4); }
+
+/* Switching language crossfades between the two pages (cross-document view
+   transition; js/01-header.js skips it for every other navigation). Off
+   under reduced motion; browsers without support switch instantly. */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--duration-slow); animation-timing-function: var(--ease-em); }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }

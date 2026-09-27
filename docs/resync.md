@@ -83,13 +83,47 @@ Then update the counts that prose carries: README, audit-evidence/README.md,
 launch-checklist, workflow comments, and the docblocks that name route or case
 counts.
 
+## Locales
+
+Since 1a4ddaf (2026-09-27) the reference publishes an American English twin of
+every page under `/en/`, and each step above covers both locales:
+
+- **Routes:** `tools/routes.mjs` adds the English entries from `pages.en.mjs`
+  whenever the reference's `PUBLISHED` list includes `en`. Every route carries
+  `locale`, and English bodies come from `pages/en/` and `sections/en/`. The
+  contract is 70 routes plus two 404s (`/__parity-404__/`, `/en/__parity-404__/`).
+- **Records:** English Pages sit under the `en` parent Page. English case
+  studies are the `emposo_case_study_en` type (rewrite slug `en/case-studies`),
+  linked to their German record by `_emposo_translation_of`, and they share its
+  terms. English term, person, image and option text lives in `_en` meta and
+  `_en` options (`emposo_facts_en`, `emposo_jobs_en`, `emposo_interests_en`). No
+  translation plugin is used.
+- **Strings:** `export-content.mjs` also writes
+  `client-mu-plugins/emposo-core/data/i18n.json` (UI strings, the English path
+  map, the English case-study slugs) from `content/i18n.mjs`. `inc/i18n.php`
+  reads it. `t()` and `localize_path()` are lookups, so there is no logic to
+  port.
+- **Templates:** port-partial.mjs localizes hrefs in English sources and
+  expands the page hero with the English locale. It turns three reference
+  tokens into PHP: `{{t:key}}` → `emposo_t()`, `{{href:/path/}}` →
+  `emposo_href()`, and `{{LANGSWITCH:slot}}` → `emposo_lang_switch()`.
+- **Assets:** sync-assets.mjs also scans `assemble.mjs` for the icons it
+  inlines itself, such as the switch's globe.
+- **Gates:** `npm run behaviours` runs every scenario in both locales and tests
+  the language switch. The reference's own `--target=static` run currently
+  fails "console clean" under `npx serve` because of a cross-document
+  view-transition abort. WordPress is not affected. The defect is
+  cartorjo/weave-clone#40.
+
 ## Known limits
 
-- `npm run audit` whole-page byte totals are not reproducible run to run, even
-  for the reference against itself (lazy images fetched during the width sweep
-  can still be in flight when the sum is taken). A single-route failure on the
-  2 % whole-page tolerance needs a second measurement before it counts as a
-  regression (#40).
+- `npm run audit` whole-page byte totals used to vary run to run on the
+  reference itself (lazy images and srcset candidates fetched during the width
+  sweep were still being counted). Since #40 the total is snapshotted after a
+  paced scroll pass, once every image has settled, and before the width sweep,
+  so repeat runs are byte-identical. Initial-load totals still race on
+  `/branchen/` and `/en/industries/`: two images at the fold may or may not be
+  fetched before `networkidle`. They only feed the absolute budgets.
 - The head block names `https://emposo.de/assets/share/*.jpg` and
   `/assets/brand/emposo-logo-organization.png`. These are not theme assets, so
   the launch webroot must serve them at those root paths (copy them in at

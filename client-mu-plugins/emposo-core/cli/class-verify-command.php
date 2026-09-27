@@ -2,8 +2,8 @@
 /**
  * `wp emposo verify` — the route and content contract.
  *
- * This is the real URL-preservation guarantee. Twelve of the 35 routes are
- * Pages, so a single edited slug or changed parent silently changes a live URL;
+ * This is the real URL-preservation guarantee. Twenty-four of the 70 routes (12
+ * per locale) are Pages, so a single edited slug or changed parent silently changes a live URL;
  * and the routing design rests on WordPress behaviours (permastruct ordering,
  * has_archive emitting an extra rule) whose breakage is remote from the change
  * that caused it. Neither is visible to a check that only inspects the
@@ -216,9 +216,10 @@ class Verify_Command {
 
 		$case_studies = get_posts(
 			array(
-				'post_type'        => \Emposo\Core\ContentModel\CPT_CASE_STUDY,
+				// Both languages: the English twins carry the same invariants.
+				'post_type'        => array( \Emposo\Core\ContentModel\CPT_CASE_STUDY, \Emposo\Core\ContentModel\CPT_CASE_STUDY_EN ),
 				'post_status'      => 'publish',
-				// The corpus is 23; the headroom is for editorial growth, and
+				// The corpus is 2 × 23; the headroom is for editorial growth, and
 				// VIP's 100-post ceiling is the limit worth respecting here.
 				'posts_per_page'   => 100,
 				'no_found_rows'    => true,
@@ -227,6 +228,14 @@ class Verify_Command {
 		);
 
 		foreach ( $case_studies as $post ) {
+			// An English case study links to an existing German one.
+			if ( \Emposo\Core\ContentModel\CPT_CASE_STUDY_EN === $post->post_type ) {
+				$twin = get_post( (int) get_post_meta( $post->ID, '_emposo_translation_of', true ) );
+				if ( ! $twin instanceof \WP_Post || \Emposo\Core\ContentModel\CPT_CASE_STUDY !== $twin->post_type ) {
+					$failures[] = sprintf( '%s: English case study without its German twin (_emposo_translation_of)', $post->post_name );
+				}
+			}
+
 			// Exactly one discipline and at least one outcome, and the discipline
 			// must be a CHILD term: assigning the parent group directly would break both
 			// the card label and include_children queries.

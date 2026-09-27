@@ -172,7 +172,12 @@ function picture( $image, string $size_key = 'default', bool $priority = false, 
 	$sizes    = SIZES[ $size_key ] ?? SIZES['default'];
 	$variants = get_post_meta( $id, '_emposo_variants', true );
 	$alt      = (string) get_post_meta( $id, '_wp_attachment_image_alt', true );
-	$meta     = wp_get_attachment_metadata( $id );
+	// English pages read the English alt text (manifest alt_en), falling back to German.
+	if ( 'en' === \Emposo\Core\I18n\locale() ) {
+		$alt_en = (string) get_post_meta( $id, '_emposo_alt_en', true );
+		$alt    = '' !== $alt_en ? $alt_en : $alt;
+	}
+	$meta = wp_get_attachment_metadata( $id );
 
 	$width  = (int) ( $meta['width'] ?? 0 );
 	$height = (int) ( $meta['height'] ?? 0 );

@@ -8,6 +8,8 @@
  * copy) where retyping is the likeliest source of a silent diff.
  *
  * Token translation:
+ *   {{t:key}} {{href:/p/}}      -> emposo_t(), emposo_href() (i18n)
+ *   {{LANGSWITCH:slot}}         -> emposo_lang_switch()
  *   {{TITLE}} {{DESCRIPTION}}   -> escaped route fields
  *   {{BODY_CLASS}}              -> body_class(), filtered to the exact set
  *   {{SCRIPTS}}                 -> wp_head()
@@ -46,7 +48,9 @@ let html = readFileSync(path.join(STATIC_ROOT, source), 'utf8');
  * frame markup byte-identical, and leaves a {{image:key:hero}} token for the
  * image rule below.
  */
-const { pageHero, breadcrumb } = await import(path.join(STATIC_ROOT, 'content', 'render.mjs'));
+const { pageHero, breadcrumb, setLocale } = await import(path.join(STATIC_ROOT, 'content', 'render.mjs'));
+// English twins expand their frames in English (breadcrumb labels, landmark name).
+if (setLocale) setLocale(/^(pages|sections)\/en\//.test(source) ? 'en' : 'de');
 const attrs = (raw) => Object.fromEntries([...raw.matchAll(/([a-z-]+)="([^"]*)"/g)].map(([, k, v]) => [k, v]));
 html = html
 	.replace(/<page-hero\b([^>]*)>([\s\S]*?)<\/page-hero>/g, (_, raw, copy) => {
@@ -63,7 +67,38 @@ html = html
 	})
 	.replace(/<page-crumb label="([^"]*)"><\/page-crumb>/g, (_, label) => breadcrumb(label));
 
+/*
+ * English twins (pages/en/, sections/en/) keep German internal paths in their
+ * source; assemble.mjs rewrites every href through the route map at build
+ * time. The same rewrite happens here, at port time, with the reference's own
+ * localizePath(), so the PHP template carries the English paths.
+ */
+if (/^(pages|sections)\/en\//.test(source)) {
+	const { localizePath } = await import(path.join(STATIC_ROOT, 'content', 'i18n.mjs'));
+	html = html.replace(/href="(\/[^"]*)"/g, (_, href) => `href="${localizePath(href, 'en')}"`);
+}
+
 const replacements = [
+	/*
+	 * The i18n tokens (reference/static docs/i18n.md). {{t:key}} prints the
+	 * dictionary entry raw (it carries entities and inline markup), {{href:}}
+	 * a German path in the page language. {{LANGSWITCH:slot}} replaces its whole
+	 * line: emposo_lang_switch() prints the newline and indent assemble.mjs
+	 * emits, and the extra newline after the PHP tag survives PHP swallowing
+	 * the one directly behind `?>`.
+	 */
+	[
+		/\n[ ]*\{\{LANGSWITCH:([a-z]+)\}\}/g,
+		(_, slot) => `<?php emposo_lang_switch( '${slot}' ); ?>\n`,
+	],
+	[
+		/\{\{t:([a-zA-Z0-9.]+)\}\}/g,
+		(_, key) => `<?php echo emposo_t( '${key}' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?>`,
+	],
+	[
+		/\{\{href:([^}]*)\}\}/g,
+		(_, href) => `<?php echo esc_url( emposo_href( '${href.replace(/[\\']/g, "\\$&")}' ) ); ?>`,
+	],
 	// Head substitutions.
 	[/\{\{TITLE\}\}/g, '<?php echo esc_html( emposo_document_title() ); ?>'],
 	[/\{\{DESCRIPTION\}\}/g, '<?php echo esc_attr( emposo_meta_description() ); ?>'],
