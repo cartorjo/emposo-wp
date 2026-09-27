@@ -16,17 +16,16 @@
 	<div class="connection-model">
 		<div class="connection-model__items">
 		<p class="connection-model__label">Was wir leisten</p>
-		<a class="connection-step" href="/portfolio/optimieren/"><span class="connection-step__icon"><?php emposo_icon( 'finance-trend-line' ); ?></span><div><h3>Wir optimieren Ihr Kerngeschäft</h3><p>Wir übernehmen Ihre Prozesse, optimieren sie messbar und geben Ihnen Freiraum für Ihr Kerngeschäft zurück.</p></div><span class="connection-step__arrow" aria-hidden="true">→</span></a>
-		<a class="connection-step" href="/portfolio/transformieren/"><span class="connection-step__icon"><?php emposo_icon( 'reload-2-line' ); ?></span><div><h3>Wir transformieren aktiv Ihren Wandel</h3><p>Wir transformieren Ihre Prozesse mit innovativen Technologien. Wirtschaftlich kalkuliert, produktiv umgesetzt und am Ergebnis gemessen.</p></div><span class="connection-step__arrow" aria-hidden="true">→</span></a>
+		<div class="connection-step"><span class="connection-step__icon"><?php emposo_icon( 'finance-trend-line' ); ?></span><div><h3>Wir optimieren Ihr Kerngeschäft</h3><p>Wir übernehmen Ihre Prozesse, optimieren sie messbar und geben Ihnen Freiraum für Ihr Kerngeschäft zurück.</p></div></div>
+		<div class="connection-step"><span class="connection-step__icon"><?php emposo_icon( 'reload-2-line' ); ?></span><div><h3>Wir transformieren aktiv Ihren Wandel</h3><p>Wir transformieren Ihre Prozesse mit innovativen Technologien. Wirtschaftlich kalkuliert, produktiv umgesetzt und am Ergebnis gemessen.</p></div></div>
 		<p class="connection-model__label connection-model__label--how">Wie wir es möglich machen</p>
-		<a class="connection-step connection-step--how" href="/portfolio/skalieren/"><span class="connection-step__icon"><?php emposo_icon( 'layers-4-vertical-line' ); ?></span><div><h3>Wir skalieren nach Bedarf</h3><p>250 Spezialisten im Kern, 3.000 Experten und 10.000 Partner im Rücken: Wir skalieren mit Ihrem Bedarf. Sie zahlen für Ergebnisse, wir übernehmen die Verantwortung.</p></div><span class="connection-step__arrow" aria-hidden="true">→</span></a>
-		<a class="connection-step connection-step--how" href="/portfolio/verzahnen/"><span class="connection-step__icon"><?php emposo_icon( 'molecules-line' ); ?></span><div><h3>Wir verzahnen Engineering und Technology</h3><p>Wir verbinden Fachbereich, IT und Technologiekompetenz zu einem Ergebnis, für das wir Verantwortung übernehmen.</p></div><span class="connection-step__arrow" aria-hidden="true">→</span></a>
+		<div class="connection-step connection-step--how"><span class="connection-step__icon"><?php emposo_icon( 'layers-4-vertical-line' ); ?></span><div><h3>Wir skalieren nach Bedarf</h3><p>250 Spezialisten im Kern, 3.000 Experten und 10.000 Partner im Rücken: Wir skalieren mit Ihrem Bedarf. Sie zahlen für Ergebnisse, wir übernehmen die Verantwortung.</p></div></div>
+		<div class="connection-step connection-step--how"><span class="connection-step__icon"><?php emposo_icon( 'molecules-line' ); ?></span><div><h3>Wir verzahnen Engineering und Technology</h3><p>Wir verbinden Fachbereich, IT und Technologiekompetenz zu einem Ergebnis, für das wir Verantwortung übernehmen.</p></div></div>
 		</div>
 		<div class="connection-model__visual">
 		<?php emposo_the_picture( 'verzahnung' ); ?>
 		<p aria-hidden="true">Eine Verantwortung.<br><strong>Ein Ergebnis.</strong></p>
 		</div>
 	</div>
-	<p class="section-more"><a class="text-link text-link--light" href="/portfolio/">Unsere Leistungen im Detail <span aria-hidden="true">→</span></a></p>
 	</div></div>
 </section>

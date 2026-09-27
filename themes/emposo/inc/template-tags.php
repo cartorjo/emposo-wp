@@ -22,17 +22,32 @@ const EMPOSO_BRAND_SVGS = array( 'emposo-logo-neu26' );
 /**
  * Icons that may be inlined.
  *
- * Eight of the vendor set's 529 are used. Listing them keeps the shipped
- * directory honest and makes an accidental reference fail loudly.
+ * The 22 icons the reference build inlines; tools/sync-assets.mjs ships
+ * exactly these. Listing them keeps the shipped directory honest and makes an
+ * accidental reference fail loudly.
  */
 const EMPOSO_ICONS = array(
+	'brain-ai-line',
 	'building-line',
+	'check-discount-line',
+	'checkbox-list-line',
+	'clipboard-check-line',
+	'cloud-connect-line',
+	'cpu-line',
+	'document-paper-line',
+	'documents-2-line',
+	'factory-line',
 	'finance-trend-line',
+	'handshake-2-line',
 	'layers-4-vertical-line',
+	'lightbulb-shine-line',
 	'map-pin-simple-2-line',
 	'molecules-line',
 	'reload-2-line',
+	'server-line',
 	'settings-cog-2-line',
+	'shield-lock-line',
+	'target-line',
 	'users-group-line',
 );
 
@@ -80,7 +95,9 @@ function emposo_brand( string $name ): void {
 
 	// Printed unescaped by necessity — it is SVG markup from an allowlisted
 	// file inside the theme, not user input.
-	echo emposo_read_svg( 'brand', $name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	// Its <style> block is dropped, as assemble.mjs brand() does: the strict CSP
+	// forbids inline styles, so the logo's rules live in 11-components.css.
+	echo trim( (string) preg_replace( '/\s*<style>[\s\S]*?<\/style>/', '', emposo_read_svg( 'brand', $name ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**
@@ -93,25 +110,33 @@ function emposo_brand( string $name ): void {
  * @param string $name Icon name.
  */
 function emposo_icon( string $name ): void {
+	echo emposo_icon_svg( $name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Allowlisted theme-bundled SVG.
+}
+
+/**
+ * An icon's markup, for the string-building renderers (emposo-core fragments).
+ *
+ * @param string $name Icon name.
+ */
+function emposo_icon_svg( string $name ): string {
 	if ( ! in_array( $name, EMPOSO_ICONS, true ) ) {
-		return;
+		return '';
 	}
 
 	$svg = emposo_read_svg( 'icons', $name );
 
 	if ( '' === $svg ) {
-		return;
+		return '';
 	}
 
 	$svg = preg_replace( '/<svg /', '<svg aria-hidden="true" focusable="false" ', $svg, 1 );
 	$svg = (string) preg_replace( '/\swidth="72"\sheight="72"/', '', (string) $svg );
-	$svg = str_replace(
+
+	return str_replace(
 		array( 'stroke="#E8730E"', 'fill="#E8730E"' ),
 		array( 'stroke="currentColor"', 'fill="currentColor"' ),
 		$svg
 	);
-
-	echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Allowlisted theme-bundled SVG.
 }
 
 /**

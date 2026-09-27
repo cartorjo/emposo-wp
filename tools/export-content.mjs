@@ -15,14 +15,14 @@
  *
  * Three groups of content, all derived rather than retyped:
  *
- * 1. The three entity arrays in content/site-data.mjs.
+ * 1. The entity arrays in content/site-data.mjs (disciplines and industries
+ *    become terms with term meta, projects become case studies, jobs an option).
  * 2. The image manifest, which is the SOLE source of alt text for every
  *    photograph on the site.
- * 3. Content that only looks hardcoded — the management roster and filter
- *    vocabulary inside render.mjs, and the FAQ, company facts, trust strip and
- *    locations inside the section and page markup. Extracting these is the
- *    substance of "full editability": they are the fields an editor cannot
- *    currently touch.
+ * 3. Content that only looks hardcoded — the management roster, company facts
+ *    and certifications inside render.mjs, and the contact form's interests and
+ *    recipient. Extracting these is the substance of "full editability": they
+ *    are the fields an editor could not otherwise touch.
  */
 import { writeFileSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -34,99 +34,105 @@ const OUT = path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data', 'si
 const read = (rel) => readFileSync(path.join(STATIC_ROOT, rel), 'utf8');
 const hash = (rel) => createHash('sha256').update(readFileSync(path.join(STATIC_ROOT, rel))).digest('hex').slice(0, 16);
 
-/** Strip tags and collapse whitespace, preserving the text exactly otherwise. */
-const text = (html) =>
-	html
-		.replace(/<[^>]+>/g, '')
-		.replace(/&amp;/g, '&')
+/**
+ * Strip tags and collapse whitespace, preserving the text exactly otherwise.
+ *
+ * Tags are stripped until nothing changes (a single pass leaves `<scr<b>ipt>`
+ * as `<script>`), and `&amp;` is decoded LAST so `&amp;nbsp;` stays the text
+ * `&nbsp;` instead of being decoded twice.
+ */
+const text = (html) => {
+	let out = html;
+	for (let previous = null; previous !== out; ) {
+		previous = out;
+		out = out.replace(/<[^>]*>/g, '');
+	}
+	return out
 		.replace(/&nbsp;/g, ' ')
+		.replace(/&amp;/g, '&')
 		.replace(/\s+/g, ' ')
 		.trim();
+};
 
 // --------------------------------------------------------------------------
 // 1. Entities
 // --------------------------------------------------------------------------
-const { disciplines, industries, projects } = await import(
+const { disciplines, industries, projects, jobs } = await import(
 	path.join(STATIC_ROOT, 'content', 'site-data.mjs')
 );
 
 /**
- * Industry term slugs are the FILTER tokens, not the page slugs.
+ * A `const name = [...]` literal from render.mjs, evaluated.
  *
- * This is the pivot the whole taxonomy design rests on: `filter: 'industrial
- * automotive'` means the term vocabulary is aerospace|energy|health|industrial|
- * automotive|technology, while the page routes stay aerospace-defense etc. One
- * structure then serves the filter buttons, the data-industry token string and
- * the project.industry display label.
+ * render.mjs keeps the certifications, the company facts and the management
+ * roster as module-private constants, so they cannot be imported. They are
+ * plain data literals in the pinned reference, so evaluating the literal is
+ * exact where a regex over the rendered markup would not be.
+ */
+function renderConstant(name) {
+	const source = read('content/render.mjs');
+	const start = source.search(new RegExp(`const ${name}\\s*=\\s*\\[`));
+	if (start === -1) throw new Error(`render.mjs has no const ${name}`);
+	let depth = 0;
+	let i = source.indexOf('[', start);
+	const from = i;
+	for (; i < source.length; i += 1) {
+		if (source[i] === '[') depth += 1;
+		if (source[i] === ']') depth -= 1;
+		if (depth === 0) break;
+	}
+	return new Function(`return ${source.slice(from, i + 1)};`)();
+}
+
+/*
+ * Industry terms: the filter tokens, in the filter bar's source order
+ * (aerospace, energy, health, industrial, automotive, technology). The five
+ * with a tile carry its image and subtitle; `automotive` is a filter value
+ * only, a child of `industrial`, spliced in right after it.
  */
 const industryTerms = industries.map((industry) => ({
 	slug: industry.filter.split(/\s+/)[0],
 	name: industry.name,
 	parent: null,
-	pageSlug: industry.slug,
+	meta: { tile: true, subtitle: industry.subtitle ?? '', image: industry.image },
 }));
+const industrialIndex = industryTerms.findIndex((term) => term.slug === 'industrial');
+if (industrialIndex === -1) throw new Error('the industrial term is missing');
+industryTerms.splice(industrialIndex + 1, 0, { slug: 'automotive', name: 'Automotive', parent: 'industrial', meta: { tile: false, subtitle: '', image: '' } });
 
-/*
- * `automotive` is a filter value with no page of its own, and it never appears
- * without `industrial` — so it is a CHILD of the industrials term. That models
- * the seven filter buttons over five industry pages without inventing a sixth.
- *
- * It is SPLICED IN immediately after its parent rather than appended, because
- * the filter bar's order is a hierarchical walk: the static source lists
- * aerospace, energy, health, industrial, automotive, technology. Appending put
- * Automotive last and reordered the buttons.
- */
-const automotiveUsed = projects.some((p) => p.filter.split(/\s+/).includes('automotive'));
-if (automotiveUsed) {
-	const parentSlug = 'industrial';
-	const parentIndex = industryTerms.findIndex((term) => term.slug === parentSlug);
-
-	if (parentIndex === -1) {
-		throw new Error(`automotive appears in the data but its parent "${parentSlug}" does not`);
+const knownIndustry = new Set(industryTerms.map((term) => term.slug));
+for (const project of projects) {
+	for (const token of project.filter.split(/\s+/)) {
+		if (!knownIndustry.has(token)) throw new Error(`${project.slug}: unknown industry token "${token}"`);
 	}
-
-	industryTerms.splice(parentIndex + 1, 0, {
-		slug: 'automotive',
-		name: 'Automotive',
-		parent: parentSlug,
-		pageSlug: null,
-	});
 }
 
-/** Discipline groups become parent terms; the eight disciplines become children. */
+/** Discipline groups are parent terms; the eight disciplines carry the table's copy. */
 const groups = [...new Set(disciplines.map((d) => d.group))];
 const disciplineTerms = [
-	...groups.map((group) => ({ slug: group.toLowerCase(), name: group, parent: null })),
-	...disciplines.map((d) => ({ slug: d.slug, name: d.name, parent: d.group.toLowerCase() })),
+	...groups.map((group) => ({ slug: group.toLowerCase(), name: group, parent: null, meta: {} })),
+	...disciplines.map((d) => ({ slug: d.slug, name: d.name, parent: d.group.toLowerCase(), meta: { icon: d.icon, topics: d.topics, promise: d.promise } })),
 ];
 
 /*
- * Outcome order is NOT first-appearance order in the projects array — that
- * yields transform, scale, optimize, because the first project is a transform.
- * The filter bar's order is the one the static source's `choices` table
- * declares, which reads as a progression: optimise, then transform, then
- * scale. Declared explicitly, and asserted against the data so a new outcome
- * cannot be silently dropped.
+ * Outcomes are space-separated tokens ('optimize verzahnen'). No renderer shows
+ * them any more; they stay classification data, declared so a new token fails
+ * the export instead of disappearing.
  */
 const OUTCOME_ORDER = [
 	['optimize', 'Optimieren'],
 	['transform', 'Transformieren'],
 	['scale', 'Skalieren'],
+	['verzahnen', 'Verzahnen'],
 ];
-
-const usedOutcomes = new Set(projects.map((p) => p.outcome));
+const usedOutcomes = new Set(projects.flatMap((p) => p.outcome.split(/\s+/)));
 const declaredOutcomes = new Set(OUTCOME_ORDER.map(([slug]) => slug));
 for (const slug of usedOutcomes) {
 	if (!declaredOutcomes.has(slug)) {
 		throw new Error(`Project data uses outcome "${slug}", which OUTCOME_ORDER does not declare`);
 	}
 }
-
-const outcomeTerms = OUTCOME_ORDER.filter(([slug]) => usedOutcomes.has(slug)).map(([slug, name]) => ({
-	slug,
-	name,
-	parent: null,
-}));
+const outcomeTerms = OUTCOME_ORDER.filter(([slug]) => usedOutcomes.has(slug)).map(([slug, name]) => ({ slug, name, parent: null, meta: {} }));
 
 // --------------------------------------------------------------------------
 // 2. Media
@@ -146,171 +152,61 @@ const assets = Object.entries(manifest).map(([key, asset]) => ({
 // 3. Content that only looks hardcoded
 // --------------------------------------------------------------------------
 
-/** Management roster, parsed out of render.mjs's management() template. */
+/** Management roster, in the workbook's row order. */
 function extractPeople() {
-	const source = read('content/render.mjs');
-	const people = [];
-
-	// Full profiles: a figure with a name, a role and a bio.
-	for (const m of source.matchAll(
-		/<article class="management-profile">([\s\S]*?)<\/article>/g
-	)) {
-		const block = m[1];
-		const name = text(/<h3[^>]*>([\s\S]*?)<\/h3>/.exec(block)?.[1] ?? '');
-		const role = text(/class="management-profile__role"[^>]*>([\s\S]*?)<\/p>/.exec(block)?.[1] ?? '');
-		const bio = [...block.matchAll(/<p(?![^>]*management-profile__role)[^>]*>([\s\S]*?)<\/p>/g)]
-			.map((p) => text(p[1]))
-			.filter((p) => p && p !== role);
-		const linkedin = /href="(https:\/\/[^"]*linkedin[^"]*)"/.exec(block)?.[1] ?? '';
-		const image = /\$\{picture\('([a-z0-9-]+)'/.exec(block)?.[1] ?? '';
-		if (name) people.push({ name, role, bio, linkedin, image, initials: '' });
-	}
-
-	// Gallery entries: a local array of {name, image} or {name, initials}.
-	const gallery = /const gallery\s*=\s*\[([\s\S]*?)\];/.exec(source)?.[1] ?? '';
-	for (const m of gallery.matchAll(/\{([^}]*)\}/g)) {
-		const entry = m[1];
-		const name = /name:\s*'([^']*)'/.exec(entry)?.[1] ?? '';
-		if (!name) continue;
-		people.push({
-			name,
-			role: '',
-			bio: [],
-			linkedin: '',
-			image: /image:\s*'([^']*)'/.exec(entry)?.[1] ?? '',
-			initials: /initials:\s*'([^']*)'/.exec(entry)?.[1] ?? '',
-		});
-	}
-
-	return people;
-}
-
-/** FAQ, from the native details/summary markup. */
-function extractFaq() {
-	const source = read('sections/07aa-faq.html');
-	const items = [];
-	for (const m of source.matchAll(/<details([^>]*)>([\s\S]*?)<\/details>/g)) {
-		const [, attrs, body] = m;
-		const summary = /<summary[^>]*>([\s\S]*?)<\/summary>/.exec(body)?.[1] ?? '';
-		// The "+" affordance is a decorative aria-hidden span, not content.
-		const question = text(summary.replace(/<span[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/span>/g, ''));
-		const answer = text(body.replace(/<summary[\s\S]*?<\/summary>/, ''));
-		if (question) items.push({ question, answer, open: /\bopen\b/.test(attrs) });
-	}
-	return items;
-}
-
-/** The four company numbers, with their icons and labels. */
-function extractFacts() {
-	const source = read('sections/03-models.html');
-	const facts = [];
-	const dl = /<dl class="company-facts">([\s\S]*?)<\/dl>/.exec(source)?.[1] ?? '';
-	for (const m of dl.matchAll(/<div><dt>([\s\S]*?)<\/dt><dd>([\s\S]*?)<\/dd><\/div>/g)) {
-		const [, dt, dd] = m;
-		facts.push({
-			icon: /\{\{icon:([a-z0-9-]+)\}\}/.exec(dt)?.[1] ?? '',
-			// The value must survive byte-for-byte: '2.900+' carries a German
-			// thousands separator the count-up script re-inserts, and the '+'
-			// is part of the claim.
-			value: text(/class="company-facts__value"[^>]*>([\s\S]*?)<\/span>/.exec(dt)?.[1] ?? ''),
-			label: text(dd),
-		});
-	}
-	return facts;
-}
-
-function extractTrustStrip() {
-	const source = read('sections/03-models.html');
-	const strip = /class="trust-strip"[^>]*>([\s\S]*?)<\/(?:ul|div|p)>/.exec(source)?.[1] ?? '';
-	return [...strip.matchAll(/<(?:li|span|strong)[^>]*>([^<]+)<\/(?:li|span|strong)>/g)]
-		.map((m) => text(m[1]))
-		.filter(Boolean);
-}
-
-function extractLocations() {
-	const source = read('pages/kontakt.html');
-
-	// Scan forward from the list marker rather than bounding the match with a
-	// closing </div>: the entries are themselves divs, so a non-greedy bound
-	// stops at the first nested close and drops the last location.
-	const start = source.indexOf('class="location-list"');
-	if (start === -1) return [];
-	const region = source.slice(start);
-
-	return [...region.matchAll(/<div><strong>([^<]+)<\/strong><span>([^<]+)<\/span><\/div>/g)].map((m) => ({
-		name: text(m[1]),
-		label: text(m[2]),
+	return renderConstant('profiles').map((person) => ({
+		name: person.name,
+		roles: person.roles,
+		bio: person.bio,
+		linkedin: person.link?.href ?? '',
+		image: person.image,
 	}));
 }
 
 /**
  * Contact-form interest options.
  *
- * The single source for the select, the server-side allowlist and every
- * generated ?interesse= link. Translating an option silently breaks inbound
- * links, so they are exported verbatim and keyed by value.
+ * The real options carry NO value attribute, so a browser submits the text:
+ * ?interesse= deep links carry the German labels, and value === label here.
  */
 function extractInterests() {
 	const source = read('partials/contact-form.html');
-
-	/*
-	 * The real options carry NO value attribute — only the disabled placeholder
-	 * has value="". A browser then submits the option's text, which is why
-	 * ?interesse= deep links carry URL-encoded German labels and why renaming
-	 * an option silently breaks every inbound link. So value === label here,
-	 * deliberately, and both are exported verbatim.
-	 */
 	const select = /<select[^>]*name="interest"[^>]*>([\s\S]*?)<\/select>/.exec(source)?.[1] ?? '';
 
 	return [...select.matchAll(/<option([^>]*)>([^<]*)<\/option>/g)]
-		.map((m) => {
-			const attrs = m[1];
-			const label = text(m[2]);
-			const explicit = /value="([^"]*)"/.exec(attrs)?.[1];
-			return {
-				value: explicit !== undefined ? explicit : label,
-				label,
-				placeholder: /\bdisabled\b/.test(attrs),
-			};
-		})
-		.filter((option) => !option.placeholder && option.value !== '')
-		.map(({ value, label }) => ({ value, label }));
+		.map((m) => ({ attrs: m[1], label: text(m[2]) }))
+		.filter(({ attrs }) => !/\bdisabled\b/.test(attrs))
+		.map(({ attrs, label }) => ({ value: /value="([^"]*)"/.exec(attrs)?.[1] ?? label, label }))
+		.filter(({ value }) => value !== '');
 }
 
 /** Contact recipient, read from the form action rather than retyped. */
 function extractContactRecipient() {
-	const source = read('partials/contact-form.html');
-	return /action="mailto:([^"?]+)/.exec(source)?.[1] ?? '';
+	return /action="mailto:([^"?]+)/.exec(read('partials/contact-form.html'))?.[1] ?? '';
 }
 
 // --------------------------------------------------------------------------
 const exportData = {
-	schema: 1,
+	schema: 2,
 	note: 'Generated by tools/export-content.mjs. Do not hand-edit; re-run the exporter.',
 	sources: {
 		'content/site-data.mjs': hash('content/site-data.mjs'),
 		'content/render.mjs': hash('content/render.mjs'),
 		'assets/supplied/manifest.json': hash('assets/supplied/manifest.json'),
-		'sections/03-models.html': hash('sections/03-models.html'),
-		'sections/07aa-faq.html': hash('sections/07aa-faq.html'),
 		'partials/contact-form.html': hash('partials/contact-form.html'),
-		'pages/kontakt.html': hash('pages/kontakt.html'),
 	},
 	terms: {
 		emposo_discipline: disciplineTerms,
 		emposo_industry: industryTerms,
 		emposo_outcome: outcomeTerms,
 	},
-	disciplines,
-	industries,
 	projects,
 	assets,
 	people: extractPeople(),
 	options: {
-		faq: extractFaq(),
-		facts: extractFacts(),
-		trustStrip: extractTrustStrip(),
-		locations: extractLocations(),
+		facts: renderConstant('companyFactData'),
+		certifications: renderConstant('certifications'),
+		jobs,
 		interests: extractInterests(),
 		contactRecipient: extractContactRecipient(),
 	},
@@ -319,13 +215,12 @@ const exportData = {
 writeFileSync(OUT, `${JSON.stringify(exportData, null, '\t')}\n`);
 
 console.log(`wrote ${path.relative(REPO_ROOT, OUT)}`);
-console.log(`  terms:        ${disciplineTerms.length} discipline, ${industryTerms.length} industry, ${outcomeTerms.length} outcome`);
-console.log(`  entities:     ${disciplines.length} disciplines, ${industries.length} industries, ${projects.length} projects`);
-console.log(`  assets:       ${assets.length}`);
-console.log(`  people:       ${exportData.people.length}`);
-console.log(`  faq:          ${exportData.options.faq.length}`);
-console.log(`  facts:        ${exportData.options.facts.length}`);
-console.log(`  trust strip:  ${exportData.options.trustStrip.length}`);
-console.log(`  locations:    ${exportData.options.locations.length}`);
-console.log(`  interests:    ${exportData.options.interests.length}`);
-console.log(`  recipient:    ${exportData.options.contactRecipient || '(none found)'}`);
+console.log(`  terms:          ${disciplineTerms.length} discipline, ${industryTerms.length} industry, ${outcomeTerms.length} outcome`);
+console.log(`  projects:       ${projects.length}`);
+console.log(`  assets:         ${assets.length}`);
+console.log(`  people:         ${exportData.people.length}`);
+console.log(`  facts:          ${exportData.options.facts.length}`);
+console.log(`  certifications: ${exportData.options.certifications.join(', ')}`);
+console.log(`  jobs:           ${jobs.length}`);
+console.log(`  interests:      ${exportData.options.interests.length}`);
+console.log(`  recipient:      ${exportData.options.contactRecipient || '(none found)'}`);

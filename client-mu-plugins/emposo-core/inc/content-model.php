@@ -410,8 +410,10 @@ function register_meta_fields(): void {
 
 	// --- case study -------------------------------------------------------
 	$claim_fields = array(
-		'_emposo_metric'       => __( 'Kennzahl', 'emposo' ),
-		'_emposo_metric_label' => __( 'Kennzahl-Beschriftung', 'emposo' ),
+		'_emposo_metric'         => __( 'Kennzahl', 'emposo' ),
+		'_emposo_metric_label'   => __( 'Kennzahl-Beschriftung', 'emposo' ),
+		'_emposo_industry_label' => __( 'Branche (Anzeige)', 'emposo' ),
+		'_emposo_filter'         => __( 'Branchen-Filterwerte (Leerzeichen-getrennt)', 'emposo' ),
 	);
 	foreach ( $claim_fields as $key => $label ) {
 		register_post_meta(
@@ -447,98 +449,14 @@ function register_meta_fields(): void {
 	 * the editing surface changes. Recorded as a deviation rather than a
 	 * silent simplification.
 	 */
-	$prose_fields = array(
-		CPT_CASE_STUDY => array(
-			'_emposo_challenge' => __( 'Die Herausforderung', 'emposo' ),
-			'_emposo_solution'  => __( 'Unsere Lösung', 'emposo' ),
-		),
-		'page'         => array(
-			'_emposo_detail'    => __( 'Beschreibung der Disziplin', 'emposo' ),
-			'_emposo_challenge' => __( 'Herausforderung der Branche', 'emposo' ),
-			'_emposo_delivery'  => __( 'Unsere Lieferung', 'emposo' ),
-		),
-	);
-	foreach ( $prose_fields as $type => $fields ) {
-		foreach ( $fields as $key => $label ) {
-			register_post_meta(
-				$type,
-				$key,
-				array(
-					'type'              => 'string',
-					'description'       => $label,
-					'single'            => true,
-					'default'           => '',
-					'show_in_rest'      => true,
-					'sanitize_callback' => 'sanitize_textarea_field',
-					'auth_callback'     => $auth,
-				)
-			);
-		}
-	}
-
-	/*
-	 * Ordered string lists: a case study's results (2-3 items) and a
-	 * discipline's focus areas (4-7). One atomic array rather than multiple
-	 * single => false rows, whose order depends on meta_id and silently changes
-	 * when an editor removes and re-adds an item.
-	 */
-	$list_fields = array(
-		CPT_CASE_STUDY => '_emposo_results',
-		'page'         => '_emposo_focus',
-	);
-	foreach ( $list_fields as $type => $key ) {
+	// One sentence per column (workbook cases); the _list fields below hold
+	// the deck cases' bullets and win when non-empty.
+	foreach ( array(
+		'_emposo_challenge' => __( 'Herausforderung', 'emposo' ),
+		'_emposo_solution'  => __( 'Lösung', 'emposo' ),
+	) as $key => $label ) {
 		register_post_meta(
-			$type,
-			$key,
-			array(
-				'type'              => 'array',
-				'single'            => true,
-				'default'           => array(),
-				'show_in_rest'      => array(
-					'schema' => array(
-						'type'  => 'array',
-						'items' => array( 'type' => 'string' ),
-					),
-				),
-				'sanitize_callback' => __NAMESPACE__ . '\\sanitize_string_list',
-				'auth_callback'     => $auth,
-			)
-		);
-	}
-
-	/*
-	 * An industry's related disciplines: an ordered list of page IDs. Curated
-	 * rather than derived, because the source lists a specific subset in a
-	 * specific order.
-	 */
-	register_post_meta(
-		'page',
-		'_emposo_related_disciplines',
-		array(
-			'type'              => 'array',
-			'single'            => true,
-			'default'           => array(),
-			'show_in_rest'      => array(
-				'schema' => array(
-					'type'  => 'array',
-					'items' => array( 'type' => 'integer' ),
-				),
-			),
-			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_id_list',
-			'auth_callback'     => $auth,
-		)
-	);
-
-	// --- page-shaped records (disciplines, industries, pillars) -----------
-	$page_text_fields = array(
-		'_emposo_topics'              => __( 'Themen (Kurzfassung)', 'emposo' ),
-		'_emposo_subtitle'            => __( 'Untertitel', 'emposo' ),
-		'_emposo_pillar_number'       => __( 'Modellnummer', 'emposo' ),
-		'_emposo_pillar_outcome_line' => __( 'Ergebniszeile', 'emposo' ),
-	);
-	foreach ( $page_text_fields as $key => $label ) {
-		register_post_meta(
-			'page',
+			CPT_CASE_STUDY,
 			$key,
 			array(
 				'type'              => 'string',
@@ -546,102 +464,39 @@ function register_meta_fields(): void {
 				'single'            => true,
 				'default'           => '',
 				'show_in_rest'      => true,
-				'sanitize_callback' => 'sanitize_text_field',
+				'sanitize_callback' => 'sanitize_textarea_field',
 				'auth_callback'     => $auth,
 			)
 		);
 	}
 
-	register_post_meta(
-		'page',
-		'_emposo_pillar_teaser',
-		array(
-			'type'              => 'string',
-			'description'       => __( 'Teaser für die Portfolio-Übersicht', 'emposo' ),
-			'single'            => true,
-			'default'           => '',
-			'show_in_rest'      => true,
-			'sanitize_callback' => 'sanitize_textarea_field',
-			'auth_callback'     => $auth,
-		)
+	$list_fields = array(
+		CPT_CASE_STUDY => array( '_emposo_results', '_emposo_challenge_list', '_emposo_solution_list', '_emposo_facts' ),
+		CPT_PERSON     => array( '_emposo_person_roles' ),
 	);
-
-	// Page -> term links. ID-based, so page slugs (routes) and term slugs
-	// (filter tokens) can differ without anything to keep in sync.
-	foreach ( array( '_emposo_discipline_term', '_emposo_industry_term', '_emposo_pillar_outcome_term' ) as $key ) {
-		register_post_meta(
-			'page',
-			$key,
-			array(
-				'type'              => 'integer',
-				'single'            => true,
-				'default'           => 0,
-				'show_in_rest'      => true,
-				'sanitize_callback' => 'absint',
-				'auth_callback'     => $auth,
-			)
-		);
+	foreach ( $list_fields as $type => $keys ) {
+		foreach ( $keys as $key ) {
+			register_post_meta(
+				$type,
+				$key,
+				array(
+					'type'              => 'array',
+					'single'            => true,
+					'default'           => array(),
+					'show_in_rest'      => array(
+						'schema' => array(
+							'type'  => 'array',
+							'items' => array( 'type' => 'string' ),
+						),
+					),
+					'sanitize_callback' => __NAMESPACE__ . '\\sanitize_string_list',
+					'auth_callback'     => $auth,
+				)
+			);
+		}
 	}
-
-	/*
-	 * Ordering hint only, never membership. An industry's case studies are
-	 * derived from the industry term, so a newly tagged case study appears
-	 * without anyone editing this — which is what an editor expects. The hint
-	 * exists solely to reproduce the one ordering divergence in the source data
-	 * (industrials lists rechenzentrums-umzug last, though it is third in the
-	 * projects array).
-	 */
-	register_post_meta(
-		'page',
-		'_emposo_case_order',
-		array(
-			'type'              => 'array',
-			'description'       => __( 'Reihenfolge der Referenzen (Hinweis, keine Zuordnung)', 'emposo' ),
-			'single'            => true,
-			'default'           => array(),
-			'show_in_rest'      => array(
-				'schema' => array(
-					'type'  => 'array',
-					'items' => array( 'type' => 'integer' ),
-				),
-			),
-			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_id_list',
-			'auth_callback'     => $auth,
-		)
-	);
 
 	// --- people -----------------------------------------------------------
-	register_post_meta(
-		CPT_PERSON,
-		'_emposo_person_role',
-		array(
-			'type'              => 'string',
-			'single'            => true,
-			'default'           => '',
-			'show_in_rest'      => true,
-			'sanitize_callback' => 'sanitize_text_field',
-			'auth_callback'     => $auth,
-		)
-	);
-
-	register_post_meta(
-		CPT_PERSON,
-		'_emposo_person_initials',
-		array(
-			'type'              => 'string',
-			'description'       => __( 'Initialen für Personen ohne Foto', 'emposo' ),
-			'single'            => true,
-			'default'           => '',
-			'show_in_rest'      => true,
-			'sanitize_callback' => static function ( $value ): string {
-				$clean = preg_replace( '/[^A-ZÄÖÜ]/u', '', mb_strtoupper( (string) $value, 'UTF-8' ) );
-
-				return mb_substr( (string) $clean, 0, 3, 'UTF-8' );
-			},
-			'auth_callback'     => $auth,
-		)
-	);
-
 	register_post_meta(
 		CPT_PERSON,
 		'_emposo_person_linkedin',
@@ -700,7 +555,7 @@ function register_meta_fields(): void {
 	}
 
 	/*
-	 * Route lock. Thirty-one of the 41 routes are Pages, so a single edited
+	 * Route lock. Twelve of the 35 routes are Pages, so a single edited
 	 * slug or changed parent silently changes a live URL — the largest risk in
 	 * the project, since URL preservation is a hard requirement.
 	 */

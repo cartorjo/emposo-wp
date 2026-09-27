@@ -82,6 +82,23 @@ function bodyFor(route) {
 	throw new Error(`Unrecognised content for ${route.out}: ${content}`);
 }
 
+/**
+ * The launch head block: canonical, Open Graph/Twitter and the JSON-LD graph.
+ *
+ * Copied verbatim from the committed reference document rather than recomputed
+ * in PHP. It is route metadata like the title and description already carried
+ * here, and part of it cannot be recomputed at all: dateModified and
+ * datePublished come from the static repository's git history (assemble.mjs
+ * lastModified()/firstPublished()). It sits between the description meta and
+ * the favicon link; on the 404 it is the page's `noindex` meta.
+ */
+function headMeta(route) {
+	const html = readFileSync(path.join(STATIC_ROOT, route.staticFile), 'utf8');
+	const match = /<meta name="description" content="[^"]*">\n([\s\S]*?)[ \t]*<link rel="icon"/.exec(html);
+	if (!match) throw new Error(`No head meta block found in ${route.staticFile}`);
+	return match[1];
+}
+
 function hashOf(file) {
 	return createHash('sha256').update(readFileSync(file)).digest('hex').slice(0, 16);
 }
@@ -104,6 +121,7 @@ const contract = {
 		})(),
 		title: route.title,
 		description: route.description,
+		headMeta: headMeta(route),
 		bodyClass: route.bodyClass,
 		scripts: route.scripts,
 		nav: route.nav,

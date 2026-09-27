@@ -1,0 +1,10 @@
+/* Roboto v51, self-hosted; license: assets/fonts/Roboto-OFL.txt. woff2
+   subsets cut from the TTF masters in assets/fonts/ to the characters the
+   site uses (tools/subset-fonts.sh); no arrows, which render in the fallback.
+   WordPress port: the only change from the reference is the url() base —
+   site.css ships in assets/css/, next to assets/fonts/. */
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 300; font-display: swap; src: url('../fonts/roboto-300.woff2') format('woff2'); }
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/roboto-400.woff2') format('woff2'); }
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/roboto-500.woff2') format('woff2'); }
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/roboto-600.woff2') format('woff2'); }
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/roboto-700.woff2') format('woff2'); }

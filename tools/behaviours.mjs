@@ -34,37 +34,55 @@ function record(name, failures, note = '') {
 	if (failures.length > 6) console.log(`          … ${failures.length - 6} more`);
 }
 
-/** The filter pages, and the routes each behaviour needs. */
-const FILTER_PAGES = ['/case-studies/', '/branchen/'];
+/** The filter page: industries and projects together on /branchen/ (owner 2026-09-27). */
+const FILTER_PAGES = ['/branchen/'];
+
+/** Filter groups and their URL parameters, as js/06-work.js declares them (B-41). */
+const GROUPS = { industry: 'branche', discipline: 'leistung' };
 
 // --------------------------------------------------------------------------
-// Filtering: every industry × outcome combination, counts, empty state, ARIA.
+// Filtering: every enabled industry × discipline combination, counts, empty
+// state, ARIA, the URL state, and the disabled zero-result chips.
 // --------------------------------------------------------------------------
 async function testFiltering(page, base, route) {
 	const failures = [];
 	await page.goto(`${base}${route}`, { waitUntil: 'networkidle' });
 
-	const contract = await page.evaluate(() => {
+	const contract = await page.evaluate((groups) => {
 		const grid = document.querySelector('[data-project-grid]');
 		if (!grid) return null;
+		const tokens = (value) => (value || '').trim().split(/\s+/).filter(Boolean);
 		const cards = [...document.querySelectorAll('[data-project]')].map((c) => ({
 			href: c.getAttribute('href'),
-			industry: (c.dataset.industry || '').trim().split(/\s+/).filter(Boolean),
-			outcome: (c.dataset.outcome || '').trim(),
+			industry: tokens(c.dataset.industry),
+			discipline: tokens(c.dataset.discipline),
 		}));
-		const values = (group) =>
-			[...document.querySelectorAll(`[data-filter-group="${group}"]`)].map((b) => b.dataset.filterValue);
-		return { cards, industries: values('industry'), outcomes: values('outcome') };
-	});
+		const values = {};
+		const disabled = {};
+		for (const group of Object.keys(groups)) {
+			const buttons = [...document.querySelectorAll(`[data-filter-group="${group}"]`)];
+			values[group] = buttons.filter((b) => !b.disabled).map((b) => b.dataset.filterValue);
+			disabled[group] = buttons.filter((b) => b.disabled).map((b) => b.dataset.filterValue);
+		}
+		return { cards, values, disabled };
+	}, GROUPS);
 
 	if (!contract) return [`${route}: no [data-project-grid] found`];
 	if (contract.cards.length === 0) failures.push(`${route}: no [data-project] cards`);
-	if (contract.industries.length === 0) failures.push(`${route}: no industry filter buttons`);
-	// Outcomes were unasserted: the nested loop below iterates industries ×
-	// outcomes, so an empty outcome list made it run zero times and the route
-	// passed with "0 combinations" — a filter contract verified by not testing
-	// it. The floor after the loop catches any other reason the product is zero.
-	if (contract.outcomes.length === 0) failures.push(`${route}: no outcome filter buttons`);
+	for (const group of Object.keys(GROUPS)) {
+		if (contract.values[group].length === 0) failures.push(`${route}: no enabled ${group} filter buttons`);
+		// A disabled chip must be exactly a value no card carries (B-42).
+		for (const value of contract.disabled[group]) {
+			if (contract.cards.some((c) => c[group].includes(value))) {
+				failures.push(`${route}: ${group} chip "${value}" is disabled but ${value} has projects`);
+			}
+		}
+		for (const value of contract.values[group]) {
+			if (value !== 'all' && !contract.cards.some((c) => c[group].includes(value))) {
+				failures.push(`${route}: ${group} chip "${value}" is enabled but carries no project`);
+			}
+		}
+	}
 
 	// The filter UI ships hidden and is revealed by stripping .js-only, so that
 	// it degrades to nothing rather than to dead controls without JS.
@@ -73,36 +91,36 @@ async function testFiltering(page, base, route) {
 
 	let combinations = 0;
 
-	for (const industry of contract.industries) {
-		for (const outcome of contract.outcomes) {
+	for (const industry of contract.values.industry) {
+		for (const discipline of contract.values.discipline) {
 			combinations += 1;
 
 			await page.click(`[data-filter-group="industry"][data-filter-value="${industry}"]`);
-			await page.click(`[data-filter-group="outcome"][data-filter-value="${outcome}"]`);
+			await page.click(`[data-filter-group="discipline"][data-filter-value="${discipline}"]`);
 
 			const expected = contract.cards.filter(
 				(c) =>
 					(industry === 'all' || c.industry.includes(industry)) &&
-					(outcome === 'all' || c.outcome === outcome)
+					(discipline === 'all' || c.discipline.includes(discipline))
 			);
 
-			const state = await page.evaluate(() => ({
-				visible: [...document.querySelectorAll('[data-project]')]
-					.filter((c) => !c.hidden)
-					.map((c) => c.getAttribute('href')),
-				countText: document.querySelector('#project-count')?.textContent?.trim() ?? null,
-				emptyHidden: document.querySelector('#project-empty')?.hidden ?? null,
-				pressed: {
-					industry: [...document.querySelectorAll('[data-filter-group="industry"]')]
+			const state = await page.evaluate((groups) => {
+				const pressed = {};
+				for (const group of Object.keys(groups)) {
+					pressed[group] = [...document.querySelectorAll(`[data-filter-group="${group}"]`)]
 						.filter((b) => b.getAttribute('aria-pressed') === 'true')
-						.map((b) => b.dataset.filterValue),
-					outcome: [...document.querySelectorAll('[data-filter-group="outcome"]')]
-						.filter((b) => b.getAttribute('aria-pressed') === 'true')
-						.map((b) => b.dataset.filterValue),
-				},
-			}));
+						.map((b) => b.dataset.filterValue);
+				}
+				return {
+					visible: [...document.querySelectorAll('[data-project]')].filter((c) => !c.hidden).map((c) => c.getAttribute('href')),
+					countText: document.querySelector('#project-count')?.textContent?.trim() ?? null,
+					emptyHidden: document.querySelector('#project-empty')?.hidden ?? null,
+					pressed,
+					search: window.location.search,
+				};
+			}, GROUPS);
 
-			const label = `${route} [${industry}/${outcome}]`;
+			const label = `${route} [${industry}/${discipline}]`;
 
 			const expectedHrefs = expected.map((c) => c.href).sort().join(',');
 			const actualHrefs = [...state.visible].sort().join(',');
@@ -119,16 +137,20 @@ async function testFiltering(page, base, route) {
 			}
 
 			if (state.emptyHidden !== null && state.emptyHidden !== expected.length > 0) {
-				failures.push(
-					`${label}: empty state ${state.emptyHidden ? 'hidden' : 'shown'} with ${expected.length} result(s)`
-				);
+				failures.push(`${label}: empty state ${state.emptyHidden ? 'hidden' : 'shown'} with ${expected.length} result(s)`);
 			}
 
-			if (state.pressed.industry.join() !== industry) {
-				failures.push(`${label}: aria-pressed industry is [${state.pressed.industry}], expected [${industry}]`);
-			}
-			if (state.pressed.outcome.join() !== outcome) {
-				failures.push(`${label}: aria-pressed outcome is [${state.pressed.outcome}], expected [${outcome}]`);
+			const selection = { industry, discipline };
+			const params = new URLSearchParams(state.search);
+			for (const [group, param] of Object.entries(GROUPS)) {
+				if (state.pressed[group].join() !== selection[group]) {
+					failures.push(`${label}: aria-pressed ${group} is [${state.pressed[group]}], expected [${selection[group]}]`);
+				}
+				// The selection lives in the URL; "all" is the absence of the parameter.
+				const want = selection[group] === 'all' ? null : selection[group];
+				if (params.get(param) !== want) {
+					failures.push(`${label}: ?${param}= is "${params.get(param)}", expected "${want}"`);
+				}
 			}
 		}
 	}
@@ -145,7 +167,7 @@ async function testCardInventory(page, base) {
 	const failures = [];
 	const { projects } = await import(path.join(STATIC_ROOT, 'content', 'site-data.mjs'));
 
-	await page.goto(`${base}/case-studies/`, { waitUntil: 'domcontentloaded' });
+	await page.goto(`${base}${FILTER_PAGES[0]}`, { waitUntil: 'domcontentloaded' });
 	const hrefs = await page.evaluate(() =>
 		[...document.querySelectorAll('[data-project]')].map((c) => c.getAttribute('href'))
 	);
@@ -160,26 +182,34 @@ async function testCardInventory(page, base) {
 }
 
 // --------------------------------------------------------------------------
-// ?branche= deep link preselects the industry filter.
+// ?branche= / ?leistung= restore the selection; disabled values are ignored.
 // --------------------------------------------------------------------------
-async function testBrancheDeepLink(page, base) {
+async function testFilterDeepLinks(page, base) {
 	const failures = [];
-	const { industries } = await import(path.join(STATIC_ROOT, 'content', 'site-data.mjs'));
+	const route = FILTER_PAGES[0];
+	await page.goto(`${base}${route}`, { waitUntil: 'domcontentloaded' });
+	const chips = await page.evaluate(() =>
+		[...document.querySelectorAll('[data-filter-group]')]
+			.filter((b) => b.dataset.filterValue !== 'all')
+			.map((b) => ({ group: b.dataset.filterGroup, value: b.dataset.filterValue, disabled: b.disabled }))
+	);
 
-	for (const industry of industries) {
-		const token = industry.filter.split(/\s+/)[0];
-		await page.goto(`${base}/case-studies/?branche=${token}#referenzen`, { waitUntil: 'networkidle' });
-
-		const pressed = await page.evaluate(() =>
-			[...document.querySelectorAll('[data-filter-group="industry"]')]
-				.filter((b) => b.getAttribute('aria-pressed') === 'true')
-				.map((b) => b.dataset.filterValue)
+	for (const chip of chips) {
+		const param = GROUPS[chip.group];
+		await page.goto(`${base}${route}?${param}=${encodeURIComponent(chip.value)}#referenzen`, { waitUntil: 'networkidle' });
+		const pressed = await page.evaluate(
+			(group) =>
+				[...document.querySelectorAll(`[data-filter-group="${group}"]`)]
+					.filter((b) => b.getAttribute('aria-pressed') === 'true')
+					.map((b) => b.dataset.filterValue),
+			chip.group
 		);
-		if (pressed.join() !== token) {
-			failures.push(`?branche=${token}: pressed [${pressed}], expected [${token}]`);
+		const want = chip.disabled ? 'all' : chip.value;
+		if (pressed.join() !== want) {
+			failures.push(`?${param}=${chip.value}${chip.disabled ? ' (disabled)' : ''}: pressed [${pressed}], expected [${want}]`);
 		}
 	}
-	return { failures, note: `${industries.length} industry deep links` };
+	return { failures, note: `${chips.length} deep links, ${chips.filter((c) => c.disabled).length} of them disabled` };
 }
 
 // --------------------------------------------------------------------------
@@ -214,58 +244,6 @@ async function testIntentLinks(page, base) {
 		}
 	}
 	return { failures, note: `${options.length} interest values` };
-}
-
-// --------------------------------------------------------------------------
-// Megamenus: one at a time, Escape closes and restores focus, outside click.
-// --------------------------------------------------------------------------
-async function testMegamenu(page, base) {
-	const failures = [];
-	await page.setViewportSize({ width: 1440, height: 900 });
-	await page.goto(`${base}/`, { waitUntil: 'networkidle' });
-
-	const groups = await page.locator('details.site-nav__group').count();
-	if (groups < 2) return [`expected 2 megamenu groups, found ${groups}`];
-
-	const summaries = page.locator('details.site-nav__group > summary');
-
-	await summaries.nth(0).click();
-	if (!(await page.locator('details.site-nav__group').nth(0).evaluate((d) => d.open))) {
-		failures.push('first megamenu did not open');
-	}
-
-	// Opening the second must close the first: native `name=` is avoided because
-	// of the iOS 16 floor, so this is enforced in JS and has to be tested.
-	await summaries.nth(1).click();
-	const openStates = await page.locator('details.site-nav__group').evaluateAll((els) => els.map((e) => e.open));
-	if (openStates.filter(Boolean).length !== 1) {
-		failures.push(`expected exactly one open megamenu, got ${openStates.filter(Boolean).length}`);
-	}
-	if (openStates[0] !== false) failures.push('opening the second megamenu did not close the first');
-
-	// Escape closes and returns focus to the summary that opened it.
-	await page.keyboard.press('Escape');
-	const afterEscape = await page.evaluate(() => ({
-		anyOpen: [...document.querySelectorAll('details.site-nav__group')].some((d) => d.open),
-		focusIsSummary: document.activeElement?.tagName?.toLowerCase() === 'summary',
-	}));
-	if (afterEscape.anyOpen) failures.push('Escape did not close the megamenu');
-	if (!afterEscape.focusIsSummary) failures.push('Escape did not restore focus to the summary');
-
-	// Clicking outside closes. The click has to land genuinely outside the open
-	// panel: targeting <main> at the top-left aims *behind* the panel, which
-	// Playwright correctly refuses as an intercepted click.
-	await summaries.nth(0).click();
-	const panel = page.locator('details.site-nav__group').nth(0).locator('.mega-panel');
-	const box = (await panel.count()) ? await panel.boundingBox() : null;
-	const belowPanel = box ? Math.min(box.y + box.height + 80, 860) : 700;
-	await page.mouse.click(700, belowPanel);
-	if (await page.locator('details.site-nav__group').nth(0).evaluate((d) => d.open)) {
-		failures.push('outside click did not close the megamenu');
-	}
-
-	const panelLinks = await page.locator('details.site-nav__group').nth(0).locator('a').count();
-	return { failures, note: `${groups} groups, ${panelLinks} links in the first panel` };
 }
 
 // --------------------------------------------------------------------------
@@ -362,19 +340,19 @@ async function testCountUp(browser, base) {
 		);
 	}
 
-	// And only the homepage animates: the same numbers appear in two other
-	// markups on /about-us/ and /karriere/ that must stay static.
-	const ctx = await browser.newContext();
+	// The row is one component on every page (owner 24-09); the count-up runs
+	// only where 07-countup.js is loaded, which parity's script matrix pins.
+	// Wherever it appears, it must show the same authored values.
+	const ctx = await browser.newContext({ reducedMotion: 'reduce' });
 	const p3 = await ctx.newPage();
-	let elsewhere = 0;
 	for (const route of ['/about-us/', '/karriere/']) {
-		await p3.goto(`${base}${route}`, { waitUntil: 'domcontentloaded' });
-		elsewhere += await p3.locator('.company-facts__value').count();
+		await p3.goto(`${base}${route}`, { waitUntil: 'networkidle' });
+		const values = await p3.evaluate(() => [...document.querySelectorAll('.company-facts__value')].map((e) => e.textContent.trim()));
+		if (values.length && values.join('|') !== still.join('|')) {
+			failures.push(`${route}: company facts read [${values}], expected [${still}]`);
+		}
 	}
 	await ctx.close();
-	if (elsewhere !== 0) {
-		failures.push(`.company-facts__value appears on ${elsewhere} element(s) outside / — those numbers would start animating`);
-	}
 
 	return { failures, note: `values: ${still.join(', ')}` };
 }
@@ -387,25 +365,25 @@ async function testNoJs(browser, base) {
 	const ctx = await browser.newContext({ javaScriptEnabled: false });
 	const page = await ctx.newPage();
 
-	for (const route of ['/', '/case-studies/']) {
+	for (const route of ['/', FILTER_PAGES[0]]) {
 		await page.goto(`${base}${route}`, { waitUntil: 'domcontentloaded' });
 		const state = await page.evaluate(() => ({
 			h1: document.querySelectorAll('h1').length,
 			cards: document.querySelectorAll('[data-project]').length,
 			jsOnly: document.querySelectorAll('.js-only').length,
-			megaReachable: document.querySelectorAll('details.site-nav__group a').length,
+			navReachable: document.querySelectorAll('.site-nav a, #mobile-menu a').length,
 		}));
 
 		if (state.h1 !== 1) failures.push(`${route} (no JS): ${state.h1} <h1>`);
 		// The filter UI must stay hidden rather than render dead controls.
-		if (route === '/case-studies/' && state.jsOnly === 0) {
+		if (route === FILTER_PAGES[0] && state.jsOnly === 0) {
 			failures.push(`${route} (no JS): filter UI is not gated behind .js-only`);
 		}
-		if (route === '/case-studies/' && state.cards === 0) {
+		if (route === FILTER_PAGES[0] && state.cards === 0) {
 			failures.push(`${route} (no JS): no cards in the static markup`);
 		}
-		// Native <details> means the megamenu works without JS.
-		if (state.megaReachable === 0) failures.push(`${route} (no JS): megamenu links unreachable`);
+		// Plain links and a native <details> mobile menu: navigation needs no JS.
+		if (state.navReachable === 0) failures.push(`${route} (no JS): navigation links unreachable`);
 	}
 
 	await ctx.close();
@@ -452,9 +430,8 @@ async function main() {
 		await run(`filtering ${route}`, () => testFiltering(page, base, route));
 	}
 	await run('card inventory', () => testCardInventory(page, base));
-	await run('?branche= deep links', () => testBrancheDeepLink(page, base));
+	await run('?branche= / ?leistung= deep links', () => testFilterDeepLinks(page, base));
 	await run('?interesse= intent links', () => testIntentLinks(page, base));
-	await run('megamenu', () => testMegamenu(page, base));
 	await run('mobile menu', () => testMobileMenu(page, base));
 	await run('skip link', () => testSkipLink(page, base));
 	await run('count-up', () => testCountUp(browser, base));

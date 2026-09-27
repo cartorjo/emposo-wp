@@ -24,7 +24,9 @@
 
     function animate(dt, parsed) {
       var start = null;
-      var duration = 900;
+      var token = getComputedStyle(document.documentElement).getPropertyValue('--duration-countup').trim();
+      // The minifier may rewrite 900ms as .9s.
+      var duration = parseFloat(token) * (/ms$/.test(token) ? 1 : 1000) || 900;
       function frame(now) {
         if (start === null) start = now;
         var t = Math.min((now - start) / duration, 1);

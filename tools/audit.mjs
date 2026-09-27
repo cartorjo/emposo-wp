@@ -199,6 +199,12 @@ async function auditRoute(browser, base, route) {
 				if (style.display === 'none' || style.visibility === 'hidden') continue;
 				const rect = el.getBoundingClientRect();
 				if (rect.width === 0 && rect.height === 0) continue;
+				// Content of a horizontal scroll region (e.g. .legal-table) may be wider than the viewport by design.
+				let inScroller = false;
+				for (let a = el.parentElement; a && a !== document.body; a = a.parentElement) {
+					if (/(auto|scroll)/.test(getComputedStyle(a).overflowX)) { inScroller = true; break; }
+				}
+				if (inScroller) continue;
 				// Overflowing the viewport horizontally, or text cut off inside its box.
 				if (rect.right > docWidth + 1 || rect.left < -1) {
 					clipped.push(`${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]}`);

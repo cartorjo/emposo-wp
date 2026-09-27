@@ -2,7 +2,7 @@
 /**
  * Case study.
  *
- * Ten of the 41 routes. The body comes from the project renderer via the route
+ * Twenty-three of the 35 routes. The body comes from the project renderer via the route
  * contract, like every other route.
  *
  * @package Emposo

@@ -10,4 +10,4 @@
  */
 
 ?>
-<section class="page-section"><div class="gutter"><div class="container"><p class="eyebrow">Orientierung</p><h1 class="page-title">Alle Seiten im Überblick.</h1><nav class="sitemap-grid" aria-label="Sitemap"><?php emposo_fragment( 'sitemap' ); ?></nav></div></div></section>
+<section class="page-section"><div class="gutter"><div class="container"><nav class="page-breadcrumb" aria-label="Brotkrümelnavigation"><ol><li><a href="/">Startseite</a></li><li><span aria-hidden="true">/</span><span aria-current="page">Sitemap</span></li></ol></nav><p class="eyebrow">Orientierung</p><h1 class="display-large">Alle Seiten im Überblick.</h1><nav class="sitemap-grid" aria-label="Sitemap"><?php emposo_fragment( 'sitemap' ); ?></nav></div></div></section>

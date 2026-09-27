@@ -3,7 +3,7 @@
 ## `static-baseline.json`
 
 The measured state of the **pinned static reference** (`reference/static`,
-`3371afb`, i.e. `c471ef0` plus the 2026-09-26 locations copy fix), produced by:
+`42a7c6d`, weave-clone main on 2026-09-27), produced by:
 
 ```bash
 node tools/audit.mjs --target=static --write-baseline
@@ -20,6 +20,12 @@ measured, so the port is gated against this instead.
 
 Result on first run: **41/41 routes pass, with zero axe violations at both
 1440 px and 390 px.** The previously unmeasured routes are clean.
+
+Re-measured at the 42a7c6d re-pin (2026-09-27): **35/35 routes pass.** The
+whole-page ("scrolled") byte totals are not reproducible run to run on the
+reference itself (533 vs 573 KB on one case study, 974 vs 1054 KB on `/`), so a
+route can fail the 2 % whole-page tolerance on measurement noise alone; see
+#40.
 
 ## What the numbers are, and are not
 

@@ -93,10 +93,17 @@ function checkUnresolvedTemplates({ html }, add) {
 	}
 }
 
-function checkSupersededBranding({ html }, add) {
+/**
+ * Legal documents reproduced verbatim from Hays (the privacy notice names the
+ * "Hays-Gruppe" as the controller's group). They are not site copy, so the
+ * branding rule does not apply to them.
+ */
+const VERBATIM_LEGAL = new Set(['/impressum/', '/datenschutzerklaerung/', '/nutzungsbestimmungen/']);
+
+function checkSupersededBranding({ html, route }, add) {
 	// Both are explicit owner decisions: "Hays-Gruppe" was removed per the
 	// workbook, and the diagonal arrow was replaced by a straight one.
-	if (/Hays-Gruppe/.test(html)) add('superseded branding "Hays-Gruppe"');
+	if (/Hays-Gruppe/.test(html) && !VERBATIM_LEGAL.has(route.url)) add('superseded branding "Hays-Gruppe"');
 	if (/↗/.test(html)) add('superseded arrow glyph "↗" (must be "→")');
 }
 
@@ -171,18 +178,20 @@ function checkScriptMatrix({ html, route }, add) {
 	}
 }
 
-function checkNoindex({ html }, add) {
-	const metas = [...html.matchAll(/<meta\b[^>]*\bname="robots"[^>]*>/gi)];
-	if (metas.length === 0) {
-		add('missing <meta name="robots"> — the preview noindex must stay until launch is approved');
+/**
+ * The preview noindex is the X-Robots-Tag header, as on the static build; the
+ * head itself must match the reference (parity covers it). `headers` is absent
+ * when the reference is checked against itself, which has no server.
+ */
+function checkNoindex({ headers }, add) {
+	if (!headers) return;
+	const value = headers.get('x-robots-tag');
+	if (!value) {
+		add('missing X-Robots-Tag header — the preview noindex must stay until launch is approved');
 		return;
 	}
-	if (metas.length > 1) add(`${metas.length} robots meta tags (core is probably emitting its own)`);
-
-	const content = /content="([^"]*)"/.exec(metas[0])?.[1] ?? '';
-	const normalised = content.toLowerCase().replace(/\s+/g, '');
-	if (normalised !== 'noindex,nofollow') {
-		add(`robots content is "${content}", expected exactly "noindex, nofollow"`);
+	if (value.toLowerCase().replace(/\s+/g, '') !== 'noindex,nofollow') {
+		add(`X-Robots-Tag is "${value}", expected exactly "noindex, nofollow"`);
 	}
 }
 
@@ -385,13 +394,15 @@ function checkAnchor(targetHtml, hash, href, failures, pathname) {
 /**
  * Every @font-face url() in the fonts stylesheet must resolve, case-sensitively.
  *
- * Takes only the stylesheet path: font URLs resolve relative to the CSS file,
- * not the site root. That is precisely why moving the stylesheet silently 404s
+ * Font URLs resolve relative to the directory the CSS is SERVED from (baseDir,
+ * default the file's own), not the site root. The @font-face rules are now
+ * authored in styles/00-fonts.css and shipped inlined in site.css, so the two
+ * directories differ. That is precisely why moving the stylesheet silently 404s
  * all five faces — the paths still look right, they just resolve from a
  * different directory — and every text metric shifts as it falls back to
  * system-ui.
  */
-export function checkFontFaces(cssPath) {
+export function checkFontFaces(cssPath, baseDir = path.dirname(cssPath)) {
 	const failures = [];
 	if (!existsSync(cssPath)) return [`fonts stylesheet missing: ${cssPath}`];
 
@@ -402,7 +413,7 @@ export function checkFontFaces(cssPath) {
 	for (const url of urls) {
 		// Relative to the stylesheet, which is why a moved CSS file silently
 		// 404s every face and falls back to system-ui, shifting all text metrics.
-		const target = path.resolve(path.dirname(cssPath), url.split('?')[0]);
+		const target = path.resolve(baseDir, url.split('?')[0]);
 		if (!existsSync(target)) {
 			failures.push(`@font-face url() does not resolve: ${url}`);
 			continue;

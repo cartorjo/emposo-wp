@@ -71,21 +71,12 @@ function emposo_asset_version( string $relative_path ): string {
  * Register front-end styles and scripts.
  */
 function emposo_enqueue_assets(): void {
-	/*
-	 * site.css depends on 00-fonts.css so the order is structural rather than
-	 * incidental to enqueue sequence, matching the static head.
-	 */
-	wp_enqueue_style(
-		'emposo-fonts',
-		EMPOSO_URI . '/assets/css/00-fonts.css',
-		array(),
-		emposo_asset_version( '/assets/css/00-fonts.css' )
-	);
-
+	// One stylesheet, as in the static head: the @font-face rules are
+	// inlined into site.css (styles/00-fonts.css is imported by main.css).
 	wp_enqueue_style(
 		'emposo-site',
 		EMPOSO_URI . '/assets/css/site.css',
-		array( 'emposo-fonts' ),
+		array(),
 		emposo_asset_version( '/assets/css/site.css' )
 	);
 

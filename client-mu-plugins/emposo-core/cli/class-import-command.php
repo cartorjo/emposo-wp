@@ -263,9 +263,9 @@ class Import_Command {
 		if ( ! is_array( $decoded ) ) {
 			WP_CLI::error( 'Export is not valid JSON.' );
 		}
-		if ( 1 !== ( $decoded['schema'] ?? 0 ) ) {
+		if ( 2 !== ( $decoded['schema'] ?? 0 ) ) {
 			WP_CLI::error(
-				sprintf( 'Export schema %s is not supported; this importer expects 1.', (string) ( $decoded['schema'] ?? 'missing' ) )
+				sprintf( 'Export schema %s is not supported; this importer expects 2.', (string) ( $decoded['schema'] ?? 'missing' ) )
 			);
 		}
 		$this->data = $decoded;
@@ -442,6 +442,19 @@ class Import_Command {
 				 */
 				update_term_meta( $term_id, '_emposo_term_order', (int) $term['source_order'] );
 				update_term_meta( $term_id, '_emposo_source_slug', $slug );
+
+				/*
+				 * The copy a term carries now that disciplines and industries have
+				 * no pages: icon/topics/promise for the discipline table,
+				 * subtitle/tile for the industry tiles. The tile image is an
+				 * attachment, so it is linked in the relations step, after media.
+				 */
+				foreach ( (array) ( $term['meta'] ?? array() ) as $meta_key => $meta_value ) {
+					if ( 'image' === $meta_key ) {
+						continue;
+					}
+					update_term_meta( $term_id, '_emposo_' . $meta_key, is_bool( $meta_value ) ? (int) $meta_value : wp_slash( (string) $meta_value ) );
+				}
 			}
 		}
 	}
@@ -550,12 +563,6 @@ class Import_Command {
 		foreach ( (array) ( $this->data['projects'] ?? array() ) as $index => $project ) {
 			$this->apply_case_study( $project, $index );
 		}
-		foreach ( (array) ( $this->data['disciplines'] ?? array() ) as $index => $discipline ) {
-			$this->apply_discipline( $discipline, $index );
-		}
-		foreach ( (array) ( $this->data['industries'] ?? array() ) as $index => $industry ) {
-			$this->apply_industry( $industry, $index );
-		}
 	}
 
 	/**
@@ -593,101 +600,28 @@ class Import_Command {
 			array(
 				// sanitize_text_field only: these carry qualifiers that are
 				// factual claims and must survive byte-for-byte.
-				'_emposo_metric'       => (string) $project['metric'],
-				'_emposo_metric_label' => (string) $project['label'],
-				'_emposo_challenge'    => (string) $project['challenge'],
-				'_emposo_solution'     => (string) $project['solution'],
-				'_emposo_results'      => array_map( 'strval', (array) $project['results'] ),
+				'_emposo_metric'         => (string) $project['metric'],
+				'_emposo_metric_label'   => (string) $project['label'],
+				'_emposo_industry_label' => (string) $project['industry'],
+				// The filter tokens in source order: data-industry prints them
+				// as-is, and the terms below carry the same set for queries.
+				'_emposo_filter'         => (string) $project['filter'],
+
+				/*
+				 * A column is one sentence (workbook cases) or the deck's bullets
+				 * (2026-09-24 cases). Both shapes stay editable: the sentence in
+				 * the string field, the bullets in the list field, which wins.
+				 */
+				'_emposo_challenge'      => is_array( $project['challenge'] ) ? '' : (string) $project['challenge'],
+				'_emposo_challenge_list' => is_array( $project['challenge'] ) ? array_map( 'strval', $project['challenge'] ) : array(),
+				'_emposo_solution'       => is_array( $project['solution'] ) ? '' : (string) $project['solution'],
+				'_emposo_solution_list'  => is_array( $project['solution'] ) ? array_map( 'strval', $project['solution'] ) : array(),
+				'_emposo_facts'          => array_map( 'strval', (array) ( $project['facts'] ?? array() ) ),
+				'_emposo_results'        => array_map( 'strval', (array) $project['results'] ),
 			)
 		);
 
 		$this->note( 'populate', 'case study', $slug );
-	}
-
-	/**
-	 * Apply one discipline page's fields.
-	 *
-	 * @param array<string, mixed> $discipline Discipline record.
-	 * @param int                  $index      Position in the source array.
-	 */
-	private function apply_discipline( array $discipline, int $index ): void {
-		$slug = (string) $discipline['slug'];
-		$post = $this->find_post( 'page', '/expertise/' . $slug . '/' );
-
-		if ( ! $post instanceof WP_Post ) {
-			WP_CLI::warning( sprintf( 'discipline page %s not scaffolded', $slug ) );
-
-			return;
-		}
-
-		if ( $this->dry_run ) {
-			$this->note( 'populate', 'discipline', $slug );
-
-			return;
-		}
-
-		$term = get_term_by( 'slug', $slug, TAX_DISCIPLINE );
-
-		$this->update_fields(
-			$post,
-			array(
-				'post_title'   => (string) $discipline['name'],
-				'post_excerpt' => (string) $discipline['promise'],
-				'menu_order'   => $index * 10,
-			),
-			array(
-				'_emposo_topics'          => (string) $discipline['topics'],
-				'_emposo_detail'          => (string) $discipline['detail'],
-				'_emposo_focus'           => array_map( 'strval', (array) $discipline['focus'] ),
-				'_emposo_discipline_term' => $term ? (int) $term->term_id : 0,
-			)
-		);
-
-		$this->note( 'populate', 'discipline', $slug );
-	}
-
-	/**
-	 * Apply one industry page's fields.
-	 *
-	 * @param array<string, mixed> $industry Industry record.
-	 * @param int                  $index    Position in the source array.
-	 */
-	private function apply_industry( array $industry, int $index ): void {
-		$slug = (string) $industry['slug'];
-		$post = $this->find_post( 'page', '/branchen/' . $slug . '/' );
-
-		if ( ! $post instanceof WP_Post ) {
-			WP_CLI::warning( sprintf( 'industry page %s not scaffolded', $slug ) );
-
-			return;
-		}
-
-		if ( $this->dry_run ) {
-			$this->note( 'populate', 'industry', $slug );
-
-			return;
-		}
-
-		// The term slug is the FILTER token, not the page slug.
-		$token = explode( ' ', (string) $industry['filter'] )[0];
-		$term  = get_term_by( 'slug', $token, TAX_INDUSTRY );
-
-		$this->update_fields(
-			$post,
-			array(
-				'post_title'   => (string) $industry['name'],
-				'post_excerpt' => (string) $industry['intro'],
-				'menu_order'   => $index * 10,
-			),
-			array(
-				'_emposo_subtitle'      => (string) ( $industry['subtitle'] ?? '' ),
-				'_emposo_challenge'     => (string) $industry['challenge'],
-				'_emposo_delivery'      => (string) $industry['delivery'],
-				'_emposo_industry_term' => $term ? (int) $term->term_id : 0,
-			)
-		);
-
-		$this->note( 'populate', 'industry', $slug );
 	}
 
 	/**
@@ -732,85 +666,45 @@ class Import_Command {
 			}
 			wp_set_object_terms( $post->ID, array_values( array_unique( $ids ) ), TAX_INDUSTRY, false );
 
-			// Exactly one discipline (a CHILD term) and one outcome.
+			// Exactly one discipline (a CHILD term).
 			$discipline = get_term_by( 'slug', (string) $project['discipline'], TAX_DISCIPLINE );
 			if ( $discipline ) {
 				wp_set_object_terms( $post->ID, array( (int) $discipline->term_id ), TAX_DISCIPLINE, false );
 			}
 
-			$outcome = get_term_by( 'slug', (string) $project['outcome'], TAX_OUTCOME );
-			if ( $outcome ) {
-				wp_set_object_terms( $post->ID, array( (int) $outcome->term_id ), TAX_OUTCOME, false );
+			// Outcomes are space-separated tokens ('optimize verzahnen').
+			$outcomes = array();
+			$tokens   = preg_split( '/\s+/', trim( (string) $project['outcome'] ) );
+			foreach ( is_array( $tokens ) ? $tokens : array() as $token ) {
+				$outcome = get_term_by( 'slug', $token, TAX_OUTCOME );
+				if ( $outcome ) {
+					$outcomes[] = (int) $outcome->term_id;
+				}
 			}
+			wp_set_object_terms( $post->ID, $outcomes, TAX_OUTCOME, false );
 
 			$this->attach_featured_image( $post->ID, (string) $project['image'] );
 
 			$this->note( 'relate', 'case study', $slug );
 		}
 
-		/*
-		 * An industry's curated discipline list. Resolved here rather than in
-		 * the records pass because it maps slugs to page IDs, and those pages
-		 * are created by the scaffolder but only identifiable after every
-		 * record has its source key.
-		 */
-		foreach ( (array) ( $this->data['industries'] ?? array() ) as $industry ) {
-			if ( $this->dry_run ) {
+		// The industry tiles' photographs, as term meta pointing at the attachment.
+		foreach ( (array) ( $this->data['terms']['emposo_industry'] ?? array() ) as $term ) {
+			$key = (string) ( $term['meta']['image'] ?? '' );
+			if ( $this->dry_run || '' === $key ) {
 				continue;
 			}
-
-			$page = $this->find_post( 'page', '/branchen/' . (string) $industry['slug'] . '/' );
-			if ( ! $page instanceof WP_Post ) {
-				continue;
-			}
-
-			$ids = array();
-			foreach ( (array) $industry['disciplines'] as $discipline_slug ) {
-				$discipline_page = $this->find_post( 'page', '/expertise/' . (string) $discipline_slug . '/' );
-				if ( $discipline_page instanceof WP_Post ) {
-					$ids[] = $discipline_page->ID;
-				}
-			}
-
-			update_post_meta( $page->ID, '_emposo_related_disciplines', $ids );
-
-			/*
-			 * `$industry['cases']` is read from the export and deliberately NOT
-			 * written to _emposo_case_order. That meta is an editorial override,
-			 * and the cases list is not the order the site renders: the static
-			 * build orders these cards by its global projects array filtered by
-			 * industry. On industrials-manufacturing the reference renders
-			 * rechenzentrums-umzug third and the cases list has it last, so
-			 * importing the list would silently reorder a live page and break
-			 * parity. See the matching comment in fragments.php.
-			 */
-		}
-
-		// Discipline and industry pages get their featured images too.
-		foreach ( array(
-			'disciplines' => '/expertise/',
-			'industries'  => '/branchen/',
-		) as $group => $prefix ) {
-			foreach ( (array) ( $this->data[ $group ] ?? array() ) as $record ) {
-				if ( $this->dry_run ) {
-					continue;
-				}
-				$post = $this->find_post( 'page', $prefix . (string) $record['slug'] . '/' );
-				if ( $post instanceof WP_Post ) {
-					$this->attach_featured_image( $post->ID, (string) $record['image'] );
-				}
+			$industry   = get_term_by( 'slug', (string) $term['slug'], TAX_INDUSTRY );
+			$attachment = $this->find_attachment( $key );
+			if ( $industry && $attachment instanceof WP_Post ) {
+				update_term_meta( (int) $industry->term_id, '_emposo_image', $attachment->ID );
 			}
 		}
 	}
 
 	/**
-	 * Import the management roster.
-	 *
-	 * The three-tier shape is deliberate and is what makes "never invent roles
-	 * or bios" structural rather than a note: two people have a role and a bio,
-	 * two have a photo only, three have initials only. The renderer picks a
-	 * tier from what exists, so there is no placeholder path and no field an
-	 * editor can half-fill into a fabricated role.
+	 * Import the management roster: name, roles, bio paragraphs, portrait and
+	 * an optional LinkedIn profile, in the workbook's row order.
 	 */
 	private function do_people(): void {
 		foreach ( (array) ( $this->data['people'] ?? array() ) as $index => $person ) {
@@ -847,8 +741,7 @@ class Import_Command {
 			}
 			$id = (int) $id;
 
-			update_post_meta( $id, '_emposo_person_role', wp_slash( (string) $person['role'] ) );
-			update_post_meta( $id, '_emposo_person_initials', wp_slash( (string) $person['initials'] ) );
+			update_post_meta( $id, '_emposo_person_roles', wp_slash( array_map( 'strval', (array) $person['roles'] ) ) );
 			update_post_meta( $id, '_emposo_person_linkedin', wp_slash( (string) $person['linkedin'] ) );
 
 			if ( '' !== (string) $person['image'] ) {
@@ -866,11 +759,10 @@ class Import_Command {
 		$options = (array) ( $this->data['options'] ?? array() );
 
 		$map = array(
-			'emposo_facts'       => $options['facts'] ?? array(),
-			'emposo_locations'   => $options['locations'] ?? array(),
-			'emposo_trust_strip' => $options['trustStrip'] ?? array(),
-			'emposo_faq'         => $options['faq'] ?? array(),
-			'emposo_interests'   => $options['interests'] ?? array(),
+			'emposo_facts'          => $options['facts'] ?? array(),
+			'emposo_certifications' => $options['certifications'] ?? array(),
+			'emposo_jobs'           => $options['jobs'] ?? array(),
+			'emposo_interests'      => $options['interests'] ?? array(),
 		);
 
 		foreach ( $map as $name => $value ) {

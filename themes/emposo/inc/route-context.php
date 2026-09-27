@@ -147,6 +147,13 @@ function emposo_document_title(): string {
 }
 
 /**
+ * The launch head block (canonical, OG/Twitter, JSON-LD), from the contract.
+ */
+function emposo_head_meta(): string {
+	return (string) ( emposo_route()['headMeta'] ?? '' );
+}
+
+/**
  * Meta description, from the contract.
  */
 function emposo_meta_description(): string {
@@ -285,11 +292,10 @@ function emposo_the_body(): void {
 			break;
 
 		case 'project':
-		case 'industry':
-		case 'discipline':
 			/*
-			 * The three data-driven detail-page renderers, which together serve
-			 * 22 of the 41 routes. Implemented as string-returning helpers
+			 * The data-driven case-study renderer, which serves 23 of the 35
+			 * routes (the industry and discipline detail pages were removed
+			 * upstream). Implemented as string-returning helpers
 			 * rather than template parts because they compose — a project page
 			 * calls the card renderer, which calls the picture helper — and
 			 * because the static renderers emit no inter-tag whitespace, which

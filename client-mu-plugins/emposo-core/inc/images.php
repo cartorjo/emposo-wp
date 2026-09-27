@@ -41,6 +41,10 @@ const SIZES = array(
 	'detail'         => '(max-width: 900px) 100vw, 50vw',
 	'portrait'       => '(max-width: 700px) 100vw, 25vw',
 	'portrait_small' => '(max-width: 700px) 50vw, 20vw',
+	// projectCards() collage: cards 2 and 3 run wide, 1 and 4 narrow.
+	'collage_wide'   => '(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 58vw',
+	'collage_narrow' => '(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 42vw',
+	'management'     => '(max-width: 700px) 100vw, 33vw',
 );
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\register_sizes' );
@@ -148,9 +152,11 @@ function resolve_id( $image ): int {
  * @param int|string $image     Attachment ID or manifest key.
  * @param string     $size_key  One of the SIZES keys.
  * @param bool       $priority  True for the LCP image: eager + high fetchpriority.
+ * @param bool       $decorative True when the image adds nothing beyond adjacent
+ *                               text (card photo, portrait beside the name): alt="".
  * @return string Markup, or '' when the image is missing.
  */
-function picture( $image, string $size_key = 'default', bool $priority = false ): string {
+function picture( $image, string $size_key = 'default', bool $priority = false, bool $decorative = false ): string {
 	$id = resolve_id( $image );
 
 	if ( 0 === $id ) {
@@ -216,7 +222,7 @@ function picture( $image, string $size_key = 'default', bool $priority = false )
 		esc_url( $src ),
 		// The reference build escapes alt with its 4-char escape(); esc_attr
 		// would emit &#039; for an apostrophe and diverge from parity.
-		\Emposo\Core\escape_static( $alt ),
+		$decorative ? '' : \Emposo\Core\escape_static( $alt ),
 		$width,
 		$height,
 		$loading

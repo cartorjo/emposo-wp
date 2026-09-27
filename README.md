@@ -16,7 +16,7 @@ npm run wp:bootstrap              # scaffold, then import (both idempotent)
 `wp:bootstrap` is three steps and every one is required on a fresh database.
 `wp:theme` activates the theme — nothing else does, and an unactivated theme
 means WordPress serves its own default, whose inline scripts the CSP blocks and
-whose markup fails every parity check. `wp:scaffold` creates the 41 route
+whose markup fails every parity check. `wp:scaffold` creates the 35 route
 objects and sets what makes the contract's paths exist at all — postname
 permalinks, the front page, `blog_public=0` — then flushes the rewrite rules.
 `wp:seed` fills those objects with content. All three are idempotent.
@@ -50,9 +50,9 @@ format is reviewed on a machine that has no credential.
 
 | Command | Asserts |
 |---|---|
-| `npm run check` | lint, CSS build, class inventory, DOM parity on all 41 routes, no drift |
+| `npm run check` | lint, CSS build, class inventory, DOM parity on all 35 routes and the 404, no drift |
 | `npm run parity -- --strict` | Every route matches `reference/static/` after normalisation |
-| `npm run class-inventory` | The built CSS emits a superset of the reference's 239 classes |
+| `npm run class-inventory` | The built CSS emits a superset of the reference's 175 classes |
 | `npm run behaviours` | Interaction, filter, deep-link, count-up and no-JS contracts |
 | `npm run audit` | Layout/header probes, axe, budgets, HTTP 200 not 301 |
 | `npm run phpcs` / `npm run phpstan` | WordPress + VIP standards; static analysis at level 8 |
@@ -64,8 +64,8 @@ Presentation lives in `themes/emposo/`. Everything stateful — content types,
 taxonomies, meta, blocks, image helpers, settings, the dashboard and the CLI
 commands — lives in `client-mu-plugins/emposo-core/`, so content survives a
 theme change. `reference/static/` is the audited static build, pinned to
-`3371afb` (`c471ef0` plus the 2026-09-26 locations copy fix, weave-clone tag
-`parity-pin-2026-09-26-locations`); treat it as read-only.
+`42a7c6d` (weave-clone main, 2026-09-27); treat it as read-only. Moving the
+pin is a procedure, not an edit: see `docs/resync.md`.
 
 ## Things that look optional and are not
 

@@ -2,7 +2,7 @@
 /**
  * `wp emposo verify` — the route and content contract.
  *
- * This is the real URL-preservation guarantee. Thirty-one of the 41 routes are
+ * This is the real URL-preservation guarantee. Twelve of the 35 routes are
  * Pages, so a single edited slug or changed parent silently changes a live URL;
  * and the routing design rests on WordPress behaviours (permastruct ordering,
  * has_archive emitting an extra rule) whose breakage is remote from the change
@@ -218,7 +218,7 @@ class Verify_Command {
 			array(
 				'post_type'        => \Emposo\Core\ContentModel\CPT_CASE_STUDY,
 				'post_status'      => 'publish',
-				// The corpus is 10; the headroom is for editorial growth, and
+				// The corpus is 23; the headroom is for editorial growth, and
 				// VIP's 100-post ceiling is the limit worth respecting here.
 				'posts_per_page'   => 100,
 				'no_found_rows'    => true,
@@ -227,8 +227,8 @@ class Verify_Command {
 		);
 
 		foreach ( $case_studies as $post ) {
-			// Exactly one discipline and one outcome, and the discipline must be
-			// a CHILD term: assigning the parent group directly would break both
+			// Exactly one discipline and at least one outcome, and the discipline
+			// must be a CHILD term: assigning the parent group directly would break both
 			// the card label and include_children queries.
 			foreach ( array(
 				\Emposo\Core\ContentModel\TAX_DISCIPLINE => 'discipline',
@@ -239,12 +239,20 @@ class Verify_Command {
 					$failures[] = sprintf( '%s: cannot read %s terms', $post->post_name, $label );
 					continue;
 				}
-				if ( 1 !== count( $terms ) ) {
+
+				/*
+				 * Exactly one discipline; at least one outcome — since the
+				 * 2026-09-24 reference cases, outcomes are space-separated
+				 * tokens ('optimize verzahnen'), so two is legitimate.
+				 */
+				$outcome = \Emposo\Core\ContentModel\TAX_OUTCOME === $taxonomy;
+				if ( $outcome ? 0 === count( $terms ) : 1 !== count( $terms ) ) {
 					$failures[] = sprintf(
-						'%s: %d %s term(s), expected exactly 1',
+						'%s: %d %s term(s), expected %s',
 						$post->post_name,
 						count( $terms ),
-						$label
+						$label,
+						$outcome ? 'at least 1' : 'exactly 1'
 					);
 
 					continue;
