@@ -117,11 +117,13 @@ every page under `/en/`, and each step above covers both locales:
 
 ## Known limits
 
-- `npm run audit` whole-page byte totals are not reproducible run to run, even
-  for the reference against itself (lazy images fetched during the width sweep
-  can still be in flight when the sum is taken). A single-route failure on the
-  2 % whole-page tolerance needs a second measurement before it counts as a
-  regression (#40).
+- `npm run audit` whole-page byte totals used to vary run to run on the
+  reference itself (lazy images and srcset candidates fetched during the width
+  sweep were still being counted). Since #40 the total is snapshotted after a
+  paced scroll pass, once every image has settled, and before the width sweep,
+  so repeat runs are byte-identical. Initial-load totals still race on
+  `/branchen/` and `/en/industries/`: two images at the fold may or may not be
+  fetched before `networkidle`. They only feed the absolute budgets.
 - The head block names `https://emposo.de/assets/share/*.jpg` and
   `/assets/brand/emposo-logo-organization.png`. These are not theme assets, so
   the launch webroot must serve them at those root paths (copy them in at
