@@ -263,9 +263,9 @@ class Import_Command {
 		if ( ! is_array( $decoded ) ) {
 			WP_CLI::error( 'Export is not valid JSON.' );
 		}
-		if ( 1 !== ( $decoded['schema'] ?? 0 ) ) {
+		if ( 2 !== ( $decoded['schema'] ?? 0 ) ) {
 			WP_CLI::error(
-				sprintf( 'Export schema %s is not supported; this importer expects 1.', (string) ( $decoded['schema'] ?? 'missing' ) )
+				sprintf( 'Export schema %s is not supported; this importer expects 2.', (string) ( $decoded['schema'] ?? 'missing' ) )
 			);
 		}
 		$this->data = $decoded;

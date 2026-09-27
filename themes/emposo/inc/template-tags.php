@@ -95,7 +95,9 @@ function emposo_brand( string $name ): void {
 
 	// Printed unescaped by necessity — it is SVG markup from an allowlisted
 	// file inside the theme, not user input.
-	echo emposo_read_svg( 'brand', $name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	// Its <style> block is dropped, as assemble.mjs brand() does: the strict CSP
+	// forbids inline styles, so the logo's rules live in 11-components.css.
+	echo trim( (string) preg_replace( '/\s*<style>[\s\S]*?<\/style>/', '', emposo_read_svg( 'brand', $name ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**
