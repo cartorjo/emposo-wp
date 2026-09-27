@@ -1,7 +1,7 @@
 # Redirect map: old emposo.de URLs → new routes
 
 Generated from the static build's shipped 301 map (`reference/static/serve.json`
-`redirects`, pinned at 1a4ddaf), which the reference's own `check:content` gate
+`redirects`, pinned at f2e0a91), which the reference's own `check:content` gate
 keeps resolvable; this file is its WordPress form. `tools/check-docs.mjs`
 verifies every target here is a real contract route. Implemented as
 **Cloudflare Redirect Rules** (301): host-agnostic, no server config, editable

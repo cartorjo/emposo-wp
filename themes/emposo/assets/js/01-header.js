@@ -2,6 +2,22 @@
    subtle scroll state. Opening/closing is native <details>. */
 (function () {
   'use strict';
+
+  /* A cross-document view transition rejects its promises when the browser
+     aborts or skips it (the viewport changing size mid-transition, an invalid
+     state, or the skipTransition() below). Nothing awaits them, so settle
+     them here, or they surface as uncaught errors. Registered before DOM ready, because
+     pagereveal fires before the first frame. */
+  var settle = function (transition) {
+    if (!transition) return;
+    [transition.ready, transition.finished, transition.updateCallbackDone].forEach(function (promise) {
+      if (promise) promise.catch(function () {});
+    });
+  };
+  window.addEventListener('pagereveal', function (event) {
+    settle(event.viewTransition);
+  });
+
   if (!window.__onReady) return;
 
   window.__onReady(function () {
@@ -66,6 +82,7 @@
     /* The cross-document view transition (styles/11-components.css) is for
        switching language only: every other navigation skips it. */
     window.addEventListener('pageswap', function (event) {
+      settle(event.viewTransition);
       if (event.viewTransition && !switching) event.viewTransition.skipTransition();
     });
 
