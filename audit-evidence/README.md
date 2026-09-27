@@ -27,15 +27,10 @@ reference itself (533 vs 573 KB on one case study, 974 vs 1054 KB on `/`), so a
 route can fail the 2 % whole-page tolerance on measurement noise alone; see
 #40.
 
-Re-measured at the 1a4ddaf bilingual re-pin (2026-09-27): the static
-baseline covers **70/70 routes** (35 German, 35 English), and WordPress passes
-**70/72** (both 404s included). The two failures are whole-page totals on
-`/case-studies/software-planung-antriebssteuergeraete/` (363 vs 345 KB) and
-`/case-studies/qualitaetsarbeit-pharma-diagnostik/` (365 vs 349 KB). WordPress
-measures the same on a second run. Two more static runs measure 359 and 361
-KB, so the baseline caught a low sample, and WordPress is within 1.1 % of the
-repeat measurements. Per #40 these are not regressions. Initial-load bytes,
-CLS and axe pass on every route.
+Re-measured at the f2e0a91 bilingual re-pin (2026-09-27), after the #40 fix
+(the whole-page total is snapshotted after a paced scroll pass, before the width
+sweep; three consecutive runs gave byte-identical totals): the static baseline
+covers **70/70 routes** (35 German, 35 English), and WordPress passes **72/72** (both 404s included) on the first run.
 
 ## What the numbers are, and are not
 
