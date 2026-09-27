@@ -16,7 +16,15 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT = path.resolve(here, '..');
 export const STATIC_ROOT = path.join(REPO_ROOT, 'reference', 'static');
 
-const manifest = (await import(path.join(STATIC_ROOT, 'pages.mjs'))).default;
+const pagesDe = (await import(path.join(STATIC_ROOT, 'pages.mjs'))).default;
+// Since the i18n re-pin the reference also publishes English twins under /en/
+// (reference/static docs/i18n.md). They join the contract once published there.
+const { pagesEn } = await import(path.join(STATIC_ROOT, 'pages.en.mjs'));
+const { PUBLISHED } = await import(path.join(STATIC_ROOT, 'content', 'i18n.mjs'));
+const manifest = [
+	...pagesDe.map((page) => ({ ...page, locale: 'de' })),
+	...(PUBLISHED.includes('en') ? pagesEn(pagesDe) : []),
+];
 
 /**
  * `out` is a filesystem path (`about-us/index.html`); the served URL drops the
@@ -25,14 +33,18 @@ const manifest = (await import(path.join(STATIC_ROOT, 'pages.mjs'))).default;
  * carried with `kind: '404'` and probed by requesting a path that cannot exist.
  */
 function toRoute(page) {
-	const isNotFound = page.out === '404.html';
+	const isNotFound = page.out === '404.html' || page.out === 'en/404.html';
 	const url = page.out === 'index.html'
 		? '/'
 		: `/${page.out.replace(/index\.html$/, '')}`;
+	const locale = page.locale ?? 'de';
 
 	return {
 		out: page.out,
-		url: isNotFound ? '/__parity-404__/' : url,
+		// An unmatched path under /en/ gets the English 404.
+		url: isNotFound ? (locale === 'en' ? '/en/__parity-404__/' : '/__parity-404__/') : url,
+		locale,
+		twinOut: page.twinOut ?? null,
 		staticFile: page.out,
 		kind: isNotFound ? '404' : 'page',
 		expectStatus: isNotFound ? 404 : 200,

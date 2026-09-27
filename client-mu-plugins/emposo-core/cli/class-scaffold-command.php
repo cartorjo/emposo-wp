@@ -139,8 +139,8 @@ class Scaffold_Command {
 		}
 
 		foreach ( $routes as $route ) {
-			if ( 'emposo_case_study' === $route['objectType'] ) {
-				$this->ensure_object( $route, 'emposo_case_study' );
+			if ( in_array( $route['objectType'], array( 'emposo_case_study', 'emposo_case_study_en' ), true ) ) {
+				$this->ensure_object( $route, (string) $route['objectType'] );
 			}
 		}
 

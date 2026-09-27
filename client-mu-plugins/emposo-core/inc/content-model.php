@@ -45,6 +45,8 @@ const TAX_INDUSTRY   = 'emposo_industry';
 const TAX_OUTCOME    = 'emposo_outcome';
 
 const CPT_CASE_STUDY = 'emposo_case_study';
+/** The English twin of a case study: its own records, the one resolver of /en/case-studies/. */
+const CPT_CASE_STUDY_EN = 'emposo_case_study_en';
 const CPT_PERSON     = 'emposo_person';
 const CPT_ENQUIRY    = 'emposo_enquiry';
 
@@ -100,7 +102,7 @@ function register_taxonomies(): void {
 	 */
 	register_taxonomy(
 		TAX_DISCIPLINE,
-		array( CPT_CASE_STUDY ),
+		array( CPT_CASE_STUDY, CPT_CASE_STUDY_EN ),
 		array_merge(
 			classification_args( true ),
 			array(
@@ -127,7 +129,7 @@ function register_taxonomies(): void {
 	 */
 	register_taxonomy(
 		TAX_INDUSTRY,
-		array( CPT_CASE_STUDY ),
+		array( CPT_CASE_STUDY, CPT_CASE_STUDY_EN ),
 		array_merge(
 			classification_args( true ),
 			array(
@@ -148,7 +150,7 @@ function register_taxonomies(): void {
 	// projects-optimize / -transform / -scale card selections.
 	register_taxonomy(
 		TAX_OUTCOME,
-		array( CPT_CASE_STUDY ),
+		array( CPT_CASE_STUDY, CPT_CASE_STUDY_EN ),
 		array_merge(
 			classification_args( false ),
 			array(
@@ -207,6 +209,45 @@ function register_post_types(): void {
 			'rest_base'           => 'case-studies',
 			'menu_icon'           => 'dashicons-portfolio',
 			'menu_position'       => 21,
+			'hierarchical'        => false,
+			'exclude_from_search' => false,
+			'map_meta_cap'        => true,
+			'delete_with_user'    => false,
+		)
+	);
+
+	/*
+	 * The English case studies (reference/static docs/i18n.md): separate
+	 * records, so an editor edits each language on its own, linked to the
+	 * German one by _emposo_translation_of and sharing its terms. has_archive
+	 * stays false for the same reason as above; no Page owns /en/case-studies/.
+	 */
+	register_post_type(
+		CPT_CASE_STUDY_EN,
+		array(
+			'labels'              => array(
+				'name'          => __( 'Case Studies (EN)', 'emposo' ),
+				'singular_name' => __( 'Case Study (EN)', 'emposo' ),
+				'menu_name'     => __( 'Case Studies (EN)', 'emposo' ),
+				'add_new_item'  => __( 'English case study hinzufügen', 'emposo' ),
+				'edit_item'     => __( 'English case study bearbeiten', 'emposo' ),
+				'all_items'     => __( 'Alle Case Studies (EN)', 'emposo' ),
+			),
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'has_archive'         => false,
+			'rewrite'             => array(
+				'slug'       => 'en/case-studies',
+				'with_front' => false,
+				'feeds'      => false,
+				'pages'      => false,
+			),
+			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
+			'taxonomies'          => array( TAX_DISCIPLINE, TAX_INDUSTRY, TAX_OUTCOME ),
+			'show_in_rest'        => true,
+			'rest_base'           => 'case-studies-en',
+			'menu_icon'           => 'dashicons-translation',
+			'menu_position'       => 22,
 			'hierarchical'        => false,
 			'exclude_from_search' => false,
 			'map_meta_cap'        => true,
@@ -573,4 +614,27 @@ function register_meta_fields(): void {
 			)
 		);
 	}
+
+	/*
+	 * The English case studies carry exactly the German fields, mirrored from
+	 * the registry so the two types cannot drift, plus the link to their
+	 * German twin.
+	 */
+	foreach ( get_registered_meta_keys( 'post', CPT_CASE_STUDY ) as $key => $args ) {
+		unset( $args['object_subtype'] );
+		register_post_meta( CPT_CASE_STUDY_EN, $key, $args );
+	}
+	register_post_meta(
+		CPT_CASE_STUDY_EN,
+		'_emposo_translation_of',
+		array(
+			'type'              => 'integer',
+			'description'       => __( 'Deutsche Case Study (Post-ID)', 'emposo' ),
+			'single'            => true,
+			'default'           => 0,
+			'show_in_rest'      => true,
+			'sanitize_callback' => 'absint',
+			'auth_callback'     => $auth,
+		)
+	);
 }
