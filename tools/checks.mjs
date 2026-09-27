@@ -98,7 +98,7 @@ function checkUnresolvedTemplates({ html }, add) {
  * "Hays-Gruppe" as the controller's group). They are not site copy, so the
  * branding rule does not apply to them.
  */
-const VERBATIM_LEGAL = new Set(['/impressum/', '/datenschutzerklaerung/', '/nutzungsbestimmungen/']);
+const VERBATIM_LEGAL = new Set(['/impressum/', '/datenschutzerklaerung/', '/nutzungsbestimmungen/', '/en/legal-notice/', '/en/privacy-policy/', '/en/terms-of-use/']);
 
 function checkSupersededBranding({ html, route }, add) {
 	// Both are explicit owner decisions: "Hays-Gruppe" was removed per the

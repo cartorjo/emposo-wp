@@ -79,6 +79,8 @@ const icons = new Set([
 	...[...sources.matchAll(/\{\{icon:([a-z0-9-]+)\}\}/g)].map((m) => m[1]),
 	...[...sources.matchAll(/\bicon:\s*'([a-z0-9-]+)'/g)].map((m) => m[1]),
 	...disciplines.map((d) => d.icon),
+	// Icons assemble.mjs inlines itself, e.g. the language switch's globe.
+	...[...readFileSync(path.join(STATIC_ROOT, 'assemble.mjs'), 'utf8').matchAll(/\bicon\('([a-z0-9-]+)'\)/g)].map((m) => m[1]),
 ]);
 mirror(path.join(STATIC_ROOT, 'assets', 'icons'), path.join(THEME, 'assets', 'icons'), [...icons].map((i) => `${i}.svg`));
 const brands = new Set([...sources.matchAll(/\{\{brand:([a-z0-9-]+)\}\}/g)].map((m) => m[1]));

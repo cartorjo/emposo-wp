@@ -18,7 +18,9 @@
       if (!known) return;
       select.value = interest;
       if (hint) {
-        hint.textContent = 'Wir haben „' + interest + '“ für Ihre Anfrage vorausgewählt.';
+        hint.textContent = document.documentElement.lang === 'en'
+          ? 'We’ve preselected “' + interest + '” for your inquiry.'
+          : 'Wir haben „' + interest + '“ für Ihre Anfrage vorausgewählt.';
         hint.hidden = false;
       }
     }

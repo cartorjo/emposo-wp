@@ -7,6 +7,8 @@
 
   window.__onReady(function () {
     var state = { industry: 'all', discipline: 'all' };
+    // The page language picks the UI strings (docs/i18n.md).
+    var en = document.documentElement.lang === 'en';
     var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-filter-group]'));
     var projects = Array.prototype.slice.call(document.querySelectorAll('[data-project]'));
     var count = document.getElementById('project-count');
@@ -24,7 +26,7 @@
         project.hidden = !show;
         if (show) visible += 1;
       });
-      if (count) count.textContent = visible + (visible === 1 ? ' Projekt' : ' Projekte');
+      if (count) count.textContent = visible + (en ? (visible === 1 ? ' project' : ' projects') : (visible === 1 ? ' Projekt' : ' Projekte'));
       if (empty) empty.hidden = visible !== 0;
     }
 
@@ -99,7 +101,12 @@
       // the browser's bubbles (which follow the browser language). Checked on
       // submit, then live per field; not on blur, because text appearing
       // under a field would move the submit button away mid-click.
-      var messages = {
+      var messages = en ? {
+        name: { valueMissing: 'Please enter your name.' },
+        email: { valueMissing: 'Please enter your email address.', typeMismatch: 'Please enter a valid email address, e.g. name@company.com.' },
+        interest: { valueMissing: 'Please select what it is about.' },
+        message: { valueMissing: 'Please tell us briefly what it is about.' }
+      } : {
         name: { valueMissing: 'Bitte geben Sie Ihren Namen an.' },
         email: { valueMissing: 'Bitte geben Sie Ihre E-Mail-Adresse an.', typeMismatch: 'Bitte geben Sie eine gültige E-Mail-Adresse an, z. B. name@firma.de.' },
         interest: { valueMissing: 'Bitte wählen Sie aus, worum es geht.' },
@@ -129,16 +136,19 @@
         fields.forEach(function (field) { if (!check(field) && !firstInvalid) firstInvalid = field; });
         if (firstInvalid) { firstInvalid.focus(); return; }
         var data = new FormData(form);
+        var labels = en
+          ? { name: 'Name: ', company: 'Company: ', email: 'Email: ', interest: 'Interest: ', message: 'Message:', subject: 'Emposo inquiry: ' }
+          : { name: 'Name: ', company: 'Unternehmen: ', email: 'E-Mail: ', interest: 'Interesse: ', message: 'Nachricht:', subject: 'Emposo Anfrage: ' };
         var body = [
-          'Name: ' + data.get('name'),
-          'Unternehmen: ' + data.get('company'),
-          'E-Mail: ' + data.get('email'),
-          'Interesse: ' + data.get('interest'),
+          labels.name + data.get('name'),
+          labels.company + data.get('company'),
+          labels.email + data.get('email'),
+          labels.interest + data.get('interest'),
           '',
-          'Nachricht:',
+          labels.message,
           data.get('message')
         ].join('\n');
-        window.location.href = 'mailto:info@emposo.eu?subject=' + encodeURIComponent('Emposo Anfrage: ' + data.get('interest')) + '&body=' + encodeURIComponent(body);
+        window.location.href = 'mailto:info@emposo.eu?subject=' + encodeURIComponent(labels.subject + data.get('interest')) + '&body=' + encodeURIComponent(body);
       });
     }
   });

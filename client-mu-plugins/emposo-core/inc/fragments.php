@@ -31,6 +31,10 @@ use WP_Term;
 use function Emposo\Core\Cache\remember;
 use function Emposo\Core\Images\picture;
 use const Emposo\Core\ContentModel\CPT_CASE_STUDY;
+use const Emposo\Core\ContentModel\CPT_CASE_STUDY_EN;
+use function Emposo\Core\I18n\locale;
+use function Emposo\Core\I18n\localize_path;
+use function Emposo\Core\I18n\t;
 use const Emposo\Core\ContentModel\CPT_PERSON;
 use const Emposo\Core\ContentModel\TAX_DISCIPLINE;
 use const Emposo\Core\ContentModel\TAX_INDUSTRY;
@@ -77,6 +81,25 @@ function icon( string $name ): string {
 }
 
 /**
+ * A German site path in the current page's language (render.mjs href()).
+ *
+ * @param string $path German path.
+ */
+function href( string $path ): string {
+	return localize_path( $path );
+}
+
+/**
+ * The option holding a list in the current language: `emposo_x` or `emposo_x_en`.
+ *
+ * @param string $name German option name.
+ * @return array<int, mixed>
+ */
+function localized_option( string $name ): array {
+	return option_list( 'en' === locale() ? $name . '_en' : $name );
+}
+
+/**
  * JavaScript's encodeURIComponent(): rawurlencode() also encodes ! * ' ( ),
  * which encodeURIComponent leaves alone — "(m/w/d)" in a job title shows it.
  *
@@ -107,7 +130,7 @@ function compare_de( string $a, string $b ): int {
 	static $collator = null;
 
 	if ( null === $collator && class_exists( '\\Collator' ) ) {
-		$collator = new \Collator( 'de_DE' );
+		$collator = new \Collator( 'en' === locale() ? 'en_US' : 'de_DE' );
 	}
 
 	return $collator ? (int) $collator->compare( $a, $b ) : strcasecmp( $a, $b );
@@ -139,7 +162,31 @@ function words( string $value ): array {
  * @param WP_Term|null $term Term.
  */
 function term_name( ?WP_Term $term ): string {
-	return $term instanceof WP_Term ? html_entity_decode( (string) $term->name, ENT_QUOTES | ENT_HTML5, 'UTF-8' ) : '';
+	if ( ! $term instanceof WP_Term ) {
+		return '';
+	}
+
+	// English pages read the English name (term meta), falling back to the term name.
+	$english = 'en' === locale() ? (string) get_term_meta( $term->term_id, '_emposo_name_en', true ) : '';
+
+	return '' !== $english ? $english : html_entity_decode( (string) $term->name, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+}
+
+/**
+ * A term's text meta in the current language: `_emposo_x` or `_emposo_x_en`.
+ *
+ * @param WP_Term $term Term.
+ * @param string  $key  German meta key.
+ */
+function term_text( WP_Term $term, string $key ): string {
+	if ( 'en' === locale() ) {
+		$english = (string) get_term_meta( $term->term_id, $key . '_en', true );
+		if ( '' !== $english ) {
+			return $english;
+		}
+	}
+
+	return (string) get_term_meta( $term->term_id, $key, true );
 }
 
 /**
@@ -209,7 +256,17 @@ function ordered_posts( string $type ): array {
  * @return WP_Post[]
  */
 function case_studies(): array {
-	return ordered_posts( CPT_CASE_STUDY );
+	// Each language renders its own records: the English twins on English pages.
+	return ordered_posts( 'en' === locale() ? CPT_CASE_STUDY_EN : CPT_CASE_STUDY );
+}
+
+/**
+ * A case study's page path in its language.
+ *
+ * @param WP_Post $case_study Case study.
+ */
+function case_path( WP_Post $case_study ): string {
+	return ( CPT_CASE_STUDY_EN === $case_study->post_type ? '/en/case-studies/' : '/case-studies/' ) . $case_study->post_name . '/';
 }
 
 /**
@@ -328,10 +385,10 @@ function option_list( string $name ): array {
  */
 function breadcrumb( string $label, ?array $trail = null ): string {
 	$sep   = '<span aria-hidden="true">/</span>';
-	$items = array( '<a href="/">Startseite</a>' );
+	$items = array( '<a href="' . href( '/' ) . '">' . t( 'crumb.home' ) . '</a>' );
 
 	if ( $trail ) {
-		$items[] = '<a href="' . $trail[0] . '">' . $trail[1] . '</a>';
+		$items[] = '<a href="' . href( $trail[0] ) . '">' . $trail[1] . '</a>';
 	}
 	if ( '' !== $label ) {
 		$items[] = '<span aria-current="page">' . $label . '</span>';
@@ -342,7 +399,7 @@ function breadcrumb( string $label, ?array $trail = null ): string {
 		$out .= '<li>' . ( $i ? $sep : '' ) . $item . '</li>';
 	}
 
-	return '<nav class="page-breadcrumb" aria-label="Brotkrümelnavigation"><ol>' . $out . '</ol></nav>';
+	return '<nav class="page-breadcrumb" aria-label="' . t( 'crumb.label' ) . '"><ol>' . $out . '</ol></nav>';
 }
 
 /**
@@ -382,7 +439,7 @@ function trust_strip(): string {
 function industry_cards(): string {
 	$out = '';
 	foreach ( industries() as $i => $industry ) {
-		$subtitle = (string) get_term_meta( $industry->term_id, '_emposo_subtitle', true );
+		$subtitle = term_text( $industry, '_emposo_subtitle' );
 
 		$out .= '<div class="industry-tile"><figure>' . picture( (int) get_term_meta( $industry->term_id, '_emposo_image', true ), 'tile' ) . '</figure>'
 			. '<div class="industry-tile__copy"><span class="industry-tile__number">0' . ( $i + 1 ) . '</span>'
@@ -399,7 +456,7 @@ function industry_cards(): string {
  */
 function company_facts(): string {
 	$out = '';
-	foreach ( option_list( 'emposo_facts' ) as $fact ) {
+	foreach ( localized_option( 'emposo_facts' ) as $fact ) {
 		// The value is emitted as-is, as render.mjs does: '2.900+' carries the
 		// German thousands separator the count-up script re-inserts.
 		$out .= '<div><dt><span class="company-facts__icon">' . icon( (string) ( $fact['icon'] ?? '' ) ) . '</span>'
@@ -462,7 +519,7 @@ function project_cards( array $selection, bool $filterable = false, bool $collag
 			? ' data-project data-industry="' . meta( $case_study, '_emposo_filter' ) . '" data-discipline="' . ( $discipline ? $discipline->slug : '' ) . '"'
 			: '';
 
-		$out .= '<a class="reference-card" href="/case-studies/' . $case_study->post_name . '/"' . $hooks . '>'
+		$out .= '<a class="reference-card" href="' . case_path( $case_study ) . '"' . $hooks . '>'
 			. '<figure>' . picture( (int) get_post_thumbnail_id( $case_study ), $size, false, true ) . '</figure>'
 			. '<div class="reference-card__copy"><div class="reference-card__meta">'
 			. '<span>' . e( meta( $case_study, '_emposo_industry_label' ) ) . '</span>'
@@ -470,7 +527,7 @@ function project_cards( array $selection, bool $filterable = false, bool $collag
 			. '<h3>' . e( $case_study->post_title ) . '</h3>'
 			. '<p>' . e( $case_study->post_excerpt ) . '</p>'
 			. metric( $case_study )
-			. '<span class="text-link">Case Study lesen ' . ARROW . '</span></div></a>';
+			. '<span class="text-link">' . t( 'card.read' ) . ' ' . ARROW . '</span></div></a>';
 	}
 
 	return '<div class="reference-grid' . ( $collage ? ' reference-grid--collage' : '' ) . '"' . ( $filterable ? ' data-project-grid' : '' ) . '>' . $out . '</div>';
@@ -515,8 +572,8 @@ function filters(): string {
 	};
 
 	$groups = array(
-		array( 'industry', 'Branche', 'Nach Branche filtern', $az( ordered_terms( TAX_INDUSTRY ) ) ),
-		array( 'discipline', 'Leistung', 'Nach Leistung filtern', $az( disciplines() ) ),
+		array( 'industry', t( 'filter.industry' ), t( 'filter.industry.aria' ), $az( ordered_terms( TAX_INDUSTRY ) ) ),
+		array( 'discipline', t( 'filter.discipline' ), t( 'filter.discipline.aria' ), $az( disciplines() ) ),
 	);
 
 	$chip = static function ( string $group, string $key, string $name ) use ( $carried ): string {
@@ -535,13 +592,13 @@ function filters(): string {
 			$rest .= $chip( $key, $value, $name );
 		}
 		$bar .= '<div class="filter-group"><span>' . $label . '</span><div role="group" aria-label="' . $aria . '">'
-			. $chip( $key, 'all', 'Alle' ) . '<div class="filter-choices">' . $rest . '</div></div></div>';
+			. $chip( $key, 'all', t( 'filter.all' ) ) . '<div class="filter-choices">' . $rest . '</div></div></div>';
 	}
 
 	return '<div class="work-filter js-only">' . $bar . '</div>'
-		. '<p class="work-count" id="project-count" aria-live="polite">' . count( $projects ) . ' Projekte</p>'
+		. '<p class="work-count" id="project-count" aria-live="polite">' . count( $projects ) . ' ' . t( 'filter.count' ) . '</p>'
 		. project_cards( $projects, true )
-		. '<p class="work-empty" id="project-empty" hidden>Für diese Auswahl ist noch keine Referenz veröffentlicht. <a href="/kontakt/">Sprechen Sie mit uns über Ihre Branche.</a></p>';
+		. '<p class="work-empty" id="project-empty" hidden>' . t( 'filter.empty' ) . ' <a href="' . href( '/kontakt/' ) . '">' . t( 'filter.empty.link' ) . '</a></p>';
 }
 
 /**
@@ -565,8 +622,8 @@ function discipline_grid(): string {
 			$out .= '<article class="discipline-cell" id="' . $discipline->slug . '">'
 				. '<span class="discipline-cell__icon" aria-hidden="true">' . icon( (string) get_term_meta( $id, '_emposo_icon', true ) ) . '</span>'
 				. '<h4>' . e( term_name( $discipline ) ) . '</h4>'
-				. '<p>' . e( (string) get_term_meta( $id, '_emposo_topics', true ) ) . '</p>'
-				. '<p class="discipline-cell__promise">' . e( (string) get_term_meta( $id, '_emposo_promise', true ) ) . '</p></article>';
+				. '<p>' . e( term_text( $discipline, '_emposo_topics' ) ) . '</p>'
+				. '<p class="discipline-cell__promise">' . e( term_text( $discipline, '_emposo_promise' ) ) . '</p></article>';
 		}
 	}
 
@@ -579,7 +636,7 @@ function discipline_grid(): string {
 function jobs_list(): string {
 	$out = '';
 
-	foreach ( option_list( 'emposo_jobs' ) as $job ) {
+	foreach ( localized_option( 'emposo_jobs' ) as $job ) {
 		$title = (string) ( $job['title'] ?? '' );
 		$intro = array_map( 'strval', (array) ( $job['intro'] ?? array() ) );
 
@@ -604,15 +661,15 @@ function jobs_list(): string {
 			. '<p class="job-card__meta">' . $meta . '</p>'
 			. '<p class="job-card__tagline">' . e( (string) ( $job['tagline'] ?? '' ) ) . '</p>'
 			. '<p class="job-card__text">' . e( $intro[0] ?? '' ) . '</p>'
-			. '<details class="expander"><summary class="min-h-11"><span class="expander__open">Zur vollständigen Ausschreibung</span><span class="expander__close">Weniger anzeigen</span><span class="sr-only"> – ' . e( $title ) . '</span></summary>'
+			. '<details class="expander"><summary class="min-h-11"><span class="expander__open">' . t( 'jobs.open' ) . '</span><span class="expander__close">' . t( 'jobs.close' ) . '</span><span class="sr-only"> – ' . e( $title ) . '</span></summary>'
 			. $more
 			. '<p class="job-card__text">' . e( (string) ( $job['apply'] ?? '' ) ) . '</p>'
-			. '<p class="job-card__apply"><a class="text-link" href="mailto:' . APPLY_EMAIL . '?subject=' . encode_uri_component( 'Bewerbung: ' . $title ) . '">Bewerbung an ' . APPLY_EMAIL . '<span class="sr-only"> – ' . e( $title ) . '</span> <span aria-hidden="true">→</span></a></p>'
+			. '<p class="job-card__apply"><a class="text-link" href="mailto:' . APPLY_EMAIL . '?subject=' . encode_uri_component( t( 'jobs.subject' ) . ': ' . $title ) . '">' . t( 'jobs.apply' ) . ' ' . APPLY_EMAIL . '<span class="sr-only"> – ' . e( $title ) . '</span> <span aria-hidden="true">→</span></a></p>'
 			. '</details></article>';
 	}
 
 	return '<div class="job-list">' . $out . '</div>'
-		. '<p class="job-list__apply">Keine passende Position dabei? Schick uns Deine Initiativbewerbung an <a href="mailto:' . APPLY_EMAIL . '?subject=Initiativbewerbung">' . APPLY_EMAIL . '</a>.</p>';
+		. '<p class="job-list__apply">' . t( 'jobs.initiative' ) . ' <a href="mailto:' . APPLY_EMAIL . '?subject=' . t( 'jobs.initiative.subject' ) . '">' . APPLY_EMAIL . '</a>.</p>';
 }
 
 /**
@@ -623,21 +680,21 @@ function jobs_list(): string {
 function cta( string $name = 'default' ): string {
 	$ctas = array(
 		'default'   => array(
-			'title' => 'Jetzt Kontakt aufnehmen!',
-			'copy'  => array( 'Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen: Erzählen Sie uns kurz, worum es geht.' ),
+			'title' => 'cta.default.title',
+			'copy'  => array( 'cta.default.copy' ),
 			'link'  => true,
 		),
 		'portfolio' => array(
 			'id'    => 'portfolio-cta-title',
-			'title' => 'Welche Leistung sollen wir für Sie <em>liefern?</em>',
-			'copy'  => array( 'Von der bestehenden Leistung bis zum neuen Use Case: Sprechen wir über die Ergebnisdefinition und den sinnvollsten Einstieg.' ),
+			'title' => 'cta.portfolio.title',
+			'copy'  => array( 'cta.portfolio.copy' ),
 			'link'  => true,
 		),
 		'karriere'  => array(
 			'id'      => 'karriere-statement-title',
-			'eyebrow' => 'Warum Emposo',
-			'title'   => 'Wir entwickeln nicht nur Technologien.<br>Wir schaffen <em>Ergebnisse.</em>',
-			'copy'    => array( 'Dafür suchen wir Menschen, die neugierig sind, Verantwortung übernehmen und Dinge ins Ziel bringen wollen. Ob Engineering, Software, AI, Cyber Security oder Projektmanagement: Bei Emposo arbeitest Du an Projekten, die sichtbar etwas bewegen. Gemeinsam mit erfahrenen Kolleginnen und Kollegen, starken Kunden und der Skalierungskraft der Hays Gruppe.', '<strong>Tomorrow, created today.</strong>' ),
+			'eyebrow' => 'cta.karriere.eyebrow',
+			'title'   => 'cta.karriere.title',
+			'copy'    => array( 'cta.karriere.copy1', 'cta.karriere.copy2' ),
 			'link'    => false,
 		),
 	);
@@ -646,12 +703,12 @@ function cta( string $name = 'default' ): string {
 	$id   = (string) ( $c['id'] ?? '' );
 	$copy = '';
 	foreach ( $c['copy'] as $paragraph ) {
-		$copy .= '<p>' . $paragraph . '</p>';
+		$copy .= '<p>' . t( $paragraph ) . '</p>';
 	}
 
 	return '<section class="page-section page-section--deep"' . ( '' !== $id ? ' aria-labelledby="' . $id . '"' : '' ) . '><div class="gutter"><div class="container @container"><div class="page-cta @max-content:grid-cols-1">'
-		. '<div><p class="eyebrow eyebrow--light">' . ( $c['eyebrow'] ?? 'Ihr nächster Schritt' ) . '</p><h2 class="display-large display-large--light"' . ( '' !== $id ? ' id="' . $id . '"' : '' ) . '>' . $c['title'] . '</h2></div>'
-		. '<div class="page-cta__copy">' . $copy . ( $c['link'] ? '<a class="text-link text-link--light" href="/kontakt/">Projekt besprechen <span aria-hidden="true">→</span></a>' : '' ) . '</div>'
+		. '<div><p class="eyebrow eyebrow--light">' . t( $c['eyebrow'] ?? 'cta.eyebrow' ) . '</p><h2 class="display-large display-large--light"' . ( '' !== $id ? ' id="' . $id . '"' : '' ) . '>' . t( $c['title'] ) . '</h2></div>'
+		. '<div class="page-cta__copy">' . $copy . ( $c['link'] ? '<a class="text-link text-link--light" href="' . href( '/kontakt/' ) . '">' . t( 'cta.link' ) . ' <span aria-hidden="true">→</span></a>' : '' ) . '</div>'
 		. '</div></div></div></section>';
 }
 
@@ -668,7 +725,8 @@ function project_page( string $slug ): string {
 	$at       = null;
 
 	foreach ( array_values( $projects ) as $i => $candidate ) {
-		if ( $candidate->post_name === $slug ) {
+		// The route names the German slug; an English page finds its twin's English slug.
+		if ( $candidate->post_name === ( 'en' === locale() ? \Emposo\Core\I18n\case_slug( $slug ) : $slug ) ) {
 			$at = (int) $i;
 			break;
 		}
@@ -707,7 +765,7 @@ function project_page( string $slug ): string {
 	$hero = page_hero(
 		array(
 			'id'     => 'project-title',
-			'parent' => array( '/branchen/#referenzen', 'Projekte' ),
+			'parent' => array( '/branchen/#referenzen', t( 'crumb.projects' ) ),
 			'copy'   => '<p class="eyebrow eyebrow--light">' . e( $industry ) . '</p><h1 class="display-large display-large--light" id="project-title">' . e( $p->post_title ) . '</h1><p class="page-hero__intro">' . e( $p->post_excerpt ) . '</p>',
 			'figure' => picture( (int) get_post_thumbnail_id( $p ), 'detail', true )
 				. '<div class="page-hero__metric"><strong' . ( mb_strlen( $metric_value, 'UTF-8' ) > 8 ? ' class="page-hero__metric--word"' : '' ) . '>' . e( $metric_value ) . '</strong><span>' . e( meta( $p, '_emposo_metric_label' ) ) . '</span></div>',
@@ -724,17 +782,17 @@ function project_page( string $slug ): string {
 	}
 
 	return $hero
-		. SECTION_GAP . '<section class="page-section"><div class="gutter"><div class="container"><h2 class="display-large" id="projekt-title">Projekt</h2>'
+		. SECTION_GAP . '<section class="page-section"><div class="gutter"><div class="container"><h2 class="display-large" id="projekt-title">' . t( 'project.section' ) . '</h2>'
 		. '<p class="section-lede">' . e( $industry ) . ' · ' . e( $d_name ) . '</p>'
 		. ( '' !== $facts ? '<ul class="result-list result-list--compact project-facts">' . $facts . '</ul>' : '' )
 		. '<div class="company-values case-facets">'
-		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'document-paper-line' ) . '</span><h3>Herausforderung</h3>' . column( $p, '_emposo_challenge' ) . '</article>'
-		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'lightbulb-shine-line' ) . '</span><h3>Lösung</h3>' . column( $p, '_emposo_solution' ) . '</article>'
-		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'check-discount-line' ) . '</span><h3>Ergebnis</h3><ul class="result-list">' . $results . '</ul></article>'
-		. '</div><p class="section-more"><a class="text-link" href="/portfolio/#' . $d_slug . '">' . e( $d_name ) . ' ' . ARROW . '</a></p></div></div></section>'
-		. SECTION_GAP . '<section class="page-section page-section--paper"><div class="gutter"><div class="container"><p class="eyebrow">Weitere Projekte</p><h2 class="display-large">Expertise, die Ergebnisse liefert.</h2>'
+		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'document-paper-line' ) . '</span><h3>' . t( 'project.challenge' ) . '</h3>' . column( $p, '_emposo_challenge' ) . '</article>'
+		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'lightbulb-shine-line' ) . '</span><h3>' . t( 'project.solution' ) . '</h3>' . column( $p, '_emposo_solution' ) . '</article>'
+		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'check-discount-line' ) . '</span><h3>' . t( 'project.result' ) . '</h3><ul class="result-list">' . $results . '</ul></article>'
+		. '</div><p class="section-more"><a class="text-link" href="' . href( '/portfolio/#' . $d_slug ) . '">' . e( $d_name ) . ' ' . ARROW . '</a></p></div></div></section>'
+		. SECTION_GAP . '<section class="page-section page-section--paper"><div class="gutter"><div class="container"><p class="eyebrow">' . t( 'project.more.eyebrow' ) . '</p><h2 class="display-large">' . t( 'project.more.title' ) . '</h2>'
 		. project_cards( $related )
-		. '<p class="section-more"><a class="text-link" href="/branchen/#referenzen">Alle Projekte ' . ARROW . '</a></p></div></div></section>'
+		. '<p class="section-more"><a class="text-link" href="' . href( '/branchen/#referenzen' ) . '">' . t( 'project.more.all' ) . ' ' . ARROW . '</a></p></div></div></section>'
 		. cta();
 }
 
@@ -790,10 +848,15 @@ function management(): string {
 
 	foreach ( ordered_posts( CPT_PERSON ) as $person ) {
 		$name     = $person->post_title;
-		$roles    = meta_list( $person, '_emposo_person_roles' );
+		$english  = 'en' === locale();
+		$roles    = meta_list( $person, $english ? '_emposo_person_roles_en' : '_emposo_person_roles' );
 		$linkedin = meta( $person, '_emposo_person_linkedin' );
 		$blocks   = preg_split( '/\R{2,}/', trim( (string) $person->post_content ) );
 		$bio      = array_values( array_filter( array_map( 'trim', is_array( $blocks ) ? $blocks : array() ) ) );
+		// English pages read the English bio paragraphs (person meta), German otherwise.
+		if ( $english && meta_list( $person, '_emposo_person_bio_en' ) ) {
+			$bio = meta_list( $person, '_emposo_person_bio_en' );
+		}
 
 		list( $teaser, $rest ) = split_bio( $bio );
 
@@ -802,7 +865,7 @@ function management(): string {
 			$more .= '<p class="management-card__bio">' . e( $text ) . '</p>';
 		}
 		if ( '' !== $linkedin ) {
-			$more .= '<p class="management-card__bio"><a class="text-link" href="' . $linkedin . '">' . e( $name ) . ' auf LinkedIn ' . ARROW . '</a></p>';
+			$more .= '<p class="management-card__bio"><a class="text-link" href="' . $linkedin . '">' . e( $name ) . ' ' . t( 'management.linkedin' ) . ' ' . ARROW . '</a></p>';
 		}
 
 		$visible = '';
@@ -813,11 +876,11 @@ function management(): string {
 		$cards .= '<article class="management-card"><figure>' . picture( (int) get_post_thumbnail_id( $person ), 'management', false, true ) . '</figure>'
 			. '<h3>' . e( $name ) . '</h3><p class="management-card__role">' . implode( '<br>', array_map( __NAMESPACE__ . '\\e', $roles ) ) . '</p>'
 			. $visible
-			. '<details class="expander"><summary class="min-h-11"><span class="expander__open">Mehr lesen</span><span class="expander__close">Weniger anzeigen</span><span class="sr-only"> – ' . e( $name ) . '</span></summary>' . $more . '</details>'
+			. '<details class="expander"><summary class="min-h-11"><span class="expander__open">' . t( 'management.more' ) . '</span><span class="expander__close">' . t( 'management.less' ) . '</span><span class="sr-only"> – ' . e( $name ) . '</span></summary>' . $more . '</details>'
 			. '</article>';
 	}
 
-	return '<section class="page-section page-section--paper" id="management" aria-labelledby="management-title"><div class="gutter"><div class="container"><p class="eyebrow">Management</p><h2 class="display-large" id="management-title">Menschen, die Verantwortung übernehmen.</h2><div class="management-cards">' . $cards . '</div></div></div></section>';
+	return '<section class="page-section page-section--paper" id="management" aria-labelledby="management-title"><div class="gutter"><div class="container"><p class="eyebrow">' . t( 'management.eyebrow' ) . '</p><h2 class="display-large" id="management-title">' . t( 'management.title' ) . '</h2><div class="management-cards">' . $cards . '</div></div></div></section>';
 }
 
 /**
@@ -826,28 +889,35 @@ function management(): string {
 function keep_exploring(): string {
 	$links = '';
 	foreach ( array(
-		array( '/portfolio/', 'Leistungen' ),
-		array( '/branchen/', 'Branchen' ),
-		array( '/about-us/', 'Über uns' ),
+		array( '/portfolio/', 'explore.portfolio' ),
+		array( '/branchen/', 'explore.branchen' ),
+		array( '/about-us/', 'explore.about' ),
 	) as list( $href, $label ) ) {
-		$links .= '<li><a class="text-link" href="' . $href . '">' . $label . ' <span aria-hidden="true">→</span></a></li>';
+		$links .= '<li><a class="text-link" href="' . href( $href ) . '">' . t( $label ) . ' <span aria-hidden="true">→</span></a></li>';
 	}
 
-	return '<section class="page-section explore" aria-labelledby="explore-title"><div class="gutter"><div class="container"><h2 class="explore__title" id="explore-title">Weiter entdecken</h2><ul class="explore__links">' . $links . '</ul></div></div></section>';
+	return '<section class="page-section explore" aria-labelledby="explore-title"><div class="gutter"><div class="container"><h2 class="explore__title" id="explore-title">' . t( 'explore.title' ) . '</h2><ul class="explore__links">' . $links . '</ul></div></div></section>';
 }
 
 /**
  * The HTML sitemap.
  */
 function sitemap(): string {
+	$link = static function ( string $path, string $key ): string {
+		return '<a href="' . href( $path ) . '">' . t( $key ) . '</a>';
+	};
+
 	$projects = '';
 	foreach ( case_studies() as $case_study ) {
-		$projects .= '<a href="/case-studies/' . $case_study->post_name . '/">' . e( $case_study->post_title ) . '</a>';
+		$projects .= '<a href="' . case_path( $case_study ) . '">' . e( $case_study->post_title ) . '</a>';
 	}
 
-	return '<div><h2>Leistungen</h2><a href="/">Startseite</a><a href="/portfolio/">Unsere Leistungen</a></div>'
-		. '<div><h2>Branchen</h2><a href="/branchen/">Alle Branchen</a><h2>Unternehmen</h2><a href="/about-us/">Über uns</a><a href="/about-us/#management">Management</a><a href="/karriere/">Karriere</a><a href="/kontakt/">Kontakt</a><a href="/cookies/">Cookies</a><a href="/barrierefreiheit/">Barrierefreiheit</a><a href="/impressum/">Impressum</a><a href="/datenschutzerklaerung/">Datenschutz</a><a href="/nutzungsbestimmungen/">Nutzungsbestimmungen</a></div>'
-		. '<div><h2>Projekte</h2><a href="/branchen/#referenzen">Alle Projekte</a>' . $projects . '</div>';
+	return '<div><h2>' . t( 'sitemap.services' ) . '</h2>' . $link( '/', 'sitemap.home' ) . $link( '/portfolio/', 'sitemap.portfolio' ) . '</div>'
+		. '<div><h2>' . t( 'sitemap.branchen' ) . '</h2>' . $link( '/branchen/', 'sitemap.allBranchen' ) . '<h2>' . t( 'sitemap.company' ) . '</h2>'
+		. $link( '/about-us/', 'sitemap.about' ) . $link( '/about-us/#management', 'sitemap.management' ) . $link( '/karriere/', 'sitemap.karriere' ) . $link( '/kontakt/', 'sitemap.kontakt' )
+		. $link( '/cookies/', 'sitemap.cookies' ) . $link( '/barrierefreiheit/', 'sitemap.accessibility' ) . $link( '/impressum/', 'sitemap.impressum' )
+		. $link( '/datenschutzerklaerung/', 'sitemap.privacy' ) . $link( '/nutzungsbestimmungen/', 'sitemap.terms' ) . '</div>'
+		. '<div><h2>' . t( 'sitemap.projects' ) . '</h2>' . $link( '/branchen/#referenzen', 'sitemap.allProjects' ) . $projects . '</div>';
 }
 
 /**
@@ -858,6 +928,9 @@ function sitemap(): string {
  */
 function by_slugs( array $slugs ): array {
 	$by_slug = array();
+	if ( 'en' === locale() ) {
+		$slugs = array_map( '\\Emposo\\Core\\I18n\\case_slug', $slugs );
+	}
 	foreach ( case_studies() as $case_study ) {
 		$by_slug[ $case_study->post_name ] = $case_study;
 	}
