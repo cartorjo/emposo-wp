@@ -20,7 +20,8 @@ main:focus {
 :focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
-  box-shadow: 0 0 0 2px #fff;
+  /* --focus-halo: a component shadow the ring must not erase (card invert). */
+  box-shadow: 0 0 0 2px var(--color-on-dark), var(--focus-halo, 0 0 #0000);
 }
 
 :focus:not(:focus-visible) {

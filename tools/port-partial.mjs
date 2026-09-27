@@ -23,7 +23,12 @@
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
-import { STATIC_ROOT, REPO_ROOT } from './routes.mjs';
+import { STATIC_ROOT as PINNED_ROOT, REPO_ROOT } from './routes.mjs';
+
+// Overrides for a re-pin (docs/resync.md): port an older reference into a
+// scratch tree to recover the hand edits made on top of the first port.
+const STATIC_ROOT = process.env.PORT_STATIC_ROOT ?? PINNED_ROOT;
+const THEME_ROOT = process.env.PORT_THEME_ROOT ?? path.join(REPO_ROOT, 'themes', 'emposo');
 
 const [, , source, target] = process.argv;
 if (!source || !target) {
@@ -32,6 +37,31 @@ if (!source || !target) {
 }
 
 let html = readFileSync(path.join(STATIC_ROOT, source), 'utf8');
+
+/*
+ * Shared frames first. Page sources write <page-hero …>copy</page-hero> and
+ * <page-crumb label="…">, which assemble.mjs expands through render.mjs's
+ * pageHero() and breadcrumb(). Expanding them here with the same renderers —
+ * the same attribute parsing as assemble.mjs expandComponents() — makes the
+ * frame markup byte-identical, and leaves a {{image:key:hero}} token for the
+ * image rule below.
+ */
+const { pageHero, breadcrumb } = await import(path.join(STATIC_ROOT, 'content', 'render.mjs'));
+const attrs = (raw) => Object.fromEntries([...raw.matchAll(/([a-z-]+)="([^"]*)"/g)].map(([, k, v]) => [k, v]));
+html = html
+	.replace(/<page-hero\b([^>]*)>([\s\S]*?)<\/page-hero>/g, (_, raw, copy) => {
+		const a = attrs(raw);
+		return pageHero({
+			id: a.id,
+			crumb: a.crumb,
+			parent: a.parent?.split('|'),
+			modifier: a.modifier,
+			figureClass: a['figure-class'],
+			copy: copy.trim(),
+			figure: a.image ? `{{image:${a.image}:hero}}` : null,
+		});
+	})
+	.replace(/<page-crumb label="([^"]*)"><\/page-crumb>/g, (_, label) => breadcrumb(label));
 
 const replacements = [
 	// Head substitutions.
@@ -95,7 +125,7 @@ const header = `<?php
 ?>
 `;
 
-const out = path.join(REPO_ROOT, 'themes', 'emposo', target);
+const out = path.join(THEME_ROOT, target);
 mkdirSync(path.dirname(out), { recursive: true });
 writeFileSync(out, header + html);
 

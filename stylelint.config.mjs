@@ -39,6 +39,24 @@ export default {
 		 */
 		'no-invalid-position-at-import-rule': null,
 
+		/*
+		 * Since the 42a7c6d re-pin the reference writes breakpoints as
+		 * `@media (width <= theme(--breakpoint-hero))`. theme() is resolved by
+		 * the Tailwind compiler, so the built site.css holds plain lengths; to a
+		 * plain-CSS parser the source query looks invalid.
+		 */
+		'media-query-no-invalid': null,
+
+		// Formatting the reference chose ('Roboto' quoted, a redundant
+		// shorthand value). Stylistic, and the partials stay byte-identical.
+		'font-family-name-quotes': null,
+		'shorthand-property-no-redundant-values': null,
+
+		// One repeated selector in a reference partial. The reference's own
+		// `npm run css:shadowed` gate owns that question; restyling the copy
+		// here would break its provenance.
+		'no-duplicate-selectors': null,
+
 		// Tailwind accepts both @import "x" and @import url("x"); the reference
 		// build uses the bare-string form.
 		'import-notation': null,

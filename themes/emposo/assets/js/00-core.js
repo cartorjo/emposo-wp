@@ -5,15 +5,14 @@
    window.__onReady(fn); their callbacks run after this file has initialised
    on DOMContentLoaded.
    Exposes: window.__lenis  — Lenis instance (null under reduced motion)
-            window.__mq     — { desktop, reduced } MediaQueryList handles
+            window.__mq     — { reduced } MediaQueryList handles
             window.__onReady(fn) — run fn once core init is done
    ========================================================================= */
 (function () {
   'use strict';
 
-  // ---- media-query handles (decisions §D: 767/768 is THE js boundary) ----
+  // ---- media-query handles ----
   var mq = {
-    desktop: window.matchMedia('(min-width: 768px)'),
     reduced: window.matchMedia('(prefers-reduced-motion: reduce)')
   };
   window.__mq = mq;

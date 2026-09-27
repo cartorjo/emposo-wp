@@ -2,21 +2,22 @@
 /**
  * The shared content renderers, ported from content/render.mjs.
  *
- * String-returning functions rather than template parts, for two reasons the
- * static source makes unavoidable:
+ * One PHP function per render.mjs function, in the same order, so a change
+ * upstream maps onto one place here (docs/resync.md). String-returning rather
+ * than template parts, for two reasons the static source makes unavoidable:
  *
  * 1. They compose. A project page calls the card renderer, which calls the
  *    metric renderer and the picture helper. get_template_part() echoes and
- *    cannot be nested into a string; wrapping each call in ob_start() adds a
- *    failure mode for no gain.
+ *    cannot be nested into a string.
  * 2. The static renderers emit NO inter-tag whitespace — each is one long
  *    template literal. An indented PHP template would introduce text nodes
  *    into flex and grid rows, where they affect layout.
  *
  * Data comes from WordPress, never from the JSON export: the export seeds the
  * database, and the database is then the source of truth, so an editor's change
- * shows up here. Every query is an indexed tax_query, post__in or post_parent
- * lookup — never a meta_query.
+ * shows up here. Case studies are posts; disciplines and industries are terms
+ * with term meta (they have no pages of their own since the owner removed the
+ * detail subpages); company facts, certifications and job postings are options.
  *
  * @package Emposo\Core
  */
@@ -26,12 +27,13 @@ declare( strict_types = 1 );
 namespace Emposo\Core\Fragments;
 
 use WP_Post;
+use WP_Term;
 use function Emposo\Core\Cache\remember;
 use function Emposo\Core\Images\picture;
 use const Emposo\Core\ContentModel\CPT_CASE_STUDY;
+use const Emposo\Core\ContentModel\CPT_PERSON;
 use const Emposo\Core\ContentModel\TAX_DISCIPLINE;
 use const Emposo\Core\ContentModel\TAX_INDUSTRY;
-use const Emposo\Core\ContentModel\TAX_OUTCOME;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -41,29 +43,74 @@ if ( ! defined( 'ABSPATH' ) ) {
 const ARROW = '<span aria-hidden="true">→</span>';
 
 /**
- * The separator between a detail page's top-level sections.
+ * The separator between a project page's top-level sections.
  *
- * The static renderers are single template literals spanning several source
- * lines, so a newline plus two spaces of indentation sits between each
- * </section> and the next <section>. That whitespace is part of the document —
- * between two nodes it becomes a text node — so it has to be reproduced rather
- * than assumed away. The closing CTA is concatenated with no separator, which
- * is also how the source reads.
+ * projectPage() is one template literal spanning three source lines, so a
+ * newline plus two spaces sits between the hero and each <section>. Between two
+ * nodes that is a text node, so it is reproduced rather than assumed away. The
+ * closing CTA is concatenated with no separator, as the source reads.
  */
 const SECTION_GAP = "\n  ";
 
+/** Applications and enquiries go to the shared inbox (owner decision 2026-09-25). */
+const APPLY_EMAIL = 'info@emposo.eu';
+
+/** The homepage collage (render.mjs fragment 'projects-featured'). */
+const FEATURED = array( 'data2ai-platform', 'engineering-wissensbasis', 'mlops-medizinprodukte', 'multi-site-transition' );
+
 /**
- * Escape exactly as the static build's escape() does.
- *
- * Delegates to the shared \Emposo\Core\escape_static() (inc/escape.php) so this
- * file, images.php and the theme's head.php all escape identically — one
- * behaviour, one place to reason about. See that file for why four characters
- * and not the apostrophe.
+ * Escape exactly as the static build's escape() does (4 characters).
  *
  * @param mixed $value Raw value.
  */
 function e( $value ): string {
 	return \Emposo\Core\escape_static( $value );
+}
+
+/**
+ * An inline icon, as assemble.mjs resolves {{icon:name}} after a fragment.
+ *
+ * @param string $name Icon name.
+ */
+function icon( string $name ): string {
+	return function_exists( 'emposo_icon_svg' ) ? emposo_icon_svg( $name ) : '';
+}
+
+/**
+ * JavaScript's encodeURIComponent(): rawurlencode() also encodes ! * ' ( ),
+ * which encodeURIComponent leaves alone — "(m/w/d)" in a job title shows it.
+ *
+ * @param string $value Raw value.
+ */
+function encode_uri_component( string $value ): string {
+	return strtr(
+		rawurlencode( $value ),
+		array(
+			'%21' => '!',
+			'%2A' => '*',
+			'%27' => "'",
+			'%28' => '(',
+			'%29' => ')',
+		)
+	);
+}
+
+/**
+ * JavaScript's localeCompare(…, 'de') for the chip labels: the collator when
+ * intl is present, a case-insensitive byte order (identical for today's
+ * labels) when it is not.
+ *
+ * @param string $a Left.
+ * @param string $b Right.
+ */
+function compare_de( string $a, string $b ): int {
+	static $collator = null;
+
+	if ( null === $collator && class_exists( '\\Collator' ) ) {
+		$collator = new \Collator( 'de_DE' );
+	}
+
+	return $collator ? (int) $collator->compare( $a, $b ) : strcasecmp( $a, $b );
 }
 
 // --------------------------------------------------------------------------
@@ -73,49 +120,20 @@ function e( $value ): string {
 /**
  * A term's name as raw text.
  *
- * WordPress is inconsistent here, and the inconsistency is easy to miss:
- * `sanitize_term` HTML-encodes the `name` field on insert, so a term stores
- * 'Health &amp; Pharma', while a post title with the same ampersand stores
- * 'AI-Transformation & Daten' raw. Escaping the term name then produces
- * '&amp;amp;' — which rendered as a literal "Health &amp; Pharma" on the page
- * and showed up in the parity diff on four routes at once.
+ * sanitize_term HTML-encodes `name` on insert ('Health &amp; Pharma'), so
+ * decode at the boundary: every accessor returns raw text and escaping happens
+ * once, at output.
  *
- * So decode at the boundary: every accessor returns raw text, and escaping
- * happens exactly once at output, which is the invariant the rest of this file
- * relies on.
- *
- * @param \WP_Term|null $term Term.
+ * @param WP_Term|null $term Term.
  */
-function term_name( ?\WP_Term $term ): string {
-	if ( ! $term instanceof \WP_Term ) {
-		return '';
-	}
-
-	return html_entity_decode( (string) $term->name, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+function term_name( ?WP_Term $term ): string {
+	return $term instanceof WP_Term ? html_entity_decode( (string) $term->name, ENT_QUOTES | ENT_HTML5, 'UTF-8' ) : '';
 }
 
 /**
- * Turn a cached ID list back into post objects.
+ * Turn a cached ID list back into published post objects, priming caches.
  *
- * Derived lists are cached as IDs rather than post objects on purpose. The
- * expensive part of a derived query is the derivation — the post_parent scan,
- * the tax_query, the termmeta join — not fetching rows by primary key, and the
- * post objects are already in the object cache under their own keys. Caching
- * the objects too would store every title and body a second time and go stale
- * on edit independently of the post cache.
- *
- * _prime_post_caches() warms posts, postmeta and object terms in one query
- * each, so the get_post() calls below never hit the database individually.
- * Without it this would be one query per ID.
- *
- * The term cache is primed — the second argument is true — because `fields =>
- * 'ids'` turns off the priming WP_Query does for a normal post query, and the
- * case-study filters call has_term() on every card. Measured with 10 case
- * studies: 29 queries unprimed, 0 primed. For the page lists it costs nothing,
- * since pages carry no taxonomies and update_object_term_cache() then returns
- * without querying.
- *
- * @param int[] $ids Post IDs, in the order they should render.
+ * @param int[] $ids Post IDs, in render order.
  * @return WP_Post[]
  */
 function hydrate( array $ids ): array {
@@ -126,16 +144,8 @@ function hydrate( array $ids ): array {
 	_prime_post_caches( $ids, true, true );
 
 	$posts = array();
-
 	foreach ( $ids as $id ) {
 		$post = get_post( $id );
-
-		/*
-		 * Status is re-checked here, not trusted from the cache: the ID list can
-		 * outlive an unpublish by up to the TTL if a save_post hook did not fire
-		 * (a direct wp_update_post with a suspended object cache, say). A stale
-		 * ID renders nothing rather than a draft.
-		 */
 		if ( $post instanceof WP_Post && 'publish' === $post->post_status ) {
 			$posts[] = $post;
 		}
@@ -145,730 +155,686 @@ function hydrate( array $ids ): array {
 }
 
 /**
- * Every case study, in source order.
+ * Published posts of a type in menu_order (the source array's order).
  *
- * Ordered by menu_order, not date: the source array's order drives the featured
- * selection
- * and the project grid, and a default date sort would silently reshuffle them.
+ * @param string $type Post type.
+ * @return WP_Post[]
+ */
+function ordered_posts( string $type ): array {
+	static $cache = array();
+
+	if ( ! isset( $cache[ $type ] ) ) {
+		$cache[ $type ] = hydrate(
+			remember(
+				'posts-' . $type,
+				static function () use ( $type ): array {
+					return array_map(
+						'intval',
+						get_posts(
+							array(
+								'post_type'        => $type,
+								'post_status'      => 'publish',
+								'posts_per_page'   => 100,
+								'orderby'          => 'menu_order',
+								'order'            => 'ASC',
+								'fields'           => 'ids',
+								'no_found_rows'    => true,
+								'suppress_filters' => false,
+							)
+						)
+					);
+				}
+			)
+		);
+	}
+
+	return $cache[ $type ];
+}
+
+/**
+ * Every case study, in source order.
  *
  * @return WP_Post[]
  */
 function case_studies(): array {
-	static $cache = null;
-
-	if ( null !== $cache ) {
-		return $cache;
-	}
-
-	$ids = remember(
-		'case-studies',
-		static function (): array {
-			return array_map(
-				'intval',
-				get_posts(
-					array(
-						'post_type'        => CPT_CASE_STUDY,
-						'post_status'      => 'publish',
-						'posts_per_page'   => 100,
-						'orderby'          => 'menu_order',
-						'order'            => 'ASC',
-						'fields'           => 'ids',
-						'no_found_rows'    => true,
-						'suppress_filters' => false,
-					)
-				)
-			);
-		}
-	);
-
-	$cache = hydrate( $ids );
-
-	return $cache;
+	return ordered_posts( CPT_CASE_STUDY );
 }
 
 /**
- * Every discipline page, in source order.
+ * Terms of a taxonomy in source order (the importer's _emposo_term_order).
  *
- * @return WP_Post[]
+ * @param string $taxonomy Taxonomy.
+ * @return WP_Term[]
+ */
+function ordered_terms( string $taxonomy ): array {
+	static $cache = array();
+
+	if ( ! isset( $cache[ $taxonomy ] ) ) {
+		$terms = get_terms(
+			array(
+				'taxonomy'   => $taxonomy,
+				'hide_empty' => false,
+				'meta_key'   => '_emposo_term_order', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- A dozen terms.
+				'orderby'    => 'meta_value_num',
+				'order'      => 'ASC',
+			)
+		);
+
+		$cache[ $taxonomy ] = is_array( $terms ) ? array_values( $terms ) : array();
+	}
+
+	return $cache[ $taxonomy ];
+}
+
+/**
+ * The disciplines: the child terms of the two group terms, in source order.
+ *
+ * @return WP_Term[]
  */
 function disciplines(): array {
-	static $cache = null;
-
-	if ( null !== $cache ) {
-		return $cache;
-	}
-
-	$ids = remember(
-		'disciplines',
-		static function (): array {
-			$parent = get_page_by_path( 'expertise' );
-
-			if ( ! $parent instanceof WP_Post ) {
-				return array();
+	return array_values(
+		array_filter(
+			ordered_terms( TAX_DISCIPLINE ),
+			static function ( WP_Term $term ): bool {
+				return 0 !== (int) $term->parent;
 			}
-
-			$pages = get_posts(
-				array(
-					'post_type'      => 'page',
-					'post_status'    => 'publish',
-					'post_parent'    => $parent->ID,
-					'posts_per_page' => 100,
-					'orderby'        => 'menu_order',
-					'order'          => 'ASC',
-					'fields'         => 'ids',
-					'no_found_rows'  => true,
-				)
-			);
-
-			$pages = array_map( 'intval', $pages );
-			_prime_post_caches( $pages, false, true );
-
-			/*
-			 * The /expertise/ tree also holds the two hand-authored group
-			 * overview pages, which are not disciplines. A discipline is
-			 * identified by carrying a linked term — which is data, not a slug
-			 * guess. The filter runs inside the cached callback so the meta
-			 * reads happen once per invalidation, not once per request.
-			 */
-			return array_values(
-				array_filter(
-					$pages,
-					static function ( int $id ): bool {
-						return (int) get_post_meta( $id, '_emposo_discipline_term', true ) > 0;
-					}
-				)
-			);
-		}
+		)
 	);
-
-	$cache = hydrate( $ids );
-
-	return $cache;
 }
 
 /**
- * Every industry page, in source order.
+ * The five industries of the tile grid (Automotive is a filter value only).
  *
- * @return WP_Post[]
+ * @return WP_Term[]
  */
 function industries(): array {
-	static $cache = null;
-
-	if ( null !== $cache ) {
-		return $cache;
-	}
-
-	$ids = remember(
-		'industries',
-		static function (): array {
-			$parent = get_page_by_path( 'branchen' );
-
-			if ( ! $parent instanceof WP_Post ) {
-				return array();
+	return array_values(
+		array_filter(
+			ordered_terms( TAX_INDUSTRY ),
+			static function ( WP_Term $term ): bool {
+				return (bool) get_term_meta( $term->term_id, '_emposo_tile', true );
 			}
-
-			return array_map(
-				'intval',
-				get_posts(
-					array(
-						'post_type'      => 'page',
-						'post_status'    => 'publish',
-						'post_parent'    => $parent->ID,
-						'posts_per_page' => 100,
-						'orderby'        => 'menu_order',
-						'order'          => 'ASC',
-						'fields'         => 'ids',
-						'no_found_rows'  => true,
-					)
-				)
-			);
-		}
+		)
 	);
-
-	$cache = hydrate( $ids );
-
-	return $cache;
 }
 
 /**
- * The discipline page a case study belongs to.
+ * A case study's discipline term.
  *
  * @param WP_Post $case_study Case study.
  */
-function discipline_of( WP_Post $case_study ): ?WP_Post {
-	$terms = wp_get_object_terms( $case_study->ID, TAX_DISCIPLINE, array( 'fields' => 'ids' ) );
+function discipline_of( WP_Post $case_study ): ?WP_Term {
+	$terms = get_the_terms( $case_study, TAX_DISCIPLINE );
 
-	if ( is_wp_error( $terms ) || ! $terms ) {
-		return null;
-	}
-
-	foreach ( disciplines() as $page ) {
-		if ( in_array( (int) get_post_meta( $page->ID, '_emposo_discipline_term', true ), array_map( 'intval', $terms ), true ) ) {
-			return $page;
-		}
-	}
-
-	return null;
+	return is_array( $terms ) && $terms ? $terms[0] : null;
 }
 
 /**
- * The industry label for a case study: the name of its deepest assigned term.
- *
- * Not a stored field. 'Automotive' is the child term under
- * 'Industrials & Manufacturing', so the deepest term is exactly the label the
- * static build printed.
- *
- * @param WP_Post $case_study Case study.
- */
-function industry_label( WP_Post $case_study ): string {
-	$terms = wp_get_object_terms( $case_study->ID, TAX_INDUSTRY );
-
-	if ( is_wp_error( $terms ) || ! $terms ) {
-		return '';
-	}
-
-	$deepest = null;
-	$depth   = -1;
-
-	foreach ( $terms as $term ) {
-		$term_depth = count( get_ancestors( $term->term_id, TAX_INDUSTRY ) );
-		if ( $term_depth > $depth ) {
-			$depth   = $term_depth;
-			$deepest = $term;
-		}
-	}
-
-	return term_name( $deepest );
-}
-
-/**
- * The space-separated industry token string for data-industry.
- *
- * Ancestor-closed by the importer, and ordered deepest-first to match the
- * source's 'industrial automotive'... in fact the source lists parent first,
- * so sort shallowest-first.
- *
- * @param WP_Post $case_study Case study.
- */
-function industry_tokens( WP_Post $case_study ): string {
-	$terms = wp_get_object_terms( $case_study->ID, TAX_INDUSTRY );
-
-	if ( is_wp_error( $terms ) || ! $terms ) {
-		return '';
-	}
-
-	usort(
-		$terms,
-		static function ( $a, $b ): int {
-			return count( get_ancestors( $a->term_id, TAX_INDUSTRY ) )
-				<=> count( get_ancestors( $b->term_id, TAX_INDUSTRY ) );
-		}
-	);
-
-	return implode( ' ', wp_list_pluck( $terms, 'slug' ) );
-}
-
-/**
- * A case study's outcome slug.
- *
- * @param WP_Post $case_study Case study.
- */
-function outcome_of( WP_Post $case_study ): string {
-	$terms = wp_get_object_terms( $case_study->ID, TAX_OUTCOME, array( 'fields' => 'slugs' ) );
-
-	return ( is_wp_error( $terms ) || ! $terms ) ? '' : (string) $terms[0];
-}
-
-/**
- * Path of a post, relative to the site root.
+ * A meta string.
  *
  * @param WP_Post $post Post.
+ * @param string  $key  Meta key.
  */
-function path_of( WP_Post $post ): string {
-	$path = (string) wp_parse_url( (string) get_permalink( $post ), PHP_URL_PATH );
+function meta( WP_Post $post, string $key ): string {
+	return (string) get_post_meta( $post->ID, $key, true );
+}
 
-	return '' === $path ? '/' : $path;
+/**
+ * A meta list of strings.
+ *
+ * @param WP_Post $post Post.
+ * @param string  $key  Meta key.
+ * @return string[]
+ */
+function meta_list( WP_Post $post, string $key ): array {
+	$value = get_post_meta( $post->ID, $key, true );
+
+	return is_array( $value ) ? array_map( 'strval', $value ) : array();
+}
+
+/**
+ * A list-valued option.
+ *
+ * @param string $name Option name.
+ * @return array<int, mixed>
+ */
+function option_list( string $name ): array {
+	$value = get_option( $name, array() );
+
+	return is_array( $value ) ? array_values( $value ) : array();
 }
 
 // --------------------------------------------------------------------------
-// Renderers
+// Renderers, in render.mjs order
 // --------------------------------------------------------------------------
+
+/**
+ * The one breadcrumb: Startseite, an optional parent [href, label], the label.
+ *
+ * @param string        $label  Page label ('' for none).
+ * @param string[]|null $parent [ href, label ].
+ */
+function breadcrumb( string $label, ?array $parent = null ): string {
+	$sep   = '<span aria-hidden="true">/</span>';
+	$items = array( '<a href="/">Startseite</a>' );
+
+	if ( $parent ) {
+		$items[] = '<a href="' . $parent[0] . '">' . $parent[1] . '</a>';
+	}
+	if ( '' !== $label ) {
+		$items[] = '<span aria-current="page">' . $label . '</span>';
+	}
+
+	$out = '';
+	foreach ( $items as $i => $item ) {
+		$out .= '<li>' . ( $i ? $sep : '' ) . $item . '</li>';
+	}
+
+	return '<nav class="page-breadcrumb" aria-label="Brotkrümelnavigation"><ol>' . $out . '</ol></nav>';
+}
+
+/**
+ * The one subpage hero frame.
+ *
+ * @param array<string, mixed> $args id, crumb, parent, modifier, figureClass, copy, figure.
+ */
+function page_hero( array $args ): string {
+	$id       = (string) ( $args['id'] ?? '' );
+	$modifier = (string) ( $args['modifier'] ?? '' );
+	$fclass   = (string) ( $args['figureClass'] ?? '' );
+	$figure   = $args['figure'] ?? null;
+
+	return '<section class="page-hero' . ( '' !== $modifier ? ' ' . $modifier : '' ) . '"'
+		. ( '' !== $id ? ' aria-labelledby="' . $id . '"' : '' ) . '>'
+		. '<div class="gutter"><div class="container @container"><div class="page-hero__grid @max-content:grid-cols-1">'
+		. '<div class="page-hero__copy">' . breadcrumb( (string) ( $args['crumb'] ?? '' ), $args['parent'] ?? null ) . (string) $args['copy'] . '</div>'
+		. ( null === $figure ? '' : '<figure class="page-hero__visual' . ( '' !== $fclass ? ' ' . $fclass : '' ) . '">' . $figure . '</figure>' )
+		. '</div></div></div></section>';
+}
+
+/**
+ * The trust strip: the released certifications (owner 2026-09-25).
+ */
+function trust_strip(): string {
+	$out = '';
+	foreach ( option_list( 'emposo_certifications' ) as $certification ) {
+		$out .= '<span>' . (string) $certification . '</span>';
+	}
+
+	return '<div class="trust-strip">' . $out . '</div>';
+}
+
+/**
+ * The industry tiles: static content, no link, no arrow (owner 24-09).
+ */
+function industry_cards(): string {
+	$out = '';
+	foreach ( industries() as $i => $industry ) {
+		$subtitle = (string) get_term_meta( $industry->term_id, '_emposo_subtitle', true );
+
+		$out .= '<div class="industry-tile"><figure>' . picture( (int) get_term_meta( $industry->term_id, '_emposo_image', true ), 'tile' ) . '</figure>'
+			. '<div class="industry-tile__copy"><span class="industry-tile__number">0' . ( $i + 1 ) . '</span>'
+			. '<h3>' . e( term_name( $industry ) ) . '</h3>'
+			. ( '' !== $subtitle ? '<p>' . e( $subtitle ) . '</p>' : '' )
+			. '</div></div>';
+	}
+
+	return '<div class="industry-cards">' . $out . '</div>';
+}
+
+/**
+ * Company Kennzahlen: one component, one content set.
+ */
+function company_facts(): string {
+	$out = '';
+	foreach ( option_list( 'emposo_facts' ) as $fact ) {
+		// The value is emitted as-is, as render.mjs does: '2.900+' carries the
+		// German thousands separator the count-up script re-inserts.
+		$out .= '<div><dt><span class="company-facts__icon">' . icon( (string) ( $fact['icon'] ?? '' ) ) . '</span>'
+			. '<span class="company-facts__value">' . (string) ( $fact['value'] ?? '' ) . '</span></dt>'
+			. '<dd>' . e( (string) ( $fact['label'] ?? '' ) ) . '</dd></div>';
+	}
+
+	return '<dl class="company-facts">' . $out . '</dl>';
+}
+
+/**
+ * A case column: one sentence (<p>) or the deck's bullets (<ul>).
+ *
+ * @param WP_Post $case_study Case study.
+ * @param string  $key        '_emposo_challenge' or '_emposo_solution'.
+ */
+function column( WP_Post $case_study, string $key ): string {
+	$items = meta_list( $case_study, $key . '_list' );
+
+	if ( $items ) {
+		$out = '';
+		foreach ( $items as $item ) {
+			$out .= '<li>' . e( $item ) . '</li>';
+		}
+
+		return '<ul class="result-list">' . $out . '</ul>';
+	}
+
+	return '<p>' . e( meta( $case_study, $key ) ) . '</p>';
+}
 
 /**
  * The metric block.
  *
- * Uses mb_strlen, not strlen: '80.000 €' is 8 characters but 10 BYTES, because the
- * euro sign is three bytes in UTF-8. strlen would add the result-metric__word
- * class to a value the static build leaves plain.
+ * mb_strlen, not strlen: '80.000 €' is 8 characters but 10 bytes.
  *
  * @param WP_Post $case_study Case study.
  */
 function metric( WP_Post $case_study ): string {
-	$value = (string) get_post_meta( $case_study->ID, '_emposo_metric', true );
-	$label = (string) get_post_meta( $case_study->ID, '_emposo_metric_label', true );
+	$value = meta( $case_study, '_emposo_metric' );
 
-	$word_class = mb_strlen( $value, 'UTF-8' ) > 8 ? ' class="result-metric__word"' : '';
-
-	return '<div class="result-metric"><strong' . $word_class . '>' . e( $value )
-		. '</strong><span>' . e( $label ) . '</span></div>';
+	return '<div class="result-metric"><strong' . ( mb_strlen( $value, 'UTF-8' ) > 8 ? ' class="result-metric__word"' : '' ) . '>'
+		. e( $value ) . '</strong><span>' . e( meta( $case_study, '_emposo_metric_label' ) ) . '</span></div>';
 }
 
 /**
  * The project card grid.
  *
  * @param WP_Post[] $selection  Case studies, in render order.
- * @param bool      $filterable Whether to emit the filter hooks.
+ * @param bool      $filterable Emit the filter hooks.
+ * @param bool      $collage    The mixed-size homepage grid.
  */
-function project_cards( array $selection, bool $filterable = false ): string {
-	$out = '<div class="reference-grid"' . ( $filterable ? ' data-project-grid' : '' ) . '>';
+function project_cards( array $selection, bool $filterable = false, bool $collage = false ): string {
+	$out = '';
 
-	foreach ( $selection as $case_study ) {
+	foreach ( $selection as $index => $case_study ) {
 		$discipline = discipline_of( $case_study );
-
-		$hooks = $filterable
-			? ' data-project data-industry="' . e( industry_tokens( $case_study ) )
-				. '" data-outcome="' . e( outcome_of( $case_study ) ) . '"'
+		$size       = $collage ? ( 1 === $index || 2 === $index ? 'collage_wide' : 'collage_narrow' ) : 'default';
+		$hooks      = $filterable
+			? ' data-project data-industry="' . meta( $case_study, '_emposo_filter' ) . '" data-discipline="' . ( $discipline ? $discipline->slug : '' ) . '"'
 			: '';
 
-		$out .= '<a class="reference-card" href="' . e( path_of( $case_study ) ) . '"' . $hooks . '>'
-			. '<figure>' . picture( (int) get_post_thumbnail_id( $case_study ), 'default' ) . '</figure>'
-			. '<div class="reference-card__meta"><span>' . e( industry_label( $case_study ) ) . '</span>'
-			. '<span>' . e( $discipline instanceof WP_Post ? $discipline->post_title : '' ) . '</span></div>'
+		$out .= '<a class="reference-card" href="/case-studies/' . $case_study->post_name . '/"' . $hooks . '>'
+			. '<figure>' . picture( (int) get_post_thumbnail_id( $case_study ), $size, false, true ) . '</figure>'
+			. '<div class="reference-card__copy"><div class="reference-card__meta">'
+			. '<span>' . e( meta( $case_study, '_emposo_industry_label' ) ) . '</span>'
+			. '<span>' . e( term_name( $discipline ) ) . '</span></div>'
 			. '<h3>' . e( $case_study->post_title ) . '</h3>'
 			. '<p>' . e( $case_study->post_excerpt ) . '</p>'
 			. metric( $case_study )
-			. '<span class="text-link">Case Study lesen ' . ARROW . '</span></a>';
+			. '<span class="text-link">Case Study lesen ' . ARROW . '</span></div></a>';
 	}
 
-	return $out . '</div>';
-}
-
-/**
- * The industry tile grid.
- */
-function industry_cards(): string {
-	$out   = '<div class="industry-cards">';
-	$index = 0;
-
-	foreach ( industries() as $industry ) {
-		++$index;
-		$subtitle = (string) get_post_meta( $industry->ID, '_emposo_subtitle', true );
-
-		$out .= '<a class="industry-tile" href="' . e( path_of( $industry ) ) . '">'
-			. '<figure>' . picture( (int) get_post_thumbnail_id( $industry ), 'tile' ) . '</figure>'
-			. '<div class="industry-tile__copy">'
-			// Zero-padded to two digits, as the source does with a literal '0'
-			// prefix — there are five industries, so it never reaches ten.
-			. '<span class="industry-tile__number">0' . $index . '</span>'
-			. '<h3>' . e( $industry->post_title ) . '</h3>'
-			. ( '' !== $subtitle ? '<p>' . e( $subtitle ) . '</p>' : '' )
-			. '<span class="industry-tile__arrow" aria-hidden="true">→</span>'
-			. '</div></a>';
-	}
-
-	return $out . '</div>';
+	return '<div class="reference-grid' . ( $collage ? ' reference-grid--collage' : '' ) . '"' . ( $filterable ? ' data-project-grid' : '' ) . '>' . $out . '</div>';
 }
 
 /**
  * The filter bar, count, grid and empty state.
  *
- * The vocabulary comes from the industry and outcome taxonomies rather than a
- * hardcoded table, which is what makes the seven-buttons-for-five-pages
- * asymmetry self-maintaining: 'automotive' is a term with no page, so it
- * appears here and nowhere else.
+ * Branche + Leistung, chips A–Z with "Alle" first; a value no project carries
+ * is rendered disabled, not hidden (owner 26.09., B-42).
  */
 function filters(): string {
-	$all = case_studies();
+	$projects = case_studies();
+
+	$carried = array(
+		'industry'   => array(),
+		'discipline' => array(),
+	);
+	foreach ( $projects as $case_study ) {
+		foreach ( preg_split( '/\s+/', meta( $case_study, '_emposo_filter' ) ) ?: array() as $token ) {
+			$carried['industry'][ $token ] = true;
+		}
+		$discipline = discipline_of( $case_study );
+		if ( $discipline ) {
+			$carried['discipline'][ $discipline->slug ] = true;
+		}
+	}
+
+	$az = static function ( array $terms ): array {
+		$choices = array();
+		foreach ( $terms as $term ) {
+			$choices[] = array( $term->slug, term_name( $term ) );
+		}
+		usort(
+			$choices,
+			static function ( array $a, array $b ): int {
+				return compare_de( $a[1], $b[1] );
+			}
+		);
+
+		return $choices;
+	};
 
 	$groups = array(
-		'industry' => array(
-			'label' => 'Branche',
-			'aria'  => 'Nach Branche filtern',
-			'terms' => ordered_terms( TAX_INDUSTRY ),
-		),
-		'outcome'  => array(
-			'label' => 'Wirkung',
-			'aria'  => 'Nach Wirkung filtern',
-			'terms' => ordered_terms( TAX_OUTCOME ),
-		),
+		array( 'industry', 'Branche', 'Nach Branche filtern', $az( ordered_terms( TAX_INDUSTRY ) ) ),
+		array( 'discipline', 'Leistung', 'Nach Leistung filtern', $az( disciplines() ) ),
 	);
 
-	$out = '<div class="work-filter js-only">';
+	$chip = static function ( string $group, string $key, string $name ) use ( $carried ): string {
+		$all      = 'all' === $key;
+		$disabled = ! $all && ! isset( $carried[ $group ][ $key ] );
 
-	foreach ( $groups as $group => $config ) {
-		$out .= '<div class="filter-group"><span>' . e( $config['label'] ) . '</span>'
-			. '<div role="group" aria-label="' . e( $config['aria'] ) . '">'
-			. '<button class="filter-button min-h-11 is-active" type="button" data-filter-group="' . e( $group )
-			. '" data-filter-value="all" aria-pressed="true">Alle</button>';
+		return '<button class="filter-button min-h-11' . ( $all ? ' is-active' : '' ) . '" type="button" data-filter-group="' . $group . '" data-filter-value="' . $key . '" aria-pressed="' . ( $all ? 'true' : 'false' ) . '"' . ( $disabled ? ' disabled' : '' ) . '>'
+			. '<svg class="filter-button__check" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+			. e( $name ) . '</button>';
+	};
 
-		foreach ( $config['terms'] as $term ) {
-			$out .= '<button class="filter-button min-h-11" type="button" data-filter-group="' . e( $group )
-				. '" data-filter-value="' . e( $term->slug ) . '" aria-pressed="false">'
-				. e( term_name( $term ) ) . '</button>';
+	$bar = '';
+	foreach ( $groups as list( $key, $label, $aria, $choices ) ) {
+		$rest = '';
+		foreach ( $choices as list( $value, $name ) ) {
+			$rest .= $chip( $key, $value, $name );
 		}
-
-		$out .= '</div></div>';
+		$bar .= '<div class="filter-group"><span>' . $label . '</span><div role="group" aria-label="' . $aria . '">'
+			. $chip( $key, 'all', 'Alle' ) . '<div class="filter-choices">' . $rest . '</div></div></div>';
 	}
 
-	$out .= '</div>';
-
-	// German pluralisation is part of the contract: js/06-work.js rewrites this
-	// text, and the static markup must agree with what the script would produce.
-	$count = count( $all );
-	$word  = 1 === $count ? 'Projekt' : 'Projekte';
-
-	$out .= '<p class="work-count" id="project-count" aria-live="polite">' . $count . ' ' . $word . '</p>';
-	$out .= project_cards( $all, true );
-	$out .= '<p class="work-empty" id="project-empty" hidden>Für diese Auswahl ist noch keine Referenz veröffentlicht. '
-		. '<a href="/kontakt/">Sprechen Sie mit uns über Ihre Branche.</a></p>';
-
-	return $out;
+	return '<div class="work-filter js-only">' . $bar . '</div>'
+		. '<p class="work-count" id="project-count" aria-live="polite">' . count( $projects ) . ' Projekte</p>'
+		. project_cards( $projects, true )
+		. '<p class="work-empty" id="project-empty" hidden>Für diese Auswahl ist noch keine Referenz veröffentlicht. <a href="/kontakt/">Sprechen Sie mit uns über Ihre Branche.</a></p>';
 }
 
 /**
- * Terms in source order.
- *
- * Note get_terms() defaults to alphabetical, which would put Automotive second and
- * reorder the filter bar. The importer stored the source position, so request
- * that instead.
- *
- * @param string $taxonomy Taxonomy name.
- * @return \WP_Term[]
- */
-function ordered_terms( string $taxonomy ): array {
-	/*
-	 * This is the one derived query with a metadata join, and it runs on every
-	 * page carrying a filter bar — so it is the query the cache exists for.
-	 * Term IDs are cached rather than term objects, for the same reason post
-	 * IDs are: get_term() reads from the term cache.
-	 */
-	$ids = remember(
-		'terms:' . $taxonomy,
-		static function () use ( $taxonomy ): array {
-			$found = get_terms(
-				array(
-					'taxonomy'   => $taxonomy,
-					'hide_empty' => false,
-					'fields'     => 'ids',
-					'meta_key'   => '_emposo_term_order', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Small closed vocabulary; the alternative is a wrong order.
-					'orderby'    => 'meta_value_num',
-					'order'      => 'ASC',
-				)
-			);
-
-			if ( is_wp_error( $found ) ) {
-				return array();
-			}
-
-			return array_map( 'intval', $found );
-		}
-	);
-
-	$terms = array();
-
-	foreach ( $ids as $id ) {
-		$term = get_term( $id, $taxonomy );
-
-		if ( $term instanceof \WP_Term ) {
-			$terms[] = $term;
-		}
-	}
-
-	/*
-	 * The discipline taxonomy nests groups over disciplines, but the industry
-	 * vocabulary is flat as far as the filter bar is concerned: the parent and
-	 * its 'automotive' child are both buttons. So no filtering by depth here —
-	 * the stored order already encodes the source's sequence.
-	 */
-	return $terms;
-}
-
-/**
- * The two-column discipline matrix.
+ * The disciplines as a 2×4 table with group headers.
  */
 function discipline_grid(): string {
-	$out = '<div class="expertise-matrix">';
+	$out = '';
 
-	foreach ( array( 'Engineering', 'Technology' ) as $group ) {
-		$out .= '<section class="expertise-column" aria-labelledby="disciplines-' . e( $group ) . '">'
-			. '<h3 class="expertise-column__title" id="disciplines-' . e( $group ) . '">' . e( $group ) . '</h3>'
-			. '<div class="expertise-list">';
-
-		foreach ( disciplines_in_group( $group ) as $discipline ) {
-			$out .= '<a class="expertise-card" href="' . e( path_of( $discipline ) ) . '">'
-				. '<h4>' . e( $discipline->post_title ) . '</h4>'
-				. '<p>' . e( (string) get_post_meta( $discipline->ID, '_emposo_topics', true ) ) . '</p>'
-				. '<span class="expertise-card__promise">' . e( $discipline->post_excerpt ) . '</span></a>';
+	foreach ( ordered_terms( TAX_DISCIPLINE ) as $group ) {
+		if ( 0 !== (int) $group->parent ) {
+			continue;
 		}
 
-		$out .= '</div></section>';
-	}
+		$out .= '<h3 class="discipline-table__head">' . term_name( $group ) . '</h3>';
 
-	return $out . '</div>';
-}
-
-/**
- * Disciplines belonging to one group.
- *
- * The group is the PARENT of the discipline's linked term, so this is one
- * indexed hop rather than a stored duplicate of the group name.
- *
- * @param string $group Group name.
- * @return WP_Post[]
- */
-function disciplines_in_group( string $group ): array {
-	$parent = get_term_by( 'slug', strtolower( $group ), TAX_DISCIPLINE );
-
-	if ( ! $parent ) {
-		return array();
-	}
-
-	return array_values(
-		array_filter(
-			disciplines(),
-			static function ( WP_Post $page ) use ( $parent ): bool {
-				$term_id = (int) get_post_meta( $page->ID, '_emposo_discipline_term', true );
-
-				return $term_id > 0
-					&& in_array( (int) $parent->term_id, get_ancestors( $term_id, TAX_DISCIPLINE ), true );
+		foreach ( disciplines() as $discipline ) {
+			if ( (int) $discipline->parent !== (int) $group->term_id ) {
+				continue;
 			}
-		)
-	);
+			$id   = $discipline->term_id;
+			$out .= '<article class="discipline-cell" id="' . $discipline->slug . '">'
+				. '<span class="discipline-cell__icon" aria-hidden="true">' . icon( (string) get_term_meta( $id, '_emposo_icon', true ) ) . '</span>'
+				. '<h4>' . e( term_name( $discipline ) ) . '</h4>'
+				. '<p>' . e( (string) get_term_meta( $id, '_emposo_topics', true ) ) . '</p>'
+				. '<p class="discipline-cell__promise">' . e( (string) get_term_meta( $id, '_emposo_promise', true ) ) . '</p></article>';
+		}
+	}
+
+	return '<div class="discipline-table">' . $out . '</div>';
 }
 
 /**
- * The group a discipline belongs to, and that group's overview page path.
- *
- * @param WP_Post $discipline Discipline page.
- * @return array{group: string, overview: string}
+ * The job postings on /karriere/, each in the canonical expander.
  */
-function group_of( WP_Post $discipline ): array {
-	$term_id   = (int) get_post_meta( $discipline->ID, '_emposo_discipline_term', true );
-	$ancestors = $term_id > 0 ? get_ancestors( $term_id, TAX_DISCIPLINE ) : array();
+function jobs_list(): string {
+	$out = '';
 
-	if ( ! $ancestors ) {
-		return array(
-			'group'    => '',
-			'overview' => '/expertise/',
-		);
+	foreach ( option_list( 'emposo_jobs' ) as $job ) {
+		$title = (string) ( $job['title'] ?? '' );
+		$intro = array_map( 'strval', (array) ( $job['intro'] ?? array() ) );
+
+		$meta = '';
+		foreach ( (array) ( $job['meta'] ?? array() ) as $item ) {
+			$meta .= '<span class="tag">' . e( (string) $item ) . '</span>';
+		}
+
+		$more = '';
+		foreach ( array_slice( $intro, 1 ) as $text ) {
+			$more .= '<p class="job-card__text">' . e( $text ) . '</p>';
+		}
+		foreach ( (array) ( $job['sections'] ?? array() ) as $section ) {
+			$items = '';
+			foreach ( (array) ( $section['items'] ?? array() ) as $item ) {
+				$items .= '<li>' . e( (string) $item ) . '</li>';
+			}
+			$more .= '<h4>' . e( (string) ( $section['title'] ?? '' ) ) . '</h4><ul class="result-list result-list--compact">' . $items . '</ul>';
+		}
+
+		$out .= '<article class="job-card" id="' . (string) ( $job['slug'] ?? '' ) . '"><h3>' . e( $title ) . '</h3>'
+			. '<p class="job-card__meta">' . $meta . '</p>'
+			. '<p class="job-card__tagline">' . e( (string) ( $job['tagline'] ?? '' ) ) . '</p>'
+			. '<p class="job-card__text">' . e( $intro[0] ?? '' ) . '</p>'
+			. '<details class="expander"><summary class="min-h-11"><span class="expander__open">Zur vollständigen Ausschreibung</span><span class="expander__close">Weniger anzeigen</span><span class="sr-only"> – ' . e( $title ) . '</span></summary>'
+			. $more
+			. '<p class="job-card__text">' . e( (string) ( $job['apply'] ?? '' ) ) . '</p>'
+			. '<p class="job-card__apply"><a class="text-link" href="mailto:' . APPLY_EMAIL . '?subject=' . encode_uri_component( 'Bewerbung: ' . $title ) . '">Bewerbung an ' . APPLY_EMAIL . '<span class="sr-only"> – ' . e( $title ) . '</span> <span aria-hidden="true">→</span></a></p>'
+			. '</details></article>';
 	}
 
-	$parent = get_term( (int) $ancestors[0], TAX_DISCIPLINE );
-
-	if ( ! $parent instanceof \WP_Term ) {
-		return array(
-			'group'    => '',
-			'overview' => '/expertise/',
-		);
-	}
-
-	$overview_page = get_page_by_path( 'expertise/' . $parent->slug );
-
-	return array(
-		'group'    => term_name( $parent ),
-		'overview' => $overview_page instanceof WP_Post ? path_of( $overview_page ) : '/expertise/',
-	);
+	return '<div class="job-list">' . $out . '</div>'
+		. '<p class="job-list__apply">Keine passende Position dabei? Schick uns Deine Initiativbewerbung an <a href="mailto:' . APPLY_EMAIL . '?subject=Initiativbewerbung">' . APPLY_EMAIL . '</a>.</p>';
 }
 
 /**
- * The shared closing call to action.
+ * The one CTA block. Variants are content, never copied markup.
  *
- * @param string $title Heading.
+ * @param string $name default | portfolio | karriere.
  */
-function cta( string $title = 'Jetzt Kontakt aufnehmen!' ): string {
-	return '<section class="page-section page-section--deep"><div class="gutter"><div class="container">'
-		. '<div class="page-cta"><div><p class="page-eyebrow page-eyebrow--light">Ihr nächster Schritt</p>'
-		. '<h2 class="page-cta__title">' . $title . '</h2></div>'
-		. '<div class="page-cta__copy"><p>Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen: '
-		. 'Erzählen Sie uns kurz, worum es geht.</p>'
-		. '<a class="page-link page-link--light" href="/kontakt/">Projekt besprechen</a></div>'
+function cta( string $name = 'default' ): string {
+	$ctas = array(
+		'default'   => array(
+			'title' => 'Jetzt Kontakt aufnehmen!',
+			'copy'  => array( 'Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen: Erzählen Sie uns kurz, worum es geht.' ),
+			'link'  => true,
+		),
+		'portfolio' => array(
+			'id'    => 'portfolio-cta-title',
+			'title' => 'Welche Leistung sollen wir für Sie <em>liefern?</em>',
+			'copy'  => array( 'Von der bestehenden Leistung bis zum neuen Use Case: Sprechen wir über die Ergebnisdefinition und den sinnvollsten Einstieg.' ),
+			'link'  => true,
+		),
+		'karriere'  => array(
+			'id'      => 'karriere-statement-title',
+			'eyebrow' => 'Warum Emposo',
+			'title'   => 'Wir entwickeln nicht nur Technologien.<br>Wir schaffen <em>Ergebnisse.</em>',
+			'copy'    => array( 'Dafür suchen wir Menschen, die neugierig sind, Verantwortung übernehmen und Dinge ins Ziel bringen wollen. Ob Engineering, Software, AI, Cyber Security oder Projektmanagement: Bei Emposo arbeitest Du an Projekten, die sichtbar etwas bewegen. Gemeinsam mit erfahrenen Kolleginnen und Kollegen, starken Kunden und der Skalierungskraft der Hays Gruppe.', '<strong>Tomorrow, created today.</strong>' ),
+			'link'    => false,
+		),
+	);
+	$c = $ctas[ $name ] ?? $ctas['default'];
+
+	$id   = (string) ( $c['id'] ?? '' );
+	$copy = '';
+	foreach ( $c['copy'] as $paragraph ) {
+		$copy .= '<p>' . $paragraph . '</p>';
+	}
+
+	return '<section class="page-section page-section--deep"' . ( '' !== $id ? ' aria-labelledby="' . $id . '"' : '' ) . '><div class="gutter"><div class="container @container"><div class="page-cta @max-content:grid-cols-1">'
+		. '<div><p class="eyebrow eyebrow--light">' . ( $c['eyebrow'] ?? 'Ihr nächster Schritt' ) . '</p><h2 class="display-large display-large--light"' . ( '' !== $id ? ' id="' . $id . '"' : '' ) . '>' . $c['title'] . '</h2></div>'
+		. '<div class="page-cta__copy">' . $copy . ( $c['link'] ? '<a class="text-link text-link--light" href="/kontakt/">Projekt besprechen <span aria-hidden="true">→</span></a>' : '' ) . '</div>'
 		. '</div></div></div></section>';
 }
 
 /**
- * The management roster.
+ * A case-study detail page.
  *
- * Renders from the person post type, so the roster is editable — and the
- * "never invent roles or bios" rule is structural rather than a note: a full
- * profile renders only when there is body content, a photo tile only when
- * there is a featured image, and otherwise an initials tile. There is no
- * placeholder path and no field an editor can half-fill into a fabricated role.
+ * Related slot: same discipline, then same industry label, then the next
+ * projects in data order (wrapping), so it always shows two cards.
+ *
+ * @param string $slug Case-study slug.
  */
-function management(): string {
-	$people = hydrate(
-		remember(
-			'people',
-			static function (): array {
-				return array_map(
-					'intval',
-					get_posts(
-						array(
-							'post_type'      => \Emposo\Core\ContentModel\CPT_PERSON,
-							'post_status'    => 'publish',
-							'posts_per_page' => 100,
-							'orderby'        => 'menu_order',
-							'order'          => 'ASC',
-							'fields'         => 'ids',
-							'no_found_rows'  => true,
-						)
-					)
-				);
-			}
+function project_page( string $slug ): string {
+	$projects = case_studies();
+	$at       = null;
+
+	foreach ( $projects as $i => $candidate ) {
+		if ( $candidate->post_name === $slug ) {
+			$at = $i;
+			break;
+		}
+	}
+
+	if ( null === $at ) {
+		return '';
+	}
+
+	$p          = $projects[ $at ];
+	$discipline = discipline_of( $p );
+	$d_slug     = $discipline ? $discipline->slug : '';
+	$d_name     = term_name( $discipline );
+	$industry   = meta( $p, '_emposo_industry_label' );
+
+	$next    = array_merge( array_slice( $projects, $at + 1 ), array_slice( $projects, 0, $at ) );
+	$related = array();
+	foreach ( $projects as $other ) {
+		if ( $other->ID !== $p->ID && discipline_of( $other ) && discipline_of( $other )->slug === $d_slug ) {
+			$related[ $other->ID ] = $other;
+		}
+	}
+	foreach ( $projects as $other ) {
+		$other_d = discipline_of( $other );
+		if ( $other->ID !== $p->ID && ( $other_d ? $other_d->slug : '' ) !== $d_slug && meta( $other, '_emposo_industry_label' ) === $industry ) {
+			$related[ $other->ID ] = $other;
+		}
+	}
+	foreach ( $next as $other ) {
+		$related[ $other->ID ] = $related[ $other->ID ] ?? $other;
+	}
+	$related = array_slice( array_values( $related ), 0, 2 );
+
+	$metric_value = meta( $p, '_emposo_metric' );
+
+	$hero = page_hero(
+		array(
+			'id'     => 'project-title',
+			'parent' => array( '/branchen/#referenzen', 'Projekte' ),
+			'copy'   => '<p class="eyebrow eyebrow--light">' . e( $industry ) . '</p><h1 class="display-large display-large--light" id="project-title">' . e( $p->post_title ) . '</h1><p class="page-hero__intro">' . e( $p->post_excerpt ) . '</p>',
+			'figure' => picture( (int) get_post_thumbnail_id( $p ), 'detail', true )
+				. '<div class="page-hero__metric"><strong' . ( mb_strlen( $metric_value, 'UTF-8' ) > 8 ? ' class="page-hero__metric--word"' : '' ) . '>' . e( $metric_value ) . '</strong><span>' . e( meta( $p, '_emposo_metric_label' ) ) . '</span></div>',
 		)
 	);
 
-	$profiles = '';
-	$tiles    = '';
+	$facts = '';
+	foreach ( meta_list( $p, '_emposo_facts' ) as $fact ) {
+		$facts .= '<li>' . e( $fact ) . '</li>';
+	}
+	$results = '';
+	foreach ( meta_list( $p, '_emposo_results' ) as $result ) {
+		$results .= '<li>' . e( $result ) . '</li>';
+	}
 
-	foreach ( $people as $person ) {
-		$role     = (string) get_post_meta( $person->ID, '_emposo_person_role', true );
-		$initials = (string) get_post_meta( $person->ID, '_emposo_person_initials', true );
-		$linkedin = (string) get_post_meta( $person->ID, '_emposo_person_linkedin', true );
-		$thumb    = (int) get_post_thumbnail_id( $person );
-		$body     = trim( (string) $person->post_content );
+	return $hero
+		. SECTION_GAP . '<section class="page-section"><div class="gutter"><div class="container"><h2 class="display-large" id="projekt-title">Projekt</h2>'
+		. '<p class="section-lede">' . e( $industry ) . ' · ' . e( $d_name ) . '</p>'
+		. ( '' !== $facts ? '<ul class="result-list result-list--compact project-facts">' . $facts . '</ul>' : '' )
+		. '<div class="company-values case-facets">'
+		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'document-paper-line' ) . '</span><h3>Herausforderung</h3>' . column( $p, '_emposo_challenge' ) . '</article>'
+		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'lightbulb-shine-line' ) . '</span><h3>Lösung</h3>' . column( $p, '_emposo_solution' ) . '</article>'
+		. '<article><span class="company-values__icon" aria-hidden="true">' . icon( 'check-discount-line' ) . '</span><h3>Ergebnis</h3><ul class="result-list">' . $results . '</ul></article>'
+		. '</div><p class="section-more"><a class="text-link" href="/portfolio/#' . $d_slug . '">' . e( $d_name ) . ' ' . ARROW . '</a></p></div></div></section>'
+		. SECTION_GAP . '<section class="page-section page-section--paper"><div class="gutter"><div class="container"><p class="eyebrow">Weitere Projekte</p><h2 class="display-large">Expertise, die Ergebnisse liefert.</h2>'
+		. project_cards( $related )
+		. '<p class="section-more"><a class="text-link" href="/branchen/#referenzen">Alle Projekte ' . ARROW . '</a></p></div></div></section>'
+		. cta();
+}
 
-		if ( '' !== $body ) {
-			// The second profile's portrait is wider than the first's.
-			$wide = '' !== $profiles ? ' class="management-profile__media--wide"' : '';
+/**
+ * Split a bio into the visible teaser (≤ 48 words, cut at a sentence
+ * boundary) and the rest, as render.mjs splitBio() does.
+ *
+ * @param string[] $paragraphs Bio paragraphs.
+ * @return array{0: string[], 1: string[]} Teaser and rest.
+ */
+function split_bio( array $paragraphs ): array {
+	$teaser = array();
+	$rest   = array();
+	$count  = 0;
+	$full   = false;
 
-			$paragraphs = '';
-			$blocks     = preg_split( '/\R{2,}/', $body );
-			foreach ( is_array( $blocks ) ? $blocks : array() as $paragraph ) {
-				$paragraph = trim( (string) $paragraph );
-				if ( '' !== $paragraph ) {
-					$paragraphs .= '<p>' . e( $paragraph ) . '</p>';
-				}
-			}
-
-			$profiles .= '<article class="management-profile">'
-				. '<figure' . $wide . '>' . picture( $thumb, 'portrait' ) . '</figure>'
-				. '<div><h3>' . e( $person->post_title ) . '</h3>'
-				. '<p class="management-profile__role">' . e( $role ) . '</p>'
-				. $paragraphs
-				. ( '' !== $linkedin
-					? '<a class="text-link" href="' . esc_url( $linkedin ) . '">' . e( $person->post_title )
-						. ' auf LinkedIn ' . ARROW . '</a>'
-					: '' )
-				. '</div></article>';
-
+	foreach ( $paragraphs as $paragraph ) {
+		if ( $full ) {
+			$rest[] = $paragraph;
 			continue;
 		}
 
-		$tiles .= '<li>'
-			. ( $thumb > 0
-				? '<figure>' . picture( $thumb, 'portrait_small' ) . '</figure>'
-				: '<div class="management-grid__initials" aria-hidden="true">' . e( $initials ) . '</div>' )
-			. '<span>' . e( $person->post_title ) . '</span></li>';
+		$keep  = '';
+		$spill = '';
+		$found = preg_match_all( '/[^.!?]+[.!?]+["\']?(\s+|$)/u', $paragraph, $matches );
+		foreach ( $found ? $matches[0] : array( $paragraph ) as $sentence ) {
+			$words = count( preg_split( '/\s+/u', trim( $sentence ) ) ?: array() );
+			if ( ! $full && $count + $words <= 48 ) {
+				$keep  .= $sentence;
+				$count += $words;
+			} else {
+				$full   = true;
+				$spill .= $sentence;
+			}
+		}
+
+		if ( '' !== trim( $keep ) ) {
+			$teaser[] = trim( $keep );
+		}
+		if ( '' !== trim( $spill ) ) {
+			$rest[] = trim( $spill );
+		}
 	}
 
-	return '<section class="page-section page-section--paper" id="management" aria-labelledby="management-title">'
-		. '<div class="gutter"><div class="container"><p class="eyebrow">Management</p>'
-		. '<h2 class="page-title" id="management-title">Menschen, die Verantwortung übernehmen.</h2>'
-		. '<div class="management-list">' . $profiles . '</div>'
-		. '<ul class="management-grid" aria-label="Weitere Mitglieder des Management-Teams">' . $tiles . '</ul>'
-		. '</div></div></section>';
+	return array( $teaser, $rest );
+}
+
+/**
+ * The management cards: photo, name, roles, teaser, Mehr-lesen expander.
+ */
+function management(): string {
+	$cards = '';
+
+	foreach ( ordered_posts( CPT_PERSON ) as $person ) {
+		$name     = $person->post_title;
+		$roles    = meta_list( $person, '_emposo_person_roles' );
+		$linkedin = meta( $person, '_emposo_person_linkedin' );
+		$bio      = array_values( array_filter( array_map( 'trim', preg_split( '/\R{2,}/', trim( (string) $person->post_content ) ) ?: array() ) ) );
+
+		list( $teaser, $rest ) = split_bio( $bio );
+
+		$more = '';
+		foreach ( $rest as $text ) {
+			$more .= '<p class="management-card__bio">' . e( $text ) . '</p>';
+		}
+		if ( '' !== $linkedin ) {
+			$more .= '<p class="management-card__bio"><a class="text-link" href="' . $linkedin . '">' . e( $name ) . ' auf LinkedIn ' . ARROW . '</a></p>';
+		}
+
+		$visible = '';
+		foreach ( $teaser as $text ) {
+			$visible .= '<p class="management-card__bio">' . e( $text ) . '</p>';
+		}
+
+		$cards .= '<article class="management-card"><figure>' . picture( (int) get_post_thumbnail_id( $person ), 'management', false, true ) . '</figure>'
+			. '<h3>' . e( $name ) . '</h3><p class="management-card__role">' . implode( '<br>', array_map( __NAMESPACE__ . '\\e', $roles ) ) . '</p>'
+			. $visible
+			. '<details class="expander"><summary class="min-h-11"><span class="expander__open">Mehr lesen</span><span class="expander__close">Weniger anzeigen</span><span class="sr-only"> – ' . e( $name ) . '</span></summary>' . $more . '</details>'
+			. '</article>';
+	}
+
+	return '<section class="page-section page-section--paper" id="management" aria-labelledby="management-title"><div class="gutter"><div class="container"><p class="eyebrow">Management</p><h2 class="display-large" id="management-title">Menschen, die Verantwortung übernehmen.</h2><div class="management-cards">' . $cards . '</div></div></div></section>';
+}
+
+/**
+ * Onward links at the end of pages that would otherwise dead-end (B-45).
+ */
+function keep_exploring(): string {
+	$links = '';
+	foreach ( array(
+		array( '/portfolio/', 'Leistungen' ),
+		array( '/branchen/', 'Branchen' ),
+		array( '/about-us/', 'Über uns' ),
+	) as list( $href, $label ) ) {
+		$links .= '<li><a class="text-link" href="' . $href . '">' . $label . ' <span aria-hidden="true">→</span></a></li>';
+	}
+
+	return '<section class="page-section explore" aria-labelledby="explore-title"><div class="gutter"><div class="container"><h2 class="explore__title" id="explore-title">Weiter entdecken</h2><ul class="explore__links">' . $links . '</ul></div></div></section>';
 }
 
 /**
  * The HTML sitemap.
  */
 function sitemap(): string {
-	$out = '<div><h2>Leistungen</h2><a href="/">Startseite</a><a href="/portfolio/">Unsere Leistungen</a>'
-		. '<a href="/expertise/">Alle Disziplinen</a><a href="/expertise/engineering/">Engineering im Überblick</a>'
-		. '<a href="/expertise/technology/">Technology im Überblick</a>';
-
-	foreach ( disciplines() as $discipline ) {
-		$out .= '<a href="' . e( path_of( $discipline ) ) . '">' . e( $discipline->post_title ) . '</a>';
-	}
-
-	foreach ( array( 'optimieren', 'transformieren', 'skalieren', 'verzahnen' ) as $pillar ) {
-		$out .= '<a href="/portfolio/' . e( $pillar ) . '/">Wir ' . e( $pillar ) . '</a>';
-	}
-
-	$out .= '</div><div><h2>Branchen</h2><a href="/branchen/">Alle Branchen</a>';
-
-	foreach ( industries() as $industry ) {
-		$out .= '<a href="' . e( path_of( $industry ) ) . '">' . e( $industry->post_title ) . '</a>';
-	}
-
-	$out .= '<h2>Unternehmen</h2><a href="/about-us/">Über uns</a><a href="/about-us/#management">Management</a>'
-		. '<a href="/karriere/">Karriere</a><a href="/kontakt/">Kontakt</a>'
-		. '<a href="/zertifizierungen/">Zertifizierungen</a><a href="/cookies/">Cookies</a>'
-		. '<a href="/barrierefreiheit/">Barrierefreiheit</a>'
-		. '<a href="https://emposo.de/impressum/">Impressum</a>'
-		. '<a href="https://emposo.de/datenschutzerklaerung/">Datenschutz</a>'
-		. '</div><div><h2>Referenzprojekte</h2><a href="/case-studies/">Alle Case Studies</a>';
-
+	$projects = '';
 	foreach ( case_studies() as $case_study ) {
-		$out .= '<a href="' . e( path_of( $case_study ) ) . '">' . e( $case_study->post_title ) . '</a>';
+		$projects .= '<a href="/case-studies/' . $case_study->post_name . '/">' . e( $case_study->post_title ) . '</a>';
 	}
 
-	return $out . '</div>';
-}
-
-/**
- * The 13 named fragments.
- *
- * Selections that were hardcoded slug lists in the static source are expressed
- * here as the query they actually are — by discipline, by outcome, by group,
- * with an explicit exclusion — so an editor tagging a new case study changes
- * the site without a code edit. The one genuinely curated list, the four
- * featured projects, stays explicit.
- *
- * @param string $name Fragment name.
- */
-function render( string $name ): string {
-	switch ( $name ) {
-		case 'industry-cards':
-			return industry_cards();
-
-		case 'projects-all':
-			return filters();
-
-		case 'disciplines':
-			return discipline_grid();
-
-		case 'management':
-			return management();
-
-		case 'sitemap':
-			return sitemap();
-
-		case 'projects-featured':
-			// Genuinely curated: four specific projects in a fixed order.
-			return project_cards( by_slugs( array( 'data2ai-platform', 'engineering-wissensbasis', 'mlops-medizinprodukte', 'multi-site-transition' ) ) );
-
-		case 'projects-ai':
-			return project_cards( by_discipline( 'ai-daten', array( 'data2ai-platform' ) ) );
-
-		case 'projects-engineering':
-			return project_cards( by_group( 'Engineering' ) );
-
-		case 'projects-technology':
-			// Narrower than the name suggests, as in the source: enterprise
-			// services only, not the whole Technology group.
-			return project_cards( by_discipline( 'enterprise-services' ) );
-
-		case 'projects-optimize':
-			return project_cards( by_outcome( 'optimize' ) );
-
-		case 'projects-scale':
-			return project_cards( by_outcome( 'scale' ) );
-
-		case 'projects-transform':
-			return project_cards( by_outcome( 'transform', array( 'data2ai-platform' ) ) );
-
-		case 'projects-verzahnen':
-			return project_cards( by_slugs( array( 'multi-site-transition' ) ) );
-
-		default:
-			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-				_doing_it_wrong( __FUNCTION__, esc_html( sprintf( 'Unknown fragment: %s', $name ) ), '0.1.0' );
-			}
-
-			return '';
-	}
-	// phpcs:ignore Squiz.PHP.NonExecutableCode.Unreachable -- Defensive.
+	return '<div><h2>Leistungen</h2><a href="/">Startseite</a><a href="/portfolio/">Unsere Leistungen</a></div>'
+		. '<div><h2>Branchen</h2><a href="/branchen/">Alle Branchen</a><h2>Unternehmen</h2><a href="/about-us/">Über uns</a><a href="/about-us/#management">Management</a><a href="/karriere/">Karriere</a><a href="/kontakt/">Kontakt</a><a href="/cookies/">Cookies</a><a href="/barrierefreiheit/">Barrierefreiheit</a><a href="/impressum/">Impressum</a><a href="/datenschutzerklaerung/">Datenschutz</a><a href="/nutzungsbestimmungen/">Nutzungsbestimmungen</a></div>'
+		. '<div><h2>Projekte</h2><a href="/branchen/#referenzen">Alle Projekte</a>' . $projects . '</div>';
 }
 
 /**
@@ -883,443 +849,55 @@ function by_slugs( array $slugs ): array {
 		$by_slug[ $case_study->post_name ] = $case_study;
 	}
 
-	$out = array();
-	foreach ( $slugs as $slug ) {
-		if ( isset( $by_slug[ $slug ] ) ) {
-			$out[] = $by_slug[ $slug ];
-		}
+	return array_values( array_filter( array_map( static fn( string $slug ) => $by_slug[ $slug ] ?? null, $slugs ) ) );
+}
+
+/**
+ * A `<!-- content:name -->` include (render.mjs fragment()).
+ *
+ * @param string $name Fragment name.
+ */
+function render( string $name ): string {
+	switch ( $name ) {
+		case 'industry-cards':
+			return industry_cards();
+		case 'trust-strip':
+			return trust_strip();
+		case 'cta-portfolio':
+			return cta( 'portfolio' );
+		case 'cta-karriere':
+			return cta( 'karriere' );
+		case 'company-facts':
+			return company_facts();
+		case 'jobs':
+			return jobs_list();
+		case 'keep-exploring':
+			return keep_exploring();
+		case 'projects-featured':
+			return project_cards( by_slugs( FEATURED ), false, true );
+		case 'projects-all':
+			return filters();
+		case 'disciplines':
+			return discipline_grid();
+		case 'management':
+			return management();
+		case 'sitemap':
+			return sitemap();
 	}
 
-	return $out;
-}
-
-/**
- * Case studies in one discipline.
- *
- * @param string   $slug    Discipline term slug.
- * @param string[] $exclude Case-study slugs to omit.
- * @return WP_Post[]
- */
-function by_discipline( string $slug, array $exclude = array() ): array {
-	return array_values(
-		array_filter(
-			case_studies(),
-			static function ( WP_Post $case_study ) use ( $slug, $exclude ): bool {
-				if ( in_array( $case_study->post_name, $exclude, true ) ) {
-					return false;
-				}
-
-				return has_term( $slug, TAX_DISCIPLINE, $case_study );
-			}
-		)
-	);
-}
-
-/**
- * Case studies in one discipline group.
- *
- * @param string $group Group name.
- * @return WP_Post[]
- */
-function by_group( string $group ): array {
-	$parent = get_term_by( 'slug', strtolower( $group ), TAX_DISCIPLINE );
-
-	if ( ! $parent ) {
-		return array();
+	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+		_doing_it_wrong( __FUNCTION__, esc_html( sprintf( 'Unknown fragment: %s', $name ) ), '0.1.0' );
 	}
 
-	return array_values(
-		array_filter(
-			case_studies(),
-			static function ( WP_Post $case_study ) use ( $parent ): bool {
-				$terms = wp_get_object_terms( $case_study->ID, TAX_DISCIPLINE, array( 'fields' => 'ids' ) );
-				if ( is_wp_error( $terms ) ) {
-					return false;
-				}
-				foreach ( $terms as $term_id ) {
-					if ( in_array( (int) $parent->term_id, get_ancestors( (int) $term_id, TAX_DISCIPLINE ), true ) ) {
-						return true;
-					}
-				}
-
-				return false;
-			}
-		)
-	);
+	return '';
 }
 
 /**
- * Case studies with one outcome.
+ * A detail body from the route contract (`project:<slug>`).
  *
- * @param string   $slug    Outcome term slug.
- * @param string[] $exclude Case-study slugs to omit.
- * @return WP_Post[]
- */
-function by_outcome( string $slug, array $exclude = array() ): array {
-	return array_values(
-		array_filter(
-			case_studies(),
-			static function ( WP_Post $case_study ) use ( $slug, $exclude ): bool {
-				if ( in_array( $case_study->post_name, $exclude, true ) ) {
-					return false;
-				}
-
-				return has_term( $slug, TAX_OUTCOME, $case_study );
-			}
-		)
-	);
-}
-
-// --------------------------------------------------------------------------
-// Detail pages
-// --------------------------------------------------------------------------
-
-/**
- * Render one of the three data-driven detail pages.
- *
- * Together these serve 22 of the 41 routes: 10 case studies, 7 generated
- * disciplines and 5 industries.
- *
- * @param string $kind 'project', 'discipline' or 'industry'.
- * @param string $slug Object slug.
+ * @param string $kind Body kind.
+ * @param string $slug Record slug.
  */
 function render_detail( string $kind, string $slug ): string {
-	switch ( $kind ) {
-		case 'project':
-			return project_page( $slug );
-		case 'discipline':
-			return discipline_page( $slug );
-		case 'industry':
-			return industry_page( $slug );
-		default:
-			return '';
-	}
-}
-
-/**
- * The hero section shared by all three detail pages.
- *
- * @param string $breadcrumb Pre-rendered breadcrumb markup.
- * @param string $kicker     Kicker text.
- * @param string $title      Heading.
- * @param string $intro      Lede.
- * @param int    $image_id   Attachment ID for the hero image.
- */
-function detail_hero( string $breadcrumb, string $kicker, string $title, string $intro, int $image_id ): string {
-	return '<section class="page-hero"><div class="gutter"><div class="container"><div class="page-hero__grid">'
-		. '<div class="page-hero__copy">' . $breadcrumb
-		. '<p class="page-kicker">' . e( $kicker ) . '</p>'
-		. '<h1 class="page-display">' . e( $title ) . '</h1>'
-		. '<p class="page-hero__intro">' . e( $intro ) . '</p></div>'
-		// The hero is the LCP image on these routes: eager, high fetchpriority.
-		. '<figure class="page-hero__visual">' . picture( $image_id, 'detail', true ) . '</figure>'
-		. '</div></div></div></section>';
-}
-
-/**
- * A case study page.
- *
- * @param string $slug Case-study slug.
- */
-function project_page( string $slug ): string {
-	$case_study = null;
-	foreach ( case_studies() as $candidate ) {
-		if ( $candidate->post_name === $slug ) {
-			$case_study = $candidate;
-			break;
-		}
-	}
-
-	if ( ! $case_study instanceof WP_Post ) {
-		return '';
-	}
-
-	$discipline = discipline_of( $case_study );
-	$results    = (array) get_post_meta( $case_study->ID, '_emposo_results', true );
-
-	$breadcrumb = '<p class="page-breadcrumb"><a href="/">Startseite</a><span aria-hidden="true">/</span>'
-		. '<a href="/case-studies/">Case Studies</a></p>';
-
-	$out = detail_hero(
-		$breadcrumb,
-		industry_label( $case_study ),
-		$case_study->post_title,
-		$case_study->post_excerpt,
-		(int) get_post_thumbnail_id( $case_study )
-	);
-
-	$list = '';
-	foreach ( $results as $result ) {
-		$list .= '<li>' . e( (string) $result ) . '</li>';
-	}
-
-	$out .= SECTION_GAP . '<section class="page-section"><div class="gutter"><div class="container"><div class="case-story">'
-		. '<div><p class="eyebrow">Der Outcome</p>' . metric( $case_study ) . '</div>'
-		. '<div><h2>Die Herausforderung</h2><p>'
-		. e( (string) get_post_meta( $case_study->ID, '_emposo_challenge', true ) ) . '</p>'
-		. '<h2>Unsere Lösung</h2><p>'
-		. e( (string) get_post_meta( $case_study->ID, '_emposo_solution', true ) ) . '</p>'
-		. '<h2>Das Ergebnis</h2><ul class="result-list">' . $list . '</ul>'
-		. ( $discipline instanceof WP_Post
-			? '<a class="text-link" href="' . e( path_of( $discipline ) ) . '">'
-				. e( $discipline->post_title ) . ' ' . ARROW . '</a>'
-			: '' )
-		. '</div></div></div></div></section>';
-
-	/*
-	 * Related: two case studies in the same discipline, falling back to any
-	 * two. The fallback matters — without it a discipline with a single case
-	 * study would render an empty grid.
-	 */
-	$same_discipline = array();
-	$any_other       = array();
-	foreach ( case_studies() as $other ) {
-		if ( $other->ID === $case_study->ID ) {
-			continue;
-		}
-		$any_other[]      = $other;
-		$other_discipline = discipline_of( $other );
-		if ( $discipline instanceof WP_Post && $other_discipline instanceof WP_Post
-			&& $other_discipline->ID === $discipline->ID ) {
-			$same_discipline[] = $other;
-		}
-	}
-
-	$related = array_slice( $same_discipline ? $same_discipline : $any_other, 0, 2 );
-
-	$out .= SECTION_GAP . '<section class="page-section page-section--paper"><div class="gutter"><div class="container">'
-		. '<p class="eyebrow">Weitere Referenzen</p>'
-		. '<h2 class="page-title">Expertise, die Ergebnisse liefert.</h2>'
-		. project_cards( $related )
-		. '<p class="section-more"><a class="text-link" href="/case-studies/">Alle Case Studies '
-		. ARROW . '</a></p></div></div></section>';
-
-	return $out . cta();
-}
-
-/**
- * A discipline page.
- *
- * @param string $slug Discipline slug.
- */
-function discipline_page( string $slug ): string {
-	$discipline = null;
-	foreach ( disciplines() as $candidate ) {
-		if ( $candidate->post_name === $slug ) {
-			$discipline = $candidate;
-			break;
-		}
-	}
-
-	if ( ! $discipline instanceof WP_Post ) {
-		return '';
-	}
-
-	$group  = group_of( $discipline );
-	$focus  = (array) get_post_meta( $discipline->ID, '_emposo_focus', true );
-	$detail = (string) get_post_meta( $discipline->ID, '_emposo_detail', true );
-
-	$breadcrumb = '<p class="page-breadcrumb"><a href="/">Startseite</a><span aria-hidden="true">/</span>'
-		. '<a href="/expertise/">Expertise</a><span aria-hidden="true">/</span>'
-		. '<a href="' . e( $group['overview'] ) . '">' . e( $group['group'] ) . '</a></p>';
-
-	$out = detail_hero(
-		$breadcrumb,
-		'Expertise / ' . $group['group'],
-		$discipline->post_title,
-		$discipline->post_excerpt,
-		(int) get_post_thumbnail_id( $discipline )
-	);
-
-	$items = '';
-	foreach ( $focus as $item ) {
-		$items .= '<li>' . e( (string) $item ) . '</li>';
-	}
-
-	$out .= SECTION_GAP . '<section class="page-section"><div class="gutter"><div class="container">'
-		. '<div class="page-section__top"><div><p class="eyebrow">Leistungsschwerpunkte</p>'
-		. '<h2 class="page-title">Eine Disziplin. Ein klares <em class="text-accent-text">Ergebnis.</em></h2></div>'
-		. '<div class="page-section__lede"><p>' . e( $detail ) . '</p>'
-		. '<p>Jede Leistung ist klar abgegrenzt, einzeln beauftragbar und wird bis zur Abnahme geführt.</p>'
-		. '</div></div><ul class="discipline-focus">' . $items . '</ul>'
-		. '<p class="section-more"><a class="text-link" href="' . e( $group['overview'] ) . '">Alle '
-		. e( $group['group'] ) . '-Disziplinen ' . ARROW . '</a></p></div></div></section>';
-
-	$related = by_discipline( $slug );
-
-	/*
-	 * The gap precedes the section whether or not it renders, because the
-	 * source's final template line begins with it: `\n  ${related.length ? ...
-	 * : ''}${cta()}`. So a discipline with no case studies still carries the
-	 * separator before its CTA.
-	 */
-	$out .= SECTION_GAP;
-
-	if ( $related ) {
-		$out .= '<section class="page-section page-section--paper"><div class="gutter"><div class="container">'
-			. '<p class="eyebrow">Referenzprojekte</p>'
-			. '<h2 class="page-title">Unsere Erfolge sprechen für sich.</h2>'
-			. project_cards( $related )
-			. '<p class="section-more"><a class="text-link" href="/case-studies/">Alle Case Studies '
-			. ARROW . '</a></p></div></div></section>';
-	}
-
-	return $out . cta();
-}
-
-/**
- * An industry page.
- *
- * @param string $slug Industry page slug.
- */
-function industry_page( string $slug ): string {
-	$industry = null;
-	foreach ( industries() as $candidate ) {
-		if ( $candidate->post_name === $slug ) {
-			$industry = $candidate;
-			break;
-		}
-	}
-
-	if ( ! $industry instanceof WP_Post ) {
-		return '';
-	}
-
-	$subtitle = (string) get_post_meta( $industry->ID, '_emposo_subtitle', true );
-	$term_id  = (int) get_post_meta( $industry->ID, '_emposo_industry_term', true );
-	$term     = $term_id > 0 ? get_term( $term_id, TAX_INDUSTRY ) : null;
-
-	$breadcrumb = '<p class="page-breadcrumb"><a href="/">Startseite</a><span aria-hidden="true">/</span>'
-		. '<a href="/branchen/">Branchen</a></p>';
-
-	$out = detail_hero(
-		$breadcrumb,
-		// The kicker falls back when an industry has no subtitle; only
-		// industrials-manufacturing has one.
-		'' !== $subtitle ? $subtitle : 'Branchenwissen in Anwendung',
-		$industry->post_title,
-		$industry->post_excerpt,
-		(int) get_post_thumbnail_id( $industry )
-	);
-
-	$cards = '';
-	foreach ( (array) get_post_meta( $industry->ID, '_emposo_related_disciplines', true ) as $discipline_id ) {
-		$discipline = get_post( (int) $discipline_id );
-		if ( ! $discipline instanceof WP_Post ) {
-			continue;
-		}
-		$cards .= '<a class="expertise-card" href="' . e( path_of( $discipline ) ) . '">'
-			. '<h3>' . e( $discipline->post_title ) . '</h3>'
-			. '<p>' . e( $discipline->post_excerpt ) . '</p>'
-			. '<span class="text-link">Expertise entdecken ' . ARROW . '</span></a>';
-	}
-
-	$out .= SECTION_GAP . '<section class="page-section"><div class="gutter"><div class="container">'
-		. '<div class="page-section__top"><div><p class="eyebrow">Ihre Branche. Unsere Expertise.</p>'
-		. '<h2 class="page-title">Unsere Teams kommen direkt aus Ihrer Branche.</h2></div>'
-		. '<div class="page-section__lede"><p>'
-		. e( (string) get_post_meta( $industry->ID, '_emposo_challenge', true ) ) . '</p><p>'
-		. e( (string) get_post_meta( $industry->ID, '_emposo_delivery', true ) ) . '</p></div></div>'
-		. '<div class="industry-disciplines">' . $cards . '</div></div></div></section>';
-
-	/*
-	 * Related case studies are DERIVED from the industry term, not a stored
-	 * list — so tagging a new case study makes it appear here, and in the
-	 * /case-studies/?branche= result, with no developer involvement.
-	 *
-	 * Two of the five industries have none, and the whole section must then
-	 * disappear: heading, eyebrow and the "all matching references" link, which
-	 * would otherwise point at a guaranteed-empty filter result.
-	 */
-	$related = $term instanceof \WP_Term ? by_industry_term( $term ) : array();
-
-	// As on discipline pages, the separator precedes the section whether or not
-	// it renders — two of the five industries have no case studies.
-	$out .= SECTION_GAP;
-
-	if ( $related ) {
-		$out .= '<section class="page-section page-section--paper"><div class="gutter"><div class="container">'
-			. '<p class="eyebrow">Referenzprojekte</p>'
-			. '<h2 class="page-title">Unsere Erfolge sprechen für sich.</h2>'
-			. project_cards( $related )
-			. '<p class="section-more"><a class="text-link" href="/case-studies/?branche='
-			. e( $term->slug ) . '#referenzen">Alle passenden Referenzen ' . ARROW . '</a></p>'
-			. '</div></div></section>';
-	}
-
-	return $out . cta();
-}
-
-/**
- * Case studies carrying an industry term, including via its children.
- *
- * Ordered by the industry's stored hint where one exists, so the source's one
- * ordering divergence is reproduced, then by source order for anything the hint
- * does not mention — which is what lets a newly tagged case study appear
- * without an editor touching the hint.
- *
- * @param \WP_Term $term Industry term.
- * @return WP_Post[]
- */
-function by_industry_term( \WP_Term $term ): array {
-	$descendants = get_term_children( $term->term_id, TAX_INDUSTRY );
-	$ids         = array_merge( array( (int) $term->term_id ), is_array( $descendants ) ? array_map( 'intval', $descendants ) : array() );
-
-	$matching = array_values(
-		array_filter(
-			case_studies(),
-			static function ( WP_Post $case_study ) use ( $ids ): bool {
-				$terms = wp_get_object_terms( $case_study->ID, TAX_INDUSTRY, array( 'fields' => 'ids' ) );
-
-				return ! is_wp_error( $terms ) && array_intersect( array_map( 'intval', $terms ), $ids );
-			}
-		)
-	);
-
-	$page = null;
-	foreach ( industries() as $candidate ) {
-		if ( (int) get_post_meta( $candidate->ID, '_emposo_industry_term', true ) === (int) $term->term_id ) {
-			$page = $candidate;
-			break;
-		}
-	}
-
-	/*
-	 * An editorial override, deliberately EMPTY on an imported site.
-	 *
-	 * Do not populate it from the export's `industries[].cases` list, however
-	 * much it looks like the missing piece. The static build renders these cards
-	 * in the order of its global projects array, filtered by industry — NOT in
-	 * the order of the cases list. On /branchen/industrials-manufacturing/ the
-	 * reference renders rechenzentrums-umzug third, while the cases list puts it
-	 * last; writing that list into this meta would silently reorder a live page
-	 * and break parity.
-	 *
-	 * Absent, the order comes from case_studies(), which is menu_order — the
-	 * projects-array order the importer assigns. So the fallback is already
-	 * correct, and this hook exists for a human who wants a different order on
-	 * one industry page.
-	 */
-	$hint = $page instanceof WP_Post
-		? array_map( 'intval', (array) get_post_meta( $page->ID, '_emposo_case_order', true ) )
-		: array();
-
-	if ( ! $hint ) {
-		return $matching;
-	}
-
-	usort(
-		$matching,
-		static function ( WP_Post $a, WP_Post $b ) use ( $hint ): int {
-			$position = static function ( int $id ) use ( $hint ): int {
-				$index = array_search( $id, $hint, true );
-
-				return false === $index ? PHP_INT_MAX : (int) $index;
-			};
-
-			return $position( $a->ID ) <=> $position( $b->ID );
-		}
-	);
-
-	return $matching;
+	return 'project' === $kind ? project_page( $slug ) : '';
 }

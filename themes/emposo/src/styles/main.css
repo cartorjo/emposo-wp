@@ -68,6 +68,8 @@
    tools/class-inventory.mjs is the backstop: it fails on any class the
    reference emits that this build does not. */
 @source not "../../../../client-mu-plugins/emposo-core/data";
+/* Words in copy, comments and JS that the scanner mistakes for utilities. */
+@source not inline("filter grayscale grid hidden static table transform visible");
 
 /* ---- design tokens --------------------------------------------------------
    The token system is calibrated for the user-relative 16px root (the old
@@ -77,85 +79,113 @@
    margin and gap utilities, --color-N → text/bg/border color utilities,
    --shadow-N → shadow-N, --ease-N → ease-N. */
 @theme {
-  --breakpoint-xs: 480px;
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  /* Desktop-nav switch — mirrored in js/01-header.js. */
-  --breakpoint-nav: 1280px;
-  /* Overrides Tailwind's default xl (1280px): ≥1440 is the site's recurring
-     wide-desktop boundary. */
-  --breakpoint-xl: 1440px;
-  --breakpoint-2xl: 1536px;
+  /* Every layout threshold, once, in rem (= px at the default 16px text
+     size; enlarged browser text moves them with it). Media queries read them
+     via theme(); nav is mirrored in js/01-header.js. */
+  --breakpoint-compact: 37.5rem;  /* 600px, the M3 compact/medium boundary */
+  --breakpoint-sm: 40rem;         /* 640px */
+  --breakpoint-narrow: 40.625rem; /* 650px */
+  --breakpoint-stack: 43.75rem;   /* 700px */
+  --breakpoint-hero: 56.25rem;    /* 900px, split heroes and grids stack */
+  --breakpoint-lg: 62rem;         /* 992px */
+  --breakpoint-tablet: 62.5rem;   /* 1000px */
+  --breakpoint-nav: 75rem;        /* 1200px, the M3 large boundary: inline nav */
+  /* Container size read by the @max-content: variant (hero/CTA collapse). */
   --container-content: 56rem;
 
-  /* Brand color system: orange decoration; midnight blue text and numbers.
-     --color-accent-text remains an alias for existing utility classes. */
+  /* Brand color system: orange decoration; midnight blue text and numbers. */
   --color-lemon: #f7911e;
-  --color-accent-text: #0a0532;
+  /* Secondary accent: the homepage "How" connection-step icon discs. */
+  --color-info: #4597ce;
   --color-ink: #0a0532;
   --color-bg: #ffffff;
-  --color-bg-dark: #0a0532;
-  --color-bg-dark-2: #0a0532;
   --color-paper: #f5f0eb;
   --color-line: rgba(10, 5, 50, 0.18);
+  /* Boundary of interactive outlines on white (3.17:1, WCAG 1.4.11). */
+  --color-line-strong: rgba(10, 5, 50, 0.45);
   --color-line-light: rgba(255, 255, 255, 0.22);
+  --color-line-light-strong: rgba(255, 255, 255, 0.45);
+  /* Header ground: the paper/sand tone at 96 % so the sticky bar reads as part
+     of the site, not of the browser chrome (Owner 25.09.). Same RGB as --color-paper. */
+  --color-surface-veil: rgba(245, 240, 235, 0.96);
+  /* On-dark roles (content on ink/deep grounds): primary, secondary and
+     tertiary emphasis. White page/card grounds use --color-bg instead. */
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --color-on-dark-faint: rgba(255, 255, 255, 0.62);
+  /* Error on ink grounds (M3 error tone 80; the brand palette has no red). */
+  --color-error-on-dark: #ffb4ab;
 
-  /* Fluid editorial type scale (correct for the 16px root: floors equal the
-     vw term at 320px so type stays fluid on phones; caps restore the designed
-     ≥1440px sizes). Sub-tokens ride along in the emitted text-* utilities. */
-  --text-display-1: clamp(2.5rem, 8.8vw, 9.18rem);
-  --text-display-1--line-height: 1.08;
-  --text-display-1--letter-spacing: -0.025em;
-  --text-display-1--font-weight: 300;
-  --text-display-2: clamp(2.125rem, 7.5vw, 7.56rem);
-  --text-display-2--line-height: 1.08;
-  --text-display-2--letter-spacing: -0.025em;
-  --text-display-2--font-weight: 300;
-  --text-title: clamp(1.35rem, 2.6vw, 2.6rem);
-  --text-title--line-height: 1.08;
-  --text-title--letter-spacing: -0.025em;
-  --text-title--font-weight: 300;
-  --text-subtitle: clamp(1.2rem, 2.25vw, 2.3rem);
-  --text-subtitle--line-height: 1;
-  --text-subtitle--letter-spacing: -0.045em;
-  --text-subtitle--font-weight: 300;
-  --text-lede: clamp(1.1rem, 1.4vw, 1.35rem);
-  --text-lede--line-height: 1.4;
-  --text-body: 1rem;
-  --text-body--line-height: 1.5;
+  /* Type roles — the fixed sizes the components actually ship (each is used
+     two or more times). Headline sizes are fluid clamp()s owned by their one
+     component; the display heading reads --display-size (11-components.css).
+     Names avoid Tailwind's default text-xs/sm/base/lg so no utility changes. */
+  --text-micro: 0.72rem;
   --text-caption: 0.8125rem;
-  --text-caption--line-height: 1.4;
-  --text-caption--font-weight: 600;
-  --text-eyebrow: 0.75rem;
-  --text-eyebrow--line-height: 1;
-  --text-eyebrow--letter-spacing: 0.12em;
-  --text-eyebrow--font-weight: 600;
+  --text-label: 0.85rem;
+  --text-body-sm: 0.95rem;
+  --text-body: 1rem;
+  --text-body-lg: 1.05rem;
+  --text-lede-sm: 1.1rem;
+  --text-lede: 1.15rem;
+  --text-lede-lg: 1.2rem;
+  /* Component-specific sizes, one token each until B-38 merges near twins. */
+  --text-sitemap-heading: 1.75rem;
+  --text-legal-h3: 1.3rem;
+  --text-join-glyph: 3rem;
+  --text-arrow: 1.65rem;
+  --text-expander-plus: 1.35rem;
+  --text-small: 0.9rem;
+  --text-badge: 0.76rem;
+  --text-index: 0.7rem;
+  --text-mode-copy: 1.07rem;
+  --text-cta-copy: 1.16rem;
 
-  --tracking-display: -0.025em;
+  /* Fluid headline and figure roles (one clamp per role; floors are the
+     320px size, caps the ≥1440px size). */
+  --text-lede-fluid: clamp(1.1rem, 1.5vw, 1.32rem); /* intro and section ledes */
+  --text-title-fluid: clamp(1.25rem, 1.8vw, 1.7rem); /* item titles in step lists and tables */
+  --text-headline-sm: clamp(1.4rem, 2.1vw, 2rem); /* tile titles, legal section headings */
+  --text-headline-md: clamp(1.5rem, 2.5vw, 2.4rem); /* card titles */
+  --text-headline-light: clamp(1.05rem, 2.5vw, 2.45rem); /* light-weight grid titles */
+  --text-headline-lg: clamp(1.15rem, 4vw, 3.9rem); /* large light titles and hero badge figures */
+  --text-figure-md: clamp(2rem, 2.8vw, 2.875rem); /* phase digits and word-figures */
+  --text-figure-lg: clamp(2.75rem, 4.8vw, 4.875rem); /* Kennzahlen and card metrics */
+
   --tracking-caps: 0.01em;
-  --tracking-caps-wide: 0.02em;
+  --tracking-caps-slight: 0.01em;
+  --tracking-snug: -0.01em;
+  --tracking-tight: -0.02em;
+  --tracking-display: -0.025em;
+  --tracking-portfolio-mode: -0.065em;
+  --tracking-wide: 0.1em;
+  /* Line-height roles (Tailwind's own tight/snug/normal/relaxed stay untouched). */
+  --leading-display: 1.08;
+  /* Card and section headlines (h3 headline role, B-37). */
+  --leading-headline: 1.16;
+  --leading-heading: 1.1;
+  --leading-title: 1.2;
+  --leading-label: 1.35;
+  --leading-compact: 1.4;
+  --leading-text: 1.45;
+  --leading-copy: 1.55;
+  --leading-prose: 1.6;
   --leading-body: 1.5;
 
-  /* Spacing scale. --spacing-section is the shared vertical rhythm token
-     (≈36px at 320px → 130px at 1440px); cell/rule pads pair with the 1px
-     hairline grids. */
+  /* Fluid/structural spacing. --spacing-section is the shared vertical
+     rhythm (≈36px at 320px → 130px at 1440px); cell/rule pads pair with the
+     1px hairline grids. The fixed step scale (--space-*) lives in :root. */
   --spacing-section: clamp(2rem, 10vw, 9.45rem);
-  --spacing-3xs: 0.25rem;
-  --spacing-2xs: 0.5rem;
-  --spacing-xs: 0.75rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: clamp(1.8rem, 4vw, 3.6rem);
   --spacing-xl: clamp(2.25rem, 8vw, 7.2rem);
-  --spacing-2xl: clamp(2.9rem, 9vw, 9rem);
-  --spacing-cell: 1.45rem;
-  --spacing-rule: 1.2rem;
+  --spacing-cell: 1.5rem;
+  --spacing-rule: 1rem;
   --spacing-menu: min(20rem, 90vw);
 
   /* Exactly two elevations. */
   --shadow-raised: 0 8px 24px rgba(10, 5, 50, 0.08);
   --shadow-overlay: 0 20px 48px rgba(10, 5, 50, 0.16);
+  /* Brand shape scale is none + full; 999px on a square renders a circle. */
+  --radius-full: 999px;
 
   /* One house easing. */
   --ease-em: cubic-bezier(0.22, 1, 0.36, 1);
@@ -165,6 +195,31 @@
 }
 
 :root {
+  /* Spacing steps on the 4px unit (M3): --space-N = N × 0.25rem. Component
+     internals use 4px steps, layout spacing 8px steps (even N).
+     Plain :root, not @theme: --spacing-<n> would override Tailwind's
+     numeric utilities such as min-h-11. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-18: 4.5rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-40: 10rem;
+  /* Fluid spacing steps (B-39): the only clamp()ed gaps, paddings and margins
+     outside the section rhythm; floors and caps sit on the 8px grid. */
+  --space-fluid-sm: clamp(1rem, 2.5vw, 2.5rem);
+  --space-fluid-md: clamp(1rem, 4vw, 3.5rem);
+  --space-fluid-lg: clamp(1rem, 5vw, 5rem);
+  --space-fluid-xl: clamp(1.5rem, 8vw, 7rem);
   /* Composite/geometry tokens with no fitting @theme namespace. */
   --gutter: 4.5vw;
   --container-max: 84rem; /* 1344px — the designed ~1348px content measure */
@@ -172,17 +227,49 @@
      while the container is fluid, the centred leftover once it hits --container-max.
      Hero visuals bleed by this so the photo always touches the browser edge. */
   --bleed-right: max(var(--gutter), (100vw - var(--container-max)) / 2);
-  --header-h: 4.875rem; /* 78px */
+  /* Real header heights: 96px with the inline nav, 80px below it (redefined
+     under --breakpoint-nav below), 68px once scrolled. Anchors,
+     the hero and the mobile menu all read these. */
+  --header-h: 6rem;
   --header-h-scrolled: 4.25rem; /* 68px */
+  /* Motion system: fast = colors/lines/arrows, medium = box inverts/overlays/
+     underlines/expanders, slow = image zooms. One easing everywhere: --ease-em. */
   --duration-fast: 180ms;
-  --duration-slow: 650ms; /* image zooms only */
+  --duration-medium: 320ms;
+  --duration-slow: 560ms;
+  /* Read by js/07-countup.js (ease-out cubic in JS, which cannot consume a
+     CSS curve). Lenis smooth scroll runs at lerp 0.1 (js/00-core.js). */
+  --duration-countup: 900ms;
+  /* The one weight of orange accent rules (borders under/over figures, hints). */
+  --rule-accent: 2px;
+  /* Disabled controls (filter values without a reference): content opacity. */
+  --state-disabled: .38;
+  /* Minimum interactive target (owner decision: 44px, not M3 48dp). */
+  --target-min: 2.75rem;
+  /* Icon and icon-chip sizes. */
+  --icon-2xs: 2.2rem;
+  --icon-xs: 2.4rem;
+  --icon-sm: 2.6rem;
+  --icon-md: 3rem;
+  --icon-lg: 4rem;
+  --icon-xl: 4.5rem;
+  /* Ink scrims over hero photos: from the copy side, or from the top once stacked. */
+  --scrim-ink-side: linear-gradient(90deg, var(--color-ink) 0%, transparent 35%);
+  --scrim-ink-top: linear-gradient(180deg, var(--color-ink), transparent 35%);
+  /* Halo of the navy card invert (reference and expertise cards). */
+  --invert-bleed: 1.1rem;
   /* Hairline color for the numbered fact grids; dark sections flip it to
      --color-line-light (see .page-section--dark/--deep). */
   --line-hairline: var(--color-line);
   /* Accent used AS TEXT: the AA-safe shade on light surfaces; dark sections
      flip it to the brand orange (which passes on navy). */
-  --accent-ink: var(--color-accent-text);
+  --accent-ink: var(--color-ink);
 }
+/* Below the inline nav the header is 80px (same unlayered :root, so it wins). */
+@media (width < theme(--breakpoint-nav)) { :root { --header-h: 5rem; } }
+/* No gray tap flash on touch devices (owner feedback 2026-09-27); links and
+   buttons keep their own active/hover styles and the focus ring. */
+html { -webkit-tap-highlight-color: transparent; }
 
 /* ---- reset (verbatim from css/00-base.css §1) -----------------------------
    Tailwind's own reset (Preflight) is not imported (see header comment), so
@@ -301,8 +388,8 @@
 
 /* page gutter ("padding-global"): 4.5vw left+right */
 .gutter {
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
+  padding-inline-start: var(--gutter);
+  padding-inline-end: var(--gutter);
 }
 
 /* full-width container, centered; no max-width below 1440 — gutter does the work.
@@ -316,18 +403,20 @@
   /* Unconditional cap: below ~1477px viewport the 4.5vw gutters keep content
      narrower than the cap anyway, so no breakpoint gate is needed. */
   max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 
 /* ---- Per-section remainders — migration complete -------------------------
    Every section's utility-mappable CSS now lives as classes in its
    sections/*.html; each file below holds only what has no utility
-   equivalent: @keyframes bodies, Splide vendor-class exceptions, and (for
-   00-base-remainder) skip-link, focus, and reduced-motion rules. */
+   equivalent: @keyframes bodies and (for 00-base-remainder) skip-link,
+   focus, and reduced-motion rules. */
+@import "./00-fonts.css";
 @import "./00-base-remainder.css";
 @import "./07-header.css" layer(components);
 @import "./08-editorial.css" layer(components);
 @import "./09-page-templates.css" layer(components);
 
 @import "./10-feedback.css" layer(components);
+@import "./11-components.css" layer(components);

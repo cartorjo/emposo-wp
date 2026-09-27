@@ -8,7 +8,7 @@
     var menu = document.getElementById('mobile-menu');
     var header = document.querySelector('[data-site-header]');
     /* Keep in sync with --breakpoint-nav in styles/main.css. */
-    var wideNav = window.matchMedia('(min-width: 1280px)');
+    var wideNav = window.matchMedia('(min-width: 75rem)');
 
     if (menu) {
       menu.addEventListener('toggle', function () {
@@ -23,39 +23,19 @@
       menu.addEventListener('click', function (event) {
         if (event.target.closest('a')) menu.open = false;
       });
+      // A disclosure, not a dialog: no focus trap, but it closes once focus
+      // or a click leaves it, so it never lingers over the page.
+      menu.addEventListener('focusout', function (event) {
+        if (menu.open && event.relatedTarget && !menu.contains(event.relatedTarget)) menu.open = false;
+      });
+      document.addEventListener('click', function (event) {
+        if (menu.open && !menu.contains(event.target)) menu.open = false;
+      });
 
       wideNav.addEventListener('change', function (event) {
         if (event.matches) menu.open = false;
       });
     }
-
-    var navGroups = Array.prototype.slice.call(document.querySelectorAll('.site-nav__group'));
-    navGroups.forEach(function (group) {
-      group.addEventListener('click', function (event) {
-        if (event.target.closest('a')) group.open = false;
-      });
-      /* Only one mega panel open at a time (details name= isn't available on
-         the iOS 16 floor; without JS two open panels degrade gracefully). */
-      group.addEventListener('toggle', function () {
-        if (!group.open) return;
-        navGroups.forEach(function (other) {
-          if (other !== group) other.open = false;
-        });
-      });
-      group.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-          group.open = false;
-          var summary = group.querySelector('summary');
-          if (summary) summary.focus();
-        }
-      });
-    });
-
-    document.addEventListener('click', function (event) {
-      navGroups.forEach(function (group) {
-        if (group.open && !group.contains(event.target)) group.open = false;
-      });
-    });
 
     var updateHeader = function () {
       if (header) header.classList.toggle('is-scrolled', window.scrollY > 12);

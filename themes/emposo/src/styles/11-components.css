@@ -1,0 +1,172 @@
+/* --------------------------------------------------------------------------
+   Canonical component layer (consolidation, 24-09).
+
+   One class per component family — the duplicate vocabularies that grew over
+   the feedback rounds (page-eyebrow/page-kicker, page-title/page-display/…)
+   are folded in here and deleted from 07–10. This file is imported LAST so a
+   missed legacy rule loses ties (fail-safe). docs/components.md is the
+   inventory; tools/check-content.mjs rejects retired class names in output.
+   -------------------------------------------------------------------------- */
+
+/* No state-layer overlay (owner feedback 2026-09-27: the gray press/hover
+   bubble is gone). Feedback is the components' own hover (colour shifts,
+   underlines, arrow slides) and the focus ring. The stacking context stays,
+   so positioned children keep their layout. */
+:is(.header-contact, .mobile-menu__cta, .filter-button:where(:enabled), .contact-form button, .mobile-menu__panel a,
+  .site-nav > a, .text-link, .expander summary, .mobile-menu summary, .site-logo, .site-footer a, .page-breadcrumb a,
+  .reference-card__copy, a.expertise-card) { isolation: isolate; position: relative; }
+
+/* Filter chip — the one toggle chip (/branchen/, /case-studies/). Resting
+   outline at 3:1; selected = lemon fill, ink outline and a leading check;
+   hover on an unselected chip only tints, so it never looks selected. A value no project carries
+   is disabled: 38 % opacity, no hover, press or Tab stop. Arrow keys move between the
+   chips of a group (js/06-work.js). */
+.filter-button { border: 1px solid var(--color-line-strong); border-radius: var(--radius-full); color: var(--color-ink); font-size: var(--text-body); font-weight: 600; letter-spacing: 0; padding: var(--space-3) var(--space-4); transition: background-color var(--duration-fast) var(--ease-em), border-color var(--duration-fast) var(--ease-em), color var(--duration-fast) var(--ease-em); }
+.filter-button__check { display: none; height: .8em; margin-inline-end: .4em; vertical-align: -.05em; width: .8em; }
+.filter-button.is-active { background: var(--color-lemon); border-color: var(--color-ink); color: var(--color-ink); }
+.filter-button.is-active .filter-button__check { display: inline-block; }
+.filter-button:disabled { cursor: default; opacity: var(--state-disabled); }
+@media (hover: hover) {
+  .filter-button:not(.is-active, :disabled):hover { background: color-mix(in srgb, var(--color-lemon) 15%, transparent); }
+}
+@media (width <= theme(--breakpoint-compact)) { .filter-button { font-size: var(--text-body-sm); } }
+
+/* Text field — the contact form's underline field (brand adaptation of the
+   M3 filled field without container): 56px field box (min-height); the indicator
+   strengthens on hover, turns lemon and 2px on focus, and error-coloured
+   (with supporting text below, filled by js/06-work.js) when invalid. Only
+   "(optional)" is marked; required fields carry no asterisk (owner rule). */
+.contact-form input, .contact-form select, .contact-form textarea { appearance: none; background: transparent; border: 0; border-bottom: 1px solid var(--color-line-light-strong); border-radius: 0; color: var(--color-on-dark); font-size: var(--text-lede-lg); font-weight: 400; letter-spacing: 0; outline: none; padding: var(--space-3) 0; text-transform: none; transition: border-color var(--duration-fast) var(--ease-em); width: 100%; }
+.contact-form :is(input, select) { min-height: 3.5rem; }
+.contact-form :is(input, select, textarea) { min-width: 0; }
+/* The submit pill may wrap its label when text is enlarged (200% at 390px). */
+.contact-form button { max-width: 100%; white-space: normal; }
+.contact-form select { background-color: var(--color-ink); grid-area: 2 / 1; padding-inline-end: var(--space-6); }
+@media (hover: hover) { .contact-form :is(input, select, textarea):hover { border-color: var(--color-on-dark-muted); } }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--color-lemon); }
+.contact-form :is(input, select, textarea):is(:focus, [aria-invalid="true"], :user-invalid) { border-bottom-width: 2px; padding-bottom: calc(var(--space-3) - 1px); }
+.contact-form :is(input, select, textarea):is([aria-invalid="true"], :user-invalid) { border-bottom-color: var(--color-error-on-dark); }
+.contact-form textarea { resize: vertical; }
+.contact-form__support { color: var(--color-error-on-dark); font-size: var(--text-body-sm); font-weight: 400; line-height: var(--leading-label); }
+.contact-form__support:empty { display: none; }
+.contact-form label { align-content: start; }
+.contact-form__select .contact-form__support { grid-row: 3; }
+
+/* Logo (assets/brand/emposo-logo-neu26.svg, inlined in header and footer):
+   its own <style> is stripped at assembly (CSP), so its rules live here. */
+.emlogo-ls1 { letter-spacing: .09em; }
+.emlogo-ls2 { letter-spacing: .11em; }
+.emlogo-ls3 { letter-spacing: .1em; }
+.emlogo-ls4 { letter-spacing: .08em; }
+.emlogo-text { font-family: "Roboto", system-ui, sans-serif; font-size: 17.43px; font-weight: 700; }
+.emlogo-text, .emlogo-ink { fill: currentColor; }
+.emlogo-accent { fill: var(--color-lemon); }
+.emlogo-rule { fill: none; stroke: currentColor; stroke-miterlimit: 10; }
+
+/* Eyebrow — the small bold section label with the lemon rule after it.
+   Variants: --light (on ink/deep sections). Kickers in heroes are
+   `eyebrow eyebrow--light`. Footer margins live contextually in 08. */
+.eyebrow { align-items: center; color: var(--color-ink); display: flex; font-size: var(--text-body); font-weight: 700; gap: var(--space-3); letter-spacing: 0; line-height: var(--leading-label); margin-bottom: var(--space-6); text-transform: none; }
+.eyebrow::after { background: var(--color-lemon); content: ''; height: 3px; width: 2.5rem; }
+.eyebrow--light { color: var(--color-on-dark); }
+
+/* Display heading — the one big-heading class (former display-hero,
+   page-display, page-title, page-cta__title). Variant: --light. Contextual
+   widths for heroes/statement live below; everything else is uniform. */
+:root { --display-size: clamp(2.4rem, 5.8vw, 5.5rem); --display-leading: 1.08; }
+/* Capped by the viewport so enlarged text (200%) never pushes an unhyphenated
+   word off screen; browsers without German hyphenation (Linux) cannot split. */
+.display-large { color: var(--color-ink); font-size: min(var(--display-size), 12vw); font-weight: 300; letter-spacing: var(--tracking-display); line-height: var(--display-leading); max-width: 20ch; }
+.display-large--light { color: var(--color-on-dark); }
+.display-large em { color: inherit; font-style: normal; font-weight: 700; }
+/* Subpage rhythm: headings under an eyebrow keep the former page-title gap;
+   CTA titles sit flush (they never had one). */
+.subpage .eyebrow + .display-large { margin-top: var(--space-6); }
+.page-cta .eyebrow + .display-large { margin-top: 0; }
+/* Hero H1s span their column; on small screens they scale up for presence. */
+.page-hero__copy .display-large { max-width: none; }
+@media (width > theme(--breakpoint-hero)) { .display-large { hyphens: none; } }
+@media (width <= theme(--breakpoint-hero)) {
+  :root { --display-size: clamp(2.4rem, 6.5vw, 4rem); }
+  .page-hero__copy .display-large { max-width: 19ch; }
+}
+@media (width <= theme(--breakpoint-narrow)) {
+  .page-hero__copy .display-large { font-size: clamp(1.95rem, 15vw, 5.22rem); }
+}
+
+/* Text link — the one arrow link (former page-link). The arrow is always a
+   markup span (<span aria-hidden="true">→</span>); --light for dark sections
+   (white text, lemon arrow). No underline in any state (owner rule). */
+.text-link { align-items: center; color: var(--color-ink); display: inline-flex; flex: none; font-size: var(--text-body); font-weight: 700; gap: var(--space-4); letter-spacing: 0; line-height: var(--leading-compact); min-height: var(--target-min); text-decoration: none; text-transform: none; }
+.text-link span[aria-hidden] { color: currentColor; font-size: var(--text-arrow); transition: transform var(--duration-fast) var(--ease-em); }
+@media (hover: hover) {
+  .text-link:hover span[aria-hidden] { transform: translateX(.35rem); }
+}
+.text-link:focus-visible span[aria-hidden] { transform: translateX(.35rem); }
+.text-link--light { color: var(--color-on-dark); }
+.text-link--light span[aria-hidden] { color: var(--color-lemon); }
+
+/* Fact grid label variant (the base grid lives in 09): --display renders
+   phase digits at Kennzahlen scale with the lemon rule (owner: numbers must
+   outrank the copy). */
+.fact-grid__label--display { border-bottom: var(--rule-accent) solid var(--color-lemon); color: var(--color-ink); font-size: var(--text-figure-md); font-weight: 300; letter-spacing: var(--tracking-tight); line-height: var(--leading-heading); padding-bottom: var(--space-1); width: fit-content; }
+
+/* Expander — the canonical details/summary (Mehr-lesen pattern): open/close
+   label spans + rotating lemon plus. Consumers: management cards, job
+   postings. Former management-card__more. */
+.expander summary { align-items: center; color: var(--color-ink); cursor: pointer; display: inline-flex; font-size: var(--text-body-sm); font-weight: 700; gap: var(--space-2); list-style: none; margin-top: var(--space-2); }
+.expander summary::-webkit-details-marker { display: none; }
+.expander summary::after { color: var(--color-lemon); content: '+'; font-size: var(--text-expander-plus); line-height: 1; transition: transform var(--duration-medium) var(--ease-em); }
+.expander[open] summary::after { transform: rotate(45deg); }
+.expander[open] .expander__open { display: none; }
+.expander:not([open]) .expander__close { display: none; }
+
+/* Job posting (Stellenausschreibung, /karriere/): hairline-framed article,
+   static meta chips (not clickable — no hover), full posting in the expander.
+   Copy verbatim from the owner's Stellen deck; lists reuse result-list. */
+.job-list { border-top: 1px solid var(--color-line); margin-top: var(--space-12); }
+.job-card { border-bottom: 1px solid var(--color-line); padding: var(--space-fluid-md) 0; }
+.job-card h3 { font-size: var(--text-headline-md); font-weight: 400; letter-spacing: var(--tracking-tight); line-height: var(--leading-headline); }
+.job-card__meta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+/* Tag — a static label (no action): filled on its ground (white on the
+   paper sections), no outline, so it never borrows the interactive chip's
+   resting look. */
+.tag { background: var(--color-bg); border-radius: var(--radius-full); font-size: var(--text-label); font-weight: 600; padding: var(--space-2) var(--space-3); }
+.job-card__tagline { font-size: var(--text-lede-sm); font-weight: 700; margin-top: var(--space-6); }
+.job-card__text { font-size: var(--text-body-lg); line-height: var(--leading-copy); margin-top: var(--space-4); max-width: 52rem; }
+.job-card__apply { margin-top: var(--space-6); }
+.job-list__apply { font-size: var(--text-body-lg); line-height: var(--leading-copy); margin-top: var(--space-10); }
+.job-list__apply a { text-decoration: underline; text-underline-offset: .15em; }
+.job-card h4 { font-size: var(--text-body); font-weight: 700; margin-top: var(--space-8); }
+.result-list--compact { font-size: var(--text-body); margin-bottom: 0; max-width: 52rem; }
+.result-list--compact li { border-bottom: 0; padding-block: var(--space-1) var(--space-1); padding-inline: var(--space-4) 0; }
+.result-list--compact li::before { height: .4rem; top: .85rem; width: .4rem; }
+
+/* Company-values variants (base trio grid lives in 10): --paper fills the
+   boxes (former lede-boxes), --2 caps at two columns. Collapse matches the
+   base 900px breakpoint. */
+.company-values--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 68rem; }
+.company-values--paper article { background: var(--color-paper); padding: var(--space-6) var(--space-8) var(--space-8); }
+@media (width <= theme(--breakpoint-hero)) {
+  .company-values--2 { grid-template-columns: 1fr; max-width: 40rem; }
+}
+
+/* Filter rows hang: "Alle" sits in its own column, so wrapped chip lines
+   align with the first named chip instead of with "Alle" (owner 24-09).
+   gap: inherit keeps the chip gap in sync with every breakpoint override. */
+.filter-group > div[role="group"] { align-items: start; display: grid; grid-template-columns: auto 1fr; }
+.filter-choices { display: flex; flex-wrap: wrap; gap: inherit; }
+
+/* Right-to-left: layout already mirrors through logical properties; these
+   are the direction-bound details (underline growth, arrow glyphs and their
+   slide, the scrim's side). Graphics keep LTR: the logo's live SVG text
+   would scramble. */
+.site-nav > a:dir(rtl)::after { transform-origin: right; }
+:is(.text-link span[aria-hidden], .header-contact__arrow, .site-footer a span[aria-hidden]):dir(rtl) { scale: -1 1; }
+svg:dir(rtl) { direction: ltr; }
+:root:dir(rtl) { --scrim-ink-side: linear-gradient(270deg, var(--color-ink) 0%, transparent 35%); }
+
+/* Keep exploring — onward links where a page would dead-end (B-45): the
+   headline-sm role and a wrapping row of text links. */
+.explore__title { font-size: var(--text-headline-sm); font-weight: 400; line-height: var(--leading-title); }
+.explore__links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-8); list-style: none; margin: var(--space-6) 0 0; padding: 0; }

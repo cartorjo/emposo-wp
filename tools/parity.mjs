@@ -210,8 +210,8 @@ async function main() {
 
 	// --- cross-document checks ---------------------------------------------
 	const fontFailures = SELF_TEST || AGAINST_STATIC
-		? checkFontFaces(path.join(STATIC_ROOT, 'css', '00-fonts.css'))
-		: checkFontFaces(path.join(THEME_DIR, 'assets', 'css', '00-fonts.css'));
+		? checkFontFaces(path.join(STATIC_ROOT, 'styles', '00-fonts.css'), path.join(STATIC_ROOT, 'css'))
+		: checkFontFaces(path.join(THEME_DIR, 'src', 'styles', '00-fonts.css'), path.join(THEME_DIR, 'assets', 'css'));
 
 	// --- report ------------------------------------------------------------
 	let failed = 0;
@@ -250,7 +250,7 @@ async function main() {
 	let crossDocumentFailures = 0;
 	if (fontFailures.length) {
 		crossDocumentFailures += 1;
-		console.log('  FAIL      css/00-fonts.css');
+		console.log('  FAIL      styles/00-fonts.css');
 		for (const f of fontFailures) console.log(`              - ${f}`);
 	}
 

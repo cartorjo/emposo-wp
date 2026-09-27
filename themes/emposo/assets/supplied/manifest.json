@@ -21,6 +21,34 @@
         "bytes": 37588
       },
       {
+        "src": "/assets/supplied/hero-flow-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 34077
+      },
+      {
+        "src": "/assets/supplied/hero-flow-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 51426
+      },
+      {
+        "src": "/assets/supplied/hero-flow-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 45104
+      },
+      {
+        "src": "/assets/supplied/hero-flow-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 68132
+      },
+      {
         "src": "/assets/supplied/hero-flow-1600.avif",
         "width": 1600,
         "height": 900,
@@ -56,6 +84,34 @@
         "height": 360,
         "format": "webp",
         "bytes": 45656
+      },
+      {
+        "src": "/assets/supplied/data2ai-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 42222
+      },
+      {
+        "src": "/assets/supplied/data2ai-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 70608
+      },
+      {
+        "src": "/assets/supplied/data2ai-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 56442
+      },
+      {
+        "src": "/assets/supplied/data2ai-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 94772
       },
       {
         "src": "/assets/supplied/data2ai-1600.avif",
@@ -95,6 +151,34 @@
         "bytes": 42230
       },
       {
+        "src": "/assets/supplied/engineering-knowledge-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 31887
+      },
+      {
+        "src": "/assets/supplied/engineering-knowledge-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 56942
+      },
+      {
+        "src": "/assets/supplied/engineering-knowledge-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 41282
+      },
+      {
+        "src": "/assets/supplied/engineering-knowledge-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 74184
+      },
+      {
         "src": "/assets/supplied/engineering-knowledge-1600.avif",
         "width": 1600,
         "height": 900,
@@ -130,6 +214,34 @@
         "height": 427,
         "format": "webp",
         "bytes": 21378
+      },
+      {
+        "src": "/assets/supplied/technology-team-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 20162
+      },
+      {
+        "src": "/assets/supplied/technology-team-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 28396
+      },
+      {
+        "src": "/assets/supplied/technology-team-960.avif",
+        "width": 960,
+        "height": 640,
+        "format": "avif",
+        "bytes": 25436
+      },
+      {
+        "src": "/assets/supplied/technology-team-960.webp",
+        "width": 960,
+        "height": 640,
+        "format": "webp",
+        "bytes": 35198
       },
       {
         "src": "/assets/supplied/technology-team-1600.avif",
@@ -169,6 +281,34 @@
         "bytes": 19104
       },
       {
+        "src": "/assets/supplied/technology-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 18070
+      },
+      {
+        "src": "/assets/supplied/technology-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 26498
+      },
+      {
+        "src": "/assets/supplied/technology-960.avif",
+        "width": 960,
+        "height": 640,
+        "format": "avif",
+        "bytes": 22801
+      },
+      {
+        "src": "/assets/supplied/technology-960.webp",
+        "width": 960,
+        "height": 640,
+        "format": "webp",
+        "bytes": 33736
+      },
+      {
         "src": "/assets/supplied/technology-1600.avif",
         "width": 1600,
         "height": 1066,
@@ -204,6 +344,34 @@
         "height": 427,
         "format": "webp",
         "bytes": 19790
+      },
+      {
+        "src": "/assets/supplied/pharma-800.avif",
+        "width": 800,
+        "height": 534,
+        "format": "avif",
+        "bytes": 14460
+      },
+      {
+        "src": "/assets/supplied/pharma-800.webp",
+        "width": 800,
+        "height": 534,
+        "format": "webp",
+        "bytes": 25726
+      },
+      {
+        "src": "/assets/supplied/pharma-960.avif",
+        "width": 960,
+        "height": 640,
+        "format": "avif",
+        "bytes": 18234
+      },
+      {
+        "src": "/assets/supplied/pharma-960.webp",
+        "width": 960,
+        "height": 640,
+        "format": "webp",
+        "bytes": 32650
       },
       {
         "src": "/assets/supplied/pharma-1600.avif",
@@ -243,6 +411,34 @@
         "bytes": 21456
       },
       {
+        "src": "/assets/supplied/pharma-transition-800.avif",
+        "width": 800,
+        "height": 534,
+        "format": "avif",
+        "bytes": 18288
+      },
+      {
+        "src": "/assets/supplied/pharma-transition-800.webp",
+        "width": 800,
+        "height": 534,
+        "format": "webp",
+        "bytes": 28462
+      },
+      {
+        "src": "/assets/supplied/pharma-transition-960.avif",
+        "width": 960,
+        "height": 641,
+        "format": "avif",
+        "bytes": 23402
+      },
+      {
+        "src": "/assets/supplied/pharma-transition-960.webp",
+        "width": 960,
+        "height": 641,
+        "format": "webp",
+        "bytes": 36766
+      },
+      {
         "src": "/assets/supplied/pharma-transition-1600.avif",
         "width": 1600,
         "height": 1068,
@@ -278,6 +474,34 @@
         "height": 427,
         "format": "webp",
         "bytes": 14854
+      },
+      {
+        "src": "/assets/supplied/pharma-research-800.avif",
+        "width": 800,
+        "height": 534,
+        "format": "avif",
+        "bytes": 12946
+      },
+      {
+        "src": "/assets/supplied/pharma-research-800.webp",
+        "width": 800,
+        "height": 534,
+        "format": "webp",
+        "bytes": 19762
+      },
+      {
+        "src": "/assets/supplied/pharma-research-960.avif",
+        "width": 960,
+        "height": 641,
+        "format": "avif",
+        "bytes": 17153
+      },
+      {
+        "src": "/assets/supplied/pharma-research-960.webp",
+        "width": 960,
+        "height": 641,
+        "format": "webp",
+        "bytes": 26016
       },
       {
         "src": "/assets/supplied/pharma-research-1600.avif",
@@ -317,6 +541,34 @@
         "bytes": 9082
       },
       {
+        "src": "/assets/supplied/energy-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 9303
+      },
+      {
+        "src": "/assets/supplied/energy-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 12396
+      },
+      {
+        "src": "/assets/supplied/energy-960.avif",
+        "width": 960,
+        "height": 640,
+        "format": "avif",
+        "bytes": 11298
+      },
+      {
+        "src": "/assets/supplied/energy-960.webp",
+        "width": 960,
+        "height": 640,
+        "format": "webp",
+        "bytes": 15748
+      },
+      {
         "src": "/assets/supplied/energy-1600.avif",
         "width": 1600,
         "height": 1067,
@@ -352,6 +604,34 @@
         "height": 426,
         "format": "webp",
         "bytes": 38404
+      },
+      {
+        "src": "/assets/supplied/wind-energy-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 32717
+      },
+      {
+        "src": "/assets/supplied/wind-energy-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 62262
+      },
+      {
+        "src": "/assets/supplied/wind-energy-960.avif",
+        "width": 960,
+        "height": 640,
+        "format": "avif",
+        "bytes": 49856
+      },
+      {
+        "src": "/assets/supplied/wind-energy-960.webp",
+        "width": 960,
+        "height": 640,
+        "format": "webp",
+        "bytes": 99352
       },
       {
         "src": "/assets/supplied/wind-energy-1600.avif",
@@ -391,6 +671,34 @@
         "bytes": 29552
       },
       {
+        "src": "/assets/supplied/collaboration-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 24600
+      },
+      {
+        "src": "/assets/supplied/collaboration-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 38728
+      },
+      {
+        "src": "/assets/supplied/collaboration-960.avif",
+        "width": 960,
+        "height": 640,
+        "format": "avif",
+        "bytes": 31236
+      },
+      {
+        "src": "/assets/supplied/collaboration-960.webp",
+        "width": 960,
+        "height": 640,
+        "format": "webp",
+        "bytes": 48366
+      },
+      {
         "src": "/assets/supplied/collaboration-1600.avif",
         "width": 1600,
         "height": 1067,
@@ -426,6 +734,34 @@
         "height": 360,
         "format": "webp",
         "bytes": 25586
+      },
+      {
+        "src": "/assets/supplied/engineering-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 21291
+      },
+      {
+        "src": "/assets/supplied/engineering-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 34430
+      },
+      {
+        "src": "/assets/supplied/engineering-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 26859
+      },
+      {
+        "src": "/assets/supplied/engineering-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 43520
       },
       {
         "src": "/assets/supplied/engineering-1600.avif",
@@ -465,6 +801,34 @@
         "bytes": 50700
       },
       {
+        "src": "/assets/supplied/automotive-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 41211
+      },
+      {
+        "src": "/assets/supplied/automotive-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 80238
+      },
+      {
+        "src": "/assets/supplied/automotive-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 56271
+      },
+      {
+        "src": "/assets/supplied/automotive-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 112140
+      },
+      {
         "src": "/assets/supplied/automotive-1600.avif",
         "width": 1600,
         "height": 900,
@@ -500,6 +864,34 @@
         "height": 360,
         "format": "webp",
         "bytes": 19472
+      },
+      {
+        "src": "/assets/supplied/vehicle-testing-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 16768
+      },
+      {
+        "src": "/assets/supplied/vehicle-testing-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 25236
+      },
+      {
+        "src": "/assets/supplied/vehicle-testing-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 20922
+      },
+      {
+        "src": "/assets/supplied/vehicle-testing-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 31224
       },
       {
         "src": "/assets/supplied/vehicle-testing-1600.avif",
@@ -539,6 +931,34 @@
         "bytes": 26308
       },
       {
+        "src": "/assets/supplied/logistics-800.avif",
+        "width": 800,
+        "height": 400,
+        "format": "avif",
+        "bytes": 20536
+      },
+      {
+        "src": "/assets/supplied/logistics-800.webp",
+        "width": 800,
+        "height": 400,
+        "format": "webp",
+        "bytes": 34704
+      },
+      {
+        "src": "/assets/supplied/logistics-960.avif",
+        "width": 960,
+        "height": 480,
+        "format": "avif",
+        "bytes": 24856
+      },
+      {
+        "src": "/assets/supplied/logistics-960.webp",
+        "width": 960,
+        "height": 480,
+        "format": "webp",
+        "bytes": 41680
+      },
+      {
         "src": "/assets/supplied/logistics-1600.avif",
         "width": 1600,
         "height": 800,
@@ -574,6 +994,34 @@
         "height": 357,
         "format": "webp",
         "bytes": 40750
+      },
+      {
+        "src": "/assets/supplied/datacenter-800.avif",
+        "width": 800,
+        "height": 447,
+        "format": "avif",
+        "bytes": 30630
+      },
+      {
+        "src": "/assets/supplied/datacenter-800.webp",
+        "width": 800,
+        "height": 447,
+        "format": "webp",
+        "bytes": 57380
+      },
+      {
+        "src": "/assets/supplied/datacenter-960.avif",
+        "width": 960,
+        "height": 536,
+        "format": "avif",
+        "bytes": 41969
+      },
+      {
+        "src": "/assets/supplied/datacenter-960.webp",
+        "width": 960,
+        "height": 536,
+        "format": "webp",
+        "bytes": 80610
       },
       {
         "src": "/assets/supplied/datacenter-1600.avif",
@@ -613,6 +1061,34 @@
         "bytes": 22438
       },
       {
+        "src": "/assets/supplied/software-800.avif",
+        "width": 800,
+        "height": 408,
+        "format": "avif",
+        "bytes": 18747
+      },
+      {
+        "src": "/assets/supplied/software-800.webp",
+        "width": 800,
+        "height": 408,
+        "format": "webp",
+        "bytes": 29412
+      },
+      {
+        "src": "/assets/supplied/software-960.avif",
+        "width": 960,
+        "height": 489,
+        "format": "avif",
+        "bytes": 24013
+      },
+      {
+        "src": "/assets/supplied/software-960.webp",
+        "width": 960,
+        "height": 489,
+        "format": "webp",
+        "bytes": 37620
+      },
+      {
         "src": "/assets/supplied/software-1600.avif",
         "width": 1600,
         "height": 816,
@@ -629,187 +1105,1463 @@
     ]
   },
   "claus-thierbach": {
-    "source": "Management Bilder/Foto Thierbach.jpg",
+    "source": "Foto Thierbach.jpg",
     "alt": "Claus Thierbach",
-    "src": "/assets/supplied/claus-thierbach-848.jpg",
-    "width": 848,
-    "height": 1214,
+    "src": "/assets/supplied/claus-thierbach-850.jpg",
+    "width": 850,
+    "height": 607,
     "variants": [
       {
         "src": "/assets/supplied/claus-thierbach-640.avif",
         "width": 640,
-        "height": 916,
+        "height": 457,
         "format": "avif",
-        "bytes": 16424
+        "bytes": 9303
       },
       {
         "src": "/assets/supplied/claus-thierbach-640.webp",
         "width": 640,
-        "height": 916,
+        "height": 457,
         "format": "webp",
-        "bytes": 25138
+        "bytes": 14604
       },
       {
-        "src": "/assets/supplied/claus-thierbach-848.avif",
-        "width": 848,
-        "height": 1214,
+        "src": "/assets/supplied/claus-thierbach-850.avif",
+        "width": 850,
+        "height": 607,
         "format": "avif",
-        "bytes": 27160
+        "bytes": 15395
       },
       {
-        "src": "/assets/supplied/claus-thierbach-848.webp",
-        "width": 848,
-        "height": 1214,
+        "src": "/assets/supplied/claus-thierbach-850.webp",
+        "width": 850,
+        "height": 607,
         "format": "webp",
-        "bytes": 45302
+        "bytes": 23744
       }
     ]
   },
   "verzahnung": {
     "source": "EMPOSO Grafik 26-V2.jpg",
     "alt": "Orange und blaue Datenströme laufen im Emposo-Logo zusammen",
-    "src": "/assets/supplied/verzahnung-1085.jpg",
-    "width": 1085,
+    "src": "/assets/supplied/verzahnung-1083.jpg",
+    "width": 1083,
     "height": 962,
     "variants": [
       {
         "src": "/assets/supplied/verzahnung-640.avif",
         "width": 640,
-        "height": 567,
+        "height": 568,
         "format": "avif",
-        "bytes": 6544
+        "bytes": 6603
       },
       {
         "src": "/assets/supplied/verzahnung-640.webp",
         "width": 640,
-        "height": 567,
+        "height": 568,
         "format": "webp",
-        "bytes": 13970
+        "bytes": 13912
       },
       {
-        "src": "/assets/supplied/verzahnung-1085.avif",
-        "width": 1085,
+        "src": "/assets/supplied/verzahnung-800.avif",
+        "width": 800,
+        "height": 711,
+        "format": "avif",
+        "bytes": 8526
+      },
+      {
+        "src": "/assets/supplied/verzahnung-800.webp",
+        "width": 800,
+        "height": 711,
+        "format": "webp",
+        "bytes": 18344
+      },
+      {
+        "src": "/assets/supplied/verzahnung-1083.avif",
+        "width": 1083,
         "height": 962,
         "format": "avif",
-        "bytes": 12342
+        "bytes": 12198
       },
       {
-        "src": "/assets/supplied/verzahnung-1085.webp",
-        "width": 1085,
+        "src": "/assets/supplied/verzahnung-1083.webp",
+        "width": 1083,
         "height": 962,
         "format": "webp",
-        "bytes": 27280
+        "bytes": 27330
       }
     ]
   },
   "aleksandar-amidzic": {
     "source": "ALA.jpg",
     "alt": "Aleksandar Amidzic",
-    "src": "/assets/supplied/aleksandar-amidzic-800.jpg",
-    "width": 800,
-    "height": 800,
+    "src": "/assets/supplied/aleksandar-amidzic-850.jpg",
+    "width": 850,
+    "height": 607,
     "variants": [
       {
         "src": "/assets/supplied/aleksandar-amidzic-640.avif",
         "width": 640,
-        "height": 640,
+        "height": 457,
         "format": "avif",
-        "bytes": 7878
+        "bytes": 7762
       },
       {
         "src": "/assets/supplied/aleksandar-amidzic-640.webp",
         "width": 640,
-        "height": 640,
+        "height": 457,
         "format": "webp",
-        "bytes": 10612
+        "bytes": 9548
       },
       {
-        "src": "/assets/supplied/aleksandar-amidzic-800.avif",
-        "width": 800,
-        "height": 800,
+        "src": "/assets/supplied/aleksandar-amidzic-850.avif",
+        "width": 850,
+        "height": 607,
         "format": "avif",
-        "bytes": 11042
+        "bytes": 11778
       },
       {
-        "src": "/assets/supplied/aleksandar-amidzic-800.webp",
-        "width": 800,
-        "height": 800,
+        "src": "/assets/supplied/aleksandar-amidzic-850.webp",
+        "width": 850,
+        "height": 607,
         "format": "webp",
-        "bytes": 15660
+        "bytes": 14076
       }
     ]
   },
   "markus-auer": {
-    "source": "markus-auer-me-1020x765.jpg",
+    "source": "Markus Auer.jpg",
     "alt": "Markus Auer",
-    "src": "/assets/supplied/markus-auer-900.jpg",
-    "width": 900,
-    "height": 675,
+    "src": "/assets/supplied/markus-auer-850.jpg",
+    "width": 850,
+    "height": 607,
     "variants": [
       {
         "src": "/assets/supplied/markus-auer-640.avif",
         "width": 640,
-        "height": 480,
+        "height": 457,
         "format": "avif",
-        "bytes": 9248
+        "bytes": 10999
       },
       {
         "src": "/assets/supplied/markus-auer-640.webp",
         "width": 640,
-        "height": 480,
+        "height": 457,
         "format": "webp",
-        "bytes": 13172
+        "bytes": 14994
       },
       {
-        "src": "/assets/supplied/markus-auer-900.avif",
-        "width": 900,
-        "height": 675,
+        "src": "/assets/supplied/markus-auer-850.avif",
+        "width": 850,
+        "height": 607,
         "format": "avif",
-        "bytes": 15905
+        "bytes": 15589
       },
       {
-        "src": "/assets/supplied/markus-auer-900.webp",
-        "width": 900,
-        "height": 675,
+        "src": "/assets/supplied/markus-auer-850.webp",
+        "width": 850,
+        "height": 607,
         "format": "webp",
-        "bytes": 23944
+        "bytes": 20934
       }
     ]
   },
   "roman-bretz": {
     "source": "Roman Bretz.jpg",
     "alt": "Roman Bretz",
-    "src": "/assets/supplied/roman-bretz-900.jpg",
-    "width": 900,
-    "height": 643,
+    "src": "/assets/supplied/roman-bretz-850.jpg",
+    "width": 850,
+    "height": 607,
     "variants": [
       {
         "src": "/assets/supplied/roman-bretz-640.avif",
         "width": 640,
         "height": 457,
         "format": "avif",
-        "bytes": 8135
+        "bytes": 10617
       },
       {
         "src": "/assets/supplied/roman-bretz-640.webp",
         "width": 640,
         "height": 457,
         "format": "webp",
-        "bytes": 11550
+        "bytes": 15896
       },
       {
-        "src": "/assets/supplied/roman-bretz-900.avif",
-        "width": 900,
-        "height": 643,
+        "src": "/assets/supplied/roman-bretz-850.avif",
+        "width": 850,
+        "height": 607,
         "format": "avif",
-        "bytes": 14705
+        "bytes": 18856
       },
       {
-        "src": "/assets/supplied/roman-bretz-900.webp",
-        "width": 900,
-        "height": 643,
+        "src": "/assets/supplied/roman-bretz-850.webp",
+        "width": 850,
+        "height": 607,
         "format": "webp",
-        "bytes": 21660
+        "bytes": 29934
+      }
+    ]
+  },
+  "michael-schmitt": {
+    "source": "Michael Schmitt.jpg",
+    "alt": "Dr. Michael Schmitt",
+    "src": "/assets/supplied/michael-schmitt-850.jpg",
+    "width": 850,
+    "height": 607,
+    "variants": [
+      {
+        "src": "/assets/supplied/michael-schmitt-640.avif",
+        "width": 640,
+        "height": 457,
+        "format": "avif",
+        "bytes": 11634
+      },
+      {
+        "src": "/assets/supplied/michael-schmitt-640.webp",
+        "width": 640,
+        "height": 457,
+        "format": "webp",
+        "bytes": 17988
+      },
+      {
+        "src": "/assets/supplied/michael-schmitt-850.avif",
+        "width": 850,
+        "height": 607,
+        "format": "avif",
+        "bytes": 21177
+      },
+      {
+        "src": "/assets/supplied/michael-schmitt-850.webp",
+        "width": 850,
+        "height": 607,
+        "format": "webp",
+        "bytes": 36408
+      }
+    ]
+  },
+  "marcus-hefele": {
+    "source": "Marcus Hefele.jpg",
+    "alt": "Marcus Hefele",
+    "src": "/assets/supplied/marcus-hefele-850.jpg",
+    "width": 850,
+    "height": 607,
+    "variants": [
+      {
+        "src": "/assets/supplied/marcus-hefele-640.avif",
+        "width": 640,
+        "height": 457,
+        "format": "avif",
+        "bytes": 8130
+      },
+      {
+        "src": "/assets/supplied/marcus-hefele-640.webp",
+        "width": 640,
+        "height": 457,
+        "format": "webp",
+        "bytes": 10354
+      },
+      {
+        "src": "/assets/supplied/marcus-hefele-850.avif",
+        "width": 850,
+        "height": 607,
+        "format": "avif",
+        "bytes": 12183
+      },
+      {
+        "src": "/assets/supplied/marcus-hefele-850.webp",
+        "width": 850,
+        "height": 607,
+        "format": "webp",
+        "bytes": 15062
+      }
+    ]
+  },
+  "industry-aerospace": {
+    "source": "AdobeStock_2155375490-Aerospace & Defense.jpg",
+    "alt": "Fachkraft überwacht Radar- und Flugdaten auf mehreren Monitoren",
+    "src": "/assets/supplied/industry-aerospace-920.jpg",
+    "width": 920,
+    "height": 614,
+    "variants": [
+      {
+        "src": "/assets/supplied/industry-aerospace-640.avif",
+        "width": 640,
+        "height": 427,
+        "format": "avif",
+        "bytes": 15911
+      },
+      {
+        "src": "/assets/supplied/industry-aerospace-640.webp",
+        "width": 640,
+        "height": 427,
+        "format": "webp",
+        "bytes": 23994
+      },
+      {
+        "src": "/assets/supplied/industry-aerospace-920.avif",
+        "width": 920,
+        "height": 614,
+        "format": "avif",
+        "bytes": 25892
+      },
+      {
+        "src": "/assets/supplied/industry-aerospace-920.webp",
+        "width": 920,
+        "height": 614,
+        "format": "webp",
+        "bytes": 37882
+      }
+    ]
+  },
+  "industry-energy": {
+    "source": "AdobeStock_223686976-Energy & Resources.jpg",
+    "alt": "Strommast mit Solarmodulen und Windenergieanlagen im Gegenlicht",
+    "src": "/assets/supplied/industry-energy-919.jpg",
+    "width": 919,
+    "height": 613,
+    "variants": [
+      {
+        "src": "/assets/supplied/industry-energy-640.avif",
+        "width": 640,
+        "height": 427,
+        "format": "avif",
+        "bytes": 16609
+      },
+      {
+        "src": "/assets/supplied/industry-energy-640.webp",
+        "width": 640,
+        "height": 427,
+        "format": "webp",
+        "bytes": 30532
+      },
+      {
+        "src": "/assets/supplied/industry-energy-919.avif",
+        "width": 919,
+        "height": 613,
+        "format": "avif",
+        "bytes": 35237
+      },
+      {
+        "src": "/assets/supplied/industry-energy-919.webp",
+        "width": 919,
+        "height": 613,
+        "format": "webp",
+        "bytes": 64094
+      }
+    ]
+  },
+  "industry-health": {
+    "source": "GettyImages-1194960360-Health & Pharma.jpg",
+    "alt": "Pipette dosiert Proben in Laborgefäße",
+    "src": "/assets/supplied/industry-health-816.jpg",
+    "width": 816,
+    "height": 612,
+    "variants": [
+      {
+        "src": "/assets/supplied/industry-health-640.avif",
+        "width": 640,
+        "height": 480,
+        "format": "avif",
+        "bytes": 15157
+      },
+      {
+        "src": "/assets/supplied/industry-health-640.webp",
+        "width": 640,
+        "height": 480,
+        "format": "webp",
+        "bytes": 25752
+      },
+      {
+        "src": "/assets/supplied/industry-health-816.avif",
+        "width": 816,
+        "height": 612,
+        "format": "avif",
+        "bytes": 21868
+      },
+      {
+        "src": "/assets/supplied/industry-health-816.webp",
+        "width": 816,
+        "height": 612,
+        "format": "webp",
+        "bytes": 35464
+      }
+    ]
+  },
+  "industry-industrials": {
+    "source": "AdobeStock_483288607-Indutrials & Manufacturing.jpg",
+    "alt": "Digital vernetzte Roboter in einer Fahrzeug-Fertigungslinie",
+    "src": "/assets/supplied/industry-industrials-1091.jpg",
+    "width": 1091,
+    "height": 613,
+    "variants": [
+      {
+        "src": "/assets/supplied/industry-industrials-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 34311
+      },
+      {
+        "src": "/assets/supplied/industry-industrials-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 61058
+      },
+      {
+        "src": "/assets/supplied/industry-industrials-800.avif",
+        "width": 800,
+        "height": 449,
+        "format": "avif",
+        "bytes": 49373
+      },
+      {
+        "src": "/assets/supplied/industry-industrials-800.webp",
+        "width": 800,
+        "height": 449,
+        "format": "webp",
+        "bytes": 88122
+      },
+      {
+        "src": "/assets/supplied/industry-industrials-1091.avif",
+        "width": 1091,
+        "height": 613,
+        "format": "avif",
+        "bytes": 83236
+      },
+      {
+        "src": "/assets/supplied/industry-industrials-1091.webp",
+        "width": 1091,
+        "height": 613,
+        "format": "webp",
+        "bytes": 145736
+      }
+    ]
+  },
+  "industry-technology": {
+    "source": "AdobeStock_970503738-Technology, Telecoms & Media.jpg",
+    "alt": "Mobilfunkmast über einer abendlichen Stadt",
+    "src": "/assets/supplied/industry-technology-1094.jpg",
+    "width": 1094,
+    "height": 614,
+    "variants": [
+      {
+        "src": "/assets/supplied/industry-technology-640.avif",
+        "width": 640,
+        "height": 359,
+        "format": "avif",
+        "bytes": 22781
+      },
+      {
+        "src": "/assets/supplied/industry-technology-640.webp",
+        "width": 640,
+        "height": 359,
+        "format": "webp",
+        "bytes": 32958
+      },
+      {
+        "src": "/assets/supplied/industry-technology-800.avif",
+        "width": 800,
+        "height": 449,
+        "format": "avif",
+        "bytes": 34517
+      },
+      {
+        "src": "/assets/supplied/industry-technology-800.webp",
+        "width": 800,
+        "height": 449,
+        "format": "webp",
+        "bytes": 50614
+      },
+      {
+        "src": "/assets/supplied/industry-technology-1094.avif",
+        "width": 1094,
+        "height": 614,
+        "format": "avif",
+        "bytes": 64110
+      },
+      {
+        "src": "/assets/supplied/industry-technology-1094.webp",
+        "width": 1094,
+        "height": 614,
+        "format": "webp",
+        "bytes": 97010
+      }
+    ]
+  },
+  "portfolio-hero": {
+    "source": "General/AdobeStock_1952732297.jpeg",
+    "alt": "Laptop mit Engineering-Workflows in einem Rechenzentrum",
+    "src": "/assets/supplied/portfolio-hero-1600.jpg",
+    "width": 1600,
+    "height": 844,
+    "variants": [
+      {
+        "src": "/assets/supplied/portfolio-hero-640.avif",
+        "width": 640,
+        "height": 337,
+        "format": "avif",
+        "bytes": 17451
+      },
+      {
+        "src": "/assets/supplied/portfolio-hero-640.webp",
+        "width": 640,
+        "height": 337,
+        "format": "webp",
+        "bytes": 28594
+      },
+      {
+        "src": "/assets/supplied/portfolio-hero-800.avif",
+        "width": 800,
+        "height": 422,
+        "format": "avif",
+        "bytes": 23515
+      },
+      {
+        "src": "/assets/supplied/portfolio-hero-800.webp",
+        "width": 800,
+        "height": 422,
+        "format": "webp",
+        "bytes": 38164
+      },
+      {
+        "src": "/assets/supplied/portfolio-hero-960.avif",
+        "width": 960,
+        "height": 506,
+        "format": "avif",
+        "bytes": 30547
+      },
+      {
+        "src": "/assets/supplied/portfolio-hero-960.webp",
+        "width": 960,
+        "height": 506,
+        "format": "webp",
+        "bytes": 48786
+      },
+      {
+        "src": "/assets/supplied/portfolio-hero-1600.avif",
+        "width": 1600,
+        "height": 844,
+        "format": "avif",
+        "bytes": 59183
+      },
+      {
+        "src": "/assets/supplied/portfolio-hero-1600.webp",
+        "width": 1600,
+        "height": 844,
+        "format": "webp",
+        "bytes": 94288
+      }
+    ]
+  },
+  "about-netzwerk": {
+    "source": "About Emposo Grafik Final_About Emposo Grafik V1B.jpg",
+    "alt": "250 Inhouse-Experten von Emposo, dahinter das Hays-Netzwerk mit 3.000 festangestellten Talenten und 10.000 aktiven Partnern",
+    "src": "/assets/supplied/about-netzwerk-1600.jpg",
+    "width": 1600,
+    "height": 985,
+    "variants": [
+      {
+        "src": "/assets/supplied/about-netzwerk-640.avif",
+        "width": 640,
+        "height": 394,
+        "format": "avif",
+        "bytes": 7210
+      },
+      {
+        "src": "/assets/supplied/about-netzwerk-640.webp",
+        "width": 640,
+        "height": 394,
+        "format": "webp",
+        "bytes": 11890
+      },
+      {
+        "src": "/assets/supplied/about-netzwerk-800.avif",
+        "width": 800,
+        "height": 493,
+        "format": "avif",
+        "bytes": 9360
+      },
+      {
+        "src": "/assets/supplied/about-netzwerk-800.webp",
+        "width": 800,
+        "height": 493,
+        "format": "webp",
+        "bytes": 15946
+      },
+      {
+        "src": "/assets/supplied/about-netzwerk-960.avif",
+        "width": 960,
+        "height": 591,
+        "format": "avif",
+        "bytes": 11039
+      },
+      {
+        "src": "/assets/supplied/about-netzwerk-960.webp",
+        "width": 960,
+        "height": 591,
+        "format": "webp",
+        "bytes": 19230
+      },
+      {
+        "src": "/assets/supplied/about-netzwerk-1600.avif",
+        "width": 1600,
+        "height": 985,
+        "format": "avif",
+        "bytes": 20019
+      },
+      {
+        "src": "/assets/supplied/about-netzwerk-1600.webp",
+        "width": 1600,
+        "height": 985,
+        "format": "webp",
+        "bytes": 35060
+      }
+    ]
+  },
+  "antriebssteuerung": {
+    "source": "Software Antriebssteuerung-AdobeStock_341431108.jpg",
+    "alt": "Fahrzeugdiagnose mit einem robusten Prüf-Notebook in der Werkstatt",
+    "src": "/assets/supplied/antriebssteuerung-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/antriebssteuerung-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 17196
+      },
+      {
+        "src": "/assets/supplied/antriebssteuerung-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 30218
+      },
+      {
+        "src": "/assets/supplied/antriebssteuerung-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 23065
+      },
+      {
+        "src": "/assets/supplied/antriebssteuerung-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 41266
+      },
+      {
+        "src": "/assets/supplied/antriebssteuerung-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 28282
+      },
+      {
+        "src": "/assets/supplied/antriebssteuerung-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 50770
+      },
+      {
+        "src": "/assets/supplied/antriebssteuerung-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 57514
+      },
+      {
+        "src": "/assets/supplied/antriebssteuerung-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 97408
+      }
+    ]
+  },
+  "gewichtsmanagement": {
+    "source": "Gewichtsmanagement-AdobeStock_305628594.jpg",
+    "alt": "Ingenieur betrachtet das leuchtende Gitternetzmodell eines Fahrzeugs",
+    "src": "/assets/supplied/gewichtsmanagement-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/gewichtsmanagement-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 25379
+      },
+      {
+        "src": "/assets/supplied/gewichtsmanagement-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 41372
+      },
+      {
+        "src": "/assets/supplied/gewichtsmanagement-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 37321
+      },
+      {
+        "src": "/assets/supplied/gewichtsmanagement-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 61480
+      },
+      {
+        "src": "/assets/supplied/gewichtsmanagement-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 50912
+      },
+      {
+        "src": "/assets/supplied/gewichtsmanagement-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 83466
+      },
+      {
+        "src": "/assets/supplied/gewichtsmanagement-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 125389
+      },
+      {
+        "src": "/assets/supplied/gewichtsmanagement-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 196920
+      }
+    ]
+  },
+  "pharma-qualitaet": {
+    "source": "Pharma-Qualitätssicherung-GettyImages-544457191.jpg",
+    "alt": "Laborfachkraft in Schutzkleidung am Mikroskop neben einer Bioreaktoranlage",
+    "src": "/assets/supplied/pharma-qualitaet-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/pharma-qualitaet-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 18218
+      },
+      {
+        "src": "/assets/supplied/pharma-qualitaet-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 29928
+      },
+      {
+        "src": "/assets/supplied/pharma-qualitaet-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 24384
+      },
+      {
+        "src": "/assets/supplied/pharma-qualitaet-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 40054
+      },
+      {
+        "src": "/assets/supplied/pharma-qualitaet-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 30215
+      },
+      {
+        "src": "/assets/supplied/pharma-qualitaet-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 48028
+      },
+      {
+        "src": "/assets/supplied/pharma-qualitaet-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 60431
+      },
+      {
+        "src": "/assets/supplied/pharma-qualitaet-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 89420
+      }
+    ]
+  },
+  "ki-testspezifikation": {
+    "source": "KI-Testspezifikation-AdobeStock_1891097286.jpg",
+    "alt": "Hand tippt auf ein Tablet, darüber ein Schaubild vernetzter KI-Agenten",
+    "src": "/assets/supplied/ki-testspezifikation-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/ki-testspezifikation-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 11846
+      },
+      {
+        "src": "/assets/supplied/ki-testspezifikation-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 17228
+      },
+      {
+        "src": "/assets/supplied/ki-testspezifikation-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 15946
+      },
+      {
+        "src": "/assets/supplied/ki-testspezifikation-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 23640
+      },
+      {
+        "src": "/assets/supplied/ki-testspezifikation-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 19619
+      },
+      {
+        "src": "/assets/supplied/ki-testspezifikation-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 29302
+      },
+      {
+        "src": "/assets/supplied/ki-testspezifikation-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 41457
+      },
+      {
+        "src": "/assets/supplied/ki-testspezifikation-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 60364
+      }
+    ]
+  },
+  "technische-dokumentation-dita": {
+    "source": "Technische Dokumentation-AdobeStock_550744833.jpg",
+    "alt": "Hände an einem Laptop, darüber eine Ordnerstruktur mit Dokumenten",
+    "src": "/assets/supplied/technische-dokumentation-dita-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 9821
+      },
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 14700
+      },
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 13244
+      },
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 20376
+      },
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 16671
+      },
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 25738
+      },
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 35914
+      },
+      {
+        "src": "/assets/supplied/technische-dokumentation-dita-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 53752
+      }
+    ]
+  },
+  "projektsteuerung": {
+    "source": "Projektsteuerung-GettyImages-2255324297.jpg",
+    "alt": "Zwei Entwickler besprechen Code vor mehreren Monitoren",
+    "src": "/assets/supplied/projektsteuerung-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/projektsteuerung-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 13573
+      },
+      {
+        "src": "/assets/supplied/projektsteuerung-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 19676
+      },
+      {
+        "src": "/assets/supplied/projektsteuerung-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 18660
+      },
+      {
+        "src": "/assets/supplied/projektsteuerung-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 27000
+      },
+      {
+        "src": "/assets/supplied/projektsteuerung-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 23404
+      },
+      {
+        "src": "/assets/supplied/projektsteuerung-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 33488
+      },
+      {
+        "src": "/assets/supplied/projektsteuerung-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 47565
+      },
+      {
+        "src": "/assets/supplied/projektsteuerung-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 64244
+      }
+    ]
+  },
+  "lieferanten-entwicklung": {
+    "source": "Lieferanten-Entwicklung-AdobeStock_555709912.jpg",
+    "alt": "Zwei Fachkräfte mit Schutzhelmen prüfen Anlagendaten auf einem Tablet in der Fertigung",
+    "src": "/assets/supplied/lieferanten-entwicklung-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 22652
+      },
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 39962
+      },
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 32639
+      },
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 57244
+      },
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 42554
+      },
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 74398
+      },
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 97461
+      },
+      {
+        "src": "/assets/supplied/lieferanten-entwicklung-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 154804
+      }
+    ]
+  },
+  "betriebsanleitung": {
+    "source": "TechnischeDokumentation-AdobeStock_2051971830.jpg",
+    "alt": "Person blättert in einem digitalen Benutzerhandbuch über einem Tablet",
+    "src": "/assets/supplied/betriebsanleitung-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/betriebsanleitung-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 9639
+      },
+      {
+        "src": "/assets/supplied/betriebsanleitung-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 14964
+      },
+      {
+        "src": "/assets/supplied/betriebsanleitung-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 12532
+      },
+      {
+        "src": "/assets/supplied/betriebsanleitung-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 19928
+      },
+      {
+        "src": "/assets/supplied/betriebsanleitung-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 15552
+      },
+      {
+        "src": "/assets/supplied/betriebsanleitung-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 24510
+      },
+      {
+        "src": "/assets/supplied/betriebsanleitung-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 33949
+      },
+      {
+        "src": "/assets/supplied/betriebsanleitung-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 48270
+      }
+    ]
+  },
+  "virtuelles-kraftwerk": {
+    "source": "Virtuelles Kraftwerk-AdobeStock_1407699569.jpg",
+    "alt": "Hände auf einer Laptop-Tastatur, darüber ein Smart-Grid-Schaubild zum Stromverbrauch",
+    "src": "/assets/supplied/virtuelles-kraftwerk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 12615
+      },
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 19464
+      },
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 17356
+      },
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 27166
+      },
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 21824
+      },
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 34470
+      },
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 45944
+      },
+      {
+        "src": "/assets/supplied/virtuelles-kraftwerk-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 72330
+      }
+    ]
+  },
+  "penetrationstests": {
+    "source": "Penetrationstests-parking-1-Emposo Webseite.jpg",
+    "alt": "Heck eines SUV mit visualisierten Parksensoren vor einem Poller",
+    "src": "/assets/supplied/penetrationstests-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/penetrationstests-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 10582
+      },
+      {
+        "src": "/assets/supplied/penetrationstests-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 17060
+      },
+      {
+        "src": "/assets/supplied/penetrationstests-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 14767
+      },
+      {
+        "src": "/assets/supplied/penetrationstests-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 23516
+      },
+      {
+        "src": "/assets/supplied/penetrationstests-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 19081
+      },
+      {
+        "src": "/assets/supplied/penetrationstests-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 29654
+      },
+      {
+        "src": "/assets/supplied/penetrationstests-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 39615
+      },
+      {
+        "src": "/assets/supplied/penetrationstests-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 57696
+      }
+    ]
+  },
+  "cybersecurity-medizin": {
+    "source": "Cybersecurity-AdobeStock_1359219322.jpg",
+    "alt": "Drei Fachleute vor einem Bildschirm mit Schloss-Symbol und Sicherheitsgrafiken",
+    "src": "/assets/supplied/cybersecurity-medizin-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 18213
+      },
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 30546
+      },
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 25905
+      },
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 43878
+      },
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 33491
+      },
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 56816
+      },
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 78897
+      },
+      {
+        "src": "/assets/supplied/cybersecurity-medizin-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 128008
+      }
+    ]
+  },
+  "risikomanagement": {
+    "source": "Informationssicherheits-Risikomanagement-AdobeStock_2157639186.jpg",
+    "alt": "Person mit Tablet, darüber medizinische Symbole und Diagramme in Blau",
+    "src": "/assets/supplied/risikomanagement-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/risikomanagement-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 11923
+      },
+      {
+        "src": "/assets/supplied/risikomanagement-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 16698
+      },
+      {
+        "src": "/assets/supplied/risikomanagement-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 16113
+      },
+      {
+        "src": "/assets/supplied/risikomanagement-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 22358
+      },
+      {
+        "src": "/assets/supplied/risikomanagement-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 19861
+      },
+      {
+        "src": "/assets/supplied/risikomanagement-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 26884
+      },
+      {
+        "src": "/assets/supplied/risikomanagement-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 39195
+      },
+      {
+        "src": "/assets/supplied/risikomanagement-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 53462
+      }
+    ]
+  },
+  "fuzzing": {
+    "source": "Fuzzing-AdobeStock_1951615053.jpg",
+    "alt": "Hände auf einer Laptop-Tastatur, darüber Warnsymbole und Programmcode",
+    "src": "/assets/supplied/fuzzing-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/assets/supplied/fuzzing-640.avif",
+        "width": 640,
+        "height": 360,
+        "format": "avif",
+        "bytes": 13420
+      },
+      {
+        "src": "/assets/supplied/fuzzing-640.webp",
+        "width": 640,
+        "height": 360,
+        "format": "webp",
+        "bytes": 20282
+      },
+      {
+        "src": "/assets/supplied/fuzzing-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 18510
+      },
+      {
+        "src": "/assets/supplied/fuzzing-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 28322
+      },
+      {
+        "src": "/assets/supplied/fuzzing-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 23498
+      },
+      {
+        "src": "/assets/supplied/fuzzing-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 35764
+      },
+      {
+        "src": "/assets/supplied/fuzzing-1600.avif",
+        "width": 1600,
+        "height": 900,
+        "format": "avif",
+        "bytes": 52116
+      },
+      {
+        "src": "/assets/supplied/fuzzing-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "format": "webp",
+        "bytes": 73734
       }
     ]
   }
