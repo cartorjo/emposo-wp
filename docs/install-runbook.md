@@ -240,6 +240,11 @@ uses.
 6. Work through `docs/launch-checklist.md` — the viewport and reduced-motion
    matrix nothing automated checks.
 
+> **Superseded for the launch (2026-09-27):** sections C–E describe the
+> in-place cutover that failed on 2026-09-20. The launch follows
+> `docs/launch-plan.md` (a second install on the same host, swapped in by
+> directory rename). The facts above still hold and the plan cites them.
+
 ## C. Live install (SFTP + wp-admin, no shell)
 
 0. **Backup first — cutover does not start until this is downloaded and
