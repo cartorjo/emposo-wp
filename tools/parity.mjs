@@ -70,12 +70,17 @@ export function resultLabel(state, problemCount, strict) {
  * two sides, or more than maxCount, is a problem — a carve-out may hide what
  * is inside the region, never that the region vanished or multiplied.
  *
+ * A `wpOnly` entry is an addition WordPress makes and the reference cannot
+ * (text that is only true of the WordPress site): it must be absent from the
+ * reference and present exactly maxCount times in WordPress, and it is
+ * removed from the WordPress side rather than replaced by a placeholder.
+ *
  * Pure and exported so tools/check-harness.mjs can assert it.
  *
  * @param {string} expected Normalised reference document.
  * @param {string} got      Normalised WordPress document.
  * @param {string} url      Route URL.
- * @param {Array<{id: string, routes: string[], pattern: string, maxCount: number}>} deltas
+ * @param {Array<{id: string, routes: string[], pattern: string, maxCount: number, wpOnly?: boolean}>} deltas
  * @returns {{expected: string, got: string, problems: string[]}}
  */
 export function applyAllowedDeltas(expected, got, url, deltas) {
@@ -86,6 +91,12 @@ export function applyAllowedDeltas(expected, got, url, deltas) {
 		const placeholder = `<!--allowed-delta:${delta.id}-->`;
 		const before = (expected.match(pattern) ?? []).length;
 		const after = (got.match(pattern) ?? []).length;
+		if (delta.wpOnly) {
+			if (before !== 0) problems.push(`allowed delta ${delta.id}: WordPress-only region found in the reference`);
+			if (after !== delta.maxCount) problems.push(`allowed delta ${delta.id}: ${after} region(s) in WordPress, expected ${delta.maxCount}`);
+			got = got.replace(pattern, '');
+			continue;
+		}
 		if (before !== after) {
 			problems.push(`allowed delta ${delta.id}: ${before} region(s) in the reference, ${after} in WordPress`);
 		}

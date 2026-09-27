@@ -13,6 +13,16 @@
       "pattern": "<form\\b[^>]*\\bdata-contact-form\\b[^>]*>[\\s\\S]*?</form>",
       "maxCount": 1,
       "reason": "Contact form posts to WordPress (emposo-core inc/contact.php) instead of a mailto: handoff: action, hidden fields, honeypot, status line, submit and explanation wording differ. Owner decision 2026-09-27. The region must still exist once on each side."
+    },
+    {
+      "id": "contact-form-privacy",
+      "routes": [
+        "/datenschutzerklaerung/"
+      ],
+      "pattern": "\\s*<div data-wp-only=\"contact-form-privacy\">[\\s\\S]*?</div>",
+      "maxCount": 1,
+      "wpOnly": true,
+      "reason": "WordPress-only privacy paragraph on the contact form's server-side processing (owner-approved 2026-09-27). The static build has no form backend, so the text is only true here. Must be absent from the reference and present once in WordPress."
     }
   ],
   "note": "Accepted real differences, each with routes, a pattern over the normalised document, a reason and a maxCount; applied by applyAllowedDeltas() in parity.mjs and printed in every report. Inert differences belong in tools/normalise.mjs instead. Needing an entry should prompt a hard look first."

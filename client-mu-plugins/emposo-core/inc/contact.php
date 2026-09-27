@@ -83,7 +83,8 @@ add_action( 'add_meta_boxes_' . CPT_ENQUIRY, __NAMESPACE__ . '\\add_meta_box' );
  * (form.submit, form.explain) describe the mailto handoff and are overridden
  * here because on this site they would be false.
  *
- * DRAFT copy — every string needs owner approval before merge.
+ * Owner-approved copy, 2026-09-27 (PR #47): change a string only with a new
+ * approval.
  *
  * @param string $key    String key.
  * @param string $locale 'de' or 'en'.

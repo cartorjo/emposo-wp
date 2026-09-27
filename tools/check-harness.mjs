@@ -72,6 +72,11 @@ check('applyAllowedDeltas: a vanished region is a problem', applyAllowedDeltas('
 check('applyAllowedDeltas: other routes are untouched', applyAllowedDeltas('<form data-f>1</form>', '<form data-f>2</form>', '/other/', delta).got, '<form data-f>2</form>');
 check('applyAllowedDeltas: a difference outside the region still differs', (() => { const r = applyAllowedDeltas('<p>a</p><form data-f>1</form>', '<p>b</p><form data-f>2</form>', '/k/', delta); return r.expected === r.got; })(), false);
 
+const wpOnly = [{ id: 'w', routes: ['/k/'], pattern: '<div data-wp-only="w">[\\s\\S]*?</div>', maxCount: 1, wpOnly: true }];
+const added = applyAllowedDeltas('<p>a</p><h3>b</h3>', '<p>a</p><div data-wp-only="w">x</div><h3>b</h3>', '/k/', wpOnly);
+check('applyAllowedDeltas wpOnly: the addition is removed and the rest compares equal', added.expected === added.got && added.problems.length === 0, true);
+check('applyAllowedDeltas wpOnly: a missing addition is a problem', applyAllowedDeltas('<p>a</p>', '<p>a</p>', '/k/', wpOnly).problems.length > 0, true);
+
 if (failures.length) {
 	console.error('Harness self-test failures:');
 	for (const f of failures) {
