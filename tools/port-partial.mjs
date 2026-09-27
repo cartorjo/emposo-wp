@@ -79,7 +79,7 @@ const replacements = [
 	 */
 	[
 		/\{\{CUR:([a-z-]+):([^}]*)\}\}/g,
-		(_, key, payload) => `<?php emposo_cur( '${key}', '${payload.replace(/'/g, "\\'")}' ); ?>`,
+		(_, key, payload) => `<?php emposo_cur( '${key}', '${payload.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}' ); ?>`,
 	],
 	[/\{\{CURATTR:([a-z-]+)\}\}/g, (_, key) => `<?php emposo_curattr( '${key}' ); ?>`],
 

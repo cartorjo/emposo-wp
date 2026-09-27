@@ -25,7 +25,7 @@ Re-measured at the 42a7c6d re-pin (2026-09-27): **35/35 routes pass.** The
 whole-page ("scrolled") byte totals are not reproducible run to run on the
 reference itself (533 vs 573 KB on one case study, 974 vs 1054 KB on `/`), so a
 route can fail the 2 % whole-page tolerance on measurement noise alone; see
-the follow-up issue linked in docs/resync.md.
+#40.
 
 ## What the numbers are, and are not
 

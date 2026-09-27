@@ -34,14 +34,25 @@ const OUT = path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data', 'si
 const read = (rel) => readFileSync(path.join(STATIC_ROOT, rel), 'utf8');
 const hash = (rel) => createHash('sha256').update(readFileSync(path.join(STATIC_ROOT, rel))).digest('hex').slice(0, 16);
 
-/** Strip tags and collapse whitespace, preserving the text exactly otherwise. */
-const text = (html) =>
-	html
-		.replace(/<[^>]+>/g, '')
-		.replace(/&amp;/g, '&')
+/**
+ * Strip tags and collapse whitespace, preserving the text exactly otherwise.
+ *
+ * Tags are stripped until nothing changes (a single pass leaves `<scr<b>ipt>`
+ * as `<script>`), and `&amp;` is decoded LAST so `&amp;nbsp;` stays the text
+ * `&nbsp;` instead of being decoded twice.
+ */
+const text = (html) => {
+	let out = html;
+	for (let previous = null; previous !== out; ) {
+		previous = out;
+		out = out.replace(/<[^>]*>/g, '');
+	}
+	return out
 		.replace(/&nbsp;/g, ' ')
+		.replace(/&amp;/g, '&')
 		.replace(/\s+/g, ' ')
 		.trim();
+};
 
 // --------------------------------------------------------------------------
 // 1. Entities

@@ -89,8 +89,14 @@ counts.
   for the reference against itself (lazy images fetched during the width sweep
   can still be in flight when the sum is taken). A single-route failure on the
   2 % whole-page tolerance needs a second measurement before it counts as a
-  regression.
+  regression (#40).
 - The head block names `https://emposo.de/assets/share/*.jpg` and
   `/assets/brand/emposo-logo-organization.png`. These are not theme assets, so
   the launch webroot must serve them at those root paths (copy them in at
-  cutover, or add a rewrite).
+  cutover, or add a rewrite; #41).
+- The three legal pages are ported templates, not editable in wp-admin, and
+  their slugs collide with the live legal pages kept at cutover (#42). The
+  install runbook's keep-list and redirect prose predate the re-pin: follow
+  docs/redirect-map.md, not the runbook's inline examples.
+- Industry filter tokens and labels are meta alongside the terms, terms need
+  `_emposo_term_order` to render, and JSON-LD dates are frozen at the pin (#43).
