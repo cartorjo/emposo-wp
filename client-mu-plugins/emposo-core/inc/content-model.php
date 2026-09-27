@@ -293,10 +293,14 @@ function register_post_types(): void {
 	);
 
 	/*
-	 * Contact-form enquiries (inc/contact.php): private, read-only records,
-	 * purged after 90 days. Personal data, so every capability maps to
-	 * manage_options — administrators only — and nobody can create one in
-	 * wp-admin; they come from the form alone. Listed under the Emposo menu.
+	 * Contact-form enquiries (inc/contact.php): private records, purged after
+	 * 90 days. Personal data, so every capability maps to manage_options —
+	 * administrators only — and nobody can create one in wp-admin; they come
+	 * from the form alone. Only the title is editable, so an administrator can
+	 * annotate one; the content is the enquiry as received. show_in_menu is
+	 * false because dashboard.php adds the list under the Emposo menu itself:
+	 * core would add it before that menu exists, and the Emposo entry would
+	 * then open the list instead of the dashboard.
 	 */
 	$enquiry_cap = 'manage_options';
 
@@ -310,11 +314,11 @@ function register_post_types(): void {
 			'public'              => false,
 			'publicly_queryable'  => false,
 			'show_ui'             => true,
-			'show_in_menu'        => 'emposo',
+			'show_in_menu'        => false,
 			'show_in_rest'        => false,
 			'has_archive'         => false,
 			'rewrite'             => false,
-			'supports'            => array( 'title', 'editor' ),
+			'supports'            => array( 'title' ),
 			'exclude_from_search' => true,
 			'capabilities'        => array(
 				'create_posts'           => 'do_not_allow',

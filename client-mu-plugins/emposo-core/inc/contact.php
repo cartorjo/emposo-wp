@@ -18,10 +18,11 @@
  * (too fast = a bot), and a per-IP rate limit keyed on a salted hash. There is
  * deliberately no wp_nonce — pages sit behind a full-page cache and Cloudflare,
  * so a nonce baked into cached HTML would go stale and reject real visitors.
- * For the same reason the timestamp's upper bound is a week, not a day: a
- * cached page may be served long after it was rendered, and it is still a
- * real visitor submitting it. The lower bound only bites on uncached renders,
- * which is where a scripted fetch-and-post comes from anyway.
+ * For the same reason the timestamp has no upper bound: a cached page may be
+ * served long after it was rendered, and it is still a real visitor
+ * submitting it, while a bot can always fetch a fresh token. The signature
+ * stops forged tokens; the lower bound only bites on uncached renders, which
+ * is where a scripted fetch-and-post comes from anyway.
  *
  * The flow is Post/Redirect/Get back to the submitting page, with a status
  * flag in the query (gesendet / sent, or problem=<key>) that the form partial
@@ -55,9 +56,6 @@ const PURGE_HOOK = 'emposo_enquiry_purge';
 /** A submission faster than this after render is treated as automated. */
 const MIN_SECONDS = 3;
 
-/** A render older than this is refused; see the header on cached pages. */
-const MAX_SECONDS = WEEK_IN_SECONDS;
-
 /** Accepted submissions per IP hash per hour. */
 const RATE_LIMIT = 5;
 
@@ -74,6 +72,7 @@ add_action( 'admin_post_nopriv_' . ACTION, __NAMESPACE__ . '\\handle' );
 add_action( 'admin_post_' . ACTION, __NAMESPACE__ . '\\handle' );
 add_action( 'init', __NAMESPACE__ . '\\schedule_purge' );
 add_action( PURGE_HOOK, __NAMESPACE__ . '\\purge' );
+add_action( 'add_meta_boxes_' . CPT_ENQUIRY, __NAMESPACE__ . '\\add_meta_box' );
 
 /**
  * WordPress-only UI strings, per locale.
@@ -292,7 +291,7 @@ function handle(): void {
 
 	$age = token_age( field( 'ts' ) );
 
-	if ( null === $age || $age < MIN_SECONDS || $age > MAX_SECONDS ) {
+	if ( null === $age || $age < MIN_SECONDS ) {
 		finish( $return, 'rejected', $locale );
 	}
 
@@ -414,6 +413,25 @@ function store( array $data, string $body, string $locale ): void {
 	);
 
 	\Emposo\Core\Cache\suspend( false );
+}
+
+/**
+ * The enquiry as received, read-only, on its edit screen.
+ *
+ * The type supports only a title (content-model.php), so the text itself is
+ * shown here rather than in an editor that would invite changing it.
+ */
+function add_meta_box(): void {
+	\add_meta_box(
+		'emposo-enquiry',
+		__( 'Anfrage', 'emposo' ),
+		static function ( \WP_Post $post ): void {
+			echo '<pre style="white-space:pre-wrap;font:inherit;margin:0">' . esc_html( $post->post_content ) . '</pre>';
+		},
+		CPT_ENQUIRY,
+		'normal',
+		'high'
+	);
 }
 
 /**

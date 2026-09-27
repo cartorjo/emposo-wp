@@ -82,6 +82,12 @@ function register_page(): void {
 		'dashicons-chart-area',
 		2
 	);
+
+	// The first submenu entry is what the top-level item opens, so the
+	// dashboard itself comes first; the enquiry list (content-model.php)
+	// follows it.
+	add_submenu_page( MENU_SLUG, __( 'Emposo', 'emposo' ), __( 'Übersicht', 'emposo' ), 'manage_options', MENU_SLUG );
+	add_submenu_page( MENU_SLUG, __( 'Anfragen', 'emposo' ), __( 'Anfragen', 'emposo' ), 'manage_options', 'edit.php?post_type=' . CPT_ENQUIRY );
 }
 
 /**
