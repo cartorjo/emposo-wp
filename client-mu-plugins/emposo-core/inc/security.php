@@ -95,6 +95,17 @@ function send_security_headers(): void {
 	header( 'Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()' );
 	header( 'X-Frame-Options: DENY' );
 
+	/*
+	 * The preview noindex, as a header — the static build's mechanism (its
+	 * server sends X-Robots-Tag unless INDEXABLE=true), which leaves the head
+	 * identical to the reference. blog_public=0 is the admin-visible lever;
+	 * EMPOSO_FORCE_NOINDEX (wp-config.php) is the backstop for a staging clone.
+	 * Read via constant() so static analysis does not fold the build-time value.
+	 */
+	if ( '0' === (string) get_option( 'blog_public' ) || ( defined( 'EMPOSO_FORCE_NOINDEX' ) && constant( 'EMPOSO_FORCE_NOINDEX' ) ) ) {
+		header( 'X-Robots-Tag: noindex, nofollow' );
+	}
+
 	// HSTS only over TLS: sent over plain HTTP it is ignored by browsers and
 	// meaningless, and in local development there is no TLS at all.
 	if ( is_ssl() ) {

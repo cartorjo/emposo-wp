@@ -171,18 +171,20 @@ function checkScriptMatrix({ html, route }, add) {
 	}
 }
 
-function checkNoindex({ html }, add) {
-	const metas = [...html.matchAll(/<meta\b[^>]*\bname="robots"[^>]*>/gi)];
-	if (metas.length === 0) {
-		add('missing <meta name="robots"> — the preview noindex must stay until launch is approved');
+/**
+ * The preview noindex is the X-Robots-Tag header, as on the static build; the
+ * head itself must match the reference (parity covers it). `headers` is absent
+ * when the reference is checked against itself, which has no server.
+ */
+function checkNoindex({ headers }, add) {
+	if (!headers) return;
+	const value = headers.get('x-robots-tag');
+	if (!value) {
+		add('missing X-Robots-Tag header — the preview noindex must stay until launch is approved');
 		return;
 	}
-	if (metas.length > 1) add(`${metas.length} robots meta tags (core is probably emitting its own)`);
-
-	const content = /content="([^"]*)"/.exec(metas[0])?.[1] ?? '';
-	const normalised = content.toLowerCase().replace(/\s+/g, '');
-	if (normalised !== 'noindex,nofollow') {
-		add(`robots content is "${content}", expected exactly "noindex, nofollow"`);
+	if (value.toLowerCase().replace(/\s+/g, '') !== 'noindex,nofollow') {
+		add(`X-Robots-Tag is "${value}", expected exactly "noindex, nofollow"`);
 	}
 }
 

@@ -94,14 +94,15 @@ function emposo_core_cleanup(): void {
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 
-	// The static build emits no canonical. Re-add with the launch SEO package.
+	// The canonical is part of the contract's head block (parts/head.php);
+	// core's would be a second one, on the WordPress origin.
 	remove_action( 'wp_head', 'rel_canonical' );
 
 	/*
-	 * parts/head.php prints the literal `noindex, nofollow` meta. Core's
-	 * wp_robots would print a SECOND one, worded differently
-	 * ('noindex, nofollow, max-image-preview:large'), so the static build's
-	 * exact string is preserved by removing core's.
+	 * The preview noindex is the X-Robots-Tag header (emposo-core
+	 * inc/security.php) and the head matches the reference, which has no
+	 * robots meta except on the 404. Core's wp_robots would print one
+	 * ('noindex, nofollow, max-image-preview:large'), so it is removed.
 	 */
 	remove_action( 'wp_head', 'wp_robots', 1 );
 

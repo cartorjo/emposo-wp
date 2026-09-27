@@ -19,18 +19,15 @@
 	<meta name="description" content="<?php echo \Emposo\Core\escape_static( emposo_meta_description() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Reference-parity escaper, see above. ?>">
 <?php
 /*
- * blog_public=0 is the primary, admin-visible noindex lever. EMPOSO_FORCE_NOINDEX
- * (a wp-config.php constant) is the backstop for a staging clone that must never
- * be indexable even if blog_public is flipped. Read via constant() so static
- * analysis does not fold the build-time value and call the guard always-true.
+ * Canonical, Open Graph/Twitter and JSON-LD: the route's launch head block,
+ * carried verbatim in the contract (tools/export-routes.mjs headMeta). The
+ * preview noindex is the X-Robots-Tag header (emposo-core inc/security.php),
+ * as on the static build, so nothing here depends on blog_public.
  */
-if ( '0' === (string) get_option( 'blog_public' ) || ( defined( 'EMPOSO_FORCE_NOINDEX' ) && constant( 'EMPOSO_FORCE_NOINDEX' ) ) ) :
-	?>
-	<!-- Temporary preview build: remove this only when launch SEO settings are approved. -->
-	<meta name="robots" content="noindex, nofollow">
-<?php endif; ?>
+echo emposo_head_meta(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Contract data generated from the reference build, already escaped there.
+?>
 	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0532'/%3E%3Cg transform='translate(2.79 6.87) scale(0.4566)'%3E%3Crect x='20.25' y='3.97' width='14.69' height='5.78' fill='%23F7911E'/%3E%3Crect x='20.25' y='30.23' width='14.69' height='5.78' fill='%23F7911E'/%3E%3Cpolygon points='34.94 30.23 47.4 19.42 34.94 9.75 34.94 3.97 36.03 3.97 55.22 19.42 36.03 36.01 34.94 36.01 34.94 30.23' fill='white'/%3E%3Cpath d='M20.24,16.68V3.97h-4.51c-.75,0-1.35.6-1.35,1.35v11.36s-11.72,0-11.72,0v5.77h11.72v12.21c0,.75.6,1.35,1.35,1.35h4.51v-13.56h11.8v-5.77s-11.8,0-11.8,0Z' fill='white'/%3E%3C/g%3E%3C/svg%3E">
-	<!-- Everything is same-origin: Roboto is self-hosted (css/00-fonts.css) and all
+	<!-- Everything is same-origin: Roboto is self-hosted (styles/00-fonts.css, inlined into css/site.css) and all
 		libraries are vendored, so no visitor request ever leaves this host (GDPR).
 		crossorigin on the preload is REQUIRED even same-origin — fonts always fetch
 		in CORS mode, and a preload without it is re-downloaded. -->

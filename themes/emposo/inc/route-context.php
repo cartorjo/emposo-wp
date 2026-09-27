@@ -147,6 +147,13 @@ function emposo_document_title(): string {
 }
 
 /**
+ * The launch head block (canonical, OG/Twitter, JSON-LD), from the contract.
+ */
+function emposo_head_meta(): string {
+	return (string) ( emposo_route()['headMeta'] ?? '' );
+}
+
+/**
  * Meta description, from the contract.
  */
 function emposo_meta_description(): string {

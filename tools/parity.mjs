@@ -80,7 +80,7 @@ function readStaticByUrl(url) {
 
 async function fetchWp(route) {
 	const res = await fetch(`${WP_BASE}${route.url}`, { redirect: 'manual' });
-	return { status: res.status, html: await res.text() };
+	return { status: res.status, headers: res.headers, html: await res.text() };
 }
 
 /**
@@ -142,6 +142,7 @@ async function main() {
 
 		let actualHtml;
 		let status;
+		let headers;
 
 		if (SELF_TEST || AGAINST_STATIC) {
 			// Compare the reference to itself through the normaliser. If this
@@ -155,6 +156,7 @@ async function main() {
 				const res = await fetchWp(route);
 				actualHtml = res.html;
 				status = res.status;
+				headers = res.headers;
 			} catch (error) {
 				results.push({ route, state: 'unreachable', error: error.message });
 				continue;
@@ -174,7 +176,7 @@ async function main() {
 
 		const checks = SELF_TEST
 			? []
-			: runChecks({ html: actualHtml, route, routeUrls });
+			: runChecks({ html: actualHtml, headers, route, routeUrls });
 
 		const links = SELF_TEST
 			? []
