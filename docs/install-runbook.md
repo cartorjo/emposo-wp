@@ -320,11 +320,14 @@ uses.
    `robots.txt` is WordPress's virtual one with no `Disallow: /` and no stale
    Yoast block; `/wp-sitemap.xml` → 200; the legal pages still render. Purge
    Cloudflare once more.
-3. **Publish the Cloudflare Redirect Rules**: each of the 27 retired URLs →
-   its nearest German route (`/contact/` → `/kontakt/`, `/join-us/` →
-   `/karriere/`, `/solutions/*` → the matching `/expertise/` page, …);
-   `/en/*` → `/`; `/sitemap_index.xml` → `/wp-sitemap.xml`. The legal pages
-   kept their URLs and need no redirect. Spot-check the top rows.
+3. **Publish the Cloudflare Redirect Rules** exactly as
+   [docs/redirect-map.md](redirect-map.md) lists them, in its order: German
+   retired URLs → their German successors, old English URLs → their English
+   successors (`/en/about/` → `/en/about-us/`, …), `/sitemap_index.xml` →
+   `/wp-sitemap.xml`. **No `/en/*` catch-all**: `/en/` is the English site
+   now, and a catch-all would redirect it to German. The legal pages
+   kept their URLs and need no redirect. Spot-check the top rows, and
+   `curl -sI https://emposo.de/en/` must return 200, not 301.
 4. Post-launch verify: Installer → **Verify — routes, content, media** (bare
    full verify now fails by design, fact 8).
 5. **Measure LCP and TTFB on the host.** Nothing in CI does this — a shared

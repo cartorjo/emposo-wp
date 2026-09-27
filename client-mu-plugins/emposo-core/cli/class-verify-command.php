@@ -2,8 +2,8 @@
 /**
  * `wp emposo verify` — the route and content contract.
  *
- * This is the real URL-preservation guarantee. Twelve of the 35 routes are
- * Pages, so a single edited slug or changed parent silently changes a live URL;
+ * This is the real URL-preservation guarantee. Twenty-four of the 70 routes (12
+ * per locale) are Pages, so a single edited slug or changed parent silently changes a live URL;
  * and the routing design rests on WordPress behaviours (permastruct ordering,
  * has_archive emitting an extra rule) whose breakage is remote from the change
  * that caused it. Neither is visible to a check that only inspects the
