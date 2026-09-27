@@ -61,6 +61,21 @@ const { disciplines, industries, projects, jobs } = await import(
 	path.join(STATIC_ROOT, 'content', 'site-data.mjs')
 );
 
+// The English overlay (text fields by slug) and the i18n tables: UI strings,
+// the English route map and the English case-study slugs (reference/static
+// docs/i18n.md). PHP gets them as data, so its t() and localizePath() are
+// table lookups with no logic to keep in sync with assemble.mjs.
+const en = await import(path.join(STATIC_ROOT, 'content', 'site-data.en.mjs'));
+const { STRINGS, PATHS, CASE_SLUGS } = await import(path.join(STATIC_ROOT, 'content', 'i18n.mjs'));
+/** A dictionary entry, exactly as the reference's t() returns it. */
+const tr = (locale, key) => {
+	const value = STRINGS[locale]?.[key] ?? STRINGS.de[key];
+	if (value === undefined) throw new Error(`i18n key missing in the reference: ${key}`);
+	return value;
+};
+/** A German entity's English text fields (the overlay), keyed by slug. */
+const english = (kind, entity, fields) => Object.fromEntries(fields.filter((f) => en[kind]?.[entity.slug]?.[f] !== undefined).map((f) => [f, en[kind][entity.slug][f]]));
+
 /**
  * A `const name = [...]` literal from render.mjs, evaluated.
  *
@@ -94,11 +109,11 @@ const industryTerms = industries.map((industry) => ({
 	slug: industry.filter.split(/\s+/)[0],
 	name: industry.name,
 	parent: null,
-	meta: { tile: true, subtitle: industry.subtitle ?? '', image: industry.image },
+	meta: { tile: true, subtitle: industry.subtitle ?? '', image: industry.image, name_en: en.industries?.[industry.slug]?.name ?? industry.name, subtitle_en: en.industries?.[industry.slug]?.subtitle ?? '' },
 }));
 const industrialIndex = industryTerms.findIndex((term) => term.slug === 'industrial');
 if (industrialIndex === -1) throw new Error('the industrial term is missing');
-industryTerms.splice(industrialIndex + 1, 0, { slug: 'automotive', name: 'Automotive', parent: 'industrial', meta: { tile: false, subtitle: '', image: '' } });
+industryTerms.splice(industrialIndex + 1, 0, { slug: 'automotive', name: 'Automotive', parent: 'industrial', meta: { tile: false, subtitle: '', image: '', name_en: 'Automotive', subtitle_en: '' } });
 
 const knownIndustry = new Set(industryTerms.map((term) => term.slug));
 for (const project of projects) {
@@ -111,7 +126,7 @@ for (const project of projects) {
 const groups = [...new Set(disciplines.map((d) => d.group))];
 const disciplineTerms = [
 	...groups.map((group) => ({ slug: group.toLowerCase(), name: group, parent: null, meta: {} })),
-	...disciplines.map((d) => ({ slug: d.slug, name: d.name, parent: d.group.toLowerCase(), meta: { icon: d.icon, topics: d.topics, promise: d.promise } })),
+	...disciplines.map((d) => ({ slug: d.slug, name: d.name, parent: d.group.toLowerCase(), meta: { icon: d.icon, topics: d.topics, promise: d.promise, name_en: en.disciplines?.[d.slug]?.name ?? d.name, topics_en: en.disciplines?.[d.slug]?.topics ?? d.topics, promise_en: en.disciplines?.[d.slug]?.promise ?? d.promise } })),
 ];
 
 /*
@@ -141,6 +156,7 @@ const manifest = JSON.parse(read('assets/supplied/manifest.json'));
 const assets = Object.entries(manifest).map(([key, asset]) => ({
 	key,
 	alt: asset.alt,
+	alt_en: asset.alt_en ?? asset.alt,
 	source: asset.source,
 	src: asset.src,
 	width: asset.width,
@@ -158,6 +174,9 @@ function extractPeople() {
 		name: person.name,
 		roles: person.roles,
 		bio: person.bio,
+		// The English overlay is keyed by the portrait's image key, not the name.
+		roles_en: en.people?.[person.image]?.roles ?? person.roles,
+		bio_en: en.people?.[person.image]?.bio ?? person.bio,
 		linkedin: person.link?.href ?? '',
 		image: person.image,
 	}));
@@ -169,12 +188,13 @@ function extractPeople() {
  * The real options carry NO value attribute, so a browser submits the text:
  * ?interesse= deep links carry the German labels, and value === label here.
  */
-function extractInterests() {
+function extractInterests(locale = 'de') {
 	const source = read('partials/contact-form.html');
 	const select = /<select[^>]*name="interest"[^>]*>([\s\S]*?)<\/select>/.exec(source)?.[1] ?? '';
 
+	// Since the i18n layer the options are dictionary tokens ({{t:form.opt.x}}).
 	return [...select.matchAll(/<option([^>]*)>([^<]*)<\/option>/g)]
-		.map((m) => ({ attrs: m[1], label: text(m[2]) }))
+		.map((m) => ({ attrs: m[1], label: text(m[2].replace(/\{\{t:([a-zA-Z0-9.]+)\}\}/g, (_, key) => tr(locale, key))) }))
 		.filter(({ attrs }) => !/\bdisabled\b/.test(attrs))
 		.map(({ attrs, label }) => ({ value: /value="([^"]*)"/.exec(attrs)?.[1] ?? label, label }))
 		.filter(({ value }) => value !== '');
@@ -194,6 +214,8 @@ const exportData = {
 		'content/render.mjs': hash('content/render.mjs'),
 		'assets/supplied/manifest.json': hash('assets/supplied/manifest.json'),
 		'partials/contact-form.html': hash('partials/contact-form.html'),
+		'content/site-data.en.mjs': hash('content/site-data.en.mjs'),
+		'content/i18n.mjs': hash('content/i18n.mjs'),
 	},
 	terms: {
 		emposo_discipline: disciplineTerms,
@@ -201,18 +223,30 @@ const exportData = {
 		emposo_outcome: outcomeTerms,
 	},
 	projects,
+	// English case studies: the German record's structure with the overlay's
+	// text fields, under its English slug.
+	projectsEn: projects.map((p) => ({ ...p, ...english('projects', p, ['name', 'headline', 'industry', 'metric', 'label', 'challenge', 'solution', 'results', 'facts']), slug: CASE_SLUGS[p.slug] ?? p.slug, translationOf: p.slug })),
 	assets,
 	people: extractPeople(),
 	options: {
-		facts: renderConstant('companyFactData'),
+		// The facts constant holds dictionary keys since the i18n layer.
+		facts: renderConstant('companyFactData').map((f) => ({ icon: f.icon, value: tr('de', f.value), label: tr('de', f.label) })),
+		facts_en: renderConstant('companyFactData').map((f) => ({ icon: f.icon, value: tr('en', f.value), label: tr('en', f.label) })),
 		certifications: renderConstant('certifications'),
 		jobs,
-		interests: extractInterests(),
+		jobs_en: jobs.map((job) => ({ ...job, ...(en.jobs?.[job.slug] ?? {}) })),
+		interests: extractInterests('de'),
+		interests_en: extractInterests('en'),
 		contactRecipient: extractContactRecipient(),
 	},
 };
 
 writeFileSync(OUT, `${JSON.stringify(exportData, null, '\t')}\n`);
+
+// The i18n tables for PHP: UI strings per locale, the route map and the
+// English case-study slugs.
+const I18N_OUT = path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data', 'i18n.json');
+writeFileSync(I18N_OUT, `${JSON.stringify({ schema: 1, note: 'Generated by tools/export-content.mjs from reference/static content/i18n.mjs. Do not hand-edit.', sources: { 'content/i18n.mjs': hash('content/i18n.mjs') }, strings: STRINGS, paths: PATHS, caseSlugs: CASE_SLUGS }, null, '\t')}\n`);
 
 console.log(`wrote ${path.relative(REPO_ROOT, OUT)}`);
 console.log(`  terms:          ${disciplineTerms.length} discipline, ${industryTerms.length} industry, ${outcomeTerms.length} outcome`);

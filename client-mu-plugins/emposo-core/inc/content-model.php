@@ -47,8 +47,8 @@ const TAX_OUTCOME    = 'emposo_outcome';
 const CPT_CASE_STUDY = 'emposo_case_study';
 /** The English twin of a case study: its own records, the one resolver of /en/case-studies/. */
 const CPT_CASE_STUDY_EN = 'emposo_case_study_en';
-const CPT_PERSON     = 'emposo_person';
-const CPT_ENQUIRY    = 'emposo_enquiry';
+const CPT_PERSON        = 'emposo_person';
+const CPT_ENQUIRY       = 'emposo_enquiry';
 
 /**
  * Taxonomies register at priority 5, before the post types at 10, so
