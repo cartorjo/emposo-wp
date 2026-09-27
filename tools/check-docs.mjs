@@ -134,7 +134,8 @@ function checkRedirectTargets(failures) {
 			continue;
 		}
 		// The last path in the row is the redirect target; the first is the old URL.
-		const target = targets[targets.length - 1];
+		// A fragment (/about-us/#management) targets its page's route.
+		const target = targets[targets.length - 1].replace(/#.*$/, '');
 		if (target.includes('*')) {
 			continue; // A pattern, not a single URL.
 		}
