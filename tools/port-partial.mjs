@@ -97,7 +97,7 @@ const replacements = [
 	],
 	[
 		/\{\{href:([^}]*)\}\}/g,
-		(_, href) => `<?php echo esc_url( emposo_href( '${href.replace(/'/g, "\\'")}' ) ); ?>`,
+		(_, href) => `<?php echo esc_url( emposo_href( '${href.replace(/[\\']/g, "\\$&")}' ) ); ?>`,
 	],
 	// Head substitutions.
 	[/\{\{TITLE\}\}/g, '<?php echo esc_html( emposo_document_title() ); ?>'],
