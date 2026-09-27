@@ -45,7 +45,7 @@ const ARROW = '<span aria-hidden="true">→</span>';
 /**
  * The separator between a project page's top-level sections.
  *
- * projectPage() is one template literal spanning three source lines, so a
+ * The reference's projectPage() is one template literal spanning three lines, so a
  * newline plus two spaces sits between the hero and each <section>. Between two
  * nodes that is a text node, so it is reproduced rather than assumed away. The
  * closing CTA is concatenated with no separator, as the source reads.
@@ -113,6 +113,18 @@ function compare_de( string $a, string $b ): int {
 	return $collator ? (int) $collator->compare( $a, $b ) : strcasecmp( $a, $b );
 }
 
+/**
+ * Whitespace-separated words, as JavaScript's trim().split(/\s+/).
+ *
+ * @param string $value Text.
+ * @return string[]
+ */
+function words( string $value ): array {
+	$parts = preg_split( '/\s+/u', trim( $value ) );
+
+	return is_array( $parts ) && '' !== trim( $value ) ? $parts : array();
+}
+
 // --------------------------------------------------------------------------
 // Data accessors
 // --------------------------------------------------------------------------
@@ -120,7 +132,7 @@ function compare_de( string $a, string $b ): int {
 /**
  * A term's name as raw text.
  *
- * sanitize_term HTML-encodes `name` on insert ('Health &amp; Pharma'), so
+ * WordPress's sanitize_term HTML-encodes `name` on insert ('Health &amp; Pharma'), so
  * decode at the boundary: every accessor returns raw text and escaping happens
  * once, at output.
  *
@@ -312,14 +324,14 @@ function option_list( string $name ): array {
  * The one breadcrumb: Startseite, an optional parent [href, label], the label.
  *
  * @param string        $label  Page label ('' for none).
- * @param string[]|null $parent [ href, label ].
+ * @param string[]|null $trail  Parent link as [ href, label ].
  */
-function breadcrumb( string $label, ?array $parent = null ): string {
+function breadcrumb( string $label, ?array $trail = null ): string {
 	$sep   = '<span aria-hidden="true">/</span>';
 	$items = array( '<a href="/">Startseite</a>' );
 
-	if ( $parent ) {
-		$items[] = '<a href="' . $parent[0] . '">' . $parent[1] . '</a>';
+	if ( $trail ) {
+		$items[] = '<a href="' . $trail[0] . '">' . $trail[1] . '</a>';
 	}
 	if ( '' !== $label ) {
 		$items[] = '<span aria-current="page">' . $label . '</span>';
@@ -422,7 +434,7 @@ function column( WP_Post $case_study, string $key ): string {
 /**
  * The metric block.
  *
- * mb_strlen, not strlen: '80.000 €' is 8 characters but 10 bytes.
+ * Uses mb_strlen, not strlen: '80.000 €' is 8 characters but 10 bytes.
  *
  * @param WP_Post $case_study Case study.
  */
@@ -478,7 +490,7 @@ function filters(): string {
 		'discipline' => array(),
 	);
 	foreach ( $projects as $case_study ) {
-		foreach ( preg_split( '/\s+/', meta( $case_study, '_emposo_filter' ) ) ?: array() as $token ) {
+		foreach ( words( meta( $case_study, '_emposo_filter' ) ) as $token ) {
 			$carried['industry'][ $token ] = true;
 		}
 		$discipline = discipline_of( $case_study );
@@ -629,7 +641,7 @@ function cta( string $name = 'default' ): string {
 			'link'    => false,
 		),
 	);
-	$c = $ctas[ $name ] ?? $ctas['default'];
+	$c    = $ctas[ $name ] ?? $ctas['default'];
 
 	$id   = (string) ( $c['id'] ?? '' );
 	$copy = '';
@@ -655,9 +667,9 @@ function project_page( string $slug ): string {
 	$projects = case_studies();
 	$at       = null;
 
-	foreach ( $projects as $i => $candidate ) {
+	foreach ( array_values( $projects ) as $i => $candidate ) {
 		if ( $candidate->post_name === $slug ) {
-			$at = $i;
+			$at = (int) $i;
 			break;
 		}
 	}
@@ -749,7 +761,7 @@ function split_bio( array $paragraphs ): array {
 		$spill = '';
 		$found = preg_match_all( '/[^.!?]+[.!?]+["\']?(\s+|$)/u', $paragraph, $matches );
 		foreach ( $found ? $matches[0] : array( $paragraph ) as $sentence ) {
-			$words = count( preg_split( '/\s+/u', trim( $sentence ) ) ?: array() );
+			$words = count( words( $sentence ) );
 			if ( ! $full && $count + $words <= 48 ) {
 				$keep  .= $sentence;
 				$count += $words;
@@ -780,7 +792,8 @@ function management(): string {
 		$name     = $person->post_title;
 		$roles    = meta_list( $person, '_emposo_person_roles' );
 		$linkedin = meta( $person, '_emposo_person_linkedin' );
-		$bio      = array_values( array_filter( array_map( 'trim', preg_split( '/\R{2,}/', trim( (string) $person->post_content ) ) ?: array() ) ) );
+		$blocks   = preg_split( '/\R{2,}/', trim( (string) $person->post_content ) );
+		$bio      = array_values( array_filter( array_map( 'trim', is_array( $blocks ) ? $blocks : array() ) ) );
 
 		list( $teaser, $rest ) = split_bio( $bio );
 

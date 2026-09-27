@@ -11,13 +11,13 @@
 
 ?>
 <section class="hero hero--feedback" id="hero" aria-labelledby="hero-title">
-  <div class="gutter"><div class="container">
-    <div class="hero__grid">
-      <div class="hero__copy">
-        <h1 class="display-large display-large--light" id="hero-title">Wir machen<br><em>Wandel</em><br>beherrschbar.</h1>
-        <div class="hero__intro"><p>Für unsere Kunden bauen wir produktive Lösungen und tragen die Verantwortung bis zum Outcome.</p></div>
-      </div>
-      <figure class="hero__visual"><?php emposo_the_picture( 'hero-flow', 'hero', true ); ?></figure>
-    </div>
-  </div></div>
+	<div class="gutter"><div class="container">
+	<div class="hero__grid">
+		<div class="hero__copy">
+		<h1 class="display-large display-large--light" id="hero-title">Wir machen<br><em>Wandel</em><br>beherrschbar.</h1>
+		<div class="hero__intro"><p>Für unsere Kunden bauen wir produktive Lösungen und tragen die Verantwortung bis zum Outcome.</p></div>
+		</div>
+		<figure class="hero__visual"><?php emposo_the_picture( 'hero-flow', 'hero', true ); ?></figure>
+	</div>
+	</div></div>
 </section>

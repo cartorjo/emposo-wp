@@ -11,8 +11,8 @@
 
 ?>
 <section class="industries page-section" id="industries" aria-labelledby="industries-title">
-  <div class="gutter"><div class="container">
-    <div class="section-heading"><p class="eyebrow">Branchen</p><h2 class="display-large" id="industries-title">Unsere Branchen mit tiefem <em>Industrie-Know-how.</em></h2><p class="section-lede">Unsere Teams und Spezialisten kommen direkt aus Ihrer Branche.</p></div>
-    <?php emposo_fragment( 'industry-cards' ); ?>
-  </div></div>
+	<div class="gutter"><div class="container">
+	<div class="section-heading"><p class="eyebrow">Branchen</p><h2 class="display-large" id="industries-title">Unsere Branchen mit tiefem <em>Industrie-Know-how.</em></h2><p class="section-lede">Unsere Teams und Spezialisten kommen direkt aus Ihrer Branche.</p></div>
+	<?php emposo_fragment( 'industry-cards' ); ?>
+	</div></div>
 </section>

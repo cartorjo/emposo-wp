@@ -606,6 +606,7 @@ class Import_Command {
 				// The filter tokens in source order: data-industry prints them
 				// as-is, and the terms below carry the same set for queries.
 				'_emposo_filter'         => (string) $project['filter'],
+
 				/*
 				 * A column is one sentence (workbook cases) or the deck's bullets
 				 * (2026-09-24 cases). Both shapes stay editable: the sentence in
@@ -673,7 +674,8 @@ class Import_Command {
 
 			// Outcomes are space-separated tokens ('optimize verzahnen').
 			$outcomes = array();
-			foreach ( preg_split( '/\s+/', (string) $project['outcome'] ) ?: array() as $token ) {
+			$tokens   = preg_split( '/\s+/', trim( (string) $project['outcome'] ) );
+			foreach ( is_array( $tokens ) ? $tokens : array() as $token ) {
 				$outcome = get_term_by( 'slug', $token, TAX_OUTCOME );
 				if ( $outcome ) {
 					$outcomes[] = (int) $outcome->term_id;

@@ -11,13 +11,13 @@
 
 ?>
 <section class="page-section expertise-intro" aria-labelledby="home-expertise-title">
-  <div class="gutter"><div class="container">
-    <div class="expertise-intro__heading"><div><p class="eyebrow">Engineering + Technology</p><h2 class="display-large" id="home-expertise-title">Wir verzahnen, was <em>zusammengehört.</em></h2></div><p>Viele Projekte scheitern an den Übergängen zwischen Engineering und IT. Emposo verzahnt beide Welten, damit aus technischen Konzepten produktive Lösungen werden.</p></div>
-    <div class="expertise-pair">
-      <div><figure><?php emposo_the_picture( 'engineering' ); ?></figure><div><h3>Engineering</h3></div><p>Von der Anforderung bis zur abgesicherten Funktion.</p></div>
-      <span class="expertise-pair__join" aria-hidden="true">+</span>
-      <div><figure><?php emposo_the_picture( 'technology-team' ); ?></figure><div><h3>Technology</h3></div><p>Von Daten und Software bis zum produktiven Betrieb.</p></div>
-    </div>
-    <p class="section-more"><strong>Wir verbinden, was andere getrennt betrachten.</strong></p>
-  </div></div>
+	<div class="gutter"><div class="container">
+	<div class="expertise-intro__heading"><div><p class="eyebrow">Engineering + Technology</p><h2 class="display-large" id="home-expertise-title">Wir verzahnen, was <em>zusammengehört.</em></h2></div><p>Viele Projekte scheitern an den Übergängen zwischen Engineering und IT. Emposo verzahnt beide Welten, damit aus technischen Konzepten produktive Lösungen werden.</p></div>
+	<div class="expertise-pair">
+		<div><figure><?php emposo_the_picture( 'engineering' ); ?></figure><div><h3>Engineering</h3></div><p>Von der Anforderung bis zur abgesicherten Funktion.</p></div>
+		<span class="expertise-pair__join" aria-hidden="true">+</span>
+		<div><figure><?php emposo_the_picture( 'technology-team' ); ?></figure><div><h3>Technology</h3></div><p>Von Daten und Software bis zum produktiven Betrieb.</p></div>
+	</div>
+	<p class="section-more"><strong>Wir verbinden, was andere getrennt betrachten.</strong></p>
+	</div></div>
 </section>
