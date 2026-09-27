@@ -1,6 +1,19 @@
 {
   "wpBase": "http://localhost:8888",
   "themeBase": "/wp-content/themes/emposo",
-  "allowedDeltas": [],
-  "note": "Empty by design. Every WordPress-vs-static difference encountered so far turned out to be genuinely inert and is handled in tools/normalise.mjs, where it is documented and covered by a self-test assertion \u2014 rather than waived here. An entry in this list means \"we accept a real difference\"; needing one should prompt a hard look first. Each entry requires a pattern, a reason and a maxCount, and is printed in every report."
+  "allowedDeltas": [
+    {
+      "id": "contact-form",
+      "routes": [
+        "/",
+        "/kontakt/",
+        "/en/",
+        "/en/contact/"
+      ],
+      "pattern": "<form\\b[^>]*\\bdata-contact-form\\b[^>]*>[\\s\\S]*?</form>",
+      "maxCount": 1,
+      "reason": "Contact form posts to WordPress (emposo-core inc/contact.php) instead of a mailto: handoff: action, hidden fields, honeypot, status line, submit and explanation wording differ. Owner decision 2026-09-27. The region must still exist once on each side."
+    }
+  ],
+  "note": "Accepted real differences, each with routes, a pattern over the normalised document, a reason and a maxCount; applied by applyAllowedDeltas() in parity.mjs and printed in every report. Inert differences belong in tools/normalise.mjs instead. Needing an entry should prompt a hard look first."
 }

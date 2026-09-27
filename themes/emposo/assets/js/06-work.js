@@ -1,6 +1,7 @@
-/* Filterable project portfolio and a privacy-preserving contact fallback.
-   No third-party service is used: filters run locally and the form hands the
-   completed request to the visitor's own mail client. */
+/* Filterable project portfolio and contact-form validation.
+   No third-party service is used: filters run locally, and a valid form posts
+   to this site (emposo-core inc/contact.php). Unlike the static build there is
+   no mailto: handoff — the reference's copy of this file keeps that. */
 (function () {
   'use strict';
   if (!window.__onReady) return;
@@ -112,7 +113,9 @@
         interest: { valueMissing: 'Bitte wählen Sie aus, worum es geht.' },
         message: { valueMissing: 'Bitte schreiben Sie uns kurz, worum es geht.' }
       };
-      var fields = Array.prototype.slice.call(form.querySelectorAll('input, select, textarea'));
+      // The visible fields only: hidden inputs and the honeypot carry no
+      // supporting text and are checked on the server.
+      var fields = Array.prototype.slice.call(form.querySelectorAll('[aria-describedby]'));
       var check = function (field) {
         var support = document.getElementById(field.getAttribute('aria-describedby'));
         var valid = field.checkValidity();
@@ -131,24 +134,16 @@
         field.addEventListener('change', function () { if (field.getAttribute('aria-invalid') === 'true') check(field); });
       });
       form.addEventListener('submit', function (event) {
-        event.preventDefault();
         var firstInvalid = null;
         fields.forEach(function (field) { if (!check(field) && !firstInvalid) firstInvalid = field; });
-        if (firstInvalid) { firstInvalid.focus(); return; }
-        var data = new FormData(form);
-        var labels = en
-          ? { name: 'Name: ', company: 'Company: ', email: 'Email: ', interest: 'Interest: ', message: 'Message:', subject: 'Emposo inquiry: ' }
-          : { name: 'Name: ', company: 'Unternehmen: ', email: 'E-Mail: ', interest: 'Interesse: ', message: 'Nachricht:', subject: 'Emposo Anfrage: ' };
-        var body = [
-          labels.name + data.get('name'),
-          labels.company + data.get('company'),
-          labels.email + data.get('email'),
-          labels.interest + data.get('interest'),
-          '',
-          labels.message,
-          data.get('message')
-        ].join('\n');
-        window.location.href = 'mailto:info@emposo.eu?subject=' + encodeURIComponent(labels.subject + data.get('interest')) + '&body=' + encodeURIComponent(body);
+        if (!firstInvalid) {
+          // Valid: let the browser post it, once.
+          var button = form.querySelector('button[type="submit"]');
+          if (button) button.disabled = true;
+          return;
+        }
+        event.preventDefault();
+        firstInvalid.focus();
       });
     }
   });

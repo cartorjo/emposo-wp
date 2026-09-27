@@ -59,6 +59,45 @@ export function resultLabel(state, problemCount, strict) {
 	return 'fail';
 }
 
+/**
+ * Carve accepted differences out of both normalised documents.
+ *
+ * Each allowedDeltas entry names the routes it applies to, a regex over the
+ * NORMALISED document (attributes are sorted there, so patterns must not rely
+ * on attribute order) and a maxCount. Every match, on both sides, becomes the
+ * same placeholder, so the rest of the document is still compared strictly.
+ * The region itself must still exist: a different match count between the
+ * two sides, or more than maxCount, is a problem — a carve-out may hide what
+ * is inside the region, never that the region vanished or multiplied.
+ *
+ * Pure and exported so tools/check-harness.mjs can assert it.
+ *
+ * @param {string} expected Normalised reference document.
+ * @param {string} got      Normalised WordPress document.
+ * @param {string} url      Route URL.
+ * @param {Array<{id: string, routes: string[], pattern: string, maxCount: number}>} deltas
+ * @returns {{expected: string, got: string, problems: string[]}}
+ */
+export function applyAllowedDeltas(expected, got, url, deltas) {
+	const problems = [];
+	for (const delta of deltas) {
+		if (!delta.routes.includes(url)) continue;
+		const pattern = new RegExp(delta.pattern, 'g');
+		const placeholder = `<!--allowed-delta:${delta.id}-->`;
+		const before = (expected.match(pattern) ?? []).length;
+		const after = (got.match(pattern) ?? []).length;
+		if (before !== after) {
+			problems.push(`allowed delta ${delta.id}: ${before} region(s) in the reference, ${after} in WordPress`);
+		}
+		if (after > delta.maxCount) {
+			problems.push(`allowed delta ${delta.id}: ${after} region(s), max ${delta.maxCount}`);
+		}
+		expected = expected.replace(pattern, placeholder);
+		got = got.replace(pattern, placeholder);
+	}
+	return { expected, got, problems };
+}
+
 const config = JSON.parse(readFileSync(path.join(REPO_ROOT, 'tools/parity.config.json'), 'utf8'));
 const WP_BASE = opt('base') ?? config.wpBase;
 const THEME_DIR = path.join(REPO_ROOT, 'themes', 'emposo');
@@ -173,8 +212,13 @@ async function main() {
 		// The same origin is stripped from the reference too: against the live
 		// site (--base=https://emposo.de) the head's canonical/OG URLs name that
 		// origin on both sides. Elsewhere the reference never contains the base.
-		const expected = normalise(staticHtml, { themeBase: config.themeBase, siteOrigin: normaliseOptions.siteOrigin });
-		const got = normalise(actualHtml, normaliseOptions);
+		const carved = applyAllowedDeltas(
+			normalise(staticHtml, { themeBase: config.themeBase, siteOrigin: normaliseOptions.siteOrigin }),
+			normalise(actualHtml, normaliseOptions),
+			route.url,
+			SELF_TEST || AGAINST_STATIC ? [] : config.allowedDeltas
+		);
+		const { expected, got } = carved;
 		const state = classify(expected, got);
 
 		const assetRoot = AGAINST_STATIC ? STATIC_ROOT : THEME_DIR;
@@ -208,6 +252,7 @@ async function main() {
 			diff: state === 'different' || state === 'whitespace-only' ? firstDiff(expected, got) : null,
 			checks,
 			links,
+			deltas: carved.problems,
 			expected,
 			got,
 		});
@@ -228,7 +273,7 @@ async function main() {
 		if (r.statusOk === false) problems.push(`HTTP ${r.status}, expected ${r.route.expectStatus}`);
 		if (r.state === 'different') problems.push('DOM differs');
 		if (r.state === 'whitespace-only' && STRICT) problems.push('whitespace differs (strict)');
-		problems.push(...(r.structure ?? []), ...(r.checks ?? []), ...(r.links ?? []));
+		problems.push(...(r.structure ?? []), ...(r.checks ?? []), ...(r.links ?? []), ...(r.deltas ?? []));
 
 		const label = resultLabel(r.state, problems.length, STRICT);
 

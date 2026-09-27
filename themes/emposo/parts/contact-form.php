@@ -6,22 +6,21 @@
  * by tools/port-partial.mjs and hand-maintained from here on — whitespace and
  * attribute order are load-bearing for the parity diff, so edit carefully.
  *
- * The recipient and the interest list come from options the importer already
- * writes. They were hard-coded here while `emposo_contact_recipient` and
- * `emposo_interests` sat in the database unread — so the one field on this site
- * that decides where every enquiry goes could not be changed without a deploy,
- * and the admin screen's warning about it pointed at a value nothing could
- * edit. The literals remain as fallbacks, so output is byte-identical when the
- * options are absent or hold what the export holds.
+ * The interest list comes from an option the importer already writes
+ * (`emposo_interests`, `emposo_interests_en`); the literals remain as a
+ * fallback. The recipient is no longer in the markup at all: the handler reads
+ * `emposo_contact_recipient` (Contact\recipient()).
+ *
+ * Unlike the reference, the form posts to this site (inc/contact.php in
+ * emposo-core) instead of handing off to the visitor's mail client: the
+ * action, the hidden fields, the honeypot, the status line and the submit and
+ * explanation wording differ from the static build, and the parity harness
+ * carves this <form> out on the pages that carry it (tools/parity.config.json,
+ * allowedDeltas). Everything the scripts rely on — data-contact-form, the
+ * interest select, data-contact-hint — is unchanged.
  *
  * @package Emposo
  */
-
-$emposo_recipient = sanitize_email( (string) get_option( 'emposo_contact_recipient', '' ) );
-
-if ( '' === $emposo_recipient ) {
-	$emposo_recipient = 'info@emposo.eu';
-}
 
 // The interests in the page language: English pages read emposo_interests_en.
 $emposo_interests = get_option( 'en' === emposo_lang() ? 'emposo_interests_en' : 'emposo_interests', array() );
@@ -35,6 +34,11 @@ if ( ! is_array( $emposo_interests ) || ! $emposo_interests ) {
 		array( 'value' => 'Anderes Anliegen' ),
 	);
 }
+
+$emposo_lang   = 'en' === emposo_lang() ? 'en' : 'de';
+$emposo_status = \Emposo\Core\Contact\status_message( $emposo_lang );
+// The page to come back to after the POST (a path; the handler checks it).
+$emposo_return = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_parse_url( esc_url_raw( wp_unslash( (string) $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ) : '';
 
 $emposo_options = '';
 
@@ -58,4 +62,4 @@ foreach ( $emposo_interests as $emposo_interest ) {
 }
 
 ?>
-<form class="contact-form" data-contact-form action="mailto:<?php echo esc_attr( $emposo_recipient ); ?>" method="post" enctype="text/plain"><label><?php echo emposo_t( 'form.name' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><input name="name" aria-describedby="contact-name-support" autocomplete="name" required><span class="contact-form__support" id="contact-name-support"></span></label><label><?php echo emposo_t( 'form.company' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><input name="company" aria-describedby="contact-company-support" autocomplete="organization"><span class="contact-form__support" id="contact-company-support"></span></label><label><?php echo emposo_t( 'form.email' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><input name="email" aria-describedby="contact-email-support" type="email" autocomplete="email" required><span class="contact-form__support" id="contact-email-support"></span></label><label class="contact-form__select"><?php echo emposo_t( 'form.interest' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><select name="interest" aria-describedby="contact-interest-support" required><option value="" selected disabled><?php echo emposo_t( 'form.choose' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?></option><?php echo $emposo_options; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Assembled above from esc_html()/esc_attr() parts; escaping again would double-encode the labels. ?></select><span class="contact-form__support" id="contact-interest-support"></span></label><p class="contact-form__hint" data-contact-hint hidden aria-live="polite"></p><label class="contact-form__message"><?php echo emposo_t( 'form.message' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><textarea name="message" aria-describedby="contact-message-support" rows="4" required></textarea><span class="contact-form__support" id="contact-message-support"></span></label><button type="submit" class="header-contact min-h-11"><?php echo emposo_t( 'form.submit' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?> <span class="header-contact__arrow" aria-hidden="true">→</span></button><p class="contact-form__explanation"><?php echo emposo_t( 'form.explain' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?> <a href="<?php echo esc_url( emposo_href( '/datenschutzerklaerung/' ) ); ?>"><?php echo emposo_t( 'form.privacy' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?></a></p></form>
+<form class="contact-form" id="contact-form" data-contact-form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post"><?php echo '' !== $emposo_status ? '<p class="contact-form__hint" role="status">' . $emposo_status . '</p>' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by status_message(). ?><input type="hidden" name="action" value="<?php echo esc_attr( \Emposo\Core\Contact\ACTION ); ?>"><input type="hidden" name="lang" value="<?php echo esc_attr( $emposo_lang ); ?>"><input type="hidden" name="return" value="<?php echo esc_attr( $emposo_return ); ?>"><input type="hidden" name="ts" value="<?php echo esc_attr( \Emposo\Core\Contact\token() ); ?>"><div hidden><label>Website<input name="<?php echo esc_attr( \Emposo\Core\Contact\HONEYPOT ); ?>" tabindex="-1" autocomplete="off"></label></div><label><?php echo emposo_t( 'form.name' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><input name="name" aria-describedby="contact-name-support" autocomplete="name" required><span class="contact-form__support" id="contact-name-support"></span></label><label><?php echo emposo_t( 'form.company' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><input name="company" aria-describedby="contact-company-support" autocomplete="organization"><span class="contact-form__support" id="contact-company-support"></span></label><label><?php echo emposo_t( 'form.email' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><input name="email" aria-describedby="contact-email-support" type="email" autocomplete="email" required><span class="contact-form__support" id="contact-email-support"></span></label><label class="contact-form__select"><?php echo emposo_t( 'form.interest' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><select name="interest" aria-describedby="contact-interest-support" required><option value="" selected disabled><?php echo emposo_t( 'form.choose' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?></option><?php echo $emposo_options; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Assembled above from esc_html()/esc_attr() parts; escaping again would double-encode the labels. ?></select><span class="contact-form__support" id="contact-interest-support"></span></label><p class="contact-form__hint" data-contact-hint hidden aria-live="polite"></p><label class="contact-form__message"><?php echo emposo_t( 'form.message' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?><textarea name="message" aria-describedby="contact-message-support" rows="4" required></textarea><span class="contact-form__support" id="contact-message-support"></span></label><button type="submit" class="header-contact min-h-11"><?php echo esc_html( \Emposo\Core\Contact\t( 'submit', $emposo_lang ) ); ?> <span class="header-contact__arrow" aria-hidden="true">→</span></button><p class="contact-form__explanation"><?php echo esc_html( \Emposo\Core\Contact\t( 'explain', $emposo_lang ) ); ?> <a href="<?php echo esc_url( emposo_href( '/datenschutzerklaerung/' ) ); ?>"><?php echo emposo_t( 'form.privacy' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dictionary text from the reference, escaped there. ?></a></p></form>

@@ -63,6 +63,12 @@ function version(): int {
  * for a site whose content changes a few times a week.
  */
 function bump(): void {
+	// Not while suspended: a contact-form enquiry is a post, but no derived
+	// list reads enquiries, so saving one must not invalidate them all.
+	if ( suspend() ) {
+		return;
+	}
+
 	// Not during an import: the importer touches every object, and bumping per
 	// object would serialise thousands of option writes for no benefit. It
 	// flushes the cache itself when it unwinds.
@@ -71,6 +77,23 @@ function bump(): void {
 	}
 
 	update_option( VERSION_KEY, version() + 1, true );
+}
+
+/**
+ * Suspend or resume bump(), and report whether it is suspended.
+ *
+ * For writes that touch posts no derived list reads (contact-form enquiries).
+ *
+ * @param bool|null $suspended True to suspend, false to resume, null to read.
+ */
+function suspend( ?bool $suspended = null ): bool {
+	static $state = false;
+
+	if ( null !== $suspended ) {
+		$state = $suspended;
+	}
+
+	return $state;
 }
 
 /**

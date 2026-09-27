@@ -24,7 +24,7 @@ and `reduce` (Chrome DevTools → Rendering → Emulate CSS media feature).
 | `/case-studies/data2ai-platform/` | Detail template, metric, results list |
 | `/branchen/health-pharma/` | Industry **with** related case studies |
 | `/branchen/aerospace-defense/` | Industry with **none** — the related section must be absent, not empty |
-| `/kontakt/` | The contact form and its mailto handoff |
+| `/kontakt/` | The contact form and its submission (WordPress-only backend) |
 
 At each combination, confirm:
 
@@ -39,8 +39,11 @@ At each combination, confirm:
 - [ ] Filters on `/portfolio/` and `/branchen/` change the visible cards, the
       count text, and the empty state.
 - [ ] `/branchen/aerospace-defense/` shows no related-cases section at all.
-- [ ] The contact form opens the mail client addressed to the configured
-      recipient (see `emposo_contact_recipient`).
+- [ ] The contact form, DE (`/kontakt/`) and EN (`/en/contact/`): a real
+      submission returns to the page with the thank-you line, the mail
+      arrives at the configured recipient (`emposo_contact_recipient`) with
+      Reply-To set to the visitor, and the enquiry is listed under
+      Emposo → Anfragen. Delete the test enquiries afterwards.
 - [ ] Browser console clean — no errors, no CSP violations.
 
 ## 2. Keyboard and screen reader
