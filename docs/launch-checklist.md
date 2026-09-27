@@ -5,7 +5,7 @@ checks — either because it needs eyes (does the megamenu feel right?) or
 because it needs the real host (does LCP hold behind the real cache?).
 
 Automated coverage for context, so this list stays short: `npm run check`
-proves DOM parity on all 41 routes, `npm run behaviours` proves 11 interaction
+proves DOM parity on all 35 routes and the 404, `npm run behaviours` proves 9 interaction
 contracts, `npm run audit` proves budgets, axe and console cleanliness at 42
 routes, and `wp emposo verify` proves the route, content and media contracts.
 None of them looks at two viewports with reduced motion, and none of them runs

@@ -555,7 +555,7 @@ function register_meta_fields(): void {
 	}
 
 	/*
-	 * Route lock. Thirty-one of the 41 routes are Pages, so a single edited
+	 * Route lock. Twelve of the 35 routes are Pages, so a single edited
 	 * slug or changed parent silently changes a live URL — the largest risk in
 	 * the project, since URL preservation is a hard requirement.
 	 */

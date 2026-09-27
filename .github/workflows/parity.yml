@@ -1,7 +1,7 @@
 name: Parity
 
 # The primary gate. Brings up WordPress, seeds it from the frozen export, and
-# asserts that all 41 routes still render what the audited static build renders.
+# asserts that all 35 routes and the 404 still render what the audited static build renders.
 # Slow by nature — it boots Docker, imports content and drives a browser — so it
 # is a separate workflow from the fast checks.
 on:
@@ -69,7 +69,7 @@ jobs:
       # wp:bootstrap, not wp:seed. Three idempotent steps, each of which CI
       # proved is required on an empty database and none of which anything else
       # does: activate the theme (WordPress otherwise serves its own default,
-      # whose inline scripts the CSP blocks), scaffold the 41 route objects
+      # whose inline scripts the CSP blocks), scaffold the 35 route objects
       # along with postname permalinks, the front page and blog_public=0, then
       # import the content. Seeding alone produced a site where every route
       # 404ed; seeding plus scaffolding produced one where every route failed
