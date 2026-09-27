@@ -177,7 +177,7 @@ function picture( $image, string $size_key = 'default', bool $priority = false, 
 		$alt_en = (string) get_post_meta( $id, '_emposo_alt_en', true );
 		$alt    = '' !== $alt_en ? $alt_en : $alt;
 	}
-	$meta     = wp_get_attachment_metadata( $id );
+	$meta = wp_get_attachment_metadata( $id );
 
 	$width  = (int) ( $meta['width'] ?? 0 );
 	$height = (int) ( $meta['height'] ?? 0 );

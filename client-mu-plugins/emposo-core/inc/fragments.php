@@ -30,11 +30,11 @@ use WP_Post;
 use WP_Term;
 use function Emposo\Core\Cache\remember;
 use function Emposo\Core\Images\picture;
-use const Emposo\Core\ContentModel\CPT_CASE_STUDY;
-use const Emposo\Core\ContentModel\CPT_CASE_STUDY_EN;
 use function Emposo\Core\I18n\locale;
 use function Emposo\Core\I18n\localize_path;
 use function Emposo\Core\I18n\t;
+use const Emposo\Core\ContentModel\CPT_CASE_STUDY;
+use const Emposo\Core\ContentModel\CPT_CASE_STUDY_EN;
 use const Emposo\Core\ContentModel\CPT_PERSON;
 use const Emposo\Core\ContentModel\TAX_DISCIPLINE;
 use const Emposo\Core\ContentModel\TAX_INDUSTRY;
@@ -726,7 +726,7 @@ function project_page( string $slug ): string {
 
 	foreach ( array_values( $projects ) as $i => $candidate ) {
 		// The route names the German slug; an English page finds its twin's English slug.
-		if ( $candidate->post_name === ( 'en' === locale() ? \Emposo\Core\I18n\case_slug( $slug ) : $slug ) ) {
+		if ( ( 'en' === locale() ? \Emposo\Core\I18n\case_slug( $slug ) : $slug ) === $candidate->post_name ) {
 			$at = (int) $i;
 			break;
 		}

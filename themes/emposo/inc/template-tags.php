@@ -223,7 +223,7 @@ function emposo_lang_switch( string $slot ): void {
 
 	$options = '';
 	foreach ( array( 'de', 'en' ) as $lang ) {
-		$options .= '<li><a class="lang-switch__option min-h-11" href="' . esc_attr( $paths[ $lang ] ) . '" hreflang="' . $lang . '" lang="' . $lang . '"'
+		$options .= '<li><a class="lang-switch__option min-h-11" href="' . esc_url( $paths[ $lang ] ) . '" hreflang="' . $lang . '" lang="' . $lang . '"'
 			. ( $lang === $here ? ' aria-current="true"' : ' data-lang-option' ) . '>' . $names[ $lang ] . '</a></li>';
 	}
 

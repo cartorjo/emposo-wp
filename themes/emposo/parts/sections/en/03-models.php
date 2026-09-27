@@ -11,11 +11,11 @@
 
 ?>
 <section class="statement page-section" id="about" aria-labelledby="statement-title">
-  <div class="gutter"><div class="container">
-    <p class="eyebrow">Why Emposo</p>
-    <h2 class="display-large" id="statement-title">Scalable in delivery. Connected in the solution. <em>Accountable for the result.</em></h2>
-    <p class="section-lede">We bring together expertise, technology and capacity, scale flexibly as needed and take responsibility for the result.</p>
-    <?php emposo_fragment( 'company-facts' ); ?>
-    <?php emposo_fragment( 'trust-strip' ); ?>
-  </div></div>
+	<div class="gutter"><div class="container">
+	<p class="eyebrow">Why Emposo</p>
+	<h2 class="display-large" id="statement-title">Scalable in delivery. Connected in the solution. <em>Accountable for the result.</em></h2>
+	<p class="section-lede">We bring together expertise, technology and capacity, scale flexibly as needed and take responsibility for the result.</p>
+	<?php emposo_fragment( 'company-facts' ); ?>
+	<?php emposo_fragment( 'trust-strip' ); ?>
+	</div></div>
 </section>
