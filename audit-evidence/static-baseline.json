@@ -9,7 +9,7 @@
       "fullRequests": 26,
       "fullBytes": 521755,
       "largestImageBytes": 85853,
-      "cls": 0.0004,
+      "cls": 0.0003,
       "axeViolations": 0
     },
     {
@@ -19,7 +19,7 @@
       "fullRequests": 11,
       "fullBytes": 232827,
       "largestImageBytes": 59183,
-      "cls": 0.0003,
+      "cls": 0.0005,
       "axeViolations": 0
     },
     {
@@ -29,7 +29,7 @@
       "fullRequests": 13,
       "fullBytes": 277168,
       "largestImageBytes": 56442,
-      "cls": 0.0003,
+      "cls": 0.0005,
       "axeViolations": 0
     },
     {
@@ -45,9 +45,9 @@
     {
       "url": "/branchen/",
       "requests": 19,
-      "totalBytes": 420831,
+      "totalBytes": 420698,
       "fullRequests": 39,
-      "fullBytes": 864094,
+      "fullBytes": 863961,
       "largestImageBytes": 56442,
       "cls": 0.0003,
       "axeViolations": 0
@@ -89,7 +89,7 @@
       "fullRequests": 13,
       "fullBytes": 294262,
       "largestImageBytes": 56442,
-      "cls": 0.0003,
+      "cls": 0.0007,
       "axeViolations": 0
     },
     {
@@ -105,11 +105,11 @@
     {
       "url": "/case-studies/wissens-assistent/",
       "requests": 13,
-      "totalBytes": 281632,
+      "totalBytes": 281131,
       "fullRequests": 13,
-      "fullBytes": 281632,
+      "fullBytes": 281131,
       "largestImageBytes": 56442,
-      "cls": 0.0009,
+      "cls": 0.0005,
       "axeViolations": 0
     },
     {
@@ -119,7 +119,7 @@
       "fullRequests": 13,
       "fullBytes": 248109,
       "largestImageBytes": 33491,
-      "cls": 0.0007,
+      "cls": 0.0003,
       "axeViolations": 0
     },
     {
@@ -145,9 +145,9 @@
     {
       "url": "/case-studies/software-planung-antriebssteuergeraete/",
       "requests": 13,
-      "totalBytes": 245181,
+      "totalBytes": 245069,
       "fullRequests": 13,
-      "fullBytes": 245181,
+      "fullBytes": 245069,
       "largestImageBytes": 28282,
       "cls": 0.0005,
       "axeViolations": 0
@@ -155,9 +155,9 @@
     {
       "url": "/case-studies/gewichtsmanagement-sportwagen/",
       "requests": 13,
-      "totalBytes": 310474,
+      "totalBytes": 310450,
       "fullRequests": 13,
-      "fullBytes": 310474,
+      "fullBytes": 310450,
       "largestImageBytes": 56442,
       "cls": 0.0007,
       "axeViolations": 0
@@ -165,49 +165,49 @@
     {
       "url": "/case-studies/qualitaetsarbeit-pharma-diagnostik/",
       "requests": 13,
-      "totalBytes": 245663,
+      "totalBytes": 245630,
       "fullRequests": 13,
-      "fullBytes": 245663,
+      "fullBytes": 245630,
       "largestImageBytes": 30215,
-      "cls": 0.0003,
+      "cls": 0.0005,
       "axeViolations": 0
     },
     {
       "url": "/case-studies/ki-testspezifikation/",
       "requests": 13,
-      "totalBytes": 279819,
+      "totalBytes": 279715,
       "fullRequests": 13,
-      "fullBytes": 279819,
+      "fullBytes": 279715,
       "largestImageBytes": 56442,
-      "cls": 0.0003,
+      "cls": 0.0005,
       "axeViolations": 0
     },
     {
       "url": "/case-studies/technische-dokumentation-halbleiter/",
       "requests": 13,
-      "totalBytes": 245125,
+      "totalBytes": 244911,
       "fullRequests": 13,
-      "fullBytes": 245125,
-      "largestImageBytes": 28282,
-      "cls": 0.0005,
-      "axeViolations": 0
-    },
-    {
-      "url": "/case-studies/projektsteuerung-chip-entwicklung/",
-      "requests": 13,
-      "totalBytes": 245042,
-      "fullRequests": 13,
-      "fullBytes": 245042,
+      "fullBytes": 244911,
       "largestImageBytes": 28282,
       "cls": 0.0003,
       "axeViolations": 0
     },
     {
+      "url": "/case-studies/projektsteuerung-chip-entwicklung/",
+      "requests": 13,
+      "totalBytes": 244930,
+      "fullRequests": 13,
+      "fullBytes": 244930,
+      "largestImageBytes": 28282,
+      "cls": 0.0046,
+      "axeViolations": 0
+    },
+    {
       "url": "/case-studies/auslagerung-zerspanung/",
       "requests": 13,
-      "totalBytes": 253861,
+      "totalBytes": 253705,
       "fullRequests": 13,
-      "fullBytes": 253861,
+      "fullBytes": 253705,
       "largestImageBytes": 42554,
       "cls": 0.0005,
       "axeViolations": 0
@@ -215,9 +215,9 @@
     {
       "url": "/case-studies/technische-dokumentation-antriebsumrichter/",
       "requests": 13,
-      "totalBytes": 239255,
+      "totalBytes": 239166,
       "fullRequests": 13,
-      "fullBytes": 239255,
+      "fullBytes": 239166,
       "largestImageBytes": 28282,
       "cls": 0.0005,
       "axeViolations": 0
@@ -225,9 +225,9 @@
     {
       "url": "/case-studies/virtuelles-kraftwerk/",
       "requests": 13,
-      "totalBytes": 258603,
+      "totalBytes": 258467,
       "fullRequests": 13,
-      "fullBytes": 258603,
+      "fullBytes": 258467,
       "largestImageBytes": 49856,
       "cls": 0.0003,
       "axeViolations": 0
@@ -235,9 +235,9 @@
     {
       "url": "/case-studies/plattformen-kreislaufwirtschaft/",
       "requests": 12,
-      "totalBytes": 226027,
+      "totalBytes": 225857,
       "fullRequests": 12,
-      "fullBytes": 226027,
+      "fullBytes": 225857,
       "largestImageBytes": 24013,
       "cls": 0.0003,
       "axeViolations": 0
@@ -245,9 +245,9 @@
     {
       "url": "/case-studies/funktionsbetreuung-infotainment/",
       "requests": 13,
-      "totalBytes": 310436,
+      "totalBytes": 310214,
       "fullRequests": 13,
-      "fullBytes": 310436,
+      "fullBytes": 310214,
       "largestImageBytes": 56442,
       "cls": 0.0003,
       "axeViolations": 0
@@ -255,9 +255,9 @@
     {
       "url": "/case-studies/penetrationstests/",
       "requests": 13,
-      "totalBytes": 248908,
+      "totalBytes": 248844,
       "fullRequests": 13,
-      "fullBytes": 248908,
+      "fullBytes": 248844,
       "largestImageBytes": 33491,
       "cls": 0.0003,
       "axeViolations": 0
@@ -265,9 +265,9 @@
     {
       "url": "/case-studies/cybersecurity-post-market/",
       "requests": 13,
-      "totalBytes": 248924,
+      "totalBytes": 248900,
       "fullRequests": 13,
-      "fullBytes": 248924,
+      "fullBytes": 248900,
       "largestImageBytes": 33491,
       "cls": 0.0003,
       "axeViolations": 0
@@ -275,21 +275,21 @@
     {
       "url": "/case-studies/informationssicherheits-risikomanagement/",
       "requests": 13,
-      "totalBytes": 239507,
+      "totalBytes": 239483,
       "fullRequests": 13,
-      "fullBytes": 239507,
+      "fullBytes": 239483,
       "largestImageBytes": 23402,
-      "cls": 0.0003,
+      "cls": 0.0004,
       "axeViolations": 0
     },
     {
       "url": "/case-studies/fuzzing-firmware/",
       "requests": 13,
-      "totalBytes": 241301,
+      "totalBytes": 241277,
       "fullRequests": 13,
-      "fullBytes": 241301,
+      "fullBytes": 241277,
       "largestImageBytes": 23498,
-      "cls": 0.0005,
+      "cls": 0.0003,
       "axeViolations": 0
     },
     {
@@ -299,7 +299,7 @@
       "fullRequests": 10,
       "fullBytes": 180723,
       "largestImageBytes": 0,
-      "cls": 0.0005,
+      "cls": 0.0003,
       "axeViolations": 0
     },
     {
@@ -379,7 +379,7 @@
       "fullRequests": 13,
       "fullBytes": 277105,
       "largestImageBytes": 56442,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
@@ -389,15 +389,15 @@
       "fullRequests": 19,
       "fullBytes": 315589,
       "largestImageBytes": 78616,
-      "cls": 0.0002,
+      "cls": 0.0004,
       "axeViolations": 0
     },
     {
       "url": "/en/industries/",
       "requests": 19,
-      "totalBytes": 420863,
+      "totalBytes": 420739,
       "fullRequests": 39,
-      "fullBytes": 864126,
+      "fullBytes": 864002,
       "largestImageBytes": 56442,
       "cls": 0.0002,
       "axeViolations": 0
@@ -449,17 +449,17 @@
       "fullRequests": 13,
       "fullBytes": 277317,
       "largestImageBytes": 56442,
-      "cls": 0.0002,
+      "cls": 0.0004,
       "axeViolations": 0
     },
     {
       "url": "/en/case-studies/knowledge-assistant/",
       "requests": 13,
-      "totalBytes": 281656,
+      "totalBytes": 281187,
       "fullRequests": 13,
-      "fullBytes": 281656,
+      "fullBytes": 281187,
       "largestImageBytes": 56442,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
@@ -469,7 +469,7 @@
       "fullRequests": 13,
       "fullBytes": 248065,
       "largestImageBytes": 33491,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
@@ -489,25 +489,25 @@
       "fullRequests": 13,
       "fullBytes": 269416,
       "largestImageBytes": 49856,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
       "url": "/en/case-studies/powertrain-ecu-software-planning/",
       "requests": 13,
-      "totalBytes": 245219,
+      "totalBytes": 245093,
       "fullRequests": 13,
-      "fullBytes": 245219,
+      "fullBytes": 245093,
       "largestImageBytes": 28282,
-      "cls": 0.0002,
+      "cls": 0.0004,
       "axeViolations": 0
     },
     {
       "url": "/en/case-studies/sports-car-weight-management/",
       "requests": 13,
-      "totalBytes": 310489,
+      "totalBytes": 310462,
       "fullRequests": 13,
-      "fullBytes": 310489,
+      "fullBytes": 310462,
       "largestImageBytes": 56442,
       "cls": 0.0002,
       "axeViolations": 0
@@ -515,29 +515,29 @@
     {
       "url": "/en/case-studies/pharma-diagnostics-quality/",
       "requests": 13,
-      "totalBytes": 245584,
+      "totalBytes": 245547,
       "fullRequests": 13,
-      "fullBytes": 245584,
+      "fullBytes": 245547,
       "largestImageBytes": 30215,
-      "cls": 0.0002,
+      "cls": 0.0004,
       "axeViolations": 0
     },
     {
       "url": "/en/case-studies/ai-test-specification/",
       "requests": 13,
-      "totalBytes": 279760,
+      "totalBytes": 279651,
       "fullRequests": 13,
-      "fullBytes": 279760,
+      "fullBytes": 279651,
       "largestImageBytes": 56442,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
       "url": "/en/case-studies/semiconductor-technical-documentation/",
       "requests": 13,
-      "totalBytes": 245359,
+      "totalBytes": 245137,
       "fullRequests": 13,
-      "fullBytes": 245359,
+      "fullBytes": 245137,
       "largestImageBytes": 28282,
       "cls": 0.0002,
       "axeViolations": 0
@@ -545,9 +545,9 @@
     {
       "url": "/en/case-studies/chip-development-project-control/",
       "requests": 13,
-      "totalBytes": 245197,
+      "totalBytes": 245080,
       "fullRequests": 13,
-      "fullBytes": 245197,
+      "fullBytes": 245080,
       "largestImageBytes": 28282,
       "cls": 0.0002,
       "axeViolations": 0
@@ -555,9 +555,9 @@
     {
       "url": "/en/case-studies/machining-outsourcing/",
       "requests": 13,
-      "totalBytes": 253850,
+      "totalBytes": 253700,
       "fullRequests": 13,
-      "fullBytes": 253850,
+      "fullBytes": 253700,
       "largestImageBytes": 42554,
       "cls": 0.0002,
       "axeViolations": 0
@@ -565,9 +565,9 @@
     {
       "url": "/en/case-studies/drive-inverter-technical-documentation/",
       "requests": 13,
-      "totalBytes": 239234,
+      "totalBytes": 239134,
       "fullRequests": 13,
-      "fullBytes": 239234,
+      "fullBytes": 239134,
       "largestImageBytes": 28282,
       "cls": 0.0002,
       "axeViolations": 0
@@ -575,9 +575,9 @@
     {
       "url": "/en/case-studies/virtual-power-plant/",
       "requests": 13,
-      "totalBytes": 258646,
+      "totalBytes": 258505,
       "fullRequests": 13,
-      "fullBytes": 258646,
+      "fullBytes": 258505,
       "largestImageBytes": 49856,
       "cls": 0.0002,
       "axeViolations": 0
@@ -585,19 +585,19 @@
     {
       "url": "/en/case-studies/circular-economy-platforms/",
       "requests": 12,
-      "totalBytes": 225990,
+      "totalBytes": 225823,
       "fullRequests": 12,
-      "fullBytes": 225990,
+      "fullBytes": 225823,
       "largestImageBytes": 24013,
-      "cls": 0.0002,
+      "cls": 0.0006,
       "axeViolations": 0
     },
     {
       "url": "/en/case-studies/infotainment-function-support/",
       "requests": 13,
-      "totalBytes": 310558,
+      "totalBytes": 310320,
       "fullRequests": 13,
-      "fullBytes": 310558,
+      "fullBytes": 310320,
       "largestImageBytes": 56442,
       "cls": 0.0002,
       "axeViolations": 0
@@ -605,9 +605,9 @@
     {
       "url": "/en/case-studies/penetration-testing/",
       "requests": 13,
-      "totalBytes": 248998,
+      "totalBytes": 248934,
       "fullRequests": 13,
-      "fullBytes": 248998,
+      "fullBytes": 248934,
       "largestImageBytes": 33491,
       "cls": 0.0002,
       "axeViolations": 0
@@ -615,9 +615,9 @@
     {
       "url": "/en/case-studies/post-market-cybersecurity/",
       "requests": 13,
-      "totalBytes": 248997,
+      "totalBytes": 248970,
       "fullRequests": 13,
-      "fullBytes": 248997,
+      "fullBytes": 248970,
       "largestImageBytes": 33491,
       "cls": 0.0006,
       "axeViolations": 0
@@ -625,9 +625,9 @@
     {
       "url": "/en/case-studies/medtech-information-security-risk/",
       "requests": 13,
-      "totalBytes": 239438,
+      "totalBytes": 239411,
       "fullRequests": 13,
-      "fullBytes": 239438,
+      "fullBytes": 239411,
       "largestImageBytes": 23402,
       "cls": 0.0002,
       "axeViolations": 0
@@ -635,11 +635,11 @@
     {
       "url": "/en/case-studies/firmware-fuzzing/",
       "requests": 13,
-      "totalBytes": 241385,
+      "totalBytes": 241358,
       "fullRequests": 13,
-      "fullBytes": 241385,
+      "fullBytes": 241358,
       "largestImageBytes": 23498,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
@@ -655,9 +655,9 @@
     {
       "url": "/en/privacy-policy/",
       "requests": 10,
-      "totalBytes": 472211,
+      "totalBytes": 428647,
       "fullRequests": 10,
-      "fullBytes": 472211,
+      "fullBytes": 428647,
       "largestImageBytes": 0,
       "cls": 0.0002,
       "axeViolations": 0
@@ -669,7 +669,7 @@
       "fullRequests": 10,
       "fullBytes": 189778,
       "largestImageBytes": 0,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {
@@ -679,7 +679,7 @@
       "fullRequests": 10,
       "fullBytes": 180539,
       "largestImageBytes": 0,
-      "cls": 0.0004,
+      "cls": 0.0002,
       "axeViolations": 0
     },
     {

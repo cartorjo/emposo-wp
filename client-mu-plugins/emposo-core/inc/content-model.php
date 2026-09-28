@@ -361,9 +361,9 @@ function can_edit_meta( $allowed, $meta_key, $post_id ): bool {
  * Sanitise a metric string.
  *
  * Deliberately only sanitize_text_field: the values carry qualifiers that are
- * factual claims and must survive byte-for-byte — '>70 %', '80.000 €', '27+',
+ * factual claims and must survive byte-for-byte — '>70 %', '>10×', '27+',
  * '8+'. Nothing in the import or render path may normalise whitespace, convert
- * the euro sign, or strip '+' or '>'.
+ * a sign, or strip '+' or '>'.
  *
  * @param mixed $value Raw value.
  */
@@ -437,7 +437,7 @@ function sanitize_id_list( $value ): array {
  *
  * Applies sanitize_text_field per item, which preserves the qualifiers these
  * carry —
- * 'Über 70 % weniger Prüfaufwand', 'Bis zu 80.000 EUR ... pro Monat'. Nothing
+ * 'Über 70 % weniger Prüfaufwand', '30 Tests bei 19 Kunden'. Nothing
  * here may normalise whitespace, convert a currency symbol, or strip '+' or
  * '>': each is a factual claim.
  *
