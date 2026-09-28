@@ -308,9 +308,24 @@ uses.
 13. **Smoke test while still noindexed**: front page, nav routes, a case
     study, the three legal pages (real content, 200, no CSP console errors), a
     garbage URL → 404, one real contact-form submission per language arriving
-    by mail and under Emposo → Anfragen, the dashboard green, JS alive, and exactly one
+    by mail and under Emposo → Anfragen (then delete the test enquiries), the dashboard green, JS alive, and exactly one
     robots meta and one `<title>` in the page source — a missed SEO plugin
     would add a second. Work through `docs/launch-checklist.md`.
+
+### Host cron for the enquiry purge
+
+`wp-config.php` on the host sets `DISABLE_WP_CRON` to true, so WP-Cron never
+fires on page loads. The contact-form purge (`emposo_enquiry_purge`: delete
+enquiries older than 90 days, a promise the privacy policy makes) therefore
+runs from the account's own crontab. It was installed 2026-09-28 and only runs
+that one hook. The host's other due WP-Cron events are deliberately left alone:
+
+```
+17 3 * * * cd /home/emposodelive/site/public_html && /usr/bin/php85 /usr/local/bin/wp cron event run emposo_enquiry_purge --quiet >/dev/null 2>&1
+```
+
+Check with `crontab -l`. On a new host, or if `DISABLE_WP_CRON` is ever
+removed, re-check that the purge still runs.
 
 ## D. Launch flip
 
