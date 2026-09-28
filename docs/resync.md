@@ -115,6 +115,34 @@ every page under `/en/`, and each step above covers both locales:
   view-transition abort. WordPress is not affected. The defect is
   cartorjo/weave-clone#40.
 
+## Where WordPress deliberately differs: the contact form
+
+Since 2026-09-27 the contact form posts to WordPress
+(`client-mu-plugins/emposo-core/inc/contact.php`); the reference keeps its
+mailto: handoff, because the static build has no backend. Two mechanisms keep
+that one difference from spreading on a re-pin:
+
+- **`tools/sync-assets.mjs` `LOCAL_OVERRIDES`** never overwrites
+  `assets/js/06-work.js`. When the reference changes its copy, sync reports
+  drift (and `--check` fails) until the change is merged by hand and the new
+  hash pinned there. Keep the local submit handler: it validates and lets the
+  browser post, with no mailto: redirect.
+- **`tools/parity.config.json` `allowedDeltas`** carves the
+  `<form … data-contact-form>` region out of the diff on `/`, `/kontakt/`,
+  `/en/` and `/en/contact/`, and only there. The region must still appear
+  exactly once on both sides. Everything around it stays strict. Changes to the
+  reference's form fields (labels, interests, ids) are therefore not caught by
+  parity: port them into `themes/emposo/parts/contact-form.php` by hand.
+- **The privacy paragraph** on `/datenschutzerklaerung/` and
+  `/en/privacy-policy/` is a WordPress-only block
+  (`<div data-wp-only="contact-form-privacy">`, end of section 6, before
+  "7. Alumni" / "7. Staff Alumni"). It describes the form backend, so it is
+  true only here (owner decision 2026-09-27: WordPress-only, not in
+  weave-clone). **Re-porting either privacy template with port-partial drops
+  it** — parity then fails on that route (the `wpOnly` delta expects it
+  exactly once). Re-insert it verbatim from git history; the wording is
+  owner-approved and must not change without a new approval.
+
 ## Known limits
 
 - `npm run audit` whole-page byte totals used to vary run to run on the

@@ -21,6 +21,7 @@ namespace Emposo\Core\Dashboard;
 use function Emposo\Core\Claude\is_configured as claude_configured;
 use function Emposo\Core\Claude\key_source as claude_key_source;
 use const Emposo\Core\ContentModel\CPT_CASE_STUDY;
+use const Emposo\Core\ContentModel\CPT_ENQUIRY;
 use const Emposo\Core\ContentModel\CPT_PERSON;
 use const Emposo\Core\ContentModel\TAX_DISCIPLINE;
 use const Emposo\Core\ContentModel\TAX_INDUSTRY;
@@ -81,6 +82,12 @@ function register_page(): void {
 		'dashicons-chart-area',
 		2
 	);
+
+	// The first submenu entry is what the top-level item opens, so the
+	// dashboard itself comes first; the enquiry list (content-model.php)
+	// follows it.
+	add_submenu_page( MENU_SLUG, __( 'Emposo', 'emposo' ), __( 'Übersicht', 'emposo' ), 'manage_options', MENU_SLUG );
+	add_submenu_page( MENU_SLUG, __( 'Anfragen', 'emposo' ), __( 'Anfragen', 'emposo' ), 'manage_options', 'edit.php?post_type=' . CPT_ENQUIRY );
 }
 
 /**
@@ -124,44 +131,26 @@ function render(): void {
 }
 
 /**
- * The standing warning about the contact recipient.
+ * The standing notice about the contact recipient.
  *
- * The contact form is a mailto: form — there is no backend — so whatever
- * address it carries receives every enquiry the site produces. It currently
- * ships a personal address, which is fine for a staging site and wrong for a
- * launched one, and it is hard-coded in the template rather than stored in an
- * option, so nothing else on this screen would reveal it.
- *
- * This notice is deliberately not dismissible.
+ * The contact form posts to inc/contact.php, which mails every enquiry to one
+ * address — the emposo_contact_recipient option, else the shared inbox — and
+ * keeps a private copy under Anfragen. Nothing else on this screen reveals
+ * where enquiries go, so this notice is deliberately not dismissible.
  */
 function render_recipient_warning(): void {
-	$recipient = (string) get_option( 'emposo_contact_recipient', '' );
-	$template  = get_theme_file_path( 'parts/contact-form.php' );
-	$in_markup = '';
+	$enquiries = admin_url( 'edit.php?post_type=' . CPT_ENQUIRY );
 
-	if ( is_readable( $template ) ) {
-		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents,WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown -- A theme template on local disk, never a URL; read once on an admin screen.
-		$markup = (string) file_get_contents( $template );
-
-		if ( preg_match( '/mailto:([^"\']+)/', $markup, $matches ) ) {
-			$in_markup = sanitize_email( $matches[1] );
-		}
-	}
-
-	$addresses = array_values( array_unique( array_filter( array( $in_markup, $recipient ) ) ) );
-
-	if ( ! $addresses ) {
-		return;
-	}
-
-	echo '<div class="notice notice-warning"><p><strong>';
-	echo esc_html__( 'Kontaktformular: Empfängeradresse prüfen', 'emposo' );
+	echo '<div class="notice notice-info"><p><strong>';
+	echo esc_html__( 'Kontaktformular: Empfängeradresse', 'emposo' );
 	echo '</strong><br>';
 	printf(
-		/* translators: %s: comma-separated list of email addresses. */
-		esc_html__( 'Jede Anfrage über das Formular geht an: %s. Das Formular ist ein mailto:-Formular ohne Backend — diese Adresse empfängt alles. Vor dem Launch auf eine Funktionsadresse ändern (parts/contact-form.php).', 'emposo' ),
-		'<code>' . esc_html( implode( '</code>, <code>', $addresses ) ) . '</code>'
+		/* translators: 1: email address, 2: number of days. */
+		esc_html__( 'Jede Anfrage über das Formular wird per E-Mail an %1$s gesendet (Option emposo_contact_recipient) und %2$s Tage lang unter „Anfragen“ aufbewahrt.', 'emposo' ),
+		'<code>' . esc_html( \Emposo\Core\Contact\recipient() ) . '</code>',
+		esc_html( (string) \Emposo\Core\Contact\RETENTION_DAYS )
 	);
+	echo ' <a href="' . esc_url( $enquiries ) . '">' . esc_html__( 'Anfragen ansehen', 'emposo' ) . '</a>';
 	echo '</p></div>';
 }
 

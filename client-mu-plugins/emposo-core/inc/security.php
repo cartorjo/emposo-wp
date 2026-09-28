@@ -83,7 +83,7 @@ function send_security_headers(): void {
 		"img-src 'self' data:",
 		"font-src 'self'",
 		"connect-src 'self'",
-		"form-action 'self' mailto:",
+		"form-action 'self'",
 		"frame-ancestors 'none'",
 		"base-uri 'self'",
 		"object-src 'none'",

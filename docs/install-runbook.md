@@ -205,8 +205,9 @@ before install day.
   AVIF sources, fall back to JPEG, and the largest-image budget breaks.
 - Cloudflare prep: confirm **Email Obfuscation, Rocket Loader and Auto Minify
   are OFF before the smoke test** — obfuscation injects a `/cdn-cgi/` script
-  the CSP blocks and garbles the mailto contact path, the site's only contact
-  channel. Draft the redirect map (D3). Optionally prepare a WAF rule limiting
+  the CSP blocks and garbles the mailto links on the site. Bot protection
+  must not challenge `POST /wp-admin/admin-post.php`: the contact form posts
+  there, anonymously, and a challenge page would swallow every enquiry. Draft the redirect map (D3). Optionally prepare a WAF rule limiting
   the site to the operator's IP for the cutover window — there is no
   `.maintenance`-file option, it would lock wp-admin too.
 - Backup channel: **ManageWP is already connected** (fact 19) — take the full
@@ -271,7 +272,7 @@ uses.
 
    | Decision | Plugins |
    |---|---|
-   | **Keep** | SMTP Mailer (password-reset mail must still send) |
+   | **Keep** | SMTP Mailer (password-reset mail must still send, and it delivers every contact-form enquiry) |
    | **Drop, special order first** | Wordfence — Remove Extended Protection BEFORE deactivating (fact 18) |
    | **Drop after its backup is taken** | ManageWP Worker + its mu-plugins loader (fact 19) |
    | **Drop after the submissions CSV export** | Elementor Form Submissions Access |
@@ -306,8 +307,8 @@ uses.
 12. Remove the WAF shield if used.
 13. **Smoke test while still noindexed**: front page, nav routes, a case
     study, the three legal pages (real content, 200, no CSP console errors), a
-    garbage URL → 404, the contact form opening a mail client to the
-    configured recipient, the dashboard green, JS alive, and exactly one
+    garbage URL → 404, one real contact-form submission per language arriving
+    by mail and under Emposo → Anfragen, the dashboard green, JS alive, and exactly one
     robots meta and one `<title>` in the page source — a missed SEO plugin
     would add a second. Work through `docs/launch-checklist.md`.
 

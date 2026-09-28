@@ -1889,6 +1889,10 @@
 <li>Wir werden uns in der Regel auf die gleichen Rechtsgrundlagen stützen, auf die wir im obigen Abschnitt Bezug genommen haben.</li>
 <li>Wenn Sie eine vollständige Liste darüber wünschen, an wen wir Ihre personenbezogenen Daten weitergeben, sehen Sie bitte den Abschnitt „An wen werden Ihre personenbezogenen Daten weitergegeben?“ im Abschnitt Allgemeine Datenschutzinformationen dieser Datenschutzrichtlinie ein. Bitte beachten Sie, dass wir in einigen Ländern, in denen wir tätig sind, zusätzlichen lokalen gesetzlichen Bestimmungen unterliegen. Für weitere Informationen in Bezug auf Ihre Gerichtsbarkeit klicken Sie bitte hier.</li>
 </ul>
+<div data-wp-only="contact-form-privacy">
+<p><strong>Kontaktformular</strong></p>
+<p>Wenn Sie uns über das Kontaktformular schreiben, verarbeiten wir die von Ihnen eingegebenen Angaben (Name, Unternehmen, E-Mail-Adresse, Thema, Nachricht), um Ihre Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. f DSGVO). Die Anfrage wird per E-Mail an uns übermittelt und zusätzlich auf unserem Webserver gespeichert; dort wird sie nach 90 Tagen automatisch gelöscht. Zum Schutz vor Missbrauch speichern wir kurzzeitig (höchstens eine Stunde) einen nicht umkehrbaren Hashwert Ihrer IP-Adresse; die IP-Adresse selbst wird nicht gespeichert. Eine Weitergabe an Dritte findet nicht statt.</p>
+</div>
 <h3>7. Alumni</h3>
 <p>Dieser Abschnitt der Datenschutzrichtlinie gilt für Alumni.</p>
 <p>Alumni umfasst ehemalige Mitarbeiter, die ihren Wunsch zum Ausdruck gebracht haben, Teil des Alumni-Netzwerks von Hays zu werden und das Alumni-Portal von Hays zu nutzen.</p>

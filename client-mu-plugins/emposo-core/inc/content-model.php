@@ -293,11 +293,17 @@ function register_post_types(): void {
 	);
 
 	/*
-	 * Registered but intentionally invisible. The contact form stays a mailto:
-	 * handoff for this port, so there is nothing to store yet; show_ui => false
-	 * keeps "port only" from growing an empty admin screen while leaving the
-	 * type in place for the deferred form backend.
+	 * Contact-form enquiries (inc/contact.php): private records, purged after
+	 * 90 days. Personal data, so every capability maps to manage_options —
+	 * administrators only — and nobody can create one in wp-admin; they come
+	 * from the form alone. Only the title is editable, so an administrator can
+	 * annotate one; the content is the enquiry as received. show_in_menu is
+	 * false because dashboard.php adds the list under the Emposo menu itself:
+	 * core would add it before that menu exists, and the Emposo entry would
+	 * then open the list instead of the dashboard.
 	 */
+	$enquiry_cap = 'manage_options';
+
 	register_post_type(
 		CPT_ENQUIRY,
 		array(
@@ -307,14 +313,26 @@ function register_post_types(): void {
 			),
 			'public'              => false,
 			'publicly_queryable'  => false,
-			'show_ui'             => false,
+			'show_ui'             => true,
 			'show_in_menu'        => false,
 			'show_in_rest'        => false,
 			'has_archive'         => false,
 			'rewrite'             => false,
 			'supports'            => array( 'title' ),
 			'exclude_from_search' => true,
-			'capability_type'     => array( 'emposo_enquiry', 'emposo_enquiries' ),
+			'capabilities'        => array(
+				'create_posts'           => 'do_not_allow',
+				'edit_posts'             => $enquiry_cap,
+				'edit_others_posts'      => $enquiry_cap,
+				'edit_private_posts'     => $enquiry_cap,
+				'edit_published_posts'   => $enquiry_cap,
+				'publish_posts'          => $enquiry_cap,
+				'read_private_posts'     => $enquiry_cap,
+				'delete_posts'           => $enquiry_cap,
+				'delete_private_posts'   => $enquiry_cap,
+				'delete_published_posts' => $enquiry_cap,
+				'delete_others_posts'    => $enquiry_cap,
+			),
 			'map_meta_cap'        => true,
 			'delete_with_user'    => false,
 		)

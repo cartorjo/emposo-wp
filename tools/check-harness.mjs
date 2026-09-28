@@ -10,7 +10,7 @@
  */
 import { canonicaliseTags } from './normalise.mjs';
 import { resolveWithinRoot } from './static-server.mjs';
-import { resultLabel } from './parity.mjs';
+import { resultLabel, applyAllowedDeltas } from './parity.mjs';
 import path from 'node:path';
 
 const failures = [];
@@ -62,6 +62,21 @@ check('resultLabel: ws-only strict is a fail-path', resultLabel('whitespace-only
 check('resultLabel: clean route', resultLabel('same', 0, false), 'ok');
 check('resultLabel: real problems', resultLabel('different', 2, false), 'fail');
 
+// 4. Allowed deltas: the region's content is hidden, its existence is not.
+// A carve-out that also swallowed a missing form would turn a real regression
+// into a pass, so the match counts on both sides must agree.
+const delta = [{ id: 'f', routes: ['/k/'], pattern: '<form\\b[^>]*\\bdata-f\\b[^>]*>[\\s\\S]*?</form>', maxCount: 1 }];
+const carvedSame = applyAllowedDeltas('<p>a</p><form data-f action="mailto:x">1</form>', '<p>a</p><form action="/p" data-f>2</form>', '/k/', delta);
+check('applyAllowedDeltas: differing content inside the region compares equal', carvedSame.expected === carvedSame.got && carvedSame.problems.length === 0, true);
+check('applyAllowedDeltas: a vanished region is a problem', applyAllowedDeltas('<form data-f>1</form>', '<p></p>', '/k/', delta).problems.length > 0, true);
+check('applyAllowedDeltas: other routes are untouched', applyAllowedDeltas('<form data-f>1</form>', '<form data-f>2</form>', '/other/', delta).got, '<form data-f>2</form>');
+check('applyAllowedDeltas: a difference outside the region still differs', (() => { const r = applyAllowedDeltas('<p>a</p><form data-f>1</form>', '<p>b</p><form data-f>2</form>', '/k/', delta); return r.expected === r.got; })(), false);
+
+const wpOnly = [{ id: 'w', routes: ['/k/'], pattern: '<div data-wp-only="w">[\\s\\S]*?</div>', maxCount: 1, wpOnly: true }];
+const added = applyAllowedDeltas('<p>a</p><h3>b</h3>', '<p>a</p><div data-wp-only="w">x</div><h3>b</h3>', '/k/', wpOnly);
+check('applyAllowedDeltas wpOnly: the addition is removed and the rest compares equal', added.expected === added.got && added.problems.length === 0, true);
+check('applyAllowedDeltas wpOnly: a missing addition is a problem', applyAllowedDeltas('<p>a</p>', '<p>a</p>', '/k/', wpOnly).problems.length > 0, true);
+
 if (failures.length) {
 	console.error('Harness self-test failures:');
 	for (const f of failures) {
@@ -69,4 +84,4 @@ if (failures.length) {
 	}
 	process.exit(1);
 }
-console.log('Harness self-tests OK (raw-text passthrough, path containment, result bucketing).');
+console.log('Harness self-tests OK (raw-text passthrough, path containment, result bucketing, allowed deltas).');

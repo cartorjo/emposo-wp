@@ -15,8 +15,15 @@
  * assets: the head block names them at https://emposo.de/assets/..., the
  * production origin, so they belong in the launch webroot (docs/resync.md).
  *
+ * One deliberate exception, LOCAL_OVERRIDES: a file WordPress keeps its own
+ * version of, because the static build's behaviour is wrong here. It is never
+ * overwritten; instead the reference copy's hash is pinned, and when the
+ * reference changes that file the run reports drift (and --check fails) until
+ * the change is merged by hand and the pin updated.
+ *
  * Usage: node tools/sync-assets.mjs [--check]   (--check: report drift, exit 1)
  */
+import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { STATIC_ROOT, REPO_ROOT } from './routes.mjs';
@@ -32,6 +39,18 @@ const walk = (dir) =>
 		return statSync(full).isDirectory() ? walk(full) : [full];
 	});
 
+/**
+ * Theme files that differ from the reference on purpose, keyed by path under
+ * the theme, with the sha256 of the reference copy they were last merged with.
+ *
+ * - assets/js/06-work.js: the contact form posts to this site (emposo-core
+ *   inc/contact.php) instead of opening a mailto: link, so the submit handler
+ *   only validates. The filter code above it is still the reference's.
+ */
+const LOCAL_OVERRIDES = {
+	'assets/js/06-work.js': '26ae2415e1180acdbadc4f70dd9b37028f498f67706c4bd3d4194f40ddebc648',
+};
+
 /** Make `destDir` hold exactly `files` (basenames) copied from `srcDir`. */
 function mirror(srcDir, destDir, files, { prune = true } = {}) {
 	mkdirSync(destDir, { recursive: true });
@@ -40,6 +59,14 @@ function mirror(srcDir, destDir, files, { prune = true } = {}) {
 		const from = path.join(srcDir, name);
 		const to = path.join(destDir, name);
 		if (!existsSync(from)) throw new Error(`reference is missing ${path.relative(STATIC_ROOT, from)}`);
+		const override = LOCAL_OVERRIDES[path.relative(THEME, to)];
+		if (override) {
+			const hash = createHash('sha256').update(readFileSync(from)).digest('hex');
+			if (hash !== override) {
+				drift.push(`merge ${path.relative(STATIC_ROOT, from)} into ${path.relative(REPO_ROOT, to)} by hand (local override), then pin ${hash} in LOCAL_OVERRIDES`);
+			}
+			continue;
+		}
 		const same = existsSync(to) && readFileSync(from).equals(readFileSync(to));
 		if (same) continue;
 		drift.push(`update ${path.relative(REPO_ROOT, to)}`);
