@@ -64,7 +64,7 @@ Presentation lives in `themes/emposo/`. Everything stateful — content types,
 taxonomies, meta, blocks, image helpers, settings, the dashboard and the CLI
 commands — lives in `client-mu-plugins/emposo-core/`, so content survives a
 theme change. `reference/static/` is the audited static build, pinned to
-`42a7c6d` (weave-clone main, 2026-09-27); treat it as read-only. Moving the
+`9545bc3` (weave-clone main, 2026-09-28); treat it as read-only. Moving the
 pin is a procedure, not an edit: see `docs/resync.md`.
 
 ## Things that look optional and are not

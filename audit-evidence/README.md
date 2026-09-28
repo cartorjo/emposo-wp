@@ -3,7 +3,7 @@
 ## `static-baseline.json`
 
 The measured state of the **pinned static reference** (`reference/static`,
-`42a7c6d`, weave-clone main on 2026-09-27), produced by:
+`9545bc3`, weave-clone main on 2026-09-28), produced by:
 
 ```bash
 node tools/audit.mjs --target=static --write-baseline

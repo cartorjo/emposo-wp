@@ -491,12 +491,16 @@ function column( WP_Post $case_study, string $key ): string {
 /**
  * The metric block.
  *
- * Uses mb_strlen, not strlen: '80.000 €' is 8 characters but 10 bytes.
+ * Uses mb_strlen, not strlen: '1.000 €' is 7 characters but 9 bytes. An empty
+ * metric renders no block.
  *
  * @param WP_Post $case_study Case study.
  */
 function metric( WP_Post $case_study ): string {
 	$value = meta( $case_study, '_emposo_metric' );
+	if ( '' === $value ) {
+		return '';
+	}
 
 	return '<div class="result-metric"><strong' . ( mb_strlen( $value, 'UTF-8' ) > 8 ? ' class="result-metric__word"' : '' ) . '>'
 		. e( $value ) . '</strong><span>' . e( meta( $case_study, '_emposo_metric_label' ) ) . '</span></div>';
@@ -768,7 +772,7 @@ function project_page( string $slug ): string {
 			'parent' => array( '/branchen/#referenzen', t( 'crumb.projects' ) ),
 			'copy'   => '<p class="eyebrow eyebrow--light">' . e( $industry ) . '</p><h1 class="display-large display-large--light" id="project-title">' . e( $p->post_title ) . '</h1><p class="page-hero__intro">' . e( $p->post_excerpt ) . '</p>',
 			'figure' => picture( (int) get_post_thumbnail_id( $p ), 'detail', true )
-				. '<div class="page-hero__metric"><strong' . ( mb_strlen( $metric_value, 'UTF-8' ) > 8 ? ' class="page-hero__metric--word"' : '' ) . '>' . e( $metric_value ) . '</strong><span>' . e( meta( $p, '_emposo_metric_label' ) ) . '</span></div>',
+				. ( '' === $metric_value ? '' : '<div class="page-hero__metric"><strong' . ( mb_strlen( $metric_value, 'UTF-8' ) > 8 ? ' class="page-hero__metric--word"' : '' ) . '>' . e( $metric_value ) . '</strong><span>' . e( meta( $p, '_emposo_metric_label' ) ) . '</span></div>' ),
 		)
 	);
 
