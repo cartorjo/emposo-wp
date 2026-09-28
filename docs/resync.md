@@ -133,6 +133,15 @@ that one difference from spreading on a re-pin:
   exactly once on both sides. Everything around it stays strict. Changes to the
   reference's form fields (labels, interests, ids) are therefore not caught by
   parity: port them into `themes/emposo/parts/contact-form.php` by hand.
+- **The privacy paragraph** on `/datenschutzerklaerung/` and
+  `/en/privacy-policy/` is a WordPress-only block
+  (`<div data-wp-only="contact-form-privacy">`, end of section 6, before
+  "7. Alumni" / "7. Staff Alumni"). It describes the form backend, so it is
+  true only here (owner decision 2026-09-27: WordPress-only, not in
+  weave-clone). **Re-porting either privacy template with port-partial drops
+  it** — parity then fails on that route (the `wpOnly` delta expects it
+  exactly once). Re-insert it verbatim from git history; the wording is
+  owner-approved and must not change without a new approval.
 
 ## Known limits
 

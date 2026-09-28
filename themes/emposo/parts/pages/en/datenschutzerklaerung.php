@@ -1889,6 +1889,10 @@
 <li>We will generally rely on the same legal bases that we have referred to in the section above.</li>
 <li>If you would like to see a full list of who we will share your personal data with, please refer to the section entitled “Who do we share your personal data with?” in the General Privacy Information section of this Privacy Policy. Please note that in certain of the jurisdictions in which we operate, we comply with additional local law requirements. For more information in relation to your jurisdiction, please click here.</li>
 </ul>
+<div data-wp-only="contact-form-privacy">
+<p><strong>Contact form</strong></p>
+<p>When you write to us using the contact form, we process the details you enter (name, company, email address, topic, message) in order to respond to your inquiry (Art. 6(1)(b) or (f) GDPR). Your inquiry is sent to us by email and also stored on our web server, where it is deleted automatically after 90 days. To prevent abuse, we briefly store (for no more than one hour) a non-reversible hash of your IP address; the IP address itself is not stored. We do not share your data with third parties.</p>
+</div>
 <h3>7. Staff Alumni</h3>
 <p>This section of the Privacy Policy applies to Staff Alumni.</p>
 <p>Staff Alumni include former members of Staff who have expressed their wish to become part of Hays’ alumni network and to use Hays’ alumni portal.</p>
