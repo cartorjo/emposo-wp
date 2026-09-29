@@ -50,7 +50,7 @@ format is reviewed on a machine that has no credential.
 
 | Command | Asserts |
 |---|---|
-| `npm run check` | lint, CSS build, class inventory, DOM parity on all 70 routes (DE + EN) and both 404s, no drift |
+| `npm run check` | lint, CSS build, docs and harness checks, class inventory, no drift (DOM parity retired 2026-09-29) |
 | `npm run parity -- --strict` | Every route matches `reference/static/` after normalisation |
 | `npm run class-inventory` | The built CSS emits a superset of the reference's 175 classes |
 | `npm run behaviours` | Interaction, filter, deep-link, count-up and no-JS contracts |
@@ -63,9 +63,12 @@ format is reviewed on a machine that has no credential.
 Presentation lives in `themes/emposo/`. Everything stateful — content types,
 taxonomies, meta, blocks, image helpers, settings, the dashboard and the CLI
 commands — lives in `client-mu-plugins/emposo-core/`, so content survives a
-theme change. `reference/static/` is the audited static build, pinned to
-`9545bc3` (weave-clone main, 2026-09-28); treat it as read-only. Moving the
-pin is a procedure, not an edit: see `docs/resync.md`.
+theme change. `reference/static/` is the audited static build, frozen at
+`9545bc3` (weave-clone main, 2026-09-28). On 2026-09-29 the owner took
+weave-clone off ("i took off weave-clone"): WordPress is now the source. CSS is
+edited in `themes/emposo/src/styles/`, content in
+the JSON files in `client-mu-plugins/emposo-core/data/`, templates in `themes/emposo/parts/`.
+There is no re-pin any more; `docs/resync.md` is kept for history.
 
 ## Things that look optional and are not
 

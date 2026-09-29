@@ -1,7 +1,9 @@
 name: Parity
 
 # The primary gate. Brings up WordPress, seeds it from the frozen export, and
-# asserts that all 70 routes (German and English) and both 404s still render what the audited static build renders.
+# verifies all 72 routes (German and English) and both 404s, then runs the
+# behaviour contracts. DOM parity against the static build was retired on
+# 2026-09-29, when the owner took weave-clone off.
 # Slow by nature — it boots Docker, imports content and drives a browser — so it
 # is a separate workflow from the fast checks.
 on:
@@ -83,15 +85,9 @@ jobs:
       - name: Class inventory
         run: npm run class-inventory
 
-      # Warm the cache first: the first request to each route pays for rewrite
-      # resolution and a cold object cache, and parity compares rendered DOM,
-      # not timings — but a cold run is where flaky failures come from.
-      - name: Warm
-        run: npm run parity
-
-      - name: DOM parity (strict)
-        run: npm run parity -- --strict
-
+      # DOM parity against reference/static was retired on 2026-09-29: the
+      # owner took weave-clone off, and WordPress is now the source. The
+      # verify step above and the behaviour contracts below stay.
       - name: Behaviour contracts
         run: npm run behaviours
 

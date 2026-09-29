@@ -1,14 +1,15 @@
 /**
- * The route contract, read straight from the pinned reference.
+ * The route contract: client-mu-plugins/emposo-core/data/routes.json.
  *
- * pages.mjs is the static build's own manifest, so importing it rather than
- * duplicating a routes.json means the route list, titles, descriptions, nav
- * state, body classes and per-route script lists cannot drift from the thing
- * we are asserting parity against. It is an ES module and these tools are ESM,
- * so no parsing is involved.
+ * Until 2026-09-29 this read the pinned static reference (pages.mjs), so the
+ * route list could not drift from what parity compared against. The owner
+ * took weave-clone off that day ("i took off weave-clone"); WordPress is now
+ * the source, and routes.json is its own hand-maintained contract. The
+ * reference/static submodule stays frozen at its last pin for history only.
  */
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -16,50 +17,39 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT = path.resolve(here, '..');
 export const STATIC_ROOT = path.join(REPO_ROOT, 'reference', 'static');
 
-const pagesDe = (await import(path.join(STATIC_ROOT, 'pages.mjs'))).default;
-// Since the i18n re-pin the reference also publishes English twins under /en/
-// (reference/static docs/i18n.md). They join the contract once published there.
-const { pagesEn } = await import(path.join(STATIC_ROOT, 'pages.en.mjs'));
-const { PUBLISHED } = await import(path.join(STATIC_ROOT, 'content', 'i18n.mjs'));
-const manifest = [
-	...pagesDe.map((page) => ({ ...page, locale: 'de' })),
-	...(PUBLISHED.includes('en') ? pagesEn(pagesDe) : []),
-];
+const contract = JSON.parse(readFileSync(path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data', 'routes.json'), 'utf8'));
 
 /**
- * `out` is a filesystem path (`about-us/index.html`); the served URL drops the
- * `index.html`. `404.html` is the one entry that is not an addressable route in
- * WordPress — it becomes 404.php, served for every unmatched path — so it is
- * carried with `kind: '404'` and probed by requesting a path that cannot exist.
+ * `out` keeps the static build's file naming (`about-us/index.html`) for the
+ * tools that key reports by it. The two not_found entries are carried with
+ * `kind: '404'` and probed by requesting a path that cannot exist.
  */
-function toRoute(page) {
-	const isNotFound = page.out === '404.html' || page.out === 'en/404.html';
-	const url = page.out === 'index.html'
-		? '/'
-		: `/${page.out.replace(/index\.html$/, '')}`;
-	const locale = page.locale ?? 'de';
+function toRoute(entry) {
+	const isNotFound = entry.objectType === 'not_found';
+	const out = isNotFound
+		? (entry.locale === 'en' ? 'en/404.html' : '404.html')
+		: `${entry.url.replace(/^\//, '')}index.html`;
 
 	return {
-		out: page.out,
-		// An unmatched path under /en/ gets the English 404.
-		url: isNotFound ? (locale === 'en' ? '/en/__parity-404__/' : '/__parity-404__/') : url,
-		locale,
-		twinOut: page.twinOut ?? null,
-		staticFile: page.out,
+		out,
+		url: entry.url,
+		locale: entry.locale ?? 'de',
+		twinUrl: entry.twinUrl ?? null,
+		staticFile: out,
 		kind: isNotFound ? '404' : 'page',
 		expectStatus: isNotFound ? 404 : 200,
-		title: page.title,
-		description: page.description,
-		nav: page.nav,
-		navGroup: page.navGroup ?? null,
-		navExact: page.navExact !== false,
-		bodyClass: page.bodyClass,
-		scripts: page.scripts ?? [],
-		content: page.content,
+		title: entry.title,
+		description: entry.description,
+		nav: entry.nav,
+		navGroup: entry.navGroup ?? null,
+		navExact: entry.navExact !== false,
+		bodyClass: entry.bodyClass,
+		scripts: entry.scripts ?? [],
+		content: entry.content,
 	};
 }
 
-export const routes = manifest.map(toRoute);
+export const routes = contract.routes.map(toRoute);
 
 /** Addressable URLs only — excludes the 404 template. */
 export const pageRoutes = routes.filter((r) => r.kind === 'page');

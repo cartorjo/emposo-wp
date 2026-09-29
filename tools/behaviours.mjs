@@ -16,8 +16,9 @@
  *   node tools/behaviours.mjs --target=wp [--base=http://localhost:8888]
  */
 import path from 'node:path';
+import { readFileSync } from 'node:fs';
 import { chromium } from 'playwright';
-import { STATIC_ROOT } from './routes.mjs';
+import { STATIC_ROOT, REPO_ROOT } from './routes.mjs';
 import { serveStatic } from './static-server.mjs';
 
 const args = process.argv.slice(2);
@@ -42,7 +43,9 @@ const FILTER_PAGES = ['/branchen/', '/en/industries/'];
  * American English twin under /en/, each with its own filter page, contact
  * page, home, count wording and case-study paths.
  */
-const { CASE_SLUGS } = await import(path.join(STATIC_ROOT, 'content', 'i18n.mjs'));
+// WordPress's own data since the owner took weave-clone off (2026-09-29).
+const DATA_DIR = path.join(REPO_ROOT, 'client-mu-plugins', 'emposo-core', 'data');
+const CASE_SLUGS = JSON.parse(readFileSync(path.join(DATA_DIR, 'i18n.json'), 'utf8')).caseSlugs;
 const LOCALES = [
 	{ lang: 'de', home: '/', filter: '/branchen/', contact: '/kontakt/', facts: ['/about-us/', '/karriere/'], words: ['Projekt', 'Projekte'], casePath: (slug) => `/case-studies/${slug}/` },
 	{ lang: 'en', home: '/en/', filter: '/en/industries/', contact: '/en/contact/', facts: ['/en/about-us/', '/en/careers/'], words: ['project', 'projects'], casePath: (slug) => `/en/case-studies/${CASE_SLUGS[slug] ?? slug}/` },
@@ -177,7 +180,7 @@ async function testFiltering(page, base, route) {
 // --------------------------------------------------------------------------
 async function testCardInventory(page, base, L) {
 	const failures = [];
-	const { projects } = await import(path.join(STATIC_ROOT, 'content', 'site-data.mjs'));
+	const { projects } = JSON.parse(readFileSync(path.join(DATA_DIR, 'site-export.json'), 'utf8'));
 
 	await page.goto(`${base}${L.filter}`, { waitUntil: 'domcontentloaded' });
 	const hrefs = await page.evaluate(() =>
@@ -190,7 +193,7 @@ async function testCardInventory(page, base, L) {
 	for (const href of expected) if (!actual.has(href)) failures.push(`missing case-study card: ${href}`);
 	for (const href of actual) if (!expected.has(href)) failures.push(`unexpected case-study card: ${href}`);
 
-	return { failures, note: `${expected.size} projects in site-data` };
+	return { failures, note: `${expected.size} projects in site-export.json` };
 }
 
 // --------------------------------------------------------------------------

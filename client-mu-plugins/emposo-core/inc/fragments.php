@@ -888,22 +888,6 @@ function management(): string {
 }
 
 /**
- * Onward links at the end of pages that would otherwise dead-end (B-45).
- */
-function keep_exploring(): string {
-	$links = '';
-	foreach ( array(
-		array( '/portfolio/', 'explore.portfolio' ),
-		array( '/branchen/', 'explore.branchen' ),
-		array( '/about-us/', 'explore.about' ),
-	) as list( $href, $label ) ) {
-		$links .= '<li><a class="text-link" href="' . href( $href ) . '">' . t( $label ) . ' <span aria-hidden="true">→</span></a></li>';
-	}
-
-	return '<section class="page-section explore" aria-labelledby="explore-title"><div class="gutter"><div class="container"><h2 class="explore__title" id="explore-title">' . t( 'explore.title' ) . '</h2><ul class="explore__links">' . $links . '</ul></div></div></section>';
-}
-
-/**
  * The HTML sitemap.
  */
 function sitemap(): string {
@@ -961,8 +945,6 @@ function render( string $name ): string {
 			return company_facts();
 		case 'jobs':
 			return jobs_list();
-		case 'keep-exploring':
-			return keep_exploring();
 		case 'projects-featured':
 			return project_cards( by_slugs( FEATURED ), false, true );
 		case 'projects-all':

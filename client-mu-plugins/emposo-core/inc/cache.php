@@ -4,7 +4,7 @@
  *
  * Every list on this site is derived — related case studies, an industry's
  * disciplines, the filter vocabulary — and recomputing them per request means
- * several term and meta lookups each time. At 23 content items that is cheap,
+ * several term and meta lookups each time. At 24 content items that is cheap,
  * but the pattern is the one that keeps working as content grows, and it is
  * what a VIP-grade review expects to see.
  *

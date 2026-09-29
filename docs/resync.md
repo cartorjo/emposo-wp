@@ -1,5 +1,12 @@
 # Re-pinning the static reference
 
+> **Retired 2026-09-29.** The owner took weave-clone off ("i took off
+> weave-clone"), so there is nothing to re-pin. WordPress is the source:
+> styles in `themes/emposo/src/styles/`, content in
+> the JSON files in `client-mu-plugins/emposo-core/data/`, templates in
+> `themes/emposo/parts/`. `parity --strict` and `check:sources` left
+> `npm run check` and CI that day. The procedure below is kept for history.
+
 How to move `reference/static` to a newer weave-clone commit and bring the
 WordPress port back to parity. Done this way for 3371afb → 42a7c6d on
 2026-09-27 (188 upstream commits, one working day). Every step ends in a gate;

@@ -36,16 +36,19 @@
    strengthens on hover, turns lemon and 2px on focus, and error-coloured
    (with supporting text below, filled by js/06-work.js) when invalid. Only
    "(optional)" is marked; required fields carry no asterisk (owner rule). */
-.contact-form input, .contact-form select, .contact-form textarea { appearance: none; background: transparent; border: 0; border-bottom: 1px solid var(--color-line-light-strong); border-radius: 0; color: var(--color-on-dark); font-size: var(--text-lede-lg); font-weight: 400; letter-spacing: 0; outline: none; padding: var(--space-3) 0; text-transform: none; transition: border-color var(--duration-fast) var(--ease-em); width: 100%; }
+.contact-form input, .contact-form select, .contact-form textarea { appearance: none; background: transparent; border: 1px solid var(--color-line-light-strong); border-radius: 0; color: var(--color-on-dark); font-size: var(--text-lede-lg); font-weight: 400; letter-spacing: 0; outline: none; padding: var(--space-3) var(--space-4); text-transform: none; transition: border-color var(--duration-fast) var(--ease-em), box-shadow var(--duration-fast) var(--ease-em); width: 100%; }
 .contact-form :is(input, select) { min-height: 3.5rem; }
 .contact-form :is(input, select, textarea) { min-width: 0; }
 /* The submit pill may wrap its label when text is enlarged (200% at 390px). */
 .contact-form button { max-width: 100%; white-space: normal; }
-.contact-form select { background-color: var(--color-ink); grid-area: 2 / 1; padding-inline-end: var(--space-6); }
+.contact-form select { background-color: var(--color-ink); grid-area: 2 / 1; padding-inline-end: var(--space-10); }
 @media (hover: hover) { .contact-form :is(input, select, textarea):hover { border-color: var(--color-on-dark-muted); } }
 .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--color-lemon); }
-.contact-form :is(input, select, textarea):is(:focus, [aria-invalid="true"], :user-invalid) { border-bottom-width: 2px; padding-bottom: calc(var(--space-3) - 1px); }
-.contact-form :is(input, select, textarea):is([aria-invalid="true"], :user-invalid) { border-bottom-color: var(--color-error-on-dark); }
+/* Focus and error draw a 2px frame without moving the text: the second pixel
+   is an inset shadow in the border colour (owner 2026-09-29: visible fields). */
+.contact-form :is(input, select, textarea):is(:focus, [aria-invalid="true"], :user-invalid) { box-shadow: inset 0 0 0 1px var(--field-ring, var(--color-lemon)); }
+.contact-form :is(input, select, textarea):focus { --field-ring: var(--color-lemon); }
+.contact-form :is(input, select, textarea):is([aria-invalid="true"], :user-invalid) { --field-ring: var(--color-error-on-dark); border-color: var(--color-error-on-dark); }
 .contact-form textarea { resize: vertical; }
 .contact-form__support { color: var(--color-error-on-dark); font-size: var(--text-body-sm); font-weight: 400; line-height: var(--leading-label); }
 .contact-form__support:empty { display: none; }
@@ -166,8 +169,10 @@
 svg:dir(rtl) { direction: ltr; }
 :root:dir(rtl) { --scrim-ink-side: linear-gradient(270deg, var(--color-ink) 0%, transparent 35%); }
 
-/* Keep exploring — onward links where a page would dead-end (B-45): the
-   headline-sm role and a wrapping row of text links. */
+/* Keep exploring (B-45): removed from Karriere and Kontakt by the owner
+   2026-09-29 (it duplicated the header). No template renders it any more; the
+   rules stay because class-inventory still expects the frozen reference's
+   classes. */
 .explore__title { font-size: var(--text-headline-sm); font-weight: 400; line-height: var(--leading-title); }
 .explore__links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-8); list-style: none; margin: var(--space-6) 0 0; padding: 0; }
 
