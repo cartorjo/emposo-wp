@@ -154,6 +154,14 @@ function render_texts_page(): void {
 		echo '</tbody></table>';
 	}
 
+	$custom = get_option( \Emposo\Core\Hyphenation\OPTION, array() );
+	echo '<h2 style="margin-top:32px">' . esc_html__( 'Silbentrennung in großen Überschriften', 'emposo' ) . '</h2>';
+	echo '<p class="description">' . esc_html__( 'Lange Wörter trennen an den markierten Stellen, z. B. „Gewichts|management“. Ein Wort pro Zeile, genau so geschrieben wie in der Überschrift. Bereits eingebaut:', 'emposo' ) . ' ' . esc_html( implode( ', ', \Emposo\Core\Hyphenation\builtin() ) ) . '</p>';
+	printf(
+		'<textarea class="large-text" rows="6" name="emposo_hyphenation" style="max-width:900px">%s</textarea>',
+		esc_textarea( implode( "\n", is_array( $custom ) ? array_map( 'strval', $custom ) : array() ) )
+	);
+
 	submit_button( __( 'Speichern', 'emposo' ) );
 	echo '</form></div>';
 }
@@ -205,6 +213,17 @@ function save_texts(): void {
 		}
 	}
 	update_option( GLOBAL_OPT, $stored, false );
+
+	// Hyphenation entries: letters and "|" only; anything else is dropped.
+	$entries = array_values(
+		array_filter(
+			settings_lines( 'emposo_hyphenation' ),
+			static function ( string $entry ): bool {
+				return false !== strpos( $entry, '|' ) && 1 === preg_match( '/^[\p{L}|]+$/u', $entry );
+			}
+		)
+	);
+	update_option( \Emposo\Core\Hyphenation\OPTION, $entries, false );
 
 	\Emposo\Core\Cache\bump();
 

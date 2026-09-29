@@ -30,6 +30,11 @@ Standorte), Abschluss-Blöcke, Kontaktformular, Projektfilter, Stellen,
 Sitemap, Deutsch und Englisch. Dazu die Fehlerseite (404). Geleertes Feld =
 ursprünglicher Text.
 
+Ganz unten: **Silbentrennung in großen Überschriften**. Lange Wörter trennen
+an den markierten Stellen, ein Wort pro Zeile, z. B. `Gewichts|management`
+(genau so geschrieben wie in der Überschrift). Ohne Eintrag trennt der
+Browser nach Silben, manchmal an unschöner Stelle („Gewichtsma-nagement“).
+
 ## Case Studies (Menü „Case Studies“ und „Case Studies (EN)“)
 
 | Was auf der Seite steht | Wo es bearbeitet wird |

@@ -38,6 +38,7 @@ require_once __DIR__ . '/inc/rewrites.php';
 require_once __DIR__ . '/inc/i18n.php';
 require_once __DIR__ . '/inc/images.php';
 require_once __DIR__ . '/inc/fragments.php';
+require_once __DIR__ . '/inc/hyphenation.php';
 require_once __DIR__ . '/inc/fields.php';
 require_once __DIR__ . '/inc/cache.php';
 require_once __DIR__ . '/inc/security.php';

@@ -528,7 +528,7 @@ function project_cards( array $selection, bool $filterable = false, bool $collag
 			. '<div class="reference-card__copy"><div class="reference-card__meta">'
 			. '<span>' . e( meta( $case_study, '_emposo_industry_label' ) ) . '</span>'
 			. '<span>' . e( term_name( $discipline ) ) . '</span></div>'
-			. '<h3>' . e( $case_study->post_title ) . '</h3>'
+			. '<h3>' . \Emposo\Core\Hyphenation\mark( e( $case_study->post_title ) ) . '</h3>'
 			. '<p>' . e( $case_study->post_excerpt ) . '</p>'
 			. metric( $case_study )
 			. '<span class="text-link">' . t( 'card.read' ) . ' ' . ARROW . '</span></div></a>';
@@ -773,7 +773,7 @@ function project_page( string $slug ): string {
 		array(
 			'id'     => 'project-title',
 			'parent' => array( '/branchen/#referenzen', t( 'crumb.projects' ) ),
-			'copy'   => '<p class="eyebrow eyebrow--light">' . e( $industry ) . '</p><h1 class="display-large display-large--light" id="project-title">' . e( $p->post_title ) . '</h1><p class="page-hero__intro">' . e( $p->post_excerpt ) . '</p>',
+			'copy'   => '<p class="eyebrow eyebrow--light">' . e( $industry ) . '</p><h1 class="display-large display-large--light" id="project-title">' . \Emposo\Core\Hyphenation\mark( e( $p->post_title ) ) . '</h1><p class="page-hero__intro">' . e( $p->post_excerpt ) . '</p>',
 			'figure' => picture( (int) get_post_thumbnail_id( $p ), 'detail', true )
 				. ( '' === $metric_value ? '' : '<div class="page-hero__metric"><strong' . ( mb_strlen( $metric_value, 'UTF-8' ) > 8 ? ' class="page-hero__metric--word"' : '' ) . '>' . e( $metric_value ) . '</strong><span>' . e( meta( $p, '_emposo_metric_label' ) ) . '</span></div>' ),
 		)
