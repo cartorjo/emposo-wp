@@ -50,7 +50,7 @@ format is reviewed on a machine that has no credential.
 
 | Command | Asserts |
 |---|---|
-| `npm run check` | lint, CSS build, class inventory, DOM parity on all 70 routes (DE + EN) and both 404s, no drift |
+| `npm run check` | lint, CSS build, docs and harness checks, class inventory, no drift (DOM parity retired 2026-09-29) |
 | `npm run parity -- --strict` | Every route matches `reference/static/` after normalisation |
 | `npm run class-inventory` | The built CSS emits a superset of the reference's 175 classes |
 | `npm run behaviours` | Interaction, filter, deep-link, count-up and no-JS contracts |

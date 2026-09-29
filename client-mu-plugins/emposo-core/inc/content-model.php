@@ -614,7 +614,7 @@ function register_meta_fields(): void {
 	}
 
 	/*
-	 * Route lock. Twenty-four of the 70 routes (12 per locale) are Pages, so a
+	 * Route lock. Twenty-four of the 72 routes (12 per locale) are Pages, so a
 	 * single edited slug or changed parent silently changes a live URL — the largest risk in
 	 * the project, since URL preservation is a hard requirement.
 	 */

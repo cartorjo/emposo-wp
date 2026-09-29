@@ -297,7 +297,7 @@ function emposo_the_body(): void {
 
 		case 'project':
 			/*
-			 * The data-driven case-study renderer, which serves 23 of the 35
+			 * The data-driven case-study renderer, which serves 24 of the 36
 			 * routes (the industry and discipline detail pages were removed
 			 * upstream). Implemented as string-returning helpers
 			 * rather than template parts because they compose — a project page

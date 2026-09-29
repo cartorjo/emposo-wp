@@ -2,7 +2,7 @@
 /**
  * `wp emposo verify` — the route and content contract.
  *
- * This is the real URL-preservation guarantee. Twenty-four of the 70 routes (12
+ * This is the real URL-preservation guarantee. Twenty-four of the 72 routes (12
  * per locale) are Pages, so a single edited slug or changed parent silently changes a live URL;
  * and the routing design rests on WordPress behaviours (permastruct ordering,
  * has_archive emitting an extra rule) whose breakage is remote from the change
@@ -219,7 +219,7 @@ class Verify_Command {
 				// Both languages: the English twins carry the same invariants.
 				'post_type'        => array( \Emposo\Core\ContentModel\CPT_CASE_STUDY, \Emposo\Core\ContentModel\CPT_CASE_STUDY_EN ),
 				'post_status'      => 'publish',
-				// The corpus is 2 × 23; the headroom is for editorial growth, and
+				// The corpus is 2 × 24; the headroom is for editorial growth, and
 				// VIP's 100-post ceiling is the limit worth respecting here.
 				'posts_per_page'   => 100,
 				'no_found_rows'    => true,
