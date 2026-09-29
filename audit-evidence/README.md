@@ -2,12 +2,24 @@
 
 ## `static-baseline.json`
 
-The measured state of the **pinned static reference** (`reference/static`,
-`9545bc3`, weave-clone main on 2026-09-28), produced by:
+Since 2026-09-29 this is the **last accepted WordPress state**. The owner took
+weave-clone off that day ("i took off weave-clone"), so there is no static
+reference to measure against any more. The file name stays for its citations.
+It is written after a reviewed change with:
 
 ```bash
-node tools/audit.mjs --target=static --write-baseline
+node tools/audit.mjs --target=wp --write-baseline
 ```
+
+The first WordPress baseline (2026-09-29, PR #50) covers 74 entries: 72 routes
+and both 404s, including the SOP/Curricula case. Before writing it, the numbers
+were diffed against the static baseline: pages were a uniform +1.1–1.7 % (the
+existing WordPress markup overhead, inside the old 2 % tolerance), plus the
+intended growth (one more card on /branchen/ and /en/industries/, a new related
+card on the two pharma cases).
+
+Until then it was the measured state of the pinned static reference
+(`reference/static`, `9545bc3`), written with `--target=static`.
 
 This file exists because the reference's own committed evidence does not cover
 the whole site. `reference/static/audit-evidence/final/` was measured on

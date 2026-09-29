@@ -13,7 +13,7 @@
  * shift that fails the header probes — i.e. it measures a different page.
  *
  * Usage:
- *   node tools/audit.mjs --target=static --write-baseline
+ *   node tools/audit.mjs --target=wp --write-baseline   (after a reviewed change)
  *   node tools/audit.mjs --target=wp
  *   node tools/audit.mjs --target=wp --routes=/,/kontakt/
  */
@@ -49,8 +49,10 @@ const HEADER_WIDTHS = [1280, 1440, 1920];
  *
  * Absolute byte budgets therefore belong to the Lighthouse step, which measures
  * the same thing the evidence did. Here, byte growth is gated RELATIVE to the
- * static baseline: the question this tool answers is "is WordPress worse than
- * the reference", not "what is the absolute page weight".
+ * baseline: the question this tool answers is "did this change make the site
+ * worse than its last accepted state", not "what is the absolute page weight".
+ * The baseline was the static reference until 2026-09-29; since the owner took
+ * weave-clone off it is the last reviewed WordPress run.
  *
  * Request count, CLS and image size are compression-independent — images are
  * already-compressed binaries, so content-length is their transfer size — and
@@ -60,12 +62,12 @@ const BUDGETS = {
 	requests: 30,
 	largestImageBytes: 200 * 1024,
 	cls: 0.05,
-	/** Allowed growth over the static baseline before it counts as a regression. */
+	/** Allowed growth over the baseline before it counts as a regression. */
 	bytesToleranceRatio: 1.02,
 	requestsTolerance: 0,
 };
 
-/** Baseline produced by `--target=static --write-baseline`, when present. */
+/** Baseline produced by `--target=wp --write-baseline`, when present. */
 let baseline = null;
 
 /**
@@ -515,10 +517,10 @@ async function main() {
 
 	if (TARGET !== 'static' && existsSync(BASELINE_PATH)) {
 		baseline = JSON.parse(readFileSync(BASELINE_PATH, 'utf8'));
-		console.log(`baseline loaded: ${baseline.routes.length} route(s) from the static reference`);
+		console.log(`baseline loaded: ${baseline.routes.length} route(s) (last accepted WordPress state)`);
 	} else if (TARGET !== 'static') {
-		console.log('NOTE: no static baseline found — byte and request growth cannot be gated.');
-		console.log('      Run `node tools/audit.mjs --target=static --write-baseline` first.');
+		console.log('NOTE: no baseline found — byte and request growth cannot be gated.');
+		console.log('      Run `node tools/audit.mjs --target=wp --write-baseline` first.');
 	}
 
 	let target = TARGET === 'static' ? pageRoutes : routes;
@@ -582,15 +584,14 @@ async function main() {
 	}
 
 	if (WRITE_BASELINE) {
-		// --write-baseline is only meaningful against the static reference, and
-		// --target defaults to `wp`. Without this guard, one forgotten flag
-		// rewrites the audited contract with numbers measured from the port —
-		// after which every budget compares WordPress against itself and passes
-		// by construction. The file records its own target, so refuse rather
-		// than silently overwrite.
-		if (TARGET !== 'static') {
-			console.error(`refusing to write the baseline from --target=${TARGET}.`);
-			console.error('The baseline IS the static reference; use --target=static --write-baseline.');
+		// Since 2026-09-29 (the owner took weave-clone off) the baseline is the
+		// last accepted WordPress state, written with an explicit
+		// --target=wp --write-baseline after a reviewed change. The target must
+		// be named: a forgotten flag must not silently re-baseline, because
+		// every growth check would then compare the site against itself.
+		if (!opt('target')) {
+			console.error('refusing to write the baseline without an explicit --target.');
+			console.error('Use --target=wp --write-baseline after reviewing the change it absorbs.');
 			process.exit(2);
 		}
 
