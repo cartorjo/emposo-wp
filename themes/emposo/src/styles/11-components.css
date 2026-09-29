@@ -89,6 +89,9 @@
 /* Hero H1s span their column; on small screens they scale up for presence. */
 .page-hero__copy .display-large { max-width: none; }
 @media (width > theme(--breakpoint-hero)) { .display-large { hyphens: none; } }
+/* Long compound titles (case studies) must hyphenate at every width rather
+   than run under the hero image (owner 2026-09-29): "Gewichts-management". */
+.page-hero__copy .display-large { hyphens: auto; overflow-wrap: break-word; }
 @media (width <= theme(--breakpoint-hero)) {
   :root { --display-size: clamp(2.4rem, 6.5vw, 4rem); }
   .page-hero__copy .display-large { max-width: 19ch; }
