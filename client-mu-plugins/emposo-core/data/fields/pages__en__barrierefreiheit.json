@@ -1,0 +1,42 @@
+{
+	"template": "pages/en/barrierefreiheit",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/en/barrierefreiheit.01",
+			"group": "Accessibility of this website",
+			"label": "Hauptüberschrift",
+			"type": "text",
+			"default": "Accessibility of this website"
+		},
+		{
+			"key": "pages/en/barrierefreiheit.02",
+			"group": "Accessibility of this website",
+			"label": "Absatz",
+			"type": "text",
+			"default": "You can operate the website by keyboard, skip to the main content and enlarge the text in your browser settings. Project filters show the number of matches. Animations respect the “reduce motion” setting."
+		},
+		{
+			"key": "pages/en/barrierefreiheit.03",
+			"group": "Accessibility of this website",
+			"label": "Absatz",
+			"type": "text",
+			"default": "If you encounter a barrier, please tell us the page concerned and the problem. We want to make our information accessible to you."
+		},
+		{
+			"key": "pages/en/barrierefreiheit.04",
+			"group": "Accessibility of this website",
+			"label": "Link-Text",
+			"type": "text",
+			"default": "Report a barrier"
+		},
+		{
+			"key": "pages/en/barrierefreiheit.05",
+			"group": "Accessibility of this website",
+			"label": "Absatz",
+			"type": "text",
+			"default": "This page describes the available features. It is not a declaration of full conformance with an accessibility standard."
+		}
+	]
+}

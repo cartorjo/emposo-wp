@@ -1,0 +1,28 @@
+{
+	"template": "sections/en/02-hero",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/en/02-hero.01",
+			"group": "We make change manageable.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "We make<br><em>change</em><br>manageable."
+		},
+		{
+			"key": "sections/en/02-hero.02",
+			"group": "We make change manageable.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We build productive solutions for our clients and take responsibility all the way to the outcome."
+		},
+		{
+			"key": "sections/en/02-hero.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "hero-flow"
+		}
+	]
+}

@@ -15,9 +15,9 @@
 		<nav class="page-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/en/">Home</a></li><li><span aria-hidden="true">/</span><span aria-current="page">Contact</span></li></ol></nav>
 		<div class="contact__grid">
 			<div>
-			<p class="eyebrow eyebrow--light">Discuss your project</p>
-			<h1 class="display-large display-large--light" id="kontakt-title">Your project. Our focus on <em>outcomes.</em></h1>
-			<p class="contact__note">Let’s discuss your project. Whether you have a concrete project, need initial guidance or have other questions: tell us briefly what it is about.</p>
+			<p class="eyebrow eyebrow--light"><?php emposo_f( 'pages/en/kontakt.01' ); ?></p>
+			<h1 class="display-large display-large--light" id="kontakt-title"><?php emposo_f( 'pages/en/kontakt.02' ); ?></h1>
+			<p class="contact__note"><?php emposo_f( 'pages/en/kontakt.03' ); ?></p>
 			</div>
 			<?php echo emposo_part_html( 'parts/contact-form' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Template output, escaped at its own point of use. ?>
 		</div>

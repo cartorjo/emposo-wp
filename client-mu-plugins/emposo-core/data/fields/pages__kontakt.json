@@ -1,0 +1,28 @@
+{
+	"template": "pages/kontakt",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/kontakt.01",
+			"group": "Ihr Projekt. Unser Fokus auf Outcomes.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Projekt besprechen"
+		},
+		{
+			"key": "pages/kontakt.02",
+			"group": "Ihr Projekt. Unser Fokus auf Outcomes.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Ihr Projekt. Unser Fokus auf <em>Outcomes.</em>"
+		},
+		{
+			"key": "pages/kontakt.03",
+			"group": "Ihr Projekt. Unser Fokus auf Outcomes.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Lassen Sie uns Ihr Projekt besprechen. Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen. Erzählen Sie uns kurz, worum es geht."
+		}
+	]
+}

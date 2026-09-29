@@ -12,18 +12,18 @@
 ?>
 <section class="services page-section" id="services" aria-labelledby="services-title">
 	<div class="gutter"><div class="container">
-	<div class="services-intro"><p class="eyebrow eyebrow--light">What we move for you</p><h2 class="display-large display-large--light" id="services-title">For every company today, change is a <em>permanent state.</em></h2><p>Emposo gives you room for what matters. With the usual market models, risk and control stay with the client. We take full responsibility for a defined service. From start to finish.</p></div>
+	<div class="services-intro"><p class="eyebrow eyebrow--light"><?php emposo_f( 'sections/en/04-about.01' ); ?></p><h2 class="display-large display-large--light" id="services-title"><?php emposo_f( 'sections/en/04-about.02' ); ?></h2><p><?php emposo_f( 'sections/en/04-about.03' ); ?></p></div>
 	<div class="connection-model">
 		<div class="connection-model__items">
-		<p class="connection-model__label">What we deliver</p>
-		<div class="connection-step"><span class="connection-step__icon"><?php emposo_icon( 'finance-trend-line' ); ?></span><div><h3>We optimize your core business</h3><p>We take over your processes, optimize them measurably and give you back room for your core business.</p></div></div>
-		<div class="connection-step"><span class="connection-step__icon"><?php emposo_icon( 'reload-2-line' ); ?></span><div><h3>We actively transform your change</h3><p>We transform your processes with innovative technologies. Economically calculated, productively implemented and measured by the result.</p></div></div>
-		<p class="connection-model__label connection-model__label--how">How we make it possible</p>
-		<div class="connection-step connection-step--how"><span class="connection-step__icon"><?php emposo_icon( 'layers-4-vertical-line' ); ?></span><div><h3>We scale as needed</h3><p>250 specialists at the core, 3,000 experts and 10,000 partners behind us: we scale with your needs. You pay for results; we take responsibility.</p></div></div>
-		<div class="connection-step connection-step--how"><span class="connection-step__icon"><?php emposo_icon( 'molecules-line' ); ?></span><div><h3>We integrate engineering and technology</h3><p>We bring together business units, IT and technology expertise into one result that we take responsibility for.</p></div></div>
+		<p class="connection-model__label"><?php emposo_f( 'sections/en/04-about.04' ); ?></p>
+		<div class="connection-step"><span class="connection-step__icon"><?php emposo_icon( 'finance-trend-line' ); ?></span><div><h3><?php emposo_f( 'sections/en/04-about.05' ); ?></h3><p><?php emposo_f( 'sections/en/04-about.06' ); ?></p></div></div>
+		<div class="connection-step"><span class="connection-step__icon"><?php emposo_icon( 'reload-2-line' ); ?></span><div><h3><?php emposo_f( 'sections/en/04-about.07' ); ?></h3><p><?php emposo_f( 'sections/en/04-about.08' ); ?></p></div></div>
+		<p class="connection-model__label connection-model__label--how"><?php emposo_f( 'sections/en/04-about.09' ); ?></p>
+		<div class="connection-step connection-step--how"><span class="connection-step__icon"><?php emposo_icon( 'layers-4-vertical-line' ); ?></span><div><h3><?php emposo_f( 'sections/en/04-about.10' ); ?></h3><p><?php emposo_f( 'sections/en/04-about.11' ); ?></p></div></div>
+		<div class="connection-step connection-step--how"><span class="connection-step__icon"><?php emposo_icon( 'molecules-line' ); ?></span><div><h3><?php emposo_f( 'sections/en/04-about.12' ); ?></h3><p><?php emposo_f( 'sections/en/04-about.13' ); ?></p></div></div>
 		</div>
 		<div class="connection-model__visual">
-		<?php emposo_the_picture( 'verzahnung' ); ?>
+		<?php emposo_the_picture( emposo_f_image( 'sections/en/04-about.img1' ) ); ?>
 		<p aria-hidden="true">One responsibility.<br><strong>One result.</strong></p>
 		</div>
 	</div>

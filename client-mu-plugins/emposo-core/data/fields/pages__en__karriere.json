@@ -1,0 +1,56 @@
+{
+	"template": "pages/en/karriere",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/en/karriere.01",
+			"group": "More than expertise. The people behind the outcome.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Careers at Emposo"
+		},
+		{
+			"key": "pages/en/karriere.02",
+			"group": "More than expertise. The people behind the outcome.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "More than expertise. The people behind the <em>outcome.</em>"
+		},
+		{
+			"key": "pages/en/karriere.03",
+			"group": "More than expertise. The people behind the outcome.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "At Emposo, you’ll find people who want to take on responsibility. People who don’t stop at concepts but create results. We combine engineering, technology and industry know-how into solutions that work in operations and create real value."
+		},
+		{
+			"key": "pages/en/karriere.04",
+			"group": "More than expertise. The people behind the outcome.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "What connects us is not just professional excellence. It is the shared conviction that change becomes manageable through delivery. That’s why we work as partners, think across boundaries and take responsibility for what we achieve together."
+		},
+		{
+			"key": "pages/en/karriere.05",
+			"group": "Open positions.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Careers"
+		},
+		{
+			"key": "pages/en/karriere.06",
+			"group": "Open positions.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Open <em>positions.</em>"
+		},
+		{
+			"key": "pages/en/karriere.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "technology-team"
+		}
+	]
+}

@@ -1,0 +1,105 @@
+{
+	"template": "sections/04-about",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/04-about.01",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Was wir für Sie bewegen"
+		},
+		{
+			"key": "sections/04-about.02",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Wandel ist heute für jedes Unternehmen ein <em>Dauerzustand.</em>"
+		},
+		{
+			"key": "sections/04-about.03",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Emposo verschafft Ihnen Raum für das Wichtige. Bei marktüblichen Modellen bleiben Risiko und Steuerung beim Kunden. Wir übernehmen die komplette Verantwortung für eine definierte Leistung. Vom Anfang bis zum Ende."
+		},
+		{
+			"key": "sections/04-about.04",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Was wir leisten"
+		},
+		{
+			"key": "sections/04-about.05",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir optimieren Ihr Kerngeschäft"
+		},
+		{
+			"key": "sections/04-about.06",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir übernehmen Ihre Prozesse, optimieren sie messbar und geben Ihnen Freiraum für Ihr Kerngeschäft zurück."
+		},
+		{
+			"key": "sections/04-about.07",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir transformieren aktiv Ihren Wandel"
+		},
+		{
+			"key": "sections/04-about.08",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir transformieren Ihre Prozesse mit innovativen Technologien. Wirtschaftlich kalkuliert, produktiv umgesetzt und am Ergebnis gemessen."
+		},
+		{
+			"key": "sections/04-about.09",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wie wir es möglich machen"
+		},
+		{
+			"key": "sections/04-about.10",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir skalieren nach Bedarf"
+		},
+		{
+			"key": "sections/04-about.11",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "250 Spezialisten im Kern, 3.000 Experten und 10.000 Partner im Rücken: Wir skalieren mit Ihrem Bedarf. Sie zahlen für Ergebnisse, wir übernehmen die Verantwortung."
+		},
+		{
+			"key": "sections/04-about.12",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir verzahnen Engineering und Technology"
+		},
+		{
+			"key": "sections/04-about.13",
+			"group": "Wandel ist heute für jedes Unternehmen ein Dauerzustand.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir verbinden Fachbereich, IT und Technologiekompetenz zu einem Ergebnis, für das wir Verantwortung übernehmen."
+		},
+		{
+			"key": "sections/04-about.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "verzahnung"
+		}
+	]
+}

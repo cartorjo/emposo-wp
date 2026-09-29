@@ -1,0 +1,119 @@
+{
+	"template": "pages/about-us",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/about-us.01",
+			"group": "Wir sind Emposo, die Outcome Factory der Hays Gruppe.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Emposo GmbH"
+		},
+		{
+			"key": "pages/about-us.02",
+			"group": "Wir sind Emposo, die Outcome Factory der Hays Gruppe.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Wir sind <em>Emposo</em>, die Outcome Factory der Hays Gruppe."
+		},
+		{
+			"key": "pages/about-us.03",
+			"group": "Wir sind Emposo, die Outcome Factory der Hays Gruppe.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Seit 2014 führen wir anspruchsvolle Engineering- und Technologievorhaben bis zum abgenommenen Ergebnis. Mit klarer Verantwortung, definierten Abnahmekriterien und einem Ziel: messbare Ergebnisse. So machen wir Wandel beherrschbar, nicht nur bis zur Präsentation, sondern bis zur wirksamen Umsetzung."
+		},
+		{
+			"key": "pages/about-us.04",
+			"group": "Nur wer Verantwortung übernimmt, kann etwas ändern.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Unsere Mission"
+		},
+		{
+			"key": "pages/about-us.05",
+			"group": "Nur wer Verantwortung übernimmt, kann etwas ändern.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Nur wer <em>Verantwortung</em> übernimmt, kann etwas ändern."
+		},
+		{
+			"key": "pages/about-us.06",
+			"group": "Nur wer Verantwortung übernimmt, kann etwas ändern.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Unternehmen müssen heute das Tagesgeschäft sichern und gleichzeitig die Zukunft gestalten. Genau dafür wurde Emposo gegründet. Wir liefern nicht nur Expertise, sondern übernehmen Verantwortung für klar definierte Ergebnisse. Statt Arbeitszeit einzukaufen, erhalten unsere Kunden abgenommene Leistungen, kalkulierbare Kosten und einen Partner, der für die Umsetzung einsteht."
+		},
+		{
+			"key": "pages/about-us.07",
+			"group": "Die Stärke hinter Emposo.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Unser Team"
+		},
+		{
+			"key": "pages/about-us.08",
+			"group": "Die Stärke hinter Emposo.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Die Stärke hinter <em>Emposo.</em>"
+		},
+		{
+			"key": "pages/about-us.09",
+			"group": "Die Stärke hinter Emposo.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Verantwortung für ein Ergebnis können wir nur übernehmen, wenn wir selbst von seiner Qualität überzeugt sind. Dieses Versprechen können wir geben, weil wir unseren Expertinnen und Experten vertrauen."
+		},
+		{
+			"key": "pages/about-us.10",
+			"group": "Die Stärke hinter Emposo.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "In unserem Kernteam arbeiten einige der Besten ihres Fachs. Sie verbinden fundiertes Branchenwissen mit langjähriger Erfahrung aus anspruchsvollen Engineering- und Technologieprojekten und beherrschen ihr Handwerk von der Konzeption bis zur Umsetzung. So entstehen Ergebnisse, für die wir mit Überzeugung einstehen."
+		},
+		{
+			"key": "pages/about-us.11",
+			"group": "Die Stärke hinter Emposo.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wenn zusätzliche Kapazitäten oder spezielle Kompetenzen erforderlich sind, ergänzen wir das Kernteam gezielt über die Hays-Plattform. Die Steuerung und Ergebnisverantwortung bleiben dabei jederzeit bei Emposo."
+		},
+		{
+			"key": "pages/about-us.12",
+			"group": "Erfahrung, die Ergebnisse belastbar macht.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Unternehmen in Zahlen"
+		},
+		{
+			"key": "pages/about-us.13",
+			"group": "Erfahrung, die Ergebnisse belastbar macht.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Erfahrung, die Ergebnisse belastbar <em class=\"text-ink\">macht.</em>"
+		},
+		{
+			"key": "pages/about-us.14",
+			"group": "Erfahrung, die Ergebnisse belastbar macht.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Unser Branchenwissen stammt nicht aus Lehrbüchern, sondern aus der Praxis. Seit 2014 verbinden wir in anspruchsvollen Engineering- und Technologievorhaben tiefes Industrie-Know-how mit moderner Technologie und schaffen daraus Lösungen, die im Betrieb wirken."
+		},
+		{
+			"key": "pages/about-us.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "engineering-knowledge"
+		},
+		{
+			"key": "pages/about-us.img2",
+			"group": "Bilder",
+			"label": "Bild 2",
+			"type": "image",
+			"default": "about-netzwerk"
+		}
+	]
+}

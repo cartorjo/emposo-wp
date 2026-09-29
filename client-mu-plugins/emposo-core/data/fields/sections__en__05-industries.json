@@ -1,0 +1,28 @@
+{
+	"template": "sections/en/05-industries",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/en/05-industries.01",
+			"group": "Our industries, with deep industry know-how.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Industries"
+		},
+		{
+			"key": "sections/en/05-industries.02",
+			"group": "Our industries, with deep industry know-how.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Our industries, with deep <em>industry know-how.</em>"
+		},
+		{
+			"key": "sections/en/05-industries.03",
+			"group": "Our industries, with deep industry know-how.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Our teams and specialists come straight from your industry."
+		}
+	]
+}

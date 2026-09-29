@@ -1,0 +1,70 @@
+{
+	"template": "pages/branchen",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/branchen.01",
+			"group": "Unsere Teams kommen direkt aus Ihrer Branche.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Industrie-Know-how"
+		},
+		{
+			"key": "pages/branchen.02",
+			"group": "Unsere Teams kommen direkt aus Ihrer Branche.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Unsere Teams kommen direkt aus Ihrer <em>Branche.</em>"
+		},
+		{
+			"key": "pages/branchen.03",
+			"group": "Unsere Teams kommen direkt aus Ihrer Branche.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir sind in fünf Branchen zu Hause und passen die Lösungen an regulatorische und operative Anforderungen an. Langjährige Branchenerfahrung ermöglicht eine schnelle Einarbeitung und passende Lösungen."
+		},
+		{
+			"key": "pages/branchen.04",
+			"group": "Branchenwissen und Technologie verzahnt.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Unsere Branchen"
+		},
+		{
+			"key": "pages/branchen.05",
+			"group": "Branchenwissen und Technologie verzahnt.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Branchenwissen und Technologie <em>verzahnt.</em>"
+		},
+		{
+			"key": "pages/branchen.06",
+			"group": "Unsere Erfolge sprechen für sich.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Projekte"
+		},
+		{
+			"key": "pages/branchen.07",
+			"group": "Unsere Erfolge sprechen für sich.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Unsere Erfolge sprechen <em>für sich.</em>"
+		},
+		{
+			"key": "pages/branchen.08",
+			"group": "Unsere Erfolge sprechen für sich.",
+			"label": "Absatz",
+			"type": "html",
+			"default": "Jedes Projekt endet mit einem klaren Outcome.<br>Wir waren nicht Teil der Lösung, wir haben sie geschaffen."
+		},
+		{
+			"key": "pages/branchen.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "energy"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"template": "pages/en/kontakt",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/en/kontakt.01",
+			"group": "Your project. Our focus on outcomes.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Discuss your project"
+		},
+		{
+			"key": "pages/en/kontakt.02",
+			"group": "Your project. Our focus on outcomes.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Your project. Our focus on <em>outcomes.</em>"
+		},
+		{
+			"key": "pages/en/kontakt.03",
+			"group": "Your project. Our focus on outcomes.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Let’s discuss your project. Whether you have a concrete project, need initial guidance or have other questions: tell us briefly what it is about."
+		}
+	]
+}

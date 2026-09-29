@@ -1,0 +1,28 @@
+{
+	"template": "sections/05-industries",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/05-industries.01",
+			"group": "Unsere Branchen mit tiefem Industrie-Know-how.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Branchen"
+		},
+		{
+			"key": "sections/05-industries.02",
+			"group": "Unsere Branchen mit tiefem Industrie-Know-how.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Unsere Branchen mit tiefem <em>Industrie-Know-how.</em>"
+		},
+		{
+			"key": "sections/05-industries.03",
+			"group": "Unsere Branchen mit tiefem Industrie-Know-how.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Unsere Teams und Spezialisten kommen direkt aus Ihrer Branche."
+		}
+	]
+}

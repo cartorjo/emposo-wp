@@ -1,0 +1,42 @@
+{
+	"template": "pages/barrierefreiheit",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/barrierefreiheit.01",
+			"group": "Zugänglichkeit dieser Website",
+			"label": "Hauptüberschrift",
+			"type": "text",
+			"default": "Zugänglichkeit dieser Website"
+		},
+		{
+			"key": "pages/barrierefreiheit.02",
+			"group": "Zugänglichkeit dieser Website",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Sie können die Website per Tastatur bedienen, zum Hauptinhalt springen und die Schrift über Ihre Browsereinstellungen vergrößern. Projektfilter zeigen die Anzahl der Treffer an. Bewegungen berücksichtigen die Einstellung „Bewegung reduzieren“."
+		},
+		{
+			"key": "pages/barrierefreiheit.03",
+			"group": "Zugänglichkeit dieser Website",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wenn Sie auf eine Barriere stoßen, teilen Sie uns bitte die betroffene Seite und das Problem mit. Wir möchten Ihnen den Zugang zu unseren Informationen ermöglichen."
+		},
+		{
+			"key": "pages/barrierefreiheit.04",
+			"group": "Zugänglichkeit dieser Website",
+			"label": "Link-Text",
+			"type": "text",
+			"default": "Barriere melden"
+		},
+		{
+			"key": "pages/barrierefreiheit.05",
+			"group": "Zugänglichkeit dieser Website",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Diese Seite beschreibt die verfügbaren Funktionen. Sie ist keine Erklärung einer vollständigen Konformität mit einem Barrierefreiheitsstandard."
+		}
+	]
+}

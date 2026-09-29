@@ -1,0 +1,28 @@
+{
+	"template": "sections/en/03-models",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/en/03-models.01",
+			"group": "Scalable in delivery. Connected in the solution. Accountable for the r",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Why Emposo"
+		},
+		{
+			"key": "sections/en/03-models.02",
+			"group": "Scalable in delivery. Connected in the solution. Accountable for the r",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Scalable in delivery. Connected in the solution. <em>Accountable for the result.</em>"
+		},
+		{
+			"key": "sections/en/03-models.03",
+			"group": "Scalable in delivery. Connected in the solution. Accountable for the r",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We bring together expertise, technology and capacity, scale flexibly as needed and take responsibility for the result."
+		}
+	]
+}

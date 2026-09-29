@@ -1,0 +1,28 @@
+{
+	"template": "sections/07b-sales-cta",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/07b-sales-cta.01",
+			"group": "Jetzt Kontakt aufnehmen!",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Kontakt"
+		},
+		{
+			"key": "sections/07b-sales-cta.02",
+			"group": "Jetzt Kontakt aufnehmen!",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Jetzt Kontakt <em>aufnehmen!</em>"
+		},
+		{
+			"key": "sections/07b-sales-cta.03",
+			"group": "Jetzt Kontakt aufnehmen!",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen. Erzählen Sie uns kurz, worum es geht."
+		}
+	]
+}

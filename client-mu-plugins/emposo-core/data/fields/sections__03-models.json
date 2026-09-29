@@ -1,0 +1,28 @@
+{
+	"template": "sections/03-models",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/03-models.01",
+			"group": "Skalierbar in der Umsetzung. Vernetzt in der Lösung. Verantwortlich im",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Warum Emposo"
+		},
+		{
+			"key": "sections/03-models.02",
+			"group": "Skalierbar in der Umsetzung. Vernetzt in der Lösung. Verantwortlich im",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Skalierbar in der Umsetzung. Vernetzt in der Lösung. <em>Verantwortlich im Ergebnis.</em>"
+		},
+		{
+			"key": "sections/03-models.03",
+			"group": "Skalierbar in der Umsetzung. Vernetzt in der Lösung. Verantwortlich im",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir bringen Expertise, Technologie und Kapazität zusammen, skalieren flexibel nach Bedarf und übernehmen Verantwortung für das Ergebnis."
+		}
+	]
+}

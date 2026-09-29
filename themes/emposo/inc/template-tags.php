@@ -153,6 +153,25 @@ function emposo_the_picture( $image, string $size_key = 'default', bool $priorit
 }
 
 /**
+ * Print a page field (inc/fields.php): the editor's text or the default.
+ *
+ * @param string $key Field key, e.g. 'pages/about-us.07'.
+ */
+function emposo_f( string $key ): void {
+	echo \Emposo\Core\Fields\render( $key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Default is template markup; overrides are kses'd or escaped in render().
+}
+
+/**
+ * A page image field: the chosen attachment ID or the default manifest key.
+ *
+ * @param string $key Field key, e.g. 'pages/about-us.img1'.
+ * @return int|string
+ */
+function emposo_f_image( string $key ) {
+	return \Emposo\Core\Fields\image( $key );
+}
+
+/**
  * Print a shared content fragment.
  *
  * The static build's 13 `<!-- content:name -->` includes. Implemented as

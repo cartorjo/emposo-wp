@@ -36,7 +36,13 @@ function emposo_route(): array {
 
 	foreach ( $contract as $route ) {
 		if ( ( $route['url'] ?? '' ) === $path ) {
-			$cache = $route;
+			/**
+			 * Filters the matched route record (the editors' SEO title and
+			 * description apply here, inc/fields.php).
+			 *
+			 * @param array<string, mixed> $route Route record from the contract.
+			 */
+			$cache = (array) apply_filters( 'emposo_route', $route );
 
 			return $cache;
 		}

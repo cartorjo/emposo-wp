@@ -63,8 +63,37 @@ function t( string $key, ?string $locale = null ): string {
 	$locale  = $locale ?? locale();
 	$strings = (array) ( tables()['strings'] ?? array() );
 	$value   = $strings[ $locale ][ $key ] ?? $strings[ DEFAULT_LOCALE ][ $key ] ?? null;
+	if ( ! is_string( $value ) ) {
+		return '';
+	}
 
-	return is_string( $value ) ? $value : '';
+	// An editor's override (inc/editorial/texts.php), sanitised on save.
+	// Plain strings are escaped, because t() also fills attributes.
+	$override = override( $key, $locale );
+	if ( '' !== $override ) {
+		return false !== strpos( $value, '<' )
+			? wp_kses( $override, \Emposo\Core\Fields\allowed_inline() )
+			: \Emposo\Core\escape_static( $override );
+	}
+
+	return $value;
+}
+
+/**
+ * An editor's override of a UI string, or ''.
+ *
+ * @param string $key    Dictionary key.
+ * @param string $locale Locale.
+ */
+function override( string $key, string $locale ): string {
+	static $cache = array();
+
+	if ( ! isset( $cache[ $locale ] ) ) {
+		$stored           = get_option( 'en' === $locale ? 'emposo_strings_en' : 'emposo_strings', array() );
+		$cache[ $locale ] = is_array( $stored ) ? array_map( 'strval', $stored ) : array();
+	}
+
+	return $cache[ $locale ][ $key ] ?? '';
 }
 
 /**

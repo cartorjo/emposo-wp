@@ -1,0 +1,70 @@
+{
+	"template": "pages/en/branchen",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/en/branchen.01",
+			"group": "Our teams come straight from your industry.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Industry know-how"
+		},
+		{
+			"key": "pages/en/branchen.02",
+			"group": "Our teams come straight from your industry.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Our teams come straight from your <em>industry.</em>"
+		},
+		{
+			"key": "pages/en/branchen.03",
+			"group": "Our teams come straight from your industry.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We are at home in five industries and adapt our solutions to regulatory and operational requirements. Many years of industry experience mean fast onboarding and solutions that fit."
+		},
+		{
+			"key": "pages/en/branchen.04",
+			"group": "Industry knowledge and technology, integrated.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Our industries"
+		},
+		{
+			"key": "pages/en/branchen.05",
+			"group": "Industry knowledge and technology, integrated.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Industry knowledge and technology, <em>integrated.</em>"
+		},
+		{
+			"key": "pages/en/branchen.06",
+			"group": "Our results speak for themselves.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Projects"
+		},
+		{
+			"key": "pages/en/branchen.07",
+			"group": "Our results speak for themselves.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Our results speak <em>for themselves.</em>"
+		},
+		{
+			"key": "pages/en/branchen.08",
+			"group": "Our results speak for themselves.",
+			"label": "Absatz",
+			"type": "html",
+			"default": "Every project ends with a clear outcome.<br>We weren’t part of the solution, we created it."
+		},
+		{
+			"key": "pages/en/branchen.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "energy"
+		}
+	]
+}

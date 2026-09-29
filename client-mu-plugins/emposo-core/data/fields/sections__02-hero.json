@@ -1,0 +1,28 @@
+{
+	"template": "sections/02-hero",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/02-hero.01",
+			"group": "Wir machen Wandel beherrschbar.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Wir machen<br><em>Wandel</em><br>beherrschbar."
+		},
+		{
+			"key": "sections/02-hero.02",
+			"group": "Wir machen Wandel beherrschbar.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Für unsere Kunden bauen wir produktive Lösungen und tragen die Verantwortung bis zum Outcome."
+		},
+		{
+			"key": "sections/02-hero.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "hero-flow"
+		}
+	]
+}
