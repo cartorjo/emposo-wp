@@ -145,7 +145,6 @@ jobs:
       # did not rebuild — and every parity measurement downstream would then be
       # describing a file the repository does not contain.
       - run: npm run build:css
-      - run: npm run check:sources
       # check:docs and check:harness also import tools/routes.mjs, which reads
       # the reference/static submodule at load — so they run here, in the one
       # job that checks it out, not in the Lint job.

@@ -63,9 +63,12 @@ format is reviewed on a machine that has no credential.
 Presentation lives in `themes/emposo/`. Everything stateful — content types,
 taxonomies, meta, blocks, image helpers, settings, the dashboard and the CLI
 commands — lives in `client-mu-plugins/emposo-core/`, so content survives a
-theme change. `reference/static/` is the audited static build, pinned to
-`9545bc3` (weave-clone main, 2026-09-28); treat it as read-only. Moving the
-pin is a procedure, not an edit: see `docs/resync.md`.
+theme change. `reference/static/` is the audited static build, frozen at
+`9545bc3` (weave-clone main, 2026-09-28). On 2026-09-29 the owner took
+weave-clone off ("i took off weave-clone"): WordPress is now the source. CSS is
+edited in `themes/emposo/src/styles/`, content in
+`client-mu-plugins/emposo-core/data/*.json`, templates in `themes/emposo/parts/`.
+There is no re-pin any more; `docs/resync.md` is kept for history.
 
 ## Things that look optional and are not
 
