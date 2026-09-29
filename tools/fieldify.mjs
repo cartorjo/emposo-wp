@@ -49,7 +49,16 @@ if (!ids.length) {
 }
 
 const attr = (node, name) => node.attrs?.find((a) => a.name === name)?.value;
-const plain = (html) => html.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+// Visible text of a snippet, for labels and group names only (never output as HTML).
+const plain = (html) => {
+	let text = html.replace(/<br\s*\/?>/gi, ' ');
+	let previous;
+	do {
+		previous = text;
+		text = text.replace(/<[^<>]*>/g, '');
+	} while (text !== previous);
+	return text.replace(/[<>]/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+};
 
 function hasBlockDescendant(node) {
 	for (const child of node.childNodes ?? []) {
