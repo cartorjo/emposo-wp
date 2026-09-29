@@ -39,8 +39,8 @@
 .contact-form { display: grid; gap: var(--space-6) var(--space-4); grid-template-columns: 1fr 1fr; }
 .contact-form label { display: grid; font-weight: 600; gap: var(--space-3); text-transform: none; }
 /* Chevron and select share one label grid cell, both placed explicitly (auto-
-   placement would push the select into a new column). The 1px bottom margin
-   centers the chevron on the padding box, above the border line. */
+   placement would push the select into a new column). It sits inside the
+   field's frame, one --space-4 in from the right border. */
 .contact-form__select::after {
   align-self: center;
   background-color: currentColor;
@@ -48,7 +48,7 @@
   grid-area: 2 / 1;
   height: 8px;
   justify-self: end;
-  margin-block: 0 1px; margin-inline: 0 var(--space-1);
+  margin-inline: 0 var(--space-4);
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
   pointer-events: none;
   width: 12px;

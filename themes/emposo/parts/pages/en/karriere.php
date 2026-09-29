@@ -30,4 +30,3 @@
 		</div></div>
 	</section>
 
-	<?php emposo_fragment( 'keep-exploring' ); ?>

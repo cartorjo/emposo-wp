@@ -31,7 +31,7 @@
 			<article><p>Some of the best in their fields work in our core team. They combine deep industry knowledge with many years of experience from demanding engineering and technology projects and master their craft from concept to implementation. The result is work we stand behind with conviction.</p></article>
 			<article><p>When additional capacity or specialized skills are needed, we add to the core team selectively via the Hays platform. Management and accountability for the outcome always remain with Emposo.</p></article>
 		</div>
-		<figure class="about-netzwerk"><?php emposo_the_picture( 'about-netzwerk' ); ?></figure>
+		<figure class="about-netzwerk"><?php emposo_the_picture( 'about-netzwerk-en' ); ?></figure>
 		</div></div>
 	</section>
 

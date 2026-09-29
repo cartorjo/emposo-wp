@@ -27,7 +27,7 @@
 			"footer.karriere": "Karriere",
 			"footer.contact": "Kontakt",
 			"footer.discuss": "Projekt besprechen",
-			"footer.locations": "Mannheim · Düsseldorf<br>Ingolstadt · Bukarest",
+			"footer.locations": "Mannheim<br>Düsseldorf<br>Ingolstadt<br>Bukarest",
 			"footer.impressum": "Impressum",
 			"footer.privacy": "Datenschutz",
 			"footer.terms": "Nutzungsbestimmungen",
@@ -78,10 +78,6 @@
 			"management.more": "Mehr lesen",
 			"management.less": "Weniger anzeigen",
 			"management.linkedin": "auf LinkedIn",
-			"explore.title": "Weiter entdecken",
-			"explore.portfolio": "Leistungen",
-			"explore.branchen": "Branchen",
-			"explore.about": "Über uns",
 			"cta.eyebrow": "Ihr nächster Schritt",
 			"cta.link": "Projekt besprechen",
 			"cta.default.title": "Jetzt Kontakt aufnehmen!",
@@ -140,7 +136,7 @@
 			"footer.karriere": "Careers",
 			"footer.contact": "Contact",
 			"footer.discuss": "Discuss your project",
-			"footer.locations": "Mannheim · Düsseldorf<br>Ingolstadt · Bucharest",
+			"footer.locations": "Mannheim<br>Düsseldorf<br>Ingolstadt<br>Bucharest",
 			"footer.impressum": "Legal notice",
 			"footer.privacy": "Privacy",
 			"footer.terms": "Terms of use",
@@ -191,10 +187,6 @@
 			"management.more": "Read more",
 			"management.less": "Show less",
 			"management.linkedin": "on LinkedIn",
-			"explore.title": "Keep exploring",
-			"explore.portfolio": "Services",
-			"explore.branchen": "Industries",
-			"explore.about": "About us",
 			"cta.eyebrow": "Your next step",
 			"cta.link": "Discuss your project",
 			"cta.default.title": "Get in touch now!",
@@ -266,6 +258,7 @@
 		"penetrationstests": "penetration-testing",
 		"cybersecurity-post-market": "post-market-cybersecurity",
 		"informationssicherheits-risikomanagement": "medtech-information-security-risk",
-		"fuzzing-firmware": "firmware-fuzzing"
+		"fuzzing-firmware": "firmware-fuzzing",
+		"trennung-sops-schulungscurricula": "sop-curricula-separation"
 	}
 }

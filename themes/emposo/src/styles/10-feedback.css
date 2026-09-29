@@ -210,7 +210,10 @@ a.expertise-card:focus-visible { --focus-halo: 0 0 0 var(--invert-bleed) var(--c
    Rolle; Hover/Fokus blendet maximal drei Fakten als navy Overlay über dem
    Foto ein. Fotos einheitlich in Graustufen. */
 .management-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12) var(--space-8); margin-top: var(--space-14); }
-.management-card { position: relative; }
+.management-card { display: flex; flex-direction: column; position: relative; }
+/* "Mehr lesen" on one line across a row (owner 2026-09-29): teasers and role
+   blocks differ in length, so the expander takes the free space above it. */
+.management-card > .expander { margin-top: auto; }
 .management-card figure { aspect-ratio: 3 / 2; overflow: hidden; background: var(--color-bg); }
 .management-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
 .management-card h3 { font-size: var(--text-title-fluid); font-weight: 700; letter-spacing: var(--tracking-snug); line-height: var(--leading-title); margin-top: var(--space-4); }
