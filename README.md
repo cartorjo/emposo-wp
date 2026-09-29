@@ -67,7 +67,7 @@ theme change. `reference/static/` is the audited static build, frozen at
 `9545bc3` (weave-clone main, 2026-09-28). On 2026-09-29 the owner took
 weave-clone off ("i took off weave-clone"): WordPress is now the source. CSS is
 edited in `themes/emposo/src/styles/`, content in
-`client-mu-plugins/emposo-core/data/*.json`, templates in `themes/emposo/parts/`.
+the JSON files in `client-mu-plugins/emposo-core/data/`, templates in `themes/emposo/parts/`.
 There is no re-pin any more; `docs/resync.md` is kept for history.
 
 ## Things that look optional and are not

@@ -3,7 +3,7 @@
 > **Retired 2026-09-29.** The owner took weave-clone off ("i took off
 > weave-clone"), so there is nothing to re-pin. WordPress is the source:
 > styles in `themes/emposo/src/styles/`, content in
-> `client-mu-plugins/emposo-core/data/*.json`, templates in
+> the JSON files in `client-mu-plugins/emposo-core/data/`, templates in
 > `themes/emposo/parts/`. `parity --strict` and `check:sources` left
 > `npm run check` and CI that day. The procedure below is kept for history.
 
