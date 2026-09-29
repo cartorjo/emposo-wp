@@ -212,11 +212,14 @@ function render( string $key ): string {
 	$value                   = overrides( $store, $post_id )[ $key ] ?? '';
 
 	if ( '' === $value ) {
-		return $field['default'];
+		$html = $field['default'];
+	} else {
+		// Stored values were sanitised on save; escape again on output (defence in depth).
+		$html = 'html' === $field['type'] ? wp_kses( $value, allowed_inline() ) : \Emposo\Core\escape_static( $value );
 	}
 
-	// Stored values were sanitised on save; escape again on output (defence in depth).
-	return 'html' === $field['type'] ? wp_kses( $value, allowed_inline() ) : \Emposo\Core\escape_static( $value );
+	// Display headlines break at the dictionary's word joints (inc/hyphenation.php).
+	return in_array( $field['label'], array( 'Hauptüberschrift', 'Überschrift' ), true ) ? \Emposo\Core\Hyphenation\mark( $html ) : $html;
 }
 
 /**

@@ -92,6 +92,9 @@
 /* Long compound titles (case studies) must hyphenate at every width rather
    than run under the hero image (owner 2026-09-29): "Gewichts-management". */
 .page-hero__copy .display-large { hyphens: auto; overflow-wrap: break-word; }
+/* Dictionary words (inc/hyphenation.php) break only at their marked word
+   joints: "Gewichts-management", never "Gewichtsma-nagement". */
+.hy { hyphens: manual; }
 @media (width <= theme(--breakpoint-hero)) {
   :root { --display-size: clamp(2.4rem, 6.5vw, 4rem); }
   .page-hero__copy .display-large { max-width: 19ch; }
