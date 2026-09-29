@@ -221,10 +221,24 @@ function picture( $image, string $size_key = 'default', bool $priority = false, 
 
 	$loading = $priority ? 'fetchpriority="high"' : 'loading="lazy"';
 
+	/*
+	 * An editor's own upload has no pre-built variants: give it WordPress's
+	 * own srcset over its sub-sizes (written as WebP, see
+	 * inc/editorial/attachment-fields.php), so it is not one 1600 px file.
+	 */
+	$srcset = '';
+	if ( '' === $sources && '' === $fallback ) {
+		$candidates = wp_get_attachment_image_srcset( $id, 'emposo-1600' );
+		if ( is_string( $candidates ) && '' !== $candidates ) {
+			$srcset = sprintf( ' srcset="%s" sizes="%s"', esc_attr( $candidates ), esc_attr( $sizes ) );
+		}
+	}
+
 	return sprintf(
-		'<picture>%s<img src="%s" alt="%s" width="%d" height="%d" %s decoding="async"></picture>',
+		'<picture>%s<img src="%s"%s alt="%s" width="%d" height="%d" %s decoding="async"></picture>',
 		$sources,
 		esc_url( $src ),
+		$srcset,
 		// The reference build escapes alt with its 4-char escape(); esc_attr
 		// would emit &#039; for an apostrophe and diverge from parity.
 		$decorative ? '' : \Emposo\Core\escape_static( $alt ),

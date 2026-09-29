@@ -640,7 +640,10 @@ function discipline_grid(): string {
 function jobs_list(): string {
 	$out = '';
 
-	foreach ( localized_option( 'emposo_jobs' ) as $job ) {
+	// Job posts (inc/editorial/jobs.php) once they exist, the seeded option until then.
+	$jobs = \Emposo\Core\Editorial\job_entries( 'en' === locale() ) ?? localized_option( 'emposo_jobs' );
+
+	foreach ( $jobs as $job ) {
 		$title = (string) ( $job['title'] ?? '' );
 		$intro = array_map( 'strval', (array) ( $job['intro'] ?? array() ) );
 
@@ -845,6 +848,33 @@ function split_bio( array $paragraphs ): array {
 }
 
 /**
+ * Classic-editor text as plain paragraphs.
+ *
+ * The card markup is fixed (one <p> per paragraph), so formatting an editor
+ * adds in the classic editor is dropped rather than printed as literal tags:
+ * wpautop first (a visual-mode save separates paragraphs with <p> or blank
+ * lines), then tags and entities go.
+ *
+ * @param string $content Editor content.
+ * @return string[]
+ */
+function plain_paragraphs( string $content ): array {
+	$html  = wpautop( $content );
+	$found = preg_match_all( '#<p[^>]*>(.*?)</p>#s', $html, $matches );
+	$out   = array();
+
+	foreach ( $found ? $matches[1] : array() as $paragraph ) {
+		$text = trim( html_entity_decode( wp_strip_all_tags( (string) $paragraph ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+		$text = (string) preg_replace( '/\s+/u', ' ', $text );
+		if ( '' !== $text ) {
+			$out[] = $text;
+		}
+	}
+
+	return $out;
+}
+
+/**
  * The management cards: photo, name, roles, teaser, Mehr-lesen expander.
  */
 function management(): string {
@@ -855,8 +885,7 @@ function management(): string {
 		$english  = 'en' === locale();
 		$roles    = meta_list( $person, $english ? '_emposo_person_roles_en' : '_emposo_person_roles' );
 		$linkedin = meta( $person, '_emposo_person_linkedin' );
-		$blocks   = preg_split( '/\R{2,}/', trim( (string) $person->post_content ) );
-		$bio      = array_values( array_filter( array_map( 'trim', is_array( $blocks ) ? $blocks : array() ) ) );
+		$bio      = plain_paragraphs( (string) $person->post_content );
 		// English pages read the English bio paragraphs (person meta), German otherwise.
 		if ( $english && meta_list( $person, '_emposo_person_bio_en' ) ) {
 			$bio = meta_list( $person, '_emposo_person_bio_en' );

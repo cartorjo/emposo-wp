@@ -75,6 +75,9 @@ class Import_Command {
 	 * [--dry-run]
 	 * : Print the plan and write nothing.
 	 *
+	 * [--override-editorial]
+	 * : Run although editorial mode is on (overwrites editors' changes to people, terms, options and media).
+	 *
 	 * [--force]
 	 * : Overwrite fields an editor has changed since the last import.
 	 *
@@ -110,6 +113,9 @@ class Import_Command {
 	 * [--dry-run]
 	 * : Print the plan and write nothing.
 	 *
+	 * [--override-editorial]
+	 * : Run although editorial mode is on (overwrites editors' changes to people, terms, options and media).
+	 *
 	 * [--export=<file>]
 	 * : Export JSON.
 	 *
@@ -130,6 +136,9 @@ class Import_Command {
 	 * [--dry-run]
 	 * : Print the plan and write nothing.
 	 *
+	 * [--override-editorial]
+	 * : Run although editorial mode is on (overwrites editors' changes to people, terms, options and media).
+	 *
 	 * [--export=<file>]
 	 * : Export JSON.
 	 *
@@ -149,6 +158,9 @@ class Import_Command {
 	 *
 	 * [--dry-run]
 	 * : Print the plan and write nothing.
+	 *
+	 * [--override-editorial]
+	 * : Run although editorial mode is on (overwrites editors' changes to people, terms, options and media).
 	 *
 	 * [--force]
 	 * : Overwrite editor-modified fields.
@@ -173,6 +185,9 @@ class Import_Command {
 	 * [--dry-run]
 	 * : Print the plan and write nothing.
 	 *
+	 * [--override-editorial]
+	 * : Run although editorial mode is on (overwrites editors' changes to people, terms, options and media).
+	 *
 	 * [--export=<file>]
 	 * : Export JSON.
 	 *
@@ -193,6 +208,9 @@ class Import_Command {
 	 * [--dry-run]
 	 * : Print the plan and write nothing.
 	 *
+	 * [--override-editorial]
+	 * : Run although editorial mode is on (overwrites editors' changes to people, terms, options and media).
+	 *
 	 * [--export=<file>]
 	 * : Export JSON.
 	 *
@@ -212,6 +230,9 @@ class Import_Command {
 	 *
 	 * [--dry-run]
 	 * : Print the plan and write nothing.
+	 *
+	 * [--override-editorial]
+	 * : Run although editorial mode is on (overwrites editors' changes to people, terms, options and media).
 	 *
 	 * [--export=<file>]
 	 * : Export JSON.
@@ -237,6 +258,18 @@ class Import_Command {
 	private function boot( array $assoc_args ): void {
 		$this->dry_run = isset( $assoc_args['dry-run'] );
 		$this->force   = isset( $assoc_args['force'] );
+
+		/*
+		 * Editorial mode (inc/editorial/editor.php): once colleagues edit the
+		 * live site, a re-import would overwrite their people, terms, options
+		 * and media metadata unconditionally. Refuse unless asked explicitly.
+		 */
+		if ( ! $this->dry_run && \Emposo\Core\Editorial\editorial_mode() && ! isset( $assoc_args['override-editorial'] ) ) {
+			WP_CLI::error(
+				'Editorial mode is on: editors own this content, and the import would overwrite their changes. '
+				. 'Use --dry-run to inspect, or pass --override-editorial if that is really intended.'
+			);
+		}
 
 		/*
 		 * kses. Under WP-CLI there is no current user, so

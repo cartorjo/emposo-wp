@@ -41,6 +41,15 @@ require_once __DIR__ . '/inc/fragments.php';
 require_once __DIR__ . '/inc/cache.php';
 require_once __DIR__ . '/inc/security.php';
 require_once __DIR__ . '/inc/contact.php';
+// Editing surface (owner 2026-09-29): classic editor, route lock, field boxes.
+require_once __DIR__ . '/inc/editorial/editor.php';
+require_once __DIR__ . '/inc/editorial/route-lock.php';
+require_once __DIR__ . '/inc/editorial/case-study-box.php';
+require_once __DIR__ . '/inc/editorial/person-box.php';
+require_once __DIR__ . '/inc/editorial/jobs.php';
+require_once __DIR__ . '/inc/editorial/settings.php';
+require_once __DIR__ . '/inc/editorial/term-fields.php';
+require_once __DIR__ . '/inc/editorial/attachment-fields.php';
 require_once __DIR__ . '/inc/claude.php';
 require_once __DIR__ . '/inc/dashboard.php';
 require_once __DIR__ . '/inc/cli.php';
