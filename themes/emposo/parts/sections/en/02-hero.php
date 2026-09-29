@@ -14,10 +14,10 @@
 	<div class="gutter"><div class="container">
 	<div class="hero__grid">
 		<div class="hero__copy">
-		<h1 class="display-large display-large--light" id="hero-title">We make<br><em>change</em><br>manageable.</h1>
-		<div class="hero__intro"><p>We build productive solutions for our clients and take responsibility all the way to the outcome.</p></div>
+		<h1 class="display-large display-large--light" id="hero-title"><?php emposo_f( 'sections/en/02-hero.01' ); ?></h1>
+		<div class="hero__intro"><p><?php emposo_f( 'sections/en/02-hero.02' ); ?></p></div>
 		</div>
-		<figure class="hero__visual"><?php emposo_the_picture( 'hero-flow', 'hero', true ); ?></figure>
+		<figure class="hero__visual"><?php emposo_the_picture( emposo_f_image( 'sections/en/02-hero.img1' ), 'hero', true ); ?></figure>
 	</div>
 	</div></div>
 </section>

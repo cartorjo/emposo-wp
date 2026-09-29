@@ -10,13 +10,13 @@
  */
 
 ?>
-<section class="page-hero" aria-labelledby="karriere-title"><div class="gutter"><div class="container @container"><div class="page-hero__grid @max-content:grid-cols-1"><div class="page-hero__copy"><nav class="page-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/en/">Home</a></li><li><span aria-hidden="true">/</span><span aria-current="page">Careers</span></li></ol></nav><p class="eyebrow eyebrow--light">Careers at Emposo</p>
-			<h1 class="display-large display-large--light" id="karriere-title">More than expertise. The people behind the <em>outcome.</em></h1>
-			<p class="page-hero__intro">At Emposo, you’ll find people who want to take on responsibility. People who don’t stop at concepts but create results. We combine engineering, technology and industry know-how into solutions that work in operations and create real value.</p></div><figure class="page-hero__visual"><?php emposo_the_picture( 'technology-team', 'hero', true ); ?></figure></div></div></div></section>
+<section class="page-hero" aria-labelledby="karriere-title"><div class="gutter"><div class="container @container"><div class="page-hero__grid @max-content:grid-cols-1"><div class="page-hero__copy"><nav class="page-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/en/">Home</a></li><li><span aria-hidden="true">/</span><span aria-current="page">Careers</span></li></ol></nav><p class="eyebrow eyebrow--light"><?php emposo_f( 'pages/en/karriere.01' ); ?></p>
+			<h1 class="display-large display-large--light" id="karriere-title"><?php emposo_f( 'pages/en/karriere.02' ); ?></h1>
+			<p class="page-hero__intro"><?php emposo_f( 'pages/en/karriere.03' ); ?></p></div><figure class="page-hero__visual"><?php emposo_the_picture( emposo_f_image( 'pages/en/karriere.img1' ), 'hero', true ); ?></figure></div></div></div></section>
 
 	<section class="page-section" aria-label="What connects us">
 		<div class="gutter"><div class="container">
-		<p class="section-lede">What connects us is not just professional excellence. It is the shared conviction that change becomes manageable through delivery. That’s why we work as partners, think across boundaries and take responsibility for what we achieve together.</p>
+		<p class="section-lede"><?php emposo_f( 'pages/en/karriere.04' ); ?></p>
 		</div></div>
 	</section>
 
@@ -24,8 +24,8 @@
 
 	<section class="page-section page-section--paper" id="positionen" aria-labelledby="positionen-title">
 		<div class="gutter"><div class="container">
-		<p class="eyebrow">Careers</p>
-		<h2 class="display-large" id="positionen-title">Open <em>positions.</em></h2>
+		<p class="eyebrow"><?php emposo_f( 'pages/en/karriere.05' ); ?></p>
+		<h2 class="display-large" id="positionen-title"><?php emposo_f( 'pages/en/karriere.06' ); ?></h2>
 		<?php emposo_fragment( 'jobs' ); ?>
 		</div></div>
 	</section>

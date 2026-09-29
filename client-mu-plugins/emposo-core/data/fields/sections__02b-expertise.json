@@ -1,0 +1,77 @@
+{
+	"template": "sections/02b-expertise",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/02b-expertise.01",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Engineering + Technology"
+		},
+		{
+			"key": "sections/02b-expertise.02",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Wir verzahnen, was <em>zusammengehört.</em>"
+		},
+		{
+			"key": "sections/02b-expertise.03",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Viele Projekte scheitern an den Übergängen zwischen Engineering und IT. Emposo verzahnt beide Welten, damit aus technischen Konzepten produktive Lösungen werden."
+		},
+		{
+			"key": "sections/02b-expertise.04",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Engineering"
+		},
+		{
+			"key": "sections/02b-expertise.05",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Von der Anforderung bis zur abgesicherten Funktion."
+		},
+		{
+			"key": "sections/02b-expertise.06",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Technology"
+		},
+		{
+			"key": "sections/02b-expertise.07",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Von Daten und Software bis zum produktiven Betrieb."
+		},
+		{
+			"key": "sections/02b-expertise.08",
+			"group": "Wir verzahnen, was zusammengehört.",
+			"label": "Absatz",
+			"type": "html",
+			"default": "<strong>Wir verbinden, was andere getrennt betrachten.</strong>"
+		},
+		{
+			"key": "sections/02b-expertise.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "engineering"
+		},
+		{
+			"key": "sections/02b-expertise.img2",
+			"group": "Bilder",
+			"label": "Bild 2",
+			"type": "image",
+			"default": "technology-team"
+		}
+	]
+}

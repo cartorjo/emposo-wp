@@ -1,0 +1,112 @@
+{
+	"template": "pages/404",
+	"locale": "de",
+	"store": "global",
+	"fields": [
+		{
+			"key": "pages/404.01",
+			"group": "Diese Seite liefert nicht.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Fehler 404"
+		},
+		{
+			"key": "pages/404.02",
+			"group": "Diese Seite liefert nicht.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Diese Seite liefert <em>nicht.</em>"
+		},
+		{
+			"key": "pages/404.03",
+			"group": "Diese Seite liefert nicht.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Die angeforderte Adresse existiert nicht oder wurde verschoben. Diese Wege führen weiter:"
+		},
+		{
+			"key": "pages/404.04",
+			"group": "Zurück zum Inhalt.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Weiter geht es hier"
+		},
+		{
+			"key": "pages/404.05",
+			"group": "Zurück zum Inhalt.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Zurück zum <em class=\"text-ink\">Inhalt.</em>"
+		},
+		{
+			"key": "pages/404.06",
+			"group": "Zurück zum Inhalt.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Startseite"
+		},
+		{
+			"key": "pages/404.07",
+			"group": "Zurück zum Inhalt.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Emposo und unsere Leistungen im Überblick."
+		},
+		{
+			"key": "pages/404.08",
+			"group": "Zurück zum Inhalt.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Leistungen"
+		},
+		{
+			"key": "pages/404.09",
+			"group": "Zurück zum Inhalt.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Acht Lieferdisziplinen: optimieren, transformieren, skalieren und verzahnen."
+		},
+		{
+			"key": "pages/404.10",
+			"group": "Zurück zum Inhalt.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Branchen &amp; Projekte"
+		},
+		{
+			"key": "pages/404.11",
+			"group": "Zurück zum Inhalt.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Industrie-Know-how und Referenzen mit Nachweis."
+		},
+		{
+			"key": "pages/404.12",
+			"group": "Zurück zum Inhalt.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Alle Projekte"
+		},
+		{
+			"key": "pages/404.13",
+			"group": "Zurück zum Inhalt.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Belege statt Versprechen: Lieferungen mit Nachweis."
+		},
+		{
+			"key": "pages/404.14",
+			"group": "Zurück zum Inhalt.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Kontakt"
+		},
+		{
+			"key": "pages/404.15",
+			"group": "Zurück zum Inhalt.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Sprechen wir über Ihr Vorhaben."
+		}
+	]
+}

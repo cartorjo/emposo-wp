@@ -12,12 +12,12 @@
 ?>
 <section class="page-section expertise-intro" aria-labelledby="home-expertise-title">
 	<div class="gutter"><div class="container">
-	<div class="expertise-intro__heading"><div><p class="eyebrow">Engineering + Technology</p><h2 class="display-large" id="home-expertise-title">We integrate what <em>belongs together.</em></h2></div><p>Many projects fail at the transitions between engineering and IT. Emposo integrates both worlds, so that technical concepts become productive solutions.</p></div>
+	<div class="expertise-intro__heading"><div><p class="eyebrow"><?php emposo_f( 'sections/en/02b-expertise.01' ); ?></p><h2 class="display-large" id="home-expertise-title"><?php emposo_f( 'sections/en/02b-expertise.02' ); ?></h2></div><p><?php emposo_f( 'sections/en/02b-expertise.03' ); ?></p></div>
 	<div class="expertise-pair">
-		<div><figure><?php emposo_the_picture( 'engineering' ); ?></figure><div><h3>Engineering</h3></div><p>From the requirement to the validated function.</p></div>
+		<div><figure><?php emposo_the_picture( emposo_f_image( 'sections/en/02b-expertise.img1' ) ); ?></figure><div><h3><?php emposo_f( 'sections/en/02b-expertise.04' ); ?></h3></div><p><?php emposo_f( 'sections/en/02b-expertise.05' ); ?></p></div>
 		<span class="expertise-pair__join" aria-hidden="true">+</span>
-		<div><figure><?php emposo_the_picture( 'technology-team' ); ?></figure><div><h3>Technology</h3></div><p>From data and software to production.</p></div>
+		<div><figure><?php emposo_the_picture( emposo_f_image( 'sections/en/02b-expertise.img2' ) ); ?></figure><div><h3><?php emposo_f( 'sections/en/02b-expertise.06' ); ?></h3></div><p><?php emposo_f( 'sections/en/02b-expertise.07' ); ?></p></div>
 	</div>
-	<p class="section-more"><strong>We connect what others treat separately.</strong></p>
+	<p class="section-more"><?php emposo_f( 'sections/en/02b-expertise.08' ); ?></p>
 	</div></div>
 </section>

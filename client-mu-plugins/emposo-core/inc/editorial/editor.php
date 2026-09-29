@@ -65,12 +65,13 @@ function trim_supports(): void {
  * @param WP_Post $post The post being edited.
  */
 function page_notice( WP_Post $post ): void {
-	if ( 'page' !== $post->post_type ) {
+	// Pages with fields show their "Seitentexte" box instead (page-fields.php).
+	if ( 'page' !== $post->post_type || page_schemas( $post ) ) {
 		return;
 	}
 
 	echo '<div class="notice notice-info inline" style="margin:16px 0"><p>'
-		. esc_html__( 'Die Texte dieser Seite sind noch Teil der Vorlage. Die Felder je Abschnitt folgen im nächsten Schritt; bis dahin ändert das Emposo-Team sie auf Anfrage.', 'emposo' )
+		. esc_html__( 'Die Texte dieser Seite (Rechtstexte, Sitemap) sind noch Teil der Vorlage; das Emposo-Team ändert sie auf Anfrage.', 'emposo' )
 		. '</p></div>';
 }
 

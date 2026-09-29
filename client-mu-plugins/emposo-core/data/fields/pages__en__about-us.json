@@ -1,0 +1,119 @@
+{
+	"template": "pages/en/about-us",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/en/about-us.01",
+			"group": "We are Emposo, the Outcome Factory of the Hays Group.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Emposo GmbH"
+		},
+		{
+			"key": "pages/en/about-us.02",
+			"group": "We are Emposo, the Outcome Factory of the Hays Group.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "We are <em>Emposo</em>, the Outcome Factory of the Hays Group."
+		},
+		{
+			"key": "pages/en/about-us.03",
+			"group": "We are Emposo, the Outcome Factory of the Hays Group.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Since 2014, we have taken demanding engineering and technology projects through to an accepted result. With clear responsibility, defined acceptance criteria and one goal: measurable results. That is how we make change manageable, not just up to the presentation, but all the way to effective implementation."
+		},
+		{
+			"key": "pages/en/about-us.04",
+			"group": "Only those who take responsibility can make a difference.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Our mission"
+		},
+		{
+			"key": "pages/en/about-us.05",
+			"group": "Only those who take responsibility can make a difference.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Only those who take <em>responsibility</em> can make a difference."
+		},
+		{
+			"key": "pages/en/about-us.06",
+			"group": "Only those who take responsibility can make a difference.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Today, companies have to secure their day-to-day business and shape the future at the same time. That is exactly why Emposo was founded. We don’t just provide expertise; we take responsibility for clearly defined results. Instead of buying working hours, our clients receive accepted deliverables, predictable costs and a partner who stands behind the implementation."
+		},
+		{
+			"key": "pages/en/about-us.07",
+			"group": "The strength behind Emposo.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Our team"
+		},
+		{
+			"key": "pages/en/about-us.08",
+			"group": "The strength behind Emposo.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "The strength behind <em>Emposo.</em>"
+		},
+		{
+			"key": "pages/en/about-us.09",
+			"group": "The strength behind Emposo.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We can only take responsibility for a result if we are convinced of its quality ourselves. We can make this promise because we trust our experts."
+		},
+		{
+			"key": "pages/en/about-us.10",
+			"group": "The strength behind Emposo.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Some of the best in their fields work in our core team. They combine deep industry knowledge with many years of experience from demanding engineering and technology projects and master their craft from concept to implementation. The result is work we stand behind with conviction."
+		},
+		{
+			"key": "pages/en/about-us.11",
+			"group": "The strength behind Emposo.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "When additional capacity or specialized skills are needed, we add to the core team selectively via the Hays platform. Management and accountability for the outcome always remain with Emposo."
+		},
+		{
+			"key": "pages/en/about-us.12",
+			"group": "Experience that makes results reliable.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "The company in numbers"
+		},
+		{
+			"key": "pages/en/about-us.13",
+			"group": "Experience that makes results reliable.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Experience that makes results <em class=\"text-ink\">reliable.</em>"
+		},
+		{
+			"key": "pages/en/about-us.14",
+			"group": "Experience that makes results reliable.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Our industry knowledge doesn’t come from textbooks but from practice. Since 2014, we have combined deep industry know-how with modern technology in demanding engineering and technology projects, creating solutions that work in operations."
+		},
+		{
+			"key": "pages/en/about-us.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "engineering-knowledge"
+		},
+		{
+			"key": "pages/en/about-us.img2",
+			"group": "Bilder",
+			"label": "Bild 2",
+			"type": "image",
+			"default": "about-netzwerk-en"
+		}
+	]
+}

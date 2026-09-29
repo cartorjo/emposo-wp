@@ -15,9 +15,9 @@
 		<nav class="page-breadcrumb" aria-label="Brotkrümelnavigation"><ol><li><a href="/">Startseite</a></li><li><span aria-hidden="true">/</span><span aria-current="page">Kontakt</span></li></ol></nav>
 		<div class="contact__grid">
 			<div>
-			<p class="eyebrow eyebrow--light">Projekt besprechen</p>
-			<h1 class="display-large display-large--light" id="kontakt-title">Ihr Projekt. Unser Fokus auf <em>Outcomes.</em></h1>
-			<p class="contact__note">Lassen Sie uns Ihr Projekt besprechen. Ob konkretes Vorhaben, erste Orientierung oder weitere Fragen. Erzählen Sie uns kurz, worum es geht.</p>
+			<p class="eyebrow eyebrow--light"><?php emposo_f( 'pages/kontakt.01' ); ?></p>
+			<h1 class="display-large display-large--light" id="kontakt-title"><?php emposo_f( 'pages/kontakt.02' ); ?></h1>
+			<p class="contact__note"><?php emposo_f( 'pages/kontakt.03' ); ?></p>
 			</div>
 			<?php echo emposo_part_html( 'parts/contact-form' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Template output, escaped at its own point of use. ?>
 		</div>

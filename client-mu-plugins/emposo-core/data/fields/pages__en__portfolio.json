@@ -1,0 +1,329 @@
+{
+	"template": "pages/en/portfolio",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/en/portfolio.01",
+			"group": "Maximize value. Minimize risk.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Engineering and technology from a single source"
+		},
+		{
+			"key": "pages/en/portfolio.02",
+			"group": "Maximize value. Minimize risk.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Maximize value. <em>Minimize risk.</em>"
+		},
+		{
+			"key": "pages/en/portfolio.03",
+			"group": "Maximize value. Minimize risk.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "From systems engineering, industrialization and testing through AI transformation, software and cloud to cyber security and enterprise services."
+		},
+		{
+			"key": "pages/en/portfolio.04",
+			"group": "When engineering and technology work together, real progress happens.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Our disciplines"
+		},
+		{
+			"key": "pages/en/portfolio.05",
+			"group": "When engineering and technology work together, real progress happens.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "When engineering and technology work together, <em>real progress</em> happens."
+		},
+		{
+			"key": "pages/en/portfolio.06",
+			"group": "When engineering and technology work together, real progress happens.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Many projects don’t fail for lack of ideas, but for lack of connection between domain expertise, technology and delivery. Emposo closes exactly this gap."
+		},
+		{
+			"key": "pages/en/portfolio.07",
+			"group": "When engineering and technology work together, real progress happens.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We integrate deep industry knowledge, technological expertise and operational delivery strength. The result: solutions from a single source, shorter paths and measurable results."
+		},
+		{
+			"key": "pages/en/portfolio.08",
+			"group": "When engineering and technology work together, real progress happens.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Our disciplines are convincing on their own and unfold their full effect together. Practical, technology-agnostic and with full end-to-end responsibility."
+		},
+		{
+			"key": "pages/en/portfolio.09",
+			"group": "We deliver results and stand behind them.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "What we deliver"
+		},
+		{
+			"key": "pages/en/portfolio.10",
+			"group": "We deliver results and stand behind them.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "We deliver results and <em>stand behind them.</em>"
+		},
+		{
+			"key": "pages/en/portfolio.11",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "With the usual market models, risk and control stay with the client. We take full responsibility for a defined service. From start to finish."
+		},
+		{
+			"key": "pages/en/portfolio.12",
+			"group": "We deliver results and stand behind them.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We optimize."
+		},
+		{
+			"key": "pages/en/portfolio.13",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We take over the tasks that have to run so that your business runs, and hand them back improved. We automate where it pays off, measured transparently against jointly defined KPIs. We provide ongoing services with agreed service levels, response times and escalation paths. Your team can focus on your core business."
+		},
+		{
+			"key": "pages/en/portfolio.14",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "More stable. Faster. Traceable."
+		},
+		{
+			"key": "pages/en/portfolio.15",
+			"group": "We deliver results and stand behind them.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We transform."
+		},
+		{
+			"key": "pages/en/portfolio.16",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We rebuild your processes and your value creation with innovative technologies, calculated together before you invest. We deliver into your production environment and fine-tune. Where regulation requires it, we test together against defined criteria and a qualification and validation plan."
+		},
+		{
+			"key": "pages/en/portfolio.17",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Making technology productive."
+		},
+		{
+			"key": "pages/en/portfolio.18",
+			"group": "We deliver results and stand behind them.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We scale."
+		},
+		{
+			"key": "pages/en/portfolio.19",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Behind our in-house team of over 250 professionals stands the Hays network, with another 3,000 specialists and 10,000 active partner companies. If your project needs more capacity, our team scales with it. You pay for results and agreed service levels, with no idle costs. Whatever the model or the scale, Emposo remains responsible and your only contractual partner."
+		},
+		{
+			"key": "pages/en/portfolio.20",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Taking impact to scale."
+		},
+		{
+			"key": "pages/en/portfolio.21",
+			"group": "We deliver results and stand behind them.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We integrate."
+		},
+		{
+			"key": "pages/en/portfolio.22",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "With us, industry knowledge, AI and technology expertise work hand in hand. We master the technology, and our experts come straight from your industry. We integrate what works separately in your organization: the business unit and IT. That is what sets us apart: a seamless interface with responsibility for the overall result."
+		},
+		{
+			"key": "pages/en/portfolio.23",
+			"group": "We deliver results and stand behind them.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Business value in operations."
+		},
+		{
+			"key": "pages/en/portfolio.24",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Delivery Model"
+		},
+		{
+			"key": "pages/en/portfolio.25",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "From the use case to sustainable <em>implementation.</em>"
+		},
+		{
+			"key": "pages/en/portfolio.26",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Our 5-stage model creates clarity and real results. Delivered from a single source, from start to finish."
+		},
+		{
+			"key": "pages/en/portfolio.27",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Discovery"
+		},
+		{
+			"key": "pages/en/portfolio.28",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Select and assess use cases. Analyze feasibility, costs and benefits."
+		},
+		{
+			"key": "pages/en/portfolio.29",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Concept &amp; ROI"
+		},
+		{
+			"key": "pages/en/portfolio.30",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Develop the concept, check technical feasibility (PoC) and calculate the ROI."
+		},
+		{
+			"key": "pages/en/portfolio.31",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Proof of Value"
+		},
+		{
+			"key": "pages/en/portfolio.32",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Implement the concept and verify the ROI in a realistic client environment."
+		},
+		{
+			"key": "pages/en/portfolio.33",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "MVP in Operation"
+		},
+		{
+			"key": "pages/en/portfolio.34",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Put the first production version into operation and deliver value with the smallest feature set."
+		},
+		{
+			"key": "pages/en/portfolio.35",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Scaling &amp; Transformation"
+		},
+		{
+			"key": "pages/en/portfolio.36",
+			"group": "From the use case to sustainable implementation.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Develop the MVP further and implement additional use cases."
+		},
+		{
+			"key": "pages/en/portfolio.37",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Quality and compliance"
+		},
+		{
+			"key": "pages/en/portfolio.38",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Quality, security and reliable <em>evidence.</em>"
+		},
+		{
+			"key": "pages/en/portfolio.39",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Established methods, quality gates and field-tested compliance make risks manageable. Our quality management is certified to ISO 9001, our compliance management system to ISO 37301. We share the result of our TISAX assessment via the ENX portal; scopes and evidence are available on request."
+		},
+		{
+			"key": "pages/en/portfolio.40",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Standards in the project"
+		},
+		{
+			"key": "pages/en/portfolio.41",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "(A)SPICE, IEC 62304, GxP and the requirements of the EU AI Act flow into our work, depending on the project context."
+		},
+		{
+			"key": "pages/en/portfolio.42",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Methods for delivery"
+		},
+		{
+			"key": "pages/en/portfolio.43",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Quality gates, agile and ticket-based project management and the time-to-value method structure delivery."
+		},
+		{
+			"key": "pages/en/portfolio.44",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Responsibility in collaboration"
+		},
+		{
+			"key": "pages/en/portfolio.45",
+			"group": "Quality, security and reliable evidence.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Contract compliance and Compliant Sourcing® – a registered trademark since 2019 – support clear and reliable collaboration."
+		},
+		{
+			"key": "pages/en/portfolio.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "portfolio-hero"
+		}
+	]
+}

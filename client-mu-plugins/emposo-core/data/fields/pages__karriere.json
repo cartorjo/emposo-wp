@@ -1,0 +1,56 @@
+{
+	"template": "pages/karriere",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/karriere.01",
+			"group": "Mehr als Expertise. Die Menschen hinter dem Outcome.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Karriere bei Emposo"
+		},
+		{
+			"key": "pages/karriere.02",
+			"group": "Mehr als Expertise. Die Menschen hinter dem Outcome.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Mehr als Expertise. Die Menschen hinter dem <em>Outcome.</em>"
+		},
+		{
+			"key": "pages/karriere.03",
+			"group": "Mehr als Expertise. Die Menschen hinter dem Outcome.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Bei Emposo arbeiten Menschen, die Verantwortung übernehmen wollen. Menschen, die nicht bei Konzepten stehen bleiben, sondern Ergebnisse schaffen. Wir verbinden Engineering, Technologie und Branchen-Know-how zu Lösungen, die im Betrieb funktionieren und echten Mehrwert erzeugen."
+		},
+		{
+			"key": "pages/karriere.04",
+			"group": "Mehr als Expertise. Die Menschen hinter dem Outcome.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Was uns verbindet, ist nicht nur fachliche Exzellenz. Es ist die gemeinsame Überzeugung, dass Wandel durch Lieferung beherrschbar wird. Deshalb arbeiten wir partnerschaftlich, denken über Grenzen hinweg und übernehmen Verantwortung für das, was wir gemeinsam erreichen."
+		},
+		{
+			"key": "pages/karriere.05",
+			"group": "Offene Positionen.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Karriere"
+		},
+		{
+			"key": "pages/karriere.06",
+			"group": "Offene Positionen.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Offene <em>Positionen.</em>"
+		},
+		{
+			"key": "pages/karriere.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "technology-team"
+		}
+	]
+}

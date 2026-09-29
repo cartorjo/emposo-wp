@@ -1,8 +1,34 @@
 # Redaktion: was sich in wp-admin bearbeiten lässt
 
-Stand 2026-09-29 (Phase 1). Die Website nutzt den klassischen Editor.
+Stand 2026-09-29 (Phase 1 und 2). Die Website nutzt den klassischen Editor.
 Jede Änderung ist nach dem Speichern sofort live, auf Deutsch und Englisch
 getrennt.
+
+## Seiten (Menü „Seiten“)
+
+Jede Seite hat den Kasten **„Seitentexte“**: alle Überschriften, Absätze,
+Listenpunkte, Button-Texte und Bilder der Seite, nach Abschnitten geordnet
+(Startseite, Leistungen, Branchen & Projekte, Über uns, Karriere, Kontakt,
+Barrierefreiheit, Cookies; Deutsch und Englisch sind eigene Seiten unter
+„en“).
+
+- Jedes Feld zeigt den aktuellen Text. Ändern, „Aktualisieren“, fertig.
+- Ein **geleertes Feld** stellt den ursprünglichen Text wieder her. Das
+  Layout ist fest: Abschnitte lassen sich nicht hinzufügen oder entfernen.
+- In Überschriften markiert `<em>…</em>` das hervorgehobene Wort, `<br>` ist
+  ein Zeilenumbruch.
+- Bilder: im Auswahlfeld ein Bild aus der Mediathek wählen; „Standardbild“
+  stellt das ursprüngliche wieder her.
+
+Kasten **„Suchmaschinen (SEO)“** (Seiten und Case Studies): Titel und
+Beschreibung für Google und Link-Vorschauen. Leer: der bisherige Text gilt.
+
+## Texte (Menü „Emposo Inhalte“ → „Texte“)
+
+Wörter, die auf vielen Seiten vorkommen: Navigation, Footer (auch die
+Standorte), Abschluss-Blöcke, Kontaktformular, Projektfilter, Stellen,
+Sitemap, Deutsch und Englisch. Dazu die Fehlerseite (404). Geleertes Feld =
+ursprünglicher Text.
 
 ## Case Studies (Menü „Case Studies“ und „Case Studies (EN)“)
 
@@ -56,11 +82,10 @@ gewählt; WordPress erzeugt die kleineren Größen selbst.
 - **Adressen (URLs)** von Seiten und Case Studies sind fest; Seiten und Case
   Studies lassen sich nicht löschen. Navigation, Sprachumschaltung und
   Weiterleitungen hängen an den Adressen.
-- **Seitentexte** (Startseite, Leistungen, Über uns, Karriere, Kontakt …)
-  sind noch Teil der Vorlage. Felder je Abschnitt folgen in Phase 2.
 - **Rechtstexte** (Impressum, Datenschutz, Nutzungsbestimmungen) folgen in
-  Phase 3.
-- **Navigation, Footer, Buttons**: noch Vorlage (Phase 2).
+  Phase 3; die Sitemap entsteht automatisch.
+- **Brotkrümel-Navigation** oben auf den Seiten und das Copyright im Footer
+  bleiben fest.
 
 ## Für das Emposo-Team (Technik)
 
@@ -70,4 +95,7 @@ gewählt; WordPress erzeugt die kleineren Größen selbst.
   würde.
 - `wp emposo migrate jobs` legt die Stellen aus den alten Optionen als Posts an
   (einmalig, idempotent).
-- Code: `client-mu-plugins/emposo-core/inc/editorial/`.
+- Code: `client-mu-plugins/emposo-core/inc/editorial/` und
+  `client-mu-plugins/emposo-core/inc/fields.php`. Die Originaltexte der
+  Seiten stehen in `client-mu-plugins/emposo-core/data/fields/` (erzeugt mit
+  `node tools/fieldify.mjs`); in den Vorlagen stehen nur noch die Feld-Keys.

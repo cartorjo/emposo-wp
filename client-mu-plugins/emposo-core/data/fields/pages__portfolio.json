@@ -1,0 +1,329 @@
+{
+	"template": "pages/portfolio",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/portfolio.01",
+			"group": "Wert maximieren. Risiken minimieren.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Engineering und Technologie aus einer Hand"
+		},
+		{
+			"key": "pages/portfolio.02",
+			"group": "Wert maximieren. Risiken minimieren.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "Wert maximieren. <em>Risiken minimieren.</em>"
+		},
+		{
+			"key": "pages/portfolio.03",
+			"group": "Wert maximieren. Risiken minimieren.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Von System Engineering, Industrialisierung und Test über AI-Transformation, Software und Cloud bis zu Cyber Security und Enterprise Services."
+		},
+		{
+			"key": "pages/portfolio.04",
+			"group": "Wenn Engineering und Technologie zusammenarbeiten, entsteht echter For",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Unsere Disziplinen"
+		},
+		{
+			"key": "pages/portfolio.05",
+			"group": "Wenn Engineering und Technologie zusammenarbeiten, entsteht echter For",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Wenn Engineering und Technologie zusammenarbeiten, entsteht <em>echter Fortschritt.</em>"
+		},
+		{
+			"key": "pages/portfolio.06",
+			"group": "Wenn Engineering und Technologie zusammenarbeiten, entsteht echter For",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Viele Projekte scheitern nicht an fehlenden Ideen, sondern an fehlender Verbindung zwischen Fachlichkeit, Technologie und Umsetzung. Emposo schließt genau diese Lücke."
+		},
+		{
+			"key": "pages/portfolio.07",
+			"group": "Wenn Engineering und Technologie zusammenarbeiten, entsteht echter For",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir verzahnen tiefes Branchenwissen, technologische Expertise und operative Umsetzungskraft. Das Ergebnis: Lösungen aus einer Hand, kürzere Wege und messbare Ergebnisse."
+		},
+		{
+			"key": "pages/portfolio.08",
+			"group": "Wenn Engineering und Technologie zusammenarbeiten, entsteht echter For",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Unsere Disziplinen überzeugen einzeln und entfalten gemeinsam ihre volle Wirkung. Praxisnah, technologisch offen und mit voller End-to-End-Verantwortung."
+		},
+		{
+			"key": "pages/portfolio.09",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Was wir liefern"
+		},
+		{
+			"key": "pages/portfolio.10",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Wir liefern Ergebnisse und stehen <em>dafür ein.</em>"
+		},
+		{
+			"key": "pages/portfolio.11",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Bei marktüblichen Modellen bleiben Risiko und Steuerung beim Kunden. Wir übernehmen die komplette Verantwortung für eine definierte Leistung. Vom Anfang bis zum Ende."
+		},
+		{
+			"key": "pages/portfolio.12",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir optimieren."
+		},
+		{
+			"key": "pages/portfolio.13",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir übernehmen die Aufgaben, die laufen müssen, damit Ihr Geschäft läuft, und geben sie verbessert zurück. Wir automatisieren, wo es sich rechnet, nachvollziehbar gemessen an gemeinsam definierten Kennzahlen. Laufende Services erbringen wir mit vereinbarten Service-Leveln, Reaktionszeiten und Eskalationswegen. Ihre Mannschaft kann sich auf Ihr Kerngeschäft konzentrieren."
+		},
+		{
+			"key": "pages/portfolio.14",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Stabiler. Schneller. Nachvollziehbar."
+		},
+		{
+			"key": "pages/portfolio.15",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir transformieren."
+		},
+		{
+			"key": "pages/portfolio.16",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wir bauen Ihre Prozesse und Ihre Wertschöpfung mit innovativen Technologien um, gemeinsam kalkuliert, bevor Sie investieren. Wir liefern in Ihre produktive Umgebung und justieren nach. Wo es regulatorisch erforderlich ist, prüfen wir gemeinsam nach festgelegten Kriterien und nach einem Qualifizierungs- und Validierungsplan."
+		},
+		{
+			"key": "pages/portfolio.17",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Technologie produktiv machen."
+		},
+		{
+			"key": "pages/portfolio.18",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir skalieren."
+		},
+		{
+			"key": "pages/portfolio.19",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Hinter unserem Inhouse-Team mit über 250 Profis steht das Hays-Netzwerk mit weiteren 3.000 Spezialistinnen und Spezialisten und 10.000 aktiven Partnerunternehmen. Braucht Ihr Vorhaben mehr Kapazitäten, skaliert unser Team mit. Sie zahlen für Ergebnisse und vereinbarte Service-Level, keine Leerlaufkosten. Unabhängig vom Modell oder der Skalierung bleibt Emposo in der Verantwortung und Ihr einziger Vertragspartner."
+		},
+		{
+			"key": "pages/portfolio.20",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Wirkung in die Breite bringen."
+		},
+		{
+			"key": "pages/portfolio.21",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Wir verzahnen."
+		},
+		{
+			"key": "pages/portfolio.22",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Branchenwissen, AI und Technologieexpertise arbeiten bei uns Hand in Hand. Wir beherrschen die Technik und unsere Expertinnen und Experten kommen direkt aus Ihrer Branche. Wir verzahnen, was in Ihrer Organisation getrennt arbeitet: den Fachbereich mit der IT. Das zeichnet uns aus: eine nahtlose Schnittstelle mit der Verantwortung für das Gesamtergebnis."
+		},
+		{
+			"key": "pages/portfolio.23",
+			"group": "Wir liefern Ergebnisse und stehen dafür ein.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Business-Mehrwert im Betrieb."
+		},
+		{
+			"key": "pages/portfolio.24",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Delivery Model"
+		},
+		{
+			"key": "pages/portfolio.25",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Vom Use Case bis zur nachhaltigen <em>Implementierung.</em>"
+		},
+		{
+			"key": "pages/portfolio.26",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Unser 5-Stufen-Modell schafft Klarheit und echte Ergebnisse. Geliefert aus einer Hand, vom Anfang bis zum Ende."
+		},
+		{
+			"key": "pages/portfolio.27",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Discovery"
+		},
+		{
+			"key": "pages/portfolio.28",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Use Cases auswählen und bewerten. Machbarkeit sowie Kosten und Nutzen analysieren."
+		},
+		{
+			"key": "pages/portfolio.29",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Concept &amp; ROI"
+		},
+		{
+			"key": "pages/portfolio.30",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Konzept entwickeln, technische Machbarkeit prüfen (PoC) und ROI berechnen."
+		},
+		{
+			"key": "pages/portfolio.31",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Proof of Value"
+		},
+		{
+			"key": "pages/portfolio.32",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Konzept implementieren und ROI in der realistischen Kundenumgebung verifizieren."
+		},
+		{
+			"key": "pages/portfolio.33",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "MVP in Operation"
+		},
+		{
+			"key": "pages/portfolio.34",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Erste produktive Version in Betrieb nehmen und mit kleinstem Funktionsumfang Mehrwert liefern."
+		},
+		{
+			"key": "pages/portfolio.35",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Skalierung &amp; Transformation"
+		},
+		{
+			"key": "pages/portfolio.36",
+			"group": "Vom Use Case bis zur nachhaltigen Implementierung.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Das MVP weiterentwickeln und weitere Use Cases implementieren."
+		},
+		{
+			"key": "pages/portfolio.37",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Qualität und Compliance"
+		},
+		{
+			"key": "pages/portfolio.38",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Qualität, Sicherheit und belastbare <em>Nachweise.</em>"
+		},
+		{
+			"key": "pages/portfolio.39",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Etablierte Methoden, Quality Gates und praxiserprobte Compliance machen Risiken beherrschbar. Unser Qualitätsmanagement ist nach ISO 9001 zertifiziert, unser Compliance-Management-System nach ISO 37301. Das Ergebnis des TISAX-Assessments teilen wir über das ENX-Portal; Geltungsbereiche und Nachweise stellen wir auf Anfrage bereit."
+		},
+		{
+			"key": "pages/portfolio.40",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Standards im Projekt"
+		},
+		{
+			"key": "pages/portfolio.41",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "(A)SPICE, IEC 62304, GxP und die Anforderungen des EU AI Act fließen entsprechend dem Projektkontext in unsere Arbeit ein."
+		},
+		{
+			"key": "pages/portfolio.42",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Methoden für die Lieferung"
+		},
+		{
+			"key": "pages/portfolio.43",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Quality Gates, agiles und ticketbasiertes Projektmanagement sowie die Time-to-Value-Methode strukturieren die Umsetzung."
+		},
+		{
+			"key": "pages/portfolio.44",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Verantwortung in der Zusammenarbeit"
+		},
+		{
+			"key": "pages/portfolio.45",
+			"group": "Qualität, Sicherheit und belastbare Nachweise.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Contract Compliance und Compliant Sourcing® – seit 2019 als Marke eingetragen – unterstützen eine klare und verlässliche Zusammenarbeit."
+		},
+		{
+			"key": "pages/portfolio.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "portfolio-hero"
+		}
+	]
+}

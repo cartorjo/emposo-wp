@@ -1,0 +1,42 @@
+{
+	"template": "pages/cookies",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "pages/cookies.01",
+			"group": "Cookies und lokale Speicherung",
+			"label": "Hauptüberschrift",
+			"type": "text",
+			"default": "Cookies und lokale Speicherung"
+		},
+		{
+			"key": "pages/cookies.02",
+			"group": "Cookies und lokale Speicherung",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Diese Website setzt derzeit keine Analyse- oder Marketing-Cookies ein. Schriften, Bilder und die Funktionen der Website werden vom selben Server geladen."
+		},
+		{
+			"key": "pages/cookies.03",
+			"group": "Cookies und lokale Speicherung",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Die Projektfilter arbeiten nur in Ihrem Browser. Das Kontaktformular bereitet eine Nachricht in Ihrem E-Mail-Programm vor. Erst wenn Sie die E-Mail dort absenden, wird Ihre Anfrage verschickt."
+		},
+		{
+			"key": "pages/cookies.04",
+			"group": "Cookies und lokale Speicherung",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Beim Besuch externer Links gelten die Informationen der jeweiligen Website."
+		},
+		{
+			"key": "pages/cookies.05",
+			"group": "Cookies und lokale Speicherung",
+			"label": "Link-Text",
+			"type": "text",
+			"default": "Datenschutzerklärung von Emposo"
+		}
+	]
+}

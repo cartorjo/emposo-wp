@@ -1,0 +1,112 @@
+{
+	"template": "pages/en/404",
+	"locale": "en",
+	"store": "global",
+	"fields": [
+		{
+			"key": "pages/en/404.01",
+			"group": "This page doesn’t deliver.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Error 404"
+		},
+		{
+			"key": "pages/en/404.02",
+			"group": "This page doesn’t deliver.",
+			"label": "Hauptüberschrift",
+			"type": "html",
+			"default": "This page doesn’t <em>deliver.</em>"
+		},
+		{
+			"key": "pages/en/404.03",
+			"group": "This page doesn’t deliver.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "The address you requested does not exist or has moved. These paths lead on:"
+		},
+		{
+			"key": "pages/en/404.04",
+			"group": "Back to the content.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Continue here"
+		},
+		{
+			"key": "pages/en/404.05",
+			"group": "Back to the content.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Back to the <em class=\"text-ink\">content.</em>"
+		},
+		{
+			"key": "pages/en/404.06",
+			"group": "Back to the content.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Home"
+		},
+		{
+			"key": "pages/en/404.07",
+			"group": "Back to the content.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Emposo and our services at a glance."
+		},
+		{
+			"key": "pages/en/404.08",
+			"group": "Back to the content.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Services"
+		},
+		{
+			"key": "pages/en/404.09",
+			"group": "Back to the content.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Eight delivery disciplines: optimize, transform, scale and integrate."
+		},
+		{
+			"key": "pages/en/404.10",
+			"group": "Back to the content.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Industries &amp; Projects"
+		},
+		{
+			"key": "pages/en/404.11",
+			"group": "Back to the content.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Industry know-how and projects with evidence."
+		},
+		{
+			"key": "pages/en/404.12",
+			"group": "Back to the content.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "All projects"
+		},
+		{
+			"key": "pages/en/404.13",
+			"group": "Back to the content.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Proof instead of promises: deliveries with evidence."
+		},
+		{
+			"key": "pages/en/404.14",
+			"group": "Back to the content.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Contact"
+		},
+		{
+			"key": "pages/en/404.15",
+			"group": "Back to the content.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Let’s talk about your project."
+		}
+	]
+}

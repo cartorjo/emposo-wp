@@ -1,0 +1,35 @@
+{
+	"template": "sections/06-work",
+	"locale": "de",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/06-work.01",
+			"group": "Unsere Erfolge sprechen für sich.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Projekte"
+		},
+		{
+			"key": "sections/06-work.02",
+			"group": "Unsere Erfolge sprechen für sich.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Unsere Erfolge sprechen <em>für sich.</em>"
+		},
+		{
+			"key": "sections/06-work.03",
+			"group": "Unsere Erfolge sprechen für sich.",
+			"label": "Absatz",
+			"type": "html",
+			"default": "Jedes Projekt endet mit einem klaren Outcome.<br>Wir waren nicht Teil der Lösung, wir haben sie geschaffen, da unsere Teams und Spezialisten direkt aus Ihrer Branche kommen."
+		},
+		{
+			"key": "sections/06-work.04",
+			"group": "Unsere Erfolge sprechen für sich.",
+			"label": "Link-Text",
+			"type": "text",
+			"default": "Alle Referenzen"
+		}
+	]
+}

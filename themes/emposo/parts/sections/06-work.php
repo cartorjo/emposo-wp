@@ -12,8 +12,8 @@
 ?>
 <section class="work page-section" id="work" aria-labelledby="work-title">
 	<div class="gutter"><div class="container">
-	<div class="work__heading"><div><p class="eyebrow">Projekte</p><h2 class="display-large" id="work-title">Unsere Erfolge sprechen <em>für sich.</em></h2></div><p>Jedes Projekt endet mit einem klaren Outcome.<br>Wir waren nicht Teil der Lösung, wir haben sie geschaffen, da unsere Teams und Spezialisten direkt aus Ihrer Branche kommen.</p></div>
+	<div class="work__heading"><div><p class="eyebrow"><?php emposo_f( 'sections/06-work.01' ); ?></p><h2 class="display-large" id="work-title"><?php emposo_f( 'sections/06-work.02' ); ?></h2></div><p><?php emposo_f( 'sections/06-work.03' ); ?></p></div>
 	<?php emposo_fragment( 'projects-featured' ); ?>
-	<p class="section-more"><a class="text-link" href="/branchen/#referenzen">Alle Referenzen <span aria-hidden="true">→</span></a></p>
+	<p class="section-more"><a class="text-link" href="/branchen/#referenzen"><?php emposo_f( 'sections/06-work.04' ); ?> <span aria-hidden="true">→</span></a></p>
 	</div></div>
 </section>

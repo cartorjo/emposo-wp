@@ -12,7 +12,7 @@
 ?>
 <section class="industries page-section" id="industries" aria-labelledby="industries-title">
 	<div class="gutter"><div class="container">
-	<div class="section-heading"><p class="eyebrow">Branchen</p><h2 class="display-large" id="industries-title">Unsere Branchen mit tiefem <em>Industrie-Know-how.</em></h2><p class="section-lede">Unsere Teams und Spezialisten kommen direkt aus Ihrer Branche.</p></div>
+	<div class="section-heading"><p class="eyebrow"><?php emposo_f( 'sections/05-industries.01' ); ?></p><h2 class="display-large" id="industries-title"><?php emposo_f( 'sections/05-industries.02' ); ?></h2><p class="section-lede"><?php emposo_f( 'sections/05-industries.03' ); ?></p></div>
 	<?php emposo_fragment( 'industry-cards' ); ?>
 	</div></div>
 </section>

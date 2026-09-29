@@ -1,0 +1,28 @@
+{
+	"template": "sections/en/07b-sales-cta",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/en/07b-sales-cta.01",
+			"group": "Get in touch now!",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Contact"
+		},
+		{
+			"key": "sections/en/07b-sales-cta.02",
+			"group": "Get in touch now!",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Get in touch <em>now!</em>"
+		},
+		{
+			"key": "sections/en/07b-sales-cta.03",
+			"group": "Get in touch now!",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Whether you have a concrete project, need initial guidance or have other questions: tell us briefly what it is about."
+		}
+	]
+}

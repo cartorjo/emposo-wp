@@ -12,9 +12,9 @@
 ?>
 <section class="statement page-section" id="about" aria-labelledby="statement-title">
 	<div class="gutter"><div class="container">
-	<p class="eyebrow">Why Emposo</p>
-	<h2 class="display-large" id="statement-title">Scalable in delivery. Connected in the solution. <em>Accountable for the result.</em></h2>
-	<p class="section-lede">We bring together expertise, technology and capacity, scale flexibly as needed and take responsibility for the result.</p>
+	<p class="eyebrow"><?php emposo_f( 'sections/en/03-models.01' ); ?></p>
+	<h2 class="display-large" id="statement-title"><?php emposo_f( 'sections/en/03-models.02' ); ?></h2>
+	<p class="section-lede"><?php emposo_f( 'sections/en/03-models.03' ); ?></p>
 	<?php emposo_fragment( 'company-facts' ); ?>
 	<?php emposo_fragment( 'trust-strip' ); ?>
 	</div></div>

@@ -1,0 +1,105 @@
+{
+	"template": "sections/en/04-about",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/en/04-about.01",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "What we move for you"
+		},
+		{
+			"key": "sections/en/04-about.02",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "For every company today, change is a <em>permanent state.</em>"
+		},
+		{
+			"key": "sections/en/04-about.03",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Emposo gives you room for what matters. With the usual market models, risk and control stay with the client. We take full responsibility for a defined service. From start to finish."
+		},
+		{
+			"key": "sections/en/04-about.04",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "What we deliver"
+		},
+		{
+			"key": "sections/en/04-about.05",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We optimize your core business"
+		},
+		{
+			"key": "sections/en/04-about.06",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We take over your processes, optimize them measurably and give you back room for your core business."
+		},
+		{
+			"key": "sections/en/04-about.07",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We actively transform your change"
+		},
+		{
+			"key": "sections/en/04-about.08",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We transform your processes with innovative technologies. Economically calculated, productively implemented and measured by the result."
+		},
+		{
+			"key": "sections/en/04-about.09",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "How we make it possible"
+		},
+		{
+			"key": "sections/en/04-about.10",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We scale as needed"
+		},
+		{
+			"key": "sections/en/04-about.11",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "250 specialists at the core, 3,000 experts and 10,000 partners behind us: we scale with your needs. You pay for results; we take responsibility."
+		},
+		{
+			"key": "sections/en/04-about.12",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "We integrate engineering and technology"
+		},
+		{
+			"key": "sections/en/04-about.13",
+			"group": "For every company today, change is a permanent state.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "We bring together business units, IT and technology expertise into one result that we take responsibility for."
+		},
+		{
+			"key": "sections/en/04-about.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "verzahnung"
+		}
+	]
+}

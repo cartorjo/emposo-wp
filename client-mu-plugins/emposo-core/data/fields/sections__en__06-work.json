@@ -1,0 +1,35 @@
+{
+	"template": "sections/en/06-work",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/en/06-work.01",
+			"group": "Our results speak for themselves.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Projects"
+		},
+		{
+			"key": "sections/en/06-work.02",
+			"group": "Our results speak for themselves.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "Our results speak <em>for themselves.</em>"
+		},
+		{
+			"key": "sections/en/06-work.03",
+			"group": "Our results speak for themselves.",
+			"label": "Absatz",
+			"type": "html",
+			"default": "Every project ends with a clear outcome.<br>We weren’t part of the solution, we created it, because our teams and specialists come straight from your industry."
+		},
+		{
+			"key": "sections/en/06-work.04",
+			"group": "Our results speak for themselves.",
+			"label": "Link-Text",
+			"type": "text",
+			"default": "All projects"
+		}
+	]
+}

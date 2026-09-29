@@ -1,0 +1,77 @@
+{
+	"template": "sections/en/02b-expertise",
+	"locale": "en",
+	"store": "page",
+	"fields": [
+		{
+			"key": "sections/en/02b-expertise.01",
+			"group": "We integrate what belongs together.",
+			"label": "Dachzeile",
+			"type": "text",
+			"default": "Engineering + Technology"
+		},
+		{
+			"key": "sections/en/02b-expertise.02",
+			"group": "We integrate what belongs together.",
+			"label": "Überschrift",
+			"type": "html",
+			"default": "We integrate what <em>belongs together.</em>"
+		},
+		{
+			"key": "sections/en/02b-expertise.03",
+			"group": "We integrate what belongs together.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "Many projects fail at the transitions between engineering and IT. Emposo integrates both worlds, so that technical concepts become productive solutions."
+		},
+		{
+			"key": "sections/en/02b-expertise.04",
+			"group": "We integrate what belongs together.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Engineering"
+		},
+		{
+			"key": "sections/en/02b-expertise.05",
+			"group": "We integrate what belongs together.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "From the requirement to the validated function."
+		},
+		{
+			"key": "sections/en/02b-expertise.06",
+			"group": "We integrate what belongs together.",
+			"label": "Zwischenüberschrift",
+			"type": "text",
+			"default": "Technology"
+		},
+		{
+			"key": "sections/en/02b-expertise.07",
+			"group": "We integrate what belongs together.",
+			"label": "Absatz",
+			"type": "text",
+			"default": "From data and software to production."
+		},
+		{
+			"key": "sections/en/02b-expertise.08",
+			"group": "We integrate what belongs together.",
+			"label": "Absatz",
+			"type": "html",
+			"default": "<strong>We connect what others treat separately.</strong>"
+		},
+		{
+			"key": "sections/en/02b-expertise.img1",
+			"group": "Bilder",
+			"label": "Bild 1",
+			"type": "image",
+			"default": "engineering"
+		},
+		{
+			"key": "sections/en/02b-expertise.img2",
+			"group": "Bilder",
+			"label": "Bild 2",
+			"type": "image",
+			"default": "technology-team"
+		}
+	]
+}
